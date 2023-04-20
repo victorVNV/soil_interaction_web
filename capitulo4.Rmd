@@ -19,14 +19,48 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r datos, include=FALSE}
 #Es el factor de conversión para llevar las abundancias a densidad
 
-superficie <- pi*2.5^2/10000
-completo <- read_excel("Body size.xlsx", sheet = "Sheet10")
-base <-completo %>% group_by(system,season,class,order,specie,guild) %>%  summarise(abundance=(n()/superficie), bio.ind=mean(biomass),Tbiomass=(bio.ind*abundance), bm=(mean(Biomass_mb)))
+sup.bocado <- (pi*2.5^2/10000)
+sup.monolito <- (0.25*0.25)
+completo <- read_excel("soil_networks.xlsx", sheet = "Ro_web")
 
-# writexl::write_xlsx(base,"abundancias.xlsx")
+#Factor de conversión de respiración microbiana=4292
+#Para 1mgCO2 / 100g suelo * hora son 20.6 mg C-microbiano / 100g suelo
+#Estos datos estan en mgCO2 /20 g suelo * dia
+#Entonces multplico x 5 (a 100 g) divido * 24 (h/dia) luego multiplico por factor 20,6
+# En un m2 a 10 cm son 100k cm3 por el DAP pero con 100 g suelo queda solo 1k*DAP
+
+# El agrupamiento para la red trófica no tendra encuenta los diferentes sitios ni la variabilidad
+# anual mensual ni de submuestras
+
+# sistema, estaciones del año y rasgos
+
+base <-completo%>% mutate(bm=RESP*DAP*4292,POM=0.4*(MO/100)*DAP*100000)%>%group_by(system,season,class,order,specie,guild,habitat) %>%  summarise(abundance=n(), bio.ind=mean(biomass), bm=(mean(bm)),POM=mean(POM))%>%distinct(specie,.keep_all=TRUE)
+
+#writexl::write_xlsx(base,"bundancias.xlsx")
+
+#Materia organica particulada, es el proxi del humus
+
+#Densidadde lombrice en 25*25 = a n()/0.0625
+#Densidad de los demás es 2.5²*3.14 = n()/0,00471 
+
+```
+
+Se realizan varias suposiciones:
+
+La relación H:B será 
+
+
+```{r}
+
+abun <- read_excel("soil_networks.xlsx", sheet = "Ro_web_ab")
+
+base1 <-abun %>% group_by(system,season,class,order,specie,guild,habitat) %>%  summarise(bio.ind=mean(bio.ind),densidad=mean(densidad), Tbiomass=(bio.ind*densidad), bm=(mean(bm)), MOP=0.45*mean(MO))%>%distinct(specie,.keep_all=TRUE)
+
 
 
 ```
+La materia orgánica particulada es el proxi a la cantidad de recurso que se corresponde con el Humus y esta es una fracción del %de MO (Biological indicator of Soil Healt pp 70 - 71)
+
 
 
 ## R Markdown
