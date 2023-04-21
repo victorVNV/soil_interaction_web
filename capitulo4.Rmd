@@ -17,31 +17,40 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 ```{r datos, include=FALSE}
-#Es el factor de conversión para llevar las abundancias a densidad
 
-sup.bocado <- (pi*2.5^2/10000)
-sup.monolito <- (0.25*0.25)
 completo <- read_excel("soil_networks.xlsx", sheet = "Ro_web")
 
-#Factor de conversión de respiración microbiana=4292
+#Es el factor de conversión para llevar las abundancias a densidad
+#Densidadde lombrice en 25*25 = a n()/0.0625
+#Densidad de los demás es 2.5²*3.14 = n()/0,00471 
+
+sup.bocado <- 1/(pi*2.5^2/10000)
+sup.monolito <- 1/(0.25*0.25)
+
+
 #Para 1mgCO2 / 100g suelo * hora son 20.6 mg C-microbiano / 100g suelo
 #Estos datos estan en mgCO2 /20 g suelo * dia
 #Entonces multplico x 5 (a 100 g) divido * 24 (h/dia) luego multiplico por factor 20,6
 # En un m2 a 10 cm son 100k cm3 por el DAP pero con 100 g suelo queda solo 1k*DAP
 
-# El agrupamiento para la red trófica no tendra encuenta los diferentes sitios ni la variabilidad
-# anual mensual ni de submuestras
+#####Factor de conversión de respiración microbiana=4292000 = 4,3e6, para que quede en microgramos
 
-# sistema, estaciones del año y rasgos
+#Materia organica particulada, es el proxi del humus, se asume que el 30% del mismo es hummus, aunque la bibliografia sugiere entre 40 al 60 % seré pesimista, entonces quearía POM en ug/m2
 
-base <-completo%>% mutate(bm=RESP*DAP*4292,POM=0.4*(MO/100)*DAP*100000)%>%group_by(system,season,class,order,specie,guild,habitat) %>%  summarise(abundance=n(), bio.ind=mean(biomass), bm=(mean(bm)),POM=mean(POM))%>%distinct(specie,.keep_all=TRUE)
+#octalaceom cyaneum es mas chico que lacteum, tuve que reordenar la base de datos
+
+base <-completo%>% mutate(bm=RESP*DAP*4.292e6,POM=0.3*(MO/100)*DAP*1e11,specie=case_when(specie=="octa_la"~"octacy",specie=="octa_cy"~"octala",specie!="octa_la"|specie!="octa_cy"~specie),biomass=case_when(order=="crassiclitellata"~exp(biomass*(1e-6))*1000,order!="crassiclitellata"~biomass))
+
+base.sitio<-base%>%group_by(system,site,season,class,order,specie,guild,habitat) %>%  summarise(abundance=n(), bio.ind=mean(biomass), bm=(mean(bm)),POM=mean(POM))%>%distinct(specie,.keep_all=TRUE)
+
+ab.sitio<-base.sitio%>%mutate(BT=case_when(order=="crassiclitellata"~sup.monolito*abundance*bio.ind,order!="crassiclitellata"~sup.bocado*abundance*bio.ind))
+
+#El uso de case_when() permite relacionar estructuras condicionales al mutate
 
 #writexl::write_xlsx(base,"bundancias.xlsx")
 
-#Materia organica particulada, es el proxi del humus
+#segun YOU IA, se requieren 1 Tn hoja seca para 0,5%MO por hectarea, es decir que por m2 son 0,1 kg de hojas
 
-#Densidadde lombrice en 25*25 = a n()/0.0625
-#Densidad de los demás es 2.5²*3.14 = n()/0,00471 
 
 ```
 
