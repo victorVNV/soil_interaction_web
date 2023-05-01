@@ -11,7 +11,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 ```{r , include=FALSE}
-{require(ggplot2);require(dplyr);require(tidyr);require(readr);require(purrr);require(tibble);require(stringr);require(forcats);require(readxl);require(magrittr);require(glue)}
+require(tidyverse)
+#{require(ggplot2);require(dplyr);require(tidyr);require(readr);require(purrr);require(tibble);require(stringr);require(forcats);require(readxl);require(magrittr);require(glue)}
 
 ```
 
@@ -56,14 +57,13 @@ ab.sitio<-base.sitio%>%mutate(BT=case_when(order=="crassiclitellata"~sup.monolit
 
 Se realizan varias suposiciones:
 
-La relación H:B será 
+Sobre el humus, se considera que lo utilizable como recurso es el 30% de la %MO en los primeros 10 cm
+La relación H:B será por el momento 25:30:35 de bacterias:hongos en los sistemas N G A respectivamente.
 
 
 ```{r}
 
-abun <- read_excel("soil_networks.xlsx", sheet = "Ro_web_ab")
-
-base1 <-abun %>% group_by(system,season,class,order,specie,guild,habitat) %>%  summarise(bio.ind=mean(bio.ind),densidad=mean(densidad), Tbiomass=(bio.ind*densidad), bm=(mean(bm)), MOP=0.45*mean(MO))%>%distinct(specie,.keep_all=TRUE)
+base1 <-ab.sitio %>% group_by(system,site,season) %>%  summarise(humus=mean(POM), bm=(mean(bm)), )%>%distinct(site,.keep_all=TRUE)
 
 
 
