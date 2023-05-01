@@ -11,7 +11,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 ```{r , include=FALSE}
-require(tidyverse)
+library(tidyverse)
+library(readxl)
 #{require(ggplot2);require(dplyr);require(tidyr);require(readr);require(purrr);require(tibble);require(stringr);require(forcats);require(readxl);require(magrittr);require(glue)}
 
 ```
@@ -59,35 +60,37 @@ Se realizan varias suposiciones:
 
 Sobre el humus, se considera que lo utilizable como recurso es el 30% de la %MO en los primeros 10 cm
 La relación H:B será por el momento 25:30:35 de bacterias:hongos en los sistemas N G A respectivamente.
+Además protozoos y otra microfauna representará el 5% e la respiración
 
+Nematodos son 10⁵ ind/m2 biomasa tomada de potapov y digel. En este caso la proporción de fungivoros y bacterivoros sera igual en todos 35% predadores 8% omnivoros 8% 14% fitofagos.
 
+Bacteria 9,5 x 10^-16
+Ameba 2,8 x 10^-8; Ciliados 2,63 10^-9; Flegelados 3,03 10^-7; 
+Nematodos bacterívoros 8,5 x 10^-7; omnivoros 6,02 x 10^-5; predadores 3,56 x 10^-6; fungivoros 5,35 x 10^-7; root feeding 2,35 x 10^-7
+
+Número de protozoos por gramo de suelo
+Ameba 123x10³
+Flagelados 27.3x10³
+Ciliados 12.1 x 10³
+
+Protozoos en un gramo de suelo según Vargas y Hattori 1990 Microbiology Ecology 74 (1990) 73-78
+
+5480 protozoos por gramo de suelo activos según Griffiths and Ritz soil Biol. Biochem. Vol. 20. No. 2.pp163-173 (1998)
+
+Nemátodos 15 x 10⁵ ind/m² un poco por debajo de lo que encontró Mondino en su tesis doctoral, unque el rango varío ampliamente de 2,67 a 18,58 
+
+Tardígrados número por 10 cm³ suelo entre 250 individuos según Bingemer et al. 2020 Zoological Journal of the Linnean Society 188. 887-899
+
+Potapov en el Bosque tropical de indonesia calculó de hojarasca 11kg/ha
+en Miramar hemos encontrado 700 g/m2
 ```{r}
 
-base1 <-ab.sitio %>% group_by(system,site,season) %>%  summarise(humus=mean(POM), bm=(mean(bm)), )%>%distinct(site,.keep_all=TRUE)
+base1 <-ab.sitio %>% group_by(system,site,season) %>%  summarise(humus=mean(POM), bm=(mean(bm)) )%>%distinct(season,.keep_all=TRUE)
+
+base2 <- base1%>%mutate(bacteria=case_when(system=="A"~bm*0.35,system=="G"~bm*0.3,system=="N"~bm*0.25),hongo=((bm-(0.05*bm))-bacteria),protozoo=0.05*bm)
 
 
 
 ```
 La materia orgánica particulada es el proxi a la cantidad de recurso que se corresponde con el Humus y esta es una fracción del %de MO (Biological indicator of Soil Healt pp 70 - 71)
 
-
-
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
