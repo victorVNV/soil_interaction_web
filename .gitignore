@@ -6,4 +6,6 @@ potapov_scrip.R
 red_potapov_SM.xlsx
 abun.sitio.xlsx
 edgelist.xlsx
+recursos.xlsx
 *.docx
+/other_scripts

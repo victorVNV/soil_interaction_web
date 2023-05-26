@@ -41,7 +41,10 @@ sup.monolito <- 1/(0.25*0.25)
 
 #octalaceom cyaneum es mas chico que lacteum, tuve que reordenar la base de datos
 
-base <-completo%>% mutate(bm=RESP*DAP*4.292e6,POM=0.3*(MO/100)*DAP*1e11,specie=case_when(specie=="octa_la"~"octacy",specie=="octa_cy"~"octala",specie!="octa_la"|specie!="octa_cy"~specie),biomass=case_when(order=="crassiclitellata"~exp(biomass*(1e-6))*1000,order!="crassiclitellata"~biomass))
+#base <-completo%>% mutate(bm=RESP*DAP*4.292e6,POM=0.3*(MO/100)*DAP*1e11,specie=case_when(specie=="octa_la"~"octacy",specie=="octa_cy"~"octala",specie!="octa_la"|specie!="octa_cy"~specie),biomass=case_when(order=="crassiclitellata"~exp(biomass*(1e-6))*1000,order!="crassiclitellata"~biomass))
+base<-completo
+
+#A partir de aqui determina las abundancias
 
 base.sitio<-base%>%group_by(system,site,season,class,order,specie,guild,habitat) %>%  summarise(abundance=n(), bio.ind=mean(biomass), bm=(mean(bm)),POM=mean(POM))%>%distinct(specie,.keep_all=TRUE)
 
@@ -62,35 +65,211 @@ Sobre el humus, se considera que lo utilizable como recurso es el 30% de la %MO 
 La relación H:B será por el momento 25:30:35 de bacterias:hongos en los sistemas N G A respectivamente.
 Además protozoos y otra microfauna representará el 5% e la respiración
 
-Nematodos son 10⁵ ind/m2 biomasa tomada de potapov y digel. En este caso la proporción de fungivoros y bacterivoros sera igual en todos 35% predadores 8% omnivoros 8% 14% fitofagos.
+Según Digel
 
-Bacteria 9,5 x 10^-16
-Ameba 2,8 x 10^-8; Ciliados 2,63 10^-9; Flegelados 3,03 10^-7; 
-Nematodos bacterívoros 8,5 x 10^-7; omnivoros 6,02 x 10^-5; predadores 3,56 x 10^-6; fungivoros 5,35 x 10^-7; root feeding 2,35 x 10^-7
+|Taxón | Peso corporal |
+|Bacteria |9,5 x 10^-16 g|
+|Ameba |2,8 10^-8 g|
+|Ciliados |2,63 10^-9 g|
+|Flegelados |3,03 10^-7 g| 
+|------------|-----------|
+|bacterívoros |8,5 x 10^-7|
+|omnivoros |6,02 x 10^-5|
+|predadores |3,56 x 10^-6| 
+|fungivoros |5,35 x 10^-7| 
+|fitófagos root feeding |2,35 x 10^-7| 
+
+Peso promedio de los protozoos en 1,1121 x10^-4 µg
+
+Nematodos son 10⁵ ind/m2 biomasa tomada de potapov y digel. En este caso la proporción de fungivoros 40 % y bacterivoros sera igual en todos 30% predadores 8% omnivoros 8% 14% fitofagos.
+
+Nemátodos 15 x 10⁵ ind/m² un poco por debajo de lo que encontró Mondino en su tesis doctoral, unque el rango varío ampliamente de 2,67 a 18,58 
+Asumiendo como 15 x10⁵ ind nemátodos / m² y los porcentajes de gremios más arriba, entonces tendríamos una biomasa de:
+
+bacterívoros 8,5 x 10^-7; ==> x450 x10³ ind/m² ==> 382, 5 µg/m²
+omnivoros 6,02 x 10^-5; ==> x120 x10³ind/m² ==> 7224 µg/m²
+predadores 3,56 x 10^-6; ==> x120 x10³ind/m² ==> 427 µg/m²
+fungivoros 5,35 x 10^-7; ==> x600 x10³ ind/m² ==> 321 µg/m²
+fitófagos root feeding 2,35 x 10^-7; ==> x210 x10³ ind/m² ==> 49,35 µg/m²
+
+Serían 8404 µg nemátodos/m²
 
 Número de protozoos por gramo de suelo
-Ameba 123x10³
-Flagelados 27.3x10³
-Ciliados 12.1 x 10³
+Ameba 123x10³ => x 2,8 10^-8 =>3,4 10^-3 g/g suelo => 274,19 g/m2
+Flagelados 27.3x10³ => x 3,03 10^-7 => 8,2719 10^-3 g/g suelo => 667,08 g/m2
+Ciliados 12.1 x 10³  => x 2,63 10^-7 => 3,1823 x10^-3 g/g suelo => 256,63 g/m2
 
 Protozoos en un gramo de suelo según Vargas y Hattori 1990 Microbiology Ecology 74 (1990) 73-78
 
 5480 protozoos por gramo de suelo activos según Griffiths and Ritz soil Biol. Biochem. Vol. 20. No. 2.pp163-173 (1998)
 
-Nemátodos 15 x 10⁵ ind/m² un poco por debajo de lo que encontró Mondino en su tesis doctoral, unque el rango varío ampliamente de 2,67 a 18,58 
+
 
 Tardígrados número por 10 cm³ suelo entre 250 individuos según Bingemer et al. 2020 Zoological Journal of the Linnean Society 188. 887-899
 
 Potapov en el Bosque tropical de indonesia calculó de hojarasca 11kg/ha
 en Miramar hemos encontrado 700 g/m2
+
+Microfauna calculada como 6,57 x10 ^-5 g, es el promedio de protozoos y nemátodos sería 0.066 µg peso
+
+
 ```{r}
 
 base1 <-ab.sitio %>% group_by(system,site,season) %>%  summarise(humus=mean(POM), bm=(mean(bm)) )%>%distinct(season,.keep_all=TRUE)
 
-base2 <- base1%>%mutate(bacteria=case_when(system=="A"~bm*0.35,system=="G"~bm*0.3,system=="N"~bm*0.25),hongo=((bm-(0.05*bm))-bacteria),protozoo=0.05*bm)
+base2 <- base1%>%mutate(bacteria=case_when(system=="A"~bm*0.35,system=="G"~bm*0.3,system=="N"~bm*0.25),hongo=((bm-(0.05*bm))-bacteria),microfauna=(0.05*bm*0.25),nem_f=(0.05*bm*0.75*0.4),nem_b=(0.05*bm*0.75*0.3),nem_phy=(0.05*bm*0.75*0.14),nem_pr=(0.05*bm*0.75*0.08),nem_om=(0.05*bm*0.75*0.08))
 
+#elijo solo los recursos y le asigno nombre
+
+columnas_recursos<-t(base2[,c(1:4,6:13)])
+colnames(columnas_recursos) <- paste(base2$system,base2$site,base2$season)
 
 
 ```
 La materia orgánica particulada es el proxi a la cantidad de recurso que se corresponde con el Humus y esta es una fracción del %de MO (Biological indicator of Soil Healt pp 70 - 71)
+
+El 0.25% de lo que corresponde a microfauna sera no nematodo.
+
+
+```{r}
+
+#lista de especies
+esp<-as.vector(levels(as.factor(base$specie)))
+#completar con los recursos
+esp_full<-c("carrion","tej_veg","hummus","bacterias","hongos","microfauna","enquitreido","nem_pre","nem_om","nem_fit","nem_bac","nem_fun",esp)
+
+#construcción full matrix
+#crear matriz, dimensiones igual al número de especies y recursos
+m0<-matrix(nrow = 64,ncol = 64,dimnames = list(esp_full,esp_full))
+#reemplazar NA por ceros
+
+m0[is.na(m0)] <- 0
+
+#Recursos
+m0["bacterias",c("hummus","tej_veg","carrion")]<-1
+m0["hongos",c("hummus","tej_veg","carrion")]<-1
+m0["microfauna",c("bacterias","hummus","microfauna")]<-1
+m0["enquitreido",c("bacterias","hummus","microfauna","hongos")]<-1
+m0["enquitreido",c("bacterias","hummus","microfauna","hongos")]<-1
+m0["nem_pre",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","microfauna")]<-1
+m0["nem_om",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","microfauna","bacterias","hongos")]<-1
+m0["nem_fit",c("tej_veg")]<-1
+m0["nem_fun",c("hongos")]<-1
+m0["nem_bac",c("bacterias")]<-1
+
+#Especies "reales"
+
+m0["acaroidea",c("bacterias","hongos","nem_bac","nem_fun")]<-1
+
+m0[c("Apo_cal","Apo_ros","Apo_tra","lom_juv","Mic_dub","Mic_pho","euker","octacy","octala"),c("bacterias","hongos","microfauna","hummus")]<-1
+
+m0["bdelloidea",c("lom_juv","onychiuridae","hypogastruridae","isotomidae","enquitreido","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea")]<-1
+
+m0["carabidae",c("lom_juv","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea","chylopoda","ecidomyiidae","gasteropoda","miriapodo","sciaridae","staphylinidae")]<-1
+
+m0[c("ceratozetoidea","onychiuridae","isotomidae"),c("bacterias","hongos","hummus")]<-1
+
+m0["chylopoda",c("enquitreido","lom_juv","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea","chylopoda","miriapodo","sciaridae","staphylinidae")]<-1
+
+m0[c("crotonioidea","oripodoidea","oribatido","symphypleona"),c("bacterias","hongos","hummus","tej_veg")]<-1
+
+m0[c("dermanyssoidea","parasitoidea"),c("enquitreido","lom_juv","nem_pre","nem_om","nem_fit","nem_bac","nem_fun","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea")]<-1
+
+m0[c("ecidomyiidae","gryllidae","scarabaeidae"),c("tej_veg")]<-1
+
+m0[c("entomobroidea"),c("bacterias","hongos","nem_bac","nem_fun")]<-1
+
+m0[c("epilohmannioidea"),"hummus"]<-1
+
+m0["euphthiracaroidea",c("hummus","hongos","tej_veg")]<-1
+
+m0["eupodoidea",c("bacterias","hongos","nem_pre","nem_om","nem_fit","nem_bac","nem_fun","onychiuridae","hypogastruridae","isotomidae","symphypleona","entomobroidea")]<-1
+
+m0["eupodoidea",c("bacterias","hongos","nem_pre","nem_om","nem_fit","nem_bac","nem_fun","onychiuridae","hypogastruridae","isotomidae","symphypleona","entomobroidea")]<-1
+
+m0["formicidae",c("lom_juv","gryllidae","gryllotalpidae","carrion","hongos","tej_veg","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea","staphylinidae","ptiliidae","carabidae","ecidomyiidae","psocoptera")]<-1
+
+m0["galumnioidea",c("carrion","nem_bac","nem_fun","nem_fit","bacterias","hongos")]<-1
+
+m0["gasteropoda",c("carrion","bacterias","hongos","hummus","tej_veg")]<-1
+
+m0["gasteropoda",c("carrion","bacterias","hongos","hummus","tej_veg")]<-1
+
+m0["gryllotalpidae",c("carrion","bacterias","hongos","tej_veg","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","entomobroidea","nem_pre","nem_om","nem_fit","nem_bac","nem_fun","pauropoda")]<-1
+
+m0["hypogastruridae",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","microfauna","carrion","bacterias","hongos")]<-1
+
+m0[c("isopodos","miriapodo"),c("hummus","hongos","bacterias","microfauna")]<-1
+
+m0["isoptera",c("hummus","hongos","bacterias","microfauna","tej_veg")]<-1
+
+m0["linyphiidae",c("gryllidae","gryllotalpidae","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea","staphylinidae","ptiliidae","carabidae","ecidomyiidae","psocoptera","sciaridae","scarabaeidae")]<-1
+
+m0["mesostigmata",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","microfauna")]<-1
+
+m0["oppioidea",c("bacterias","hongos")]<-1
+
+m0["pauropoda",c("carrion","bacterias","hongos","microfauna")]<-1
+
+m0["psocoptera",c("hummus","hongos")]<-1
+
+m0["ptiliidae",c("hummus","hongos","carrion","bacterias","microfauna","nem_bac","nem_fun")]<-1
+
+m0["rhodacaroidea",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","entomobroidea","pauropoda","enquitreido")]<-1
+
+m0["staphylinidae",c("lom_juv","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea","nem_pre","nem_om","nem_fit","nem_bac","nem_fun","enquitreido")]<-1
+
+m0["symphila",c("hongos","bacterias","microfauna","hummus","tej_veg")]<-1
+
+m0["trombidioidea",c("lom_juv","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea","enquitreido")]<-1
+
+m0["tydeoidea",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","hongos","bacterias","microfauna")]<-1
+
+m0["uropodoidea",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","microfauna")]<-1
+
+m0["veigaioidea",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","entomobroidea","pauropoda","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea")]<-1
+
+
+```
+
+```{r}
+library(statnet)
+library(network)
+
+#la red global; es necesario completar con todas las interacciones probables en la Pampa Húmeda.
+#Determina la red Potencial.
+#global_net, es g_net.
+
+g_net<-network(m0,matrix.type="adjacency",vertex.attrnames=esp_full)
+summary(g_net)
+gplot(g_net,diag = TRUE,displaylabels = FALSE,mode="mds")
+
+#scalado multidimensional métrico
+
+#Densidad
+gden(g_net)
+
+#subgrupos
+components(g_net)
+#as.sociomatrix(g_net)
+
+#atributos de nodos
+
+# nodo_gg gran grupo
+
+nodo_gg<-c("rec.base","rec.base","rec.base","microflora","microflora","microfauna","mesof","microfauna","microfauna","microfauna","microfauna","microfauna","acari","clitelata","clitelata","clitelata","acari","acari","macro","acari","macro","acari","acari","macro","colem","acari","clitelata","acari","acari","macro","acari","macro","macro","macro","colem","macro","macro","colem","macro","clitelata","acari","clitelata","clitelata","macro","clitelata","clitelata","colem","acari","acari","acari","acari","mesof","mesof","macro","acari","macro","macro","macro","mesof","colem","acari","acari","acari","acari")
+
+#set.vertex.attribute(g_net, "gran_grupo", nodo_gg)
+
+g_net %v% "gran_grupo" <- nodo_gg
+
+g_net %v% "grado_nodo" <- degree(g_net)
+
+#para ver los atributos
+list.vertex.attributes(g_net)
+#get.vertex.attribute(g_net, "grado_nodo")
+
+g_net %v% "gran_grupo"
+
+```
 
