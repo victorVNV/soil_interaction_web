@@ -232,44 +232,239 @@ m0["veigaioidea",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","onychiurida
 
 ```
 
+#Libro sobre uso de statnet
+
 ```{r}
 library(statnet)
 library(network)
+library(igraph)
+library(intergraph)
+```
 
+```{r}
 #la red global; es necesario completar con todas las interacciones probables en la Pampa Húmeda.
 #Determina la red Potencial.
 #global_net, es g_net.
 
-g_net<-network(m0,matrix.type="adjacency",vertex.attrnames=esp_full)
-summary(g_net)
-gplot(g_net,diag = TRUE,displaylabels = FALSE,mode="mds")
+g_net<-network(t(m0),vertex.attrnames=esp_full)
+resumen_red_global<-summary(g_net)
+#Red con 64 nodos
+#Grafo dirigido
+#Tipo lista de ejes; edjelist
+#Total de enlaces 528
+#Densidad de enlaces 0.1309524 aprox 0.131
+#Según Maggioto et al. 2019 densidad de enlaces promedios 1.68, con 14 nodos
+#El cálculo de densidad en Maggioto no es el mismo que el del libro 
+#Ya que este varía de 0 a 1.
+
+#gplot(g_net,diag = TRUE,displaylabels = FALSE,mode="mds")
 
 #scalado multidimensional métrico
+```
 
+```{r}
+
+print("TAMAÑO DE LA RED")
+network.size(g_net)
 #Densidad
+print("DENSIDAD DE LA RED, DENSIDAD DE ENLACES")
 gden(g_net)
 
 #subgrupos
-components(g_net)
+print("COMPONENTES")
+components(asIgraph(g_net))
+count_components(asIgraph(g_net))
+
+# asNetwork()
+#No existen subgrupos fuerte o débilmente conectados
+
+#Nos genera una matriz con las distancias geodesicas esto es los caminos más cortos
+#El valor Inf nos indica los nodos desconectados
+print("Distancias geodésicas")
+distancias_geodesicas<-geodist(g_net)
+#De todos los caminos más cortos, el más largo es el diámetro de la red
+table(distancias_geodesicas$gdist)
+#ignorando al Inf y mirando la matriz 
+#el diámetro sería 3.
+#Esto implica una red vastante condensada y con caminos de información energía cortos
+
+#Transitividad, esto indica la formación de triángulos cerrados en la red. 
+#Que es una forma básica de agrupamiento o clusters.
+print("Transitividad")
+gtrans(g_net)
+
+#transforma edgelist en matriz
 #as.sociomatrix(g_net)
 
 #atributos de nodos
+#grado de nodos
+print("Grado del nodo")
+grado_nodo<-degree(asIgraph(g_net))
+hist(grado_nodo)
+summary(grado_nodo)
+#Grado 0-5 y 15-20 son iguales en abundancias, luego 10-15, 30-40,
 
+print("Cercania del nodo")
+cercania_nodo<-closeness(asIgraph(g_net))
+hist(cercania_nodo)
+summary(cercania_nodo)
+print("Entre quienes del nodo")
+entre_quien_nodo<-betweenness(asIgraph(g_net))
+hist(entre_quien_nodo)
+summary(entre_quien_nodo)
 # nodo_gg gran grupo
-
+#Esto es a que gran grupo o gremio pertenece el nodo
 nodo_gg<-c("rec.base","rec.base","rec.base","microflora","microflora","microfauna","mesof","microfauna","microfauna","microfauna","microfauna","microfauna","acari","clitelata","clitelata","clitelata","acari","acari","macro","acari","macro","acari","acari","macro","colem","acari","clitelata","acari","acari","macro","acari","macro","macro","macro","colem","macro","macro","colem","macro","clitelata","acari","clitelata","clitelata","macro","clitelata","clitelata","colem","acari","acari","acari","acari","mesof","mesof","macro","acari","macro","macro","macro","mesof","colem","acari","acari","acari","acari")
 
+table(nodo_gg)
+
+#Esto es el manejo de nodos según statnet
 #set.vertex.attribute(g_net, "gran_grupo", nodo_gg)
 
 g_net %v% "gran_grupo" <- nodo_gg
 
-g_net %v% "grado_nodo" <- degree(g_net)
+g_net %v% "grado_nodo" <- degree(asIgraph(g_net))/10
+
+g_net %v% "cercania_nodo" <- closeness(asIgraph(g_net))/10
+
+g_net %v% "entre_quien_nodo" <- betweenness(asIgraph(g_net))/10
+
+g_net %v% "k_core_nodo" <- graph.coreness(asIgraph(g_net))
+#para igraph
+#gestionar Nodos y Ejes
+#V(inet2)$name <- c("A","B","C","D","E")
+#E(inet2)$val <- c(1:6)
 
 #para ver los atributos
-list.vertex.attributes(g_net)
-#get.vertex.attribute(g_net, "grado_nodo")
+print("Lista de atributos del nodo")
+list.vertex.attributes(asIgraph(g_net))
+print("Lista de atributos de los ejes")
+list.edge.attributes(asIgraph(g_net))
+#get.vertex.attribute(asIgraph(g_net), "na")
+#Atributos de los ejes
+print("Configuración ejes, nodo a nodo")
+#print(get.adjedgelist(asIgraph(g_net)))
 
-g_net %v% "gran_grupo"
+#g_net %v% "gran_grupo"
+
+#Filtrar redes según el atributo del nodo
+
+#get.inducedSubgraph(g_net,which(g_net%v%"gran_grupo"=="clitelata"))
+```
+
+```{r}
+
+
+
+#plot(g_net,label="gran_grupo",usearrows=FALSE,vertex.col="gran_grupo",vertex.cex="grado_nodo",mode="fruchtermanreingold")
+
+#write.csv(g_net, file = "red_global.csv", row.names = FALSE)
+
+x<-c(-1,2,4,1,3,1.5,-2,-1.5,3,2,1,0,2,0,-1,3,1,0,1,2,2,4,2.5,1,4,-1,-1,2-0.5,0.5,3,1.5,-3,0,2,5.5,-1,1.5,3,-2.5,1.5,2,2.5,2,3,3.5,-0.5,-0.5,-1.5,1.5,3.3,2.5,5.5,2.3,2,1.7,1,4,4,-0.75,1.75,-1.75,-0.75,0.75,1.75)
+
+y<-c(1,1,1,2,2,2.5,4,4,3.5,3,3,3,5,4,4,4,6,5,11,5,8,5,6,4,5.5,5,4,5,6,8,5,4,7,7,5.5,7,7,5.5,8,4,6,4,4,7,4,4,5.5,5,5,5,6,5.5,6.5,6.5,6,7.5,4,8,5.5,5.5,6,6,6,6)
+     
+coord=cbind(x,y)
+
+#Tuve que seguir la guía pag 69 libro Statnet
+#Para que los nodos me quedasen en un formato color amigable.
+paleta_color<-RColorBrewer::brewer.pal(9, "Set1")
+fact_gran_grupo<-as.factor(get.vertex.attribute(asIgraph(g_net),"gran_grupo"))
+
+
+plot(g_net,coord=coord,vertex.col=paleta_color[fact_gran_grupo],vertex.cex="grado_nodo",suppress.axes = FALSE)
 
 ```
 
+```{r}
+
+#SUBGRUPOS
+
+#Puntos de corte
+print("Cutpoint indica cúales vértices son los que al quitar dividirían la red en componentes")
+print("Considerando como grafo no dirigido son:")
+cutpoints(g_net, mode = "graph", return.indicator = FALSE)
+print("Considerando como grafo dirigido son:")
+cutpoints(g_net, mode = "digraph", return.indicator = FALSE)
+
+#A clique is a maximally complete subgraph; that is, it is a subset of 
+# nodes that have all possible ties among them.
+
+#Ignora que el grafo es dirigido
+
+#Esto nos da la list de todos los clique
+
+clique_red_global<-cliques(asIgraph(g_net),min=3)
+
+#El tamaño del clique mas grande
+clique.number(asIgraph(g_net))
+
+#Lista de clique con el tamaño más grande
+clique_mayor_red_global<-largest.cliques(asIgraph(g_net))
+
+#A k-core is a maximal subgraph where each vertex is connected
+#to at least k other vertices in the subgraph.
+
+#Esta tabla resume al vector que indica 
+#el nucleo más alto al que pertenece un nodo en la red
+
+table(graph.coreness(asIgraph(g_net)))
+#Un nucleo de 13 es el de mayor frecuencia, seguido por lejos por el nucleo de 4
+g_net %v% "k_core_nodo"
+#El atributo del nodo fué creado más arriba
+
+#MODULARIDAD
+
+#Modularity is a measure of the structure of the network, 
+#specifically the extent to which nodes exhibit clustering where 
+#there is greater density within the clusters and less density between them
+print("La mocularidad considerando los k-core es:")
+modularity(asIgraph(g_net),V(asIgraph(g_net))$k_core_nodo)
+
+print("La modularidad considerando los grandes grupos que pertenece la fauna es:")
+modularity(asIgraph(g_net),as.factor(V(asIgraph(g_net))$gran_grupo))
+
+#Algoritmos de la comunidad
+
+#Grafos Dirigidos
+cluster_edge_betweenness(asIgraph(g_net))
+membership(cluster_edge_betweenness(asIgraph(g_net)))
+modularity(cluster_edge_betweenness(asIgraph(g_net)))
+table(V(asIgraph(g_net))$gran_grupo,membership(cluster_edge_betweenness(asIgraph(g_net))))
+
+plot(cluster_edge_betweenness(asIgraph(g_net)),asIgraph(g_net),main="Edge betweeness")
+
+
+cluster_infomap(asIgraph(g_net))
+membership(cluster_infomap(asIgraph(g_net)))
+modularity(cluster_infomap(asIgraph(g_net)))
+table(V(asIgraph(g_net))$gran_grupo,membership(cluster_infomap(asIgraph(g_net))))
+plot(cluster_infomap(asIgraph(g_net)),asIgraph(g_net),main="InfoMAP")
+#Grafos no dirigidos
+
+cluster_leading_eigen(asIgraph(g_net))
+membership(cluster_leading_eigen(asIgraph(g_net)))
+modularity(cluster_leading_eigen(asIgraph(g_net)))
+table(V(asIgraph(g_net))$gran_grupo,membership(cluster_leading_eigen(asIgraph(g_net))))
+plot(cluster_leading_eigen(asIgraph(g_net)),asIgraph(g_net),main="Leadin eigen")
+
+cluster_walktrap(asIgraph(g_net))
+membership(cluster_walktrap(asIgraph(g_net)))
+modularity(cluster_walktrap(asIgraph(g_net)))
+table(V(asIgraph(g_net))$gran_grupo,membership(cluster_walktrap(asIgraph(g_net))))
+plot(cluster_walktrap(asIgraph(g_net)),asIgraph(g_net),main="Walktrap")
+
+cluster_label_prop(asIgraph(g_net))
+membership(cluster_label_prop(asIgraph(g_net)))
+modularity(cluster_label_prop(asIgraph(g_net)))
+table(V(asIgraph(g_net))$gran_grupo,membership(cluster_label_prop(asIgraph(g_net))))
+plot(cluster_label_prop(asIgraph(g_net)),asIgraph(g_net),main="Label prop")
+
+cluster_spinglass(asIgraph(g_net))
+membership(cluster_spinglass(asIgraph(g_net)))
+modularity(cluster_spinglass(asIgraph(g_net)))
+table(V(asIgraph(g_net))$gran_grupo,membership(cluster_spinglass(asIgraph(g_net))))
+plot(cluster_spinglass(asIgraph(g_net)),asIgraph(g_net),main="Spinglass")
+
+```
+#Flux web packge
