@@ -35,7 +35,7 @@ sup.monolito <- 1/(0.25*0.25)
 #Entonces multplico x 5 (a 100 g) divido * 24 (h/dia) luego multiplico por factor 20,6
 # En un m2 a 10 cm son 100k cm3 por el DAP pero con 100 g suelo queda solo 1k*DAP
 
-#####Factor de conversión de respiración microbiana=4292000 = 4,3e6, para que quede en microgramos
+#####Factor de conversión de respiración microbiana=4292000 = 4,3e6, para que quede en **microgramos**
 
 #Materia organica particulada, es el proxi del humus, se asume que el 30% del mismo es hummus, aunque la bibliografia sugiere entre 40 al 60 % seré pesimista, entonces quearía POM en ug/m2
 
@@ -330,6 +330,8 @@ g_net %v% "cercania_nodo" <- closeness(asIgraph(g_net))/10
 g_net %v% "entre_quien_nodo" <- betweenness(asIgraph(g_net))/10
 
 g_net %v% "k_core_nodo" <- graph.coreness(asIgraph(g_net))
+
+
 #para igraph
 #gestionar Nodos y Ejes
 #V(inet2)$name <- c("A","B","C","D","E")
@@ -468,3 +470,10 @@ plot(cluster_spinglass(asIgraph(g_net)),asIgraph(g_net),main="Spinglass")
 
 ```
 #Flux web packge
+```{r}
+peso<-c(-999,-999,-999,9.5e-16,-999,3e-8,9e-5,3.56e-6,6.02e-5,2.35e-7,8.5e-7,5.35e-7,2.13e-6,2.16e-2,1.04e-2,0.65,9.6e-7,1.84e-6,5.45e-6,1.187e-5,7.713e-5,5.08e-6,6.03e-6,8.033e-5, 6.82e-6,2.15e-6,0.013,1.119e-5,6e-7,1.16e-4,2.994e-5,7.04e-5,1.03e-4,1.33e-4,6.73e-6,2.35e-3,4.131e-5,2.32e-6,6.715e-5,2e-3,1.022e-5,0.017,4.5e-3,2.3e-3,0.374,0.0862,9.72e-7,8.4e-7,1.11e-6,4.11e-6,8.77e-6,5e-6,3.6e-5,5.51e-4,4.64e-6,3.25e-3,3.42e-4,2.64e-4,1.68e-6,2.55e-6,8.2e-6,0.71e-6,1.4e-5,1.09e-5)
+#Pasar todos los valores a microgramos
+biomasas<-c()
+
+```
+
