@@ -331,6 +331,7 @@ g_net %v% "entre_quien_nodo" <- betweenness(asIgraph(g_net))/10
 
 g_net %v% "k_core_nodo" <- graph.coreness(asIgraph(g_net))
 
+#g_net %v% "vertex.names"
 
 #para igraph
 #gestionar Nodos y Ejes
@@ -470,6 +471,15 @@ plot(cluster_spinglass(asIgraph(g_net)),asIgraph(g_net),main="Spinglass")
 
 ```
 #Flux web packge
+
+Implementacion
+*Falta tasas metabolicas por especie
+*Tal vez preferencias alimenticias
+*Entender el tema de flujos
+*Utilizar la salida de flujos como atributo de ejes
+*Clasificar los organismos por gremios como atributo del nodo
+*Clasificar por funcion ecologica, para atributo de nodo y para calcular el flujo de energía
+*Entender que significa el valor de estabilidad tambien
 ```{r}
 library(fluxweb)
 peso<-c(-999,-999,-999,9.5e-16,-999,3e-8,9e-5,3.56e-6,6.02e-5,2.35e-7,8.5e-7,5.35e-7,2.13e-6,2.16e-2,1.04e-2,0.65,9.6e-7,1.84e-6,5.45e-6,1.187e-5,7.713e-5,5.08e-6,6.03e-6,8.033e-5, 6.82e-6,2.15e-6,0.013,1.119e-5,6e-7,1.16e-4,2.994e-5,7.04e-5,1.03e-4,1.33e-4,6.73e-6,2.35e-3,4.131e-5,2.32e-6,6.715e-5,2e-3,1.022e-5,0.017,4.5e-3,2.3e-3,0.374,0.0862,9.72e-7,8.4e-7,1.11e-6,4.11e-6,8.77e-6,5e-6,3.6e-5,5.51e-4,4.64e-6,3.25e-3,3.42e-4,2.64e-4,1.68e-6,2.55e-6,8.2e-6,0.71e-6,1.4e-5,1.09e-5)
@@ -480,8 +490,34 @@ peso<-c(-999,-999,-999,9.5e-16,-999,3e-8,9e-5,3.56e-6,6.02e-5,2.35e-7,8.5e-7,5.3
 
 biomasas<-c(7.5323,1.5865,1533.87,0.0952,0.2221,0.00507,1.772,9.46e-4,9.46e-4,1.67e-3,3.55e-3,4.73e-3,2.36e-3,3.7873,1.081,4.531,1.525e-3,1.551e-3,5.384e-3,1.31e-2,3.92e-2,6.91e-3,7e-3,4.1e-2,9.52e-3,4.84e-3,2.3986,1.65e-2,3.1e-3,0.207,3.43e-2,0.1394,0.0523,0.06786,0.15476,1.19,0.02805,4.273e-2,0.041,0.6562,0.01823,1.9747,0.1803,3.51,25.14,7.204,0.0207,6.7e-3,3.53e-3,8.12e-2,5.49e-3,2.5e-3,0.01842,0.2807,6.68e-3,1.6,0.134,0.47,1.5e-3,7.68e-3,7.31e-3,1.826e-3,9.76e-3,1.07e-2)
 
+#biomasas*100
+
 #Por el momento eficiencias iguales
 eficiencias<- rep(0.3, times = 64)
+#eficiencias[c(1,2,3,5)]<- 0
+
+
+#The \textbf{losses} parameter will be defined in this context as metabolic rates.
+t_met<- 0.71*peso^(-0.25) #Esta tasa metabólica es la sugerida en el paper. Pero es diferente según la taxa 
+#Esto lo puedo encontrar en Brown et al. creo. Luego filtrar, yasociar cada tasa a su grupo
+t_met[c(1,2,3,5)]<-0
+
+
+#Error imposible calcular segun los datos.
+flux<-fluxing(t(m0) ,biomasses = biomasas, losses =  t_met, eficiencias, bioms.losses = TRUE,ef.level = "prey")
+
+#Asumo 1/ingreso por año
+#Entonces 
+#Carroña = ingreso 4trimestral
+#Tejido vegetal ingreso diario
+#Humus formacion bianual
+tasa_ingreso<-c(3.33,333,0.5,rep(0.0001, times = 61))
+
+valor_stab<-stability.value(t(m0),biomasas, t_met,eficiencias,tasa_ingreso,bioms.prefs = TRUE,bioms.losses = TRUE,ef.level = "prey" )
+
+#warnings "especies no basales" definen tasas de crecimientos ? eso no es posible si se lo asigno a las basales ...
+
+
 
 ```
 
