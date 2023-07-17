@@ -503,8 +503,13 @@ t_met<- 0.71*peso^(-0.25) #Esta tasa metabólica es la sugerida en el paper. Per
 t_met[c(1,2,3,5)]<-0
 
 
-#Error imposible calcular segun los datos.
+#Error imposible calcular segun los datos. RESUELTO
 flux<-fluxing(t(m0) ,biomasses = biomasas, losses =  t_met, eficiencias, bioms.losses = TRUE,ef.level = "prey")
+
+#Agregar como atributo de los ejes
+
+g_net %e% "flujo" <- flux
+g_net %e% "flujo_red" <- flux*0.001
 
 #Asumo 1/ingreso por año
 #Entonces 
@@ -517,6 +522,8 @@ valor_stab<-stability.value(t(m0),biomasas, t_met,eficiencias,tasa_ingreso,bioms
 
 #warnings "especies no basales" definen tasas de crecimientos ? eso no es posible si se lo asigno a las basales ...
 
+
+plot(g_net,coord=coord,vertex.col=paleta_color[fact_gran_grupo],vertex.cex="grado_nodo",suppress.axes = FALSE, edge.lwd="flujo_red")
 
 
 ```
