@@ -509,7 +509,7 @@ flux<-fluxing(t(m0) ,biomasses = biomasas, losses =  t_met, eficiencias, bioms.l
 #Agregar como atributo de los ejes
 
 g_net %e% "flujo" <- flux
-g_net %e% "flujo_red" <- flux*0.001
+g_net %e% "flujo_red" <- flux*0.01
 
 #Asumo 1/ingreso por año
 #Entonces 
