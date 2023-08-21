@@ -116,3 +116,16 @@ print("Bootstrap Mean:")
 print(bootstrap_mean_N)
 print("Bootstrap Standard Deviation:")
 print(bootstrap_sd_N)
+
+
+##############
+
+#resumen<-data.frame(NAT,ANT)
+#library(openxlsx)
+#ruta_excel <- "soil_networks.xlsx"  # Reemplaza con la ruta de tu archivo Excel
+
+# Cargar el libro de Excel
+#mi_libro <- loadWorkbook(ruta_excel)
+
+#writeData(mi_libro, "Sheet10", resumen)
+
