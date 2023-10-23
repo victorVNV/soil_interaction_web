@@ -1,6 +1,6 @@
 ---
 title: "Chap4"
-author: "Velazco"
+author: "Velazco, Saravia"
 date: "`r Sys.Date()`"
 output: html_document
 editor_options: 
@@ -40,7 +40,7 @@ library(igraph)
 # Instalar nuestros paquetes!
 #
 if( require(multiweb) == FALSE)
-  install_github("lsaravia/multiweb")
+  devtools::install_github("lsaravia/multiweb")
 
 ```
 
