@@ -1,0 +1,514 @@
+---
+title: "community"
+author: "Velazco"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r carga,echo=FALSE}
+
+#Carga paquetes
+{library(tidyverse);library(readxl);library(ade4)
+library(vegan);library(cluster);library(BiodiversityR)}
+
+#Anális de datos de ROSANA
+#Clásicos multivariados
+
+comunity <- read_excel("soil_networks.xlsx", sheet = "Ro_web")
+comunity[is.na(comunity)]<-0
+
+resumen_bruto<-summary(comunity);resumen_bruto
+
+```
+
+```{r matricesB, echo=FALSE}
+#NOT FILTER, macrofauna, y anélidos
+
+full_db<-comunity %>% mutate(nombre=paste(system,site,year,season))%>%
+  group_by(nombre,
+           system,site,year,season,
+           order,guild,specie) %>%
+  summarise(abundance=n(), peso.ind=mean(biomass), B=abundance*peso.ind,
+            bmicro=(mean(bm)), POM=mean(POM),
+            res.mec=mean(RM5),DAP=mean(DAP),HR=mean(HR),
+            pH=mean(Ph),CE=mean(CE),
+            MO=mean(MO),N=mean(N),P=mean(P),K=mean(K),
+            Ca=mean(Ca),Mg=mean(Mg),Na=mean(Sodio))%>%
+  distinct(specie,.keep_all=TRUE)
+
+#POM, correlacionado con MO, bm biomasa microbiana correlacionada con Respiración
+
+#Generar matriz de abundancia, peso corporal, Biomasa
+# de especies en: estación x año x sitio x uso
+
+full_ab_temporal<-full_db[,c("nombre","system","specie","abundance")] %>% 
+  pivot_wider(names_from = specie,
+              values_from = abundance,
+              values_fill = 0,
+              values_fn = sum)%>%
+  distinct(nombre,.keep_all=TRUE)
+
+full_peso_temporal<-full_db[,c("nombre","system","specie","peso.ind")] %>% 
+  pivot_wider(names_from = specie, 
+              values_from = peso.ind, 
+              values_fill = 0,
+              values_fn = median)%>%
+  distinct(nombre,.keep_all=TRUE)
+
+full_B_temporal<-full_db [,c("nombre","system","specie","B")]%>% 
+  pivot_wider(names_from = specie, 
+              values_from = B, 
+              values_fill = 0,
+              values_fn = median)%>%
+  distinct(nombre,.keep_all=TRUE)
+
+#Generar matriz de abundancia, peso corporal, Biomasa
+# de especies en: año x sitio x uso
+
+year_db<-comunity %>% mutate(y_nombre=paste(system,site,year))%>%
+  group_by(y_nombre,system,
+           order,guild,specie) %>%
+  summarise(abundance=n(), peso.ind=mean(biomass), B=abundance*peso.ind,
+            bmicro=(mean(bm)), POM=mean(POM),
+            res.mec=mean(RM5),DAP=mean(DAP),HR=mean(HR),
+            pH=mean(Ph),CE=mean(CE),
+            MO=mean(MO),N=mean(N),P=mean(P),K=mean(K),
+            Ca=mean(Ca),Mg=mean(Mg),Na=mean(Sodio))%>%
+  distinct(specie,.keep_all=TRUE)
+
+year_ab_temporal<-year_db[,c("y_nombre","system","specie","abundance")] %>% 
+  pivot_wider(names_from = specie, 
+              values_from = abundance, 
+              values_fill = 0,
+              values_fn = sum) %>%
+  distinct(y_nombre,.keep_all = TRUE)
+
+year_peso_temporal<-year_db[,c("y_nombre","system","specie","peso.ind")] %>% 
+  pivot_wider(names_from = specie, 
+              values_from = peso.ind, 
+              values_fill = 0,
+              values_fn = median) %>%
+  distinct(y_nombre,.keep_all = TRUE)
+
+year_B_temporal<-year_db[,c("y_nombre","system","specie","B")] %>% 
+   pivot_wider(names_from = specie, 
+              values_from = B, 
+              values_fill = 0,
+              values_fn = median) %>%
+  distinct(y_nombre,.keep_all = TRUE)
+
+#Generar matriz de abundancia, peso corporal, Biomasa
+# de especies en: sitio x uso
+
+sitio_db<-comunity %>% mutate(s_nombre=paste(system,site))%>%
+  group_by(s_nombre,system,
+           order,guild,specie) %>%
+  summarise(abundance=n(), peso.ind=mean(biomass), B=abundance*peso.ind,
+            bmicro=(mean(bm)), POM=mean(POM),
+            res.mec=mean(RM5),DAP=mean(DAP),HR=mean(HR),
+            pH=mean(Ph),CE=mean(CE),
+            MO=mean(MO),N=mean(N),P=mean(P),K=mean(K),
+            Ca=mean(Ca),Mg=mean(Mg),Na=mean(Sodio))%>%
+  distinct(specie,.keep_all=TRUE)
+
+sitio_ab_temporal<-sitio_db[,c("s_nombre","system","specie","abundance")] %>% 
+  pivot_wider(names_from = specie, 
+              values_from = abundance, 
+              values_fill = 0,
+              values_fn = sum)%>%
+  distinct(s_nombre,.keep_all = TRUE)
+
+sitio_peso_temporal<-sitio_db[,c("s_nombre","system","specie","peso.ind")] %>% 
+  pivot_wider(names_from = specie, 
+              values_from = peso.ind, 
+              values_fill = 0,
+              values_fn = median)%>%
+  distinct(s_nombre,.keep_all = TRUE)
+
+sitio_B_temporal<-sitio_db [,c("s_nombre","system","specie","B")]%>% 
+  pivot_wider(names_from = specie, 
+              values_from = B, 
+              values_fill = 0,
+              values_fn = median)%>%
+  distinct(s_nombre,.keep_all = TRUE)
+
+#Generar matriz de abundancia, peso corporal, Biomasa
+# de especies en: x uso
+
+uso_db<-comunity %>% group_by(system,
+                                order,guild,specie) %>%
+  summarise(abundance=n(), peso.ind=mean(biomass), B=abundance*peso.ind,
+            bmicro=(mean(bm)), POM=mean(POM),
+            res.mec=mean(RM5),DAP=mean(DAP),HR=mean(HR),
+            pH=mean(Ph),CE=mean(CE),
+            MO=mean(MO),N=mean(N),P=mean(P),K=mean(K),
+            Ca=mean(Ca),Mg=mean(Mg),Na=mean(Sodio))%>%
+  distinct(specie,.keep_all=TRUE)
+
+uso_ab_temporal<-uso_db[,c("system","specie","abundance")] %>% 
+  pivot_wider(names_from = specie, 
+              values_from = abundance, 
+              values_fill = 0,
+              values_fn = sum)%>%
+  distinct(system,.keep_all=TRUE)
+
+uso_peso_temporal<-uso_db [,c("system","specie","peso.ind")]%>% 
+  pivot_wider(names_from = specie, 
+              values_from = peso.ind, 
+              values_fill = 0,
+              values_fn = median)%>%
+  distinct(system,.keep_all=TRUE)
+
+uso_B_temporal<-uso_db[,c("system","specie","B")] %>% 
+  pivot_wider(names_from = specie, 
+              values_from = B, 
+              values_fill = 0,
+              values_fn = median)%>%
+  distinct(system,.keep_all=TRUE)
+```
+
+``` {r FQ, echo=FALSE }
+
+#MATRICES DATOS FISICO QUÍMICOS BIOLÓGICOS
+full_fqb<-comunity %>% mutate(nombre=paste(system,site,year,season))%>%
+  group_by(nombre) %>%
+  summarise(bmicro=(mean(bm)), POM=mean(POM),
+            res.mec=mean(RM5),DAP=mean(DAP),HR=mean(HR),
+            pH=mean(Ph),CE=mean(CE),
+            MO=mean(MO),N=mean(N),P=mean(P),K=mean(K),
+            Ca=mean(Ca),Mg=mean(Mg),Na=mean(Sodio))%>%
+  distinct(nombre,.keep_all=TRUE)
+
+year_fqb<-comunity %>% mutate(y_nombre=paste(system,site,year))%>%
+  group_by(y_nombre) %>%
+  summarise(bmicro=(mean(bm)), POM=mean(POM),
+            res.mec=mean(RM5),DAP=mean(DAP),HR=mean(HR),
+            pH=mean(Ph),CE=mean(CE),
+            MO=mean(MO),N=mean(N),P=mean(P),K=mean(K),
+            Ca=mean(Ca),Mg=mean(Mg),Na=mean(Sodio))%>%
+  distinct(y_nombre,.keep_all=TRUE)
+
+sitio_fqb<-comunity %>% mutate(s_nombre=paste(system,site))%>%
+  group_by(s_nombre) %>%
+  summarise(bmicro=(mean(bm)), POM=mean(POM),
+            res.mec=mean(RM5),DAP=mean(DAP),HR=mean(HR),
+            pH=mean(Ph),CE=mean(CE),
+            MO=mean(MO),N=mean(N),P=mean(P),K=mean(K),
+            Ca=mean(Ca),Mg=mean(Mg),Na=mean(Sodio))%>%
+  distinct(s_nombre,.keep_all=TRUE)
+
+uso_fqb<-comunity %>% 
+  group_by(system) %>%
+  summarise(bmicro=(mean(bm)), POM=mean(POM),
+            res.mec=mean(RM5),DAP=mean(DAP),HR=mean(HR),
+            pH=mean(Ph),CE=mean(CE),
+            MO=mean(MO),N=mean(N),P=mean(P),K=mean(K),
+            Ca=mean(Ca),Mg=mean(Mg),Na=mean(Sodio))%>%
+  distinct(system,.keep_all=TRUE)
+
+```
+
+```{r boxplot, echo=FALSE}
+summary(full_fqb)
+summary(scale(as.matrix(full_fqb[,-1])))
+boxplot(scale(as.matrix(full_fqb[,-1])))
+boxplot(scale(as.matrix(year_fqb[,-1])))
+boxplot(scale(as.matrix(sitio_fqb[,-1])))
+boxplot(scale(as.matrix(uso_fqb[,-1])))
+```
+
+```{r graf_norm,echo=FALSE}
+
+# Suponiendo que tienes un dataframe llamado 'datos' con las columnas que quieres analizar
+
+# Lista de nombres de las columnas a analizar
+columnas_a_analizar <- names (full_fqb[-1])
+datos<-full_fqb
+# Configuración del diseño de los gráficos
+par(mfrow = c(2, 2), mgp = c(2, 1, 0.1), mar = c(2, 3, 2, 2))
+
+# Bucle para generar gráficos y realizar pruebas de normalidad para cada columna
+for (col in columnas_a_analizar) {
+  hist(datos[[col]], main = paste("Histograma de la variable", col), col = "orange", breaks = 5, probability = TRUE, ylim = c(0, 0.5))
+  curve(dnorm(x, mean = mean(datos[[col]]), sd = sd(datos[[col]])), add = TRUE, lwd = 4, col = "green4")
+
+  qqnorm(datos[[col]], pch = 19, col = "red")
+  qqline(datos[[col]], lwd = 3, col = "steelblue")
+
+  plot(ppoints(length(scale(datos[[col]]))), sort(pnorm(scale(datos[[col]]))), pch = 19, col = "red",
+       xlab = "Probabilidad Observada", ylab = "Probabilidad Esperada", main = paste("PP Plot para", col))
+  abline(0, 1, lwd = 3, col = "green4")
+
+  boxplot(datos[[col]], horizontal = TRUE, col = "deepskyblue", main = paste("Variable:", col))
+  points(mean(datos[[col]]), 1, pch = 19, col = "orange")
+
+  # Realizar pruebas de normalidad
+  #olsrr::ols_test_normality(datos[[col]])
+}
+
+# Normalidad por Shapiro
+shapiro<-function(x,variables){
+     
+     p<-data.frame(Variables=colnames(x)[variables],estadistico=NA,"P-Value"=NA,check.names = F)
+    
+     for(i in 1:length(variables)){
+        p$estadistico[i]<-shapiro.test(x[,variables[i]])$statistic
+        p$`P-Value`[i]<-shapiro.test(x[,variables[i]])$p.value
+     }
+    return(p) 
+     }
+
+norm_fqb<-shapiro(as.matrix(full_fqb[,-1]),c(1:14))
+
+
+```
+Variable biomasa microbiana sesgada a la izquierda. QQ plot muestra forma de U.
+Variable materia orgánica particulada sesgo en la primera parte del QQ plo luego sigue en línea, los bigotes de la derecha un poco separados, media y mediana hacia la derecha.
+Respiracion microbiana, sesgado a la izquierda
+Variable DAP aproximadamente normal, excepto en los extremos
+Humedad relativa similar a la DAP
+Variable pH, sesgado levemente a la izquierda, el QQ plot muestra valores que se alejan de la linea a partir de mas de la mitd de los datos
+Conductividad eléctrica no normal
+MO variable aproximadamente normal aunque con oscilaciones
+N distribucion normal
+P no es normal, el QQ muestra forma de U
+K aproximadamente normal aunque con los extremos alejandose de la QQline
+Ca sesgado a la izq no llega a ser nomal en los extremos
+Mg no es normal 
+Na tampoco muestra normalidad
+
+Las pruebas de shapiro, tampoco indica que existiese normalidad en las variables. 
+```{r covarianza, echo=FALSE}
+full_fqb[is.na(full_fqb)]<-0
+cov_full_fqb<-var(full_fqb[,-c(1)]);cov_full_fqb
+corr_full_fqb<-cor(full_fqb[,-c(1)]);corr_full_fqb
+
+pairs(scale(full_fqb[,-1]),pch=19,col="deepskyblue")
+
+corr<-Hmisc::rcorr(as.matrix(full_fqb[,-c(1)]),type = "pearson");corr
+
+
+col3<-colorRampPalette(c("red","white","darkblue"))
+corrplot::corrplot(cor(full_fqb[,-c(1,3)]),tl.pos="t",type = "upper",tl.col = "black",tl.cex = .8,col=col3(100),bg="green")
+
+# Calcular la matriz de correlación de Spearman
+corr <- Hmisc::rcorr(as.matrix(full_fqb[,-c(1)]), type = "spearman")
+
+# Obtener la matriz de correlación de Spearman del resultado
+matriz_corr_spearman <- corr$r
+
+# Definir la paleta de colores
+colores <- colorRampPalette(c("red", "white", "darkblue"))(100)
+
+# Crear el gráfico de correlaciones usando corrplot
+corrplot::corrplot(matriz_corr_spearman, tl.pos = "t", type = "upper", tl.col = "black", tl.cex = 0.8, col = colores, bg = "green")
+
+
+```
+
+El gráfico pairs pares de puntos nos muesta correlacion MO POM, ya que POM deriva de MO.
+En resistencia mecanica hay outlier
+N , Mo y Bmicrobiana muestran relaciones entre ellos
+DAP y Bmicro algo muestran 
+H y Mo alguna relación también
+pH y Na muestran alguna relación
+
+El SET sería: MO bMicro N pH
+
+Con lo que muestra las correlaciones gráficamente agregaría CE DAP
+
+Con correlacion spearman indica que agregar Resistencia mecánica
+
+``` {r FQ_set, echo=FALSE }
+
+#MATRICES DATOS FISICO QUÍMICOS BIOLÓGICOS
+#Con las variables de interés
+
+full_fqb_set<-full_fqb[,names(full_fqb)[-c(3,5,12:15)]]
+year_fqb_set<-year_fqb[,names(year_fqb)[-c(3,5,12:15)]]
+sitio_fqb_set<-sitio_fqb[,names(sitio_fqb)[-c(3,5,12:15)]]
+uso_fqb_set<-uso_fqb[,names(uso_fqb)[-c(3,5,12:15)]]
+
+```
+
+```{r disimilaridaB, echo=FALSE}
+
+full_dist_ab<-vegdist(full_ab_temporal[,-c(1,2)],
+                      method="canberra");full_dist_ab
+year_dist_ab<-vegdist(year_ab_temporal[,-c(1,2)],
+                      method="canberra");year_dist_ab
+sitio_dist_ab<-vegdist(sitio_ab_temporal[,-c(1,2)],
+                       method="canberra");sitio_dist_ab
+uso_dist_ab<-vegdist(uso_ab_temporal[,-1],
+                     method="canberra");uso_dist_ab
+
+full_dist_peso<-vegdist(full_peso_temporal[,-c(1,2)],
+                        method="canberra");full_dist_peso
+year_dist_peso<-vegdist(year_peso_temporal[,-c(1,2)],
+                        method="canberra");year_dist_peso
+sitio_dist_peso<-vegdist(sitio_peso_temporal[,-c(1,2)],
+                         method="canberra");sitio_dist_peso
+uso_dist_peso<-vegdist(uso_peso_temporal[,-1],
+                       method="canberra");uso_dist_peso
+
+clust_ab_full<-hclust(full_dist_ab,method = "complete")
+plot(clust_ab_full)
+
+clust_ab_year<-hclust(year_dist_ab,method = "complete")
+plot(clust_ab_year)
+
+clust_ab_sitio<-hclust(sitio_dist_ab,method = "complete")
+plot(clust_ab_sitio)
+
+clust_ab_uso<-hclust(uso_dist_ab,method = "complete")
+plot(clust_ab_uso)
+
+
+clust_p_full<-hclust(full_dist_peso,method = "complete")
+plot(clust_p_full)
+
+clust_p_year<-hclust(year_dist_peso,method = "complete")
+plot(clust_p_year)
+
+clust_p_sitio<-hclust(sitio_dist_peso,method = "complete")
+plot(clust_p_sitio)
+
+clust_p_uso<-hclust(uso_dist_peso,method = "complete")
+plot(clust_p_uso)
+
+```
+
+<!-- DISTANCIA CANBERRA
+Definición
+La distancia de Canberra es una versión ponderada de la distancia Manhattan, introducida y refinada en 1967 por Lance, Williams y Adkins. A menudo se utiliza para los datos dispersos alrededor de un origen, ya que está sesgada para las medidas de todo el origen y muy sensible para valores próximos a cero.
+
+Formula
+Propiedades
+
+Para que se puede usar la distancia Canberra???
+Ejemplo
+A menudo se utiliza para clasificar las plantas y los animales en grupos que están más estrechamente o lejanamente emparentadas entre sí. Aunque se puede utilizar fuera de la biología también.
+
+(i) no negatividad d (a, b) ≥ 0;
+
+(ii) la simetría d (a, b) = d (b, a);
+
+(iii) la marca de identificación d (a, a) = 0;
+
+(iv) definititud (a, b) = 0 si y sólo si a = b;
+
+desigualdad del triángulo d (a, b) + d (b, c) ≥ d (a, c).
+
+Digamos que deseamos separar las ovejas de las cabras en su gran rebaño. Puede que tengamos que tener en cuenta varios criterios para tomar esta decisión:
+Los datos binarios - tiene una barba / no tiene una barba.
+Datos categóricos ordenados - pelo muy corto / pelo moderadamente lanudo / pelo no lanoso.
+Los datos cuantitativos - una medida como el peso en kilogramos o la altura en centímetros
+La distancia de Canberra es una manera de utilizar todos estos criterios en conjunto para separar a los individuos de acuerdo a si son similares o son diferentes .-->
+```{r anosim_ab, echo=FALSE}
+#ANOSIM
+
+full_anosim<-vegan::anosim(full_ab_temporal[,-c(1,2)], 
+              as.matrix(full_ab_temporal[,"system"]), 
+              permutations = 999, 
+              distance = "canberra"); summary(full_anosim)
+
+year_anosim<-vegan::anosim(year_ab_temporal[,-c(1,2)], 
+              as.matrix(year_ab_temporal[,"system"]), 
+              permutations = 999, 
+              distance = "canberra"); summary(year_anosim)
+
+sitio_anosim<-vegan::anosim(sitio_ab_temporal[,-c(1,2)], 
+              as.matrix(sitio_ab_temporal[,"system"]), 
+              permutations = 999, 
+              distance = "canberra"); summary(sitio_anosim)
+
+```
+
+```{r anosim_peso, echo =FALSE}
+full_anosim_p<-vegan::anosim(full_peso_temporal[,-c(1,2)], 
+              as.matrix(full_peso_temporal[,"system"]), 
+              permutations = 999, 
+              distance = "canberra"); summary(full_anosim_p)
+
+year_anosim_p<-vegan::anosim(year_peso_temporal[,-c(1,2)], 
+              as.matrix(year_peso_temporal[,"system"]), 
+              permutations = 999, 
+              distance = "canberra"); summary(year_anosim_p)
+
+sitio_anosim_p<-vegan::anosim(sitio_peso_temporal[,-c(1,2)], 
+              as.matrix(sitio_peso_temporal[,"system"]), 
+              permutations = 999, 
+              distance = "canberra"); summary(sitio_anosim_p)
+
+```
+
+```{r anosim_Biomasa, echo =FALSE}
+full_anosim_B<-vegan::anosim(full_B_temporal[,-c(1,2)], 
+              as.matrix(full_B_temporal[,"system"]), 
+              permutations = 999, 
+              distance = "canberra"); summary(full_anosim_B)
+
+year_anosim_B<-vegan::anosim(year_B_temporal[,-c(1,2)], 
+              as.matrix(year_B_temporal[,"system"]), 
+              permutations = 999, 
+              distance = "canberra"); summary(year_anosim_B)
+
+sitio_anosim_B<-vegan::anosim(sitio_B_temporal[,-c(1,2)], 
+              as.matrix(sitio_B_temporal[,"system"]), 
+              permutations = 999, 
+              distance = "canberra"); summary(sitio_anosim_B)
+
+```
+Mayores diferencias se hallan en matrices de similitud ANOSIM que utilizan la mediana del peso corporal de los diferentes taxones que con las abundancias y con las biomasas, quedando pesos individuales > biomasa $\approx$ abundancias
+
+<!--La salida de la función `anosim` de `vegan` proporciona 
+información sobre la similitud entre grupos en tus datos y 
+te ayuda a determinar si hay diferencias significativas entre los 
+grupos que estás comparando. Aquí está cómo interpretar los resultados:
+
+1. **ANOSIM statistic R: 0.1586**
+   - **Interpretación:** R es el estadístico ANOSIM, que varía 
+   de -1 a 1. Un valor cercano a 1 indica una clara separación 
+   entre grupos, mientras que un valor cercano a 0 indica que no 
+   hay diferenciación entre grupos. En tu caso, el valor de R es 0.1586, 
+   lo que sugiere una separación leve entre los grupos.
+
+2. **Significance: 0.001**
+   - **Interpretación:** El valor de significancia (p-valor) 
+   indica si la diferencia entre los grupos es estadísticamente significativa.
+   En este caso, el valor es 0.001, lo que generalmente se considera muy bajo.
+   Un p-valor menor que el nivel de significancia (por ejemplo, 0.05) sugiere 
+   que hay diferencias significativas entre los grupos.
+
+3. **Permutation: free**
+   - **Interpretación:** Indica que se utilizó una permutación libre para 
+   calcular el p-valor. En este contexto, las permutaciones aleatorias se 
+   utilizan para generar un modelo nulo, y se comparan con las diferencias
+   observadas entre los grupos.
+
+4. **Upper quantiles of permutations (null model):**
+   - **Interpretación:** Estos valores representan los cuantiles superiores 
+   del modelo nulo (permutaciones aleatorias). Indican cómo se distribuirían 
+   los valores de R si no hubiera diferencias reales entre los grupos. Por 
+   ejemplo, el 95% de las permutaciones producirían un valor de R inferior 
+   a 0.0308.
+
+5. **Dissimilarity ranks between and within classes:**
+   - **Interpretación:** Estos valores muestran las diferencias (ranks) 
+   en la disimilitud entre y dentro de las clases (grupos). Proporcionan una 
+   idea de cómo varía la disimilitud entre los grupos y dentro de cada grupo. 
+   Los valores en las filas Between indican las diferencias entre los grupos,
+   mientras que los valores en las filas A, G y N indican las diferencias 
+   dentro de cada grupo.
+
+En resumen, los resultados indican que hay una diferencia 
+estadísticamente significativa entre los grupos (p-valor = 0.001), 
+pero esta diferencia es relativamente pequeña (R = 0.1586), lo que sugiere 
+una separación leve entre los grupos. Ten en cuenta que la interpretación 
+específica puede depender del contexto de tu estudio y del campo científico 
+al que pertenezcas. -->
+
