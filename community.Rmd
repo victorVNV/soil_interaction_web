@@ -3,6 +3,9 @@ title: "community"
 author: "Velazco"
 date: "`r Sys.Date()`"
 output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r setup, include=FALSE}
@@ -13,7 +16,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 #Carga paquetes
 {library(tidyverse);library(readxl);library(ade4)
-library(vegan);library(cluster);library(BiodiversityR)}
+library(vegan);library(cluster);library(BiodiversityR);
+library("FactoMineR");library("factoextra")}
 
 #Anális de datos de ROSANA
 #Clásicos multivariados
@@ -171,11 +175,11 @@ uso_B_temporal<-uso_db[,c("system","specie","B")] %>%
   distinct(system,.keep_all=TRUE)
 ```
 
-``` {r FQ, echo=FALSE }
+```{r FQ, echo=FALSE }
 
 #MATRICES DATOS FISICO QUÍMICOS BIOLÓGICOS
 full_fqb<-comunity %>% mutate(nombre=paste(system,site,year,season))%>%
-  group_by(nombre) %>%
+  group_by(nombre,system) %>%
   summarise(bmicro=(mean(bm)), POM=mean(POM),
             res.mec=mean(RM5),DAP=mean(DAP),HR=mean(HR),
             pH=mean(Ph),CE=mean(CE),
@@ -184,7 +188,7 @@ full_fqb<-comunity %>% mutate(nombre=paste(system,site,year,season))%>%
   distinct(nombre,.keep_all=TRUE)
 
 year_fqb<-comunity %>% mutate(y_nombre=paste(system,site,year))%>%
-  group_by(y_nombre) %>%
+  group_by(y_nombre,system) %>%
   summarise(bmicro=(mean(bm)), POM=mean(POM),
             res.mec=mean(RM5),DAP=mean(DAP),HR=mean(HR),
             pH=mean(Ph),CE=mean(CE),
@@ -193,7 +197,7 @@ year_fqb<-comunity %>% mutate(y_nombre=paste(system,site,year))%>%
   distinct(y_nombre,.keep_all=TRUE)
 
 sitio_fqb<-comunity %>% mutate(s_nombre=paste(system,site))%>%
-  group_by(s_nombre) %>%
+  group_by(s_nombre,system) %>%
   summarise(bmicro=(mean(bm)), POM=mean(POM),
             res.mec=mean(RM5),DAP=mean(DAP),HR=mean(HR),
             pH=mean(Ph),CE=mean(CE),
@@ -214,10 +218,10 @@ uso_fqb<-comunity %>%
 
 ```{r boxplot, echo=FALSE}
 summary(full_fqb)
-summary(scale(as.matrix(full_fqb[,-1])))
-boxplot(scale(as.matrix(full_fqb[,-1])))
-boxplot(scale(as.matrix(year_fqb[,-1])))
-boxplot(scale(as.matrix(sitio_fqb[,-1])))
+summary(scale(as.matrix(full_fqb[,-c(1,2)])))
+boxplot(scale(as.matrix(full_fqb[,-c(1,2)])))
+boxplot(scale(as.matrix(year_fqb[,-c(1,2)])))
+boxplot(scale(as.matrix(sitio_fqb[,-c(1,2)])))
 boxplot(scale(as.matrix(uso_fqb[,-1])))
 ```
 
@@ -226,14 +230,14 @@ boxplot(scale(as.matrix(uso_fqb[,-1])))
 # Suponiendo que tienes un dataframe llamado 'datos' con las columnas que quieres analizar
 
 # Lista de nombres de las columnas a analizar
-columnas_a_analizar <- names (full_fqb[-1])
+columnas_a_analizar <- names (full_fqb[c(-1,-2)])
 datos<-full_fqb
 # Configuración del diseño de los gráficos
 par(mfrow = c(2, 2), mgp = c(2, 1, 0.1), mar = c(2, 3, 2, 2))
 
 # Bucle para generar gráficos y realizar pruebas de normalidad para cada columna
 for (col in columnas_a_analizar) {
-  hist(datos[[col]], main = paste("Histograma de la variable", col), col = "orange", breaks = 5, probability = TRUE, ylim = c(0, 0.5))
+  hist(datos[[col]], main = paste("Histograma de la variable", col), col = "orange", breaks = 5, probability = TRUE, ylim = c(0, 0.9))
   curve(dnorm(x, mean = mean(datos[[col]]), sd = sd(datos[[col]])), add = TRUE, lwd = 4, col = "green4")
 
   qqnorm(datos[[col]], pch = 19, col = "red")
@@ -262,41 +266,48 @@ shapiro<-function(x,variables){
     return(p) 
      }
 
-norm_fqb<-shapiro(as.matrix(full_fqb[,-1]),c(1:14))
+norm_fqb<-shapiro(as.matrix(full_fqb[,-c(1,2)]),c(1:14))
+
+norm_log_fqb<-shapiro(as.matrix(log(full_fqb[,-c(1,2)])),c(1:14))
 
 
 ```
-Variable biomasa microbiana sesgada a la izquierda. QQ plot muestra forma de U.
-Variable materia orgánica particulada sesgo en la primera parte del QQ plo luego sigue en línea, los bigotes de la derecha un poco separados, media y mediana hacia la derecha.
-Respiracion microbiana, sesgado a la izquierda
-Variable DAP aproximadamente normal, excepto en los extremos
-Humedad relativa similar a la DAP
-Variable pH, sesgado levemente a la izquierda, el QQ plot muestra valores que se alejan de la linea a partir de mas de la mitd de los datos
-Conductividad eléctrica no normal
-MO variable aproximadamente normal aunque con oscilaciones
-N distribucion normal
-P no es normal, el QQ muestra forma de U
-K aproximadamente normal aunque con los extremos alejandose de la QQline
-Ca sesgado a la izq no llega a ser nomal en los extremos
-Mg no es normal 
+
+Variable biomasa microbiana sesgada a la izquierda. QQ plot muestra
+forma de U. Variable materia orgánica particulada sesgo en la primera
+parte del QQ plo luego sigue en línea, los bigotes de la derecha un poco
+separados, media y mediana hacia la derecha. Respiracion microbiana,
+sesgado a la izquierda Variable DAP aproximadamente normal, excepto en
+los extremos Humedad relativa similar a la DAP Variable pH, sesgado
+levemente a la izquierda, el QQ plot muestra valores que se alejan de la
+linea a partir de mas de la mitd de los datos Conductividad eléctrica no
+normal MO variable aproximadamente normal aunque con oscilaciones N
+distribucion normal P no es normal, el QQ muestra forma de U K
+aproximadamente normal aunque con los extremos alejandose de la QQline
+Ca sesgado a la izq no llega a ser nomal en los extremos Mg no es normal
 Na tampoco muestra normalidad
 
-Las pruebas de shapiro, tampoco indica que existiese normalidad en las variables. 
+Las pruebas de shapiro, tampoco indica que existiese normalidad en las
+variables.
+
 ```{r covarianza, echo=FALSE}
 full_fqb[is.na(full_fqb)]<-0
-cov_full_fqb<-var(full_fqb[,-c(1)]);cov_full_fqb
-corr_full_fqb<-cor(full_fqb[,-c(1)]);corr_full_fqb
+cov_full_fqb<-var(full_fqb[,-c(1,2)]);cov_full_fqb
+corr_full_fqb<-cor(full_fqb[,-c(1,2)]);corr_full_fqb
 
-pairs(scale(full_fqb[,-1]),pch=19,col="deepskyblue")
+pairs(scale(full_fqb[,c(-1,-2)]),pch=19,col="deepskyblue")
 
-corr<-Hmisc::rcorr(as.matrix(full_fqb[,-c(1)]),type = "pearson");corr
+corr<-Hmisc::rcorr(as.matrix(full_fqb[,-c(1,2)]),type = "pearson");corr
 
 
 col3<-colorRampPalette(c("red","white","darkblue"))
-corrplot::corrplot(cor(full_fqb[,-c(1,3)]),tl.pos="t",type = "upper",tl.col = "black",tl.cex = .8,col=col3(100),bg="green")
+corrplot::corrplot(cor(full_fqb[,-c(1,3,2)]),
+                   tl.pos="t",type = "upper",
+                   tl.col = "black",tl.cex = .8,
+                   col=col3(100),bg="green")
 
 # Calcular la matriz de correlación de Spearman
-corr <- Hmisc::rcorr(as.matrix(full_fqb[,-c(1)]), type = "spearman")
+corr <- Hmisc::rcorr(as.matrix(full_fqb[,-c(1,2)]), type = "spearman")
 
 # Obtener la matriz de correlación de Spearman del resultado
 matriz_corr_spearman <- corr$r
@@ -305,17 +316,18 @@ matriz_corr_spearman <- corr$r
 colores <- colorRampPalette(c("red", "white", "darkblue"))(100)
 
 # Crear el gráfico de correlaciones usando corrplot
-corrplot::corrplot(matriz_corr_spearman, tl.pos = "t", type = "upper", tl.col = "black", tl.cex = 0.8, col = colores, bg = "green")
+corrplot::corrplot(matriz_corr_spearman, 
+                   tl.pos = "t", type = "upper", 
+                   tl.col = "black", tl.cex = 0.8, 
+                   col = colores, bg = "green")
 
 
 ```
 
-El gráfico pairs pares de puntos nos muesta correlacion MO POM, ya que POM deriva de MO.
-En resistencia mecanica hay outlier
-N , Mo y Bmicrobiana muestran relaciones entre ellos
-DAP y Bmicro algo muestran 
-H y Mo alguna relación también
-pH y Na muestran alguna relación
+El gráfico pairs pares de puntos nos muesta correlacion MO POM, ya que
+POM deriva de MO. En resistencia mecanica hay outlier N , Mo y
+Bmicrobiana muestran relaciones entre ellos DAP y Bmicro algo muestran H
+y Mo alguna relación también pH y Na muestran alguna relación
 
 El SET sería: MO bMicro N pH
 
@@ -323,40 +335,100 @@ Con lo que muestra las correlaciones gráficamente agregaría CE DAP
 
 Con correlacion spearman indica que agregar Resistencia mecánica
 
-``` {r FQ_set, echo=FALSE }
+```{r FQ_set_cluster, echo=FALSE }
 
 #MATRICES DATOS FISICO QUÍMICOS BIOLÓGICOS
 #Con las variables de interés
 
 full_fqb_set<-full_fqb[,names(full_fqb)[-c(3,5,12:15)]]
+f_fq<-as.data.frame(full_fqb_set)
+row.names(f_fq)<-f_fq$nombre
+fq_dist<-vegdist(f_fq[,c(-1,-2)],
+                      method="canberra");fq_dist
+clust_ffq<-hclust(fq_dist,method = "complete")
+plot(clust_ffq, cex = 0.6)
+
 year_fqb_set<-year_fqb[,names(year_fqb)[-c(3,5,12:15)]]
+y_fq<-as.data.frame(year_fqb_set)
+row.names(y_fq)<-y_fq$y_nombre
+yfq_dist<-vegdist(y_fq[,-c(1,2)],
+                      method="canberra");yfq_dist
+clust_yfq<-hclust(yfq_dist,method = "complete")
+plot(clust_yfq, cex = 0.6)
+
 sitio_fqb_set<-sitio_fqb[,names(sitio_fqb)[-c(3,5,12:15)]]
+s_fq<-as.data.frame(sitio_fqb_set)
+row.names(s_fq)<-s_fq$s_nombre
+sfq_dist<-vegdist(s_fq[,-c(1,2)],
+                      method="canberra");sfq_dist
+clust_sfq<-hclust(sfq_dist,method = "complete")
+plot(clust_sfq, cex = 0.6)
+
+
 uso_fqb_set<-uso_fqb[,names(uso_fqb)[-c(3,5,12:15)]]
+
 
 ```
 
-```{r disimilaridaB, echo=FALSE}
-
-full_dist_ab<-vegdist(full_ab_temporal[,-c(1,2)],
+```{r cluster_biologico, echo=FALSE}
+f_ab<-as.data.frame(full_ab_temporal)
+row.names(f_ab)<-f_ab$nombre
+full_dist_ab<-vegdist(f_ab[,-c(1,2)],
                       method="canberra");full_dist_ab
-year_dist_ab<-vegdist(year_ab_temporal[,-c(1,2)],
+print("###################################################################
+      ####################################################################")
+
+y_ab<-as.data.frame(year_ab_temporal)
+row.names(y_ab)<-y_ab$y_nombre
+year_dist_ab<-vegdist(y_ab[,-c(1,2)],
                       method="canberra");year_dist_ab
-sitio_dist_ab<-vegdist(sitio_ab_temporal[,-c(1,2)],
+
+print("###################################################################
+      ####################################################################")
+s_ab<-as.data.frame(sitio_ab_temporal)
+row.names(s_ab)<-s_ab$s_nombre
+sitio_dist_ab<-vegdist(s_ab[,-c(1,2)],
                        method="canberra");sitio_dist_ab
-uso_dist_ab<-vegdist(uso_ab_temporal[,-1],
+
+print("###################################################################
+      ####################################################################")
+uso_ab<-as.data.frame(uso_ab_temporal)
+row.names(uso_ab)<-uso_ab$system
+uso_dist_ab<-vegdist(uso_ab[,-1],
                      method="canberra");uso_dist_ab
 
-full_dist_peso<-vegdist(full_peso_temporal[,-c(1,2)],
+print("###################################################################
+      ####################################################################")
+f_p<-as.data.frame(full_peso_temporal)
+row.names(f_p)<-f_p$nombre
+full_dist_peso<-vegdist(f_p[,-c(1,2)],
                         method="canberra");full_dist_peso
-year_dist_peso<-vegdist(year_peso_temporal[,-c(1,2)],
+
+print("###################################################################
+      ####################################################################")
+y_p<-as.data.frame(year_peso_temporal)
+row.names(y_p)<-y_p$y_nombre
+year_dist_peso<-vegdist(y_p[,-c(1,2)],
                         method="canberra");year_dist_peso
-sitio_dist_peso<-vegdist(sitio_peso_temporal[,-c(1,2)],
+
+print("###################################################################
+      ####################################################################")
+s_p<-as.data.frame(sitio_peso_temporal)
+row.names(s_p)<-s_p$s_nombre
+sitio_dist_peso<-vegdist(s_p[,-c(1,2)],
                          method="canberra");sitio_dist_peso
-uso_dist_peso<-vegdist(uso_peso_temporal[,-1],
+
+print("###################################################################
+      ####################################################################")
+uso_p<-as.data.frame(uso_peso_temporal)
+row.names(uso_p)<-uso_p$system
+uso_dist_peso<-vegdist(uso_p[,-1],
                        method="canberra");uso_dist_peso
 
+print("###################################################################
+      ####################################################################")
 clust_ab_full<-hclust(full_dist_ab,method = "complete")
-plot(clust_ab_full)
+plot(clust_ab_full, cex = 0.6)
 
 clust_ab_year<-hclust(year_dist_ab,method = "complete")
 plot(clust_ab_year)
@@ -369,7 +441,7 @@ plot(clust_ab_uso)
 
 
 clust_p_full<-hclust(full_dist_peso,method = "complete")
-plot(clust_p_full)
+plot(clust_p_full, cex = 0.6)
 
 clust_p_year<-hclust(year_dist_peso,method = "complete")
 plot(clust_p_year)
@@ -381,6 +453,7 @@ clust_p_uso<-hclust(uso_dist_peso,method = "complete")
 plot(clust_p_uso)
 
 ```
+
 
 <!-- DISTANCIA CANBERRA
 Definición
@@ -408,6 +481,61 @@ Los datos binarios - tiene una barba / no tiene una barba.
 Datos categóricos ordenados - pelo muy corto / pelo moderadamente lanudo / pelo no lanoso.
 Los datos cuantitativos - una medida como el peso en kilogramos o la altura en centímetros
 La distancia de Canberra es una manera de utilizar todos estos criterios en conjunto para separar a los individuos de acuerdo a si son similares o son diferentes .-->
+
+
+
+```{r diversidad, echo=FALSE}
+f_shanon<-diversity(f_ab[,-c(1,2)], index="shannon");f_shanon
+
+print("_______________________________________________________________")
+
+f_simpson<-diversity(f_ab[,-c(1,2)], index="simpson");f_simpson
+
+print("_______________________________________________________________")
+f_S<-specnumber(f_ab[,-c(1,2)]);f_S
+print("_______________________________________________________________")
+f_wilson<-betadiver(f_ab[,-c(1,2)], method=8);f_wilson
+
+plot(hclust(f_wilson,method = "complete"),cex=0.6)
+
+
+print("_______________________________________________________________")
+y_shanon<-diversity(y_ab[,-c(1,2)], index="shannon");y_shanon
+print("_______________________________________________________________")
+y_simpson<-diversity(y_ab[,-c(1,2)], index="simpson");y_simpson
+print("_______________________________________________________________")
+y_S<-specnumber(y_ab[,-c(1,2)]);y_S
+print("_______________________________________________________________")
+y_wilson<-betadiver(y_ab[,-c(1,2)], method=8);y_wilson
+print("_______________________________________________________________")
+
+plot(hclust(y_wilson,method = "complete"),cex=0.6)
+
+
+s_shanon<-diversity(s_ab[,-c(1,2)], index="shannon");s_shanon
+print("_______________________________________________________________")
+s_simpson<-diversity(s_ab[,-c(1,2)], index="simpson");s_simpson
+print("_______________________________________________________________")
+s_S<-specnumber(s_ab[,-c(1,2)]);s_S
+print("_______________________________________________________________")
+s_wilson<-betadiver(s_ab[,-c(1,2)], method=8);s_wilson
+print("_______________________________________________________________")
+
+plot(hclust(s_wilson,method = "complete"),cex=0.6)
+
+
+uso_shanon<-diversity(uso_ab[,-c(1)], index="shannon");uso_shanon
+print("_______________________________________________________________")
+uso_simpson<-diversity(uso_ab[,-c(1)], index="simpson");uso_simpson
+print("_______________________________________________________________")
+uso_S<-specnumber(uso_ab[,-c(1)]);uso_S
+print("_______________________________________________________________")
+uso_wilson<-betadiver(uso_ab[,-c(1)], method=8);uso_wilson
+
+plot(hclust(uso_wilson,method = "complete"),cex=0.6)
+
+```
+
 ```{r anosim_ab, echo=FALSE}
 #ANOSIM
 
@@ -463,8 +591,13 @@ sitio_anosim_B<-vegan::anosim(sitio_B_temporal[,-c(1,2)],
               distance = "canberra"); summary(sitio_anosim_B)
 
 ```
-Mayores diferencias se hallan en matrices de similitud ANOSIM que utilizan la mediana del peso corporal de los diferentes taxones que con las abundancias y con las biomasas, quedando pesos individuales > biomasa $\approx$ abundancias
 
+Mayores diferencias se hallan en matrices de similitud ANOSIM que
+utilizan la mediana del peso corporal de los diferentes taxones que con
+las abundancias y con las biomasas, quedando pesos individuales \>
+biomasa $\approx$ abundancias
+
+```{=html}
 <!--La salida de la función `anosim` de `vegan` proporciona 
 información sobre la similitud entre grupos en tus datos y 
 te ayuda a determinar si hay diferencias significativas entre los 
@@ -511,4 +644,199 @@ pero esta diferencia es relativamente pequeña (R = 0.1586), lo que sugiere
 una separación leve entre los grupos. Ten en cuenta que la interpretación 
 específica puede depender del contexto de tu estudio y del campo científico 
 al que pertenezcas. -->
+```
+```{r PCA, echo=FALSE}
+################
+#FyQ Completo con todas
+f_pca<-PCA(full_fqb[,-c(1:2)], scale.unit = TRUE, graph = FALSE)
+summary(f_pca)
+##corelaciones
+f_pca_cor<-round(f_pca$var$cor[,1:4],3)
+#Gráficos con el % de variabilidad, se utiliza para elegir el nro de ejes
+#fviz_screeplot(f_pca, addlabels = TRUE, ylim = c(0, 60),main="Porcentaje de varianza")
+#fviz_eig(f_pca, addlabels = TRUE, ylim = c(0, 6),main="Eigenvalores",choice = "eigenvalue")
 
+#win.graph()
+fviz_pca_var(f_pca, col.var="cos2",gradient.cols = c("blue", "#E7B800", "red"),repel = TRUE)
+fviz_pca_ind(f_pca, col.ind="cos2",gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),repel = TRUE)
+fviz_pca_biplot(f_pca, axes = c(1,2),  col.ind="green4",gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),repel = TRUE,label = "var")
+
+########
+
+#FyQ Ahora completo pero con las recortadas
+rf_pca<-PCA(f_fq[,-c(1:2)], scale.unit = TRUE, graph = FALSE)
+summary(rf_pca)
+rf_pca_cor<-round(rf_pca$var$cor[,1:4],3)
+fviz_pca_biplot(rf_pca, axes = c(1,2),  col.ind="blue4",gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),repel = TRUE,label = "var")
+
+###########
+#FyQ year
+y_pca<-PCA(year_fqb[,-c(1:2)], scale.unit = TRUE, graph = FALSE)
+summary(y_pca)
+##corelaciones
+y_pca_cor<-round(y_pca$var$cor[,1:4],3)
+
+fviz_pca_var(y_pca, col.var="cos2",gradient.cols = c("blue", "#E7B800", "red"),repel = TRUE)
+fviz_pca_ind(y_pca, col.ind="cos2",gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),repel = TRUE)
+fviz_pca_biplot(y_pca, axes = c(1,2),  col.ind="green4",gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),repel = TRUE,label = "var")
+
+####################
+#FyQ sitio
+s_pca<-PCA(sitio_fqb[,-c(1:2)], scale.unit = TRUE, graph = FALSE)
+summary(s_pca)
+##corelaciones
+s_pca_cor<-round(s_pca$var$cor[,1:4],3)
+#Gráficos con el % de variabilidad, se utiliza para elegir el nro de ejes
+#fviz_screeplot(f_pca, addlabels = TRUE, ylim = c(0, 60),main="Porcentaje de varianza")
+#fviz_eig(f_pca, addlabels = TRUE, ylim = c(0, 6),main="Eigenvalores",choice = "eigenvalue")
+
+#win.graph()
+fviz_pca_var(s_pca, col.var="cos2",gradient.cols = c("blue", "#E7B800", "red"),repel = TRUE)
+fviz_pca_ind(s_pca, col.ind="cos2",gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),repel = TRUE)
+fviz_pca_biplot(s_pca, axes = c(1,2),  col.ind="green4",gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),repel = TRUE,label = "var")
+
+
+####################
+#con abundancias standarizadas por log(ab)+1
+std_f_ab<-decostand(full_ab_temporal[,-c(1,2)],"log",logbase = 2)
+std_ab_pca<-PCA(std_f_ab, scale.unit = TRUE, graph = FALSE)
+summary(std_ab_pca)
+std_ab_pca_cor<-round(std_ab_pca$var$cor[,1:5],3)
+#win.graph()
+fviz_pca_var(std_ab_pca, col.var="cos2",gradient.cols = c("blue", "#E7B800", "red"),repel = TRUE)
+fviz_pca_ind(std_ab_pca, col.ind="cos2",gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),repel = TRUE)
+fviz_pca_biplot(std_ab_pca, axes = c(1,2),  col.ind="green4",gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),repel = TRUE,label = "var")
+
+###################
+#Esta es el modo R, matriz donde las especies son
+#los ind y los sitios son las variables,
+
+std_s_ab<-t(decostand(sitio_ab_temporal[,-c(1,2)],"log",logbase = 2))
+colnames(std_s_ab)<-sitio_ab_temporal$s_nombre
+std_s_pca<-PCA(std_s_ab, scale.unit = TRUE, graph = FALSE)
+summary(std_s_pca)
+std_s_pca_cor<-round(std_s_pca$var$cor[,1:5],3)
+#win.graph()
+fviz_pca_var(std_s_pca, col.var="cos2",gradient.cols = c("blue", "#E7B800", "red"),repel = TRUE)
+fviz_pca_ind(std_s_pca, col.ind="cos2",gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),repel = TRUE)
+fviz_pca_biplot(std_s_pca, axes = c(1,2),  col.ind="green4",gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),repel = TRUE,label = "var")
+
+
+
+
+```
+
+Para retener la mayor variabilidad de variables FyQ se requieren 3 ejes,
+aunque los dos primeros retienen 50 o 605 de variabilidad
+
+```{=html}
+<!--En el contexto del Análisis de Componentes Principales (PCA), la "contribución de las variables" o "contribución de los individuos" se refiere a la importancia relativa de las variables o individuos en la formación de las dimensiones principales del espacio de características.
+
+En el contexto del Análisis de Componentes Principales (PCA), el "cos^2" (coseno al cuadrado) representa la calidad de representación de una variable o individuo en las dimensiones principales. Es un indicador de cuánto de la varianza total de la variable (o individuo) se explica por las dimensiones principales del PCA. En otras palabras, el cos^2 indica la proporción de la varianza de la variable (o individuo) que está representada por las dimensiones principales.-->
+```
+```{r kmean, echo = FALSE}
+################
+#utilizando el PCA se hace k-mean
+# Realizar el análisis de k-means
+#Renombrando con etiquetas que me interesan
+k_f_pca<-f_pca$ind$coord[, 1:2]
+row.names(k_f_pca)<-full_fqb$system
+# Acá utilizo var ind que hace referencia a los sitios de muestreo
+
+km_f_fqb <- kmeans(k_f_pca, centers = 3,nstart = 50)  # Reemplaza "centers" con el número deseado de clusters
+# Paso 7: Visualizar los resultados
+fviz_cluster(km_f_fqb, data = k_f_pca, geom = c("point","text"), 
+             ellipse.type = "norm", ellipse.level = 0.95) 
+
+############
+#Sitio-año k-mean
+k_y_pca<-y_pca$ind$coord[, 1:2]
+row.names(k_y_pca)<-year_fqb$system
+# Acá utilizo var ind que hace referencia a los sitios de muestreo
+
+km_y_fqb <- kmeans(k_y_pca, centers = 3,nstart = 50)  # Reemplaza "centers" con el número deseado de clusters
+
+
+# Paso 7: Visualizar los resultados
+fviz_cluster(km_y_fqb, data = k_y_pca, geom = c("point","text"), 
+             ellipse.type = "norm", ellipse.level = 0.95) 
+
+
+############
+#Especies-full k-mean
+k_sp_pca<-std_ab_pca$ind$coord[, 1:2]
+row.names(k_sp_pca)<-full_fqb$system
+# Acá utilizo var ind que hace referencia a los sitios de muestreo
+
+km_sp_ <- kmeans(k_sp_pca, centers = 3,nstart = 50)  # Reemplaza "centers" con el número deseado de clusters
+
+
+# Paso 7: Visualizar los resultados
+fviz_cluster(km_sp_, data = k_sp_pca, geom = c("point","text"), 
+             ellipse.type = "norm", ellipse.level = 0.95) 
+
+```
+
+Ok, k means de FyQ completo no separa al ganadero del agrícola. El
+naturalizado en parte se hace a un lado pero también se entremezcla
+
+```{=html}
+<!--K-means partitioning may be computed from either 
+a table of raw data or a distance 2 matrix,...
+
+The disadvantage of using a table of raw data 
+is that the only distance function
+among points, available during K-means
+partitioning, is the Euclidean distance (D1,
+Chapter 7) in A-space. This is not suitable for 
+species counts and other types of
+frequency data (Fig. 7.8). Two solutions are 
+possible when the Euclidean distance is
+unsuitable: (1) one may transform the species 
+data using one of the transformations
+described in Section 7.7 and use the transformed 
+data in the K-means analysis; or
+(2) one may first compute a suitable distance 
+matrix among objects (see Tables 7.4 and
+7.5), decompose the distance matrix into eigenvectors
+by principal coordinate analysis
+(PCoA, Section 9.3), and run K-means partitioning 
+using the table of eigenvectors
+(principal coordinates).-->
+```
+```{r canonico,echo=FALSE}
+#utilizando APE paquete
+#podria utilizar stats
+y_d_pcoa<-year_dist_ab
+names(y_d_pcoa)<-year_ab_temporal$system
+y_pcoa<-ape::pcoa(y_d_pcoa)
+biplot(y_pcoa)
+
+
+#########
+####CA#
+
+ca.f <- vegan::cca(X = full_ab_temporal[,-c(1,2)])
+#por defecto escala 2, es decir sitios columnas son centroides de las filas
+summary(ca.f)
+summary(ca.f,scaling = 1)
+
+eig_ca_f<-ca.f$CA$eig
+
+plot(ca.f,scaling=1)
+plot(ca.f,scaling=2)
+
+ca.F <-  FactoMineR::CA (X = full_ab_temporal[,-c(1,2)])
+fviz_ca_biplot(
+    X=ca.F,
+    axes = c(1, 2),
+    geom = c("point", "text"),
+    geom.row = "point",
+    geom.col = "point",
+    label = "all",
+    invisible = "none",
+    arrows = c(FALSE, FALSE),
+    repel = FALSE,
+    title = "CA - Biplot")
+
+```

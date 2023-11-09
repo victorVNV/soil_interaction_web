@@ -1,0 +1,218 @@
+---
+title: "Análisis de las comunidades"
+author: "Velazco"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r lib, include=FALSE}
+#Carga paquetes
+{library("tidyverse");library("readxl");library("ade4") 
+library("vegan");library("cluster");library("BiodiversityR") 
+library("FactoMineR");library("factoextra")}
+
+```
+
+
+```{r carga,echo=FALSE}
+#Anális de datos de ROSANA
+RO <- read_excel("soil_networks.xlsx", sheet = "Ro_web")
+RO[is.na(RO)]<-0
+
+resumen_bruto<-summary(RO)
+
+```
+<!--Idea para realizar análisis
+Ver especies
+Diversidad alfa y Beta
+PCA y tb-PCA
+CA
+CCA
+K-Means-->
+# Análisis de la estructura de la comunidad
+
+Trabajaré con la base de datos completa sin considerar las submuestras,
+ya que las sub muestras deben ser agrupadas para evitar la autocorrelación
+
+Es necesario llevar las abundancias de los animales a valores de densidad
+ya que las lombrices fueron tomadas con monolitos (factor= 16)
+y los microartrópodos con sacabocados (factor= 509.2958).
+
+A la vez se redondean los valores hacia el más bajo, de esta manera
+las lombrices tendrían 16 ind/m² y los microartrópodos 510 ind/m².
+
+A partir de este se calcula la Biomasa de los organismos
+
+
+```{r matrices, echo=FALSE}
+###############
+RO_f<-RO %>% mutate(nombre=paste(system,
+                                    substr(site,1,3),
+                                    substr(year,3,4),
+                                    substr(month,1,3)))%>%
+  group_by(nombre,
+           system,site,year,month,season,
+           order,guild,specie) %>%
+  summarise(abundance=n(), peso.ind=median(biomass), 
+            bmicro=(median(bm)), 
+            res.mec=median((RM5+RM10)/2),DAP=median(DAP),HR=median(HR),
+            pH=median(Ph),CE=median(CE),
+            MO=median(MO),N=median(N),P=median(P),K=median(K),
+            Ca=median(Ca),Mg=median(Mg),Na=median(Sodio))%>%
+  distinct(specie,.keep_all=TRUE)
+
+#####################
+#Llevando abundancias a densidad
+
+sup.bocado <- 1/(pi*2.5^2/10000)
+sup.monolito <- 1/(0.25*0.25)
+
+#################
+RO_full<-RO_f%>%mutate(D=floor(case_when(order=="crassiclitellata"~sup.monolito*abundance,order!="crassiclitellata"~sup.bocado*abundance)),BT=D*peso.ind)
+
+##################
+#Matriz de comunidad
+
+abund_RO<-RO_full[,c("nombre","system","site","specie","abundance","D")] %>% 
+  pivot_wider(names_from = specie,
+              values_from = c(abundance,D),
+              values_fill = 0,
+              values_fn = sum)%>%
+  distinct(nombre,.keep_all=TRUE)
+
+peso_RO<-RO_full[,c("nombre","system","site","specie","peso.ind","BT")] %>% 
+  pivot_wider(names_from = specie,
+              values_from = c(BT,peso.ind),
+              values_fill = 0,
+              values_fn = mean)%>%
+  distinct(nombre,.keep_all=TRUE)
+
+fq_RO<-RO_full%>%group_by(nombre,
+           system,site,year,month,season,
+           )%>%
+  summarise(res.mec=mean(res.mec),DAP=mean(DAP),HR=mean(HR),
+            pH=mean(pH),CE=mean(CE),
+            MO=mean(MO),N=mean(N),P=mean(P),K=mean(K),
+            Ca=mean(Ca),Mg=mean(Mg),Sodio=mean(Na))%>%
+  distinct(nombre,.keep_all=TRUE)
+  
+RO_db_full<-merge(abund_RO,peso_RO, fq_RO, by.x = "nombre", by.y = "nombre", by.z = "nombre", all = TRUE)
+
+```
+
+
+# Riqueza de especies
+```{r spc, echo=FALSE}
+
+
+
+######
+
+#Lista de especie agrupadas según el colector
+#De los datos brutos de RO
+#Arrastrado a partir de los agrupamientos y pivoteo en ancho
+#Nombres tomados de la columnas de abun_RO y "reformateados"
+spc.colector<-c("Apo_cal","Apo_tra", "Mic_dub",
+                "lom_juv","isotomidae", "gastropoda", "epilohmannioidea",
+                "euphthiracaroidea","oripodoidea","oppioidea",
+                "onychiuridae","Apo_ros","formicidae",
+                "parasitoidea","ceratozetoidea",
+                "brachychthonioidea","crotonioidea","hypogastruridae",
+                "eupodoidea","sciaridae","veigaioidea","ptiliidae",
+                "entomobroidea","miriapoda","rhodacaroidea",
+                "galumnioidea","symphila","chylopoda","carabidae",
+                "ecidomyiidae","psocoptera","symphypleona",
+                "staphylinidae","octala","bdelloidea",
+                "isoptera","dermanyssoidea","trombidioidea",
+                "octacy","gryllotalpidae","acaroidea","pauropoda",
+                "tydeoidea","uropodoidea","mesostigmata","linyphiidae",
+                "euker","oribatida","Mic_pho","scarabaeidae","isopoda",
+                "gryllidae" )
+
+ab<-abund_RO[,4:55]
+colnames(ab)<-spc.colector
+rownames(ab)<-abund_RO$nombre
+
+# Uso de función riqueza especies
+print("#############################################")
+print("Tabla de riqueza de especies por cada muestra")
+Muestras<-abund_RO$nombre
+Riqueza<-specnumber(ab)
+data.frame(Muestras,Riqueza,row.names = NULL)
+
+print("#############################################")
+print("Tabla de riqueza de especies por cada sitio")
+print(data.frame(Sitios=levels(as.factor(abund_RO$site)),Riqueza=specnumber(ab,groups=abund_RO$site),row.names = NULL))
+
+print("#############################################")
+print("Tabla de riqueza de especies en cada sistema de uso del suelo")
+print(data.frame(system=levels(as.factor(abund_RO$system)),
+                 Riqueza=specnumber(ab,groups=abund_RO$system),row.names = NULL))
+```
+
+```{r H-J, echo=FALSE}
+
+library(boot)
+H<-diversity(ab, index="shannon")
+
+######################
+# Función para calcular la media
+mean_func <- function(data, indices) {
+  mean(data[indices])
+}
+
+# Función para calcular el desvío estándar
+sd_func <- function(data, indices) {
+  sd(data[indices])
+}
+
+# Número de repeticiones de bootstrap
+n_boot <- 1000
+set.seed(167)
+##############
+# Realizar bootstrap para calcular la media y el desvío estándar
+#Systema Agrícola
+boot_mean_A <- boot(H[c(1:34)], mean_func, R = n_boot)
+boot_sd_A <- boot(H[c(1:34)], sd_func, R = n_boot)
+
+bootstrap_mean_A <- boot.ci(boot_mean_A, type = "basic")#$basic
+bootstrap_sd_A <- boot.ci(boot_sd_A, type = "basic")#$basic
+#Quito el $basic, porque me quita la descripción de lo que significan los valores
+
+#Sistema Ganadero
+boot_mean_G <- boot(H[c(35:64)], mean_func, R = n_boot)
+boot_sd_G <- boot(H[c(35:64)], sd_func, R = n_boot)
+bootstrap_mean_G <- boot.ci(boot_mean_G, type = "basic")
+bootstrap_sd_G <- boot.ci(boot_sd_G, type = "basic")
+
+#Sistema Pastizal
+boot_mean_N <- boot(H[c(65:95)], mean_func, R = n_boot)
+boot_sd_N <- boot(H[c(65:95)], sd_func, R = n_boot)
+bootstrap_mean_N <- boot.ci(boot_mean_G, type = "basic")
+bootstrap_sd_N <- boot.ci(boot_sd_G, type = "basic")
+
+#################
+
+print("#############################################")
+print("Tabla de Promedio y desvío standar del índice de Shannon en cada sistema de uso del suelo")
+print("Método no paramétrico 'boostraping'\n")
+print(data.frame(system=levels(as.factor(abund_RO$system)),
+                 mean=c(boot_mean_A[[1]],boot_mean_G[[1]],boot_mean_N[[1]]),
+                 desvio_std=c(boot_sd_A[[1]],boot_sd_G[[1]],boot_sd_N[[1]]),
+                 l.mean.int=c(bootstrap_mean_A$basic[4],bootstrap_mean_G$basic[4],
+                   bootstrap_mean_N$basic[4]),
+                 h.mean.int=c(bootstrap_mean_A$basic[5],bootstrap_mean_G$basic[5],
+                   bootstrap_mean_N$basic[5]),
+                 l.sd.int=c(bootstrap_sd_A$basic[4],bootstrap_sd_G$basic[4],
+                   bootstrap_sd_N$basic[4]),
+                 h.sd.int=c(bootstrap_sd_A$basic[5],bootstrap_sd_G$basic[5],
+                   bootstrap_sd_N$basic[5]),row.names = NULL))
+
+
+```
+
+<https://r-bloggers.com/2019/09/understanding-bootstrap-confidence-interval-output-from-the-r-boot-package/>
