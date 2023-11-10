@@ -28,10 +28,12 @@ resumen_bruto<-summary(RO)
 ```
 <!--Idea para realizar análisis
 Ver especies
-Diversidad alfa y Beta
-PCA y tb-PCA
+Diversidad Alfa 
+Diversidad Beta
+PCoA
+ANOSIM
 CA
-CCA
+PCA y tb-PCA
 K-Means-->
 # Análisis de la estructura de la comunidad
 
@@ -104,11 +106,11 @@ RO_db_full<-merge(abund_RO,peso_RO, fq_RO, by.x = "nombre", by.y = "nombre", by.
 
 ```
 
+#Diversidad Alfa
 
-# Riqueza de especies
+## Riqueza de especies
+
 ```{r spc, echo=FALSE}
-
-
 
 ######
 
@@ -132,8 +134,8 @@ spc.colector<-c("Apo_cal","Apo_tra", "Mic_dub",
                 "tydeoidea","uropodoidea","mesostigmata","linyphiidae",
                 "euker","oribatida","Mic_pho","scarabaeidae","isopoda",
                 "gryllidae" )
-
-ab<-abund_RO[,4:55]
+#abund_RO[,4:55]
+ab<-abund_RO[,56:107]
 colnames(ab)<-spc.colector
 rownames(ab)<-abund_RO$nombre
 
@@ -154,9 +156,12 @@ print(data.frame(system=levels(as.factor(abund_RO$system)),
                  Riqueza=specnumber(ab,groups=abund_RO$system),row.names = NULL))
 ```
 
-```{r H-J, echo=FALSE}
+## Índice de Shanon
+
+```{r H, echo=FALSE}
 
 library(boot)
+set.seed(167)
 H<-diversity(ab, index="shannon")
 
 ######################
@@ -215,4 +220,91 @@ print(data.frame(system=levels(as.factor(abund_RO$system)),
 
 ```
 
+# Diversidad Beta
+
+## Índice de Wilson
+
+```{r Beta, echo=FALSE}
+
+D_site<-RO_full[,c("system","site","specie","D")] %>% 
+  pivot_wider(names_from = specie,
+              values_from = c(D),
+              values_fill = 0,
+              values_fn = sum)%>%
+  distinct(system,.keep_all=TRUE)
+D_site<-as.data.frame(D_site)
+row.names(D_site)<-D_site$site
+
+beta<-betadiver(D_site[,-c(1,2)], method=8)
+div.beta<-hclust(beta,method = "mcquitty")
+plot(div.beta,cex=0.6)
+
+```
+Globalmente se observa separación de los diferentes sitios. El triángulo que es pastizal naturalizado esta levemente relacionado a los agrícolas.
+
+Living communities are spatially structured at many scales, and
+these structures are the result of several classes of processes. On the other hand,
+beta diversity is the spatial variation in community composition; so, a study of the
+factors that can explain the spatial variation of community composition is in every
+respect an analysis of beta diversity. (Numerical Ecology con R pp 228)
+
+# PCoA
+
+```{r pcoa,echo=FALSE,warning=FALSE}
+####################
+# Especies como columnas
+tb_ab<-decostand(ab,"total")
+rownames(tb_ab)<-c(1:95)
+  #c(rep("A", 34), rep("G", 30), rep("N", 31))
+
+tb_pcoa<-vegdist(tb_ab, method="bray")
+
+pcoa_1<-cmdscale(tb_pcoa,k=(nrow(tb_ab)-1), eig=TRUE)
+{ordiplot(scores(pcoa_1)[,c(1,2)],type="t",main="Analisis de coordinadas principales",sub="Especies como descriptores")
+abline(h=0,lty=3)
+abline(v=0,lty=3)
+spe<-wascores(pcoa_1$points[,c(1,2)],tb_ab)
+#text(spe,rownames(spe),cex=0.7,col="red")
+pch<-c(1,1,1,1,9, 3, 5,5,5,5,9,1,3, 6,5,5,5,9,7,3,6,3,
+         9,3,6,5,10,3,3,3,3,10,3,1,7,3,6,7,1,3,5,10,
+           7,6,6,3,1,5,1,3,3,3)
+points(spe[,1],spe[,2],cex=0.7,col="red",pch=pch)
+} #Con lista de especie 
+#podes hacer caracteres pch=c(1,2,3)
+#lombrices=1; macro=2; acaros_orib= 5; ac_meso= 6
+#ac_prost=7; artropleona=9; no_artropleona=10
+
+################
+#Sitios como columnas
+tb_sitio<-t(tb_ab)
+colnames(tb_sitio)<-abund_RO$nombre
+  #c(rep("A", 34), rep("G", 30), rep("N", 31))
+
+tb_sitio_pcoa<-vegdist(tb_sitio, method="bray")
+
+pcoa_2<-cmdscale(tb_sitio_pcoa,k=(nrow(tb_sitio)-1), eig=TRUE)
+{ordiplot(scores(pcoa_2)[,c(1,2)],type="t",main="Analisis de coordinadas principales",sub="Sitios como descriptores")
+abline(h=0,lty=3)
+abline(v=0,lty=3)
+site<-wascores(pcoa_2$points[,c(1,2)],tb_sitio)
+#text(spe,rownames(spe),cex=0.7,col="red")
+points(site[,1],site[,2],cex=0.8,col="red", pch=c(rep(2, 34), rep(5, 30), rep(3, 31)))
+}
+
+
+```
+
+
+# ANOSIM
+
+# CA
+
+# PCA y tb-PCA
+
+# K-Means
+
+
+
 <https://r-bloggers.com/2019/09/understanding-bootstrap-confidence-interval-output-from-the-r-boot-package/>
+
+< https://doi.org/10.1046/j.1365-2656.2003.00710.x>

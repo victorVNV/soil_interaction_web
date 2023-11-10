@@ -645,6 +645,7 @@ una separación leve entre los grupos. Ten en cuenta que la interpretación
 específica puede depender del contexto de tu estudio y del campo científico 
 al que pertenezcas. -->
 ```
+
 ```{r PCA, echo=FALSE}
 ################
 #FyQ Completo con todas
@@ -734,6 +735,7 @@ aunque los dos primeros retienen 50 o 605 de variabilidad
 
 En el contexto del Análisis de Componentes Principales (PCA), el "cos^2" (coseno al cuadrado) representa la calidad de representación de una variable o individuo en las dimensiones principales. Es un indicador de cuánto de la varianza total de la variable (o individuo) se explica por las dimensiones principales del PCA. En otras palabras, el cos^2 indica la proporción de la varianza de la variable (o individuo) que está representada por las dimensiones principales.-->
 ```
+
 ```{r kmean, echo = FALSE}
 ################
 #utilizando el PCA se hace k-mean
@@ -804,6 +806,7 @@ by principal coordinate analysis
 using the table of eigenvectors
 (principal coordinates).-->
 ```
+
 ```{r canonico,echo=FALSE}
 #utilizando APE paquete
 #podria utilizar stats
