@@ -9,16 +9,17 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r lib, include=FALSE}
+```{r lib, include=FALSE, warning=FALSE}
 #Carga paquetes
 {library("tidyverse");library("readxl");library("ade4") 
 library("vegan");library("cluster");library("BiodiversityR") 
 library("FactoMineR");library("factoextra")}
+set.seed(167)
 
 ```
 
 
-```{r carga,echo=FALSE}
+```{r carga,echo=FALSE,warning=FALSE}
 #Anális de datos de ROSANA
 RO <- read_excel("soil_networks.xlsx", sheet = "Ro_web")
 RO[is.na(RO)]<-0
@@ -50,7 +51,7 @@ las lombrices tendrían 16 ind/m² y los microartrópodos 510 ind/m².
 A partir de este se calcula la Biomasa de los organismos
 
 
-```{r matrices, echo=FALSE}
+```{r matrices, echo=FALSE, warning=FALSE}
 ###############
 RO_f<-RO %>% mutate(nombre=paste(system,
                                     substr(site,1,3),
@@ -74,7 +75,10 @@ sup.bocado <- 1/(pi*2.5^2/10000)
 sup.monolito <- 1/(0.25*0.25)
 
 #################
-RO_full<-RO_f%>%mutate(D=floor(case_when(order=="crassiclitellata"~sup.monolito*abundance,order!="crassiclitellata"~sup.bocado*abundance)),BT=D*peso.ind)
+RO_full<-RO_f%>%mutate(D=floor(case_when(
+  order=="crassiclitellata"~sup.monolito*abundance,
+  order!="crassiclitellata"~sup.bocado*abundance)
+  ),BT=D*peso.ind)
 
 ##################
 #Matriz de comunidad
@@ -102,7 +106,7 @@ fq_RO<-RO_full%>%group_by(nombre,
             Ca=mean(Ca),Mg=mean(Mg),Sodio=mean(Na))%>%
   distinct(nombre,.keep_all=TRUE)
   
-RO_db_full<-merge(abund_RO,peso_RO, fq_RO, by.x = "nombre", by.y = "nombre", by.z = "nombre", all = TRUE)
+RO_db_full <- merge(fq_RO, merge(abund_RO, peso_RO, by = "nombre", all = TRUE), by = "nombre", all = TRUE)
 
 ```
 
@@ -110,7 +114,7 @@ RO_db_full<-merge(abund_RO,peso_RO, fq_RO, by.x = "nombre", by.y = "nombre", by.
 
 ## Riqueza de especies
 
-```{r spc, echo=FALSE}
+```{r spc, echo=FALSE,warning=FALSE}
 
 ######
 
@@ -134,6 +138,8 @@ spc.colector<-c("Apo_cal","Apo_tra", "Mic_dub",
                 "tydeoidea","uropodoidea","mesostigmata","linyphiidae",
                 "euker","oribatida","Mic_pho","scarabaeidae","isopoda",
                 "gryllidae" )
+
+#Lo llamo Abun pero es Densidad
 #abund_RO[,4:55]
 ab<-abund_RO[,56:107]
 colnames(ab)<-spc.colector
@@ -158,7 +164,7 @@ print(data.frame(system=levels(as.factor(abund_RO$system)),
 
 ## Índice de Shanon
 
-```{r H, echo=FALSE}
+```{r H, echo=FALSE, warning=FALSE}
 
 library(boot)
 set.seed(167)
@@ -220,15 +226,18 @@ print(data.frame(system=levels(as.factor(abund_RO$system)),
 
 ```
 
+
+
+
 # Diversidad Beta
 
 ## Índice de Wilson
 
-```{r Beta, echo=FALSE}
+```{r Beta, echo=FALSE, warning=FALSE}
 
 D_site<-RO_full[,c("system","site","specie","D")] %>% 
   pivot_wider(names_from = specie,
-              values_from = c(D),
+              values_from = D,
               values_fill = 0,
               values_fn = sum)%>%
   distinct(system,.keep_all=TRUE)
@@ -237,10 +246,11 @@ row.names(D_site)<-D_site$site
 
 beta<-betadiver(D_site[,-c(1,2)], method=8)
 div.beta<-hclust(beta,method = "mcquitty")
-plot(div.beta,cex=0.6)
+plot(div.beta,cex=0.6,main="Agrupamiento según índice Wilson",sub="Diversidad Beta entre sitios",ylab="Índice de Wilson",xlab="")
 
 ```
 Globalmente se observa separación de los diferentes sitios. El triángulo que es pastizal naturalizado esta levemente relacionado a los agrícolas.
+
 
 Living communities are spatially structured at many scales, and
 these structures are the result of several classes of processes. On the other hand,
@@ -248,28 +258,57 @@ beta diversity is the spatial variation in community composition; so, a study of
 factors that can explain the spatial variation of community composition is in every
 respect an analysis of beta diversity. (Numerical Ecology con R pp 228)
 
+
 # PCoA
 
 ```{r pcoa,echo=FALSE,warning=FALSE}
 ####################
 # Especies como columnas
-tb_ab<-decostand(ab,"total")
+tb_ab<-decostand(ab,"log")
+
 rownames(tb_ab)<-c(1:95)
   #c(rep("A", 34), rep("G", 30), rep("N", 31))
 
 tb_pcoa<-vegdist(tb_ab, method="bray")
 
 pcoa_1<-cmdscale(tb_pcoa,k=(nrow(tb_ab)-1), eig=TRUE)
-{ordiplot(scores(pcoa_1)[,c(1,2)],type="t",main="Analisis de coordinadas principales",sub="Especies como descriptores")
+{ordiplot(scores(pcoa_1)[,c(1,2)],type="n",main="Analisis de coordinadas principales",sub="Especies como descriptores")
 abline(h=0,lty=3)
 abline(v=0,lty=3)
+#points(scores(pcoa_1)[,1],scores(pcoa_1)[,2],col="grey", 
+ #      pch=c(rep(2, 34), rep(5, 30), rep(3, 31)))
+text(scores(pcoa_1)[,1],scores(pcoa_1)[,2], 
+     c(rep("A", 34),rep("G", 30),rep("N", 31)),
+     cex=0.6)
 spe<-wascores(pcoa_1$points[,c(1,2)],tb_ab)
 #text(spe,rownames(spe),cex=0.7,col="red")
 pch<-c(1,1,1,1,9, 3, 5,5,5,5,9,1,3, 6,5,5,5,9,7,3,6,3,
          9,3,6,5,10,3,3,3,3,10,3,1,7,3,6,7,1,3,5,10,
            7,6,6,3,1,5,1,3,3,3)
-points(spe[,1],spe[,2],cex=0.7,col="red",pch=pch)
-} #Con lista de especie 
+pch <- case_when(
+  pch == 1 ~ 15,#lom
+  pch == 3 ~ 12,#macro
+  pch == 5 ~ 0,#ori
+  pch == 6 ~ 5,#mes
+  pch == 7 ~ 6,#pro
+  pch == 9 ~ 8,#art
+  pch == 10 ~ 11,#no art
+  )
+color.sp<-pch
+color.sp <- case_when(
+  color.sp == 15 ~ "black",#lom
+  color.sp == 12 ~ "hotpink",#macro
+  color.sp == 0 ~ "chocolate1",#ori
+  color.sp == 5 ~ "chocolate2",#mes
+  color.sp == 6 ~ "chocolate3",#pro
+  color.sp == 8 ~ "springgreen1",#art
+  color.sp == 11 ~ "blue",#no art
+  TRUE ~ as.character(color.sp)
+)
+points(spe[,1],spe[,2],cex=1.2,col=color.sp,pch=pch)
+} 
+
+#Con lista de especie 
 #podes hacer caracteres pch=c(1,2,3)
 #lombrices=1; macro=2; acaros_orib= 5; ac_meso= 6
 #ac_prost=7; artropleona=9; no_artropleona=10
@@ -283,25 +322,316 @@ colnames(tb_sitio)<-abund_RO$nombre
 tb_sitio_pcoa<-vegdist(tb_sitio, method="bray")
 
 pcoa_2<-cmdscale(tb_sitio_pcoa,k=(nrow(tb_sitio)-1), eig=TRUE)
-{ordiplot(scores(pcoa_2)[,c(1,2)],type="t",main="Analisis de coordinadas principales",sub="Sitios como descriptores")
+{ordiplot(scores(pcoa_2)[,c(1,2)],type="n",cex=0.5,main="Analisis de coordinadas principales",sub="Sitios como descriptores")
 abline(h=0,lty=3)
 abline(v=0,lty=3)
 site<-wascores(pcoa_2$points[,c(1,2)],tb_sitio)
+points(scores(pcoa_2)[,1],scores(pcoa_2)[,2],cex=0.9,col=color.sp, pch=pch)
 #text(spe,rownames(spe),cex=0.7,col="red")
-points(site[,1],site[,2],cex=0.8,col="red", pch=c(rep(2, 34), rep(5, 30), rep(3, 31)))
+#points(site[,1],site[,2],cex=1.3,
+ #      col=c(rep("red", 34), rep("green", 30), rep("blue", 31)),
+  #     pch=c(rep(2, 34), rep(5, 30), rep(3, 31)))
+text(site[,1],site[,2], 
+     c(rep("A", 34), rep("G", 30),  rep("N", 31)),
+     cex=0.6)
 }
 
 
 ```
 
+# Índices Cualitativos
+
+
+```{r ind_cualitativos,echo=FALSE, warning=FALSE}
+
+
+```
+
+
+
+Índices **oribátidos/astigmados**, **detritívoros/recolonizadores** y 
+**detritívoros/no detritívoros**. (Dávila, Socarrás et al. Fauna del Suelo Cap. 14)
+
+Índice de intervención antrópica = **I_{a}=(ab oppidea+ab galumnidos)/ab galumnidos**
+Los galúmnidos se han asociado con suelos intervenidos. 
+Los ópidos, en cambio, presentan mayor abundancia en suelos donde se favorece el
+desarrollo de mantillo y la presencia de comunidades fiíngicas, que constituyen su
+principal fuente de alimento (Woas, 2002; Guevara el al., 2002). 
+Un valor de lA igual a 1 indica ausencia de ópidos y sitios con mayor grado de
+intervención antrópica, el valor 2 significa igual abundancia de ópidos
+y galúmnidos y los valores mayores que 2 señalan sitios con mayor salud edáfica.
+(Accatolli et al. 2012 Acarologia Latinoamericana)
+
+La relación **oribátidos/prostigmados** permite conocer
+el grado de infertilidad y desequilibrio existente
+en un área, el que se expresa –principalmente– en
+el bajo contenido orgánico y los bajos valores de
+carbonato de calcio y humedad
+
+Bedano et al. (2001) establecieron como efecti-
+va la relación **Astigmada/Mesostigmada** para pre-
+decir la inestabilidad del medio edáfico. Si hay una
+fuerte presencia del grupo del numerador –indicador
+de inestabilidad–, se puede inferir que el medio está
+alterado y perturbado.
+
+Evaluación de sistemas agroecológicos mediante indicadores
+biológicos de la calidad del suelo: mesofauna edáfica. Pastos y Forrajes, 
+Vol. 37, No. 1, enero-marzo, 47-54, 2014
 
 # ANOSIM
 
-# CA
+```{r anosim, include=FALSE, warning=FALSE}
+#Densidad nro ind/m2
+#Se utiliará la transformación "log" = (log x) + 1 si x > 0 o 0 si x = 0
+#Especies ocasionales, no muestreados correctamente
+#En total 18 especies, 
 
-# PCA y tb-PCA
+spe.no<-c(6,13,20,22,24,27,28,29,30,31,33,36,40,42,46,50,51,52)
+
+#########################
+#Listado completo de especies
+D_anosim<-RO_db_full[,c(1,2,3,73:124)]
+colnames(D_anosim)<-c("nombre","system","site",spc.colector)
+
+tb_D<-decostand(D_anosim[,-c(1,2,3)],"log")
+
+Den_anosim<-vegan::anosim(tb_D, 
+              as.matrix(D_anosim[,"system"]), 
+              permutations = 1670, 
+              distance = "bray")
+print("Resumen del ANOSIM para los datos de densidad log +1 transformados")
+summary(Den_anosim)
+
+peso_anosim<-RO_db_full[,c(1,2,3,179:230)]
+colnames(peso_anosim)<-c("nombre","system","site",spc.colector)
+tb_p<-decostand(peso_anosim[,-c(1,2,3)],"log")
+p_anosim<-vegan::anosim(tb_p, 
+              as.matrix(peso_anosim[,"system"]), 
+              permutations = 999, 
+              distance = "bray")
+print("Resumen del ANOSIM para los datos de pesos log + 1 transformados")
+summary(p_anosim)
+
+##########################
+#Listado sin especies submuestradas
+
+no.tb_D<-tb_D[,-spe.no]
+
+noD_anosim<-vegan::anosim(no.tb_D, 
+              as.matrix(D_anosim[,"system"]), 
+              permutations = 999, 
+              distance = "bray")
+print("Resumen del ANOSIM para los datos de densidad no transformados")
+summary(noD_anosim)
+
+no_p_anosim<-vegan::anosim(tb_p[,-spe.no], 
+              as.matrix(peso_anosim[,"system"]), 
+              permutations = 999, 
+              distance = "bray")
+print("Resumen del ANOSIM para los datos de pesos no transformados")
+summary(no_p_anosim)
+
+```
+
+ANOSIM nos muestra que existen diferencias en las comunidades en sus valores densidad y de peso que han sido previamente transformadas pero no re escaladas. 
+
+Si se consideran las matrices con todas las especies o sin las especies submuestreadas, los valores muestran patrones semejantes.
+
+Estos patrones son: 
+  1. diferencias significativas en las comunidades considerando la densidad de los organismos y también considerando los pesos corporales de la fauna edáfica.
+  2. Valores de r^2^ interpretados como poder de explicación de la variabilidad de los datos por parte de los sistemas de uso del suelo bajos, < a 15
+  3. Valores de r^2^ siempre más altos para el peso de los organismos que para su densidad. 
+  
+En general el anosim filtrado no aumenta mucho el valor del modelos no filtrado.
+
+** Tabla Resumen de los modelos de ANOSIM **
+
+```{r summa_anosim,echo=FALSE, warning=FALSE}
+print(data.frame(modelo=c("Densidad completo",
+                                 "Peso completo",
+                                 "Densidad filtrado",
+                                 "Peso Filtrado"),
+                 valor_r2=c(Den_anosim[["statistic"]],
+                            p_anosim[["statistic"]],
+                            noD_anosim[["statistic"]],
+                            no_p_anosim[["statistic"]]),
+                 significancia=c(Den_anosim[["signif"]],
+                                 p_anosim[["signif"]],
+                                 noD_anosim[["signif"]],
+                                 no_p_anosim[["signif"]]),
+                 row.names = NULL))
+
+ 
+```
+
+# Análisis de Componentes principales con matrices transformadas a (log x) + 1
+
+```{r tb_PCA, echo=FALSE,include=FALSE}
+
+sit<-c(rep("A", 34), rep("G", 30), rep("N", 31))
+pch<-c(1,1,1,1,9, 3, 5,5,5,5,9,1,3, 6,5,5,5,9,7,3,6,3,
+         9,3,6,5,10,3,3,3,3,10,3,1,7,3,6,7,1,3,5,10,
+           7,6,6,3,1,5,1,3,3,3)
+col.sp<-pch
+col.sp <- case_when(
+  col.sp == 1 ~ "lom",
+  col.sp == 3 ~ "macro",
+  col.sp == 5 ~ "ori",
+  col.sp == 6 ~ "mes",
+  col.sp == 7 ~ "pro",
+  col.sp == 9 ~ "art",
+  col.sp == 10 ~ "no.art",
+  TRUE ~ as.character(col.sp)
+)
+
+#lombrices=1=lom; macro=3=macro; acaros_orib= 5=ori; ac_meso= 6=mes
+#ac_prost=7=pro; artropleona=9=art; no_artropleona=10=no.art
+
+################
+#FyQ Completo con todas y densidades estandarizadas
+
+tb_fq<-decostand(fq_RO[,-c(1:6)],"log")
+
+f_pca<-PCA(tb_fq, scale.unit = TRUE, graph = FALSE)
+summary(f_pca)
+##corelaciones
+f_pca_cor<-round(f_pca$var$cor[,1:4],3)
+#Biplot
+fviz_pca_biplot(f_pca, axes = c(1,2),  col.ind=sit, label = "var")
+
+####################
+#con Densidades standarizadas por log(ab)+1
+
+std_ab_pca<-PCA(tb_D, scale.unit = TRUE, graph = FALSE)
+summary(std_ab_pca)
+#correlaciones
+std_ab_pca_cor<-round(std_ab_pca$var$cor[,1:5],3)
+
+fviz_pca_var(std_ab_pca, col.var=col.sp,repel = TRUE, label="none")
+
+fviz_pca_ind(std_ab_pca, col.ind=sit,label="none",repel = TRUE)
+
+fviz_pca_biplot(std_ab_pca, axes = c(1,2),  col.ind=sit, col.var = col.sp,repel = TRUE,label = "none")
+
+####################
+#con Pesos standarizadas por log(ab)+1
+
+p_pca<-PCA(tb_p, scale.unit = TRUE, graph = FALSE)
+summary(std_ab_pca)
+p_pca_cor<-round(p_pca$var$cor[,1:5],3)
+
+#lombrices=1; macro=3; acaros_orib= 5; ac_meso= 6
+#ac_prost=7; artropleona=9; no_artropleona=10
+fviz_pca_var(p_pca, col.var=col.sp,repel = TRUE, label="none")
+
+fviz_pca_ind(p_pca, col.ind=sit,label="none",repel = TRUE)
+
+fviz_pca_biplot(p_pca, axes = c(1,2),  col.ind=sit, col.var = col.sp,repel = TRUE,label = "none")
+
+
+
+```
+
+** Análisis de Componentes Prinipales de los sitios de estudio
+en función de sus variables físicas y químicas **
+
+```{r PCA_fq,echo=FALSE, warning=FALSE}
+fviz_pca_biplot(f_pca, axes = c(1,2),  
+                col.ind=sit, label = "var", 
+                title = " ")
+
+```
+
+En PCA considerando las variables físicas y químicas de manera transformada y 
+considerando que las submuestras se encuentran agrupadas, 
+se pueden observar la separación de 3 grupos como una especie de función donde f y g de x se aproximan a h y por lo tanto sirven para calcular valores en ella.
+
+Por un lado inicia el sistema G, le sigue el A y el N al final.
+
+Observando los vectores representan a G la concentración de nitrógeno en el suelo 
+y un tanto la proporción de fósforo casi marginalmente y tambien un poco 
+relacionado con el A
+
+Para A resulta clara la relacion con el contenido de MO y HR en el suelo, 
+aunque también la CE se relaciona con este y marginalmente con N.
+
+En N varias variables se encontraron bien correlacionadas entre ellas el DAP el 
+sodio el pH y el Calcio, también la resistencia mecánica y los aumentos en sus 
+valores son asociados particularmente con el sistema N y el contenido de K que 
+resulta importante.
+
+
+
+** Análisis de Componentes Prinipales de los sitios de estudio
+en función de la densidad de la fauna edáfica **
+
+```{r PCA_D,echo=FALSE, warning=FALSE}
+
+fviz_pca_biplot(std_ab_pca, axes = c(1,2),  col.ind=sit, col.var = col.sp,repel = TRUE,label = "none", title= " ")
+
+```
+
+Si utilizamos la densidad de la fauna edáfica como descriptora de los sitio
+con los valores de ensidad transformados log + 1
+no se observan separaciones claras entre los sitios lo que coincide con anosim
+aunque si los centroides para cada sitio
+se encuentran en cuadrantes diferentes.
+
+Observando los vectores de taxones, se forman algunos grupos relacionados
+hacia la izq de la dim 1 quedan la Macrofauna (organismos submuestreados, ocacionales
+en ls muestras de ácaros y colémbolos) y algunos mesostigmata.
+Los mesostigmata se relacionan más con el sistema ganadero y 
+la macrofauna con el sitio N y algun taxa de lombriz (talvez los juv)
+con el sistema A.
+Hacia el lado derecho de la dim 1 y hacia abajo en dim 2, las lombrices se agrupan
+y arrojan sus vectores hacia algunos sitios localizados en A
+y los oribátidos se agrupan hacia arriba en la dim 2 cruzandosé con sitios en el
+sistema G,
+de manera similar los artropleona se encuentran por arriba con la dim 2
+pero más acostados relacionandose más intimamente con la dim 1
+
+** Análisis de Componentes Prinipales de los sitios de estudio
+en función de los pesos corporales de la fauna edáfica **
+
+```{r PCA_peso,echo=FALSE, warning=FALSE}
+
+fviz_pca_biplot(p_pca, axes = c(1,2),  col.ind=sit, col.var = col.sp,repel = TRUE,label = "none", title= " ")
+
+```
+
+Considerando los pesos corporales de los diferentes taxones de la fauna
+la separación entre los centroides de los sitios es más clara
+cercanos se encuentran el A y el N y más alejado el G
+
+Las lombrices se relacionan con valores positivos en la dim2
+La macrofauna se describe de manera similar al análisis anterior
+Los demás organismos pasaron hacia abajo con relación a la dim2
+
+Podriamos suponer que la dim 2 en el gráfico anterior indica la densidad y en este
+el peso corporal individual. Y que la dimensión 1 es la que intenta separar los sitios
+
+Los no artropleona esto es symphypleona y symphyla y pauropoda se relacionan 
+considerando la cuestión del peso con sitios N y A.
+Mesostigmata se observan relacionados con algunos sitios de N.
+Artroplona se relacionan con G y algunos en A.
+
+En ambos casos son necesarios tomar al menos 10 ejes par llegar a explicar el 805 de las variaciones que se dan entre las especies y entre los sitios. 
+
+
 
 # K-Means
+
+```{r}
+
+```
+
+
+
+
+
+
+# Reanálisis considerando grupos tróficos como grupos funcionales sensu yo mismo
 
 
 
