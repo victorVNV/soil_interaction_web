@@ -17,6 +17,7 @@ library(readxl)
 
 ```
 
+<!-- ver también, https://github.com/robertwbuchkowski/soilfoodwebs -->
 
 ```{r datos, include=FALSE}
 

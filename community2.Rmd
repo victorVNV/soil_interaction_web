@@ -36,7 +36,7 @@ ANOSIM
 CA
 PCA y tb-PCA
 K-Means-->
-# Análisis de la estructura de la comunidad
+# Análisis de la estructura de la comunidad del muestreo de Rosana
 
 Trabajaré con la base de datos completa sin considerar las submuestras,
 ya que las sub muestras deben ser agrupadas para evitar la autocorrelación
@@ -110,9 +110,9 @@ RO_db_full <- merge(fq_RO, merge(abund_RO, peso_RO, by = "nombre", all = TRUE), 
 
 ```
 
-#Diversidad Alfa
+##Diversidad Alfa
 
-## Riqueza de especies
+### Riqueza de especies
 
 ```{r spc, echo=FALSE,warning=FALSE}
 
@@ -162,7 +162,7 @@ print(data.frame(system=levels(as.factor(abund_RO$system)),
                  Riqueza=specnumber(ab,groups=abund_RO$system),row.names = NULL))
 ```
 
-## Índice de Shanon
+### Índice de Shanon
 
 ```{r H, echo=FALSE, warning=FALSE}
 
@@ -226,12 +226,518 @@ print(data.frame(system=levels(as.factor(abund_RO$system)),
 
 ```
 
+## Índices Cualitativos
+
+### Oribátidos sobre Astigmatas
+
+
+```{r ind_cualitativos,echo=FALSE, warning=FALSE}
+#agrupando por sitio
+#D_site, pero sin pivotar
+
+D_x_site<-RO_full%>%
+  group_by(system,site,order,guild,specie,D)%>%
+  summarise(densidad=sum(D))%>%
+  distinct(site,.keep_all=TRUE)
+
+##############
+#Primer índice Oribátidos / Astigmatos
+#por sitio
+# A = casuarina, manga, molino
+ori_casuarina<-subset(D_x_site, site=="casuarina"&order=="oribatida",
+                      select = densidad)
+ori_manga<-subset(D_x_site, site=="manga"&order=="oribatida",select = densidad)
+ori_molino<-subset(D_x_site, site=="molino"&order=="oribatida",select = densidad)
+
+ast_casuarina<-subset(D_x_site, site=="casuarina"&order=="astigmata",
+                      select = densidad)
+ast_manga<-subset(D_x_site, site=="manga"&order=="astigmata",select = densidad)
+ast_molino<-subset(D_x_site, site=="molino"&order=="astigmata",select = densidad)
+
+o.a_casuarina<-sum(ori_casuarina)/sum(ast_casuarina)
+o.a_manga<-sum(ori_manga)/sum(ast_manga)
+o.a_molino<-sum(ori_molino)/sum(ast_molino)
+
+#############
+# G = L24 , L25 , L27
+ori_24<-subset(D_x_site, site=="L24"&order=="oribatida",
+                      select = densidad)
+ori_25<-subset(D_x_site, site=="L25"&order=="oribatida",select = densidad)
+ori_27<-subset(D_x_site, site=="L27"&order=="oribatida",select = densidad)
+
+ast_24<-subset(D_x_site, site=="L24"&order=="astigmata",
+                      select = densidad)
+ast_25<-subset(D_x_site, site=="L25"&order=="astigmata",select = densidad)
+ast_27<-subset(D_x_site, site=="L27"&order=="astigmata",select = densidad)
+
+o.a_24<-sum(ori_24)/sum(ast_24)
+o.a_25<-sum(ori_25)/sum(ast_25)
+o.a_27<-sum(ori_27)/sum(ast_27)
+
+# N = festuca, romina, triángulo
+
+ori_festuca<-subset(D_x_site, site=="festuca"&order=="oribatida",
+                      select = densidad)
+ori_romina<-subset(D_x_site, site=="romina"&order=="oribatida",select = densidad)
+ori_triangulo<-subset(D_x_site, site=="L27"&order=="oribatida",select = densidad)
+
+ast_festuca<-subset(D_x_site, site=="festuca"&order=="astigmata",
+                      select = densidad)
+ast_romina<-subset(D_x_site, site=="romina"&order=="astigmata",select = densidad)
+ast_triangulo<-subset(D_x_site, site=="triangulo"&order=="astigmata",
+                      select = densidad)
+
+o.a_festuca<-sum(ori_festuca)/sum(ast_festuca)
+o.a_romina<-sum(ori_romina)/sum(ast_romina)
+o.a_triangulo<-sum(ori_triangulo)/sum(ast_triangulo)
+
+####################
+# dataframe datos
+sistema_o.a=c("A1","A2","A3","G1","G2","G3","N1","N2","N3")
+sitio=c("casuarina","manga","molino","L24","L25","L27",
+        "festuca", "romina","triangulo")
+nro.orib<-c(sum(ori_casuarina),sum(ori_manga),sum(ori_molino),
+           sum(ori_24),sum(ori_25),sum(ori_27),
+           sum(ori_festuca),sum(ori_romina),sum(ori_triangulo))
+nro.ast<-c(sum(ast_casuarina),sum(ast_manga),sum(ast_molino),
+          sum(ast_24),sum(ast_25),sum(ast_27),
+          sum(ast_festuca),sum(ast_romina),sum(ast_triangulo))
+o.a_total<-c(
+  o.a_casuarina,o.a_manga,o.a_molino,
+  o.a_24,o.a_25,o.a_27,
+  o.a_festuca,o.a_romina,o.a_triangulo
+)
+print(
+  data.frame(
+    sitio=sitio,
+    'nro. oribatidos'=nro.orib,
+    'nro. astigmatas'=nro.ast,
+    'ìndice de calidad Oribatidos/Astigmtas'= o.a_total,
+    row.names = sistema_o.a
+  )
+  )
+
+
+```
+
+### Detritívoros vs no detritívoros
+
+```{r ind_cua,echo=FALSE,warning=FALSE}
+# Detritivoros / no detritivoros
+
+#por sitio
+##############
+# A = casuarina, manga, molino
+det_casuarina<-subset(D_x_site, site=="casuarina"&guild=="detritivore",
+                      select = densidad)
+det_manga<-subset(D_x_site, site=="manga"&guild=="detritivore",select = densidad)
+det_molino<-subset(D_x_site, site=="molino"&guild=="detritivore",select = densidad)
+
+ndet_casuarina<-subset(D_x_site, site=="casuarina"&guild!="detritivore",
+                      select = densidad)
+ndet_manga<-subset(D_x_site, site=="manga"&guild!="detritivore",select = densidad)
+ndet_molino<-subset(D_x_site, site=="molino"&guild!="detritivore",
+                    select = densidad)
+
+d.nd_casuarina<-sum(det_casuarina)/sum(ndet_casuarina)
+d.nd_manga<-sum(det_manga)/sum(ndet_manga)
+d.nd_molino<-sum(det_molino)/sum(ndet_molino)
+
+
+#############
+# G = L24 , L25 , L27
+det_24<-subset(D_x_site, site=="L24"&guild=="detritivore",
+                      select = densidad)
+det_25<-subset(D_x_site, site=="L25"&guild=="detritivore",select = densidad)
+det_27<-subset(D_x_site, site=="L27"&guild=="detritivore",select = densidad)
+
+ndet_24<-subset(D_x_site, site=="L24"&guild!="detritivore",
+                      select = densidad)
+ndet_25<-subset(D_x_site, site=="L25"&guild!="detritivore",select = densidad)
+ndet_27<-subset(D_x_site, site=="L27"&guild!="detritivore",select = densidad)
+
+d.nd_24<-sum(det_24)/sum(ndet_24)
+d.nd_25<-sum(det_25)/sum(ndet_25)
+d.nd_27<-sum(det_27)/sum(ndet_27)
+
+
+#####################
+# N = festuca, romina, triángulo
+
+det_festuca<-subset(D_x_site, site=="festuca"&guild=="detritivore",
+                      select = densidad)
+det_romina<-subset(D_x_site, site=="romina"&guild=="detritivore",select = densidad)
+det_triangulo<-subset(D_x_site, site=="L27"&guild=="detritivore",select = densidad)
+
+ndet_festuca<-subset(D_x_site, site=="festuca"&guild!="detritivore",
+                      select = densidad)
+ndet_romina<-subset(D_x_site, site=="romina"&guild!="detritivore", 
+                    select = densidad)
+ndet_triangulo<-subset(D_x_site, site=="triangulo"&guild!="detritivore",
+                      select = densidad)
+
+d.nd_festuca<-sum(det_festuca)/sum(ndet_festuca)
+d.nd_romina<-sum(det_romina)/sum(ndet_romina)
+d.nd_triangulo<-sum(det_triangulo)/sum(ndet_triangulo)
+
+
+####################
+# dataframe datos
+sistema_o.a=c("A1","A2","A3","G1","G2","G3","N1","N2","N3")
+sitio=c("casuarina","manga","molino","L24","L25","L27",
+        "festuca", "romina","triangulo")
+nro.det<-c(sum(det_casuarina),sum(det_manga),sum(det_molino),
+           sum(det_24),sum(det_25),sum(det_27),
+           sum(det_festuca),sum(det_romina),sum(det_triangulo))
+nro.ndet<-c(sum(ndet_casuarina),sum(ndet_manga),sum(ndet_molino),
+          sum(ndet_24),sum(ndet_25),sum(ndet_27),
+          sum(ndet_festuca),sum(ndet_romina),sum(ndet_triangulo))
+d.nd_total<-c(
+  d.nd_casuarina,d.nd_manga,d.nd_molino,
+  d.nd_24,d.nd_25,d.nd_27,
+  d.nd_festuca,d.nd_romina,d.nd_triangulo
+)
+print(
+  data.frame(
+    sitio=sitio,
+    'nro. detritívoros'=nro.det,
+    'nro. no detritívoros'=nro.ndet,
+    'ìndice de calidad Detritivoros/no detritivoros'= d.nd_total,
+    row.names = sistema_o.a
+  )
+  )
 
 
 
-# Diversidad Beta
+```
 
-## Índice de Wilson
+
+
+Índices **oribátidos/astigmados**, **detritívoros/recolonizadores** y 
+**detritívoros/no detritívoros**. (Dávila, Socarrás et al. Fauna del Suelo Cap. 14)
+
+
+### Intervención antrópica, Galumnidos vs oppididos
+
+```{r indcua_GvsO, echo=FALSE, warning=FALSE}
+
+#por sitio
+##############
+# A = casuarina, manga, molino
+opi_casuarina<-subset(D_x_site, site=="casuarina"&specie=="oppioidea",
+                      select = densidad)
+opi_manga<-subset(D_x_site, site=="manga"&specie=="oppioidea",select = densidad)
+opi_molino<-subset(D_x_site, site=="molino"&specie=="oppioidea",select = densidad)
+
+gal_casuarina<-subset(D_x_site, site=="casuarina"&specie=="galumnioidea",
+                      select = densidad)
+gal_manga<-subset(D_x_site, site=="manga"&specie=="galumnioidea",
+                  select = densidad)
+gal_molino<-subset(D_x_site, site=="molino"&specie=="galumnioidea",
+                    select = densidad)
+
+o.g_casuarina<-(sum(opi_casuarina)+sum(gal_casuarina))/sum(gal_casuarina)
+o.g_manga<-(sum(opi_manga)+sum(gal_manga))/sum(gal_manga)
+o.g_molino<-(sum(opi_molino)+sum(gal_molino))/sum(gal_molino)
+
+
+#############
+# G = L24 , L25 , L27
+opi_24<-subset(D_x_site, site=="L24"&specie=="oppioidea",
+                      select = densidad)
+opi_25<-subset(D_x_site, site=="L25"&specie=="oppioidea",select = densidad)
+opi_27<-subset(D_x_site, site=="L27"&specie=="oppioidea",select = densidad)
+
+gal_24<-subset(D_x_site, site=="L24"&specie=="galumnioidea",
+                      select = densidad)
+gal_25<-subset(D_x_site, site=="L25"&specie=="galumnioidea",select = densidad)
+gal_27<-subset(D_x_site, site=="L27"&specie=="galumnioidea",select = densidad)
+
+o.g_24<-(sum(opi_24)+sum(gal_24))/sum(gal_24)
+o.g_25<-(sum(opi_25)+sum(gal_25))/sum(gal_25)
+o.g_27<-(sum(opi_27)+sum(gal_27))/sum(gal_27)
+
+
+#####################
+# N = festuca, romina, triángulo
+
+opi_festuca<-subset(D_x_site, site=="festuca"&specie=="oppioidea",
+                      select = densidad)
+opi_romina<-subset(D_x_site, site=="romina"&specie=="oppioidea",select = densidad)
+opi_triangulo<-subset(D_x_site, site=="L27"&specie=="oppioidea",select = densidad)
+
+gal_festuca<-subset(D_x_site, site=="festuca"&specie=="galumnioidea",
+                      select = densidad)
+gal_romina<-subset(D_x_site, site=="romina"&specie=="galumnioidea", 
+                    select = densidad)
+gal_triangulo<-subset(D_x_site, site=="triangulo"&specie=="galumnioidea",
+                      select = densidad)
+
+o.g_festuca<-(sum(opi_festuca)+sum(gal_festuca))/sum(gal_festuca)
+o.g_romina<-(sum(opi_romina)+sum(gal_romina))/sum(gal_romina)
+o.g_triangulo<-(sum(opi_triangulo)+sum(gal_triangulo))/sum(gal_triangulo)
+
+####################
+# dataframe datos
+sistema_o.a=c("A1","A2","A3","G1","G2","G3","N1","N2","N3")
+sitio=c("casuarina","manga","molino","L24","L25","L27",
+        "festuca", "romina","triangulo")
+nro.opi<-c(sum(opi_casuarina),sum(opi_manga),sum(opi_molino),
+           sum(opi_24),sum(opi_25),sum(opi_27),
+           sum(opi_festuca),sum(opi_romina),sum(opi_triangulo))
+nro.gal<-c(sum(gal_casuarina),sum(gal_manga),sum(gal_molino),
+          sum(gal_24),sum(gal_25),sum(gal_27),
+          sum(gal_festuca),sum(gal_romina),sum(gal_triangulo))
+o.g_total<-c(
+  o.g_casuarina,o.g_manga,o.g_molino,
+  o.g_24,o.g_25,o.g_27,
+  o.g_festuca,o.g_romina,o.g_triangulo
+)
+print(
+  data.frame(
+    sitio=sitio,
+    'nro. oppididos'=nro.opi,
+    'nro. galumnidos'=nro.gal,
+    'ìndice de calidad Detritivoros/no detritivoros'= o.g_total,
+    row.names = sistema_o.a
+  )
+  )
+
+
+```
+
+Índice de intervención antrópica = **I_{a}=(ab oppidea+ab galumnidos)/ab galumnidos**
+Los galúmnidos se han asociado con suelos intervenidos. 
+Los ópidos, en cambio, presentan mayor abundancia en suelos donde se favorece el
+desarrollo de mantillo y la presencia de comunidades fiíngicas, que constituyen su
+principal fuente de alimento (Woas, 2002; Guevara el al., 2002). 
+Un valor de lA igual a 1 indica ausencia de ópidos y sitios con mayor grado de
+intervención antrópica, el valor 2 significa igual abundancia de ópidos
+y galúmnidos y los valores mayores que 2 señalan sitios con mayor salud edáfica.
+(Accatolli et al. 2012 Acarologia Latinoamericana)
+
+### Oribátidos vs Prostigmata
+
+```{r indcual_OP, echo=FALSE, warning=FALSE}
+#Oribatidos/Prostigmatas
+#por sitio
+##############
+# A = casuarina, manga, molino
+pros_casuarina<-subset(D_x_site, site=="casuarina"&order=="trombidiformes",
+                      select = densidad)
+pros_manga<-subset(D_x_site, site=="manga"&order=="trombidiformes",
+                   select = densidad)
+pros_molino<-subset(D_x_site, site=="molino"&order=="trombidiformes",
+                    select = densidad)
+
+ori_casuarina<-subset(D_x_site, site=="casuarina"&order=="oribatida",
+                      select = densidad)
+ori_manga<-subset(D_x_site, site=="manga"&order=="oribatida",select = densidad)
+ori_molino<-subset(D_x_site, site=="molino"&order=="oribatida",
+                    select = densidad)
+
+o.p_casuarina<-sum(ori_casuarina)/sum(pros_casuarina)
+o.p_manga<-sum(ori_manga)/sum(pros_manga)
+o.p_molino<-sum(ori_molino)/sum(pros_molino)
+
+
+#############
+# G = L24 , L25 , L27
+pros_24<-subset(D_x_site, site=="L24"&order=="trombidiformes",
+                      select = densidad)
+pros_25<-subset(D_x_site, site=="L25"&order=="trombidiformes",select = densidad)
+pros_27<-subset(D_x_site, site=="L27"&order=="trombidiformes",
+                select = densidad)
+
+ori_24<-subset(D_x_site, site=="L24"&order=="oribatida",
+                      select = densidad)
+ori_25<-subset(D_x_site, site=="L25"&order=="oribatida",
+               select = densidad)
+ori_27<-subset(D_x_site, site=="L27"&order=="oribatida",
+                select = densidad)
+
+o.p_24<-sum(ori_24)/sum(pros_24)
+o.p_25<-sum(ori_25)/sum(pros_25)
+o.p_27<-sum(ori_27)/sum(pros_27)
+
+
+#####################
+# N = festuca, romina, triángulo
+
+pros_festuca<-subset(D_x_site, site=="festuca"&order=="trombidiformes",
+                      select = densidad)
+pros_romina<-subset(D_x_site, site=="romina"&order=="trombidiformes",
+                   select = densidad)
+pros_triangulo<-subset(D_x_site, site=="L27"&order=="trombidiformes",
+                      select = densidad)
+
+ori_festuca<-subset(D_x_site, site=="festuca"&order=="oribatida",
+                      select = densidad)
+ori_romina<-subset(D_x_site, site=="romina"&order=="oribatida", 
+                    select = densidad)
+ori_triangulo<-subset(D_x_site, site=="triangulo"&order=="oribatida",
+                      select = densidad)
+
+o.p_festuca<-sum(ori_festuca)/sum(pros_festuca)
+o.p_romina<-sum(ori_romina)/sum(pros_romina)
+o.p_triangulo<-sum(ori_triangulo)/sum(pros_triangulo)
+
+
+####################
+# dataframe datos
+sistema_o.a=c("A1","A2","A3","G1","G2","G3","N1","N2","N3")
+sitio=c("casuarina","manga","molino","L24","L25","L27",
+        "festuca", "romina","triangulo")
+nro.ori<-c(sum(ori_casuarina),sum(ori_manga),sum(ori_molino),
+           sum(ori_24),sum(ori_25),sum(ori_27),
+           sum(ori_festuca),sum(ori_romina),sum(ori_triangulo))
+nro.pros<-c(sum(pros_casuarina),sum(pros_manga),sum(pros_molino),
+          sum(pros_24),sum(pros_25),sum(pros_27),
+          sum(pros_festuca),sum(pros_romina),sum(pros_triangulo))
+o.p_total<-c(
+  o.p_casuarina,o.p_manga,o.p_molino,
+  o.p_24,o.p_25,o.p_27,
+  o.p_festuca,o.p_romina,o.p_triangulo
+)
+print(
+  data.frame(
+    sitio=sitio,
+    'nro. oribatidos'=nro.ori,
+    'nro. prostigmata'=nro.pros,
+    'ìndice de calidad Oribatidos/Prostigmata'= o.p_total,
+    row.names = sistema_o.a
+  )
+  )
+
+
+
+
+```
+
+
+La relación **oribátidos/prostigmados** permite conocer
+el grado de infertilidad y desequilibrio existente
+en un área, el que se expresa –principalmente– en
+el bajo contenido orgánico y los bajos valores de
+carbonato de calcio y humedad
+
+
+### Astigmata vs Mesostigmata
+
+```{r indcual_AM, echo = FALSE, warning=FALSE}
+#por sitio
+##############
+# A = casuarina, manga, molino
+as_casuarina<-subset(D_x_site, site=="casuarina"&order=="astigmata",
+                      select = densidad)
+as_manga<-subset(D_x_site, site=="manga"&order=="astigmata",
+                   select = densidad)
+as_molino<-subset(D_x_site, site=="molino"&order=="astigmata",
+                    select = densidad)
+
+mes_casuarina<-subset(D_x_site, site=="casuarina"&order=="mesostigmata",
+                      select = densidad)
+mes_manga<-subset(D_x_site, site=="manga"&order=="mesostigmata",
+                  select = densidad)
+mes_molino<-subset(D_x_site, site=="molino"&order=="mesostigmata",
+                    select = densidad)
+
+a.m_casuarina<-sum(as_casuarina)/sum(mes_casuarina)
+a.m_manga<-sum(as_manga)/sum(mes_manga)
+a.m_molino<-sum(as_molino)/sum(mes_molino)
+
+
+#############
+# G = L24 , L25 , L27
+as_24<-subset(D_x_site, site=="L24"&order=="astigmata",
+                      select = densidad)
+as_25<-subset(D_x_site, site=="L25"&order=="astigmata",
+                select = densidad)
+as_27<-subset(D_x_site, site=="L27"&order=="astigmata",
+                select = densidad)
+
+mes_24<-subset(D_x_site, site=="L24"&order=="mesostigmata",
+                      select = densidad)
+mes_25<-subset(D_x_site, site=="L25"&order=="mesostigmata",
+               select = densidad)
+mes_27<-subset(D_x_site, site=="L27"&order=="mesostigmata",
+                select = densidad)
+
+a.m_24<-sum(as_24)/sum(mes_24)
+a.m_25<-sum(as_25)/sum(mes_25)
+a.m_27<-sum(as_27)/sum(mes_27)
+
+
+#####################
+# N = festuca, romina, triángulo
+
+as_festuca<-subset(D_x_site, site=="festuca"&order=="astigmata",
+                      select = densidad)
+as_romina<-subset(D_x_site, site=="romina"&order=="astigmata",
+                   select = densidad)
+as_triangulo<-subset(D_x_site, site=="L27"&order=="astigmata",
+                      select = densidad)
+
+mes_festuca<-subset(D_x_site, site=="festuca"&order=="mesostigmata",
+                      select = densidad)
+mes_romina<-subset(D_x_site, site=="romina"&order=="mesostigmata", 
+                    select = densidad)
+mes_triangulo<-subset(D_x_site, site=="triangulo"&order=="mesostigmata",
+                      select = densidad)
+
+a.m_festuca<-sum(as_festuca)/sum(mes_festuca)
+a.m_romina<-sum(as_romina)/sum(mes_romina)
+a.m_triangulo<-sum(as_triangulo)/sum(mes_triangulo)
+
+
+####################
+# dataframe datos
+sistema_o.a=c("A1","A2","A3","G1","G2","G3","N1","N2","N3")
+sitio=c("casuarina","manga","molino","L24","L25","L27",
+        "festuca", "romina","triangulo")
+nro.as<-c(sum(as_casuarina),sum(as_manga),sum(as_molino),
+           sum(as_24),sum(as_25),sum(as_27),
+           sum(as_festuca),sum(as_romina),sum(as_triangulo))
+nro.mes<-c(sum(mes_casuarina),sum(mes_manga),sum(mes_molino),
+          sum(mes_24),sum(mes_25),sum(mes_27),
+          sum(mes_festuca),sum(mes_romina),sum(mes_triangulo))
+a.m_total<-c(
+  a.m_casuarina,a.m_manga,a.m_molino,
+  a.m_24,a.m_25,a.m_27,
+  a.m_festuca,a.m_romina,a.m_triangulo
+)
+print(
+  data.frame(
+    sitio=sitio,
+    'nro. astigmatas'=nro.as,
+    'nro. mesostigmatas'=nro.mes,
+    'ìndice de calidad Astigmata/Mesostigmata'= a.m_total,
+    row.names = sistema_o.a
+  )
+  )
+
+
+```
+
+
+
+Bedano et al. (2001) establecieron como efecti-
+va la relación **Astigmada/Mesostigmada** para pre-
+decir la inestabilidad del medio edáfico. Si hay una
+fuerte presencia del grupo del numerador –indicador
+de inestabilidad–, se puede inferir que el medio está
+alterado y perturbado.
+
+Evaluación de sistemas agroecológicos mediante indicadores
+biológicos de la calidad del suelo: mesofauna edáfica. Pastos y Forrajes, 
+Vol. 37, No. 1, enero-marzo, 47-54, 2014
+
+
+
+
+## Diversidad Beta
+
+### Índice de Wilson
 
 ```{r Beta, echo=FALSE, warning=FALSE}
 
@@ -259,7 +765,10 @@ factors that can explain the spatial variation of community composition is in ev
 respect an analysis of beta diversity. (Numerical Ecology con R pp 228)
 
 
-# PCoA
+## Reducción Dimensiones
+
+
+### PCoA
 
 ```{r pcoa,echo=FALSE,warning=FALSE}
 ####################
@@ -339,47 +848,10 @@ text(site[,1],site[,2],
 
 ```
 
-# Índices Cualitativos
-
-
-```{r ind_cualitativos,echo=FALSE, warning=FALSE}
-
-
-```
 
 
 
-Índices **oribátidos/astigmados**, **detritívoros/recolonizadores** y 
-**detritívoros/no detritívoros**. (Dávila, Socarrás et al. Fauna del Suelo Cap. 14)
-
-Índice de intervención antrópica = **I_{a}=(ab oppidea+ab galumnidos)/ab galumnidos**
-Los galúmnidos se han asociado con suelos intervenidos. 
-Los ópidos, en cambio, presentan mayor abundancia en suelos donde se favorece el
-desarrollo de mantillo y la presencia de comunidades fiíngicas, que constituyen su
-principal fuente de alimento (Woas, 2002; Guevara el al., 2002). 
-Un valor de lA igual a 1 indica ausencia de ópidos y sitios con mayor grado de
-intervención antrópica, el valor 2 significa igual abundancia de ópidos
-y galúmnidos y los valores mayores que 2 señalan sitios con mayor salud edáfica.
-(Accatolli et al. 2012 Acarologia Latinoamericana)
-
-La relación **oribátidos/prostigmados** permite conocer
-el grado de infertilidad y desequilibrio existente
-en un área, el que se expresa –principalmente– en
-el bajo contenido orgánico y los bajos valores de
-carbonato de calcio y humedad
-
-Bedano et al. (2001) establecieron como efecti-
-va la relación **Astigmada/Mesostigmada** para pre-
-decir la inestabilidad del medio edáfico. Si hay una
-fuerte presencia del grupo del numerador –indicador
-de inestabilidad–, se puede inferir que el medio está
-alterado y perturbado.
-
-Evaluación de sistemas agroecológicos mediante indicadores
-biológicos de la calidad del suelo: mesofauna edáfica. Pastos y Forrajes, 
-Vol. 37, No. 1, enero-marzo, 47-54, 2014
-
-# ANOSIM
+### Análisis de Similitud
 
 ```{r anosim, include=FALSE, warning=FALSE}
 #Densidad nro ind/m2
@@ -465,10 +937,11 @@ print(data.frame(modelo=c("Densidad completo",
  
 ```
 
-# Análisis de Componentes principales con matrices transformadas a (log x) + 1
+
+### Análisis de Componentes principales con matrices transformadas a (log x) + 1
 
 ```{r tb_PCA, echo=FALSE,include=FALSE}
-
+tb_D<-decostand(D_anosim[,-c(1,2,3)],"log")
 sit<-c(rep("A", 34), rep("G", 30), rep("N", 31))
 pch<-c(1,1,1,1,9, 3, 5,5,5,5,9,1,3, 6,5,5,5,9,7,3,6,3,
          9,3,6,5,10,3,3,3,3,10,3,1,7,3,6,7,1,3,5,10,
@@ -568,7 +1041,8 @@ en función de la densidad de la fauna edáfica **
 
 ```{r PCA_D,echo=FALSE, warning=FALSE}
 
-fviz_pca_biplot(std_ab_pca, axes = c(1,2),  col.ind=sit, col.var = col.sp,repel = TRUE,label = "none", title= " ")
+fviz_pca_biplot(std_ab_pca, axes = c(1,2),  col.ind=sit, col.var = col.sp,
+                repel = TRUE,label = "none", title= " ")
 
 ```
 
@@ -596,7 +1070,8 @@ en función de los pesos corporales de la fauna edáfica **
 
 ```{r PCA_peso,echo=FALSE, warning=FALSE}
 
-fviz_pca_biplot(p_pca, axes = c(1,2),  col.ind=sit, col.var = col.sp,repel = TRUE,label = "none", title= " ")
+fviz_pca_biplot(p_pca, axes = c(1,2),  col.ind=sit, col.var = col.sp,
+                repel = TRUE,label = "none", title= " ")
 
 ```
 
@@ -620,18 +1095,402 @@ En ambos casos son necesarios tomar al menos 10 ejes par llegar a explicar el 80
 
 
 
-# K-Means
+### K-Means
 
-```{r}
+
+
+```{r k_means_fq, echo=FALSE, warning= FALSE}
+
+#utilizando el PCA se hace k-mean
+# Realizar el análisis de k-means
+#Renombrando con etiquetas que me interesan
+k_f_pca<-f_pca$ind$coord[, 1:2]
+row.names(k_f_pca)<-RO_db_full$system
+# Acá utilizo var ind que hace referencia a los sitios de muestreo
+
+km_f_fqb <- kmeans(k_f_pca, centers = 3,nstart = 500)  # Reemplaza "centers" con el número deseado de clusters
+# Paso 7: Visualizar los resultados
+
+fviz_cluster(km_f_fqb, data = k_f_pca, geom = c("text"), repel = TRUE,
+             ellipse.type = "norm", ellipse.level = 0.95,main= " ") 
+
+
+```
+
+Si bien se pudieron observar 3 grupos, los sitios G y A se encuentran solapados y se observan como en el PCA donde A se encuentra en una epecie de sandwich entre sistemas.
+Por lo que sistema Ganadero y Naturalizado por sus variables física químicas completa
+se separan notoriamente.
+Según el PCA el N describe al G y el pH al N y la MO y P al sistema A
+
+```{r k_means_p, echo=FALSE,warning=FALSE}
+
+p_km_pca<-p_pca$ind$coord[, 1:2]
+row.names(p_km_pca)<-RO_db_full$system
+
+
+km_p <- kmeans(p_km_pca, centers = 3,nstart = 500) 
+
+fviz_cluster(km_p, data = p_km_pca, geom = c("text"), repel = TRUE,
+             ellipse.type = "norm", ellipse.level = 0.95,main= " ") 
+
+```
+
+
+Considerando el PCA de los pesos de las especies, no se pueden encontrar separaciones de 
+los sitios en función de los pesos corporales de estas comunidades, 
+es decir, las comunidades a nivel de estos taxones se encuentran entre 
+mezclados entre los sitios
+
+
+```{r km_pcoa, echo=FALSE, warning=FALSE}
+
+p_km_pcoa<-scores(pcoa_1)[,c(1,2)]
+row.names(p_km_pcoa)<-RO_db_full$system
+
+km_pcoa <- kmeans(p_km_pcoa, centers = 2,nstart = 500)  
+
+fviz_cluster(km_pcoa, data = p_km_pcoa, geom = c("text"), repel = TRUE,
+             ellipse.type = "norm", ellipse.level = 0.95,main= " ") 
+
+
+```
+
+
+Utilizando el PCoA, se observa separación somera entre N y G que se ubican por 
+lados contrarios. Los N se ven en mayor cantidad debajo de la linea 0 de la Dim 2
+y los G por arriba de estos.
+
+El sistema A se observa más densamente agrupado con el G.
+
+La configuración de estos sitios cambiando el número de clusters muestra siempre un solapamiento.
+
+
+## Análisis de Redundancia
+
+La relación será evaluada entre las variables f y q y las densidades y luego con los pesos
+
+Se utilizarán todas las matrices transformadas y escaladas
+
+
+```{r rda, echo=FALSE,warning=FALSE}
+#Covarianzas si la matriz no se escala.
+# Densidad y matriz completa
+
+drda<-rda(tb_D,tb_fq,scale=TRUE)# Correlaciones
+
+# Peso y matriz completa
+prda<-rda(tb_p,tb_fq,scale=TRUE)
+
+#fracción restricta es la de las variables X, en general fyQ equivalente al R2
+
+
+
+print(data.frame(modelo=c("Densidad RDA, restricto",
+                                 "Densidad RDA,no restricto",
+                                 "Peso RDA, restricto",
+                                 "Peso RDA, no restricto"),
+                 valor_inercia=c(drda[["CCA"]][["tot.chi"]],
+                            drda[["CA"]][["tot.chi"]],
+                            prda[["CCA"]][["tot.chi"]],
+                            prda[["CA"]][["tot.chi"]]),
+                 propr=c(100*(drda[["CCA"]][["tot.chi"]]
+                              /(drda[["CCA"]][["tot.chi"]]+drda[["CA"]][["tot.chi"]])),
+                         
+                                 100*(drda[["CA"]][["tot.chi"]]
+                              /(drda[["CCA"]][["tot.chi"]]+drda[["CA"]][["tot.chi"]])),
+                         
+                                 100*(prda[["CCA"]][["tot.chi"]]
+                              /(prda[["CCA"]][["tot.chi"]]+prda[["CA"]][["tot.chi"]])),
+                         
+                                 100*(prda[["CA"]][["tot.chi"]]
+                              /(prda[["CCA"]][["tot.chi"]]+prda[["CA"]][["tot.chi"]]))
+                        ),  row.names = NULL)
+      )
+```
+
+
+Observando los valores básicos de explicación de la variabilidad
+Podemos decir que las fyq no describen la variabilidad complea ni del peso ni de la 
+densidad de las diferentes especies. 
+
+```{r rda_filter, echo=FALSE, warning=FALSE}
+filter<-c("MO", "P", "CE","pH", "K", "res.mec", "N","Mg")
+filter1<-c("MO", "P", "CE","pH","N")
+d.rda<-rda(tb_D,tb_fq[,filter],scale=TRUE)# Correlaciones
+d.rda1<-rda(tb_D,tb_fq[,filter1],scale=TRUE)
+# Peso y matriz completa
+p.rda<-rda(tb_p,tb_fq[,filter],scale=TRUE)
+p.rda1<-rda(tb_p,tb_fq[,filter1],scale=TRUE)
+
+#fracción restricta es la de las variables X, en general fyQ equivalente al R2
+
+print(data.frame(modelo=c("Densidad RDA, restricto filtro",
+                                 "Densidad RDA,no restricto filtro",
+                                 "Peso RDA, restricto filtro",
+                                 "Peso RDA, no restricto filtro",
+                          "Densidad RDA, restricto filtro 1",
+                                 "Densidad RDA,no restricto filtro 1",
+                                 "Peso RDA, restricto filtro 1",
+                                 "Peso RDA, no restricto filtro 1"
+                          ),
+                 
+                 valor_inercia=c(
+                   d.rda[["CCA"]][["tot.chi"]],
+                            d.rda[["CA"]][["tot.chi"]],
+                            p.rda[["CCA"]][["tot.chi"]],
+                            p.rda[["CA"]][["tot.chi"]],
+                            d.rda1[["CCA"]][["tot.chi"]],
+                            d.rda1[["CA"]][["tot.chi"]],
+                            p.rda1[["CCA"]][["tot.chi"]],
+                            p.rda1[["CA"]][["tot.chi"]]
+                   ),
+                 
+                 propr=c(100*(d.rda[["CCA"]][["tot.chi"]]
+                              /(d.rda[["CCA"]][["tot.chi"]]+d.rda[["CA"]][["tot.chi"]])),
+                         
+                                 100*(d.rda[["CA"]][["tot.chi"]]
+                              /(d.rda[["CCA"]][["tot.chi"]]+d.rda[["CA"]][["tot.chi"]])),
+                         
+                                 100*(p.rda[["CCA"]][["tot.chi"]]
+                              /(p.rda[["CCA"]][["tot.chi"]]+p.rda[["CA"]][["tot.chi"]])),
+                         
+                                 100*(p.rda[["CA"]][["tot.chi"]]
+                              /(p.rda[["CCA"]][["tot.chi"]]+p.rda[["CA"]][["tot.chi"]])),
+                         
+                         100*(d.rda1[["CCA"]][["tot.chi"]]
+                              /(d.rda1[["CCA"]][["tot.chi"]]+d.rda1[["CA"]][["tot.chi"]])),
+                         
+                                 100*(d.rda1[["CA"]][["tot.chi"]]
+                              /(d.rda1[["CCA"]][["tot.chi"]]+d.rda1[["CA"]][["tot.chi"]])),
+                         
+                                 100*(p.rda1[["CCA"]][["tot.chi"]]
+                              /(p.rda1[["CCA"]][["tot.chi"]]+p.rda1[["CA"]][["tot.chi"]])),
+                         
+                                 100*(p.rda1[["CA"]][["tot.chi"]]
+                              /(p.rda1[["CCA"]][["tot.chi"]]+p.rda1[["CA"]][["tot.chi"]]))
+                        ),  row.names = NULL)
+      )
+```
+
+Si restringimos el número de variable fyq el modelo explica menos variabilidad en los datos.
+
+
+
+<!-- if the value of first PCA is more with de RCA ,
+This means that the first residual structure (axis) of the data has more 
+variance than some of the structures that can be explained by the explanatory 
+variables in X.
+
+RDA computes axes that are linear combinations of the explanatory variables. 
+
+this method seeks, in successive order, a series of linear combinations of the explana-
+tory variables that best explain the variation of the response matrix. 
+
+-->
+
+## Reanálisis considerando grupos tróficos
+
+```{r gremios, echo=FALSE, warning=FALSE}
+
+D_RO_gremio<-RO_full[,c("nombre","system","site","order","guild","D")] %>% 
+  pivot_wider(names_from = c("order","guild"),
+              values_from = D,
+              values_fill = 0,
+              values_fn = sum)%>%
+  distinct(nombre,.keep_all=TRUE)
+
+p_RO_gremio<-RO_full[,c("nombre","system","site","order","guild","peso.ind")] %>% 
+  pivot_wider(names_from = c("order","guild"),
+              values_from = peso.ind,
+              values_fill = 0,
+              values_fn = median)%>%
+  distinct(nombre,.keep_all=TRUE)
+
+
+
+
+```
+
+### Analisis de similitud de gremios
+
+```{r anosim_gremio,echo=FALSE, warning=FALSE}
+
+#########################
+#Listado completo de especies
+
+tb_D_g<-decostand(D_RO_gremio[,-c(1,2,3)],"log")
+
+Dg_anosim<-vegan::anosim(tb_D_g, 
+              as.matrix(D_RO_gremio[,"system"]), 
+              permutations = 1670, 
+              distance = "bray")
+print("Resumen del ANOSIM para los datos de densidad log +1 transformados")
+summary(Dg_anosim)
+
+tb_pg<-decostand(p_RO_gremio[,-c(1,2,3)],"log")
+pg_anosim<-vegan::anosim(tb_pg, 
+              as.matrix(p_RO_gremio[,"system"]), 
+              permutations = 1670, 
+              distance = "bray")
+print("Resumen del ANOSIM para los datos de pesos log + 1 transformados")
+summary(pg_anosim)
+
+```
+
+### Componentes principales de gremios
+
+```{r pca_gremios, echo=FALSE,warning=FALSE}
+
+#con Densidades standarizadas por log(ab)+1
+
+col.var<-c(1,9,3,5,5,9,3,6,9,7,3,3,9,3,3,3,3,3,10,3,3,5,10,7,3,3,3)
+col.var <- case_when(
+  col.var == 1 ~ "lom",
+  col.var == 3 ~ "macro",
+  col.var == 5 ~ "ori",
+  col.var == 6 ~ "mes",
+  col.var == 7 ~ "pro",
+  col.var == 9 ~ "art",
+  col.var == 10 ~ "no.art",
+  TRUE ~ as.character(col.var)
+)
+sit<-c(rep("A", 34), rep("G", 30), rep("N", 31))
+
+pca_Dg<-PCA(tb_D_g, scale.unit = TRUE, graph = FALSE)
+summary(pca_Dg)
+#correlaciones
+pca_dg_cor<-round(pca_Dg$var$cor[,1:5],3)
+
+fviz_pca_var(pca_Dg, col.var=col.var,repel = TRUE)
+
+fviz_pca_ind(pca_Dg, col.ind=sit,repel = TRUE)
+
+fviz_pca_biplot(pca_Dg, axes = c(1,2),  col.ind=sit, col.var =col.var,
+                repel = TRUE,label = "none")
+
+
 
 ```
 
 
 
+```{r pca_pg,echo=FALSE, warning=FALSE}
+
+#con Densidades standarizadas por log(ab)+1
+
+col.var<-c(1,9,3,5,5,9,3,6,9,7,3,3,9,3,3,3,3,3,10,3,3,5,10,7,3,3,3)
+col.var <- case_when(
+  col.var == 1 ~ "lom",
+  col.var == 3 ~ "macro",
+  col.var == 5 ~ "ori",
+  col.var == 6 ~ "mes",
+  col.var == 7 ~ "pro",
+  col.var == 9 ~ "art",
+  col.var == 10 ~ "no.art",
+  TRUE ~ as.character(col.var)
+)
+sit<-c(rep("A", 34), rep("G", 30), rep("N", 31))
+
+pca_pg<-PCA(tb_pg, scale.unit = TRUE, graph = FALSE)
+summary(pca_pg)
+#correlaciones
+pca_pg_cor<-round(pca_Dg$var$cor[,1:5],3)
+
+fviz_pca_var(pca_pg, col.var=col.var,repel = TRUE)
+
+fviz_pca_ind(pca_pg, col.ind=sit, repel = TRUE)
+
+fviz_pca_biplot(pca_pg, axes = c(1,2),  col.ind=sit, col.var =col.var,
+                repel = TRUE,label = "none")
+
+
+```
+
+
+El ordenamiento de la comunidad no cambia si miramos a este como taxones separados o como taxones con un gremio alimenticio, es decir como especies tróficas. 
+
+```{r pca_pg_filter, echo=FALSE, warning=FALSE}
+
+#sin macrofauna
+tb_pg_sm<-tb_pg[,-c(3,7,11,12,14,15,16,17,18,20,21,25,26,27)]
+#con Densidades standarizadas por log(ab)+1
+
+col.var1<-c(1,9,5,5,9,6,9,7,9,10,5,10,7)
+col.var1<- case_when(
+  col.var1 == 1 ~ "lom",
+  #col.var == 3 ~ "macro",
+  col.var1 == 5 ~ "ori",
+  col.var1 == 6 ~ "mes",
+  col.var1 == 7 ~ "pro",
+  col.var1 == 9 ~ "art",
+  col.var1 == 10 ~ "no.art",
+  TRUE ~ as.character(col.var1)
+)
+sit<-c(rep("A", 34), rep("G", 30), rep("N", 31))
+
+pca_pg_sm<-PCA(tb_pg_sm, scale.unit = TRUE, graph = FALSE)
+summary(pca_pg)
+#correlaciones
+pca_pg_cor<-round(pca_Dg$var$cor[,1:5],3)
+
+fviz_pca_var(pca_pg_sm, col.var=col.var1,repel = TRUE)
+fviz_pca_var(pca_pg_sm, axes = c(2,3),col.var=col.var1,repel = TRUE)
+
+fviz_pca_ind(pca_pg_sm, col.ind=sit, repel = TRUE)
+
+fviz_pca_biplot(pca_pg_sm, axes = c(1,2),  col.ind=sit, col.var =col.var,
+                repel = TRUE,label = "none")
 
 
 
-# Reanálisis considerando grupos tróficos como grupos funcionales sensu yo mismo
+```
+
+La dimensión dos separa a los oribátidos por el lado negativo y los trombidiformes por el lado positivo
+
+La dimension tres separa a mesostigmata y astigmata de los simphypleona
+
+### Análisis de redundancia
+
+```{r rda_gremio, echo=FALSE,warning=FALSE}
+dgrda<-rda(tb_pg,tb_fq,scale=TRUE)# Correlaciones
+
+# Peso y matriz completa
+pgfrda<-rda(tb_pg,tb_fq,scale=TRUE)
+
+#fracción restricta es la de las variables X, en general fyQ equivalente al R2
+
+# Peso y matriz filtrada
+pgfrda<-rda(tb_pg_sm,tb_fq,scale=TRUE)
+
+
+```
+
+Con respecto al análisis de redundancia, la fracción explicada sigue el patrón similar a aquella vista más arriba. 
+
+Y no cambia para las especies reducidas solo a acaros y colembolos según gremios.
+
+
+# Análisis de la estructura de la comunidad del muestreo de la UNLu
+
+## Diversidad Alfa
+
+## Índices cualitativos
+
+## Diversidad Beta
+
+## Reducción de Dimensiones
+
+### Análisis de Similitud
+
+### Análisis de Componentes Principales
+
+### Análisis de Redundancia
+
+## Por gremios
+
+### Análisis de similitud
+
+### Análisis de Componentes Principales
 
 
 
