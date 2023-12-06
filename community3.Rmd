@@ -1,0 +1,177 @@
+---
+title: "community3_unlu"
+author: "Velazco"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+<!-- Lo primero a considerar. Es que el análisis de la comunidad en conjunto 
+deberá hacerce por réplica
+Cada fracción de la fauna tienen sus características particulares
+Macrofauna tenemos Hoja, 0-10 y 0-20, 
+Mesofauna tenemos Hoja, fragmentado, humus, 0-10
+Microfauna, nemátodos, tenemos 0-10 
+
+Con respecto a los pesos corporales tenemos para la Macro todos,
+para los microartrópodos algunos
+y para nemátodos una muestra de 100 en promedios
+
+Muestra de sueo tenemos: 
+0-10 y 10-20 para MO, N, P, y 10-20 suman CE y pH
+
+Para resp tenemos por réplica
+
+Lo más apropiado será hacer una matriz general de la comunidad. 
+
+Luego ir fragmentando el análisis-->
+
+```{r carga_ab,include=FALSE}
+
+library("tidyverse")
+
+ab_bulk <- read.csv("~/Documentos/Redes/soil_interaction_web/other_scripts/ab_bulk.txt", sep="")
+
+###########
+#Llevando abundancias a densidad
+
+#microfauna (se contaron los nemátodos de 4 sacabocados)
+sup.bocado.micro <- (1/(pi*2.5^2/10000))*4
+#mesofauna (se contaron y extrajeron de 3 frasquitos homojeneizados del monolito)
+sup.bocado.meso <- (1/(pi*2.5^2/10000))*3
+#macrofauna (superficie estandar 25 x 25)
+sup.monolito <- 1/(0.25*0.25)
+
+unlu_full<-ab_bulk%>%
+  mutate(nombre=paste(sitio,replica))%>%
+           mutate(
+             D=floor(case_when(
+  class=="macrofauna"~sup.monolito*abundance,
+  class=="mesofauna"~sup.bocado.meso*abundance,
+  class=="microfauna"~sup.bocado.micro*abundance)
+  )
+  )
+
+####################
+#Matriz comunidad
+
+unlu_ab<-unlu_full[,c("nombre","sitio","replica","taxon","D","abundance")] %>% 
+  pivot_wider(names_from = taxon,
+              values_from = c(D,abundance),
+              values_fill = 0,
+              values_fn = sum)%>%
+  distinct(nombre,.keep_all=TRUE)
+
+
+```
+
+
+```{r carga_fq, include=FALSE}
+
+fyq_unlu <- read.delim("~/Documentos/Redes/soil_interaction_web/fyq_unlu.txt")
+fyq<-fyq_unlu%>%mutate(sitio=substr(Sitio, 3, 3),
+                       estrato=substr(Sitio, 1, 2),
+                       replica=substr(Sitio, 4, 4),
+                       nombre=paste(sitio,replica))%>%
+  group_by(sitio,replica,nombre)%>%
+  summarise(CE=mean(CE..Ms.,na.rm=TRUE),CE.sd=sd(CE..Ms.,na.rm=TRUE),
+            pH=mean(PH,na.rm=TRUE),pH.sd=sd(PH,na.rm=TRUE),
+            MO=mean(MATERIA.ORGÁNICA,na.rm=TRUE),MO.sd=sd(MATERIA.ORGÁNICA,na.rm=TRUE),
+            C=mean(CARBONO,na.rm=TRUE),C.sd=sd(CARBONO,na.rm=TRUE),
+            TOC=mean(TOC,na.rm=TRUE),TOC.sd=sd(TOC,na.rm=TRUE),
+            N=mean(NITRÓGENO,na.rm=TRUE),N.sd=sd(NITRÓGENO,na.rm=TRUE),
+            P=mean(FÓSFORO,na.rm=TRUE),P.sd=sd(FÓSFORO,na.rm=TRUE))%>%
+  distinct(nombre,.keep_all=TRUE)
+
+unlu_merg<-merge(fyq,unlu_ab,by.x="nombre",by.y = "nombre")
+
+```
+
+
+```{r S,echo=FALSE}
+library("BiodiversityR") 
+
+D<-unlu_merg[,20:138]
+# son 118 taxones, siquisiera poner nombre a todos...
+#colnames(ab)<-spc.colector
+
+rownames(D)<-unlu_merg$nombre
+
+Muestras<-unlu_merg$nombre
+Riqueza<-specnumber(D)
+data.frame(Muestras,Riqueza,row.names = NULL)
+
+```
+
+
+```{r H, echo=FALSE}
+library(boot)
+H<-diversity(D, index="shannon")
+Diversidad<-round(H,3)
+data.frame(Muestras,Diversidad,row.names = NULL)
+
+#######
+######################
+# Función para calcular la media
+mean_func <- function(data, indices) {
+  mean(data[indices])
+}
+
+# Función para calcular el desvío estándar
+sd_func <- function(data, indices) {
+  sd(data[indices])
+}
+
+# Número de repeticiones de bootstrap
+n_boot <- 1000
+set.seed(167)
+##############
+# Realizar bootstrap para calcular la media y el desvío estándar
+#Lote Agrícola
+boot_mean_L <- boot(H[c(1:3)], mean_func, R = n_boot)
+boot_sd_L <- boot(H[c(1:3)], sd_func, R = n_boot)
+
+bootstrap_mean_L <- boot.ci(boot_mean_L, type = "basic")#$basic
+bootstrap_sd_L <- boot.ci(boot_sd_L, type = "basic")#$basic
+#Quito el $basic, porque me quita la descripción de lo que significan los valores
+
+#Pastizal
+boot_mean_P <- boot(H[c(4:6)], mean_func, R = n_boot)
+boot_sd_P <- boot(H[c(4:6)], sd_func, R = n_boot)
+bootstrap_mean_P <- boot.ci(boot_mean_P, type = "basic")
+bootstrap_sd_P <- boot.ci(boot_sd_P, type = "basic")
+
+#Reserva
+boot_mean_R <- boot(H[c(7:9)], mean_func, R = n_boot)
+boot_sd_R <- boot(H[c(7:9)], sd_func, R = n_boot)
+bootstrap_mean_R <- boot.ci(boot_mean_R, type = "basic")
+bootstrap_sd_R <- boot.ci(boot_sd_R, type = "basic")
+
+#################
+
+print("#############################################")
+print("Tabla de Promedio y desvío standar del índice de Shannon en cada sistema de uso del suelo")
+print("Método no paramétrico 'boostraping'\n")
+print(data.frame(system=levels(as.factor(unlu_merg$sitio.x)),
+                 mean=c(boot_mean_L[[1]],boot_mean_P[[1]],boot_mean_R[[1]]),
+                 desvio_std=c(boot_sd_L[[1]],boot_sd_P[[1]],boot_sd_R[[1]]),
+                 l.mean.int=c(bootstrap_mean_L$basic[4],bootstrap_mean_P$basic[4],
+                   bootstrap_mean_R$basic[4]),
+                 h.mean.int=c(bootstrap_mean_L$basic[5],bootstrap_mean_P$basic[5],
+                   bootstrap_mean_R$basic[5]),
+                 l.sd.int=c(bootstrap_sd_L$basic[4],bootstrap_sd_P$basic[4],
+                   bootstrap_sd_R$basic[4]),
+                 h.sd.int=c(bootstrap_sd_L$basic[5],bootstrap_sd_P$basic[5],
+                   bootstrap_sd_R$basic[5]),row.names = NULL))
+
+```
+
+
+
+<!-- Rango abundancias 
+https://ciespinosa.github.io/AlphaDiversidad/medidas-de-diversidad.html#modelos-de-abundancia-de-especies
+-->
