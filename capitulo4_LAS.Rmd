@@ -13,10 +13,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Objetivos
 
-* Flujos de energía -> Flux web -> relación con servicios ecosistemicos (Contribuciones de la naturaleza)
 
 * Estabilidad -> Multiweb, calculo de intensidad de interacción, y estabilidad con QSS
 
+* Flujos de energía -> Flux web -> relación con servicios ecosistemicos (Contribuciones de la naturaleza)
 
 
 

@@ -21,7 +21,7 @@ Con respecto a los pesos corporales tenemos para la Macro todos,
 para los microartrópodos algunos
 y para nemátodos una muestra de 100 en promedios
 
-Muestra de sueo tenemos: 
+Muestra de suelo tenemos: 
 0-10 y 10-20 para MO, N, P, y 10-20 suman CE y pH
 
 Para resp tenemos por réplica
@@ -88,6 +88,16 @@ fyq<-fyq_unlu%>%mutate(sitio=substr(Sitio, 3, 3),
   distinct(nombre,.keep_all=TRUE)
 
 unlu_merg<-merge(fyq,unlu_ab,by.x="nombre",by.y = "nombre")
+#agrego respiración en CO2/h/g
+unlu_merg$resp.b<-round(c(0.066236559139785,0.0851612903225806,0.0946236559139785,
+                    0.131588785046729,0.14803738317757,0.14803738317757,
+                    0.188187372708758,0.15234215885947,0.170264765784114),4)
+#agrego relación Hongo-Bacterias
+unlu_merg$ratio.hb<-round(c(3.25,14.0000000000001,0.833333333333333,
+                       1.375,1.83333333333333,1.16666666666667,
+                       2.42857142857143,1.83333333333333,3.5),3)
+
+
 
 ```
 
@@ -175,3 +185,154 @@ print(data.frame(system=levels(as.factor(unlu_merg$sitio.x)),
 <!-- Rango abundancias 
 https://ciespinosa.github.io/AlphaDiversidad/medidas-de-diversidad.html#modelos-de-abundancia-de-especies
 -->
+
+```{r rang-ab, echo=FALSE}
+
+library("vegan")
+#Modelos de Rango abundancias por Fila
+RAD<-radfit(D)
+radlattice(RAD[["L 1"]]);radlattice(RAD[["L 2"]]);radlattice(RAD[["L 3"]])
+radlattice(RAD[["P 1"]]);radlattice(RAD[["P 2"]]);radlattice(RAD[["P 3"]])
+radlattice(RAD[["R 1"]]);radlattice(RAD[["R 2"]]);radlattice(RAD[["R 3"]])
+
+#Para ver un solo gráfico
+#con parámetros configurables
+#plot(RAD[["L 1"]][["models"]][["Preemtion"]])
+
+#El modelo null es el modelo de Bastón Roto
+#El modelo preemtion es el modelo de "preferencia" en el que se observa preferencias
+# serían la serie geométrica o el modelo de Motomura
+# el coeficiente alpha es la tasa de decaimiento de la abundancia por rango
+# modelo log normal asume que las abundancias se distribuyen normalmente
+
+
+```
+
+```{r Beta_div, echo=FALSE, warning=FALSE}
+beta_u<-unlu_merg[,20:138]
+row.names(beta_u)<-unlu_merg[,1]
+beta_div_u<-betadiver(beta_u, method=8)
+
+div.beta.unlu<-hclust(beta_div_u,method = "mcquitty")
+plot(div.beta.unlu,cex=0.6,main="Agrupamiento según índice Wilson",sub="Diversidad Beta entre sitios",ylab="Índice de Wilson",xlab="")
+
+```
+Lote 1 y 3 coinciden con los Bordes.
+Pastizal salio escalonado
+Reserva se separan entre sí pero quedan arriba de la linea de 0.312 
+(Cyn: en la reserva estará la comunidad, tanto los que se adaptan al 
+pastizal como los que se adaptan al sistema agrícola)
+Además el R3 coincidían en una zona más baja. R1 es un lugar cercano
+al borde del alambre
+
+
+```{r PCA, echo=FALSE, warning=FALSE}
+library("FactoMineR");library("factoextra")
+
+fq<-unlu_merg[,c(4,6,8,12,14,16,258,259)]
+row.names(fq)<-unlu_merg$nombre
+tb_fq_U<-decostand(fq,"log")
+
+f_pca<-PCA(tb_fq_U, scale.unit = TRUE, graph = FALSE)
+#summary(f_pca)
+##corelaciones
+#f_pca_cor<-round(f_pca$var$cor[,1:4],3)
+#Biplot
+sit<-sit<-c(rep("L", 3), rep("P", 3), rep("R", 3))
+fviz_pca_biplot(f_pca, axes = c(1,2),  col.ind=sit, label = "var")
+
+
+```
+Los primeros 2 ejes explican el 60 % de la variabilidad
+Acorde a las variables Fy Q se separan los tres sistemas de uso. 
+El pH y la MO se encuentrn estrechamente relacionadas y se relacionan con la R reserva
+
+el P y N se relacionan con los sitios de uso Agrícola, el lote de Alfalfa
+Lo que tiene sentido si asumimos el uso de fertilizantes, además al momento de muestreo
+la alfalfa se encontraba sin follaje. 
+
+La CE se relaciona con el pastizal.
+
+
+```{r pca_tb, echo=FALSE,warning=FALSE}
+
+
+tb_D<-unlu_merg[,c(20:138)]
+row.names(tb_D)<-unlu_merg$nombre
+tb_D_U<-decostand(tb_D,"log")
+col_sp<-colnames(tb_D)
+
+col.sp.unlu<-c("macro_herb","ing","ing","ing","ast","macro_pred","macro_fun",
+               "macro_det","pros","macro_det","enchy","art","macro_omn","macro_pred",
+               "macro_herb","art","macro_pred","meso","ing","macro_det","macro_herb",
+               "macro_pred","no.art","macro_det","macro_herb","meso","pros","meso",
+               "orib","pros","orib","art","macro_pred","macro_herb","macro_det",
+               "macro_fun","macro_det","macro_det","meso","nem_bac","nem_fit",
+               "nem_fung","nem_omn","nem_pre","meso","art","orib","orib","orib",
+               "orib","meso","pros","pros","macro_det","pros","meso","orib","pros",
+               "pros","macro_pred","ing","macro_det","macro_pred","orib","orib","meso",
+               "no.art","meso","macro_det","macro_herb","macro_herb","macro_pred",
+               "macro_parasi","macro_det","macro_no","pros","tardi","macro_pred",
+               "no.art","macro_pred","pros","pros","macro_herb","macro_herb","orib",
+               "macro_det","ing","ing","ing","macro_det","macro_det","macro_pred",
+               "ing","macro_det","orib","meso","meso","ing","ing","macro_det",
+               "macro_det","meso","orib","no.art","orib","orib","macro_no",
+               "orib","orib","no.art","orib","macro_fun","macro_det","pros","meso",
+               "orib","orib","macro_pred","macro_herb")
+
+tb_U_D_pca<-PCA(t(tb_D_U), scale.unit = TRUE, graph = FALSE)
+#summary(f_pca)
+##corelaciones
+#f_pca_cor<-round(f_pca$var$cor[,1:4],3)
+#Biplot
+sit<-sit<-c(rep("L", 3), rep("P", 3), rep("R", 3))
+fviz_pca_biplot(tb_U_D_pca, axes = c(1,2),  col.var=sit, col.ind =as.factor(col.sp.unlu), label = "none")
+
+```
+
+Observando el PCA y colocando los sitios como variables.
+La comunidad de especies separa claramente al Lote de la Reserva y el Pastizal 
+estará en una situación intermediaen cuanto a composición de la comunidad.
+
+si consideramos por grandes grupos, los ing, macro det, macro herb, macro fung, no art
+forman un cluster entre centroides.
+
+los tardigrados se alej y se relacionan con la Reserva
+
+Los nemátodos Artroleonas y Astigmata estan formando otro cluster y opuesto al anterior y son descrito por el primer eje 
+
+los mesostigmata y macropredadora no se explican por los ejes y 
+se encuentran cercanos al 0 0
+
+Los prostigmata explicados por el 2do eje en sentido negativo 
+se relacionan con los lotes
+
+Los oribátidos se relacionan con la Reserva
+
+
+```{r anosim.unlu, echo=FALSE, warning=FALSE}
+
+tb_D_anosim<-unlu_merg[,c(2,20:138)]
+row.names(tb_D_anosim)<-unlu_merg$nombre
+tb_Duni_anosim<-decostand(tb_D_anosim[,-1],"log")
+#col_sp<-colnames(tb_D)
+
+D_unlu_anosim<-vegan::anosim(tb_Duni_anosim, 
+              as.matrix(tb_D_anosim[,"sitio.x"]), 
+              permutations = 1670, 
+              distance = "bray")
+print("Resumen del ANOSIM para los datos de densidad log +1 transformados")
+summary(D_unlu_anosim)
+
+
+
+```
+
+
+
+```{r índices_clásicos,echo=FALSE,warning=FALSE}
+
+
+
+```
+
