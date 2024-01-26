@@ -8,11 +8,11 @@ L	2	H	lycosidae	1	217600	macro
 L	2	10	grillopalpidae	1	195600	macro
 P	3	10	larva_scarabidae	1	110000	macro
 R	1	20	cicadidae	6	92200	macro
-L	1	10	Apodorrectodea caliginosa	1	84900	macro
-L	2	10	Apodorrectodea caliginosa	2	81450	macro
+L	1	10	Aporrectodea caliginosa	1	84900	macro
+L	2	10	Aporrectodea caliginosa	2	81450	macro
 L	2	H	oniscidea	2	68200	macro
 P	3	10	Octolasion tyrtaeum	1	68100	macro
-R	3	10	Apodorrectodea caliginosa	1	64500	macro
+R	3	10	Aporrectodea caliginosa	1	64500	macro
 P	2	10	Glossoscolex sp.	1	59550	macro
 L	1	10	Octalasion cyaneum	1	58200	macro
 R	1	H	gasteropoda	11	54569.1608252341	macro
@@ -217,7 +217,7 @@ P	3	H	enchytraeida	1	1306.07011553637	meso
 L	2	10	staphiliniidae	2	1276.28966795438	meso
 R	1	H	staphiliniidae	1	1252.69516665254	meso
 P	1	10	enchytraeida	11	1223.04498385085	meso
-L	3	H	heteroptera	1	1192.04272807355	macro
+L	3	H	hemiptero	1	1192.04272807355	macro
 R	3	H	enchytraeida	219	1145.10410573833	meso
 P	2	10	staphiliniidae	3	1117.54208099476	meso
 R	1	20	formicidae	11	1078.40741023064	macro
@@ -480,7 +480,7 @@ P	3	10	eviphididae	2	16.5315383036873	meso
 P	3	humus	eviphididae	1	16.5315383036873	meso
 R	3	H	oppioidea	31	16.4774260788983	meso
 L	3	H	astigmata	48	16.4624606044138	meso
-R	1	H	Limnozetidae	2	16.1585425231335	meso
+R	1	H	limnozetidae	2	16.1585425231335	meso
 P	3	H	oppioidea	7	16.0780225921189	meso
 P	1	H	parasitidae	94	15.9082339782195	meso
 P	2	H	isotomidae	19	15.8012939566584	meso

@@ -431,5 +431,16 @@ Looking at the complexity of the 104 webs, we found that the more
 complex webs contained relatively long loops (Fig. 4A) but had roughly the same maximum
 loop weight and stability as less complex webs with shorter loops.
 
+* Community Structure of Complex Networks Hua-Wei Shen (2013)*
+This phenomenon tells us that the organiza-
+tion of network is modular. Network scientists call this phenomenon as community
+structure of networks 
 
+In their seminal paper, the communities are identified in
+a divisive way, where links are deleted iteratively according to the measurement
+“edge betweenness”. This measurement quantifies the importance of the role of the
+edges in bridging the communication of signals transmitted along the shortest path.
 
+In general, communities of network are groups of
+nodes within which nodes are much more connected to each other than to the rest
+part of the network.

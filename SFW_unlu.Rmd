@@ -101,121 +101,258 @@ R<-web0%>%filter(sitio=="R")
 
 ```
 
-```{r R, echo=FALSE}
+
+```{r G_matrix, echo=FALSE}
+
+webG<-web%>%
+  group_by(taxa)%>%
+  distinct(taxa,.keep_all=TRUE)
+
 #print(R$taxa)
-sp_R<-c("litter","carrion","tej_veg","hummus",R$taxa)
-mR<-matrix(nrow = length(sp_R),ncol = length(sp_R),
-           dimnames = list(sp_R,sp_R))
+sp_G<-c("litter","carrion","tej_veg","hummus",levels(as.factor(webG$taxa)))
+mG<-matrix(nrow = length(sp_G),ncol = length(sp_G),
+           dimnames = list(sp_G,sp_G))
 #reemplazar NA por ceros
 
-mR[is.na(mR)] <- 0
-
+mG[is.na(mG)] <- 0
+#####
 #Microflora
-mR["bac",c("hummus","litter","carrion")]<-1
-mR["fungi",c("hummus","tej_veg","carrion","litter")]<-1
+mG["bac",c("hummus","litter","carrion")]<-1
+mG["fungi",c("hummus","tej_veg","carrion","litter")]<-1
 #Microfauna
-mR["proto",c("bac","hummus","proto")]<-1
-mR["enchytraeida",c("bac","hummus","proto","fungi")]<-1
-mR["nem_predador",c("nem_predador","nem_omnivor","nem_fitofago",
+mG["proto",c("bac","hummus","proto")]<-1
+mG["enchytraeida",c("bac","hummus","proto","fungi")]<-1
+mG["nem_predador",c("nem_predador","nem_omnivor","nem_fitofago",
                     "nem_bacterivoro","nem_fungivoro","proto","tardigrado")]<-1
-mR["nem_omnivor",c("nem_predador","nem_omnivor","nem_fitofago",
+mG["nem_omnivor",c("nem_predador","nem_omnivor","nem_fitofago",
                    "nem_bacterivoro","nem_fungivoro","proto",
                    "tardigrado","bac","fungi")]<-1
-m0["nem_fitofago",c("tej_veg")]<-1
-m0["nem_fungivoro",c("hongos")]<-1
-m0["nem_bacterivoro",c("bacterias")]<-1
+mG["nem_fitofago",c("tej_veg")]<-1
+mG["nem_fungivoro",c("fungi")]<-1
+mG["nem_bacterivoro",c("bac")]<-1
 
 #lombrices
-mR[c("juvenil","Apodorrectodea caliginosa","Aporrectodea caliginosa",
-     "Aporrectodea rosea","Aporrectodea trapezoides","Bimastos beddardi sophiae",
-     "Bimastos parvus"),c("litter","bac","fungi","proto","hummus")]<-1
+mG[c("juvenil","Aporrectodea caliginosa",
+     "Aporrectodea rosea","Aporrectodea trapezoides",
+     "Bimastos beddardi sophiae","Bimastos parvus",
+     "Eukerria halophila","Glossoscolex sp.",
+     "Microscolex phosphoreus","Octalasion cyaneum","Octolasion tyrtaeum"),
+   c("litter","bac","fungi","proto","hummus")]<-1
 
-mR["astigmata",c("bac","fungi","nem_fitofago",
-                    "nem_bacterivoro","proto")]<-1
+mG["astigmata",c("bac","fungi","nem_fitofago",
+                    "nem_bacterivoro","nem_fungivoro","proto")]<-1
 
-mR["Limnozetidae",c("bac","fungi")]<-1
-mR[c("aphidoidea","coleoptera_suctor","thysanoptera","hemiptero","cicadidae"),
+mG["limnozetidae",c("bac","fungi")]<-1
+
+mG["coccinelidae",c("aphidoidea","thysanoptera","terebrantia","cicadidae")]
+
+mG[c("aphidoidea","coleoptera_suctor","thysanoptera","hemiptero",
+     "cicadidae","ortoptero","terebrantia","embrioptera"),
    c("tej_veg")]<-1 #este aparece, pero tal vez no se alimente¿?
 
+#grandes detritivoros
+mG[c("oniscidea","blattodea","diplopoda","gasteropoda",
+     "larva_coleoptero","larva_tenebrionidae","larva_curculionidae","larva_diptera",
+     "larva_elateridae","larva_scarabidae","larva_sciaridae",
+     "pupa_diptera","trogossitidae","cryptophagidae",
+     "ptilidae","elateriforme","tenebrionidae","anthribidae"),
+   c("fungi","litter","carrion")]<-1
+
+#Grandes mesostigmatas
 #arctacaridae in the review not information of this group
 #Krantz say " it may represent the sister group of the gamasine subcohorrs 
 # Parasitiae and Dermanyssiae, 
 #eviphididae, laelapidae, ologamasidae, parasitidae, veigaioidea
 
-mR[c("arctacaridae","eviphididae", "laelapidae", "ologamasidae", "parasitidae", "veigaioidea"),c("enchytraeida","nem_predador","nem_omnivor","nem_fitofago",
+mG[c("ameroseidae","arctacaridae","dermanisoidea","eviphididae", 
+     "ichtyostomatogasteridae","laelapidae","ologamasidae", 
+     "parasitidae", "veigaioidea"),
+   c("enchytraeida","nem_predador","nem_omnivor","nem_fitofago",
                    "nem_bacterivoro","nem_fungivoro","proto","astigmata",
-                   "Limnozetidae","ceratozetoidea","diplura","entomobridae",
+                   "limnozetidae","ceratozetoidea","diplura","entomobridae",
                    "epilhomanioidea","eremobelbidae","eupthiracaroidea",
                    "galumnidae","hipogastruridae","isotomidae","larva_diptera",
                    "larva_sciaridae","onichiuridae","oppioidea","oribatulidae",
                    "oripodidae","protura", "scheloribatidae","symphyla",
-                   "symphypleona", "teneriffidae")]<-1
+                   "symphypleona", "teneriffidae","tardigrado",
+     "alycidae", "anystidae","macropilina")]<-1
 
-#####
 
-m0["bdelloidea",c("lom_juv","onychiuridae","hypogastruridae","isotomidae","enquitreido","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea")]<-1
 
-m0["carabidae",c("lom_juv","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea","chylopoda","ecidomyiidae","gasteropoda","miriapodo","sciaridae","staphylinidae")]<-1
+mG[c("bdelloidea","penthalidae","cunaxide","trombidiidae"),
+   c("enchytraeida","nem_predador","nem_omnivor","nem_fitofago",
+                   "nem_bacterivoro","nem_fungivoro","proto","astigmata",
+                   "limnozetidae","ceratozetoidea","diplura","entomobridae",
+                   "epilhomanioidea","eremobelbidae","eupthiracaroidea",
+                   "galumnidae","hipogastruridae","isotomidae","mesostigmata",
+                  "onichiuridae","oppioidea","oribatulidae",
+                   "oripodidae","protura", "scheloribatidae","symphyla",
+                   "symphypleona", "teneriffidae","rhodacarioidea","tardigrado",
+                  "rhagidiidae","alycidae", "anystidae","macropilina"
+                  )]<-1
 
-m0[c("ceratozetoidea","onychiuridae","isotomidae"),c("bacterias","hongos","hummus")]<-1
+mG[c("carabidae","staphiliniidae"),
+   c("enchytraeida","astigmata","limnozetidae","ceratozetoidea",
+                 "diplura","entomobridae",
+                   "epilhomanioidea","eremobelbidae","eupthiracaroidea","eupodoidea",
+                   "eviphididae","galumnidae","hipogastruridae","isotomidae",
+                 "mesostigmata","laelapidae",
+                 "larva_diptera","larva_sciaridae",
+                 "ologamasidae","parasitidae","bdelloidea",
+                 "onichiuridae","oppioidea","oribatulidae",
+                   "oripodidae","protura", "scheloribatidae","symphyla",
+                   "symphypleona", "teneriffidae","rhodacarioidea","tardigrado",
+                  "rhagidiidae","tydeioidea","uropodoidea","veigaioidea","arctacaridae",
+                 "bdelloidea","penthalidae","cunaxide","trombidiidae",
+                 "ameroseidae","arctacaridae","dermanisoidea", 
+     "ichtyostomatogasteridae","macropilina","eupodoidea","tydeioidea","alycidae",
+     "anystidae","tarsonemidae","teneriffidae")]<-1
 
-m0["chylopoda",c("enquitreido","lom_juv","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea","chylopoda","miriapodo","sciaridae","staphylinidae")]<-1
 
-m0[c("brachychthonioidea","crotonioidea","oripodoidea","oribatido","symphypleona"),c("bacterias","hongos","hummus","tej_veg")]<-1
+mG["larva_carabidae",c("enchytraeida","nem_predador","nem_omnivor","nem_fitofago",
+                   "nem_bacterivoro","nem_fungivoro","proto")]<-1
 
-m0[c("dermanyssoidea","parasitoidea"),c("enquitreido","lom_juv","nem_pre","nem_om","nem_fit","nem_bac","nem_fun","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea")]<-1
 
-m0[c("ecidomyiidae","gryllidae","scarabaeidae"),c("tej_veg")]<-1
 
-m0[c("entomobroidea"),c("bacterias","hongos","nem_bac","nem_fun")]<-1
+mG["geophylomorpha",c("alycidae","anystidae","ameroseidae","bdelloidea","cunaxide",
+                      "arctacaridae","enchytraeida","astigmata","limnozetidae",
+                      "ceratozetoidea", "diplura","entomobridae",
+                      "dermanisoidea","ichtyostomatogasteridae","macropilina",
+                   "epilhomanioidea","eremobelbidae","eupthiracaroidea","eupodoidea",
+                   "eviphididae","galumnidae","hipogastruridae","isotomidae",
+                 "mesostigmata","laelapidae","larva_coleoptero","larva_curculionidae",
+                 "larva_diptera","larva_elateridae","larva_sciaridae",
+                 "ologamasidae","parasitidae","blattodea","carabidae",
+                 "onichiuridae","oppioidea","oribatulidae","penthalidae",
+                   "oripodidae","protura", "scheloribatidae","symphyla",
+                   "symphypleona", "teneriffidae","rhodacarioidea","tardigrado",
+                  "rhagidiidae","tydeioidea","uropodoidea","veigaioidea",
+                 "aphidoidea","cicadidae","coleoptera_suctor","cryptophagidae",
+                 "diplopoda","juvenil","elateriforme","hemiptero","larva_carabidae",
+                 "ptilidae","staphiliniidae","thysanoptera","trogossitidae",
+                   "tarsonemidae","tenebrionidae","terebrantia","trombidiidae"
+                  )]<-1
 
-m0[c("epilohmannioidea"),"hummus"]<-1
+mG["grillopalpidae",c("carrion","bac","fungi","tej_veg","enchytraeida",
+                      "nem_predador","nem_omnivor","nem_fitofago",
+                   "nem_bacterivoro","nem_fungivoro","proto",
+                   "diplura","entomobridae","hipogastruridae","isotomidae",
+                  "onichiuridae","oppioidea","oripodidae","protura",
+                  "symphyla","symphypleona","rhodacarioidea","tardigrado"
+                  )]<-1
 
-m0["euphthiracaroidea",c("hummus","hongos","tej_veg")]<-1
+mG[c("ceratozetoidea","onichiuridae","isotomidae","macropilina",
+     "scheloribatidae","oripodidae","oribatulidae",
+     "protura","symphyla","eremobelbidae"),c("bac","fungi","hummus")]<-1
 
-m0["eupodoidea",c("bacterias","hongos","nem_pre","nem_om","nem_fit","nem_bac","nem_fun","onychiuridae","hypogastruridae","isotomidae","symphypleona","entomobroidea")]<-1
+mG["symphypleona",c("bac","fungi","hummus","tej_veg","litter")]<-1
 
-m0["eupodoidea",c("bacterias","hongos","nem_pre","nem_om","nem_fit","nem_bac","nem_fun","onychiuridae","hypogastruridae","isotomidae","symphypleona","entomobroidea")]<-1
+mG["entomobridae",c("bac","fungi","nem_bacterivoro","nem_fungivoro")]<-1
 
-m0["formicidae",c("lom_juv","gryllidae","gryllotalpidae","carrion","hongos","tej_veg","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea","staphylinidae","ptiliidae","carabidae","ecidomyiidae","psocoptera")]<-1
+mG[c("epilhomanioidea","eupthiracaroidea"),c("hummus","fungi","tej_veg")]<-1
 
-m0["galumnioidea",c("carrion","nem_bac","nem_fun","nem_fit","bacterias","hongos")]<-1
+mG[c("eupodoidea","tydeioidea","alycidae","anystidae","tarsonemidae"),
+   c("bac","fungi","nem_predador","nem_omnivor","nem_fitofago",
+                   "nem_bacterivoro","nem_fungivoro","proto","tardigrado",
+                  "onichiuridae","hipogastruridae","isotomidae","symphypleona",
+                  "entomobridae","symphyla","protura","diplura")]<-1
 
-m0["gasteropoda",c("carrion","bacterias","hongos","hummus","tej_veg")]<-1
+mG["formicidae",c("carrion","fungi","tej_veg",
+                  "Aporrectodea caliginosa","Aporrectodea rosea",
+                  "Aporrectodea trapezoides","Bimastos beddardi sophiae",
+                  "Eukerria halophila","Glossoscolex sp.",
+                  "Bimastos parvus","arctacaridae","enchytraeida",
+                  "astigmata","limnozetidae","embrioptera","grillopalpidae",
+                  "macropilina","Microscolex phosphoreus",
+                  "Octalasion cyaneum","Octolasion tyrtaeum","ortoptero","penthalidae",
+                      "ceratozetoidea", "diplura","entomobridae",
+                   "epilhomanioidea","eremobelbidae","eupthiracaroidea","eupodoidea",
+                   "eviphididae","galumnidae","hipogastruridae","isotomidae",
+                 "mesostigmata","laelapidae","larva_coleoptero","larva_curculionidae",
+                 "larva_diptera","larva_elateridae","larva_sciaridae",
+                 "ologamasidae","parasitidae","bdelloidea","blattodea","carabidae",
+                 "onichiuridae","oppioidea","oribatulidae","pupa_diptera",
+                   "oripodidae","protura", "scheloribatidae","symphyla",
+                   "symphypleona", "teneriffidae","rhodacarioidea",
+                  "rhagidiidae","tydeioidea","uropodoidea","veigaioidea",
+                 "aphidoidea","cicadidae","coleoptera_suctor","cryptophagidae",
+                 "diplopoda","juvenil","elateriforme","hemiptero","larva_carabidae",
+                 "ptilidae","staphiliniidae","thysanoptera","trogossitidae",
+                 "alycidae","ameroseidae","anthribidae","anystidae","coccinelidae",
+                 "tenebrionidae","terebrantia"
+                  )]<-1
 
-m0["gryllotalpidae",c("carrion","bacterias","hongos","tej_veg","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","entomobroidea","nem_pre","nem_om","nem_fit","nem_bac","nem_fun","pauropoda")]<-1
 
-m0["hypogastruridae",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","microfauna","carrion","bacterias","hongos")]<-1
 
-m0[c("isopodos","miriapodo"),c("hummus","hongos","bacterias","microfauna")]<-1
+mG["galumnidae",c("carrion","nem_fitofago","tardigrado",
+                   "nem_bacterivoro","nem_fungivoro","proto","bac","fungi")]<-1
 
-m0["isoptera",c("hummus","hongos","bacterias","microfauna","tej_veg")]<-1
+mG["hipogastruridae",c("nem_predador","nem_omnivor","nem_fitofago",
+                   "nem_bacterivoro","nem_fungivoro","proto",
+                   "tardigrado","bac","fungi","carrion")]<-1
 
-m0["linyphiidae",c("gryllidae","gryllotalpidae","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea","staphylinidae","ptiliidae","carabidae","ecidomyiidae","psocoptera","sciaridae","scarabaeidae")]<-1
+mG[c("linyphiidae","lycosidae","pseudoscorpionida"),
+   c("coccinelidae","aphidoidea","arctacaridae","astigmata",
+     "limnozetidae","blattodea","carabidae","grillopalpidae",
+     "ceratozetoidea","cicadidae","coleoptera_suctor","cryptophagidae",
+     "cunaxide","diplura","elateriforme","entomobridae",
+     "eremobelbidae","eupodoidea","eviphididae","macropilina","ortoptero",
+     "formicidae","galumnidae","geophylomorpha","penthalidae","tenebrionidae",
+     "hemiptero","hipogastruridae","isotomidae",
+     "laelapidae","mesostigmata","ologamasidae",
+     "oribatulidae","oripodidae","parasitidae",
+     "ptilidae","staphiliniidae","symphyla","dermanisoidea",
+     "symphypleona","thysanoptera","trogossitidae",
+     "tydeioidea","uropodoidea","veigaioidea","anthribidae",
+     "embrioptera","terebrantia","trombidiidae"
+     )]<-1
 
-m0["mesostigmata",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","microfauna")]<-1
+mG["mesostigmata",c("nem_predador","nem_omnivor","nem_fitofago",
+                   "nem_bacterivoro","nem_fungivoro","proto","tardigrado")]<-1
 
-m0["oppioidea",c("bacterias","hongos")]<-1
+mG["oppioidea",c("bac","fungi","hummus")]<-1
 
-m0["pauropoda",c("carrion","bacterias","hongos","microfauna")]<-1
+mG[c("protura","diplura","symphyla"),c("carrion","bac","fungi","proto")]<-1
 
-m0["psocoptera",c("hummus","hongos")]<-1
+mG["ptilidae",c("hummus","fungi","carrion","bac","proto","nem_fitofago",
+                   "nem_bacterivoro","nem_fungivoro")]<-1
 
-m0["ptiliidae",c("hummus","hongos","carrion","bacterias","microfauna","nem_bac","nem_fun")]<-1
+mG[c("rhodacarioidea","teneriffidae","rhagidiidae"),
+   c("nem_predador","nem_omnivor","nem_fitofago",
+                   "nem_bacterivoro","nem_fungivoro","proto","tardigrado",
+                   "onichiuridae","hipogastruridae","isotomidae","symphypleona",
+                   "protura","diplura","symphyla",
+                   "entomobridae","enchytraeida")]<-1
 
-m0["rhodacaroidea",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","entomobroidea","pauropoda","enquitreido")]<-1
+mG["nematomorpha",c("aphidoidea","blattodea","carabidae",
+    "cicadidae","coleoptera_suctor","cryptophagidae",
+    "elateriforme","geophylomorpha","hemiptero",
+    "ptilidae","staphiliniidae","thysanoptera","trogossitidae")]<-1
 
-m0["staphylinidae",c("lom_juv","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea","nem_pre","nem_om","nem_fit","nem_bac","nem_fun","enquitreido")]<-1
 
-m0["symphila",c("hongos","bacterias","microfauna","hummus","tej_veg")]<-1
+mG["uropodoidea",c("nem_predador","nem_omnivor","nem_fitofago",
+                   "nem_bacterivoro","nem_fungivoro","proto","tardigrado")]<-1
 
-m0["trombidioidea",c("lom_juv","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea","enquitreido")]<-1
+```
 
-m0["tydeoidea",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","hongos","bacterias","microfauna")]<-1
 
-m0["uropodoidea",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","microfauna")]<-1
+```{r R, echo=FALSE}
+{library(statnet);library(network);library(igraph);library(intergraph);
+  library(multiweb)}
 
-m0["veigaioidea",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","entomobroidea","pauropoda","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea")]<-1
+#red gamma
+G_net<-network(t(mG),vertex.attrnames=sp_G)
+#red LOTE
+L_net<-network(t(mG[L$taxa,L$taxa]),vertex.attrnames=rownames((mG[L$taxa,L$taxa])))
+#red RESERVA
+R_net<-network(t(mG[R$taxa,R$taxa]),vertex.attrnames=rownames((mG[R$taxa,R$taxa])))
+#red PASTIZAL
+P_net<-network(t(mG[P$taxa,P$taxa]),vertex.attrnames=rownames((mG[P$taxa,P$taxa])))
+```
+
+
+```{r L_mx,echo=FALSE}
+
 
 ```
 
