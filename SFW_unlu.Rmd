@@ -425,7 +425,7 @@ body_P<-c(P$body,0,0,0,0)
 # Datos tomados de fyq_unlu, determinación de la materia orgánica.
 # Tej_veg sin datos, seria conocer el peso de las raices y/o sus metabolitos liberados
 # Como proxy, decimos que es el 10% de la MOS
-# Carroña, puede ser el 1% de la biomasa promedio total
+# Carroña, puede ser el 5% de la biomasa promedio total de los invertebrados
 # L = 6980566 *0.01, R= 9231538*0.01, P=7122637*0.01
 # Fórmula: mean(P[P$taxa!="fungi"&P$taxa!="bac"&P$taxa!="proto",]$biomass)
 
@@ -433,17 +433,17 @@ body_P<-c(P$body,0,0,0,0)
 #####
 bm_L<-c(L$biomass,
         (77.0321/0.0625)*0.3*1e6, #Hojarasca
-        mean(R[R$taxa!="fungi"&R$taxa!="bac"&R$taxa!="proto",]$biomass)*0.01, #Carroña
+        mean(R[R$taxa!="fungi"&R$taxa!="bac"&R$taxa!="proto",]$biomass)*0.05, #Carroña
         0.1*0.0273*1.2*50000*1e6,#Tej_veg
         0.4*0.0273*1.2*50000*1e6)#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
 bm_R<-c(R$biomass,
         55.753/0.065*0.3*1e6, #Hojarasca
-        mean(R[R$taxa!="fungi"&R$taxa!="bac"&R$taxa!="proto",]$biomass)*0.01, #carroña
+        mean(R[R$taxa!="fungi"&R$taxa!="bac"&R$taxa!="proto",]$biomass)*0.05, #carroña
         0.1*0.0352*1.2*50000*1e6, #tej_veg
         0.4*0.0352*1.2*50000*1e6) #"humus" = POM = 0.4MO
 bm_P<-c(P$biomass,
         (58.63/0.0625)*0.3*1e6, #Hojarasca
-        mean(P[P$taxa!="fungi"&P$taxa!="bac"&P$taxa!="proto",]$biomass)*0.01, #carroña
+        mean(P[P$taxa!="fungi"&P$taxa!="bac"&P$taxa!="proto",]$biomass)*0.05, #carroña
         0.1*0.0352*1.2*50000*1e6, #Tej_veg
         0.4*0.0309*1.2*50000*1e6) #Humus
 #######
@@ -471,7 +471,6 @@ flux_R<-fluxing(t(mG[c(R$taxa,"litter","carrion","tej_veg","hummus"),c(R$taxa,"l
 
 flux_P<-fluxing(t(mG[c(P$taxa,"litter","carrion","tej_veg","hummus"),c(P$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_P, losses =  t_metP, efficiencies =  ef_P)
 
-
 ```
 
 <!--Flux web paper say:  Here we use resilience as a definition of
@@ -479,3 +478,26 @@ stability. Resilience is determined from the Jacobian matrix. The system is
 in a stable equilibrium only if the real parts of eigenvalues from the Jacobian
 are all negative. In this case, resilience is the absolute value of the real part
 of the largest eigenvalue, ... -->
+
+```{r}
+#Red Lote con Flujo energia
+
+L_netf<-asNetwork(L_net)
+
+L_netf %e% "flux" <- flux_L
+
+#Reserva
+R_netf<-asNetwork(R_net)
+
+R_netf %e% "flux" <- flux_R
+
+#Pastizal
+P_netf<-asNetwork(P_net)
+
+P_netf %e% "flux" <- flux_P
+
+
+
+```
+
+
