@@ -1,0 +1,98 @@
+---
+title: "borrador"
+author: "VNV"
+date: "2024-02-09"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Importancia de los organismos del suelo en el funcionamiento del ecosistema edáfico
+
+El suelo es el componente principal de la biósfera terrestre (Georges P. en (Lavelle and Spain 1994))
+y el sustrato físico sobre el que se dan la mayor parte de las actividades humanas (Brussaard 1997).
+
+En la matriz del suelo interactuan de manera dinámica y estrecha los diferentes componentes físicos,
+químicos y biológicos (@culliney2013, Lavelle and Spain 1994; Wall et al. 2012). Estas interacciones
+afectan la estructura y funcionamiento del suelo regulando el funcionamiento de los ecosistemas
+terrestres tanto en ambientes naturales como en los suelos manejados por el hombre (Barrios 2007; Brussaard 1997).
+
+Los bienes y servicios que la humanidad aprovecha de los ecosistemas terrestres dependen de los
+procesos naturales que ocurren en el suelo y del efecto de las actividades humanas sobre el suelo 
+(Barrios 2007; Wall et al. 2012) que puedene modificar la estructura física y química del
+suelo, producir cambios en la dinámica del ciclo de los nutrientes y la materia orgánica, 
+que influyen en la dinámica del almacenamiento del carbono y del agua y en la liberación y captura de
+los gases de efecto invernadero (Barrios 2007; Lavelle et al. 2006) que afectan el funcionamiento del ecosistema del suelo.
+
+Amplio es el conocimiento desarrollado sobre los componentes físicos y químicos del suelo que
+permiten la clasificación y caracterización de estos, pero sobre el componente biológico aún se está
+desarrollando el cuerpo de conocimiento (Barrios 2007). 
+
+Es importante avanzar en el conocimiento del componente biológico del suelo en el cuál habita una
+amplia diversidad de organismos (@culliney2013 @lavelle_etal_2006) de los cuales dependen los
+diferentes procesos que ocurren en el suelo y que se relacionan con el funcionamiento del suelo
+@Thaku_etal_2019 debido a las interacciones entre los organismos y el medio ambiente edáfico cuyos
+efectos a diferentes escalas espaciales y temporales (@barrios2007 @lavelle_etal_2006) regulan
+los servicios ecosistémicos del suelo @bardgett2002 @creamer2022.
+
+El suelo como hábitat proporciona una multiplicidad de nichos a través de la red de poros e
+intersticios que se forman en la matriz del suelo (@lavelle_spain2003, @wall_etal2012). La red de
+poros es un entorno anfibio, compacto, discontinuo y de diámetro variable con características físicas
+y químicas heterogéneas a pequeñas escalas en la que se desarrollan y mantienen una gran cantidad de
+microclimas y soporta una compleja y diversa comunidad biológica (@lavelle_spain2003
+@barrios2007@bardgett2002)
+
+
+(Lavelle cap 1 en Wall) (Wall et al. 2012), a gran escala, en el suelo se pueden reconocen esferas de influencias (Brussaard 1997; Wall et al. 2012) en las que se establecen relaciones con las que la comunidad edáfica: la red de poros del suelo (porósfera), con la rizósfera, la hojarasca y materia orgánica del suelo (detristósfera) y canales construidos por bioturbación (drilidrósfera, termitósfera, etc.) (Lavelle 1996; Lavelle and Spain 1994).
+
+The soil environment hosts a complex and diverse biological
+community likely because of its extremely high physical and
+chemical heterogeneity at small scales, microclimatic char-
+acteristics, and phenologies of organisms that promote the
+development and maintenance of an extremely large number
+of niches
+El funcionamiento natural del suelo puede ser comprendido como un sistema auto-organizado en la que la enorme y compleja biodiversidad y las interacciones con las esferas de influencia se integran entre sí a manera de “engranajes” (niveles jerárquicos) en la que los procesos a pequeña escala se desarrollan rápidamente hacia procesos que progresan a mayores escalas y en períodos de tiempos más largos, este funcionamiento se respalda por relaciones de cooperación entre los grupos funcionales a diversas escalas espacio temporales. (Lavelle et al. 2006; Wall et al. 2012)
+
+Soils may harbor an enormous number of arthropod species, which may rival or exceed the numbers
+estimated to inhabit the canopies of tropical forests [26]. By one recent estimate, the soil fauna may
+represent as much as 23% of all described organisms, or about 360,000 species, with arthropods
+comprising 85% of that number [27]. However, accurate figures have been difficult to come by,
+hampered, at least in part, by limitations in sampling methodology [28]. Because of this, it has been
+suggested that, in some groups, the actual species richness may be an order of magnitude greater than
+the number of species that have been described [29].
+
+Arthropods comprise a large proportion of the meso- and macrofauna of the soil, animals with body
+lengths ranging from about 200 μm to 16 cm or more [21,30,31]. Of the hemiedaphon and euedaphon,
+those organisms that live within the litter/humus boundary and lower in the soil profile [32], five
+groups are chiefly represented: Isopoda, Myriapoda, Insecta, Acari, and Collembola, the latter two
+being by far the most abundant and diverse. Species of Protura, Diplura, and Pauropoda are of lesser
+importance in the soil community [33–35], and have little influence on soil processes.
+
+This group consists principally of species of the acarine taxa Oribatida, Prostigmata, and
+Mesostigmata, and the Collembola. Large numbers of microarthropods are found in most soils [36,37]
+(Table 1), including those under cultivation [38,39], and these animals may be the dominant arthropods
+in a variety of environments from equatorial to polar regions and from temperate and tropical forests
+and grasslands to hot and cold deserts [34,40–43]. As part of the mesofauna, the microarthropods
+comprise the important middle links of soil food webs, serving, in their role as both predator and prey,
+to channel energy from the soil microflora and microfauna to the macrofauna on higher trophic
+levels [5].
+
+
+
+
+# Recursos tróficos de la fauna edáfica
+
+# Caracterizaciones de las comunidades del suelo estudiadas
+
+# Espectro de tamaños 
+
+# Redes de interacciones globales
+
+# ref
+Culliney 2013 Role of Arthropods in Maintaining Soil Fertility
+Lavelle et al 2006 Soil invertebrates and ecosystem services
+Thakur et al 2019 Towards an integrative understanding of soil biodiversity
+Bardgett 2002 Causes and consequences of biological diversity in soil
+Creamer et al 2022 The life of soils: Integrating the who and how of multifunctionality
