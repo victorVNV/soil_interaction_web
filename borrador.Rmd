@@ -38,14 +38,38 @@ efectos a diferentes escalas espaciales y temporales (@barrios2007 @lavelle_etal
 los servicios ecosistémicos del suelo @bardgett2002 @creamer2022.
 
 El suelo como hábitat proporciona una multiplicidad de nichos a través de la red de poros e
-intersticios que se forman en la matriz del suelo (@lavelle_spain2003, @wall_etal2012). La red de
-poros es un entorno anfibio, compacto, discontinuo y de diámetro variable con características físicas
+intersticios que se forman entre la matriz del suelo (@lavelle_spain2003, @wall_etal2012) y la hojarasca que se acumula sobre el
+suelo. La red de poros es un entorno anfibio, compacto, discontinuo, de diámetro variable con características físicas
 y químicas heterogéneas a pequeñas escalas en la que se desarrollan y mantienen una gran cantidad de
-microclimas y soporta una compleja y diversa comunidad biológica (@lavelle_spain2003
-@barrios2007@bardgett2002)
+microclimas y soporta una compleja y diversa comunidad biológica (@lavelle_spain2003 @barrios2007 @bardgett2002)
 
+La diversidad de especies que habitan en los suelos se correlaciona positivamente con la heterogeneidad de hábitats que se forman
+entre la hojarasca y el suelo a la vez los organismos que habitan los intersticios del suelo, mediante diferentes estrategias de
+alimentación e historias de vida,  evitan la competencia interespecífica y responden diferencialmente a las variaciones
+ambientales y a la disponibilidad de recursos tróficos alimenticios (@bardgett2002, @lavelle_spain2003). El estudio de la riqueza
+de especies se dificulta porque el suelo es un hábitat críptico, porque el tamaño de los organismos es pequeño, lo que
+dificulta las caracterizaciones anotomicas - morfológicas, y por el bajo desarrollo a nivel global del conocimiento taxonómico
+(@wurts_et_al2012). Por otra parte, considerando los diferentes procesos que ocurren en el suelo, muchas especies cumplen papeles
+similares por lo que una clasificación funcional es necesaria para conectar la diversidad con el funcionamiento del ecosistema
+(@briones2014, @lavelle_etal_2006). 
 
-(Lavelle cap 1 en Wall) (Wall et al. 2012), a gran escala, en el suelo se pueden reconocen esferas de influencias (Brussaard 1997; Wall et al. 2012) en las que se establecen relaciones con las que la comunidad edáfica: la red de poros del suelo (porósfera), con la rizósfera, la hojarasca y materia orgánica del suelo (detristósfera) y canales construidos por bioturbación (drilidrósfera, termitósfera, etc.) (Lavelle 1996; Lavelle and Spain 1994).
+El enfoque que permite integrar la diversidad de especies, las interacciones interespecíficas, las interacciones con el ambiente,
+la redundancia funcional, el papel de las especies claves y la multiplicidad de canales de materia y energia que ocurren en los
+ecosistemas es estudio de la red de interacciones (@barrios2007, @briones2014, @potapovetal2023) que permite simplificar 
+la complejidad de interacciones y conetarlos con diferentes parámetros que emergen el estudio de los ecosistemas
+(@Hooperetal2005;@delmas_etal2019)
+
+aumenta a la ve con la disminución en el tamaño de los orgnismossta gran
+diversidad a la vez implica una importante redundancia en las funciones que ocurren en el suelo debidas a las actividades de los
+diferentes habitantes del suelo (@briones2014, @lavelle_etal_2006) 
+
+there is a high de-
+gree of specialisation amongst soil animals, with re-
+spect to their feeding and life history strategy (Siepel,
+1996; Scheu and Falca, 2000) and their spatial distribu-
+tion, enabling them to avoid competition. 
+
+<!-- (Lavelle cap 1 en Wall) (Wall et al. 2012), a gran escala, en el suelo se pueden reconocen esferas de influencias (Brussaard 1997; Wall et al. 2012) en las que se establecen relaciones con las que la comunidad edáfica: la red de poros del suelo (porósfera), con la rizósfera, la hojarasca y materia orgánica del suelo (detristósfera) y canales construidos por bioturbación (drilidrósfera, termitósfera, etc.) (Lavelle 1996; Lavelle and Spain 1994). -->
 
 The soil environment hosts a complex and diverse biological
 community likely because of its extremely high physical and
@@ -96,3 +120,7 @@ Lavelle et al 2006 Soil invertebrates and ecosystem services
 Thakur et al 2019 Towards an integrative understanding of soil biodiversity
 Bardgett 2002 Causes and consequences of biological diversity in soil
 Creamer et al 2022 The life of soils: Integrating the who and how of multifunctionality
+Wurst et al 2012 Soil Biodiversity and Functions. En Wall 2012 
+Potapov 2023 Multifunctionality of belowground food webs: resource, size and spatial energy channels
+Hooper, D. U., Chapin III, F. S., Ewel, J. J., Hector, A., Inchausti, P., Lavorel, S., Lawton, J. H., Lodge, D. M., Loreau, M., Naeem, S., Schmid, B., Setälä, H., Symstad, A. J., Vandermeern, J. & Wardle, D. A. 2005. Effects of biodiversity on ecosystem functioning: a consensus of current knowledge. Ecological Monographs 75: 3-35.
+Delmas et al 2019 Analysing ecological networks of species interactions
