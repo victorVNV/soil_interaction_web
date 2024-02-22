@@ -127,7 +127,7 @@ la estructura de las redes ante los distintos tipos de disturbios y su relación
 ecosistema del suelo (Sabatté, 2011; Kardol et al., 2016).
 El análisis de las redes de interacciones de alimentación, e.i. redes tróficas, es el más utilizado pero incluir
 todos los tipos de interacciones es fundamental para lograr un entendimiento completo sobre el funcionamiento de
-los ecosistemas (Kéfi et al. 2012). 
+los ecosistemas (Kéfi et al. 2012, @bascompte2009). 
 Este análisis permite identificar especies con roles funcionales claves e identificar grupos funcionales, 
 definidos como el grupo de especies con un papel semejante en el funcionamiento de un ecosistema (Gitay y Noble,
 1997), también permite conocer patrones estructurales de la comunidad a partir de la topología de la red y las
@@ -148,7 +148,7 @@ estabilidad y resiliencia de estos sistemas.
 # Redes de interacciones globales
 
 # ref
-
+Bascompte 2009 Disentangling the Web of Life
 Culliney 2013 Role of Arthropods in Maintaining Soil Fertility 
 Lavelle et al 2006 Soil invertebrates and ecosystem services 
 Lavelle 2012 Soil as habitat. in Wall 2012 
