@@ -1,0 +1,693 @@
+FAMILY,RESOURCE,n,freq
+Acaridae,m.fau,2,0.4
+Acaridae,sap. fun.,3,0.6
+Acaronychidae,m.fau,2,0.5
+Acaronychidae,sap. fun.,2,0.5
+Achipteriidae,bac.,6,0.15789473684210525
+Achipteriidae,humus,1,0.02631578947368421
+Achipteriidae,litter,11,0.2894736842105263
+Achipteriidae,m.fau,2,0.05263157894736842
+Achipteriidae,myco.,2,0.05263157894736842
+Achipteriidae,plant,9,0.23684210526315788
+Achipteriidae,sap. fun.,7,0.18421052631578946
+Adamystidae,coll.,2,0.5
+Adamystidae,m.fau,1,0.25
+Adamystidae,mites,1,0.25
+Alicorhagiidae,bac.,2,0.11764705882352941
+Alicorhagiidae,m.fau,8,0.47058823529411764
+Alicorhagiidae,plant,1,0.058823529411764705
+Alicorhagiidae,sap. fun.,6,0.35294117647058826
+Allothyridae,carrion,3,1
+Ameridae,carrion,1,0.2
+Ameridae,litter,1,0.2
+Ameridae,m.fau,1,0.2
+Ameridae,sap. fun.,2,0.4
+Amerobelbidae,sap. fun.,1,1
+Ameronothridae,bac.,1,0.125
+Ameronothridae,plant,7,0.875
+Ameroseiidae,bac.,1,0.1111111111111111
+Ameroseiidae,coll.,1,0.1111111111111111
+Ameroseiidae,eggs,1,0.1111111111111111
+Ameroseiidae,m.fau,1,0.1111111111111111
+Ameroseiidae,mites,1,0.1111111111111111
+Ameroseiidae,myco.,1,0.1111111111111111
+Ameroseiidae,sap. fun.,3,0.3333333333333333
+Anystidae,coll.,2,0.2857142857142857
+Anystidae,eggs,1,0.14285714285714285
+Anystidae,enchy.,1,0.14285714285714285
+Anystidae,larvae,1,0.14285714285714285
+Anystidae,m.fau,1,0.14285714285714285
+Anystidae,mites,1,0.14285714285714285
+Archeonothridae,carrion,1,0.5
+Archeonothridae,sap. fun.,1,0.5
+Arrhopalitidae,bac.,1,0.2
+Arrhopalitidae,humus,1,0.2
+Arrhopalitidae,litter,1,0.2
+Arrhopalitidae,plant,1,0.2
+Arrhopalitidae,sap. fun.,1,0.2
+Ascidae,coll.,40,0.22346368715083798
+Ascidae,eggs,21,0.11731843575418995
+Ascidae,enchy.,18,0.1005586592178771
+Ascidae,larvae,19,0.10614525139664804
+Ascidae,m.fau,53,0.29608938547486036
+Ascidae,mites,25,0.13966480446927373
+Ascidae,sap. fun.,3,0.01675977653631285
+Astegistidae,bac.,4,0.36363636363636365
+Astegistidae,litter,2,0.18181818181818182
+Astegistidae,myco.,1,0.09090909090909091
+Astegistidae,plant,1,0.09090909090909091
+Astegistidae,sap. fun.,3,0.2727272727272727
+Asternoseiidae,coll.,2,0.15384615384615385
+Asternoseiidae,enchy.,2,0.15384615384615385
+Asternoseiidae,m.fau,2,0.15384615384615385
+Asternoseiidae,mites,3,0.23076923076923078
+Asternoseiidae,sap. fun.,4,0.3076923076923077
+Barbutiidae,coll.,1,0.3333333333333333
+Barbutiidae,m.fau,1,0.3333333333333333
+Barbutiidae,mites,1,0.3333333333333333
+Bdellidae,coll.,4,0.4444444444444444
+Bdellidae,eggs,1,0.1111111111111111
+Bdellidae,enchy.,1,0.1111111111111111
+Bdellidae,larvae,1,0.1111111111111111
+Bdellidae,mites,2,0.2222222222222222
+Bdelloidea,coll.,5,0.5
+Bdelloidea,mites,5,0.5
+Belbidae,m.fau,1,0.25
+Belbidae,sap. fun.,3,0.75
+Belbodamaeidae,sap. fun.,1,1
+Bimichaelidae,bac.,1,1
+Blattisociidae,m.fau,2,0.6666666666666666
+Blattisociidae,mites,1,0.3333333333333333
+Brachychthoniidae,bac.,1,0.2
+Brachychthoniidae,myco.,2,0.4
+Brachychthoniidae,sap. fun.,2,0.4
+Brachystomelellidae,bac.,2,0.2857142857142857
+Brachystomelellidae,humus,1,0.14285714285714285
+Brachystomelellidae,litter,1,0.14285714285714285
+Brachystomelellidae,m.fau,1,0.14285714285714285
+Brachystomelellidae,sap. fun.,2,0.2857142857142857
+Caeculidae,bac.,1,0.16666666666666666
+Caeculidae,coll.,1,0.16666666666666666
+Caeculidae,m.fau,1,0.16666666666666666
+Caeculidae,mites,1,0.16666666666666666
+Caeculidae,sap. fun.,2,0.3333333333333333
+Caleremaeidae,bac.,1,0.3333333333333333
+Caleremaeidae,humus,1,0.3333333333333333
+Caleremaeidae,sap. fun.,1,0.3333333333333333
+Caligonellidae,coll.,2,0.25
+Caligonellidae,eggs,1,0.125
+Caligonellidae,enchy.,1,0.125
+Caligonellidae,larvae,1,0.125
+Caligonellidae,m.fau,1,0.125
+Caligonellidae,mites,2,0.25
+Camerobiidae,coll.,1,0.3333333333333333
+Camerobiidae,m.fau,1,0.3333333333333333
+Camerobiidae,mites,1,0.3333333333333333
+Camisiidae,bac.,3,0.10714285714285714
+Camisiidae,carrion,1,0.03571428571428571
+Camisiidae,litter,10,0.35714285714285715
+Camisiidae,m.fau,3,0.10714285714285714
+Camisiidae,myco.,2,0.07142857142857142
+Camisiidae,plant,3,0.10714285714285714
+Camisiidae,sap. fun.,6,0.21428571428571427
+Carabodidae,bac.,4,0.14285714285714285
+Carabodidae,humus,1,0.03571428571428571
+Carabodidae,litter,10,0.35714285714285715
+Carabodidae,myco.,2,0.07142857142857142
+Carabodidae,plant,4,0.14285714285714285
+Carabodidae,sap. fun.,7,0.25
+Cepheidae,litter,4,0.5714285714285714
+Cepheidae,myco.,1,0.14285714285714285
+Cepheidae,sap. fun.,2,0.2857142857142857
+Ceratozetidae,bac.,10,0.17857142857142858
+Ceratozetidae,carrion,3,0.05357142857142857
+Ceratozetidae,humus,1,0.017857142857142856
+Ceratozetidae,litter,10,0.17857142857142858
+Ceratozetidae,m.fau,6,0.10714285714285714
+Ceratozetidae,myco.,2,0.03571428571428571
+Ceratozetidae,plant,9,0.16071428571428573
+Ceratozetidae,sap. fun.,15,0.26785714285714285
+Chamobatidae,bac.,3,0.10714285714285714
+Chamobatidae,carrion,2,0.07142857142857142
+Chamobatidae,humus,1,0.03571428571428571
+Chamobatidae,litter,6,0.21428571428571427
+Chamobatidae,m.fau,3,0.10714285714285714
+Chamobatidae,myco.,3,0.10714285714285714
+Chamobatidae,plant,1,0.03571428571428571
+Chamobatidae,sap. fun.,9,0.32142857142857145
+Charassobatidae,sap. fun.,1,1
+Cheyletidae,coll.,3,0.3
+Cheyletidae,eggs,1,0.1
+Cheyletidae,enchy.,1,0.1
+Cheyletidae,larvae,1,0.1
+Cheyletidae,m.fau,1,0.1
+Cheyletidae,mites,3,0.3
+Collohmanniidae,litter,1,1
+Crotoniidae,bac.,3,0.1875
+Crotoniidae,litter,4,0.25
+Crotoniidae,myco.,2,0.125
+Crotoniidae,plant,4,0.25
+Crotoniidae,sap. fun.,3,0.1875
+Cryptognhathidae,coll.,1,0.3333333333333333
+Cryptognhathidae,m.fau,1,0.3333333333333333
+Cryptognhathidae,mites,1,0.3333333333333333
+Cunaxidae,coll.,3,0.375
+Cunaxidae,eggs,1,0.125
+Cunaxidae,enchy.,1,0.125
+Cunaxidae,larvae,1,0.125
+Cunaxidae,mites,2,0.25
+Cymbaeremaeidae,carrion,1,0.5
+Cymbaeremaeidae,plant,1,0.5
+Damaeidae,bac.,7,0.125
+Damaeidae,carrion,2,0.03571428571428571
+Damaeidae,humus,1,0.017857142857142856
+Damaeidae,litter,5,0.08928571428571429
+Damaeidae,m.fau,3,0.05357142857142857
+Damaeidae,myco.,11,0.19642857142857142
+Damaeidae,plant,4,0.07142857142857142
+Damaeidae,sap. fun.,23,0.4107142857142857
+Dampfiellidae,bac.,1,0.3333333333333333
+Dampfiellidae,litter,1,0.3333333333333333
+Dampfiellidae,sap. fun.,1,0.3333333333333333
+Davacaridae,m.fau,1,1
+Dicyrtomidae,carrion,2,0.6666666666666666
+Dicyrtomidae,litter,1,0.3333333333333333
+Digamasellidae,coll.,4,0.16
+Digamasellidae,eggs,1,0.04
+Digamasellidae,enchy.,3,0.12
+Digamasellidae,larvae,2,0.08
+Digamasellidae,m.fau,12,0.48
+Digamasellidae,mites,3,0.12
+Dinychidae,bac.,1,0.5
+Dinychidae,m.fau,1,0.5
+Dythinnozerconidae,coll.,1,0.3333333333333333
+Dythinnozerconidae,m.fau,2,0.6666666666666666
+Eniochthoniidae,humus,1,0.25
+Eniochthoniidae,litter,1,0.25
+Eniochthoniidae,sap. fun.,2,0.5
+Entomobrydae,bac.,21,0.17073170731707318
+Entomobrydae,carrion,5,0.04065040650406504
+Entomobrydae,humus,4,0.032520325203252036
+Entomobrydae,litter,16,0.13008130081300814
+Entomobrydae,m.fau,15,0.12195121951219512
+Entomobrydae,myco.,16,0.13008130081300814
+Entomobrydae,plant,7,0.056910569105691054
+Entomobrydae,sap. fun.,39,0.3170731707317073
+Epactozetidae,carrion,1,0.5
+Epactozetidae,m.fau,1,0.5
+Epicridae,myco.,1,0.5
+Epicridae,sap. fun.,1,0.5
+Epilohmanniidae,litter,1,1
+Eremaeidae,bac.,3,0.25
+Eremaeidae,carrion,1,0.08333333333333333
+Eremaeidae,humus,1,0.08333333333333333
+Eremaeidae,litter,1,0.08333333333333333
+Eremaeidae,myco.,1,0.08333333333333333
+Eremaeidae,plant,1,0.08333333333333333
+Eremaeidae,sap. fun.,4,0.3333333333333333
+Eremobelbidae,bac.,1,0.25
+Eremobelbidae,sap. fun.,3,0.75
+Eremulidae,bac.,1,0.3333333333333333
+Eremulidae,litter,1,0.3333333333333333
+Eremulidae,sap. fun.,1,0.3333333333333333
+Ereynetidae,coll.,1,0.3333333333333333
+Ereynetidae,m.fau,1,0.3333333333333333
+Ereynetidae,mites,1,0.3333333333333333
+Erythraeidae,coll.,2,0.4
+Erythraeidae,mites,2,0.4
+Erythraeidae,plant,1,0.2
+Eulohmanniidae,myco.,1,1
+Eupalopsellidae,coll.,1,0.25
+Eupalopsellidae,eggs,1,0.25
+Eupalopsellidae,m.fau,1,0.25
+Eupalopsellidae,mites,1,0.25
+Euphthiracaridae,bac.,2,0.08333333333333333
+Euphthiracaridae,humus,2,0.08333333333333333
+Euphthiracaridae,litter,10,0.4166666666666667
+Euphthiracaridae,myco.,3,0.125
+Euphthiracaridae,plant,4,0.16666666666666666
+Euphthiracaridae,sap. fun.,3,0.125
+Eupodidae,bac.,7,0.3888888888888889
+Eupodidae,coll.,1,0.05555555555555555
+Eupodidae,m.fau,4,0.2222222222222222
+Eupodidae,mites,1,0.05555555555555555
+Eupodidae,plant,1,0.05555555555555555
+Eupodidae,sap. fun.,4,0.2222222222222222
+Eutegaeidae,sap. fun.,1,1
+Eutrombidiidae,eggs,1,1
+Euzetidae,bac.,1,0.09090909090909091
+Euzetidae,litter,4,0.36363636363636365
+Euzetidae,myco.,1,0.09090909090909091
+Euzetidae,plant,3,0.2727272727272727
+Euzetidae,sap. fun.,2,0.18181818181818182
+Eviphididae,coll.,1,0.05263157894736842
+Eviphididae,eggs,1,0.05263157894736842
+Eviphididae,enchy.,4,0.21052631578947367
+Eviphididae,larvae,1,0.05263157894736842
+Eviphididae,m.fau,12,0.631578947368421
+Fedriziidae,carrion,1,0.3333333333333333
+Fedriziidae,m.fau,2,0.6666666666666666
+Galumnidae,bac.,11,0.13414634146341464
+Galumnidae,carrion,11,0.13414634146341464
+Galumnidae,humus,1,0.012195121951219513
+Galumnidae,litter,7,0.08536585365853659
+Galumnidae,m.fau,25,0.3048780487804878
+Galumnidae,myco.,4,0.04878048780487805
+Galumnidae,plant,4,0.04878048780487805
+Galumnidae,sap. fun.,19,0.23170731707317074
+Grandjeanicidae,bac.,1,0.3333333333333333
+Grandjeanicidae,sap. fun.,2,0.6666666666666666
+Granuloppiidae,humus,1,1
+Gymnodamaeidae,bac.,1,0.5
+Gymnodamaeidae,sap. fun.,1,0.5
+Haplozetidae,bac.,6,0.15384615384615385
+Haplozetidae,carrion,1,0.02564102564102564
+Haplozetidae,humus,3,0.07692307692307693
+Haplozetidae,litter,5,0.1282051282051282
+Haplozetidae,m.fau,9,0.23076923076923078
+Haplozetidae,myco.,1,0.02564102564102564
+Haplozetidae,plant,3,0.07692307692307693
+Haplozetidae,sap. fun.,11,0.28205128205128205
+Heatherellidae,m.fau,1,1
+Hermanniellidae,bac.,8,0.19047619047619047
+Hermanniellidae,humus,1,0.023809523809523808
+Hermanniellidae,litter,13,0.30952380952380953
+Hermanniellidae,myco.,3,0.07142857142857142
+Hermanniellidae,plant,7,0.16666666666666666
+Hermanniellidae,sap. fun.,10,0.23809523809523808
+Hermanniidae,plant,2,1
+Heterobelbidae,bac.,1,0.5
+Heterobelbidae,sap. fun.,1,0.5
+Homocaligidae,coll.,1,0.25
+Homocaligidae,m.fau,1,0.25
+Homocaligidae,mites,1,0.25
+Homocaligidae,plant,1,0.25
+Hyadesiidae,bac.,6,0.23076923076923078
+Hyadesiidae,carrion,2,0.07692307692307693
+Hyadesiidae,m.fau,8,0.3076923076923077
+Hyadesiidae,sap. fun.,10,0.38461538461538464
+Hypochthoniidae,bac.,3,0.10714285714285714
+Hypochthoniidae,carrion,7,0.25
+Hypochthoniidae,litter,4,0.14285714285714285
+Hypochthoniidae,m.fau,6,0.21428571428571427
+Hypochthoniidae,plant,3,0.10714285714285714
+Hypochthoniidae,sap. fun.,5,0.17857142857142858
+Hypogastruridae,bac.,9,0.11392405063291139
+Hypogastruridae,carrion,7,0.08860759493670886
+Hypogastruridae,eggs,1,0.012658227848101266
+Hypogastruridae,enchy.,1,0.012658227848101266
+Hypogastruridae,humus,5,0.06329113924050633
+Hypogastruridae,litter,7,0.08860759493670886
+Hypogastruridae,m.fau,10,0.12658227848101267
+Hypogastruridae,myco.,5,0.06329113924050633
+Hypogastruridae,plant,3,0.0379746835443038
+Hypogastruridae,sap. fun.,31,0.3924050632911392
+Isotomidae,bac.,38,0.16964285714285715
+Isotomidae,carrion,10,0.044642857142857144
+Isotomidae,coll.,3,0.013392857142857142
+Isotomidae,eggs,1,0.004464285714285714
+Isotomidae,enchy.,1,0.004464285714285714
+Isotomidae,humus,34,0.15178571428571427
+Isotomidae,litter,25,0.11160714285714286
+Isotomidae,m.fau,17,0.07589285714285714
+Isotomidae,myco.,14,0.0625
+Isotomidae,plant,14,0.0625
+Isotomidae,sap. fun.,67,0.29910714285714285
+Labidostomidae,coll.,6,0.5454545454545454
+Labidostomidae,m.fau,1,0.09090909090909091
+Labidostomidae,mites,4,0.36363636363636365
+Laelapidae,carrion,1,0.007936507936507936
+Laelapidae,coll.,25,0.1984126984126984
+Laelapidae,eggs,13,0.10317460317460317
+Laelapidae,enchy.,13,0.10317460317460317
+Laelapidae,larvae,17,0.1349206349206349
+Laelapidae,m.fau,34,0.2698412698412698
+Laelapidae,mites,23,0.18253968253968253
+Leptolaelapidae,carrion,2,0.6666666666666666
+Leptolaelapidae,m.fau,1,0.3333333333333333
+Liacaridae,bac.,5,0.17857142857142858
+Liacaridae,carrion,3,0.10714285714285714
+Liacaridae,litter,10,0.35714285714285715
+Liacaridae,plant,4,0.14285714285714285
+Liacaridae,sap. fun.,6,0.21428571428571427
+Lohmanniidae,bac.,2,0.4
+Lohmanniidae,litter,1,0.2
+Lohmanniidae,plant,1,0.2
+Lohmanniidae,sap. fun.,1,0.2
+Lordalychidae,bac.,1,0.5
+Lordalychidae,sap. fun.,1,0.5
+Macrochelidae,coll.,9,0.15789473684210525
+Macrochelidae,eggs,10,0.17543859649122806
+Macrochelidae,enchy.,10,0.17543859649122806
+Macrochelidae,larvae,8,0.14035087719298245
+Macrochelidae,m.fau,16,0.2807017543859649
+Macrochelidae,mites,4,0.07017543859649122
+Malaconothridae,bac.,2,0.18181818181818182
+Malaconothridae,litter,3,0.2727272727272727
+Malaconothridae,myco.,1,0.09090909090909091
+Malaconothridae,plant,3,0.2727272727272727
+Malaconothridae,sap. fun.,2,0.18181818181818182
+Melicharidae,bac.,1,0.16666666666666666
+Melicharidae,coll.,1,0.16666666666666666
+Melicharidae,eggs,1,0.16666666666666666
+Melicharidae,m.fau,1,0.16666666666666666
+Melicharidae,mites,1,0.16666666666666666
+Melicharidae,sap. fun.,1,0.16666666666666666
+Mesoplophoridae,bac.,1,0.3333333333333333
+Mesoplophoridae,sap. fun.,2,0.6666666666666666
+Micreremidae,plant,2,1
+Micropsammidae,bac.,1,0.5
+Micropsammidae,sap. fun.,1,0.5
+Mochlozetidae,bac.,1,0.16666666666666666
+Mochlozetidae,carrion,1,0.16666666666666666
+Mochlozetidae,litter,1,0.16666666666666666
+Mochlozetidae,m.fau,1,0.16666666666666666
+Mochlozetidae,plant,1,0.16666666666666666
+Mochlozetidae,sap. fun.,1,0.16666666666666666
+Mycobatidae,plant,2,1
+Nanhermanniidae,bac.,2,0.1111111111111111
+Nanhermanniidae,humus,1,0.05555555555555555
+Nanhermanniidae,litter,7,0.3888888888888889
+Nanhermanniidae,myco.,1,0.05555555555555555
+Nanhermanniidae,plant,2,0.1111111111111111
+Nanhermanniidae,sap. fun.,5,0.2777777777777778
+Nanorchestidae,bac.,4,0.25
+Nanorchestidae,plant,6,0.375
+Nanorchestidae,sap. fun.,6,0.375
+Neanuridae,bac.,8,0.125
+Neanuridae,carrion,4,0.0625
+Neanuridae,coll.,3,0.046875
+Neanuridae,eggs,4,0.0625
+Neanuridae,enchy.,1,0.015625
+Neanuridae,humus,2,0.03125
+Neanuridae,litter,1,0.015625
+Neanuridae,m.fau,17,0.265625
+Neanuridae,mites,1,0.015625
+Neanuridae,myco.,3,0.046875
+Neanuridae,plant,2,0.03125
+Neanuridae,sap. fun.,18,0.28125
+Neelidae,bac.,2,0.2
+Neelidae,carrion,1,0.1
+Neelidae,humus,4,0.4
+Neelidae,litter,1,0.1
+Neelidae,sap. fun.,2,0.2
+Nehypochthoniidae,litter,1,0.5
+Nehypochthoniidae,sap. fun.,1,0.5
+Nematalycidae,bac.,2,0.5
+Nematalycidae,sap. fun.,2,0.5
+Neoliodidae,plant,1,1
+Neoparasitidae,coll.,1,1
+Nothogyniidae,m.fau,1,1
+Nothridae,bac.,3,0.075
+Nothridae,carrion,1,0.025
+Nothridae,litter,11,0.275
+Nothridae,m.fau,8,0.2
+Nothridae,myco.,5,0.125
+Nothridae,plant,5,0.125
+Nothridae,sap. fun.,7,0.175
+Odontellidae,bac.,1,0.25
+Odontellidae,m.fau,1,0.25
+Odontellidae,sap. fun.,2,0.5
+Oehserchestidae,bac.,1,0.5
+Oehserchestidae,sap. fun.,1,0.5
+Ologamasidae,carrion,8,0.10256410256410256
+Ologamasidae,coll.,23,0.2948717948717949
+Ologamasidae,eggs,2,0.02564102564102564
+Ologamasidae,enchy.,2,0.02564102564102564
+Ologamasidae,larvae,2,0.02564102564102564
+Ologamasidae,m.fau,13,0.16666666666666666
+Ologamasidae,mites,28,0.358974358974359
+Onychiuridae,bac.,19,0.11728395061728394
+Onychiuridae,carrion,14,0.08641975308641975
+Onychiuridae,enchy.,1,0.006172839506172839
+Onychiuridae,humus,25,0.15432098765432098
+Onychiuridae,litter,20,0.12345679012345678
+Onychiuridae,m.fau,6,0.037037037037037035
+Onychiuridae,myco.,28,0.1728395061728395
+Onychiuridae,plant,4,0.024691358024691357
+Onychiuridae,sap. fun.,45,0.2777777777777778
+Opilioacaridae,carrion,2,0.6666666666666666
+Opilioacaridae,sap. fun.,1,0.3333333333333333
+Oppiidae,bac.,8,0.14545454545454545
+Oppiidae,carrion,5,0.09090909090909091
+Oppiidae,humus,3,0.05454545454545454
+Oppiidae,litter,1,0.01818181818181818
+Oppiidae,m.fau,5,0.09090909090909091
+Oppiidae,myco.,11,0.2
+Oppiidae,plant,1,0.01818181818181818
+Oppiidae,sap. fun.,21,0.38181818181818183
+Oribatellidae,bac.,5,0.3125
+Oribatellidae,litter,4,0.25
+Oribatellidae,plant,1,0.0625
+Oribatellidae,sap. fun.,6,0.375
+Oribatulidae,bac.,6,0.20689655172413793
+Oribatulidae,carrion,1,0.034482758620689655
+Oribatulidae,humus,2,0.06896551724137931
+Oribatulidae,litter,2,0.06896551724137931
+Oribatulidae,myco.,3,0.10344827586206896
+Oribatulidae,plant,4,0.13793103448275862
+Oribatulidae,sap. fun.,11,0.3793103448275862
+Oribellidae,litter,1,0.3333333333333333
+Oribellidae,myco.,1,0.3333333333333333
+Oribellidae,sap. fun.,1,0.3333333333333333
+Oripodidae,bac.,2,0.15384615384615385
+Oripodidae,carrion,2,0.15384615384615385
+Oripodidae,litter,1,0.07692307692307693
+Oripodidae,myco.,2,0.15384615384615385
+Oripodidae,plant,4,0.3076923076923077
+Oripodidae,sap. fun.,2,0.15384615384615385
+Otocepheidae,bac.,3,0.23076923076923078
+Otocepheidae,humus,1,0.07692307692307693
+Otocepheidae,litter,2,0.15384615384615385
+Otocepheidae,m.fau,2,0.15384615384615385
+Otocepheidae,plant,2,0.15384615384615385
+Otocepheidae,sap. fun.,3,0.23076923076923078
+Pachygnathidae,m.fau,5,0.8333333333333334
+Pachygnathidae,sap. fun.,1,0.16666666666666666
+Pachylaelapidae,coll.,2,0.13333333333333333
+Pachylaelapidae,eggs,1,0.06666666666666667
+Pachylaelapidae,enchy.,4,0.26666666666666666
+Pachylaelapidae,larvae,1,0.06666666666666667
+Pachylaelapidae,m.fau,6,0.4
+Pachylaelapidae,mites,1,0.06666666666666667
+Palaeacaridae,humus,1,0.25
+Palaeacaridae,plant,1,0.25
+Palaeacaridae,sap. fun.,2,0.5
+Parakalummidae,bac.,1,0.3333333333333333
+Parakalummidae,humus,1,0.3333333333333333
+Parakalummidae,sap. fun.,1,0.3333333333333333
+Parasitidae,carrion,1,0.009345794392523364
+Parasitidae,coll.,24,0.22429906542056074
+Parasitidae,eggs,15,0.14018691588785046
+Parasitidae,enchy.,12,0.11214953271028037
+Parasitidae,larvae,12,0.11214953271028037
+Parasitidae,m.fau,21,0.19626168224299065
+Parasitidae,mites,22,0.205607476635514
+Paratydeidae,bac.,1,0.2
+Paratydeidae,m.fau,2,0.4
+Paratydeidae,sap. fun.,2,0.4
+Parholaspididae,coll.,2,0.3333333333333333
+Parholaspididae,m.fau,3,0.5
+Parholaspididae,mites,1,0.16666666666666666
+Peloppiidae,bac.,6,0.2608695652173913
+Peloppiidae,carrion,1,0.043478260869565216
+Peloppiidae,humus,2,0.08695652173913043
+Peloppiidae,litter,3,0.13043478260869565
+Peloppiidae,m.fau,1,0.043478260869565216
+Peloppiidae,plant,3,0.13043478260869565
+Peloppiidae,sap. fun.,7,0.30434782608695654
+Penthalodidae,bac.,5,0.7142857142857143
+Penthalodidae,myco.,1,0.14285714285714285
+Penthalodidae,sap. fun.,1,0.14285714285714285
+Perlohmannidae,bac.,1,0.2
+Perlohmannidae,myco.,1,0.2
+Perlohmannidae,plant,2,0.4
+Perlohmannidae,sap. fun.,1,0.2
+Phenopelopidae,bac.,3,0.1111111111111111
+Phenopelopidae,litter,8,0.2962962962962963
+Phenopelopidae,m.fau,1,0.037037037037037035
+Phenopelopidae,myco.,2,0.07407407407407407
+Phenopelopidae,plant,4,0.14814814814814814
+Phenopelopidae,sap. fun.,9,0.3333333333333333
+Phthiracaridae,bac.,6,0.0967741935483871
+Phthiracaridae,carrion,1,0.016129032258064516
+Phthiracaridae,humus,2,0.03225806451612903
+Phthiracaridae,litter,31,0.5
+Phthiracaridae,m.fau,4,0.06451612903225806
+Phthiracaridae,myco.,2,0.03225806451612903
+Phthiracaridae,plant,9,0.14516129032258066
+Phthiracaridae,sap. fun.,7,0.11290322580645161
+Phytoseiidae,coll.,6,0.2608695652173913
+Phytoseiidae,eggs,4,0.17391304347826086
+Phytoseiidae,enchy.,2,0.08695652173913043
+Phytoseiidae,larvae,2,0.08695652173913043
+Phytoseiidae,m.fau,4,0.17391304347826086
+Phytoseiidae,mites,5,0.21739130434782608
+Podocinidae,coll.,2,0.4
+Podocinidae,m.fau,2,0.4
+Podocinidae,mites,1,0.2
+Polyaspididae,coll.,1,0.25
+Polyaspididae,enchy.,1,0.25
+Polyaspididae,m.fau,2,0.5
+Pomerantziidae,coll.,1,0.3333333333333333
+Pomerantziidae,m.fau,1,0.3333333333333333
+Pomerantziidae,mites,1,0.3333333333333333
+Protoribatidae,litter,1,0.5
+Protoribatidae,sap. fun.,1,0.5
+Punctoribatidae,bac.,1,0.2
+Punctoribatidae,humus,1,0.2
+Punctoribatidae,myco.,1,0.2
+Punctoribatidae,sap. fun.,2,0.4
+Pygmephoridae,sap. fun.,1,1
+Raphignathidae,coll.,1,0.3333333333333333
+Raphignathidae,m.fau,1,0.3333333333333333
+Raphignathidae,mites,1,0.3333333333333333
+Raphignathoidea,coll.,3,0.3333333333333333
+Raphignathoidea,eggs,1,0.1111111111111111
+Raphignathoidea,m.fau,1,0.1111111111111111
+Raphignathoidea,mites,3,0.3333333333333333
+Raphignathoidea,plant,1,0.1111111111111111
+Rhagidiidae,coll.,5,0.35714285714285715
+Rhagidiidae,eggs,1,0.07142857142857142
+Rhagidiidae,enchy.,1,0.07142857142857142
+Rhagidiidae,larvae,1,0.07142857142857142
+Rhagidiidae,mites,6,0.42857142857142855
+Rhodacaridae,coll.,17,0.25
+Rhodacaridae,eggs,6,0.08823529411764706
+Rhodacaridae,enchy.,7,0.10294117647058823
+Rhodacaridae,larvae,8,0.11764705882352941
+Rhodacaridae,m.fau,20,0.29411764705882354
+Rhodacaridae,mites,10,0.14705882352941177
+Saltiseiidae,m.fau,1,1
+Scheloribatidae,bac.,7,0.15217391304347827
+Scheloribatidae,carrion,1,0.021739130434782608
+Scheloribatidae,humus,1,0.021739130434782608
+Scheloribatidae,litter,11,0.2391304347826087
+Scheloribatidae,m.fau,3,0.06521739130434782
+Scheloribatidae,myco.,3,0.06521739130434782
+Scheloribatidae,plant,5,0.10869565217391304
+Scheloribatidae,sap. fun.,15,0.32608695652173914
+Sejidae,coll.,3,0.2727272727272727
+Sejidae,enchy.,1,0.09090909090909091
+Sejidae,m.fau,5,0.45454545454545453
+Sejidae,mites,1,0.09090909090909091
+Sejidae,sap. fun.,1,0.09090909090909091
+Smarididae,coll.,1,0.2
+Smarididae,eggs,1,0.2
+Smarididae,enchy.,1,0.2
+Smarididae,larvae,1,0.2
+Smarididae,mites,1,0.2
+Sminthuridae,bac.,9,0.1836734693877551
+Sminthuridae,carrion,2,0.04081632653061224
+Sminthuridae,humus,2,0.04081632653061224
+Sminthuridae,litter,5,0.10204081632653061
+Sminthuridae,myco.,2,0.04081632653061224
+Sminthuridae,plant,14,0.2857142857142857
+Sminthuridae,sap. fun.,15,0.30612244897959184
+Sphaerolichidae,coll.,1,0.3333333333333333
+Sphaerolichidae,m.fau,1,0.3333333333333333
+Sphaerolichidae,sap. fun.,1,0.3333333333333333
+Stigmaeidae,coll.,2,0.2
+Stigmaeidae,eggs,1,0.1
+Stigmaeidae,enchy.,1,0.1
+Stigmaeidae,larvae,1,0.1
+Stigmaeidae,m.fau,1,0.1
+Stigmaeidae,mites,2,0.2
+Stigmaeidae,plant,1,0.1
+Stigmaeidae,sap. fun.,1,0.1
+Strandtmanniidae,coll.,1,0.3333333333333333
+Strandtmanniidae,m.fau,1,0.3333333333333333
+Strandtmanniidae,mites,1,0.3333333333333333
+Suctobelbidae,carrion,1,0.25
+Suctobelbidae,m.fau,2,0.5
+Suctobelbidae,sap. fun.,1,0.25
+Tarsonemidae,bac.,2,0.18181818181818182
+Tarsonemidae,carrion,1,0.09090909090909091
+Tarsonemidae,coll.,1,0.09090909090909091
+Tarsonemidae,humus,1,0.09090909090909091
+Tarsonemidae,larvae,1,0.09090909090909091
+Tarsonemidae,m.fau,1,0.09090909090909091
+Tarsonemidae,mites,1,0.09090909090909091
+Tarsonemidae,myco.,1,0.09090909090909091
+Tarsonemidae,sap. fun.,2,0.18181818181818182
+Tectocepheidae,bac.,7,0.2692307692307692
+Tectocepheidae,humus,3,0.11538461538461539
+Tectocepheidae,litter,4,0.15384615384615385
+Tectocepheidae,m.fau,1,0.038461538461538464
+Tectocepheidae,myco.,2,0.07692307692307693
+Tectocepheidae,plant,3,0.11538461538461539
+Tectocepheidae,sap. fun.,6,0.23076923076923078
+Tenerifiidae,coll.,1,0.2
+Tenerifiidae,eggs,1,0.2
+Tenerifiidae,enchy.,1,0.2
+Tenerifiidae,larvae,1,0.2
+Tenerifiidae,mites,1,0.2
+Terpnacaridae,sap. fun.,3,1
+Thyrisomidae,bac.,1,1
+Tomoceridae,bac.,10,0.16129032258064516
+Tomoceridae,carrion,3,0.04838709677419355
+Tomoceridae,humus,5,0.08064516129032258
+Tomoceridae,litter,12,0.1935483870967742
+Tomoceridae,m.fau,4,0.06451612903225806
+Tomoceridae,myco.,3,0.04838709677419355
+Tomoceridae,plant,6,0.0967741935483871
+Tomoceridae,sap. fun.,19,0.3064516129032258
+Trachytidae,bac.,2,0.14285714285714285
+Trachytidae,coll.,2,0.14285714285714285
+Trachytidae,eggs,2,0.14285714285714285
+Trachytidae,m.fau,4,0.2857142857142857
+Trachytidae,mites,2,0.14285714285714285
+Trachytidae,sap. fun.,2,0.14285714285714285
+Trhypochthoniidae,bac.,2,0.2
+Trhypochthoniidae,litter,2,0.2
+Trhypochthoniidae,m.fau,1,0.1
+Trhypochthoniidae,plant,1,0.1
+Trhypochthoniidae,sap. fun.,4,0.4
+Triplogyniidae,coll.,1,0.3333333333333333
+Triplogyniidae,m.fau,1,0.3333333333333333
+Triplogyniidae,mites,1,0.3333333333333333
+Trombidiidae,coll.,2,0.2
+Trombidiidae,eggs,2,0.2
+Trombidiidae,enchy.,1,0.1
+Trombidiidae,larvae,2,0.2
+Trombidiidae,m.fau,1,0.1
+Trombidiidae,mites,2,0.2
+Tullbergiidae,bac.,2,0.14285714285714285
+Tullbergiidae,humus,2,0.14285714285714285
+Tullbergiidae,litter,3,0.21428571428571427
+Tullbergiidae,myco.,2,0.14285714285714285
+Tullbergiidae,plant,2,0.14285714285714285
+Tullbergiidae,sap. fun.,3,0.21428571428571427
+Tydeidae,bac.,5,0.29411764705882354
+Tydeidae,carrion,1,0.058823529411764705
+Tydeidae,coll.,1,0.058823529411764705
+Tydeidae,humus,1,0.058823529411764705
+Tydeidae,larvae,1,0.058823529411764705
+Tydeidae,m.fau,2,0.11764705882352941
+Tydeidae,mites,1,0.058823529411764705
+Tydeidae,myco.,1,0.058823529411764705
+Tydeidae,plant,1,0.058823529411764705
+Tydeidae,sap. fun.,3,0.17647058823529413
+Uropodidae,coll.,1,0.06666666666666667
+Uropodidae,enchy.,1,0.06666666666666667
+Uropodidae,m.fau,11,0.7333333333333333
+Uropodidae,mites,1,0.06666666666666667
+Uropodidae,sap. fun.,1,0.06666666666666667
+Veigaiidae,coll.,13,0.3939393939393939
+Veigaiidae,eggs,5,0.15151515151515152
+Veigaiidae,enchy.,1,0.030303030303030304
+Veigaiidae,larvae,1,0.030303030303030304
+Veigaiidae,m.fau,5,0.15151515151515152
+Veigaiidae,mites,7,0.21212121212121213
+Veigaiidae,sap. fun.,1,0.030303030303030304
+Xenocaligonellididae,coll.,1,0.3333333333333333
+Xenocaligonellididae,m.fau,1,0.3333333333333333
+Xenocaligonellididae,mites,1,0.3333333333333333
+Zerconidae,enchy.,2,0.11764705882352941
+Zerconidae,m.fau,14,0.8235294117647058
+Zerconidae,sap. fun.,1,0.058823529411764705
+Zetorchestidae,bac.,1,0.09090909090909091
+Zetorchestidae,litter,1,0.09090909090909091
+Zetorchestidae,myco.,1,0.09090909090909091
+Zetorchestidae,plant,3,0.2727272727272727
+Zetorchestidae,sap. fun.,5,0.45454545454545453
