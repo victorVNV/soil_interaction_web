@@ -18,17 +18,16 @@ El suelo es el componente principal de la biósfera terrestre (Georges P.
 en (Lavelle and Spain 1994)) y el sustrato físico sobre el que se dan la
 mayor parte de las actividades humanas (Brussaard 1997).
 
-En la matriz del suelo interactuan de manera dinámica y estrecha los
-diferentes componentes físicos, químicos y biológicos (@culliney2013,
-Lavelle and Spain 1994; Wall et al. 2012). Estas interacciones afectan
-la estructura y funcionamiento del suelo regulando el funcionamiento de
-los ecosistemas terrestres tanto en ambientes naturales como en los
+En la matriz del suelo interactuan de manera dinámica y estrecha los componentes
+físicos, químicos y biológicos (@culliney2013, @lavellespain1994;@wall_etal_2012). 
+Estas interacciones afectan la estructura y funcionamiento del suelo regulando el 
+funcionamiento de los ecosistemas terrestres tanto en ambientes naturales como en los
 suelos manejados por el hombre (Barrios 2007; Brussaard 1997).
 
 Los bienes y servicios que la humanidad aprovecha de los ecosistemas
 terrestres dependen de los procesos naturales que ocurren en el suelo y
 del efecto de las actividades humanas sobre el suelo (Barrios 2007; Wall
-et al. 2012) que puedene modificar la estructura física y química del
+et al. 2012) que pueden modificar la estructura física y química del
 suelo, producir cambios en la dinámica del ciclo de los nutrientes y la
 materia orgánica, que influyen en la dinámica del almacenamiento del
 carbono y del agua y en la liberación y captura de los gases de efecto
@@ -38,7 +37,7 @@ funcionamiento del ecosistema del suelo.
 Amplio es el conocimiento desarrollado sobre los componentes físicos y
 químicos del suelo que permiten la clasificación y caracterización de
 estos, pero sobre el componente biológico aún se está desarrollando el
-cuerpo de conocimiento (Barrios 2007).
+cuerpo de conocimiento (@barrios2007).
 
 Es importante avanzar en el conocimiento del componente biológico del
 suelo en el cuál habita una amplia diversidad de organismos
@@ -54,23 +53,24 @@ El suelo como hábitat proporciona una multiplicidad de nichos a través
 de la red de poros e intersticios que se forman entre la matriz del
 suelo (@lavelle_spain2003, @wall_etal2012) y la hojarasca que se acumula
 sobre el suelo. La red de poros es un entorno anfibio, compacto,
-discontinuo, de diámetro variable con características físicas y químicas
-heterogéneas a pequeñas escalas en la que se desarrollan y mantienen una
+discontinuo, de diámetro variable cuyas características físicas y químicas
+heterogéneas a pequeñas escalas permite el desarrollo y mantenimiento de una
 gran cantidad de microclimas y soporta una compleja y diversa comunidad
 biológica (@lavelle_spain2003 @barrios2007 @bardgett2002)
 
 La diversidad de especies que habitan en los suelos se correlaciona
-positivamente con la heterogeneidad de hábitats que se forman entre la
+positivamente con la heterogeneidad de hábitats (@anderson1978) que se forman entre la
 hojarasca y el suelo a la vez los organismos que habitan los
 intersticios del suelo, mediante diferentes estrategias de alimentación
 e historias de vida, evitan la competencia interespecífica y responden
 diferencialmente a las variaciones ambientales y a la disponibilidad de
-recursos tróficos alimenticios (@bardgett2002, @lavelle_spain2003). El
-estudio de la riqueza de especies se dificulta porque el suelo es un
+recursos tróficos alimenticios (@bardgett2002, @lavelle_spain2003).
+
+El estudio de la riqueza de especies se dificulta porque el suelo es un
 hábitat críptico, porque el tamaño de los organismos es pequeño, lo que
 dificulta las caracterizaciones anotomicas - morfológicas, y por el bajo
-desarrollo a nivel global del conocimiento taxonómico
-(@wurts_et_al2012). Por otra parte, considerando los diferentes procesos
+desarrollo a nivel global del conocimiento taxonómico (@wurts_et_al2012). 
+Por otra parte, considerando los diferentes procesos
 que ocurren en el suelo, muchas especies cumplen papeles similares por
 lo que una clasificación funcional es necesaria para conectar la
 diversidad con el funcionamiento del ecosistema (@briones2014,
@@ -93,50 +93,95 @@ anchos coporales \< 2mm (microartrópodos y enquitreidos) y la macrofauna
 que son aquellos animales con un ancho corporal mayor a los 2 mm, estos
 incluyen artrópodos, lombrices de tierra y otros invertebrados
 (@briones2014,@lavelle_spain2003) y algunos autores incluyen la
-megafauna aquellos animales con un ancho corporal mayor a 2 cm
-(@wurst_etal_2012). Los organismos según su rango de tamaño se adaptan a
-la vida en el suelo mediante diferentes estrategias en sus fomas de vida
-y fisiología (@lavelle2012), en los poros e intersticios del suelo
-existen diferentes regímenes hídricos, de cantidad de aire y de espacio
-en la heterogeneidad de ambientes en el habitan los organismos con
-diferentes restricciones en la movilidad, diferentes grados de
-especialización trófica (@potapov2023) y en el cual se han desarrollado
-mutualismos (@lavelle2012,@lavelle2006) a la vez según el tamaño de los
-taxas involucrados en la comunidad edáfica su capacidad de afectar el
-ambiente varía en diferentes escalas espacio temporales y áreas de
-influencia (@lavelle2012, @briones2014)
+megafauna aquellos animales con un ancho corporal mayor a 5 cm
+(@wurst_etal_2012).
+
+Los organismos según su rango de tamaño se adaptan a la vida en el suelo
+mediante diferentes estrategias en sus fomas de vida y fisiología
+(@lavelle2012), en los poros e intersticios del suelo existen diferentes
+regímenes hídricos, de cantidad de aire y de espacio en la
+heterogeneidad de ambientes en el habitan los organismos con diferentes
+restricciones en la movilidad, diferentes grados de especialización
+trófica (@potapov2023) y en el cual se han desarrollado mutualismos
+(@lavelle2012,@lavelle2006), a la vez, según el tamaño de los taxas
+involucrados en la comunidad edáfica su capacidad de afectar el ambiente
+varía en diferentes escalas espacio temporales y áreas de influencia (@lavelle2012, @briones2014)
 
 Si bien la complejidad del suelo es enorme, su funcionamiento puede ser
 entendido como un sistema auto-organizado (@lavelle_etal2006),
 característica que es una propiedad emergente de los ecosistemas (odum,
-whitellback (libros, papers de ecología 3)), en el que la enorme y compleja diversidad
-biológica y de interacciones progresan a diferentes escalas espaciales y temporales afectando 
-los procesos en el ecosistema (@lavelle2012, @brussard2004, @barrios2007), de los que dependen importantes 
-servicios tales como el ciclo de los nutrientes, del carbono, del agua, la descomposición de la materia
-orgánica, el mantenimiento y provisión de la fertilidad del suelo, el control de poblaciones, etc.
-(@creamer2022, @briones2014) y de los que la humanidad hace uso "gratuitamente" y que en términos monetarios 
-a nivel global representa trillones de dolares (@coleman_etal_2014, @fonte_etal_2023) 
+whitellback (libros, papers de ecología 3)), en el que la enorme y
+compleja diversidad biológica y de interacciones progresan a diferentes
+escalas espaciales y temporales afectando los procesos en el ecosistema
+(@lavelle2012, @brussard2004, @barrios2007).
 
-En el ecosistema edáfico, las especies presentes se relacionan entre sí de diferentes maneras y estas relaciones
-establecen complejas redes de interacciones (Montoya et al. 2001), cuya representación describe todas las
-posibles formas en las que las especies pueden interactuar (Delmas et al. 2019; Kéfi et al. 2012) 
-Estas redes de interacciones están influenciadas por factores de largo plazo tales como el clima, el suelo, la
-disponibilidad de recursos e influencias biogeográficas en el grupo de especies y por factores de corto plazo
-como las perturbaciones antrópicas (Kardol et al. 2016) por lo que resulta de particular interés la respuesta de
-la estructura de las redes ante los distintos tipos de disturbios y su relación con el funcionamiento del
-ecosistema del suelo (Sabatté, 2011; Kardol et al., 2016).
-El análisis de las redes de interacciones de alimentación, e.i. redes tróficas, es el más utilizado pero incluir
-todos los tipos de interacciones es fundamental para lograr un entendimiento completo sobre el funcionamiento de
-los ecosistemas (Kéfi et al. 2012, @bascompte2009). 
-Este análisis permite identificar especies con roles funcionales claves e identificar grupos funcionales, 
-definidos como el grupo de especies con un papel semejante en el funcionamiento de un ecosistema (Gitay y Noble,
-1997), también permite conocer patrones estructurales de la comunidad a partir de la topología de la red y las
-consecuencias de estos patrones sobre la dinámica de una comunidad y sus especies constituyentes (Kéfi et al.
-2012; Pimm et. al. 1991; Scheu 2001) y su estructura condiciona las funciones en los ecosistemas (Montoya et al. 2001; Labrador 2008)
-@potapov2023 declara que el uso de las redes tróficas es una herramienta esencial que debe ser utilizada en los
-ecosistemas terrestres para comprender el funcionamiento del ecosistema del suelo, ya que une los aspetos
-relacionados con la diversidad específica, la diversidad funcional y los aspectos que se relacionan con la
-estabilidad y resiliencia de estos sistemas.
+De los procesos naturales que ocurren en los ecosistemas dependen importantes 
+servicios ecosistémicos tales como el ciclo de los nutrientes,
+del carbono, del agua, la descomposición de la materia orgánica, el
+mantenimiento y provisión de la fertilidad del suelo, el control de
+poblaciones, etc. (@creamer2022, @briones2014) y de los que la humanidad
+hace uso "gratuitamente" y que en términos monetarios a nivel global
+representa trillones de dolares (@coleman_etal_2014, @fonte_etal_2023)
+
+En el ecosistema edáfico, las especies presentes se relacionan entre sí
+de diferentes maneras que establecen complejas redes de
+interacciones (@montoya_etal_2001), cuya representación describe todas
+las posibles formas en las que las especies pueden interactuar (@delmas_etal_2019)
+Estas redes de interacciones están influenciadas por factores de largo plazo tales como el clima,
+el suelo, la disponibilidad de recursos e influencias biogeográficas en el grupo
+de especies y por factores de corto plazo como las perturbaciones
+antrópicas (@kardol_etal_2016) por lo que resulta de particular @kefi_Etal_2012 interés
+la respuesta de la estructura de las redes ante los distintos tipos de
+disturbios y su relación con el funcionamiento del ecosistema del suelo
+(@sabatte2021; @kardol_etal_201). 
+
+El análisis de las redes tróficas, e.i. redes de interacciones de alimentación, es el enfoque más
+utilizado en los estudios de redes interacciones, pero incluir además todos los tipos de
+interacciones resultará fundamental para lograr un entendimiento completo sobre el funcionamiento
+de los ecosistemas (@kefi_Etal_2012, @bascompte2009).
+
+El análisis de las redes tróficas permite
+identificar especies con roles funcionales claves e identificar grupos
+funcionales, definidos como el grupo de especies con un papel semejante
+en el funcionamiento de un ecosistema (Gitay y Noble, 1997), también
+permite conocer patrones estructurales de la comunidad a partir de la
+topología de la red y las consecuencias de estos patrones sobre la
+dinámica de una comunidad y sus especies constituyentes (Kéfi et al.
+2012; Pimm et. al. 1991; Scheu 2001) y su estructura condiciona las
+funciones en los ecosistemas (Montoya et al. 2001; Labrador 2008; @barnes_etal_2017).
+
+@potapov2023 declara que el uso de las redes tróficas es una herramienta
+esencial que debe ser utilizada en los ecosistemas terrestres para
+comprender el funcionamiento del ecosistema del suelo, ya que une los
+aspetos relacionados con la diversidad específica, la diversidad de
+rasgos, la diversidad funcional y los aspectos que se relacionan con la
+estabilidad y resiliencia de estos sistemas. 
+
+Por otra parte, a las redes de interacciones, pueden relacionarse rasgos como el peso corporal
+con los nodos de la red y atributos poblacionales como la abundancia de los taxones, lo que
+permite relacionar tanto parámetros fisiológicos como el metabolismo y el uso
+de los recursos, como parámetros ecológicos tales como las interacciones
+tróficas y las adaptaciones de estos organismos ante cambios en el
+ambiente [@pey2014; @white2007; @turnbull2014].
+
+En este contexto, el presente trabajo busca comparar la estabilidad estructural de las
+redes de tróficas de la fauna del suelo de suelos Argiudoles típicos de la Pampa Ondulada 
+entre ambientes con distintas estrategias en el uso del suelo, como aproximación a distintas
+intensidades de perturbación: a) suelos sin uso agropecuario, tales como un pastizal naturalizado
+sin uso por mas de 50 años o un lote clausurado sin uso por más de 30 años, que servirán como
+sistema de referencia; b) suelos con uso pastoril como forraje para el ganado considerados 
+como sistemas con intensidad de uso intermedio o leve; y c) suelos con actividad agrícola contínua
+considerado como sistema con intensidad de uso alta.
+
+Para la construcción y el modelado de la red de interacciones tróficas de la fauna del suelo
+es necesario conocer tanto las comunidades que habitan los diferentes ambientes como las
+características físicas y químicas de los ambientes, además es necesario recopilar
+información sobre los recursos tróficos que estos animales utilizan para poder modelar la 
+matriz de interacciones tróficas (@delmas_etal_2019), de manera complementaria tener información
+sobre rasgos funcionales específicamente sobre el peso corporal de los taxas involucrados
+(@laigle_etal_2018) permite conocer las fuerzas de interacciones(@deRuiter_etal_1995),
+los flujos de energía através de la red (@potapov2023, @barnes_etal_2017) y calcular la
+resiliencia y estabilidad de los sistemas bajo estudio (@mooreandderutier_2018, @gauzen_etal_2018, @allisina_etal_2008).
 
 
 # Recursos tróficos de la fauna edáfica
@@ -148,17 +193,47 @@ estabilidad y resiliencia de estos sistemas.
 # Redes de interacciones globales
 
 # ref
-Bascompte 2009 Disentangling the Web of Life
+
+Bascompte 2009 Disentangling the Web of Life 
+
 Culliney 2013 Role of Arthropods in Maintaining Soil Fertility 
+
 Lavelle et al 2006 Soil invertebrates and ecosystem services 
+
 Lavelle 2012 Soil as habitat. in Wall 2012 
+
 Thakur et al 2019 Towards an integrative understanding of soil biodiversity 
+
 Bardgett 2002 Causes and consequences of biological diversity in soil 
+
 Creamer et al 2022 The life of soils: Integrating the who and how of multifunctionality 
+
 Wurst et al 2012 Soil Biodiversity and Functions. En Wall 2012 
-Potapov 2023 Multifunctionality of belowground food webs: resource, size and spatial energy channels
+
+Potapov 2023 Multifunctionality of belowground food webs: resource, size and spatial energy channels 
+
 Hooper, et al 2005. Effects of biodiversity on ecosystem functioning: a consensus of current knowledge. Ecological Monographs 75: 3-35. 
-Delmas et al 2019 Analysing ecological networks of species interactions
-Coleman etal 2004 Fundamental of soil ecology. chap 1, Historical Overview of Soils and the Fitness
-of the Soil Environment, sub section, Soils as Suppliers of Ecosystem Services pag 20
+
+Delmas et al 2019 Analysing ecological networks of species interactions 
+
+Coleman etal 2004 Fundamental of soil ecology. chap 1, Historical Overview of Soils and
+the Fitness of the Soil Environment, sub section, Soils as Suppliers of
+Ecosystem Services pag 20 
+
 Fonte et al 2023. Earthworms contribute significantly to global food production
+
+Laigle et al 2018 Species traits as drivers of food web structure
+
+de Ruiter et al 1995. Energetics, Patterns of Interaction Strengths, and Stability in Real Ecosystems
+
+Anderson 1978 A Method to Quantify Soil-Microhabitat Complexity and its Application to a Study of Soil Animal Species Diversity
+
+Barnes et al 2017 Energy flux: the link between multitropic biodiversity and ecosystem functioning
+
+Allesina, Stefano, Pascual, Mercedes, 2008. Network structure, predator - prey modules,
+and stability in large food webs. Theor. Ecol. 1
+
+Gauzens etal 2018 fluxweb: An R package to easily estimate energy fluxes in food
+webs
+
+John C Moore and Peter C de Ruiter. Energetic Food Webs: An analysis of real and model ecosystems. Oxford University Press, 2012.
