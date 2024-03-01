@@ -1,0 +1,103 @@
+---
+title: "Comunidad"
+author: "VNV"
+date: "2024-02-29"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r lib, include=FALSE, warning=FALSE}
+#Carga paquetes
+{library("tidyverse");library("readxl");library("ade4") 
+library("vegan");library("cluster");library("BiodiversityR") 
+library("FactoMineR");library("factoextra")}
+set.seed(167)
+
+```
+# Análisis de la comunidad
+
+## Generalidades sobre el conjunto de datos.
+
+Las comunidades de la fauna del suelo trabajadas aquí ocurren en suelos Argiudoles típicos de la Pampa Ondulada. 
+Las comunidades se trabajan en dos conjuntos de datos, a saber, fauna edáfica tomada en suelos de la 
+Universidad Nacional de Luján y fauna edáfica de suelos de tres estabecimientos agropecuarios localizados en 
+los partidos de Chivilcoy y Navarro.
+
+En ambos casos se tomaron muestras sobre suelos con diferentes usos y se consideraron estos como diferentes grados
+en la intensidad de perturbación sobre el suelo.
+
+Los suelos de la Universidad Nacional de Luján fueron muestreados en una sola fecha en el mes de Mayo del año 2022 
+y el trabajo de extracción, clasificación de los taxas y medición de rasgos fué realiado por el autor y
+colaboradores. 
+
+Los suelos de los tres establecimientos agropecuarios ubicados en los partidos de Chivilcoy y Navarro fueron
+muestreados por Sandler (2019), en cada estación del año durante dos años entre 2009 y 2010, dejando un conjunto 
+de datos tanto con la clasificación de los taxas como con la caracterización de las variables físicas y químicas. 
+A su vez, los organismos colectados fueron preservados, lo que permitió al autor la medición de rasgos corporales.
+
+## Comunidad de la fauna edáfica de la Universidad Nacional de Luján
+
+Durante el mes de mayo del año 2022 se llevó adelante el muestreo de los suelos Argiudoles típicos de la 
+Universidad Nacional de Luján de la serie CO3 (@.tesis_de_series_) [imagen1_mapa].
+
+El muestreo se llevó adelante con el objetivo de colectar la fauna edáfica de los tres rangos de tamaño, esto es, 
+la microfauna constituida por nemátodos, la mesofauna en el que se incluyen los microartrópodos y otros
+invertebrados cuyo diametro corporal es menor a 2 mm y la macrofauna. 
+
+Se eligieron 3 sitios con diferentes usos del suelo y en cada sitio se ubicaron 3 réplicas de un metro cuadrado de superficie separadas 50 metros entre sí y separadas 10 metros de los bordes. Los sitios elegidos fueron: a) un lote agrícola sobre el cuál se practica la agricultura convencional con labranza para la producción de forraje de alfalfa _Medicago sativa_ para pastoreo de bovinos en producción lechera; b) un área de pastizal natural con dominancia de Sorgo de Alepo _Sorghum halepense_ y Cardo mariano _Silybum marianum_, áreas que reciben presión de pastoreo con descanso para los bovinos de producción lechera, y; c) un área clausurada por más de 30 años considerada como reserva cuya vegetación característica es de tipo arbórea dominada por Ligustro _Ligustrum lucidum_ y Acacia _Acacia melanoxylon_.
+
+Para extraer los nemátodos de vida libre del suelo para cada una de las réplicas muestrales se tomaron 4 submuestras
+al azar dentro del área de un metro cuadrado delimitada como área muestral. 
+Las submuestras fueron almacenadas cuidando que no se compacten, que no pierdan humedad del suelo y que no
+se sobre calienten las muestas para ser llevadas al laboratorio donde se procedió a la extracción de la microfauna.
+Las submuestras fueron mecladas, homogeneizadas y pesadas, luego cada muestra fué sometida al método de flotación y
+tamizado. 
+La muestra de suelo se desagrega suavemente con la mano y luego se incorpora agua en relación 1:4 suelo:agua p/p
+se agita la solución enérgicamente durante 2 minitos aproximadamente y luego se deja reposar unos minutos hasta que
+el suelo decante un poco, la solución se deja pasar a través de tamices con diferente diámetro de apertura de malla
+y los nemátodos se colectan en las mallas con diámetro de apertura de 170 y 53 micrones
+
+Para extraer la macrofauna del suelo trabajaron en 2 etapas una a campo y otra en laboratorio, en ambos casos los
+animales se capturaban directamente con la mano (en inglés: " _Hand shorting_ " ) utilizando pinzas y pinceles 
+y se los almacenaba directamente en alcohol de 96º. 
+
+En campo se delimitó dentro del área de muestreo de un metro
+cuadrado una sub parcela ubicada al azar de 25 x 25 cm y se excavó el suelo hasta los 20 cm de profundidad, esta
+muestra se trabajó de manera estratificada separando en Hojarasca, suelo hasta los 10 cm y suelo hasta los 20 cm de
+profundida.
+
+El cada estrato del pan de suelo fue trasladado al laboratorio, el suelo se mantuvo intacto y cuidando que no pierda
+la humedad natural para evitar la deshidratación de la macrofauna hasta que el proceso de exploración y extracción
+de los animales termine, proceso que llevo aproximadamente 5 días. 
+
+Cada pan de suelo fue desagregado minusiosamente y se observó el movimiento de los animales de la macrofauna
+bajo lupa de mesa y luz blanca de mesa lo que permite capturar más animales que los que permite la exploración a
+campo donde solo se observan aquellos animales ágiles o de gran tamaño, tales como, lombrices de tierra, arañas
+lobo, bichos bolita, milpies, cienpies, entre otros.
+
+Para extraer la comunidad de la mesofauna del suelo, se utilizaron los diferentes estratos de suelo observados para
+la macrofauna que se encontraban en el laboratorio y de los que se tomo la totalidad de la hojarasca que fué tamiada
+con malla de diametro de 2 mm, la fracción de suelo orgánico fue considerada como humus y se almacenó congelado para
+la posterior observación de la mesofauna, la fracción de hojas que quedaba arriba del tamiz se consideró hojarasca.
+El pan de suelo de los primeros 10 centímetros de profundidad fue mezclado y homogeneizado para tomar tres muestras
+de suelo con un volumen igual al sacabocados convencional de 5 cm diámetro y 10 cm alto, previo a la toma de
+muestras el suelo fue disminuido en volumen mediante la técnica de cuarteo.
+
+Con el suelo de los primeros 10 cm de profundidad se llevó adelante la técnica de respiración inducida por sustrato
+para estimar la respiración heterotrófica del suelo y la proporción de procariotas y eucariotas halladas 
+por gramo de suelo que resulta en la aproximación del total de bacterias y hongos hallados en el suelo.
+
+También se realizaron, en el laboratorio de campo (mencionar correctamente el servicio)
+análisis de porcentaje de materia orgánica, porcentaje de carbono, carbono orgánico total, 
+porcentaje de nitrógeno, cantidad de fósforo, potencial hidrógeno y conductividad eléctrica.
+
+
+<!-- Imágenes ![texto_alternativo](ubicacion_de_la_imagen){width=width height=height} -->
+
+
+
+## Comunidad de la fauna edáfica Sandler (2019) 
