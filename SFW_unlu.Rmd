@@ -207,7 +207,7 @@ R<-web0%>%filter(sitio=="R")
 #####
 
 #ecologia_trofica <- read_delim("~/proyecGIT/TrophicResources/Data/ecologia_trofica.csv",
-                               delim = ";", escape_double = FALSE, trim_ws = TRUE)
+                            #   delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
 
 # Frecuencia de RECURSO por FAMILIA en cantidad de citas

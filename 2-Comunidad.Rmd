@@ -3,12 +3,14 @@ title: "Comunidad"
 author: "VNV"
 date: "2024-02-29"
 output: html_document
+editor_options: 
+  markdown: 
+    wrap: 90
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
 
 ```{r lib, include=FALSE, warning=FALSE}
 #Carga paquetes
@@ -18,86 +20,928 @@ library("FactoMineR");library("factoextra")}
 set.seed(167)
 
 ```
+
 # Análisis de la comunidad
+
+## Intro sobre la pampa ondulada y los suelos en general.
 
 ## Generalidades sobre el conjunto de datos.
 
-Las comunidades de la fauna del suelo trabajadas aquí ocurren en suelos Argiudoles típicos de la Pampa Ondulada. 
-Las comunidades se trabajan en dos conjuntos de datos, a saber, fauna edáfica tomada en suelos de la 
-Universidad Nacional de Luján y fauna edáfica de suelos de tres estabecimientos agropecuarios localizados en 
-los partidos de Chivilcoy y Navarro.
+Las comunidades de la fauna del suelo trabajadas aquí ocurren en suelos Argiudoles típicos
+de la Pampa Ondulada. Las comunidades se trabajan en dos conjuntos de datos, a saber,
+fauna edáfica tomada en suelos de la Universidad Nacional de Luján y fauna edáfica de
+suelos de tres estabecimientos agropecuarios localizados en los partidos de Chivilcoy y
+Navarro.
 
-En ambos casos se tomaron muestras sobre suelos con diferentes usos y se consideraron estos como diferentes grados
-en la intensidad de perturbación sobre el suelo.
+En ambos casos se tomaron muestras sobre suelos con diferentes usos y se consideraron
+estos como diferentes grados en la intensidad de perturbación sobre el suelo.
 
-Los suelos de la Universidad Nacional de Luján fueron muestreados en una sola fecha en el mes de Mayo del año 2022 
-y el trabajo de extracción, clasificación de los taxas y medición de rasgos fué realiado por el autor y
-colaboradores. 
+Los suelos de la Universidad Nacional de Luján fueron muestreados en una sola fecha en el
+mes de Mayo del año 2022 y el trabajo de extracción, clasificación de los taxas y medición
+de rasgos fué realizado por el autor y colaboradores.
 
-Los suelos de los tres establecimientos agropecuarios ubicados en los partidos de Chivilcoy y Navarro fueron
-muestreados por Sandler (2019), en cada estación del año durante dos años entre 2009 y 2010, dejando un conjunto 
-de datos tanto con la clasificación de los taxas como con la caracterización de las variables físicas y químicas. 
-A su vez, los organismos colectados fueron preservados, lo que permitió al autor la medición de rasgos corporales.
+Los suelos de los tres establecimientos agropecuarios ubicados en los partidos de
+Chivilcoy y Navarro fueron muestreados por Sandler (2019), en cada estación del año
+durante dos años entre 2009 y 2010, dejando un conjunto de datos tanto con la
+clasificación de los taxas como con la caracterización de las variables físicas y
+químicas. A su vez, los organismos colectados fueron preservados, lo que permitió al autor
+la medición de rasgos corporales.
 
 ## Comunidad de la fauna edáfica de la Universidad Nacional de Luján
 
-Durante el mes de mayo del año 2022 se llevó adelante el muestreo de los suelos Argiudoles típicos de la 
-Universidad Nacional de Luján de la serie CO3 (@.tesis_de_series_) [imagen1_mapa].
+Durante el mes de mayo del año 2022 se llevó adelante el muestreo de los suelos Argiudoles
+típicos de la Universidad Nacional de Luján de la serie CO3
+(\@.sfeir_etal_1988_tesis_de_series\_) [imagen1_mapa].
 
-El muestreo se llevó adelante con el objetivo de colectar la fauna edáfica de los tres rangos de tamaño, esto es, 
-la microfauna constituida por nemátodos, la mesofauna en el que se incluyen los microartrópodos y otros
-invertebrados cuyo diametro corporal es menor a 2 mm y la macrofauna. 
+El muestreo se llevó adelante con el objetivo de colectar la fauna edáfica que pasa todo
+su ciclo de vida en el suelo \@.momoyfalco_chap1 que incluye tres rangos de tamaño
+(\@.swift, agregar imagen tamaños), esto es, la microfauna constituida por los nemátodos
+(anco corporal menor a 200 \$\mu m\$), la mesofauna en el que se incluyen los
+microartrópodos y otros invertebrados cuyo diametro corporal es menor a 2 mm y la
+macrofauna.
 
-Se eligieron 3 sitios con diferentes usos del suelo y en cada sitio se ubicaron 3 réplicas de un metro cuadrado de superficie separadas 50 metros entre sí y separadas 10 metros de los bordes. Los sitios elegidos fueron: a) un lote agrícola sobre el cuál se practica la agricultura convencional con labranza para la producción de forraje de alfalfa _Medicago sativa_ para pastoreo de bovinos en producción lechera; b) un área de pastizal natural con dominancia de Sorgo de Alepo _Sorghum halepense_ y Cardo mariano _Silybum marianum_, áreas que reciben presión de pastoreo con descanso para los bovinos de producción lechera, y; c) un área clausurada por más de 30 años considerada como reserva cuya vegetación característica es de tipo arbórea dominada por Ligustro _Ligustrum lucidum_ y Acacia _Acacia melanoxylon_.
+Además de manera complementaria se estimaron, por un lado, la proporción de procariotas y
+eucariotas y la biomasa de los mismos, y por el otro, las variables edáficas químicas y
+físicas.
 
-Para extraer los nemátodos de vida libre del suelo para cada una de las réplicas muestrales se tomaron 4 submuestras
-al azar dentro del área de un metro cuadrado delimitada como área muestral. 
-Las submuestras fueron almacenadas cuidando que no se compacten, que no pierdan humedad del suelo y que no
-se sobre calienten las muestas para ser llevadas al laboratorio donde se procedió a la extracción de la microfauna.
-Las submuestras fueron mecladas, homogeneizadas y pesadas, luego cada muestra fué sometida al método de flotación y
-tamizado. 
-La muestra de suelo se desagrega suavemente con la mano y luego se incorpora agua en relación 1:4 suelo:agua p/p
-se agita la solución enérgicamente durante 2 minitos aproximadamente y luego se deja reposar unos minutos hasta que
-el suelo decante un poco, la solución se deja pasar a través de tamices con diferente diámetro de apertura de malla
-y los nemátodos se colectan en las mallas con diámetro de apertura de 170 y 53 micrones
+Se eligieron 3 sitios con diferentes usos del suelo y en cada sitio se ubicaron 3 réplicas
+de un metro cuadrado de superficie separadas 50 metros entre sí y separadas 10 metros de
+los bordes (\@.potapov_etal_2022; \@.moreira_etal_2012). [Colocar tabla con las
+coordenadas]
 
-Para extraer la macrofauna del suelo trabajaron en 2 etapas una a campo y otra en laboratorio, en ambos casos los
-animales se capturaban directamente con la mano (en inglés: " _Hand shorting_ " ) utilizando pinzas y pinceles 
-y se los almacenaba directamente en alcohol de 96º. 
+Los sitios elegidos fueron: a) un lote agrícola (A) sobre el cuál se practica la
+agricultura convencional con labranza para la producción de forraje de alfalfa *Medicago
+sativa* para pastoreo de bovinos en producción lechera; b) un área de pastizal natural (P)
+con dominancia de Sorgo de Alepo *Sorghum halepense* y Cardo mariano *Silybum marianum*,
+áreas que reciben presión de pastoreo por los bovinos de producción lechera con descanso
+entre pastoreos, y; c) un área clausurada (R) por más de 30 años considerada como reserva
+cuya vegetación característica es de tipo arbórea dominada por Ligustro *Ligustrum
+lucidum* y Acacia *Acacia melanoxylon*.
 
-En campo se delimitó dentro del área de muestreo de un metro
-cuadrado una sub parcela ubicada al azar de 25 x 25 cm y se excavó el suelo hasta los 20 cm de profundidad, esta
-muestra se trabajó de manera estratificada separando en Hojarasca, suelo hasta los 10 cm y suelo hasta los 20 cm de
-profundida.
+Para extraer los nemátodos de vida libre del suelo para cada una de las réplicas
+muestrales se tomaron 4 submuestras al azar dentro del área de un metro cuadrado
+delimitada como área muestral con sacadocados de 5 cm diámetro y 10 cm de profundidad.
+Las submuestras fueron almacenadas cuidando que no se
+compacten, que no pierdan humedad del suelo y que no se sobre calienten para ser llevadas
+al laboratorio donde se procedió a la extracción de la microfauna.
 
-El cada estrato del pan de suelo fue trasladado al laboratorio, el suelo se mantuvo intacto y cuidando que no pierda
-la humedad natural para evitar la deshidratación de la macrofauna hasta que el proceso de exploración y extracción
-de los animales termine, proceso que llevo aproximadamente 5 días. 
+Las submuestras fueron mecladas, homogeneizadas y pesadas, luego cada una fué sometida al
+método de flotación y tamizado. (\@.mondino; \@.jekings; \@.moreira_etal_2012) 
 
-Cada pan de suelo fue desagregado minusiosamente y se observó el movimiento de los animales de la macrofauna
-bajo lupa de mesa y luz blanca de mesa lo que permite capturar más animales que los que permite la exploración a
-campo donde solo se observan aquellos animales ágiles o de gran tamaño, tales como, lombrices de tierra, arañas
-lobo, bichos bolita, milpies, cienpies, entre otros.
+La muestra de suelo se desagrega suavemente con la mano y luego se incorpora agua en relación 1:4
+suelo:agua p/p se agita la solución enérgicamente durante 2 minutos aproximadamente y
+luego se deja reposar unos minutos hasta que la fracción más pesada del suelo decante,
+la solución se deja pasar a través de tamices con diferente diámetro de apertura de malla 
+y los nemátodos se colectan en las mallas con diámetro de apertura de 170 y 53 micrones. 
+seguidamente se colecta los nemátodos atrapados por las mallas y se conservan
+en formalina 4% (\@.moreira_etal_2012) o alcohol 96º (\@.potapov_etal_2022) hasta su posterior
+extracción y conteo bajo lupa binocular, e identificación en grupos tróficos según la morfología de 
+su aparato bucal (\@.yeates; \@.mondino \@.momo-falco) proceso que se realiza con porta y 
+cubreobjeto bajo microscopio óptico.
 
-Para extraer la comunidad de la mesofauna del suelo, se utilizaron los diferentes estratos de suelo observados para
-la macrofauna que se encontraban en el laboratorio y de los que se tomo la totalidad de la hojarasca que fué tamiada
-con malla de diametro de 2 mm, la fracción de suelo orgánico fue considerada como humus y se almacenó congelado para
-la posterior observación de la mesofauna, la fracción de hojas que quedaba arriba del tamiz se consideró hojarasca.
-El pan de suelo de los primeros 10 centímetros de profundidad fue mezclado y homogeneizado para tomar tres muestras
-de suelo con un volumen igual al sacabocados convencional de 5 cm diámetro y 10 cm alto, previo a la toma de
-muestras el suelo fue disminuido en volumen mediante la técnica de cuarteo.
+Para extraer la macrofauna del suelo se trabajó en 2 etapas una a campo y otra en
+laboratorio, en ambos casos los animales se capturaban directamente utilizando pinzas y
+pinceles y se los almacenaba directamente en alcohol de 96º (en inglés: *"Hand shorting"*),
+hasta su posterior conteo e identificación (\@.potapov_etal_2022).
 
-Con el suelo de los primeros 10 cm de profundidad se llevó adelante la técnica de respiración inducida por sustrato
-para estimar la respiración heterotrófica del suelo y la proporción de procariotas y eucariotas halladas 
-por gramo de suelo que resulta en la aproximación del total de bacterias y hongos hallados en el suelo.
+En el campo se delimitó dentro del área de muestreo de un metro cuadrado una sub parcela
+ubicada al azar de 25 x 25 cm y se excavó el suelo hasta los 20 cm de profundidad, esta
+muestra se trabajó de manera estratificada separando en hojarasca, suelo hasta los 10 cm y
+suelo hasta los 20 cm de profundidad.
 
-También se realizaron, en el laboratorio de campo (mencionar correctamente el servicio)
-análisis de porcentaje de materia orgánica, porcentaje de carbono, carbono orgánico total, 
-porcentaje de nitrógeno, cantidad de fósforo, potencial hidrógeno y conductividad eléctrica.
+Para cada estrato las muestras de suelo fueron trasladadas al laboratorio, manteniendo el
+suelo intacto y cuidando que no pierda la humedad natural para evitar la deshidratación de
+la macrofauna hasta que el proceso de exploración y extracción de los animales termine,
+proceso que llevo aproximadamente 5 días.
+
+<!--(colocar la imágen donde estamos los tres con la lupa y el suelo)-->
+
+Cada muestra de suelo fue desagregada minusiosamente, sobre fondo blanco, prestando
+atención al movimiento de los animales de la macrofauna con la ayuda de lupa de mesa y luz
+blanca, lo que permite capturar más animales que los que permite la exploración a campo
+donde solo se factible observar aquellos animales ágiles o de gran tamaño, tales como,
+lombrices de tierra, arañas lobo, bichos bolita, milpies, cienpies, entre otros.
+(\@.potapov_etal_2022; \@.moreira_etal_2012)
+
+Los animales capturados son almacenados en alcohol 96º hasta su identificación taxonómica.
+Para la identificación se utilizaron claves taxonómicas que separan en grandes grupos
+taxonómicos. Las lombrices de tierra (Oligochaeta: Crassiclitellata) fueron identificadas
+hasta especies (\@.Satchell_1983, \@.Reynolds_1996, \@.deMichisandMoreno_1999) y la
+macrofauna restante fué separada en diferentes rangos taxonómicos desde órdenes hasta
+familias (\@.Dindal 1990, \@.Klimaszewiski and Watt 1997, \@.Choate 1999, \@.Zhang 2011,
+\@.Vargas et al. 2014, \@.Claps et al. 2020)
+
+Para muestrear la comunidad de la mesofauna del suelo, se utilizaron los suelos
+correspondientes a las muestras tomadas para capturar la macrofauna, de ellos se tomaron
+la hojarasca y el suelo hasta la profundidad de 10 cm.
+
+Se tomó toda la hojarasca que se encontraba sobre la superficie que cubría el monolito de
+25 x 25 cm, luego fue tamizada con malla de 2mm separando así, de manera arbitraria, la
+hojarasca "fresca" que es la que queda sobre el tamiz de 2mm de la hojarasca "fermentada"
+y el suelo orgánico-mineral que corresponden a la fracción que pasa el tamiz.
+
+La fracción que pasaba el tamiz fué considerado como hojarasca con un gran avance en
+términos de descomposición (hojarasca fermentada según a bibliografía clásica (\@.citas
+citas)), esta fracción luego fue separada por un tamiz de 500 $\mu m$ separando, también
+de manera arbitraria, el "humus" que incluye el suelo orgánico mineral más porciones de
+tejidos vegetal "amorfo" de la "hojarasca fragmentada" que es la que queda sobre el tamiz
+de 500 $\mu m$.
+
+El suelo del monolito de los primeros 10 centímetros de profundidad fue desagregado,
+mezclado y homogeneizado para tomar tres submuestras de suelo con un volumen de 100 cm³,
+previo a la toma de muestras el suelo fue disminuido en volumen mediante la técnica de
+cuarteo, lo que asegura la representatividad de las fracciones submuestreadas.
+
+Este procedimiento se llevó adelante con la intención de conocer la diversidad de
+organismos de la mesofauna edáfica según el estrato de suelo considerando este como un
+proxi del hábitat. Las submuestras fueron congeladas hasta el momento de la extracción de
+la mesofauna.
+
+Las muestras de hojarasca y de suelo fueron sometidas al método de flotación y tamizado.
+La muestra se desagrega en agua en relación 1:4 de suelo:agua, se agita enérgicamente
+durante 2 min, se deja reposar la solución durante unos minutos y luego se vuelca la
+solución a través de los tamices. El juego de tamices consistío en tamices apilados de 4
+mm, 2mm, 1mm, 500 $\mu m$, 250 $\mu m$ y 170 $\mu m$; la mesofauna se colecta de lo que
+queda atrapado en los tamices de 500 $\mu m$ a 170 $\mu m$.
+
+Los animales colectados se almacenan en alcohol 96º, luego se procede al conteo e
+identificación de los taxones en diferentes rangos taxonómicos hasta familias Burges and
+Raw 1967, Balogh and Balogh 1972, Evans and Till 1979, Balogh and Balogh 1988, Dindal
+1990, Krantz and Walter 2009, Momo and Falco 2009, Claps et al. 2020, Janssens 2023).
+
+Con el suelo de los primeros 10 cm de profundidad se llevó adelante la técnica de
+respiración inducida por sustrato en conjunto con el uso de antibióticos tanto para
+estimar la respiración heterotrófica del suelo y como para determinar la proporción de
+procariotas y eucariotas halladas por gramo de suelo que resulta en la aproximación del
+total de bacterias y hongos hallados en el suelo (\@.west1986; \@.zabala2010 paperRSI).
+
+El procedimiento consiste en aplicar diferente soluciones, a razón 1:1 suelo:solución, con
+antibióticos sobre cada gramo de suelo para estimular la respiración del grupo de interés,
+el procedimiento se repite por cada muestra y réplica.
+
+La solución con a) solo el sustrato no discrimina entre grupos contiene 150 mg glucosa / mm
+solución y su valor estima la respiración heterotrófica total; la solución que b)
+inhibe la respiración de procariotas y que por lo tanto mide la respiración de los eucariotas
+contiene 11 mg cloranfenicol + 150 mg glucosa / mm sn.; c) la respiración de procariotas se
+mide con la solución de 2,3 mg cicloheximia + 150 mg glucosa / mm y finalmente la solución
+que contiene d) ambos antibióticos, en las mismas cantidades, estima la respiración residual, es
+decir, la respiración de aquellos organismos que respiran a pesar de la presencia de los
+antibióticos en el medio líquido.
+
+Se coloca un gramo de suelo / réplica / muestra embebidos con alguna solución en
+recipientes de 350 ml que se cierran herméticamente y que funcionan como cámaras de
+incubación; en el interior del recipiente, además, se encuentra la trampa de álcali, un
+frasco de menor volumen con 5 ml de solución de hidróxido de sodio NaOH O,1 M.
+
+Los recipientes se colocaron en estufa a 30ºC durante 48h para incubar el suelo y
+estimular la actividad biológica. Como blancos (controles) de la reacción se utilizaron
+frascos sin suelo con la trampa de NaOH para medir el contenido de CO~2~ que corresponde
+al aire incubado. El CO~2~ liberado por la respiración biológica se recupera en la trampa
+de álcali y se determina por titulación con ácido clorhídrico HCl 0,1 M y fenolftaleína
+como indicador (\@.coleman seccion de metodologias @.Frioni1986).
+
+La biomasa microbiana se aproxima considerando que 1 ml HCl 0.1M, equivale a 2.2mg de
+CO~2~ y que para un coeficiente de respiración igual a 1, se cumple que:
+
+$$\frac{1\text{ mg CO}_2}{100\text{ g suelo}\times h}  = \frac{20.6\text{ mg C-biomasa}}{100\text{g suelo}}$$
+
+Luego para la determinación de las proporciones de los grupos involucrados en la
+respiración se consideran las diferencias observadas entre los grupos tratados con
+antibioticos en relación con la respiración total (\@.zabala_2010).
+
+```{=html}
+<!--La respiración del suelo es un indicador de la actividad metabólica global del suelo
+(Frioni, 1999). Mide la actividad microbiológica y de la microfauna del suelo. Es uno de
+los parámetros más sensibles frente al impacto o disturbio del sistema. Para ello se
+midió la respiración del suelo (expresada en μg de C-CO2 g -1 de suelo día -1) por
+emisión y captación en solución de Na OH de CO2 de muestras de 20 g de suelo con
+el contenido de humedad original. Se colocaron en recipientes de 350 ml, los cuales
+contenían en su interior un recipiente menor en el centro del frasco con 20 ml de
+NaOH 0,2 N. El sistema se cierra herméticamente y se incuba a 28o C durante 10 días.
+El CO2 liberado por la respiración biológica se recupera en el recipiente con el Na OH.
+Como controles de la reacción se utilizaron frascos sin suelo y con la trampa de álcali.
+La producción de CO2 se determina por titulación con ácido HCl 0,2 N y fenolftaleína
+como indicador (Frioni, 1999)-->
+```
+También se obtuvieron a través del servicio del Laboratorio del Campo de la Universidad
+Nacional de Luján los valores para el porcentaje de materia orgánica, el porcentaje de
+carbono, el carbono orgánico total, el porcentaje de nitrógeno, la cantidad de fósforo en
+partes por millón, el valor del potencial hidrógeno en escala de pH y conductividad
+eléctrica en milisiemens por centímetro.
+
+```{=html}
+<!--La identificación taxonómica se realizó al máximo nivel de resolución posible mediante
+el uso de claves. Los grupos analizados fueron: Macrofauna: Lumbricina, Formicidae,
+Isoptera, Isopoda, Coleoptera (total y por familias), Araneae, Diplopoda, Chilopoda,
+Enchytraidae, Hymenoptera, Gastropoda, Symphyla, Nematomorpha, Gryllidae,
+Blattide, Gryllotalpidae, Homoptera, Hemiptera y Thysanuridae. Mesofauna: Acari
+(Oribatida, Mesostigmata, Prostigmata y Astigmata) y Collembola.
+Se determinó el aporte porcentual de cada uno de los taxones a la fauna total
+recolectada en los años de estudio, discriminando de acuerdo a la época de muestreo
+y al tratamiento.
+-->
+
+<!--Imágenes ![texto_alternativo](ubicacion_de_la_imagen){width=width height=height}-->
+```
+
+## Variables físcas y químicas de la UNLu.
+
+```{r , include=FALSE}
+#####
+library("tidyverse")
+fyq_unlu <- read.delim("~/Documentos/Redes/soil_interaction_web/fyq_unlu.txt")
+
+#renombrar las columnas
+
+names(fyq_unlu)<- c("sitio","muestra","CE","pH","MO","C","P",
+                    "N","TOC","dTOC","cTOC")
+
+#####
+#cargar bootstrap
+
+library(boot)
+#######
+######################
+#funciones
+# Función para calcular la media
+mean_func <- function(data, indices) {
+  mean(data[indices],na.rm=TRUE)
+}
+
+# Función para calcular el desvío estándar
+sd_func <- function(data, indices) {
+  sd(data[indices],na.rm=TRUE)
+}
+
+# Función para la q1 q2 q3
+
+q_func <- function(data, indices) {
+  quantile(data[indices],probs=c(0.25,0.5,0.75),na.rm=TRUE)
+}
+
+# Número de repeticiones de bootstrap
+n_boot <- 1169
+set.seed(167)
+
+##############
+
+# Realizar bootstrap para calcular la media y el desvío estándar
+#Conductividad léctrica
+prom_CE_10P<- boot(fyq_unlu[1:9,"CE"], mean_func, R = n_boot)
+prom_CE_10R<- boot(fyq_unlu[10:18,"CE"], mean_func, R = n_boot)
+prom_CE_10A<- boot(fyq_unlu[19:27,"CE"], mean_func, R = n_boot)
+
+prom_CE_20P<- boot(fyq_unlu[28:36,"CE"], mean_func, R = n_boot)
+prom_CE_20R<- boot(fyq_unlu[46:54,"CE"], mean_func, R = n_boot)
+prom_CE_20A<- boot(fyq_unlu[37:45,"CE"], mean_func, R = n_boot)
+
+sd_CE_10P<- boot(fyq_unlu[1:9,"CE"], sd_func, R = n_boot)
+sd_CE_10R<- boot(fyq_unlu[10:18,"CE"], sd_func, R = n_boot)
+sd_CE_10A<- boot(fyq_unlu[19:27,"CE"], sd_func, R = n_boot)
+
+sd_CE_20P<- boot(fyq_unlu[28:36,"CE"], sd_func, R = n_boot)
+sd_CE_20R<- boot(fyq_unlu[46:54,"CE"], sd_func, R = n_boot)
+sd_CE_20A<- boot(fyq_unlu[37:45,"CE"], sd_func, R = n_boot)
+
+q_CE_10P<- boot(fyq_unlu[1:9,"CE"], q_func, R = n_boot)
+q_CE_10R<- boot(fyq_unlu[10:18,"CE"], q_func, R = n_boot)
+q_CE_10A<- boot(fyq_unlu[19:27,"CE"], q_func, R = n_boot)
+
+q_CE_20P<- boot(fyq_unlu[28:36,"CE"], q_func, R = n_boot)
+q_CE_20R<- boot(fyq_unlu[46:54,"CE"], q_func, R = n_boot)
+q_CE_20A<- boot(fyq_unlu[37:45,"CE"], q_func, R = n_boot)
+
+######
+# potencial hidrógeno
+
+prom_pH_10P<- boot(fyq_unlu[1:9,"pH"], mean_func, R = n_boot)
+prom_pH_10R<- boot(fyq_unlu[10:18,"pH"], mean_func, R = n_boot)
+prom_pH_10A<- boot(fyq_unlu[19:27,"pH"], mean_func, R = n_boot)
+
+prom_pH_20P<- boot(fyq_unlu[28:36,"pH"], mean_func, R = n_boot)
+prom_pH_20R<- boot(fyq_unlu[46:54,"pH"], mean_func, R = n_boot)
+prom_pH_20A<- boot(fyq_unlu[37:45,"pH"], mean_func, R = n_boot)
+
+sd_pH_10P<- boot(fyq_unlu[1:9,"pH"], sd_func, R = n_boot)
+sd_pH_10R<- boot(fyq_unlu[10:18,"pH"], sd_func, R = n_boot)
+sd_pH_10A<- boot(fyq_unlu[19:27,"pH"], sd_func, R = n_boot)
+
+sd_pH_20P<- boot(fyq_unlu[28:36,"pH"], sd_func, R = n_boot)
+sd_pH_20R<- boot(fyq_unlu[46:54,"pH"], sd_func, R = n_boot)
+sd_pH_20A<- boot(fyq_unlu[37:45,"pH"], sd_func, R = n_boot)
+
+q_pH_10P<- boot(fyq_unlu[1:9,"pH"], q_func, R = n_boot)
+q_pH_10R<- boot(fyq_unlu[10:18,"pH"], q_func, R = n_boot)
+q_pH_10A<- boot(fyq_unlu[19:27,"pH"], q_func, R = n_boot)
+
+q_pH_20P<- boot(fyq_unlu[28:36,"pH"], q_func, R = n_boot)
+q_pH_20R<- boot(fyq_unlu[46:54,"pH"], q_func, R = n_boot)
+q_pH_20A<- boot(fyq_unlu[37:45,"pH"], q_func, R = n_boot)
+
+###############
+# MATERIA ORGÁNICA
+
+prom_MO_10P<- boot(fyq_unlu[1:9,"MO"], mean_func, R = n_boot)
+prom_MO_10R<- boot(fyq_unlu[10:18,"MO"], mean_func, R = n_boot)
+prom_MO_10A<- boot(fyq_unlu[19:27,"MO"], mean_func, R = n_boot)
+
+prom_MO_20P<- boot(fyq_unlu[28:36,"MO"], mean_func, R = n_boot)
+prom_MO_20R<- boot(fyq_unlu[46:54,"MO"], mean_func, R = n_boot)
+prom_MO_20A<- boot(fyq_unlu[37:45,"MO"], mean_func, R = n_boot)
+
+sd_MO_10P<- boot(fyq_unlu[1:9,"MO"], sd_func, R = n_boot)
+sd_MO_10R<- boot(fyq_unlu[10:18,"MO"], sd_func, R = n_boot)
+sd_MO_10A<- boot(fyq_unlu[19:27,"MO"], sd_func, R = n_boot)
+
+sd_MO_20P<- boot(fyq_unlu[28:36,"MO"], sd_func, R = n_boot)
+sd_MO_20R<- boot(fyq_unlu[46:54,"MO"], sd_func, R = n_boot)
+sd_MO_20A<- boot(fyq_unlu[37:45,"MO"], sd_func, R = n_boot)
+
+q_MO_10P<- boot(fyq_unlu[1:9,"MO"], q_func, R = n_boot)
+q_MO_10R<- boot(fyq_unlu[10:18,"MO"], q_func, R = n_boot)
+q_MO_10A<- boot(fyq_unlu[19:27,"MO"], q_func, R = n_boot)
+
+q_MO_20P<- boot(fyq_unlu[28:36,"MO"], q_func, R = n_boot)
+q_MO_20R<- boot(fyq_unlu[46:54,"MO"], q_func, R = n_boot)
+q_MO_20A<- boot(fyq_unlu[37:45,"MO"], q_func, R = n_boot)
+
+###############
+# NITRÓGENO
+
+prom_N_10P<- boot(fyq_unlu[1:9,"N"], mean_func, R = n_boot)
+prom_N_10R<- boot(fyq_unlu[10:18,"N"], mean_func, R = n_boot)
+prom_N_10A<- boot(fyq_unlu[19:27,"N"], mean_func, R = n_boot)
+
+prom_N_20P<- boot(fyq_unlu[28:36,"N"], mean_func, R = n_boot)
+prom_N_20R<- boot(fyq_unlu[46:54,"N"], mean_func, R = n_boot)
+prom_N_20A<- boot(fyq_unlu[37:45,"N"], mean_func, R = n_boot)
+
+sd_N_10P<- boot(fyq_unlu[1:9,"N"], sd_func, R = n_boot)
+sd_N_10R<- boot(fyq_unlu[10:18,"N"], sd_func, R = n_boot)
+sd_N_10A<- boot(fyq_unlu[19:27,"N"], sd_func, R = n_boot)
+
+sd_N_20P<- boot(fyq_unlu[28:36,"N"], sd_func, R = n_boot)
+sd_N_20R<- boot(fyq_unlu[46:54,"N"], sd_func, R = n_boot)
+sd_N_20A<- boot(fyq_unlu[37:45,"N"], sd_func, R = n_boot)
+
+q_N_10P<- boot(fyq_unlu[1:9,"N"], q_func, R = n_boot)
+q_N_10R<- boot(fyq_unlu[10:18,"N"], q_func, R = n_boot)
+q_N_10A<- boot(fyq_unlu[19:27,"N"], q_func, R = n_boot)
+
+q_N_20P<- boot(fyq_unlu[28:36,"N"], q_func, R = n_boot)
+q_N_20R<- boot(fyq_unlu[46:54,"N"], q_func, R = n_boot)
+q_N_20A<- boot(fyq_unlu[37:45,"N"], q_func, R = n_boot)
+
+###############
+# FÓSFORO
+
+prom_P_10P<- boot(fyq_unlu[1:9,"P"], mean_func, R = n_boot)
+prom_P_10R<- boot(fyq_unlu[10:18,"P"], mean_func, R = n_boot)
+prom_P_10A<- boot(fyq_unlu[19:27,"P"], mean_func, R = n_boot)
+
+prom_P_20P<- boot(fyq_unlu[28:36,"P"], mean_func, R = n_boot)
+prom_P_20R<- boot(fyq_unlu[46:54,"P"], mean_func, R = n_boot)
+prom_P_20A<- boot(fyq_unlu[37:45,"P"], mean_func, R = n_boot)
+
+sd_P_10P<- boot(fyq_unlu[1:9,"P"], sd_func, R = n_boot)
+sd_P_10R<- boot(fyq_unlu[10:18,"P"], sd_func, R = n_boot)
+sd_P_10A<- boot(fyq_unlu[19:27,"P"], sd_func, R = n_boot)
+
+sd_P_20P<- boot(fyq_unlu[28:36,"P"], sd_func, R = n_boot)
+sd_P_20R<- boot(fyq_unlu[46:54,"P"], sd_func, R = n_boot)
+sd_P_20A<- boot(fyq_unlu[37:45,"P"], sd_func, R = n_boot)
+
+q_P_10P<- boot(fyq_unlu[1:9,"P"], q_func, R = n_boot)
+q_P_10R<- boot(fyq_unlu[10:18,"P"], q_func, R = n_boot)
+q_P_10A<- boot(fyq_unlu[19:27,"P"], q_func, R = n_boot)
+
+q_P_20P<- boot(fyq_unlu[28:36,"P"], q_func, R = n_boot)
+q_P_20R<- boot(fyq_unlu[46:54,"P"], q_func, R = n_boot)
+q_P_20A<- boot(fyq_unlu[37:45,"P"], q_func, R = n_boot)
 
 
-<!-- Imágenes ![texto_alternativo](ubicacion_de_la_imagen){width=width height=height} -->
+############
+# Respiración heterotrófica
+# Valores expresados en miligramos de CO2/h/100g suelo
+
+resp.b<-c(          0.131588785046729,0.14803738317757,0.14803738317757, #Pastizal
+                    0.188187372708758,0.15234215885947,0.170264765784114, #Reserva
+                    0.066236559139785,0.0851612903225806,0.0946236559139785) #Agrícola
+
+prom_re_10P<- boot(resp.b[1:3], mean_func, R = n_boot)
+prom_re_10R<- boot(resp.b[4:6], mean_func, R = n_boot)
+prom_re_10A<- boot(resp.b[7:9], mean_func, R = n_boot)
+
+
+sd_re_10P<- boot(resp.b[1:3], sd_func, R = n_boot)
+sd_re_10R<- boot(resp.b[4:6], sd_func, R = n_boot)
+sd_re_10A<- boot(resp.b[7:9], sd_func, R = n_boot)
+
+
+q_re_10P<- boot(resp.b[1:3], q_func, R = n_boot)
+q_re_10R<- boot(resp.b[4:6], q_func, R = n_boot)
+q_re_10A<- boot(resp.b[7:9], q_func, R = n_boot)
+
+############
+# Relación de hongos : bacterias
+
+
+#agrego relación Hongo-Bacterias
+ratio.hb<-c( 1.375, 1.83333333333333, 1.16666666666667, #Pastizal
+                       2.42857142857143, 1.83333333333333, 3.5, #Reserva
+                       3.25, 1.4000000000001, 0.833333333333333) #Agrícola
+# en agrícola existe un valor atípico de 14 y lo corregi a 1.4
+
+prom_rHB_10P<- boot(ratio.hb[1:3], mean_func, R = n_boot)
+prom_rHB_10R<- boot(ratio.hb[4:6], mean_func, R = n_boot)
+prom_rHB_10A<- boot(ratio.hb[7:9], mean_func, R = n_boot)
+
+
+sd_rHB_10P<- boot(ratio.hb[1:3], sd_func, R = n_boot)
+sd_rHB_10R<- boot(ratio.hb[4:6], sd_func, R = n_boot)
+sd_rHB_10A<- boot(ratio.hb[7:9], sd_func, R = n_boot)
+
+
+q_rHB_10P<- boot(ratio.hb[1:3], q_func, R = n_boot)
+q_rHB_10R<- boot(ratio.hb[4:6], q_func, R = n_boot)
+q_rHB_10A<- boot(ratio.hb[7:9], q_func, R = n_boot)
+
+
+```
+
+```{r , echo=FALSE}
+
+fq.sitio<-fyq_unlu%>%mutate(
+                       nombre=paste(substr(sitio, 3, 3),substr(sitio, 1, 2)))%>%
+  group_by(nombre)%>%  distinct(nombre, .keep_all = TRUE)
+
+###########
+# Potencial Hidrógeno
+pH.sum<-data.frame(system=fq.sitio$nombre,
+                 mean=c(prom_pH_10P[[1]],prom_pH_10R[[1]],prom_pH_10A[[1]],
+                          prom_pH_20P[[1]],prom_pH_20R[[1]],prom_pH_20A[[1]]),
+                sd=c(sd_pH_10P[[1]],sd_pH_10R[[1]],sd_pH_10A[[1]],
+                          sd_pH_20P[[1]],sd_pH_20R[[1]],sd_pH_20A[[1]]),
+                 q2=c(q_pH_10P[[1]][[2]],q_pH_10R[[1]][[2]],q_pH_10A[[1]][[2]],
+                          q_pH_20P[[1]][[2]],q_pH_20R[[1]][[2]],q_pH_20A[[1]][[2]]),
+                 q1=c(q_pH_10P[[1]][[1]],q_pH_10R[[1]][[1]],q_pH_10A[[1]][[1]],
+                          q_pH_20P[[1]][[1]],q_pH_20R[[1]][[1]],q_pH_20A[[1]][[1]]),
+                 q3=c(q_pH_10P[[1]][[3]],q_pH_10R[[1]][[3]],q_pH_10A[[1]][[3]],
+                          q_pH_20P[[1]][[3]],q_pH_20R[[1]][[3]],q_pH_20A[[1]][[3]]),
+                variable=rep("pH",6),
+                row.names = NULL)
+
+
+###########
+#Conductividad Eléctrica
+CE.sum<-data.frame(system=fq.sitio$nombre,
+                 mean=c(prom_CE_10P[[1]],prom_CE_10R[[1]],prom_CE_10A[[1]],
+                          prom_CE_20P[[1]],prom_CE_20R[[1]],prom_CE_20A[[1]]),
+                sd=c(sd_CE_10P[[1]],sd_CE_10R[[1]],sd_CE_10A[[1]],
+                          sd_CE_20P[[1]],sd_CE_20R[[1]],sd_CE_20A[[1]]),
+                 q2=c(q_CE_10P[[1]][[2]],q_CE_10R[[1]][[2]],q_CE_10A[[1]][[2]],
+                          q_CE_20P[[1]][[2]],q_CE_20R[[1]][[2]],q_CE_20A[[1]][[2]]),
+                 q1=c(q_CE_10P[[1]][[1]],q_CE_10R[[1]][[1]],q_CE_10A[[1]][[1]],
+                          q_CE_20P[[1]][[1]],q_CE_20R[[1]][[1]],q_CE_20A[[1]][[1]]),
+                 q3=c(q_CE_10P[[1]][[3]],q_CE_10R[[1]][[3]],q_CE_10A[[1]][[3]],
+                          q_CE_20P[[1]][[3]],q_CE_20R[[1]][[3]],q_CE_20A[[1]][[3]]),
+                variable=rep("CE",6),
+                row.names = NULL)
+
+###############
+# Materia Orgánica
+
+
+MO.sum<-data.frame(system=fq.sitio$nombre,
+                 mean=c(prom_MO_10P[[1]],prom_MO_10R[[1]],prom_MO_10A[[1]],
+                          prom_MO_20P[[1]],prom_MO_20R[[1]],prom_MO_20A[[1]]),
+                sd=c(sd_MO_10P[[1]],sd_MO_10R[[1]],sd_MO_10A[[1]],
+                          sd_MO_20P[[1]],sd_MO_20R[[1]],sd_MO_20A[[1]]),
+                 q2=c(q_MO_10P[[1]][[2]],q_MO_10R[[1]][[2]],q_MO_10A[[1]][[2]],
+                          q_MO_20P[[1]][[2]],q_MO_20R[[1]][[2]],q_MO_20A[[1]][[2]]),
+                 q1=c(q_MO_10P[[1]][[1]],q_MO_10R[[1]][[1]],q_MO_10A[[1]][[1]],
+                          q_MO_20P[[1]][[1]],q_MO_20R[[1]][[1]],q_MO_20A[[1]][[1]]),
+                 q3=c(q_MO_10P[[1]][[3]],q_MO_10R[[1]][[3]],q_MO_10A[[1]][[3]],
+                          q_MO_20P[[1]][[3]],q_MO_20R[[1]][[3]],q_MO_20A[[1]][[3]]),
+                variable=rep("MO",6),
+                row.names = NULL)
+
+###########
+#Nitrógeno
+N.sum<-data.frame(system=fq.sitio$nombre,
+                 mean=c(prom_N_10P[[1]],prom_N_10R[[1]],prom_N_10A[[1]],
+                          prom_N_20P[[1]],prom_N_20R[[1]],prom_N_20A[[1]]),
+                sd=c(sd_N_10P[[1]],sd_N_10R[[1]],sd_N_10A[[1]],
+                          sd_N_20P[[1]],sd_N_20R[[1]],sd_N_20A[[1]]),
+                 q2=c(q_N_10P[[1]][[2]],q_N_10R[[1]][[2]],q_N_10A[[1]][[2]],
+                          q_N_20P[[1]][[2]],q_N_20R[[1]][[2]],q_N_20A[[1]][[2]]),
+                 q1=c(q_N_10P[[1]][[1]],q_N_10R[[1]][[1]],q_N_10A[[1]][[1]],
+                          q_N_20P[[1]][[1]],q_N_20R[[1]][[1]],q_N_20A[[1]][[1]]),
+                 q3=c(q_N_10P[[1]][[3]],q_N_10R[[1]][[3]],q_N_10A[[1]][[3]],
+                          q_N_20P[[1]][[3]],q_N_20R[[1]][[3]],q_N_20A[[1]][[3]]),
+                variable=rep("N",6),
+                row.names = NULL)
+
+###########
+# FÓSFORO
+P.sum<-data.frame(system=fq.sitio$nombre,
+                 mean=c(prom_P_10P[[1]],prom_P_10R[[1]],prom_P_10A[[1]],
+                          prom_P_20P[[1]],prom_P_20R[[1]],prom_P_20A[[1]]),
+                sd=c(sd_P_10P[[1]],sd_P_10R[[1]],sd_P_10A[[1]],
+                          sd_P_20P[[1]],sd_P_20R[[1]],sd_P_20A[[1]]),
+                 q2=c(q_P_10P[[1]][[2]],q_P_10R[[1]][[2]],q_P_10A[[1]][[2]],
+                          q_P_20P[[1]][[2]],q_P_20R[[1]][[2]],q_P_20A[[1]][[2]]),
+                 q1=c(q_P_10P[[1]][[1]],q_P_10R[[1]][[1]],q_P_10A[[1]][[1]],
+                          q_P_20P[[1]][[1]],q_P_20R[[1]][[1]],q_P_20A[[1]][[1]]),
+                 q3=c(q_P_10P[[1]][[3]],q_P_10R[[1]][[3]],q_P_10A[[1]][[3]],
+                          q_P_20P[[1]][[3]],q_P_20R[[1]][[3]],q_P_20A[[1]][[3]]),
+                variable=rep("P",6),
+                row.names = NULL)
+
+###########
+# Respiración Heterotrófica
+rH.sum<-data.frame(system=fq.sitio$nombre,
+                 mean=c(prom_re_10P[[1]],prom_re_10R[[1]],prom_re_10A[[1]],
+                          NA,NA,NA),
+                sd=c(sd_re_10P[[1]],sd_re_10R[[1]],sd_re_10A[[1]],
+                          NA,NA,NA),
+                 q2=c(q_re_10P[[1]][[2]],q_re_10R[[1]][[2]],q_re_10A[[1]][[2]],
+                          NA,NA,NA),
+                 q1=c(q_re_10P[[1]][[1]],q_re_10R[[1]][[1]],q_re_10A[[1]][[1]],
+                          NA,NA,NA),
+                 q3=c(q_re_10P[[1]][[3]],q_re_10R[[1]][[3]],q_re_10A[[1]][[3]],
+                          NA,NA,NA),
+                variable=rep("resp.h",6),
+                row.names = NULL)
+
+###########
+# Respiración Heterotrófica
+rHB.sum<-data.frame(system=fq.sitio$nombre,
+                 mean=c(prom_rHB_10P[[1]],prom_rHB_10R[[1]],prom_rHB_10A[[1]],
+                          NA,NA,NA),
+                sd=c(sd_rHB_10P[[1]],sd_rHB_10R[[1]],sd_rHB_10A[[1]],
+                          NA,NA,NA),
+                 q2=c(q_rHB_10P[[1]][[2]],q_rHB_10R[[1]][[2]],q_rHB_10A[[1]][[2]],
+                          NA,NA,NA),
+                 q1=c(q_rHB_10P[[1]][[1]],q_rHB_10R[[1]][[1]],q_rHB_10A[[1]][[1]],
+                          NA,NA,NA),
+                 q3=c(q_rHB_10P[[1]][[3]],q_rHB_10R[[1]][[3]],q_rHB_10A[[1]][[3]],
+                          NA,NA,NA),
+                variable=rep("H:B",6),
+                row.names = NULL)
+
+##########
+
+fq.sum.estrato<-rbind(CE.sum,pH.sum,MO.sum,
+                  N.sum,P.sum,rH.sum,rHB.sum)
+
+
+```
+
+```{r, echo=FALSE}
+
+fyq.box<-fyq_unlu%>%mutate(
+  sistema=substr(sitio, 3, 3),
+                       estrato=substr(sitio, 1, 2),
+                       replica=substr(sitio, 4, 4),
+ )
+names(fyq.box)<-c("nombre","muestra","CE","pH","MO","C","P","N","TOC","D_TOC_C","C_TOC","sitio","estrato","replica")
+#se eligen las variables de interés
+
+fyq.box<-fyq.box[,c(1,12,14,13,3,4,5,8,7)]
+
+resp.b<-c(0.131588785046729,0.14803738317757,0.14803738317757, #Pastizal
+          0.188187372708758,0.15234215885947,0.170264765784114, #Reserva
+          0.066236559139785,0.0851612903225806,0.0946236559139785) #Agrícola
+
+#agrego relación Hongo-Bacterias
+ratio.hb<-c( 1.375, 1.83333333333333, 1.16666666666667, #Pastizal
+             2.42857142857143, 1.83333333333333, 3.5, #Reserva
+             3.25, 1.4, 0.833333333333333) #Agrícola
+
+#En ratio HB, el NA elimina al valor atípico de 14.0000000000000000001
+
+fqb.box<-data.frame(resp.b,ratio.hb,sitio=c(rep("P",3),rep("R",3),rep("A",3)),estrato=rep(10,9))
+
+```
+
+
+```{r}
+
+#cargar las  tablas
+print(CE.sum[4:6,-7])
+names(CE.sum)<-c("Muestra","Promedio","Desvío estándar","Mediana", "1er. Cuartil","3er. Cuartil", "Variable")
+# Crear los boxplots para cada variable
+kruskal.test(CE ~ sitio, data = fyq.box, subset=fyq.box$estrato==20)
+pairwise.wilcox.test(fyq.box$CE, fyq.box$sitio,data=fyq.box,
+                     subset=fyq.box$estrato==20,
+                     p.adjust.method = "BH")
+{boxplot(CE ~ sitio+estrato, data = fyq.box, main = "Conductividad Eléctrica ms/cm")
+# Calcular las coordenadas para colocar las letras
+# Puedes ajustar estas coordenadas según la posición deseada
+x_coords <- c(1.3, 2.3, 3.3)  # Coordenadas x para las letras
+y_coords <- rep(55, 3)  # Coordenadas y para las letras
+
+# Letras a colocar
+letras <- c("b", "a", "c")
+
+# Agregar las letras al gráfico
+text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
+
+
+```
+```{r}
+names(pH.sum)<-c("Muestra","Promedio","Desvío estándar","Mediana", "1er. Cuartil","3er. Cuartil", "Variable")
+print(pH.sum[4:6,-7])
+
+# Crear los boxplots para cada variable
+kruskal.test(pH ~ sitio, data = fyq.box, subset=fyq.box$estrato==20)
+pairwise.wilcox.test(fyq.box$pH, fyq.box$sitio,data=fyq.box,
+                     subset=fyq.box$estrato==20,
+                     p.adjust.method = "BH",exact=FALSE)
+
+boxplot(pH ~ sitio+estrato, data = fyq.box, main = "potencial Hidrógeno")
+
+#no hay diferencias, la prueba areada dice R ab ;P b ;L bc
+# Calcular las coordenadas para colocar las letras
+# Puedes ajustar estas coordenadas según la posición deseada
+#x_coords <- c(1.3, 2.3, 3.3)  # Coordenadas x para las letras
+#y_coords <- rep(9, 3)  # Coordenadas y para las letras
+
+# Letras a colocar
+#letras <- c("b", "a", "c")
+
+# Agregar las letras al gráfico
+#text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
+
+
+```
+
+```{r}
+names(MO.sum)<-c("Muestra","Promedio","Desvío estándar","Mediana", "1er. Cuartil","3er. Cuartil", "Variable")
+print(MO.sum[,-7])
+# Crear los boxplots para cada variable
+kruskal.test(MO ~ sitio, data = fyq.box, subset=fyq.box$estrato==10)
+kruskal.test(MO ~ sitio, data = fyq.box, subset=fyq.box$estrato==20)
+pairwise.wilcox.test(fyq.box$MO, fyq.box$sitio,data=fyq.box,
+                     subset=fyq.box$estrato==10,
+                     p.adjust.method = "BH")
+pairwise.wilcox.test(fyq.box$MO, fyq.box$sitio,data=fyq.box,
+                     subset=fyq.box$estrato==20,
+                     p.adjust.method = "BH")
+#no significativo al p=0.05
+boxplot(MO ~ sitio+estrato, data = fyq.box, main = "% Materia Orgánica")
+
+```
+
+```{r}
+names(N.sum)<-c("Muestra","Promedio","Desvío estándar","Mediana", "1er. Cuartil","3er. Cuartil", "Variable")
+print(N.sum[,-7])
+# Crear los boxplots para cada variable
+kruskal.test(N ~ sitio, data = fyq.box, subset=fyq.box$estrato==10)
+kruskal.test(N ~ sitio, data = fyq.box, subset=fyq.box$estrato==20)
+pairwise.wilcox.test(fyq.box$N, fyq.box$sitio,data=fyq.box,
+                     subset=fyq.box$estrato==10,
+                     p.adjust.method = "BH",exact=FALSE)
+pairwise.wilcox.test(fyq.box$N, fyq.box$sitio,data=fyq.box,
+                     subset=fyq.box$estrato==20,
+                     p.adjust.method = "BH",exact=FALSE)
+boxplot(N ~ sitio+estrato, data = fyq.box, main = "% Nitrógeno")
+
+```
+
+```{r}
+
+names(P.sum)<-c("Muestra","Promedio","Desvío estándar","Mediana", "1er. Cuartil","3er. Cuartil", "Variable")
+print(P.sum[,-7])
+# Crear los boxplots para cada variable
+kruskal.test(P ~ sitio, data = fyq.box, subset=fyq.box$estrato==10)
+kruskal.test(P ~ sitio, data = fyq.box, subset=fyq.box$estrato==20)
+pairwise.wilcox.test(fyq.box$P, fyq.box$sitio,data=fyq.box,
+                     subset=fyq.box$estrato==10,
+                     p.adjust.method = "BH",exact=FALSE)
+pairwise.wilcox.test(fyq.box$P, fyq.box$sitio,data=fyq.box,
+                     subset=fyq.box$estrato==20,
+                     p.adjust.method = "BH",exact=FALSE)
+{boxplot(P ~ sitio+estrato, data = fyq.box, main = "Fósforo intercambiable p.p.m.")
+x_coords <- c(1.3, 2.3, 3.3,4.3, 5.3, 6.3)  # Coordenadas x para las letras
+y_coords <- rep(30, 3)  # Coordenadas y para las letras
+
+# Letras a colocar
+letras <- c("a", "b", "b","c", "d", "d")
+
+# Agregar las letras al gráfico
+text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
+
+
+```
+
+
+```{r}
+names(rH.sum)<-c("Muestra","Promedio","Desvío estándar","Mediana", "1er. Cuartil","3er. Cuartil", "Variable")
+print(rH.sum[1:3,])
+
+
+# Crear los boxplots para cada variable
+kruskal.test(resp.b ~ sitio, data = fqb.box)
+
+pairwise.wilcox.test(fqb.box$resp.b, fqb.box$sitio,data=fqb.box,
+                     p.adjust.method = "BH",exact=FALSE)
+
+{boxplot(resp.b ~ sitio+estrato, data = fqb.box, main = "Respiración Heterotrófica")
+x_coords <- c(1.3, 2.3, 3.3)  # Coordenadas x para las letras
+y_coords <- rep(0.1, 3)  # Coordenadas y para las letras
+
+# Letras a colocar
+letras <- c("b", "a", "a")
+
+# Agregar las letras al gráfico
+text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
 
 
 
-## Comunidad de la fauna edáfica Sandler (2019) 
+```
+
+```{r}
+names(rHB.sum)<-c("Muestra","Promedio","Desvío estándar","Mediana", "1er. Cuartil","3er. Cuartil", "Variable")
+print(rHB.sum[1:3,])
+
+
+# Crear los boxplots para cada variable
+kruskal.test(ratio.hb ~ sitio, data = fqb.box)
+
+pairwise.wilcox.test(fqb.box$ratio.hb, fqb.box$sitio,data=fqb.box,
+                     p.adjust.method = "BH",exact=FALSE)
+
+boxplot(ratio.hb ~ sitio+estrato, data = fqb.box, main = "Relación Eucariotas:Procariotas")
+
+```
+
+
+
+```{r PCA, echo=FALSE, warning=FALSE}
+library("FactoMineR");library("factoextra")
+
+fq<-unlu_merg[,c(4,6,8,12,14,16,258,259)]
+row.names(fq)<-unlu_merg$nombre
+tb_fq_U<-decostand(fq,"log")
+
+f_pca<-PCA(tb_fq_U, scale.unit = TRUE, graph = FALSE)
+#summary(f_pca)
+##corelaciones
+#f_pca_cor<-round(f_pca$var$cor[,1:4],3)
+#Biplot
+sit<-sit<-c(rep("L", 3), rep("P", 3), rep("R", 3))
+fviz_pca_biplot(f_pca, axes = c(1,2),  col.ind=sit, label = "var")
+
+
+```
+
+```{r carga_fq, include=FALSE}
+
+
+fyq_unlu <- read.delim("~/Documentos/Redes/soil_interaction_web/fyq_unlu.txt")
+fyq<-fyq_unlu%>%mutate(sitio=substr(Sitio, 3, 3),
+                       estrato=substr(Sitio, 1, 2),
+                       replica=substr(Sitio, 4, 4),
+                       nombre=paste(sitio,replica))%>%
+  group_by(sitio,replica,nombre)%>%
+  summarise(CE=mean(CE..Ms.,na.rm=TRUE),CE.sd=sd(CE..Ms.,na.rm=TRUE),
+            pH=mean(PH,na.rm=TRUE),pH.sd=sd(PH,na.rm=TRUE),
+            MO=mean(MATERIA.ORGÁNICA,na.rm=TRUE),MO.sd=sd(MATERIA.ORGÁNICA,na.rm=TRUE),
+            C=mean(CARBONO,na.rm=TRUE),C.sd=sd(CARBONO,na.rm=TRUE),
+            TOC=mean(TOC,na.rm=TRUE),TOC.sd=sd(TOC,na.rm=TRUE),
+            N=mean(NITRÓGENO,na.rm=TRUE),N.sd=sd(NITRÓGENO,na.rm=TRUE),
+            P=mean(FÓSFORO,na.rm=TRUE),P.sd=sd(FÓSFORO,na.rm=TRUE))%>%
+  distinct(nombre,.keep_all=TRUE)
+
+
+unlu_merg<-merge(fyq,unlu_ab,by.x="nombre",by.y = "nombre")
+#agrego respiración en CO2/h/g
+unlu_merg$resp.b<-c(0.066236559139785,0.0851612903225806,0.0946236559139785,
+                    0.131588785046729,0.14803738317757,0.14803738317757,
+                    0.188187372708758,0.15234215885947,0.170264765784114)
+#agrego relación Hongo-Bacterias
+unlu_merg$ratio.hb<-c(3.25, 14.00000000001, 0.833333333333333,
+                       1.375, 1.83333333333333, 1.16666666666667,
+                       2.42857142857143, 1.83333333333333, 3.5)
+#Valores expresados en microgramos de C-biomasa/g suelo
+unlu_merg$ug_biom_x_g<-c(1.80305376344086, 2.14417204301075, 1.70559139784947,
+3.78435845213849, 3.50745417515275, 3.87665987780041, 2.62601869158878,
+3.4731214953271, 2.37188785046729)*1000
+
+# con la idea de tener la cantidad de hongos y bacterias
+# densidad aparente 1,47 g/cm3 (sacado del promedio pastura, agricola, reserva, tesina
+#Veronica)
+# suelo a 5 cm en un m2 son 50k cm3 aprox 0.5m3, esto es, 73500 g en 0.5m3 suelo 
+# más factor 1e6 para microgramos
+
+
+unlu_merg$bio.micro<-unlu_merg$ug_biom_x_g*73500
+
+
+unlu_merg$fungi<-round(unlu_merg$bio.micro*(unlu_merg$ratio.hb/(unlu_merg$ratio.hb+1)),4)
+unlu_merg$bacteria<-round((unlu_merg$bio.micro-unlu_merg$fungi),4)
+
+#write.table(unlu_merg[,c(1,2,3,4,6,8,10,12,14,16,258:263,20:138)],"matrizunlu.txt")
+
+```
+
+```{r H, echo=FALSE}
+library(boot)
+H<-diversity(D, index="shannon")
+Diversidad<-round(H,3)
+data.frame(Muestras,Diversidad,row.names = NULL)
+
+#######
+######################
+# Función para calcular la media
+mean_func <- function(data, indices) {
+  mean(data[indices])
+}
+#quantile
+# Función para calcular el desvío estándar
+sd_func <- function(data, indices) {
+  sd(data[indices])
+}
+
+# Número de repeticiones de bootstrap
+n_boot <- 1000
+set.seed(167)
+##############
+# Realizar bootstrap para calcular la media y el desvío estándar
+#Lote Agrícola
+boot_mean_L <- boot(H[c(1:3)], mean_func, R = n_boot)
+boot_sd_L <- boot(H[c(1:3)], sd_func, R = n_boot)
+
+bootstrap_mean_L <- boot.ci(boot_mean_L, type = "basic")#$basic
+bootstrap_sd_L <- boot.ci(boot_sd_L, type = "basic")#$basic
+#Quito el $basic, porque me quita la descripción de lo que significan los valores
+
+#Pastizal
+boot_mean_P <- boot(H[c(4:6)], mean_func, R = n_boot)
+boot_sd_P <- boot(H[c(4:6)], sd_func, R = n_boot)
+bootstrap_mean_P <- boot.ci(boot_mean_P, type = "basic")
+bootstrap_sd_P <- boot.ci(boot_sd_P, type = "basic")
+
+#Reserva
+boot_mean_R <- boot(H[c(7:9)], mean_func, R = n_boot)
+boot_sd_R <- boot(H[c(7:9)], sd_func, R = n_boot)
+bootstrap_mean_R <- boot.ci(boot_mean_R, type = "basic")
+bootstrap_sd_R <- boot.ci(boot_sd_R, type = "basic")
+
+#################
+
+print("#############################################")
+print("Tabla de Promedio y desvío standar del índice de Shannon en cada sistema de uso del suelo")
+print("Método no paramétrico 'boostraping'\n")
+print(data.frame(system=levels(as.factor(unlu_merg$sitio.x)),
+                 mean=c(boot_mean_L[[1]],boot_mean_P[[1]],boot_mean_R[[1]]),
+                 desvio_std=c(boot_sd_L[[1]],boot_sd_P[[1]],boot_sd_R[[1]]),
+                 l.mean.int=c(bootstrap_mean_L$basic[4],bootstrap_mean_P$basic[4],
+                   bootstrap_mean_R$basic[4]),
+                 h.mean.int=c(bootstrap_mean_L$basic[5],bootstrap_mean_P$basic[5],
+                   bootstrap_mean_R$basic[5]),
+                 l.sd.int=c(bootstrap_sd_L$basic[4],bootstrap_sd_P$basic[4],
+                   bootstrap_sd_R$basic[4]),
+                 h.sd.int=c(bootstrap_sd_L$basic[5],bootstrap_sd_P$basic[5],
+                   bootstrap_sd_R$basic[5]),row.names = NULL))
+
+```
+
+
+
+## Comunidad de la fauna edáfica Sandler (2019)
+
+# ref
+
+West, A. W. (1986). Improvement of the selective respiratory inhibition technique to
+measure eukaryote: prokaryote ratios in soils. Journal of Microbiological Methods, 5(3-4),
+125-138.
+
+Sfeir, A., Costa, M. C., Stavinsky, A., Bonvecchi, V., Penón, E., Rossi, S. 1988. Mapa
+básico de suelos. Universidad Nacional de Luján, Luján.
+
+Potapov, A. M., Sun, X., Briones, M. J., Brown, G., Cameron, E., Cortet, J., ... & Wall,
+D. (2022). Global monitoring of soil animal communities using a common methodology.
+bioRxiv.
+
+Zabala, M., & Gómez, Y. (2010). Biomasa fúngica y bacteriana como indicadoras del
+secuestro de C en suelos de sabanas sustituidos por pinares en Uverito, Venezuela. Revista
+de Biología Tropical, 58(3), 977-989.
+
+Moreira, F. M., Huising J. E. - Bignell, D. E.(Ed.). (2012). Manual de biología de suelos
+tropicales. Instituto Nacional de Ecología. Muestreo y caracterización de la biodiversidad
+bajo suelo. Cap Nematodos pp165 ---- Agregar Capitulo Macrofauna
+
+Swift M, Heal O, Anderson J (1979) Decomposition in terrestial ecosystems. CAB URL:
+<https://www.cabdirect.org/cabdirect/abstract/19800665274>
+
+Frioni, L. 1999. Procesos microbianos. Anexo Práctico. p 290-295 Ed. de la Fundación Universidad 
+Nacional de Río Cuarto. Argentina. 322 páginas.
+
+```{=html}
+<!-- Achiorno, C.L., de Villalobos, C., Ferrari, L., 2008. Toxicity of the herbicide glyphosate
+to Chordodes nobilii (Gordiida, Nematomorpha). Chemosphere 71 (10): 1816–
+1822. Los nematomorfas adultos son de via libre, los parásitos son sus larvas-->
+```
