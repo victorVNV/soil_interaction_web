@@ -80,29 +80,29 @@ lucidum* y Acacia *Acacia melanoxylon*.
 
 Para extraer los nemátodos de vida libre del suelo para cada una de las réplicas
 muestrales se tomaron 4 submuestras al azar dentro del área de un metro cuadrado
-delimitada como área muestral con sacadocados de 5 cm diámetro y 10 cm de profundidad.
-Las submuestras fueron almacenadas cuidando que no se
-compacten, que no pierdan humedad del suelo y que no se sobre calienten para ser llevadas
-al laboratorio donde se procedió a la extracción de la microfauna.
+delimitada como área muestral con sacadocados de 5 cm diámetro y 10 cm de profundidad. Las
+submuestras fueron almacenadas cuidando que no se compacten, que no pierdan humedad del
+suelo y que no se sobre calienten para ser llevadas al laboratorio donde se procedió a la
+extracción de la microfauna.
 
 Las submuestras fueron mecladas, homogeneizadas y pesadas, luego cada una fué sometida al
-método de flotación y tamizado. (\@.mondino; \@.jekings; \@.moreira_etal_2012) 
+método de flotación y tamizado. (\@.mondino; \@.jekings; \@.moreira_etal_2012)
 
-La muestra de suelo se desagrega suavemente con la mano y luego se incorpora agua en relación 1:4
-suelo:agua p/p se agita la solución enérgicamente durante 2 minutos aproximadamente y
-luego se deja reposar unos minutos hasta que la fracción más pesada del suelo decante,
-la solución se deja pasar a través de tamices con diferente diámetro de apertura de malla 
-y los nemátodos se colectan en las mallas con diámetro de apertura de 170 y 53 micrones. 
-seguidamente se colecta los nemátodos atrapados por las mallas y se conservan
-en formalina 4% (\@.moreira_etal_2012) o alcohol 96º (\@.potapov_etal_2022) hasta su posterior
-extracción y conteo bajo lupa binocular, e identificación en grupos tróficos según la morfología de 
-su aparato bucal (\@.yeates; \@.mondino \@.momo-falco) proceso que se realiza con porta y 
-cubreobjeto bajo microscopio óptico.
+La muestra de suelo se desagrega suavemente con la mano y luego se incorpora agua en
+relación 1:4 suelo:agua p/p se agita la solución enérgicamente durante 2 minutos
+aproximadamente y luego se deja reposar unos minutos hasta que la fracción más pesada del
+suelo decante, la solución se deja pasar a través de tamices con diferente diámetro de
+apertura de malla y los nemátodos se colectan en las mallas con diámetro de apertura de
+170 y 53 micrones. seguidamente se colecta los nemátodos atrapados por las mallas y se
+conservan en formalina 4% (\@.moreira_etal_2012) o alcohol 96º (\@.potapov_etal_2022)
+hasta su posterior extracción y conteo bajo lupa binocular, e identificación en grupos
+tróficos según la morfología de su aparato bucal (\@.yeates; \@.mondino \@.momo-falco)
+proceso que se realiza con porta y cubreobjeto bajo microscopio óptico.
 
 Para extraer la macrofauna del suelo se trabajó en 2 etapas una a campo y otra en
 laboratorio, en ambos casos los animales se capturaban directamente utilizando pinzas y
-pinceles y se los almacenaba directamente en alcohol de 96º (en inglés: *"Hand shorting"*),
-hasta su posterior conteo e identificación (\@.potapov_etal_2022).
+pinceles y se los almacenaba directamente en alcohol de 96º (en inglés: *"Hand
+shorting"*), hasta su posterior conteo e identificación (\@.potapov_etal_2022).
 
 En el campo se delimitó dentro del área de muestreo de un metro cuadrado una sub parcela
 ubicada al azar de 25 x 25 cm y se excavó el suelo hasta los 20 cm de profundidad, esta
@@ -179,14 +179,14 @@ El procedimiento consiste en aplicar diferente soluciones, a razón 1:1 suelo:so
 antibióticos sobre cada gramo de suelo para estimular la respiración del grupo de interés,
 el procedimiento se repite por cada muestra y réplica.
 
-La solución con a) solo el sustrato no discrimina entre grupos contiene 150 mg glucosa / mm
-solución y su valor estima la respiración heterotrófica total; la solución que b)
-inhibe la respiración de procariotas y que por lo tanto mide la respiración de los eucariotas
-contiene 11 mg cloranfenicol + 150 mg glucosa / mm sn.; c) la respiración de procariotas se
-mide con la solución de 2,3 mg cicloheximia + 150 mg glucosa / mm y finalmente la solución
-que contiene d) ambos antibióticos, en las mismas cantidades, estima la respiración residual, es
-decir, la respiración de aquellos organismos que respiran a pesar de la presencia de los
-antibióticos en el medio líquido.
+La solución con a) solo el sustrato no discrimina entre grupos contiene 150 mg glucosa /
+mm solución y su valor estima la respiración heterotrófica total; la solución que b)
+inhibe la respiración de procariotas y que por lo tanto mide la respiración de los
+eucariotas contiene 11 mg cloranfenicol + 150 mg glucosa / mm sn.; c) la respiración de
+procariotas se mide con la solución de 2,3 mg cicloheximia + 150 mg glucosa / mm y
+finalmente la solución que contiene d) ambos antibióticos, en las mismas cantidades,
+estima la respiración residual, es decir, la respiración de aquellos organismos que
+respiran a pesar de la presencia de los antibióticos en el medio líquido.
 
 Se coloca un gramo de suelo / réplica / muestra embebidos con alguna solución en
 recipientes de 350 ml que se cierran herméticamente y que funcionan como cámaras de
@@ -198,7 +198,7 @@ estimular la actividad biológica. Como blancos (controles) de la reacción se u
 frascos sin suelo con la trampa de NaOH para medir el contenido de CO~2~ que corresponde
 al aire incubado. El CO~2~ liberado por la respiración biológica se recupera en la trampa
 de álcali y se determina por titulación con ácido clorhídrico HCl 0,1 M y fenolftaleína
-como indicador (\@.coleman seccion de metodologias @.Frioni1986).
+como indicador (\@.coleman seccion de metodologias \@.Frioni1986).
 
 La biomasa microbiana se aproxima considerando que 1 ml HCl 0.1M, equivale a 2.2mg de
 CO~2~ y que para un coeficiente de respiración igual a 1, se cumple que:
@@ -229,6 +229,25 @@ carbono, el carbono orgánico total, el porcentaje de nitrógeno, la cantidad de
 partes por millón, el valor del potencial hidrógeno en escala de pH y conductividad
 eléctrica en milisiemens por centímetro.
 
+Para describir las variables físicas, químicas y biológicas medidas se realiza un análisis
+descripivo de estas, para ello se calcularon las medidas de tendencia central para cada
+sitio y estrato. Se compararon posibles diferencias entre las medianas de estas variables
+mediante análisis de varianza no paramétrico Kruskal-Wallis. Luego se procede al análisis
+descriptivo multivariado mediante el uso de componentes principales con los valores de las
+variables previamente transformados con log_b_x + 1. (\@.numerical_ecology)
+
+Para describir la comunidad edáfica se realizo un análisis de la diversidad alfa
+utilizando el valor de la riqueza de unidades taxonómica y del índice de diversidad de
+shanon-wiener. Mediante análisis de similitudes multivariado se evalua la diferencia entre
+las comunidades, se realiza un dendograma basado en el índice de diversidad Beta de Wilson
+(paper done estan los indices segun el paquete Vegan) para visualizar cuáles son las
+comunidades similes. Para describir las relación entre los taxones y los sitios se realizó
+análisis de componentes principales transformados con log_b_x + 1. (\@.numerical_ecology)
+e invertidos (en modo R) de modo de poder observar en el biplot a los sitios como vectores
+y a los taxones como puntos en el espacio euclidiano de las coordenadas principales.
+
+<!--La prueba de los rangos con signo de Wilcoxon es una prueba no paramétrica para comparar el rango medio de dos muestras relacionadas y determinar si existen diferencias entre ellas. Se utiliza como alternativa a la prueba t de Student cuando no se puede suponer la normalidad de dichas muestras. Esta prueba es útil para comparar dos mediciones relacionadas y determinar si la diferencia entre ellas se debe al azar o no.-->
+
 ```{=html}
 <!--La identificación taxonómica se realizó al máximo nivel de resolución posible mediante
 el uso de claves. Los grupos analizados fueron: Macrofauna: Lumbricina, Formicidae,
@@ -243,7 +262,6 @@ y al tratamiento.
 
 <!--Imágenes ![texto_alternativo](ubicacion_de_la_imagen){width=width height=height}-->
 ```
-
 ## Variables físcas y químicas de la UNLu.
 
 ```{r , include=FALSE}
@@ -255,7 +273,7 @@ fyq_unlu <- read.delim("~/Documentos/Redes/soil_interaction_web/fyq_unlu.txt")
 
 names(fyq_unlu)<- c("sitio","muestra","CE","pH","MO","C","P",
                     "N","TOC","dTOC","cTOC")
-
+#fyq_unlu$sitio==""
 #####
 #cargar bootstrap
 
@@ -625,12 +643,16 @@ fqb.box<-data.frame(resp.b,ratio.hb,sitio=c(rep("P",3),rep("R",3),rep("A",3)),es
 
 ```
 
+La conductividad eléctrica medida en milisiemens por centímetro (ms/cm) fue determinada
+para el estrato de 10 a 20 cm. En cada sitio se observa claras diferencias y esto se
+convalida con el test de K-W p:H\<0.01, en el gráfico de cajas y bigotes se observa el
+mayor valor de CE se da en el pastizal natural, seguido del lote agrícola
 
 ```{r}
-
-#cargar las  tablas
-print(CE.sum[4:6,-7])
 names(CE.sum)<-c("Muestra","Promedio","Desvío estándar","Mediana", "1er. Cuartil","3er. Cuartil", "Variable")
+
+print(CE.sum[4:6,-7])
+
 # Crear los boxplots para cada variable
 kruskal.test(CE ~ sitio, data = fyq.box, subset=fyq.box$estrato==20)
 pairwise.wilcox.test(fyq.box$CE, fyq.box$sitio,data=fyq.box,
@@ -650,6 +672,36 @@ text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
 
 
 ```
+
+```{=html}
+<!--
+
+# Instala y carga el paquete coin si no lo has hecho aún
+#install.packages("coin")
+library(coin)
+
+# Supongamos que fqb.box es tu dataframe
+
+# Realizar pruebas de permutación para comparaciones múltiples
+resultados_permutacion <- oneway_test(resp.b ~ as.factor(sitio), data = fqb.box, distribution = approximate(B = 1000))
+
+#muestra la permutacion varianza sobre la media, pero con varianzas no homogeneas
+
+
+# Mostrar los resultados
+summary(resultados_permutacion)
+
+# Corrección para múltiples comparaciones (opcional)
+p_valores_corregidos <- pvalue(resultados_permutacion, method = "single-step")
+
+# Mostrar los p-valores corregidos
+p_valores_corregidos
+
+-->
+```
+Los valores de pH fueron similares entre sitios considerando el suelo mineral que se halla
+entre los 10 - 20 cm.
+
 ```{r}
 names(pH.sum)<-c("Muestra","Promedio","Desvío estándar","Mediana", "1er. Cuartil","3er. Cuartil", "Variable")
 print(pH.sum[4:6,-7])
@@ -677,6 +729,18 @@ boxplot(pH ~ sitio+estrato, data = fyq.box, main = "potencial Hidrógeno")
 
 ```
 
+El porcentaje de materia orgánica del suelo no resulto diferente al valor H:p\<0.05, pero
+se observan diferencias en los diferentes estratos. En el estrato superficial (0 a 10cm)
+el %MO fue mayor en la reserva seguido por el pastizal natural, esto se relaciona con la
+vegetación que se mantine sobre el suelo, en cambio en el lote el % de MO es menor en el
+primer estrato. Con respecto al estato más profundo (10 a 20 cm) la tendencia se invierte,
+el Lote agrícola y el pastizal muestran valores similares y mayores que el de la reserva,
+esto puede ser explicado en el fenómeno de la lixiviación que arrastra componentes del
+estrato superior del suelo y se acumula en el estrato inmediatamente inferior, en cambio
+en vegetación tipo boscosa como lo es la reserva la mayor proporción de materia orgánica
+se encontraría en pie y a la vez lo lixiviado seria utilizado por la vegetación viva por
+parte de las raices que exploran el suelo más allá de la capa superficial del suelo.
+
 ```{r}
 names(MO.sum)<-c("Muestra","Promedio","Desvío estándar","Mediana", "1er. Cuartil","3er. Cuartil", "Variable")
 print(MO.sum[,-7])
@@ -694,12 +758,33 @@ boxplot(MO ~ sitio+estrato, data = fyq.box, main = "% Materia Orgánica")
 
 ```
 
+Con relación al porcentaje de Nitrógeno en el suelo la prueba de diferencia de las
+medianas K-W no indica diferencias al p\<0.05 en a capa superficial del suelo, pero si
+indica diferencias significactivas en la capa subsuperficial.
+
+El % de Nitrógeno en el suelo en ambos estratos fué mayor en el lote agrícola y esto puede
+estar reflejando las fertilizaciones que recibe este suelo para llevar adelante la
+producción de forraje, ya sea debido a la fijación biológica por parte de los rizobios
+mutualistas con la alfalfa o fertilización mineral. En la capa superficial, el menor valor
+se observa en el pastizal natural lo que se relaciona con la demanda de nitrógeno para el
+desarrollo de los pastizales, la reserva se posiciona en un lugar intermedio y su
+contenido puede relacionarse con la mineraliación del nutriente debido al proceso de
+descomposición y humificación de la hojarasca que se deposita sobre la superficie del
+suelo.
+
+En el estrato subsuperficial la relación entre las medianas es de mayor a menor lote
+agrícola, pastizal y reserva. Con respecto al pastizal podemos relacionar esto con el
+lixiviado del nitrógeno y la poca exploración de las raices en estas profundidades lo que
+se observa en los valores atípicos, en sentido contrario la demanda de nitrógeno por las
+raices de la vegetación arbórea podría estar relacionada con la menor concentracion de N
+en el estrato inferior.
+
 ```{r}
 names(N.sum)<-c("Muestra","Promedio","Desvío estándar","Mediana", "1er. Cuartil","3er. Cuartil", "Variable")
 print(N.sum[,-7])
 # Crear los boxplots para cada variable
-kruskal.test(N ~ sitio, data = fyq.box, subset=fyq.box$estrato==10)
-kruskal.test(N ~ sitio, data = fyq.box, subset=fyq.box$estrato==20)
+kruskal.test(N ~ sitio, data = fyq.box, subset=fyq.box$estrato=="10")
+kruskal.test(N ~ sitio, data = fyq.box, subset=fyq.box$estrato=="20")
 pairwise.wilcox.test(fyq.box$N, fyq.box$sitio,data=fyq.box,
                      subset=fyq.box$estrato==10,
                      p.adjust.method = "BH",exact=FALSE)
@@ -709,6 +794,12 @@ pairwise.wilcox.test(fyq.box$N, fyq.box$sitio,data=fyq.box,
 boxplot(N ~ sitio+estrato, data = fyq.box, main = "% Nitrógeno")
 
 ```
+
+Con respecto al fósforo claramente al ser un nutriente poco movil y disponible, la
+amplitud de los valores para el lote agrícola en ambos estratos refleja la fertilización
+de este nutriente sobre el suelo. En los demás sitios los valores de la concentración de
+fósforo fueron similares en ambos estratos tanto para la reserva como para el pastizal
+natural.
 
 ```{r}
 
@@ -736,6 +827,14 @@ text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
 
 ```
 
+La respiración heterotrófica se midió para el estrato que corresponde hasta los 10 cm de
+profundidad dado que allí se da la mayor actividad de los microorganismos involucrados en
+el metabolismo del suelo (\@.aca colocar la cita del libro verde). Se observan diferencias
+significaivas en las medianas entre los sitios, la reserva muestra el mayor valor de
+resiracion seguido de cerca por el pastizal y con el cual no muestra diferencias
+significativas y el valor mas bajo se da en el agrícola el cual si difiere de ambos
+grupos. Basicamente en los suelos permanentemente cubiertos la actividad biológica de la
+microbiota/microflora es mayor.
 
 ```{r}
 names(rH.sum)<-c("Muestra","Promedio","Desvío estándar","Mediana", "1er. Cuartil","3er. Cuartil", "Variable")
@@ -777,31 +876,21 @@ boxplot(ratio.hb ~ sitio+estrato, data = fqb.box, main = "Relación Eucariotas:P
 
 ```
 
-
-
-```{r PCA, echo=FALSE, warning=FALSE}
-library("FactoMineR");library("factoextra")
-
-fq<-unlu_merg[,c(4,6,8,12,14,16,258,259)]
-row.names(fq)<-unlu_merg$nombre
-tb_fq_U<-decostand(fq,"log")
-
-f_pca<-PCA(tb_fq_U, scale.unit = TRUE, graph = FALSE)
-#summary(f_pca)
-##corelaciones
-#f_pca_cor<-round(f_pca$var$cor[,1:4],3)
-#Biplot
-sit<-sit<-c(rep("L", 3), rep("P", 3), rep("R", 3))
-fviz_pca_biplot(f_pca, axes = c(1,2),  col.ind=sit, label = "var")
-
-
-```
+Con respecto a la relación entre eucariotas:procariotas que indica la proporcion de hongos
+y bacteria que forman parte de la actividd de la respiración heterotrófica, no se
+observaron diferencias significativas. Pero observando las medianas en la reserva la
+relación de eucariotas:procariotas es mayor, lo que indica una mayor proporcion de la
+actividad de hongos en este sitio y ello está ligado a un sistema más maduro o a la
+actividad de descomposición de la hojarasca por parte de hongos y micorrizas. En el caso
+del lote agrícola el valor de su mediana es similar al del pastizal pero el rango
+intercuartílico es más amplio lo que muestra que la proporción de hongos que intervienen
+en el metabolismo del suelo es heterogéneo y dependerá del punto de muestreo, en cambio el
+valor del pastizal refleja una mayor estabilidad del microbioma en el lote.
 
 ```{r carga_fq, include=FALSE}
 
-
 fyq_unlu <- read.delim("~/Documentos/Redes/soil_interaction_web/fyq_unlu.txt")
-fyq<-fyq_unlu%>%mutate(sitio=substr(Sitio, 3, 3),
+fyq.pca<-fyq_unlu%>%mutate(sitio=substr(Sitio, 3, 3),
                        estrato=substr(Sitio, 1, 2),
                        replica=substr(Sitio, 4, 4),
                        nombre=paste(sitio,replica))%>%
@@ -815,18 +904,16 @@ fyq<-fyq_unlu%>%mutate(sitio=substr(Sitio, 3, 3),
             P=mean(FÓSFORO,na.rm=TRUE),P.sd=sd(FÓSFORO,na.rm=TRUE))%>%
   distinct(nombre,.keep_all=TRUE)
 
-
-unlu_merg<-merge(fyq,unlu_ab,by.x="nombre",by.y = "nombre")
 #agrego respiración en CO2/h/g
-unlu_merg$resp.b<-c(0.066236559139785,0.0851612903225806,0.0946236559139785,
+fyq.pca$resp.b<-c(0.066236559139785,0.0851612903225806,0.0946236559139785,
                     0.131588785046729,0.14803738317757,0.14803738317757,
                     0.188187372708758,0.15234215885947,0.170264765784114)
 #agrego relación Hongo-Bacterias
-unlu_merg$ratio.hb<-c(3.25, 14.00000000001, 0.833333333333333,
+fyq.pca$ratio.hb<-c(3.25, 14.00000000001, 0.833333333333333,
                        1.375, 1.83333333333333, 1.16666666666667,
                        2.42857142857143, 1.83333333333333, 3.5)
 #Valores expresados en microgramos de C-biomasa/g suelo
-unlu_merg$ug_biom_x_g<-c(1.80305376344086, 2.14417204301075, 1.70559139784947,
+fyq.pca$ug_biom_x_g<-c(1.80305376344086, 2.14417204301075, 1.70559139784947,
 3.78435845213849, 3.50745417515275, 3.87665987780041, 2.62601869158878,
 3.4731214953271, 2.37188785046729)*1000
 
@@ -837,13 +924,102 @@ unlu_merg$ug_biom_x_g<-c(1.80305376344086, 2.14417204301075, 1.70559139784947,
 # más factor 1e6 para microgramos
 
 
-unlu_merg$bio.micro<-unlu_merg$ug_biom_x_g*73500
+fyq.pca$bio.micro<-fyq.pca$ug_biom_x_g*73500
 
 
-unlu_merg$fungi<-round(unlu_merg$bio.micro*(unlu_merg$ratio.hb/(unlu_merg$ratio.hb+1)),4)
-unlu_merg$bacteria<-round((unlu_merg$bio.micro-unlu_merg$fungi),4)
+fyq.pca$fungi<-round(fyq.pca$bio.micro*(fyq.pca$ratio.hb/(fyq.pca$ratio.hb+1)),4)
+fyq.pca$bacteria<-round((fyq.pca$bio.micro-fyq.pca$fungi),4)
 
 #write.table(unlu_merg[,c(1,2,3,4,6,8,10,12,14,16,258:263,20:138)],"matrizunlu.txt")
+
+```
+
+```{r}
+fq1<-fyq.pca[,c(4,6,8,14,16,18,19)]
+fq1<-as.data.frame(fq1)
+row.names(fq1)<-fyq.pca$nombre
+
+corr<-Hmisc::rcorr(as.matrix(fq1),type = "pearson");corr[1];corr[3]
+
+corrplot::corrplot(cor(fq1),tl.pos="t",type = "upper",tl.col = "black",tl.cex = .8,bg="brown2",diag=FALSE)
+#col=col3(100),
+```
+
+La matriz de correlaciones de a pares nos muestran que las variables no están
+correlacionadas entre si con excepción de fósforo y el nitrógeno que se correlacionan con
+la respiración heterotrófica, esto se observa mediante el valor de significacia de menor
+al p\<0.05, se observa tambien una significacancia marginal con valor p\<0.1 entre el P y
+N lo que puede estar reflejando el efecto conjunto de la respiración heterotrófica.
+
+Considerando que los organismos requieren de nutrientes y que justamente el P y N forman
+parte de los macronutrientes, puede ligarse la concentracion de estos con la respiración
+heterotrofica, aunque en este caso nos muestran correlaciones negativas, es decir, mayores
+concentraciones de estos nutrientes menor es la actividad respiratoria por parte de los
+heterótrofos, lo que podría reflejar un mecanismo de retroalimentacion negativa si
+consideramos que el papeel de la microbiota esta ligada a la descomposición y
+mineraliación de los nutrientes
+
+La relacion entre el nitrógeno y el fósforo es positiva, lo que puede ser debido al efecto
+de la fertilización con compuestos que poseen ambos componentes.
+
+```{r PCA, echo=FALSE, warning=FALSE}
+library("FactoMineR");library("factoextra")
+tb_fq<-decostand(fq1,"log")
+
+
+f_pca<-PCA(tb_fq, scale.unit = TRUE, graph = FALSE)
+summary(f_pca)
+##corelaciones
+f_pca_cor<-round(f_pca$var$cor[,1:4],3);print("-----------------------------");f_pca_cor
+#Biplot
+sit<-sit<-c(rep("L", 3), rep("P", 3), rep("R", 3))
+fviz_pca_biplot(f_pca, axes = c(1,2),  col.ind=sit, label = "var")
+
+
+```
+
+Los primeros 2 ejes explican el 60 % de la variabilidad Acorde a las variables Fy Q se
+separan los tres sistemas de uso. El pH y la MO se encuentrn estrechamente relacionadas y
+se relacionan con la R reserva
+
+el P y N se relacionan con los sitios de uso Agrícola, el lote de Alfalfa Lo que tiene
+sentido si asumimos el uso de fertilizantes, además al momento de muestreo la alfalfa se
+encontraba sin follaje.
+
+La CE se relaciona con el pastizal.
+
+## Diversidad de las comunidades edáficas que habitan los suelos de la UNLu
+
+```{r S,echo=FALSE}
+library("BiodiversityR") 
+
+D<-unlu_merg[,20:138]
+# son 118 taxones, siquisiera poner nombre a todos...
+#colnames(ab)<-spc.colector
+
+rownames(D)<-unlu_merg$nombre
+
+Muestras<-unlu_merg$nombre
+Riqueza<-specnumber(D)
+Riqueza_nematodos<-specnumber(D[40:44])
+Riqueza_lombrices<-specnumber(D[c(2:4,19,61,87:89,93,98,99)])
+Riqueza_acari<-specnumber(D[c(5,9,18,26:31,39,45,47:53,55:59,81,82,64:66,68,76,114:117,
+                            105,106,108:111,85,102,103,65:67)])
+Riqueza_sarcoptiformes<-specnumber(D[c(5,29:31,47:50,57,64:65,68,76,116:117,103,
+                            105,106,108,109,85,95)])
+Riqueza_mesostigmata<-specnumber(D[c(18,26,28,39,45,51,56,68,66,115,102,96,97)])
+Riqueza_prostigmata<-specnumber(D[c(9,27,30,81,82,52,53,55,58,59,76,114,110)])
+Riqueza_collembola<-specnumber(D[c(12,16,32,67,46)])
+Riqueza_otra_mesofauna<-specnumber(D[c(11,23,104,79)])
+Riqueza_macrofauna<-specnumber(D[c(1,6:8,10,13:15,17,20:25,33:38,54,60,62,63,69,
+                                 70:75,78,80:84,86,90:92,94,100,101)])
+
+
+data.frame(Muestras,Riqueza,Riqueza_macrofauna,Riqueza_lombrices,
+           Riqueza_sarcoptiformes,Riqueza_mesostigmata, Riqueza_prostigmata,
+           Riqueza_collembola,Riqueza_otra_mesofauna,Riqueza_nematodos,
+           row.names = NULL)
+
 
 ```
 
@@ -909,7 +1085,88 @@ print(data.frame(system=levels(as.factor(unlu_merg$sitio.x)),
 
 ```
 
+```{r anosim.unlu, echo=FALSE, warning=FALSE}
 
+tb_D_anosim<-unlu_merg[,c(2,20:138)]
+row.names(tb_D_anosim)<-unlu_merg$nombre
+tb_Duni_anosim<-decostand(tb_D_anosim[,-1],"log")
+#col_sp<-colnames(tb_D)
+
+D_unlu_anosim<-vegan::anosim(tb_Duni_anosim, 
+              as.matrix(tb_D_anosim[,"sitio.x"]), 
+              permutations = 1670, 
+              distance = "bray")
+print("Resumen del ANOSIM para los datos de densidad log +1 transformados")
+summary(D_unlu_anosim)
+
+
+
+```
+
+```{r Beta_div, echo=FALSE, warning=FALSE}
+beta_u<-unlu_merg[,20:138]
+row.names(beta_u)<-unlu_merg[,1]
+beta_div_u<-betadiver(beta_u, method=8)
+
+div.beta.unlu<-hclust(beta_div_u,method = "mcquitty")
+plot(div.beta.unlu,cex=0.6,main="Agrupamiento según índice Wilson",sub="Diversidad Beta entre sitios",ylab="Índice de Wilson",xlab="")
+
+```
+
+```{r pca_tb, echo=FALSE,warning=FALSE}
+
+
+tb_D<-unlu_merg[,c(20:138)]
+row.names(tb_D)<-unlu_merg$nombre
+tb_D_U<-decostand(tb_D,"log")
+col_sp<-colnames(tb_D)
+
+col.sp.unlu<-c("macro_herb","ing","ing","ing","ast","macro_pred","macro_fun",
+               "macro_det","pros","macro_det","enchy","art","macro_omn","macro_pred",
+               "macro_herb","art","macro_pred","meso","ing","macro_det","macro_herb",
+               "macro_pred","no.art","macro_det","macro_herb","meso","pros","meso",
+               "orib","pros","orib","art","macro_pred","macro_herb","macro_det",
+               "macro_fun","macro_det","macro_det","meso","nem_bac","nem_fit",
+               "nem_fung","nem_omn","nem_pre","meso","art","orib","orib","orib",
+               "orib","meso","pros","pros","macro_det","pros","meso","orib","pros",
+               "pros","macro_pred","ing","macro_det","macro_pred","orib","orib","meso",
+               "no.art","meso","macro_det","macro_herb","macro_herb","macro_pred",
+               "macro_parasi","macro_det","macro_no","pros","tardi","macro_pred",
+               "no.art","macro_pred","pros","pros","macro_herb","macro_herb","orib",
+               "macro_det","ing","ing","ing","macro_det","macro_det","macro_pred",
+               "ing","macro_det","orib","meso","meso","ing","ing","macro_det",
+               "macro_det","meso","orib","no.art","orib","orib","macro_no",
+               "orib","orib","no.art","orib","macro_fun","macro_det","pros","meso",
+               "orib","orib","macro_pred","macro_herb")
+
+tb_U_D_pca<-PCA(t(tb_D_U), scale.unit = TRUE, graph = FALSE)
+#summary(f_pca)
+##corelaciones
+#f_pca_cor<-round(f_pca$var$cor[,1:4],3)
+#Biplot
+sit<-sit<-c(rep("L", 3), rep("P", 3), rep("R", 3))
+fviz_pca_biplot(tb_U_D_pca, axes = c(1,2),  col.var=sit, col.ind =as.factor(col.sp.unlu), label = "none")
+
+```
+
+Observando el PCA y colocando los sitios como variables. La comunidad de especies separa
+claramente al Lote de la Reserva y el Pastizal estará en una situación intermediaen cuanto
+a composición de la comunidad.
+
+si consideramos por grandes grupos, los ing, macro det, macro herb, macro fung, no art
+forman un cluster entre centroides.
+
+los tardigrados se alej y se relacionan con la Reserva
+
+Los nemátodos Artroleonas y Astigmata estan formando otro cluster y opuesto al anterior y
+son descrito por el primer eje
+
+los mesostigmata y macropredadora no se explican por los ejes y se encuentran cercanos al
+0 0
+
+Los prostigmata explicados por el 2do eje en sentido negativo se relacionan con los lotes
+
+Los oribátidos se relacionan con la Reserva
 
 ## Comunidad de la fauna edáfica Sandler (2019)
 
@@ -937,8 +1194,8 @@ bajo suelo. Cap Nematodos pp165 ---- Agregar Capitulo Macrofauna
 Swift M, Heal O, Anderson J (1979) Decomposition in terrestial ecosystems. CAB URL:
 <https://www.cabdirect.org/cabdirect/abstract/19800665274>
 
-Frioni, L. 1999. Procesos microbianos. Anexo Práctico. p 290-295 Ed. de la Fundación Universidad 
-Nacional de Río Cuarto. Argentina. 322 páginas.
+Frioni, L. 1999. Procesos microbianos. Anexo Práctico. p 290-295 Ed. de la Fundación
+Universidad Nacional de Río Cuarto. Argentina. 322 páginas.
 
 ```{=html}
 <!-- Achiorno, C.L., de Villalobos, C., Ferrari, L., 2008. Toxicity of the herbicide glyphosate
