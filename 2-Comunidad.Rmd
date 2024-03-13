@@ -246,6 +246,8 @@ análisis de componentes principales transformados con log_b_x + 1. (\@.numerica
 e invertidos (en modo R) de modo de poder observar en el biplot a los sitios como vectores
 y a los taxones como puntos en el espacio euclidiano de las coordenadas principales.
 
+<!-- indice de Wilson y Schmida 1984 en Measuring beta diversity for presence–absence data Koleff et al 2003  y numerical ecology con R libro-->
+
 <!--La prueba de los rangos con signo de Wilcoxon es una prueba no paramétrica para comparar el rango medio de dos muestras relacionadas y determinar si existen diferencias entre ellas. Se utiliza como alternativa a la prueba t de Student cuando no se puede suponer la normalidad de dichas muestras. Esta prueba es útil para comparar dos mediciones relacionadas y determinar si la diferencia entre ellas se debe al azar o no.-->
 
 ```{=html}
@@ -264,182 +266,13 @@ y al tratamiento.
 ```
 ### Variables físcas y químicas de la UNLu.
 
-```{r , include=FALSE}
-#####
+```{r carga_variablesFQB, include=FALSE}
+
 library("tidyverse")
 fyq_unlu <- read.delim("~/Documentos/Redes/soil_interaction_web/fyq_unlu.txt")
 
 
-#renombrar las columnas
-
-names(fyq_unlu)<- c("sitio","muestra","CE","pH","MO","C","P",
-                    "N","TOC","dTOC","cTOC")
-#fyq_unlu$sitio==""
-#####
-#cargar bootstrap
-
-library(boot)
-#######
-######################
-#funciones
-# Función para calcular la media
-mean_func <- function(data, indices) {
-  mean(data[indices],na.rm=TRUE)
-}
-
-# Función para calcular el desvío estándar
-sd_func <- function(data, indices) {
-  sd(data[indices],na.rm=TRUE)
-}
-
-# Función para la q1 q2 q3
-
-q_func <- function(data, indices) {
-  quantile(data[indices],probs=c(0.25,0.5,0.75),na.rm=TRUE)
-}
-
-# Número de repeticiones de bootstrap
-n_boot <- 1169
-set.seed(167)
-
-##############
-
-# Realizar bootstrap para calcular la media y el desvío estándar
-#Conductividad léctrica
-prom_CE_10P<- boot(fyq_unlu[1:9,"CE"], mean_func, R = n_boot)
-prom_CE_10R<- boot(fyq_unlu[10:18,"CE"], mean_func, R = n_boot)
-prom_CE_10A<- boot(fyq_unlu[19:27,"CE"], mean_func, R = n_boot)
-
-prom_CE_20P<- boot(fyq_unlu[28:36,"CE"], mean_func, R = n_boot)
-prom_CE_20R<- boot(fyq_unlu[46:54,"CE"], mean_func, R = n_boot)
-prom_CE_20A<- boot(fyq_unlu[37:45,"CE"], mean_func, R = n_boot)
-
-sd_CE_10P<- boot(fyq_unlu[1:9,"CE"], sd_func, R = n_boot)
-sd_CE_10R<- boot(fyq_unlu[10:18,"CE"], sd_func, R = n_boot)
-sd_CE_10A<- boot(fyq_unlu[19:27,"CE"], sd_func, R = n_boot)
-
-sd_CE_20P<- boot(fyq_unlu[28:36,"CE"], sd_func, R = n_boot)
-sd_CE_20R<- boot(fyq_unlu[46:54,"CE"], sd_func, R = n_boot)
-sd_CE_20A<- boot(fyq_unlu[37:45,"CE"], sd_func, R = n_boot)
-
-q_CE_10P<- boot(fyq_unlu[1:9,"CE"], q_func, R = n_boot)
-q_CE_10R<- boot(fyq_unlu[10:18,"CE"], q_func, R = n_boot)
-q_CE_10A<- boot(fyq_unlu[19:27,"CE"], q_func, R = n_boot)
-
-q_CE_20P<- boot(fyq_unlu[28:36,"CE"], q_func, R = n_boot)
-q_CE_20R<- boot(fyq_unlu[46:54,"CE"], q_func, R = n_boot)
-q_CE_20A<- boot(fyq_unlu[37:45,"CE"], q_func, R = n_boot)
-
-######
-# potencial hidrógeno
-
-prom_pH_10P<- boot(fyq_unlu[1:9,"pH"], mean_func, R = n_boot)
-prom_pH_10R<- boot(fyq_unlu[10:18,"pH"], mean_func, R = n_boot)
-prom_pH_10A<- boot(fyq_unlu[19:27,"pH"], mean_func, R = n_boot)
-
-prom_pH_20P<- boot(fyq_unlu[28:36,"pH"], mean_func, R = n_boot)
-prom_pH_20R<- boot(fyq_unlu[46:54,"pH"], mean_func, R = n_boot)
-prom_pH_20A<- boot(fyq_unlu[37:45,"pH"], mean_func, R = n_boot)
-
-sd_pH_10P<- boot(fyq_unlu[1:9,"pH"], sd_func, R = n_boot)
-sd_pH_10R<- boot(fyq_unlu[10:18,"pH"], sd_func, R = n_boot)
-sd_pH_10A<- boot(fyq_unlu[19:27,"pH"], sd_func, R = n_boot)
-
-sd_pH_20P<- boot(fyq_unlu[28:36,"pH"], sd_func, R = n_boot)
-sd_pH_20R<- boot(fyq_unlu[46:54,"pH"], sd_func, R = n_boot)
-sd_pH_20A<- boot(fyq_unlu[37:45,"pH"], sd_func, R = n_boot)
-
-q_pH_10P<- boot(fyq_unlu[1:9,"pH"], q_func, R = n_boot)
-q_pH_10R<- boot(fyq_unlu[10:18,"pH"], q_func, R = n_boot)
-q_pH_10A<- boot(fyq_unlu[19:27,"pH"], q_func, R = n_boot)
-
-q_pH_20P<- boot(fyq_unlu[28:36,"pH"], q_func, R = n_boot)
-q_pH_20R<- boot(fyq_unlu[46:54,"pH"], q_func, R = n_boot)
-q_pH_20A<- boot(fyq_unlu[37:45,"pH"], q_func, R = n_boot)
-
-###############
-# MATERIA ORGÁNICA
-
-prom_MO_10P<- boot(fyq_unlu[1:9,"MO"], mean_func, R = n_boot)
-prom_MO_10R<- boot(fyq_unlu[10:18,"MO"], mean_func, R = n_boot)
-prom_MO_10A<- boot(fyq_unlu[19:27,"MO"], mean_func, R = n_boot)
-
-prom_MO_20P<- boot(fyq_unlu[28:36,"MO"], mean_func, R = n_boot)
-prom_MO_20R<- boot(fyq_unlu[46:54,"MO"], mean_func, R = n_boot)
-prom_MO_20A<- boot(fyq_unlu[37:45,"MO"], mean_func, R = n_boot)
-
-sd_MO_10P<- boot(fyq_unlu[1:9,"MO"], sd_func, R = n_boot)
-sd_MO_10R<- boot(fyq_unlu[10:18,"MO"], sd_func, R = n_boot)
-sd_MO_10A<- boot(fyq_unlu[19:27,"MO"], sd_func, R = n_boot)
-
-sd_MO_20P<- boot(fyq_unlu[28:36,"MO"], sd_func, R = n_boot)
-sd_MO_20R<- boot(fyq_unlu[46:54,"MO"], sd_func, R = n_boot)
-sd_MO_20A<- boot(fyq_unlu[37:45,"MO"], sd_func, R = n_boot)
-
-q_MO_10P<- boot(fyq_unlu[1:9,"MO"], q_func, R = n_boot)
-q_MO_10R<- boot(fyq_unlu[10:18,"MO"], q_func, R = n_boot)
-q_MO_10A<- boot(fyq_unlu[19:27,"MO"], q_func, R = n_boot)
-
-q_MO_20P<- boot(fyq_unlu[28:36,"MO"], q_func, R = n_boot)
-q_MO_20R<- boot(fyq_unlu[46:54,"MO"], q_func, R = n_boot)
-q_MO_20A<- boot(fyq_unlu[37:45,"MO"], q_func, R = n_boot)
-
-###############
-# NITRÓGENO
-
-prom_N_10P<- boot(fyq_unlu[1:9,"N"], mean_func, R = n_boot)
-prom_N_10R<- boot(fyq_unlu[10:18,"N"], mean_func, R = n_boot)
-prom_N_10A<- boot(fyq_unlu[19:27,"N"], mean_func, R = n_boot)
-
-prom_N_20P<- boot(fyq_unlu[28:36,"N"], mean_func, R = n_boot)
-prom_N_20R<- boot(fyq_unlu[46:54,"N"], mean_func, R = n_boot)
-prom_N_20A<- boot(fyq_unlu[37:45,"N"], mean_func, R = n_boot)
-
-sd_N_10P<- boot(fyq_unlu[1:9,"N"], sd_func, R = n_boot)
-sd_N_10R<- boot(fyq_unlu[10:18,"N"], sd_func, R = n_boot)
-sd_N_10A<- boot(fyq_unlu[19:27,"N"], sd_func, R = n_boot)
-
-sd_N_20P<- boot(fyq_unlu[28:36,"N"], sd_func, R = n_boot)
-sd_N_20R<- boot(fyq_unlu[46:54,"N"], sd_func, R = n_boot)
-sd_N_20A<- boot(fyq_unlu[37:45,"N"], sd_func, R = n_boot)
-
-q_N_10P<- boot(fyq_unlu[1:9,"N"], q_func, R = n_boot)
-q_N_10R<- boot(fyq_unlu[10:18,"N"], q_func, R = n_boot)
-q_N_10A<- boot(fyq_unlu[19:27,"N"], q_func, R = n_boot)
-
-q_N_20P<- boot(fyq_unlu[28:36,"N"], q_func, R = n_boot)
-q_N_20R<- boot(fyq_unlu[46:54,"N"], q_func, R = n_boot)
-q_N_20A<- boot(fyq_unlu[37:45,"N"], q_func, R = n_boot)
-
-###############
-# FÓSFORO
-
-prom_P_10P<- boot(fyq_unlu[1:9,"P"], mean_func, R = n_boot)
-prom_P_10R<- boot(fyq_unlu[10:18,"P"], mean_func, R = n_boot)
-prom_P_10A<- boot(fyq_unlu[19:27,"P"], mean_func, R = n_boot)
-
-prom_P_20P<- boot(fyq_unlu[28:36,"P"], mean_func, R = n_boot)
-prom_P_20R<- boot(fyq_unlu[46:54,"P"], mean_func, R = n_boot)
-prom_P_20A<- boot(fyq_unlu[37:45,"P"], mean_func, R = n_boot)
-
-sd_P_10P<- boot(fyq_unlu[1:9,"P"], sd_func, R = n_boot)
-sd_P_10R<- boot(fyq_unlu[10:18,"P"], sd_func, R = n_boot)
-sd_P_10A<- boot(fyq_unlu[19:27,"P"], sd_func, R = n_boot)
-
-sd_P_20P<- boot(fyq_unlu[28:36,"P"], sd_func, R = n_boot)
-sd_P_20R<- boot(fyq_unlu[46:54,"P"], sd_func, R = n_boot)
-sd_P_20A<- boot(fyq_unlu[37:45,"P"], sd_func, R = n_boot)
-
-q_P_10P<- boot(fyq_unlu[1:9,"P"], q_func, R = n_boot)
-q_P_10R<- boot(fyq_unlu[10:18,"P"], q_func, R = n_boot)
-q_P_10A<- boot(fyq_unlu[19:27,"P"], q_func, R = n_boot)
-
-q_P_20P<- boot(fyq_unlu[28:36,"P"], q_func, R = n_boot)
-q_P_20R<- boot(fyq_unlu[46:54,"P"], q_func, R = n_boot)
-q_P_20A<- boot(fyq_unlu[37:45,"P"], q_func, R = n_boot)
-
-
-############
+####
 # Respiración heterotrófica
 # Valores expresados en miligramos de CO2/h/100g suelo
 
@@ -447,21 +280,8 @@ resp.b<-c(          0.131588785046729,0.14803738317757,0.14803738317757, #Pastiz
                     0.188187372708758,0.15234215885947,0.170264765784114, #Reserva
                     0.066236559139785,0.0851612903225806,0.0946236559139785) #Agrícola
 
-prom_re_10P<- boot(resp.b[1:3], mean_func, R = n_boot)
-prom_re_10R<- boot(resp.b[4:6], mean_func, R = n_boot)
-prom_re_10A<- boot(resp.b[7:9], mean_func, R = n_boot)
 
 
-sd_re_10P<- boot(resp.b[1:3], sd_func, R = n_boot)
-sd_re_10R<- boot(resp.b[4:6], sd_func, R = n_boot)
-sd_re_10A<- boot(resp.b[7:9], sd_func, R = n_boot)
-
-
-q_re_10P<- boot(resp.b[1:3], q_func, R = n_boot)
-q_re_10R<- boot(resp.b[4:6], q_func, R = n_boot)
-q_re_10A<- boot(resp.b[7:9], q_func, R = n_boot)
-
-############
 # Relación de hongos : bacterias
 
 
@@ -471,21 +291,7 @@ ratio.hb<-c( 1.375, 1.83333333333333, 1.16666666666667, #Pastizal
                        3.25, 1.4000000000001, 0.833333333333333) #Agrícola
 # en agrícola existe un valor atípico de 14 y lo corregi a 1.4
 
-prom_rHB_10P<- boot(ratio.hb[1:3], mean_func, R = n_boot)
-prom_rHB_10R<- boot(ratio.hb[4:6], mean_func, R = n_boot)
-prom_rHB_10A<- boot(ratio.hb[7:9], mean_func, R = n_boot)
 
-
-sd_rHB_10P<- boot(ratio.hb[1:3], sd_func, R = n_boot)
-sd_rHB_10R<- boot(ratio.hb[4:6], sd_func, R = n_boot)
-sd_rHB_10A<- boot(ratio.hb[7:9], sd_func, R = n_boot)
-
-
-q_rHB_10P<- boot(ratio.hb[1:3], q_func, R = n_boot)
-q_rHB_10R<- boot(ratio.hb[4:6], q_func, R = n_boot)
-q_rHB_10A<- boot(ratio.hb[7:9], q_func, R = n_boot)
-
-##########
 #hojarasca g/m2
 h<-c(
   70.85*16, #P
@@ -500,172 +306,14 @@ h<-c(
 104.421*16)
 
 
-prom_h_10P<- boot(h[1:3], mean_func, R = n_boot)
-prom_h_10R<- boot(h[4:6], mean_func, R = n_boot)
-prom_h_10A<- boot(h[7:9], mean_func, R = n_boot)
-
-
-sd_h_10P<- boot(h[1:3], sd_func, R = n_boot)
-sd_h_10R<- boot(h[4:6], sd_func, R = n_boot)
-sd_h_10A<- boot(h[7:9], sd_func, R = n_boot)
-
-
-q_h_10P<- boot(h[1:3], q_func, R = n_boot)
-q_h_10R<- boot(h[4:6], q_func, R = n_boot)
-q_h_10A<- boot(h[7:9], q_func, R = n_boot)
-
-
 
 ```
 
-```{r , echo=FALSE}
 
-fq.sitio<-fyq_unlu%>%mutate(
-                       nombre=paste(substr(sitio, 3, 3),substr(sitio, 1, 2)))%>%
-  group_by(nombre)%>%  distinct(nombre, .keep_all = TRUE)
-
-###########
-# Potencial Hidrógeno
-pH.sum<-data.frame(system=fq.sitio$nombre,
-                 mean=c(prom_pH_10P[[1]],prom_pH_10R[[1]],prom_pH_10A[[1]],
-                          prom_pH_20P[[1]],prom_pH_20R[[1]],prom_pH_20A[[1]]),
-                sd=c(sd_pH_10P[[1]],sd_pH_10R[[1]],sd_pH_10A[[1]],
-                          sd_pH_20P[[1]],sd_pH_20R[[1]],sd_pH_20A[[1]]),
-                 q2=c(q_pH_10P[[1]][[2]],q_pH_10R[[1]][[2]],q_pH_10A[[1]][[2]],
-                          q_pH_20P[[1]][[2]],q_pH_20R[[1]][[2]],q_pH_20A[[1]][[2]]),
-                 q1=c(q_pH_10P[[1]][[1]],q_pH_10R[[1]][[1]],q_pH_10A[[1]][[1]],
-                          q_pH_20P[[1]][[1]],q_pH_20R[[1]][[1]],q_pH_20A[[1]][[1]]),
-                 q3=c(q_pH_10P[[1]][[3]],q_pH_10R[[1]][[3]],q_pH_10A[[1]][[3]],
-                          q_pH_20P[[1]][[3]],q_pH_20R[[1]][[3]],q_pH_20A[[1]][[3]]),
-                variable=rep("pH",6),
-                row.names = NULL)
-
-
-###########
-#Conductividad Eléctrica
-CE.sum<-data.frame(system=fq.sitio$nombre,
-                 mean=c(prom_CE_10P[[1]],prom_CE_10R[[1]],prom_CE_10A[[1]],
-                          prom_CE_20P[[1]],prom_CE_20R[[1]],prom_CE_20A[[1]]),
-                sd=c(sd_CE_10P[[1]],sd_CE_10R[[1]],sd_CE_10A[[1]],
-                          sd_CE_20P[[1]],sd_CE_20R[[1]],sd_CE_20A[[1]]),
-                 q2=c(q_CE_10P[[1]][[2]],q_CE_10R[[1]][[2]],q_CE_10A[[1]][[2]],
-                          q_CE_20P[[1]][[2]],q_CE_20R[[1]][[2]],q_CE_20A[[1]][[2]]),
-                 q1=c(q_CE_10P[[1]][[1]],q_CE_10R[[1]][[1]],q_CE_10A[[1]][[1]],
-                          q_CE_20P[[1]][[1]],q_CE_20R[[1]][[1]],q_CE_20A[[1]][[1]]),
-                 q3=c(q_CE_10P[[1]][[3]],q_CE_10R[[1]][[3]],q_CE_10A[[1]][[3]],
-                          q_CE_20P[[1]][[3]],q_CE_20R[[1]][[3]],q_CE_20A[[1]][[3]]),
-                variable=rep("CE",6),
-                row.names = NULL)
-
-###############
-# Materia Orgánica
-
-
-MO.sum<-data.frame(system=fq.sitio$nombre,
-                 mean=c(prom_MO_10P[[1]],prom_MO_10R[[1]],prom_MO_10A[[1]],
-                          prom_MO_20P[[1]],prom_MO_20R[[1]],prom_MO_20A[[1]]),
-                sd=c(sd_MO_10P[[1]],sd_MO_10R[[1]],sd_MO_10A[[1]],
-                          sd_MO_20P[[1]],sd_MO_20R[[1]],sd_MO_20A[[1]]),
-                 q2=c(q_MO_10P[[1]][[2]],q_MO_10R[[1]][[2]],q_MO_10A[[1]][[2]],
-                          q_MO_20P[[1]][[2]],q_MO_20R[[1]][[2]],q_MO_20A[[1]][[2]]),
-                 q1=c(q_MO_10P[[1]][[1]],q_MO_10R[[1]][[1]],q_MO_10A[[1]][[1]],
-                          q_MO_20P[[1]][[1]],q_MO_20R[[1]][[1]],q_MO_20A[[1]][[1]]),
-                 q3=c(q_MO_10P[[1]][[3]],q_MO_10R[[1]][[3]],q_MO_10A[[1]][[3]],
-                          q_MO_20P[[1]][[3]],q_MO_20R[[1]][[3]],q_MO_20A[[1]][[3]]),
-                variable=rep("MO",6),
-                row.names = NULL)
-
-###########
-#Nitrógeno
-N.sum<-data.frame(system=fq.sitio$nombre,
-                 mean=c(prom_N_10P[[1]],prom_N_10R[[1]],prom_N_10A[[1]],
-                          prom_N_20P[[1]],prom_N_20R[[1]],prom_N_20A[[1]]),
-                sd=c(sd_N_10P[[1]],sd_N_10R[[1]],sd_N_10A[[1]],
-                          sd_N_20P[[1]],sd_N_20R[[1]],sd_N_20A[[1]]),
-                 q2=c(q_N_10P[[1]][[2]],q_N_10R[[1]][[2]],q_N_10A[[1]][[2]],
-                          q_N_20P[[1]][[2]],q_N_20R[[1]][[2]],q_N_20A[[1]][[2]]),
-                 q1=c(q_N_10P[[1]][[1]],q_N_10R[[1]][[1]],q_N_10A[[1]][[1]],
-                          q_N_20P[[1]][[1]],q_N_20R[[1]][[1]],q_N_20A[[1]][[1]]),
-                 q3=c(q_N_10P[[1]][[3]],q_N_10R[[1]][[3]],q_N_10A[[1]][[3]],
-                          q_N_20P[[1]][[3]],q_N_20R[[1]][[3]],q_N_20A[[1]][[3]]),
-                variable=rep("N",6),
-                row.names = NULL)
-
-###########
-# FÓSFORO
-P.sum<-data.frame(system=fq.sitio$nombre,
-                 mean=c(prom_P_10P[[1]],prom_P_10R[[1]],prom_P_10A[[1]],
-                          prom_P_20P[[1]],prom_P_20R[[1]],prom_P_20A[[1]]),
-                sd=c(sd_P_10P[[1]],sd_P_10R[[1]],sd_P_10A[[1]],
-                          sd_P_20P[[1]],sd_P_20R[[1]],sd_P_20A[[1]]),
-                 q2=c(q_P_10P[[1]][[2]],q_P_10R[[1]][[2]],q_P_10A[[1]][[2]],
-                          q_P_20P[[1]][[2]],q_P_20R[[1]][[2]],q_P_20A[[1]][[2]]),
-                 q1=c(q_P_10P[[1]][[1]],q_P_10R[[1]][[1]],q_P_10A[[1]][[1]],
-                          q_P_20P[[1]][[1]],q_P_20R[[1]][[1]],q_P_20A[[1]][[1]]),
-                 q3=c(q_P_10P[[1]][[3]],q_P_10R[[1]][[3]],q_P_10A[[1]][[3]],
-                          q_P_20P[[1]][[3]],q_P_20R[[1]][[3]],q_P_20A[[1]][[3]]),
-                variable=rep("P",6),
-                row.names = NULL)
-
-###########
-# Respiración Heterotrófica
-rH.sum<-data.frame(system=fq.sitio$nombre,
-                 mean=c(prom_re_10P[[1]],prom_re_10R[[1]],prom_re_10A[[1]],
-                          NA,NA,NA),
-                sd=c(sd_re_10P[[1]],sd_re_10R[[1]],sd_re_10A[[1]],
-                          NA,NA,NA),
-                 q2=c(q_re_10P[[1]][[2]],q_re_10R[[1]][[2]],q_re_10A[[1]][[2]],
-                          NA,NA,NA),
-                 q1=c(q_re_10P[[1]][[1]],q_re_10R[[1]][[1]],q_re_10A[[1]][[1]],
-                          NA,NA,NA),
-                 q3=c(q_re_10P[[1]][[3]],q_re_10R[[1]][[3]],q_re_10A[[1]][[3]],
-                          NA,NA,NA),
-                variable=rep("resp.h",6),
-                row.names = NULL)
-
-###########
-# Respiración Heterotrófica
-rHB.sum<-data.frame(system=fq.sitio$nombre,
-                 mean=c(prom_rHB_10P[[1]],prom_rHB_10R[[1]],prom_rHB_10A[[1]],
-                          NA,NA,NA),
-                sd=c(sd_rHB_10P[[1]],sd_rHB_10R[[1]],sd_rHB_10A[[1]],
-                          NA,NA,NA),
-                 q2=c(q_rHB_10P[[1]][[2]],q_rHB_10R[[1]][[2]],q_rHB_10A[[1]][[2]],
-                          NA,NA,NA),
-                 q1=c(q_rHB_10P[[1]][[1]],q_rHB_10R[[1]][[1]],q_rHB_10A[[1]][[1]],
-                          NA,NA,NA),
-                 q3=c(q_rHB_10P[[1]][[3]],q_rHB_10R[[1]][[3]],q_rHB_10A[[1]][[3]],
-                          NA,NA,NA),
-                variable=rep("H:B",6),
-                row.names = NULL)
-
-###########
-#Hojarasca
-h.sum<-data.frame(system=fq.sitio$nombre,
-                 mean=c(prom_h_10P[[1]],prom_h_10R[[1]],prom_h_10A[[1]],
-                          NA,NA,NA),
-                sd=c(sd_h_10P[[1]],sd_h_10R[[1]],sd_h_10A[[1]],
-                          NA,NA,NA),
-                 q2=c(q_h_10P[[1]][[2]],q_h_10R[[1]][[2]],q_h_10A[[1]][[2]],
-                          NA,NA,NA),
-                 q1=c(q_h_10P[[1]][[1]],q_h_10R[[1]][[1]],q_h_10A[[1]][[1]],
-                          NA,NA,NA),
-                 q3=c(q_h_10P[[1]][[3]],q_h_10R[[1]][[3]],q_h_10A[[1]][[3]],
-                          NA,NA,NA),
-                variable=rep("Hojarasca",6),
-                row.names = NULL)
-
-##########
-
-fq.sum.estrato<-rbind(CE.sum,pH.sum,MO.sum,
-                  N.sum,P.sum,rH.sum,rHB.sum,h.sum)
-
-
-```
 
 #### Descriptivas
 
-```{r, echo=FALSE}
+```{r matrices_FQB, echo=FALSE}
 
 fyq.box<-fyq_unlu%>%mutate(
   sistema=substr(sitio, 3, 3),
@@ -696,10 +344,42 @@ para el estrato de 10 a 20 cm. En cada sitio se observa claras diferencias y est
 convalida con el test de K-W p:H\<0.01, en el gráfico de cajas y bigotes se observa el
 mayor valor de CE se da en el pastizal natural, seguido del lote agrícola
 
-```{r}
-names(CE.sum)<-c("Muestra","Promedio","Desvío estándar","Mediana", "1er. Cuartil","3er. Cuartil", "Variable")
+```{r CE_unlu,echo=FALSE}
+CE.sum<-data.frame(Sitio=c("A 20", "P 20", "R 20"),
+                   Promedio=c(
+                     mean(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"CE"]),
+                     mean(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==20,"CE"]),
+                     mean(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==20,"CE"])
+                     ),
+                   'Desvío estándar'=c(
+                     sd(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"CE"]),
+                     sd(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==20,"CE"]),
+                     sd(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==20,"CE"])
+                     ),
+                    Mediana=c(
+                     median(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"CE"]),
+                     median(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==20,"CE"]),
+                     median(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==20,"CE"])
+                     ),
+                   '1er. Cuartil'=c(
+                     quantile(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"CE"],
+                              probs=0.25),
+                     quantile(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==20,"CE"],
+                              probs=0.25),
+                     quantile(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==20,"CE"],
+                              probs=0.25)
+                     ),
+                   '3er. Cuartil'=c(
+                     quantile(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"CE"],
+                              probs=0.75),
+                     quantile(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==20,"CE"],
+                              probs=0.75),
+                     quantile(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==20,"CE"],
+                              probs=0.75)
+                     ),
+                   row.names = NULL)
 
-print(CE.sum[4:6,-7])
+print(CE.sum)
 
 # Crear los boxplots para cada variable
 kruskal.test(CE ~ sitio, data = fyq.box, subset=fyq.box$estrato==20)
@@ -724,41 +404,47 @@ text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
 
 
 
-```{=html}
-<!-- Prueba de Kruskall-Wallis, rápida descripción
-https://datatab.es/tutorial/kruskal-wallis-test
-
-usar p.adjust.method="bonferroni" en lugar de "BH"
-
-# Instala y carga el paquete coin si no lo has hecho aún
-#install.packages("coin")
-library(coin)
-
-# Supongamos que fqb.box es tu dataframe
-
-# Realizar pruebas de permutación para comparaciones múltiples
-resultados_permutacion <- oneway_test(resp.b ~ as.factor(sitio), data = fqb.box, distribution = approximate(B = 1000))
-
-#muestra la permutacion varianza sobre la media, pero con varianzas no homogeneas
-
-
-# Mostrar los resultados
-summary(resultados_permutacion)
-
-# Corrección para múltiples comparaciones (opcional)
-p_valores_corregidos <- pvalue(resultados_permutacion, method = "single-step")
-
-# Mostrar los p-valores corregidos
-p_valores_corregidos
-
--->
-```
 Los valores de pH fueron similares entre sitios considerando el suelo mineral que se halla
 entre los 10 - 20 cm.
 
-```{r}
-names(pH.sum)<-c("Muestra","Promedio","Desvío estándar","Mediana", "1er. Cuartil","3er. Cuartil", "Variable")
-print(pH.sum[4:6,-7])
+```{r pH_unlu,echo=FALSE}
+
+
+pH.sum<-data.frame(Sitio=c("A 20", "P 20", "R 20"),
+                   Promedio=c(
+                     mean(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"pH"]),
+                     mean(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==20,"pH"]),
+                     mean(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==20,"pH"])
+                     ),
+                   'Desvío estándar'=c(
+                     sd(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"pH"]),
+                     sd(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==20,"pH"]),
+                     sd(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==20,"pH"])
+                     ),
+                    Mediana=c(
+                     median(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"pH"]),
+                     median(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==20,"pH"]),
+                     median(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==20,"pH"])
+                     ),
+                   '1er. Cuartil'=c(
+                     quantile(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"pH"],
+                              probs=0.25),
+                     quantile(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==20,"pH"],
+                              probs=0.25),
+                     quantile(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==20,"pH"],
+                              probs=0.25)
+                     ),
+                   '3er. Cuartil'=c(
+                     quantile(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"pH"],
+                              probs=0.75),
+                     quantile(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==20,"pH"],
+                              probs=0.75),
+                     quantile(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==20,"pH"],
+                              probs=0.75)
+                     ),
+                   row.names = NULL)
+print(pH.sum)
+
 
 # Crear los boxplots para cada variable
 kruskal.test(pH ~ sitio, data = fyq.box, subset=fyq.box$estrato==20)
@@ -795,9 +481,65 @@ en vegetación tipo boscosa como lo es la reserva la mayor proporción de materi
 se encontraría en pie y a la vez lo lixiviado seria utilizado por la vegetación viva por
 parte de las raices que exploran el suelo más allá de la capa superficial del suelo.
 
-```{r}
-names(MO.sum)<-c("Muestra","Promedio","Desvío estándar","Mediana", "1er. Cuartil","3er. Cuartil", "Variable")
-print(MO.sum[,-7])
+```{r MO_unlu,echo=FALSE}
+
+MO.sum<-data.frame(Sitio=c("A 10", "P 10", "R 10","A 20", "P 20", "R 20"),
+                   Promedio=c(mean(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==10,"MO"]),
+                     mean(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==10,"MO"]),
+                     mean(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==10,"MO"]),
+                     mean(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"MO"]),
+                     mean(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==20,"MO"]),
+                     mean(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==20,"MO"])
+                     ),
+                   'Desvío estándar'=c(
+                     sd(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==10,"MO"]),
+                     sd(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==10,"MO"]),
+                     sd(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==10,"MO"]),
+                     sd(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"MO"]),
+                     sd(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==20,"MO"]),
+                     sd(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==20,"MO"])
+                     ),
+                    Mediana=c(
+                      median(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==10,"MO"]),
+                     median(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==10,"MO"]),
+                     median(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==10,"MO"]),
+                     median(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"MO"]),
+                     median(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==20,"MO"]),
+                     median(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==20,"MO"])
+                     ),
+                   '1er. Cuartil'=c(
+                     quantile(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==10,"MO"],
+                              probs=0.25),
+                     quantile(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==10,"MO"],
+                              probs=0.25),
+                     quantile(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==10,"MO"],
+                              probs=0.25),
+                     quantile(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"MO"],
+                              probs=0.25),
+                     quantile(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==20,"MO"],
+                              probs=0.25),
+                     quantile(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==20,"MO"],
+                              probs=0.25)
+                     ),
+                   '3er. Cuartil'=c(
+                     quantile(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==10,"MO"],
+                              probs=0.75),
+                     quantile(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==10,"MO"],
+                              probs=0.75),
+                     quantile(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==10,"MO"],
+                              probs=0.75),
+                     quantile(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"MO"],
+                              probs=0.75),
+                     quantile(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==20,"MO"],
+                              probs=0.75),
+                     quantile(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==20,"MO"],
+                              probs=0.75)
+                     ),
+                   row.names = NULL)
+
+print(MO.sum)
+
+
 # Crear los boxplots para cada variable
 kruskal.test(MO ~ sitio, data = fyq.box, subset=fyq.box$estrato==10)
 kruskal.test(MO ~ sitio, data = fyq.box, subset=fyq.box$estrato==20)
@@ -833,9 +575,63 @@ se observa en los valores atípicos, en sentido contrario la demanda de nitróge
 raices de la vegetación arbórea podría estar relacionada con la menor concentracion de N
 en el estrato inferior.
 
-```{r}
-names(N.sum)<-c("Muestra","Promedio","Desvío estándar","Mediana", "1er. Cuartil","3er. Cuartil", "Variable")
-print(N.sum[,-7])
+```{r N_unlu,echo=FALSE}
+
+N.sum<-data.frame(Sitio=c("A 10", "P 10", "R 10","A 20", "P 20", "R 20"),
+                   Promedio=c(mean(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==10,"N"]),
+                     mean(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==10,"N"]),
+                     mean(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==10,"N"]),
+                     mean(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"N"]),
+                     mean(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==20,"N"]),
+                     mean(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==20,"N"])
+                     ),
+                   'Desvío estándar'=c(
+                     sd(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==10,"N"]),
+                     sd(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==10,"N"]),
+                     sd(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==10,"N"]),
+                     sd(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"N"]),
+                     sd(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==20,"N"]),
+                     sd(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==20,"N"])
+                     ),
+                    Mediana=c(
+                      median(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==10,"N"]),
+                     median(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==10,"N"]),
+                     median(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==10,"N"]),
+                     median(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"N"]),
+                     median(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==20,"N"]),
+                     median(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==20,"N"])
+                     ),
+                   '1er. Cuartil'=c(
+                     quantile(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==10,"N"],
+                              probs=0.25),
+                     quantile(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==10,"N"],
+                              probs=0.25),
+                     quantile(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==10,"N"],
+                              probs=0.25),
+                     quantile(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"N"],
+                              probs=0.25),
+                     quantile(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==20,"N"],
+                              probs=0.25),
+                     quantile(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==20,"N"],
+                              probs=0.25)
+                     ),
+                   '3er. Cuartil'=c(
+                     quantile(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==10,"N"],
+                              probs=0.75),
+                     quantile(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==10,"N"],
+                              probs=0.75),
+                     quantile(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==10,"N"],
+                              probs=0.75),
+                     quantile(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"N"],
+                              probs=0.75),
+                     quantile(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==20,"N"],
+                              probs=0.75),
+                     quantile(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==20,"N"],
+                              probs=0.75)
+                     ),
+                   row.names = NULL)
+print(N.sum)
+
 # Crear los boxplots para cada variable
 kruskal.test(N ~ sitio, data = fyq.box, subset=fyq.box$estrato=="10")
 kruskal.test(N ~ sitio, data = fyq.box, subset=fyq.box$estrato=="20")
@@ -855,10 +651,63 @@ de este nutriente sobre el suelo. En los demás sitios los valores de la concent
 fósforo fueron similares en ambos estratos tanto para la reserva como para el pastizal
 natural.
 
-```{r}
+```{r P_unlu, echo=FALSE}
 
-names(P.sum)<-c("Muestra","Promedio","Desvío estándar","Mediana", "1er. Cuartil","3er. Cuartil", "Variable")
-print(P.sum[,-7])
+P.sum<-data.frame(Sitio=c("A 10", "P 10", "R 10","A 20", "P 20", "R 20"),
+                   Promedio=c(mean(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==10,"P"]),
+                     mean(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==10,"P"]),
+                     mean(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==10,"P"]),
+                     mean(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"P"]),
+                     mean(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==20,"P"]),
+                     mean(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==20,"P"])
+                     ),
+                   'Desvío estándar'=c(
+                     sd(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==10,"P"]),
+                     sd(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==10,"P"]),
+                     sd(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==10,"P"]),
+                     sd(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"P"]),
+                     sd(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==20,"P"]),
+                     sd(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==20,"P"])
+                     ),
+                    Mediana=c(
+                      median(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==10,"P"]),
+                     median(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==10,"P"]),
+                     median(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==10,"P"]),
+                     median(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"P"]),
+                     median(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==20,"P"]),
+                     median(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==20,"P"])
+                     ),
+                   '1er. Cuartil'=c(
+                     quantile(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==10,"P"],
+                              probs=0.25),
+                     quantile(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==10,"P"],
+                              probs=0.25),
+                     quantile(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==10,"P"],
+                              probs=0.25),
+                     quantile(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"P"],
+                              probs=0.25),
+                     quantile(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==20,"P"],
+                              probs=0.25),
+                     quantile(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==20,"P"],
+                              probs=0.25)
+                     ),
+                   '3er. Cuartil'=c(
+                     quantile(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==10,"P"],
+                              probs=0.75),
+                     quantile(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==10,"P"],
+                              probs=0.75),
+                     quantile(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==10,"P"],
+                              probs=0.75),
+                     quantile(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"P"],
+                              probs=0.75),
+                     quantile(fyq.box[fyq.box$sitio=="P"&fyq.box$estrato==20,"P"],
+                              probs=0.75),
+                     quantile(fyq.box[fyq.box$sitio=="R"&fyq.box$estrato==20,"P"],
+                              probs=0.75)
+                     ),
+                   row.names = NULL)
+
+print(P.sum)
 # Crear los boxplots para cada variable
 kruskal.test(P ~ sitio, data = fyq.box, subset=fyq.box$estrato==10)
 kruskal.test(P ~ sitio, data = fyq.box, subset=fyq.box$estrato==20)
@@ -890,11 +739,42 @@ significativas y el valor mas bajo se da en el agrícola el cual si difiere de a
 grupos. Basicamente en los suelos permanentemente cubiertos la actividad biológica de la
 microbiota/microflora es mayor.
 
-```{r}
-names(rH.sum)<-c("Muestra","Promedio","Desvío estándar","Mediana", "1er. Cuartil","3er. Cuartil", "Variable")
-print(rH.sum[1:3,])
+```{r resp_het,echo=FALSE}
 
-
+rH.sum<-data.frame(Sitio=c("A 10", "P 10", "R 10"),
+                   Promedio=c(
+                     mean(fqb.box[fqb.box$sitio=="A","resp.b"]),
+                     mean(fqb.box[fqb.box$sitio=="P","resp.b"]),
+                     mean(fqb.box[fqb.box$sitio=="R","resp.b"])
+                     ),
+                   'Desvío estándar'=c(
+                     sd(fqb.box[fqb.box$sitio=="A","resp.b"]),
+                     sd(fqb.box[fqb.box$sitio=="P","resp.b"]),
+                     sd(fqb.box[fqb.box$sitio=="R","resp.b"])
+                     ),
+                    Mediana=c(
+                     median(fqb.box[fqb.box$sitio=="A","resp.b"]),
+                     median(fqb.box[fqb.box$sitio=="P","resp.b"]),
+                     median(fqb.box[fqb.box$sitio=="R","resp.b"])
+                     ),
+                   '1er. Cuartil'=c(
+                     quantile(fqb.box[fqb.box$sitio=="A","resp.b"],
+                              probs=0.25),
+                     quantile(fqb.box[fqb.box$sitio=="P","resp.b"],
+                              probs=0.25),
+                     quantile(fqb.box[fqb.box$sitio=="R","resp.b"],
+                              probs=0.25)
+                     ),
+                   '3er. Cuartil'=c(
+                     quantile(fqb.box[fqb.box$sitio=="A","resp.b"],
+                              probs=0.75),
+                     quantile(fqb.box[fqb.box$sitio=="P","resp.b"],
+                              probs=0.75),
+                     quantile(fqb.box[fqb.box$sitio=="R","resp.b"],
+                              probs=0.75)
+                     ),
+                   row.names = NULL)
+print(rH.sum)
 # Crear los boxplots para cada variable
 kruskal.test(resp.b ~ sitio, data = fqb.box)
 
@@ -915,10 +795,43 @@ text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
 
 ```
 
-```{r}
-names(rHB.sum)<-c("Muestra","Promedio","Desvío estándar","Mediana", "1er. Cuartil","3er. Cuartil", "Variable")
-print(rHB.sum[1:3,])
+```{r ratioHB,echo=FALSE}
 
+ratHB.sum<-data.frame(Sitio=c("A 10", "P 10", "R 10"),
+                   Promedio=c(
+                     mean(fqb.box[fqb.box$sitio=="A","ratio.hb"]),
+                     mean(fqb.box[fqb.box$sitio=="P","ratio.hb"]),
+                     mean(fqb.box[fqb.box$sitio=="R","ratio.hb"])
+                     ),
+                   "Desvío estándar"=c(
+                     sd(fqb.box[fqb.box$sitio=="A","ratio.hb"]),
+                     sd(fqb.box[fqb.box$sitio=="P","ratio.hb"]),
+                     sd(fqb.box[fqb.box$sitio=="R","ratio.hb"])
+                     ),
+                    Mediana=c(
+                     median(fqb.box[fqb.box$sitio=="A","ratio.hb"]),
+                     median(fqb.box[fqb.box$sitio=="P","ratio.hb"]),
+                     median(fqb.box[fqb.box$sitio=="R","ratio.hb"])
+                     ),
+                   "1er. Cuartil"=c(
+                     quantile(fqb.box[fqb.box$sitio=="A","ratio.hb"],
+                              probs=0.25),
+                     quantile(fqb.box[fqb.box$sitio=="P","ratio.hb"],
+                              probs=0.25),
+                     quantile(fqb.box[fqb.box$sitio=="R","ratio.hb"],
+                              probs=0.25)
+                     ),
+                   "3er. Cuartil"=c(
+                     quantile(fqb.box[fqb.box$sitio=="A","ratio.hb"],
+                              probs=0.75),
+                     quantile(fqb.box[fqb.box$sitio=="P","ratio.hb"],
+                              probs=0.75),
+                     quantile(fqb.box[fqb.box$sitio=="R","ratio.hb"],
+                              probs=0.75)
+                     ),
+                   row.names = NULL)
+
+print(ratHB.sum)
 
 # Crear los boxplots para cada variable
 kruskal.test(ratio.hb ~ sitio, data = fqb.box)
@@ -941,10 +854,43 @@ intercuartílico es más amplio lo que muestra que la proporción de hongos que 
 en el metabolismo del suelo es heterogéneo y dependerá del punto de muestreo, en cambio el
 valor del pastizal refleja una mayor estabilidad del microbioma en el lote.
 
-```{r}
-names(h.sum)<-c("Muestra","Promedio","Desvío estándar","Mediana", "1er. Cuartil","3er. Cuartil", "Variable")
+```{r hojarasca, echo=FALSE}
 
-print(h.sum[1:3,-7])
+h.sum<-data.frame(Sitio=c("A 10", "P 10", "R 10"),
+                   Promedio=c(
+                     mean(fqb.box[fqb.box$sitio=="A","h"]),
+                     mean(fqb.box[fqb.box$sitio=="P","h"]),
+                     mean(fqb.box[fqb.box$sitio=="R","h"])
+                     ),
+                   "Desvío estándar"=c(
+                     sd(fqb.box[fqb.box$sitio=="A","h"]),
+                     sd(fqb.box[fqb.box$sitio=="P","h"]),
+                     sd(fqb.box[fqb.box$sitio=="R","h"])
+                     ),
+                    Mediana=c(
+                     median(fqb.box[fqb.box$sitio=="A","h"]),
+                     median(fqb.box[fqb.box$sitio=="P","h"]),
+                     median(fqb.box[fqb.box$sitio=="R","h"])
+                     ),
+                   "1er. Cuartil"=c(
+                     quantile(fqb.box[fqb.box$sitio=="A","h"],
+                              probs=0.25),
+                     quantile(fqb.box[fqb.box$sitio=="P","h"],
+                              probs=0.25),
+                     quantile(fqb.box[fqb.box$sitio=="R","h"],
+                              probs=0.25)
+                     ),
+                   "3er. Cuartil"=c(
+                     quantile(fqb.box[fqb.box$sitio=="A","h"],
+                              probs=0.75),
+                     quantile(fqb.box[fqb.box$sitio=="P","h"],
+                              probs=0.75),
+                     quantile(fqb.box[fqb.box$sitio=="R","h"],
+                              probs=0.75)
+                     ),
+                   row.names = NULL)
+
+print(h.sum)
 
 
 # Crear los boxplots para cada variable
@@ -961,7 +907,7 @@ boxplot(h ~ sitio+estrato, data = fqb.box, main = "Biomasa de la hojarasca")
 
 Para los valores de hojarasca en metros cuadrados mediante la prueba estadística de K-W no se observan valores de diferencias entre los sitios, sin embargo los gráficos de cajas y bigotes nos muestran que la cantidad de hojarasca en el suelo agrícola tiene un mayor biomasa que een los demás sistemas, además se observa el valor más bajo de la mediana y con una dispersión más estrecha en el sistema de la Reserva.
 
-```{r carga_fq, include=FALSE}
+```{r matriz_pca, include=FALSE}
 
 fyq_unlu <- read.delim("~/Documentos/Redes/soil_interaction_web/fyq_unlu.txt")
 fyq.pca<-fyq_unlu%>%mutate(sitio=substr(Sitio, 3, 3),
@@ -983,13 +929,14 @@ fyq.pca$resp.b<-c(0.066236559139785,0.0851612903225806,0.0946236559139785,
                     0.131588785046729,0.14803738317757,0.14803738317757,
                     0.188187372708758,0.15234215885947,0.170264765784114)
 #agrego relación Hongo-Bacterias
-fyq.pca$ratio.hb<-c(3.25, 14.00000000001, 0.833333333333333,
+fyq.pca$ratio.hb<-c(3.25, 1.400000000001, 0.833333333333333,
                        1.375, 1.83333333333333, 1.16666666666667,
                        2.42857142857143, 1.83333333333333, 3.5)
 #Valores expresados en microgramos de C-biomasa/g suelo
 fyq.pca$ug_biom_x_g<-c(1.80305376344086, 2.14417204301075, 1.70559139784947,
 3.78435845213849, 3.50745417515275, 3.87665987780041, 2.62601869158878,
 3.4731214953271, 2.37188785046729)*1000
+
 
 # con la idea de tener la cantidad de hongos y bacterias
 # densidad aparente 1,47 g/cm3 (sacado del promedio pastura, agricola, reserva, tesina
@@ -1003,19 +950,26 @@ fyq.pca$bio.micro<-fyq.pca$ug_biom_x_g*73500
 
 fyq.pca$fungi<-round(fyq.pca$bio.micro*(fyq.pca$ratio.hb/(fyq.pca$ratio.hb+1)),4)
 fyq.pca$bacteria<-round((fyq.pca$bio.micro-fyq.pca$fungi),4)
+hj<-c(80.6664*16, 46.009*16, 104.421*16,#A
+  70.85*16,44.15*16,60.9*16,#P
+48.81*16,64.319*16,54.13*16 #R
+) 
+fyq.pca$hojarasca<-hj
 
 #write.table(unlu_merg[,c(1,2,3,4,6,8,10,12,14,16,258:263,20:138)],"matrizunlu.txt")
 
 ```
 
-```{r}
-fq1<-fyq.pca[,c(4,6,8,14,16,18,19)]
+```{r corFQB_unlu, echo=FALSE}
+fq1<-fyq.pca[,c(4,6,8,14,16,18,19,24)]
 fq1<-as.data.frame(fq1)
 row.names(fq1)<-fyq.pca$nombre
 
-corr<-Hmisc::rcorr(as.matrix(fq1),type = "pearson");corr[1];corr[3]
+corr_fqb_unlu<-Hmisc::rcorr(as.matrix(fq1),type = "pearson");
+print(corr_fqb_unlu[3])
+print(corr_fqb_unlu[1])
 
-corrplot::corrplot(cor(fq1),tl.pos="t",type = "upper",tl.col = "black",tl.cex = .8,bg="brown4",diag=FALSE)
+#corrplot::corrplot(cor(fq1),tl.pos="t",type = "upper",tl.col = "black",tl.cex = .8,bg="brown4",diag=FALSE)
 #col=col3(100),
 ```
 
@@ -1040,17 +994,22 @@ de la fertilización con compuestos que poseen ambos componentes.
 
 ```{r PCA, echo=FALSE, warning=FALSE}
 library("FactoMineR");library("factoextra")
-tb_fq<-decostand(fq1,"log")
+#tb_fq<-decostand(fq1,"log")
 
 #f_pca<-PCA(tb_fq, scale.unit = TRUE, graph = FALSE)
 #No se transformará solo dejar para las comunidades
-f_pca<-PCA(fq1, scale.unit = TRUE, graph = FALSE)
-summary(f_pca)
-##corelaciones
-f_pca_cor<-round(f_pca$var$cor[,1:4],3);print("-----------------------------");f_pca_cor
+unlu_pcaFQB<-PCA(fq1, scale.unit = TRUE, graph = FALSE)
+
 #Biplot
 sit<-sit<-c(rep("L", 3), rep("P", 3), rep("R", 3))
 fviz_pca_biplot(f_pca, axes = c(1,2),  col.ind=sit, label = "var")
+
+print(unlu_pcaFQB$eig)
+#summary(f_pca)
+##corelaciones
+f_pca_cor<-round(f_pca$var$cor[,1:3],3);
+print("-----------------------------");
+#print(f_pca_cor)
 
 
 ```
@@ -1137,7 +1096,7 @@ unlu_merg$bacteria<-round((unlu_merg$bio.micro-unlu_merg$fungi),4)
 
 
 ```
-#### Riqueza
+#### Riqueza en la UNLu
 ```{r S,echo=FALSE}
 library("vegan")
 library("BiodiversityR") 
@@ -1174,65 +1133,34 @@ data.frame(Muestras,Riqueza,Riqueza_macrofauna,Riqueza_lombrices,
 ```
 #### Diversidad
 ```{r H_general, echo=FALSE}
-library(boot)
+
 H<-vegan::diversity(D, index="shannon")
 diversidad<-round(H,3)
 g_H<-data.frame(Muestras,diversidad,row.names = NULL)
 g_H$sitio<-substr(g_H$Muestras,1,1)
 g_H$replica<-substr(g_H$Muestras,3,3)
-#######
-######################
-# Función para calcular la media
-mean_func <- function(data, indices) {
-  mean(data[indices])
-}
-#quantile
-# Función para calcular el desvío estándar
-sd_func <- function(data, indices) {
-  sd(data[indices])
-}
 
-# Número de repeticiones de bootstrap
-n_boot <- 1000
-set.seed(167)
-##############
-# Realizar bootstrap para calcular la media y el desvío estándar
-#Lote Agrícola
-boot_mean_L <- boot(H[c(1:3)], mean_func, R = n_boot)
-boot_sd_L <- boot(H[c(1:3)], sd_func, R = n_boot)
+g_H.sum<-data.frame(
+  sitio=c("A","P","R"),
+  promedio=c(
+             mean(g_H[g_H$sitio=="A","diversidad"]),
+             mean(g_H[g_H$sitio=="P","diversidad"]),
+             mean(g_H[g_H$sitio=="R","diversidad"])
+                         ),
+  "Desvío estandar"=c(
+             sd(g_H[g_H$sitio=="A","diversidad"]),
+             sd(g_H[g_H$sitio=="P","diversidad"]),
+             sd(g_H[g_H$sitio=="R","diversidad"])
+                         ),
+  Mediana=c(
+             median(g_H[g_H$sitio=="A","diversidad"]),
+             median(g_H[g_H$sitio=="P","diversidad"]),
+             median(g_H[g_H$sitio=="R","diversidad"])
+                         )
+  ,row.names = NULL
+  )
 
-bootstrap_mean_L <- boot.ci(boot_mean_L, type = "basic")#$basic
-bootstrap_sd_L <- boot.ci(boot_sd_L, type = "basic")#$basic
-#Quito el $basic, porque me quita la descripción de lo que significan los valores
-
-#Pastizal
-boot_mean_P <- boot(H[c(4:6)], mean_func, R = n_boot)
-boot_sd_P <- boot(H[c(4:6)], sd_func, R = n_boot)
-bootstrap_mean_P <- boot.ci(boot_mean_P, type = "basic")
-bootstrap_sd_P <- boot.ci(boot_sd_P, type = "basic")
-
-#Reserva
-boot_mean_R <- boot(H[c(7:9)], mean_func, R = n_boot)
-boot_sd_R <- boot(H[c(7:9)], sd_func, R = n_boot)
-bootstrap_mean_R <- boot.ci(boot_mean_R, type = "basic")
-bootstrap_sd_R <- boot.ci(boot_sd_R, type = "basic")
-
-#################
-
-print("#############################################")
-print("Tabla de Promedio y desvío standar del índice de Shannon en cada sistema de uso del suelo")
-print("Método no paramétrico 'boostraping'\n")
-print(data.frame(system=levels(as.factor(unlu_merg$sitio)),
-                 mean=c(boot_mean_L[[1]],boot_mean_P[[1]],boot_mean_R[[1]]),
-                 desvio_std=c(boot_sd_L[[1]],boot_sd_P[[1]],boot_sd_R[[1]]),
-                 l.mean.int=c(bootstrap_mean_L$basic[4],bootstrap_mean_P$basic[4],
-                   bootstrap_mean_R$basic[4]),
-                 h.mean.int=c(bootstrap_mean_L$basic[5],bootstrap_mean_P$basic[5],
-                   bootstrap_mean_R$basic[5]),
-                 l.sd.int=c(bootstrap_sd_L$basic[4],bootstrap_sd_P$basic[4],
-                   bootstrap_sd_R$basic[4]),
-                 h.sd.int=c(bootstrap_sd_L$basic[5],bootstrap_sd_P$basic[5],
-                   bootstrap_sd_R$basic[5]),row.names = NULL))
+print(g_H.sum)
 
 kruskal.test(diversidad ~ sitio, data = g_H)
 
@@ -1268,12 +1196,14 @@ print(data.frame(habitats=levels(as.factor(microabH$sitio)),
                         mean(as.matrix(microabH[microabH$sitio=="P","diversidad"])),
                         mean(as.matrix(microabH[microabH$sitio=="R","diversidad"]))
                         ),
-                 desvio_std=c(sd(as.matrix(microabH[microabH$sitio=="A","diversidad"])),
+                 desvio_std=c(
+                   sd(as.matrix(microabH[microabH$sitio=="A","diversidad"])),
                         sd(as.matrix(microabH[microabH$sitio=="P","diversidad"])),
                         sd(as.matrix(microabH[microabH$sitio=="R","diversidad"]))
                         ),
-                 mediana=c(median(as.matrix(microabH[microabH$sitio=="A","diversidad"])),
-                        median(as.matrix(microabH[microabH$sitio=="P","diversidad"])),
+                 mediana=c(
+                   median(as.matrix(microabH[microabH$sitio=="A","diversidad"])),
+                                         median(as.matrix(microabH[microabH$sitio=="P","diversidad"])),
                         median(as.matrix(microabH[microabH$sitio=="R","diversidad"]))
                         ),
                 row.names = NULL))
@@ -1318,10 +1248,48 @@ mesoabH$diversidad<-H_meso_unlu
 print("Tabla de Promedio y desvío standar del índice de Shannon en cada sistema de uso del suelo")
 print("Método no paramétrico 'boostraping'\n")
 print(data.frame(habitats=levels(as.factor(paste(mesoabH$sitio,mesoabH$estrato))),
-                 mean=c(mean(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="10","diversidad"])),mean(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="fragmentado","diversidad"])),mean(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="hoja","diversidad"])),mean(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="humus","diversidad"])),mean(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="10","diversidad"])),mean(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="fragmentado","diversidad"])),mean(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="hoja","diversidad"])),mean(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="humus","diversidad"])),mean(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="10","diversidad"])),mean(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="fragmentado","diversidad"])),mean(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="hoja","diversidad"])),mean(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="humus","diversidad"]))),
-                 desvio_std=c(sd(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="10","diversidad"])),sd(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="fragmentado","diversidad"])),sd(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="hoja","diversidad"])),sd(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="humus","diversidad"])),sd(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="10","diversidad"])),sd(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="fragmentado","diversidad"])),sd(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="hoja","diversidad"])),sd(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="humus","diversidad"])),sd(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="10","diversidad"])),sd(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="fragmentado","diversidad"])),sd(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="hoja","diversidad"])),sd(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="humus","diversidad"]))),
-                 mediana=c(median(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="10","diversidad"])),median(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="fragmentado","diversidad"])),median(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="hoja","diversidad"])),median(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="humus","diversidad"])),median(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="10","diversidad"])),median(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="fragmentado","diversidad"])),median(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="hoja","diversidad"])),median(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="humus","diversidad"])),median(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="10","diversidad"])),median(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="fragmentado","diversidad"])),median(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="hoja","diversidad"])),median(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="humus","diversidad"]))),
+                 mean=c(
+                   mean(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="10","diversidad"])),
+                   mean(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="fragmentado","diversidad"])),
+                   mean(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="hoja","diversidad"])),
+                   mean(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="humus","diversidad"])),
+                   mean(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="10","diversidad"])),
+                   mean(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="fragmentado","diversidad"])),
+                   mean(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="hoja","diversidad"])),
+                   mean(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="humus","diversidad"])),
+                   mean(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="10","diversidad"])),
+                   mean(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="fragmentado","diversidad"])),
+                   mean(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="hoja","diversidad"])),
+                   mean(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="humus","diversidad"]))),
+                 desvio_std=c(
+                   sd(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="10","diversidad"])),
+                   sd(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="fragmentado","diversidad"])),
+                   sd(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="hoja","diversidad"])),
+                   sd(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="humus","diversidad"])),
+                   sd(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="10","diversidad"])),
+                   sd(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="fragmentado","diversidad"])),
+                   (as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="hoja","diversidad"])),
+                   sd(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="humus","diversidad"])),
+                   sd(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="10","diversidad"])),
+                   sd(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="fragmentado","diversidad"])),
+                   sd(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="hoja","diversidad"])),
+                   sd(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="humus","diversidad"]))),
+                 mediana=c(
+                   median(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="10","diversidad"])),
+                   median(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="fragmentado","diversidad"])),
+                   median(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="hoja","diversidad"])),
+                   median(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="humus","diversidad"])),
+                   median(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="10","diversidad"])),
+                   median(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="fragmentado","diversidad"])),
+                   median(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="hoja","diversidad"])),
+                   median(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="humus","diversidad"])),
+                   median(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="10","diversidad"])),
+                   median(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="fragmentado","diversidad"])),
+                   median(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="hoja","diversidad"])),
+                   median(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="humus","diversidad"]))),
                 row.names = NULL))
+
+
 kruskal.test(diversidad ~ sitio, data = mesoabH, subset=mesoabH$estrato=="hoja");#p-valor h[[3]][1]; estadístico Chi h[[1]][[1]]
 kruskal.test(diversidad ~ sitio, data = mesoabH, subset=mesoabH$estrato=="fragmentado")
 kruskal.test(diversidad ~ sitio, data = mesoabH, subset=mesoabH$estrato=="humus")
@@ -1360,9 +1328,36 @@ macroabH$diversidad<-H_macro_unlu
 print("Tabla de Promedio y desvío standar del índice de Shannon en cada sistema de uso del suelo")
 
 print(data.frame(habitats=levels(as.factor(paste(macroabH$sitio,macroabH$estrato))),
-                 mean=c(mean(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="10","diversidad"])),mean(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="20","diversidad"])),mean(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="H","diversidad"])),mean(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="10","diversidad"])),mean(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="20","diversidad"])),mean(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="H","diversidad"])),mean(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="10","diversidad"])),mean(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="20","diversidad"])),mean(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="H","diversidad"]))),
-                 desvio_std=c(sd(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="10","diversidad"])),sd(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="20","diversidad"])),sd(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="H","diversidad"])),sd(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="10","diversidad"])),sd(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="20","diversidad"])),sd(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="H","diversidad"])),sd(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="10","diversidad"])),sd(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="20","diversidad"])),sd(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="H","diversidad"]))),
-                 mediana=c(median(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="10","diversidad"])),median(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="20","diversidad"])),median(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="H","diversidad"])),median(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="10","diversidad"])),median(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="20","diversidad"])),median(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="H","diversidad"])),median(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="10","diversidad"])),median(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="20","diversidad"])),median(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="H","diversidad"]))),
+                 mean=c(
+                   mean(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="10","diversidad"])),
+                   mean(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="20","diversidad"])),
+                   mean(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="H","diversidad"])),
+                   mean(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="10","diversidad"])),
+                   mean(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="20","diversidad"])),
+                   mean(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="H","diversidad"])),
+                   mean(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="10","diversidad"])),
+                   mean(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="20","diversidad"])),
+                   mean(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="H","diversidad"]))),
+                 desvio_std=c(
+                   sd(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="10","diversidad"])),
+                   sd(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="20","diversidad"])),
+                   sd(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="H","diversidad"])),
+                   sd(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="10","diversidad"])),
+                   sd(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="20","diversidad"])),
+                   sd(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="H","diversidad"])),
+                   sd(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="10","diversidad"])),
+                   sd(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="20","diversidad"])),
+                   sd(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="H","diversidad"]))),
+                 mediana=c(
+                   median(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="10","diversidad"])),
+                   median(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="20","diversidad"])),
+                   median(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="H","diversidad"])),
+                   median(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="10","diversidad"])),
+                   median(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="20","diversidad"])),
+                   median(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="H","diversidad"])),
+                   median(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="10","diversidad"])),
+                   median(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="20","diversidad"])),
+                   median(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="H","diversidad"]))),
                 row.names = NULL))
 
 kruskal.test(diversidad ~ sitio, data = macroabH, subset=macroabH$estrato=="H")
@@ -1374,7 +1369,7 @@ kruskal.test(diversidad ~ sitio, data = macroabH, subset=macroabH$estrato=="20")
 
 
 #### Multivariado de la comunidad
-``` {r anosim.unlu, echo=FALSE, warning=FALSE}
+``` {r anosim_unlu, echo=FALSE, warning=FALSE}
 
 tb_D_anosim<-D
 row.names(tb_D_anosim)<-unlu_merg$nombre
@@ -1426,7 +1421,7 @@ suelo.
 
 ```{r pca_tb, echo=FALSE,warning=FALSE}
 
-tb_D_U<-decostand(D,"log")
+tb_D_U<-decostand(D,"hellinger")
 row.names(tb_D_U)<-unlu_merg$"nombre"
 col_sp<-colnames(tb_D_U)
 
@@ -1498,11 +1493,15 @@ A partir de este se calcula la Biomasa de los organismos
 
 ```{r matricesRO, echo=FALSE, warning=FALSE}
 #Anális de datos de ROSANA
+#Carga de datos
+
 RO <- read_excel("soil_networks.xlsx", sheet = "Ro_web")
 RO[is.na(RO)]<-0
 
-###############
-RO_f<-RO %>% mutate(nombre=paste(system,
+#Filtrar la macrofauna, razon, el diseño de muestreo no lo contempla
+
+RO_f<-RO %>% filter(class!="macrofauna")%>%
+  mutate(nombre=paste(system,
                                     substr(site,1,3),
                                     substr(year,3,4),
                                     substr(month,1,3)))%>%
@@ -1587,7 +1586,7 @@ ir a la tesis.
 
 #### Descriptivas
 
-```{r}
+```{r pH_RO,echo=FALSE}
 pH.df<-data.frame(uso=levels(as.factor(RO_db_full$system)),
                  promedio=c(mean(RO_db_full[RO_db_full$system=="A","pH"]),
                         mean(RO_db_full[RO_db_full$system=="G","pH"]),
@@ -1628,7 +1627,7 @@ text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
 
 ```
 
-```{r}
+```{r CE_RO, echo=FALSE}
 
 
 CE.df<-data.frame(uso=levels(as.factor(RO_db_full$system)),
@@ -1670,7 +1669,7 @@ text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
 ```
 
 
-```{r}
+```{r MO_RO,echo=FALSE}
 
 MO.df<-data.frame(uso=levels(as.factor(RO_db_full$system)),
                  promedio=c(mean(RO_db_full[RO_db_full$system=="A","MO"]),
@@ -1703,7 +1702,7 @@ boxplot(MO ~ system, data = RO_db_full, main = "% Materia Orgánica")
 ```
 
 
-```{r}
+```{r N_RO,echo=FALSE}
 
 N.df<-data.frame(uso=levels(as.factor(RO_db_full$system)),
                  promedio=c(mean(RO_db_full[RO_db_full$system=="A","N"]),
@@ -1744,7 +1743,7 @@ text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
 ```
 
 
-```{r}
+```{r P_RO,echo=FALSE}
 
 P.df<-data.frame(uso=levels(as.factor(RO_db_full$system)),
                  promedio=c(mean(RO_db_full[RO_db_full$system=="A","P"]),
@@ -1776,7 +1775,7 @@ boxplot(P ~ system, data = RO_db_full, main = "Fósforo asimilable en ppm")
 ```
 
 
-```{r}
+```{r respH_RO,echo=FALSE}
 
 rH.df<-data.frame(uso=levels(as.factor(RO_db_full$system)),
                  promedio=c(mean(RO_db_full[RO_db_full$system=="A","rH"]),
@@ -1816,19 +1815,16 @@ text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
 ```
 
 #### Multivariado
-```{r}
-corr<-Hmisc::rcorr(as.matrix(RO_db_full[,c(10:14,19)]),type = "pearson");corr[1];corr[3]
+```{r cor_RO,echo=FALSE}
+corrRO<-Hmisc::rcorr(as.matrix(RO_db_full[,c(10:14,19)]),type = "pearson");corrRO[1];corrRO[3]
 
-corrplot::corrplot(cor(as.matrix(RO_db_full[,c(10:14,19)])),tl.pos="t",type = "upper",tl.col = "black",tl.cex = .8,bg="brown4",diag=FALSE)
+#corrplot::corrplot(cor(as.matrix(RO_db_full[,c(10:14,19)])),tl.pos="t",type = "upper",tl.col = "black",tl.cex = .8,bg="brown4",diag=FALSE)
 ```
-
-
-
 
 ** Análisis de Componentes Prinipales de los sitios de estudio
 en función de sus variables físicas y químicas **
 
-```{r}
+```{r pcaFQ_RO,echo=FALSE}
 ################
 #FyQ Completo con todas y densidades estandarizadas
 sit<-RO_db_full$system
@@ -1865,15 +1861,11 @@ valores son asociados particularmente con el sistema N y el contenido de K que
 resulta importante.
 
 
-
-
-
-
 ### Diversidad de las comunidades edáficas que habitan los campos Sandler(2019)
 
 #### Riqueza de especies
 
-```{r spc, echo=FALSE,warning=FALSE}
+```{r rqza_RO, echo=FALSE,warning=FALSE}
 
 ######
 
@@ -1882,43 +1874,28 @@ resulta importante.
 #Arrastrado a partir de los agrupamientos y pivoteo en ancho
 #Nombres tomados de la columnas de abun_RO y "reformateados"
 spc.colector<-c("Apo_cal","Apo_tra", "Mic_dub",
-                "lom_juv","isotomidae", "gastropoda", "epilohmannioidea",
+                "lom_juv","isotomidae",  "epilohmannioidea",
                 "euphthiracaroidea","oripodoidea","oppioidea",
-                "onychiuridae","Apo_ros","formicidae",
+                "onychiuridae","Apo_ros",
                 "parasitoidea","ceratozetoidea",
                 "brachychthonioidea","crotonioidea","hypogastruridae",
-                "eupodoidea","sciaridae","veigaioidea","ptiliidae",
-                "entomobroidea","miriapoda","rhodacaroidea",
-                "galumnioidea","symphila","chylopoda","carabidae",
-                "ecidomyiidae","psocoptera","symphypleona",
-                "staphylinidae","octala","bdelloidea",
-                "isoptera","dermanyssoidea","trombidioidea",
-                "octacy","gryllotalpidae","acaroidea","pauropoda",
-                "tydeoidea","uropodoidea","mesostigmata","linyphiidae",
-                "euker","oribatida","Mic_pho","scarabaeidae","isopoda",
-                "gryllidae" )
+                "eupodoidea","veigaioidea",
+                "entomobroidea","rhodacaroidea",
+                "galumnioidea","symphypleona",
+               "octala","bdelloidea",
+                "dermanyssoidea","trombidioidea",
+                "octacy","acaroidea",
+                "tydeoidea","uropodoidea","mesostigmata",
+                "euker","oribatida","Mic_pho")
 
 #Lo llamo Abun pero es Densidad
 #abund_RO[,4:55]
-ab<-abund_RO[,56:107]
+ab<-RO_db_full[,23:56]
 colnames(ab)<-spc.colector
-rownames(ab)<-abund_RO$nombre
 
-# Uso de función riqueza especies
-print("#############################################")
-print("Tabla de riqueza de especies por cada muestra")
-Muestras<-abund_RO$nombre
-Riqueza<-specnumber(ab)
-data.frame(Muestras,Riqueza,row.names = NULL)
-
-print("#############################################")
 print("Tabla de riqueza de especies por cada sitio")
-print(data.frame(Sitios=levels(as.factor(abund_RO$site)),Riqueza=specnumber(ab,groups=abund_RO$site),row.names = NULL))
+print(data.frame(Sitios=levels(as.factor(paste(RO_db_full$system,RO_db_full$replica))),Riqueza=specnumber(ab,groups=abund_RO$site),row.names = NULL))
 
-print("#############################################")
-print("Tabla de riqueza de especies en cada sistema de uso del suelo")
-print(data.frame(system=levels(as.factor(abund_RO$system)),
-                 Riqueza=specnumber(ab,groups=abund_RO$system),row.names = NULL))
 ```
 La riqueza por sistema de uso del suelo, considerando algunas especies de la mesofauna que no corresponden a ácaros y colémbolos, es de A = 44; G = 39; N = 38.
 
@@ -1928,17 +1905,17 @@ La riqueza por sistema de uso del suelo, considerando algunas especies de la mes
 ```{r}
 # Diversidad Total se trabaja con abundancias
 
-mtxRO_D<-RO_db_full[,c(20:22,75:126)]
+mtxRO_D<-RO_db_full[,c(20:22,57:90)]
 mtxRO_D$nombre<-paste(mtxRO_D$system.x,mtxRO_D$replica)
 
 
-H_RO.D<-as.matrix(mtxRO_D[,-c(1:3,56)])
+H_RO.D<-as.matrix(mtxRO_D[,-c(1:3,38)])
 row.names(H_RO.D)<-mtxRO_D$nombre
 
 H_RO<-vegan::diversity(H_RO.D, index="shannon")
 
 #matriz de diversidad
-RO_div<-mtxRO_D[,c(1:3,56)]
+RO_div<-mtxRO_D[,c(1:3,38)]
 
 RO_div$diversidad<-H_RO
 names(RO_div)<-c("replica","sitio","n_sit","nombre","diversidad")
@@ -1976,7 +1953,7 @@ spe.no<-c(6,13,20,22,24,27,28,29,30,31,33,36,40,42,46,50,51,52)
 
 #########################
 #Listado completo de especies
-D_anosim<-RO_db_full[,c(1,2,3,20,75:126)]
+D_anosim<-RO_db_full[,c(1,2,3,20,57:90)]
 colnames(D_anosim)<-c("nombre","system","site","replica",spc.colector)
 
 tb_D<-decostand(D_anosim[,-c(1:4)],"log")
@@ -2030,7 +2007,7 @@ row.names(D_site)<-paste(D_site$system,D_site$replica)
 betaBK_ro<-betadiver(D_site[,-c(1,2,55)],method=8)
   
 div.beta<-hclust(betaBK_ro,method = "average")
-plot(div.beta,cex=0.6,main="Agrupamiento según Bray-Curtis",sub="Diversidad Beta entre sitios",ylab="Índice de Bray Curtis",xlab="")
+plot(div.beta,cex=0.6,main="Agrupamiento según Wilson",sub="Diversidad Beta entre sitios",ylab="Índice de Bray Curtis",xlab="")
 
 #######
 # Índice de Beta Diveridad
@@ -2053,15 +2030,14 @@ respect an analysis of beta diversity. (Numerical Ecology con R pp 228)
 en función de la densidad de la fauna edáfica **
 
 ```{r tb_PCA, echo=FALSE}
-tb_D<-decostand(D_site[,-c(1,2,55)],"log")
+tb_D<-decostand(D_site[,-c(1,2,37)],"log")
 sit<-c(rep("A", 3), rep("G", 3), rep("N", 3))
-pch<-c(1,1,1,1,9, 3, 5,5,5,5,9,1,3, 6,5,5,5,9,7,3,6,3,
-         9,3,6,5,10,3,3,3,3,10,3,1,7,3,6,7,1,3,5,10,
-           7,6,6,3,1,5,1,3,3,3)
+pch<-c(1,1,1,1,9,5,5,5,5,9,1,6,5,5,5,9,7,6,
+         9,6,5,10,1,7,6,7,1,5,
+           7,6,6,1,5,1)
 col.sp<-pch
 col.sp <- case_when(
   col.sp == 1 ~ "lom",
-  col.sp == 3 ~ "macro",
   col.sp == 5 ~ "ori",
   col.sp == 6 ~ "mes",
   col.sp == 7 ~ "pro",
@@ -2079,6 +2055,10 @@ col.sp <- case_when(
 #con Densidades standarizadas por log(ab)+1
 
 std_ab_pca<-PCA(t(tb_D), scale.unit = TRUE, graph = FALSE)
+
+
+fviz_pca_biplot(std_ab_pca, axes = c(1,2),  col.ind=col.sp, col.var = sit,repel = TRUE,label = "none")
+
 summary(std_ab_pca)
 #correlaciones
 std_ab_pca_cor<-round(std_ab_pca$var$cor[,1:5],3)
@@ -2087,7 +2067,6 @@ std_ab_pca_cor<-round(std_ab_pca$var$cor[,1:5],3)
 
 #fviz_pca_ind(std_ab_pca, col.ind=col.sp,label="none",repel = TRUE)
 
-fviz_pca_biplot(std_ab_pca, axes = c(1,2),  col.ind=as.factor(col.sp), col.var = sit,repel = TRUE,label = "none")
 
 
 ```
