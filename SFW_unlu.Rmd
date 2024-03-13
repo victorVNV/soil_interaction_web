@@ -662,9 +662,38 @@ E(L_igf)$"flux"<-L_netf%e%"flux"
 E(L_igf)$"dim"<-"2D"
 V(L_igf)$"densidad"<-bm_L/body_L
 V(L_igf)$"body_mass"<-body_L
-V(L_igf)$"vertex.names"<-c(L$taxa,"litter","carrion","tej_veg","hummus")
+V(L_igf)$"names"<-c(L$taxa,"litter","carrion","tej_veg","hummus")
 
 #calc_interaction_intensity(as.edgelist(L_netf))
+
+pesoL_net <-graph_from_adjacency_matrix(matrix(dimnames = list(body_L,body_L),nrow=length(body_L),ncol=length(body_L)),mode=c("directed") )
+
+edge_list_UNLu <- as.data.frame(as.matrix(L_net, "edgelist"))
+names(edge_list_UNLu)<-c("recurso","consumidor")
+
+v_ig<-data.frame(nombre=c(L$taxa,"litter","carrion","tej_veg","hummus"),peso=body_L,densidad=bm_L/body_L)
+
+edge_list_UNLu$peso_consumidor<-NA
+for (pc in 1:length(v_ig$nombre)) {edge_list_UNLu[edge_list_UNLu$consumidor==as.character(v_ig$nombre[pc]),"peso_consumidor"]<-v_ig$peso[pc]
+}
+
+edge_list_UNLu$peso_recurso<-NA
+for (pr in 1:length(v_ig$nombre)) {edge_list_UNLu[edge_list_UNLu$recurso==as.character(v_ig$nombre[pr]),"peso_recurso"]<-v_ig$peso[pr]
+}
+
+edge_list_UNLu$densidad_consumidor<-NA
+for (dc in 1:length(v_ig$nombre)) {edge_list_UNLu[edge_list_UNLu$consumidor==as.character(v_ig$nombre[dc]),"densidad_consumidor"]<-v_ig$peso[dc]
+}
+edge_list_UNLu$densidad_recurso<-NA
+for (dr in 1:length(v_ig$nombre)) {edge_list_UNLu[edge_list_UNLu$consumidor==as.character(v_ig$nombre[dr]),"densidad_recurso"]<-v_ig$peso[dr]
+}
+
+edge_list_UNLu<-edge_list_UNLu[,c(2,1,4,3,6,5)]
+edge_list_UNLu$dimension<-"2D"
+
+calc_interaction_intensity(da=edge_list_UNLu,
+                           res_mm = "peso_recurso",res_den = "densidad_recurso",
+                           con_mm = "peso_consumidor", int_dim = "dimension")
 
 ```
 

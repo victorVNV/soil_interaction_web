@@ -2032,6 +2032,7 @@ en función de la densidad de la fauna edáfica **
 ```{r tb_PCA, echo=FALSE}
 tb_D<-decostand(D_site[,-c(1,2,37)],"log")
 sit<-c(rep("A", 3), rep("G", 3), rep("N", 3))
+
 pch<-c(1,1,1,1,9,5,5,5,5,9,1,6,5,5,5,9,7,6,
          9,6,5,10,1,7,6,7,1,5,
            7,6,6,1,5,1)
@@ -2057,7 +2058,7 @@ col.sp <- case_when(
 std_ab_pca<-PCA(t(tb_D), scale.unit = TRUE, graph = FALSE)
 
 
-fviz_pca_biplot(std_ab_pca, axes = c(1,2),  col.ind=col.sp, col.var = sit,repel = TRUE,label = "none")
+fviz_pca_biplot(std_ab_pca, axes = c(1,2),  col.ind=col.sp, col.var = as.factor(sit),repel = TRUE,label = "none")
 
 summary(std_ab_pca)
 #correlaciones
