@@ -262,12 +262,13 @@ y al tratamiento.
 
 <!--Imágenes ![texto_alternativo](ubicacion_de_la_imagen){width=width height=height}-->
 ```
-## Variables físcas y químicas de la UNLu.
+### Variables físcas y químicas de la UNLu.
 
 ```{r , include=FALSE}
 #####
 library("tidyverse")
 fyq_unlu <- read.delim("~/Documentos/Redes/soil_interaction_web/fyq_unlu.txt")
+
 
 #renombrar las columnas
 
@@ -484,6 +485,36 @@ q_rHB_10P<- boot(ratio.hb[1:3], q_func, R = n_boot)
 q_rHB_10R<- boot(ratio.hb[4:6], q_func, R = n_boot)
 q_rHB_10A<- boot(ratio.hb[7:9], q_func, R = n_boot)
 
+##########
+#hojarasca g/m2
+h<-c(
+  70.85*16, #P
+44.15*16,
+60.9*16,
+48.81*16, #R
+64.319*16,
+54.13*16,
+
+80.6664*16, #A
+46.009*16,
+104.421*16)
+
+
+prom_h_10P<- boot(h[1:3], mean_func, R = n_boot)
+prom_h_10R<- boot(h[4:6], mean_func, R = n_boot)
+prom_h_10A<- boot(h[7:9], mean_func, R = n_boot)
+
+
+sd_h_10P<- boot(h[1:3], sd_func, R = n_boot)
+sd_h_10R<- boot(h[4:6], sd_func, R = n_boot)
+sd_h_10A<- boot(h[7:9], sd_func, R = n_boot)
+
+
+q_h_10P<- boot(h[1:3], q_func, R = n_boot)
+q_h_10R<- boot(h[4:6], q_func, R = n_boot)
+q_h_10A<- boot(h[7:9], q_func, R = n_boot)
+
+
 
 ```
 
@@ -608,13 +639,31 @@ rHB.sum<-data.frame(system=fq.sitio$nombre,
                 variable=rep("H:B",6),
                 row.names = NULL)
 
+###########
+#Hojarasca
+h.sum<-data.frame(system=fq.sitio$nombre,
+                 mean=c(prom_h_10P[[1]],prom_h_10R[[1]],prom_h_10A[[1]],
+                          NA,NA,NA),
+                sd=c(sd_h_10P[[1]],sd_h_10R[[1]],sd_h_10A[[1]],
+                          NA,NA,NA),
+                 q2=c(q_h_10P[[1]][[2]],q_h_10R[[1]][[2]],q_h_10A[[1]][[2]],
+                          NA,NA,NA),
+                 q1=c(q_h_10P[[1]][[1]],q_h_10R[[1]][[1]],q_h_10A[[1]][[1]],
+                          NA,NA,NA),
+                 q3=c(q_h_10P[[1]][[3]],q_h_10R[[1]][[3]],q_h_10A[[1]][[3]],
+                          NA,NA,NA),
+                variable=rep("Hojarasca",6),
+                row.names = NULL)
+
 ##########
 
 fq.sum.estrato<-rbind(CE.sum,pH.sum,MO.sum,
-                  N.sum,P.sum,rH.sum,rHB.sum)
+                  N.sum,P.sum,rH.sum,rHB.sum,h.sum)
 
 
 ```
+
+#### Descriptivas
 
 ```{r, echo=FALSE}
 
@@ -637,9 +686,8 @@ ratio.hb<-c( 1.375, 1.83333333333333, 1.16666666666667, #Pastizal
              2.42857142857143, 1.83333333333333, 3.5, #Reserva
              3.25, 1.4, 0.833333333333333) #Agrícola
 
-#En ratio HB, el NA elimina al valor atípico de 14.0000000000000000001
 
-fqb.box<-data.frame(resp.b,ratio.hb,sitio=c(rep("P",3),rep("R",3),rep("A",3)),estrato=rep(10,9))
+fqb.box<-data.frame(resp.b,ratio.hb,h,sitio=c(rep("P",3),rep("R",3),rep("A",3)),estrato=rep(10,9))
 
 ```
 
@@ -673,8 +721,14 @@ text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
 
 ```
 
+
+
+
 ```{=html}
-<!--
+<!-- Prueba de Kruskall-Wallis, rápida descripción
+https://datatab.es/tutorial/kruskal-wallis-test
+
+usar p.adjust.method="bonferroni" en lugar de "BH"
 
 # Instala y carga el paquete coin si no lo has hecho aún
 #install.packages("coin")
@@ -887,6 +941,26 @@ intercuartílico es más amplio lo que muestra que la proporción de hongos que 
 en el metabolismo del suelo es heterogéneo y dependerá del punto de muestreo, en cambio el
 valor del pastizal refleja una mayor estabilidad del microbioma en el lote.
 
+```{r}
+names(h.sum)<-c("Muestra","Promedio","Desvío estándar","Mediana", "1er. Cuartil","3er. Cuartil", "Variable")
+
+print(h.sum[1:3,-7])
+
+
+# Crear los boxplots para cada variable
+kruskal.test(h ~ sitio, data = fqb.box)
+
+pairwise.wilcox.test(fqb.box$h, fqb.box$sitio,data=fqb.box,
+                     p.adjust.method = "BH",exact=FALSE)
+
+boxplot(h ~ sitio+estrato, data = fqb.box, main = "Biomasa de la hojarasca")
+
+
+```
+
+
+Para los valores de hojarasca en metros cuadrados mediante la prueba estadística de K-W no se observan valores de diferencias entre los sitios, sin embargo los gráficos de cajas y bigotes nos muestran que la cantidad de hojarasca en el suelo agrícola tiene un mayor biomasa que een los demás sistemas, además se observa el valor más bajo de la mediana y con una dispersión más estrecha en el sistema de la Reserva.
+
 ```{r carga_fq, include=FALSE}
 
 fyq_unlu <- read.delim("~/Documentos/Redes/soil_interaction_web/fyq_unlu.txt")
@@ -941,7 +1015,7 @@ row.names(fq1)<-fyq.pca$nombre
 
 corr<-Hmisc::rcorr(as.matrix(fq1),type = "pearson");corr[1];corr[3]
 
-corrplot::corrplot(cor(fq1),tl.pos="t",type = "upper",tl.col = "black",tl.cex = .8,bg="brown2",diag=FALSE)
+corrplot::corrplot(cor(fq1),tl.pos="t",type = "upper",tl.col = "black",tl.cex = .8,bg="brown4",diag=FALSE)
 #col=col3(100),
 ```
 
@@ -962,12 +1036,15 @@ mineraliación de los nutrientes
 La relacion entre el nitrógeno y el fósforo es positiva, lo que puede ser debido al efecto
 de la fertilización con compuestos que poseen ambos componentes.
 
+#### Análisis multivariado
+
 ```{r PCA, echo=FALSE, warning=FALSE}
 library("FactoMineR");library("factoextra")
 tb_fq<-decostand(fq1,"log")
 
-
-f_pca<-PCA(tb_fq, scale.unit = TRUE, graph = FALSE)
+#f_pca<-PCA(tb_fq, scale.unit = TRUE, graph = FALSE)
+#No se transformará solo dejar para las comunidades
+f_pca<-PCA(fq1, scale.unit = TRUE, graph = FALSE)
 summary(f_pca)
 ##corelaciones
 f_pca_cor<-round(f_pca$var$cor[,1:4],3);print("-----------------------------");f_pca_cor
@@ -988,12 +1065,85 @@ encontraba sin follaje.
 
 La CE se relaciona con el pastizal.
 
-## Diversidad de las comunidades edáficas que habitan los suelos de la UNLu
+### Diversidad de las comunidades edáficas que habitan los suelos de la UNLu
 
+```{r mat_D,include=FALSE}
+ab_bulk <- read.csv("~/Documentos/Redes/soil_interaction_web/other_scripts/ab_bulk.txt", sep="")
+ab_bulk[ab_bulk$sitio == "L", "sitio"] <- "A"
+###########
+#Llevando abundancias a densidad
+
+#microfauna (se contaron los nemátodos de 4 sacabocados)
+sup.bocado.micro <- (1/(pi*2.5^2/10000))*4
+#mesofauna (se contaron y extrajeron de 3 frasquitos homojeneizados del monolito)
+sup.bocado.meso <- (1/(pi*2.5^2/10000))*3
+#macrofauna (superficie estandar 25 x 25)
+sup.monolito <- 1/(0.25*0.25)
+
+unlu_full<-ab_bulk%>%
+  mutate(nombre=paste(sitio,replica))%>%
+           mutate(
+             D=floor(case_when(
+  class=="macrofauna"~sup.monolito*abundance,
+  class=="mesofauna"~sup.bocado.meso*abundance,
+  class=="microfauna"~sup.bocado.micro*abundance)
+  )
+  )
+
+####################
+#Matriz comunidad
+
+unlu_ab<-unlu_full[,c("nombre","sitio","replica","taxon","D","abundance")] %>% 
+  pivot_wider(names_from = taxon,
+              values_from = c(D,abundance),
+              values_fill = 0,
+              values_fn = sum)%>%
+  distinct(nombre,.keep_all=TRUE)
+
+#Renombrar Lote L, por A de agrícola
+
+#unlu_ab[unlu_ab$sitio == "L", "sitio"] <- "A"
+
+##############
+# variables microbiológicas adjuntas a la matriz de datos
+unlu_merg<-unlu_ab
+#agrego respiración en CO2/h/g
+unlu_merg$resp.b<-c(0.066236559139785,0.0851612903225806,0.0946236559139785,
+                    0.131588785046729,0.14803738317757,0.14803738317757,
+                    0.188187372708758,0.15234215885947,0.170264765784114)
+#agrego relación Hongo-Bacterias
+unlu_merg$ratio.hb<-c(3.25, 1.400000000001, 0.833333333333333,
+                       1.375, 1.83333333333333, 1.16666666666667,
+                       2.42857142857143, 1.83333333333333, 3.5)
+#Valores expresados en microgramos de C-biomasa/g suelo
+unlu_merg$ug_biom_x_g<-c(1.80305376344086, 2.14417204301075, 1.70559139784947,
+3.78435845213849, 3.50745417515275, 3.87665987780041, 2.62601869158878,
+3.4731214953271, 2.37188785046729)*1000
+
+# con la idea de tener la cantidad de hongos y bacterias
+# densidad aparente 1,47 g/cm3 (sacado del promedio pastura, agricola, reserva, tesina
+#Veronica)
+# suelo a 5 cm en un m2 son 50k cm3 aprox 0.5m3, esto es, 73500 g en 0.5m3 suelo 
+# más factor 1e6 para microgramos
+
+
+unlu_merg$bio.micro<-unlu_merg$ug_biom_x_g*73500
+
+
+unlu_merg$fungi<-round(unlu_merg$bio.micro*(unlu_merg$ratio.hb/(unlu_merg$ratio.hb+1)),4)
+unlu_merg$bacteria<-round((unlu_merg$bio.micro-unlu_merg$fungi),4)
+
+#write.table(unlu_merg[,c(1,2,3,4,6,8,10,12,14,16,258:263,20:138)],"matrizunlu.txt")
+
+
+```
+#### Riqueza
 ```{r S,echo=FALSE}
+library("vegan")
 library("BiodiversityR") 
+# 1 a 122 hongo:bacterias + 246, 247 
 
-D<-unlu_merg[,20:138]
+D<-unlu_merg[,c(4:122)]
 # son 118 taxones, siquisiera poner nombre a todos...
 #colnames(ab)<-spc.colector
 
@@ -1022,13 +1172,14 @@ data.frame(Muestras,Riqueza,Riqueza_macrofauna,Riqueza_lombrices,
 
 
 ```
-
-```{r H, echo=FALSE}
+#### Diversidad
+```{r H_general, echo=FALSE}
 library(boot)
-H<-diversity(D, index="shannon")
-Diversidad<-round(H,3)
-data.frame(Muestras,Diversidad,row.names = NULL)
-
+H<-vegan::diversity(D, index="shannon")
+diversidad<-round(H,3)
+g_H<-data.frame(Muestras,diversidad,row.names = NULL)
+g_H$sitio<-substr(g_H$Muestras,1,1)
+g_H$replica<-substr(g_H$Muestras,3,3)
 #######
 ######################
 # Función para calcular la media
@@ -1071,7 +1222,7 @@ bootstrap_sd_R <- boot.ci(boot_sd_R, type = "basic")
 print("#############################################")
 print("Tabla de Promedio y desvío standar del índice de Shannon en cada sistema de uso del suelo")
 print("Método no paramétrico 'boostraping'\n")
-print(data.frame(system=levels(as.factor(unlu_merg$sitio.x)),
+print(data.frame(system=levels(as.factor(unlu_merg$sitio)),
                  mean=c(boot_mean_L[[1]],boot_mean_P[[1]],boot_mean_R[[1]]),
                  desvio_std=c(boot_sd_L[[1]],boot_sd_P[[1]],boot_sd_R[[1]]),
                  l.mean.int=c(bootstrap_mean_L$basic[4],bootstrap_mean_P$basic[4],
@@ -1083,43 +1234,201 @@ print(data.frame(system=levels(as.factor(unlu_merg$sitio.x)),
                  h.sd.int=c(bootstrap_sd_L$basic[5],bootstrap_sd_P$basic[5],
                    bootstrap_sd_R$basic[5]),row.names = NULL))
 
+kruskal.test(diversidad ~ sitio, data = g_H)
+
 ```
 
-```{r anosim.unlu, echo=FALSE, warning=FALSE}
+```{r H_nematodos, echo=FALSE}
+microH <- read.delim("~/Documentos/Redes/soil_interaction_web/nematofauna_diversityH.txt")
 
-tb_D_anosim<-unlu_merg[,c(2,20:138)]
+microH$sitio<-substr(microH$nombre,3,3)
+microH$replica<-substr(microH$nombre,4,4)
+
+microH[microH$sitio == "L", "sitio"] <- "A"
+
+micro_abH<-microH[,c("nombre","sitio","replica","taxon","abundance")] %>% 
+  pivot_wider(names_from = taxon,
+              values_from = abundance,
+              values_fill = 0,
+              values_fn = sum)%>%
+  distinct(nombre,.keep_all=TRUE)
+
+
+H_micro_unlu<-as.matrix(micro_abH[,-c(1:3)])
+row.names(H_micro_unlu)<-micro_abH$nombre
+
+H_micro_unlu<-vegan::diversity(H_micro_unlu, index="shannon")
+
+#matriz de diversidad
+microabH<-micro_abH[,1:3]
+microabH$diversidad<-H_micro_unlu
+
+print(data.frame(habitats=levels(as.factor(microabH$sitio)),
+                 mean=c(mean(as.matrix(microabH[microabH$sitio=="A","diversidad"])),
+                        mean(as.matrix(microabH[microabH$sitio=="P","diversidad"])),
+                        mean(as.matrix(microabH[microabH$sitio=="R","diversidad"]))
+                        ),
+                 desvio_std=c(sd(as.matrix(microabH[microabH$sitio=="A","diversidad"])),
+                        sd(as.matrix(microabH[microabH$sitio=="P","diversidad"])),
+                        sd(as.matrix(microabH[microabH$sitio=="R","diversidad"]))
+                        ),
+                 mediana=c(median(as.matrix(microabH[microabH$sitio=="A","diversidad"])),
+                        median(as.matrix(microabH[microabH$sitio=="P","diversidad"])),
+                        median(as.matrix(microabH[microabH$sitio=="R","diversidad"]))
+                        ),
+                row.names = NULL))
+
+kruskal.test(diversidad ~ sitio, data = microabH)
+
+```
+
+
+```{r mesoH, echo=FALSE}
+
+mesoH <- read.delim(
+  "~/Documentos/Redes/soil_interaction_web/mesofauna_diversityH.txt"
+  )
+
+#reasignar nombre a agrícola
+
+mesoH[mesoH$sitio == "L", "sitio"] <- "A"
+
+####################
+#Matriz comunidad
+
+mesoH$nombre<-paste(mesoH$sitio,mesoH$replica,mesoH$estrato)
+
+meso_abH<-mesoH[,c("nombre","sitio","replica","estrato","taxon","conteo")] %>% 
+  pivot_wider(names_from = taxon,
+              values_from = conteo,
+              values_fill = 0,
+              values_fn = sum)%>%
+  distinct(nombre,.keep_all=TRUE)
+
+H_meso_unlu<-as.matrix(meso_abH[,-c(1:4)])
+row.names(H_meso_unlu)<-meso_abH$nombre
+
+H_meso_unlu<-vegan::diversity(H_meso_unlu, index="shannon")
+
+#matriz de diversidad
+mesoabH<-meso_abH[,1:4]
+mesoabH$diversidad<-H_meso_unlu
+
+
+print("Tabla de Promedio y desvío standar del índice de Shannon en cada sistema de uso del suelo")
+print("Método no paramétrico 'boostraping'\n")
+print(data.frame(habitats=levels(as.factor(paste(mesoabH$sitio,mesoabH$estrato))),
+                 mean=c(mean(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="10","diversidad"])),mean(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="fragmentado","diversidad"])),mean(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="hoja","diversidad"])),mean(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="humus","diversidad"])),mean(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="10","diversidad"])),mean(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="fragmentado","diversidad"])),mean(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="hoja","diversidad"])),mean(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="humus","diversidad"])),mean(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="10","diversidad"])),mean(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="fragmentado","diversidad"])),mean(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="hoja","diversidad"])),mean(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="humus","diversidad"]))),
+                 desvio_std=c(sd(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="10","diversidad"])),sd(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="fragmentado","diversidad"])),sd(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="hoja","diversidad"])),sd(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="humus","diversidad"])),sd(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="10","diversidad"])),sd(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="fragmentado","diversidad"])),sd(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="hoja","diversidad"])),sd(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="humus","diversidad"])),sd(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="10","diversidad"])),sd(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="fragmentado","diversidad"])),sd(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="hoja","diversidad"])),sd(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="humus","diversidad"]))),
+                 mediana=c(median(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="10","diversidad"])),median(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="fragmentado","diversidad"])),median(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="hoja","diversidad"])),median(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="humus","diversidad"])),median(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="10","diversidad"])),median(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="fragmentado","diversidad"])),median(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="hoja","diversidad"])),median(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="humus","diversidad"])),median(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="10","diversidad"])),median(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="fragmentado","diversidad"])),median(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="hoja","diversidad"])),median(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="humus","diversidad"]))),
+                row.names = NULL))
+kruskal.test(diversidad ~ sitio, data = mesoabH, subset=mesoabH$estrato=="hoja");#p-valor h[[3]][1]; estadístico Chi h[[1]][[1]]
+kruskal.test(diversidad ~ sitio, data = mesoabH, subset=mesoabH$estrato=="fragmentado")
+kruskal.test(diversidad ~ sitio, data = mesoabH, subset=mesoabH$estrato=="humus")
+kruskal.test(diversidad ~ sitio, data = mesoabH, subset=mesoabH$estrato=="10")
+
+```
+
+```{r macroH,echo=FALSE}
+macroH <- read.delim("~/Documentos/Redes/soil_interaction_web/macrofauna_diversityH.txt")
+
+#reasignar nombre a agrícola
+
+macroH[macroH$sitio == "L", "sitio"] <- "A"
+
+####################
+#Matriz comunidad
+
+macroH$nombre<-paste(macroH$sitio,macroH$replica,macroH$estrato)
+
+macro_abH<-macroH[,c("nombre","sitio","replica","estrato","taxon","abundance")] %>% 
+  pivot_wider(names_from = taxon,
+              values_from = abundance,
+              values_fill = 0,
+              values_fn = sum)%>%
+  distinct(nombre,.keep_all=TRUE)
+
+H_macro_unlu<-as.matrix(macro_abH[,-c(1:4)])
+row.names(H_macro_unlu)<-macro_abH$nombre
+
+H_macro_unlu<-vegan::diversity(H_macro_unlu, index="shannon")
+
+#matriz de diversidad
+macroabH<-macro_abH[,1:4]
+macroabH$diversidad<-H_macro_unlu
+
+print("Tabla de Promedio y desvío standar del índice de Shannon en cada sistema de uso del suelo")
+
+print(data.frame(habitats=levels(as.factor(paste(macroabH$sitio,macroabH$estrato))),
+                 mean=c(mean(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="10","diversidad"])),mean(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="20","diversidad"])),mean(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="H","diversidad"])),mean(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="10","diversidad"])),mean(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="20","diversidad"])),mean(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="H","diversidad"])),mean(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="10","diversidad"])),mean(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="20","diversidad"])),mean(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="H","diversidad"]))),
+                 desvio_std=c(sd(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="10","diversidad"])),sd(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="20","diversidad"])),sd(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="H","diversidad"])),sd(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="10","diversidad"])),sd(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="20","diversidad"])),sd(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="H","diversidad"])),sd(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="10","diversidad"])),sd(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="20","diversidad"])),sd(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="H","diversidad"]))),
+                 mediana=c(median(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="10","diversidad"])),median(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="20","diversidad"])),median(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="H","diversidad"])),median(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="10","diversidad"])),median(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="20","diversidad"])),median(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="H","diversidad"])),median(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="10","diversidad"])),median(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="20","diversidad"])),median(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="H","diversidad"]))),
+                row.names = NULL))
+
+kruskal.test(diversidad ~ sitio, data = macroabH, subset=macroabH$estrato=="H")
+kruskal.test(diversidad ~ sitio, data = macroabH, subset=macroabH$estrato=="10")
+kruskal.test(diversidad ~ sitio, data = macroabH, subset=macroabH$estrato=="20")
+
+
+```
+
+
+#### Multivariado de la comunidad
+``` {r anosim.unlu, echo=FALSE, warning=FALSE}
+
+tb_D_anosim<-D
 row.names(tb_D_anosim)<-unlu_merg$nombre
+tb_D_anosim1<-tb_D_anosim
+tb_D_anosim1$sitio<-unlu_merg$sitio
 tb_Duni_anosim<-decostand(tb_D_anosim[,-1],"log")
 #col_sp<-colnames(tb_D)
 
 D_unlu_anosim<-vegan::anosim(tb_Duni_anosim, 
-              as.matrix(tb_D_anosim[,"sitio.x"]), 
+              as.matrix(tb_D_anosim1[,"sitio"]), 
               permutations = 1670, 
               distance = "bray")
 print("Resumen del ANOSIM para los datos de densidad log +1 transformados")
 summary(D_unlu_anosim)
 
-
-
 ```
+
+Si bien no se encontraron diferencias en los valores de la diversidad del índice de shannon según 
+la prueba de Kruskall-Wallis al p-valor menor de 0.05 el análisis de similitudes de las comunidades
+nos muestra que existen disimilaridades en la comunidades.
+Se observa en la disimilariad de rangos que el R es más disimil entre sí que los de A y P,
+lo que marca una comunidad más heterogénea, o tal ve más diversa. La disimilaridad entre
+los grupos fué más alta que la de entre los grupos. EL valor de R = 0.76 indica la
+diferencia entre grupos es alta y su p valor nos indica que es significativa.
 
 ```{r Beta_div, echo=FALSE, warning=FALSE}
-beta_u<-unlu_merg[,20:138]
-row.names(beta_u)<-unlu_merg[,1]
-beta_div_u<-betadiver(beta_u, method=8)
 
-div.beta.unlu<-hclust(beta_div_u,method = "mcquitty")
-plot(div.beta.unlu,cex=0.6,main="Agrupamiento según índice Wilson",sub="Diversidad Beta entre sitios",ylab="Índice de Wilson",xlab="")
+#uso matriz de abundancias
+beta_u<-unlu_merg[,123:241]
+row.names(beta_u)<-unlu_merg$"nombre"
+#método 8 es el índice de wilson
+#beta_div_u<-betadiver(beta_u, method=8)
+beta_div_u<-beta_div_u<-betadiver(beta_u, method=8)#vegdist(beta_u, method="bray")
+div.beta.unlu<-hclust(beta_div_u,method = "average")
+plot(div.beta.unlu,cex=0.6,main="Agrupamiento promedio Bray-Curtis",sub="Diversidad Beta entre sitios",ylab="Bray-Curtis",xlab="")
+#linea de corte
+#abline(h = 0.29, lty = 2, col = "black")
 
 ```
+
+La disimilitud de las comunidades con el índice de Bray-Curtis y mediante agrupamiento
+jerárquico del tipo promedio, nos muestra una relación de similitud en el lote agrícola
+que permite agruparlo como una comunidad disimil de las demás en la composición de la
+comunidad respecta. De manera similar la Reserva y el Pastizal son disímiles parcialmente
+entre sí ya que existe una relación de similitud entre una repeticiones de R y una
+repetición de P, lo que nos podría estar mostrando el gradiente Reserva hacia Pastizal.
+Las demás repeticiones forman grupos particulares a cada ambiente o sistema de uso del
+suelo.
 
 ```{r pca_tb, echo=FALSE,warning=FALSE}
 
-
-tb_D<-unlu_merg[,c(20:138)]
-row.names(tb_D)<-unlu_merg$nombre
-tb_D_U<-decostand(tb_D,"log")
-col_sp<-colnames(tb_D)
+tb_D_U<-decostand(D,"log")
+row.names(tb_D_U)<-unlu_merg$"nombre"
+col_sp<-colnames(tb_D_U)
 
 col.sp.unlu<-c("macro_herb","ing","ing","ing","ast","macro_pred","macro_fun",
                "macro_det","pros","macro_det","enchy","art","macro_omn","macro_pred",
@@ -1129,7 +1438,8 @@ col.sp.unlu<-c("macro_herb","ing","ing","ing","ast","macro_pred","macro_fun",
                "macro_fun","macro_det","macro_det","meso","nem_bac","nem_fit",
                "nem_fung","nem_omn","nem_pre","meso","art","orib","orib","orib",
                "orib","meso","pros","pros","macro_det","pros","meso","orib","pros",
-               "pros","macro_pred","ing","macro_det","macro_pred","orib","orib","meso",
+               "pros","macro_pred","ing","macro_det","macro_pred","orib","orib",
+               "meso",
                "no.art","meso","macro_det","macro_herb","macro_herb","macro_pred",
                "macro_parasi","macro_det","macro_no","pros","tardi","macro_pred",
                "no.art","macro_pred","pros","pros","macro_herb","macro_herb","orib",
@@ -1139,13 +1449,16 @@ col.sp.unlu<-c("macro_herb","ing","ing","ing","ast","macro_pred","macro_fun",
                "orib","orib","no.art","orib","macro_fun","macro_det","pros","meso",
                "orib","orib","macro_pred","macro_herb")
 
+#Matriz transpuesta
 tb_U_D_pca<-PCA(t(tb_D_U), scale.unit = TRUE, graph = FALSE)
-#summary(f_pca)
+summary(f_pca)
 ##corelaciones
-#f_pca_cor<-round(f_pca$var$cor[,1:4],3)
+f_pca_cor<-round(f_pca$var$cor[,1:4],3)
 #Biplot
-sit<-sit<-c(rep("L", 3), rep("P", 3), rep("R", 3))
-fviz_pca_biplot(tb_U_D_pca, axes = c(1,2),  col.var=sit, col.ind =as.factor(col.sp.unlu), label = "none")
+sit<-c(rep("A", 3), rep("P", 3), rep("R", 3))
+fviz_pca_biplot(tb_U_D_pca, axes = c(1,2),  col.var=sit, col.ind =as.factor(col.sp.unlu) , label = "none")
+
+#col.ind =as.factor(col.sp.unlu)
 
 ```
 
@@ -1169,6 +1482,619 @@ Los prostigmata explicados por el 2do eje en sentido negativo se relacionan con 
 Los oribátidos se relacionan con la Reserva
 
 ## Comunidad de la fauna edáfica Sandler (2019)
+
+Trabajaré con la base de datos completa sin considerar las submuestras,
+ya que las sub muestras deben ser agrupadas para evitar la autocorrelación
+
+Es necesario llevar las abundancias de los animales a valores de densidad
+ya que las lombrices fueron tomadas con monolitos (factor= 16)
+y los microartrópodos con sacabocados (factor= 509.2958).
+
+A la vez se redondean los valores hacia el más bajo, de esta manera
+las lombrices tendrían 16 ind/m² y los microartrópodos 510 ind/m².
+
+A partir de este se calcula la Biomasa de los organismos
+
+
+```{r matricesRO, echo=FALSE, warning=FALSE}
+#Anális de datos de ROSANA
+RO <- read_excel("soil_networks.xlsx", sheet = "Ro_web")
+RO[is.na(RO)]<-0
+
+###############
+RO_f<-RO %>% mutate(nombre=paste(system,
+                                    substr(site,1,3),
+                                    substr(year,3,4),
+                                    substr(month,1,3)))%>%
+  group_by(nombre,
+           system,site,year,month,season,
+           order,guild,specie) %>%
+  summarise(abundance=n(), peso.ind=median(biomass), 
+            bmicro=(median(bm)), 
+            res.mec=median((RM5+RM10)/2),DAP=median(DAP),HR=median(HR),
+            pH=median(Ph),CE=median(CE),
+            MO=median(MO),N=median(N),P=median(P),K=median(K),
+            Ca=median(Ca),Mg=median(Mg),Na=median(Sodio),respH=mean(RESP))%>%
+  distinct(specie,.keep_all=TRUE)
+
+#####################
+#Llevando abundancias a densidad
+
+sup.bocado <- 1/(pi*2.5^2/10000)
+sup.monolito <- 1/(0.25*0.25)
+
+#################
+RO_full<-RO_f%>%mutate(D=floor(case_when(
+  order=="crassiclitellata"~sup.monolito*abundance,
+  order!="crassiclitellata"~sup.bocado*abundance)
+  ),BT=D*peso.ind)
+
+##################
+#Matriz de comunidad
+
+abund_RO<-RO_full[,c("nombre","system","site","specie","abundance","D")] %>% 
+  pivot_wider(names_from = specie,
+              values_from = c(abundance,D),
+              values_fill = 0,
+              values_fn = sum)%>%
+  distinct(nombre,.keep_all=TRUE)
+
+fq_RO<-RO_full%>%group_by(nombre,
+           system,site,year,month,season,
+           )%>%
+  summarise(res.mec=mean(res.mec),DAP=mean(DAP),HR=mean(HR),
+            pH=mean(pH),CE=mean(CE),
+            MO=mean(MO),N=mean(N),P=mean(P),K=mean(K),
+            Ca=mean(Ca),Mg=mean(Mg),Sodio=mean(Na),rH=mean(respH))%>%
+  distinct(nombre,.keep_all=TRUE)
+#Asignar número de réplica según la tesis de Rosana. pp53 tabla 2.1.
+#En el espectro de tamaños esto se encuentra con sus nombres.
+fq_RO$replica
+fq_RO[fq_RO$site=="triangulo","replica"]<-1
+fq_RO[fq_RO$site=="L27","replica"]<-1
+fq_RO[fq_RO$site=="molino","replica"]<-1
+
+fq_RO[fq_RO$site=="festuca","replica"]<-2
+fq_RO[fq_RO$site=="L24","replica"]<-2
+fq_RO[fq_RO$site=="manga","replica"]<-2
+
+fq_RO[fq_RO$site=="romina","replica"]<-3
+fq_RO[fq_RO$site=="L25","replica"]<-3
+fq_RO[fq_RO$site=="casuarina","replica"]<-3
+
+#En esta matriz e datos completa se encuentra la réplica
+
+RO_db_full <- merge(fq_RO, merge(abund_RO, peso_RO, by = "nombre", all = TRUE), by = "nombre", all = TRUE)
+
+```
+
+
+Trabajaré con la base de datos completa sin considerar las submuestras,
+ya que las sub muestras deben ser agrupadas para evitar la autocorrelación
+
+Es necesario llevar las abundancias de los animales a valores de densidad
+ya que las lombrices fueron tomadas con monolitos (factor= 16)
+y los microartrópodos con sacabocados (factor= 509.2958).
+
+A la vez se redondean los valores hacia el más bajo, de esta manera
+las lombrices tendrían 16 ind/m² y los microartrópodos 510 ind/m².
+
+A partir de este se calcula la Biomasa de los organismos
+
+### Variables físcas y químicas, resumen datos Sandler(2019)
+Trabajar con las variables similares a las de la comunidad de la UNLu, para análisis completo
+ir a la tesis.
+
+#### Descriptivas
+
+```{r}
+pH.df<-data.frame(uso=levels(as.factor(RO_db_full$system)),
+                 promedio=c(mean(RO_db_full[RO_db_full$system=="A","pH"]),
+                        mean(RO_db_full[RO_db_full$system=="G","pH"]),
+                        mean(RO_db_full[RO_db_full$system=="N","pH"])
+                        ),
+                sd=c(sd(RO_db_full[RO_db_full$system=="A","pH"]),
+                        sd(RO_db_full[RO_db_full$system=="G","pH"]),
+                        sd(RO_db_full[RO_db_full$system=="N","pH"])
+                        ),
+                mediana=c(median(RO_db_full[RO_db_full$system=="A","pH"]),
+                        median(RO_db_full[RO_db_full$system=="G","pH"]),
+                        median(RO_db_full[RO_db_full$system=="N","pH"])
+                        ),
+                 quartil_1=c(quantile(RO_db_full[RO_db_full$system=="A","pH"],prob=0.25),
+                        quantile(RO_db_full[RO_db_full$system=="G","pH"],prob=0.25),
+                        quantile(RO_db_full[RO_db_full$system=="N","pH"],prob=0.25)
+                        ),
+                quartil_3=c(quantile(RO_db_full[RO_db_full$system=="A","pH"],prob=0.75),
+                        quantile(RO_db_full[RO_db_full$system=="G","pH"],prob=0.75),
+                        quantile(RO_db_full[RO_db_full$system=="N","pH"],prob=0.75)
+                        ),
+                row.names = NULL)
+
+kruskal.test(pH ~ system, data = RO_db_full)
+pairwise.wilcox.test(RO_db_full$pH, RO_db_full$system,data=RO_db_full,
+                                          p.adjust.method = "BH")
+{boxplot(pH ~ system, data = RO_db_full, main = "potencial Hidrógeno")
+x_coords <- c(0.7, 1.7, 2.7)  # Coordenadas x para las letras
+y_coords <- rep(8.8, 3)  # Coordenadas y para las letras
+
+# Letras a colocar
+letras <- c("b", "b", "a")
+
+# Agregar las letras al gráfico
+text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
+
+
+
+```
+
+```{r}
+
+
+CE.df<-data.frame(uso=levels(as.factor(RO_db_full$system)),
+                 promedio=c(mean(RO_db_full[RO_db_full$system=="A","CE"]),
+                        mean(RO_db_full[RO_db_full$system=="G","CE"]),
+                        mean(RO_db_full[RO_db_full$system=="N","CE"])
+                        ),
+                sd=c(sd(RO_db_full[RO_db_full$system=="A","CE"]),
+                        sd(RO_db_full[RO_db_full$system=="G","CE"]),
+                        sd(RO_db_full[RO_db_full$system=="N","CE"])
+                        ),
+                mediana=c(median(RO_db_full[RO_db_full$system=="A","CE"]),
+                        median(RO_db_full[RO_db_full$system=="G","CE"]),
+                        median(RO_db_full[RO_db_full$system=="N","CE"])
+                        ),
+                 quartil_1=c(quantile(RO_db_full[RO_db_full$system=="A","CE"],prob=0.25),
+                        quantile(RO_db_full[RO_db_full$system=="G","CE"],prob=0.25),
+                        quantile(RO_db_full[RO_db_full$system=="N","CE"],prob=0.25)
+                        ),
+                quartil_3=c(quantile(RO_db_full[RO_db_full$system=="A","CE"],prob=0.75),
+                        quantile(RO_db_full[RO_db_full$system=="G","CE"],prob=0.75),
+                        quantile(RO_db_full[RO_db_full$system=="N","CE"],prob=0.75)
+                        ),
+                row.names = NULL)
+
+kruskal.test(CE ~ system, data = RO_db_full)
+pairwise.wilcox.test(RO_db_full$CE, RO_db_full$system,data=RO_db_full,
+                                          p.adjust.method = "BH")
+{boxplot(CE ~ system, data = RO_db_full, main = "Conductividad Eléctrica ms/cm")
+x_coords <- c(0.7, 1.7, 2.7)  # Coordenadas x para las letras
+y_coords <- rep(3.7, 3)  # Coordenadas y para las letras
+
+# Letras a colocar
+letras <- c("b", "b", "a")
+
+# Agregar las letras al gráfico
+text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
+
+```
+
+
+```{r}
+
+MO.df<-data.frame(uso=levels(as.factor(RO_db_full$system)),
+                 promedio=c(mean(RO_db_full[RO_db_full$system=="A","MO"]),
+                        mean(RO_db_full[RO_db_full$system=="G","MO"]),
+                        mean(RO_db_full[RO_db_full$system=="N","MO"])
+                        ),
+                sd=c(sd(RO_db_full[RO_db_full$system=="A","MO"]),
+                        sd(RO_db_full[RO_db_full$system=="G","MO"]),
+                        sd(RO_db_full[RO_db_full$system=="N","MO"])
+                        ),
+                mediana=c(median(RO_db_full[RO_db_full$system=="A","MO"]),
+                        median(RO_db_full[RO_db_full$system=="G","MO"]),
+                        median(RO_db_full[RO_db_full$system=="N","MO"])
+                        ),
+                 quartil_1=c(quantile(RO_db_full[RO_db_full$system=="A","MO"],prob=0.25),
+                        quantile(RO_db_full[RO_db_full$system=="G","MO"],prob=0.25),
+                        quantile(RO_db_full[RO_db_full$system=="N","MO"],prob=0.25)
+                        ),
+                quartil_3=c(quantile(RO_db_full[RO_db_full$system=="A","MO"],prob=0.75),
+                        quantile(RO_db_full[RO_db_full$system=="G","MO"],prob=0.75),
+                        quantile(RO_db_full[RO_db_full$system=="N","MO"],prob=0.75)
+                        ),
+                row.names = NULL)
+
+kruskal.test(MO ~ system, data = RO_db_full)
+pairwise.wilcox.test(RO_db_full$MO, RO_db_full$system,data=RO_db_full,
+                                          p.adjust.method = "BH")
+boxplot(MO ~ system, data = RO_db_full, main = "% Materia Orgánica")
+
+```
+
+
+```{r}
+
+N.df<-data.frame(uso=levels(as.factor(RO_db_full$system)),
+                 promedio=c(mean(RO_db_full[RO_db_full$system=="A","N"]),
+                        mean(RO_db_full[RO_db_full$system=="G","N"]),
+                        mean(RO_db_full[RO_db_full$system=="N","N"])
+                        ),
+                sd=c(sd(RO_db_full[RO_db_full$system=="A","N"]),
+                        sd(RO_db_full[RO_db_full$system=="G","N"]),
+                        sd(RO_db_full[RO_db_full$system=="N","N"])
+                        ),
+                mediana=c(median(RO_db_full[RO_db_full$system=="A","N"]),
+                        median(RO_db_full[RO_db_full$system=="G","N"]),
+                        median(RO_db_full[RO_db_full$system=="N","N"])
+                        ),
+                 quartil_1=c(quantile(RO_db_full[RO_db_full$system=="A","N"],prob=0.25),
+                        quantile(RO_db_full[RO_db_full$system=="G","N"],prob=0.25),
+                        quantile(RO_db_full[RO_db_full$system=="N","N"],prob=0.25)
+                        ),
+                quartil_3=c(quantile(RO_db_full[RO_db_full$system=="A","N"],prob=0.75),
+                        quantile(RO_db_full[RO_db_full$system=="G","N"],prob=0.75),
+                        quantile(RO_db_full[RO_db_full$system=="N","N"],prob=0.75)
+                        ),
+                row.names = NULL)
+
+kruskal.test(N ~ system, data = RO_db_full)
+pairwise.wilcox.test(RO_db_full$N, RO_db_full$system,data=RO_db_full,
+                                          p.adjust.method = "BH")
+{boxplot(N ~ system, data = RO_db_full, main = "% Nitrógeno")
+x_coords <- c(0.7, 1.7, 2.7)  # Coordenadas x para las letras
+y_coords <- rep(0.4, 3)  # Coordenadas y para las letras
+
+# Letras a colocar
+letras <- c("b", "a", "b")
+
+# Agregar las letras al gráfico
+text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
+
+```
+
+
+```{r}
+
+P.df<-data.frame(uso=levels(as.factor(RO_db_full$system)),
+                 promedio=c(mean(RO_db_full[RO_db_full$system=="A","P"]),
+                        mean(RO_db_full[RO_db_full$system=="G","P"]),
+                        mean(RO_db_full[RO_db_full$system=="N","P"])
+                        ),
+                sd=c(sd(RO_db_full[RO_db_full$system=="A","P"]),
+                        sd(RO_db_full[RO_db_full$system=="G","P"]),
+                        sd(RO_db_full[RO_db_full$system=="N","P"])
+                        ),
+                mediana=c(median(RO_db_full[RO_db_full$system=="A","P"]),
+                        median(RO_db_full[RO_db_full$system=="G","P"]),
+                        median(RO_db_full[RO_db_full$system=="N","P"])
+                        ),
+                 quartil_1=c(quantile(RO_db_full[RO_db_full$system=="A","P"],prob=0.25),
+                        quantile(RO_db_full[RO_db_full$system=="G","P"],prob=0.25),
+                        quantile(RO_db_full[RO_db_full$system=="N","P"],prob=0.25)
+                        ),
+                quartil_3=c(quantile(RO_db_full[RO_db_full$system=="A","P"],prob=0.75),
+                        quantile(RO_db_full[RO_db_full$system=="G","P"],prob=0.75),
+                        quantile(RO_db_full[RO_db_full$system=="N","P"],prob=0.75)
+                        ),
+                row.names = NULL)
+kruskal.test(P ~ system, data = RO_db_full)
+pairwise.wilcox.test(RO_db_full$P, RO_db_full$system,data=RO_db_full,
+                                          p.adjust.method = "BH")
+boxplot(P ~ system, data = RO_db_full, main = "Fósforo asimilable en ppm")
+
+```
+
+
+```{r}
+
+rH.df<-data.frame(uso=levels(as.factor(RO_db_full$system)),
+                 promedio=c(mean(RO_db_full[RO_db_full$system=="A","rH"]),
+                        mean(RO_db_full[RO_db_full$system=="G","rH"]),
+                        mean(RO_db_full[RO_db_full$system=="N","rH"])
+                        ),
+                sd=c(sd(RO_db_full[RO_db_full$system=="A","rH"]),
+                        sd(RO_db_full[RO_db_full$system=="G","rH"]),
+                        sd(RO_db_full[RO_db_full$system=="N","rH"])
+                        ),
+                mediana=c(median(RO_db_full[RO_db_full$system=="A","rH"]),
+                        median(RO_db_full[RO_db_full$system=="G","rH"]),
+                        median(RO_db_full[RO_db_full$system=="N","rH"])
+                        ),
+                 quartil_1=c(quantile(RO_db_full[RO_db_full$system=="A","rH"],prob=0.25),
+                        quantile(RO_db_full[RO_db_full$system=="G","rH"],prob=0.25),
+                        quantile(RO_db_full[RO_db_full$system=="N","rH"],prob=0.25)
+                        ),
+                quartil_3=c(quantile(RO_db_full[RO_db_full$system=="A","rH"],prob=0.75),
+                        quantile(RO_db_full[RO_db_full$system=="G","rH"],prob=0.75),
+                        quantile(RO_db_full[RO_db_full$system=="N","rH"],prob=0.75)
+                        ),
+                row.names = NULL)
+kruskal.test(rH ~ system, data = RO_db_full)
+pairwise.wilcox.test(RO_db_full$rH, RO_db_full$system,data=RO_db_full,
+                                          p.adjust.method = "BH")
+{boxplot(rH ~ system, data = RO_db_full, main = "Respiración Heterotrófica mmC/g*dia")
+x_coords <- c(0.7, 1.7, 2.7)  # Coordenadas x para las letras
+y_coords <- rep(0.18, 3)  # Coordenadas y para las letras
+
+# Letras a colocar
+letras <- c("b", "a", "a")
+
+# Agregar las letras al gráfico
+text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
+
+```
+
+#### Multivariado
+```{r}
+corr<-Hmisc::rcorr(as.matrix(RO_db_full[,c(10:14,19)]),type = "pearson");corr[1];corr[3]
+
+corrplot::corrplot(cor(as.matrix(RO_db_full[,c(10:14,19)])),tl.pos="t",type = "upper",tl.col = "black",tl.cex = .8,bg="brown4",diag=FALSE)
+```
+
+
+
+
+** Análisis de Componentes Prinipales de los sitios de estudio
+en función de sus variables físicas y químicas **
+
+```{r}
+################
+#FyQ Completo con todas y densidades estandarizadas
+sit<-RO_db_full$system
+#tb_fq<-decostand(RO_db_full[,c(10:14,19)],"log")
+#quito la variable 19, que es la respiracion porque sesga
+#f_pca<-PCA(tb_fq, scale.unit = TRUE, graph = FALSE)
+#No se usa valor transformado
+f_pca<-PCA(RO_db_full[,c(10:14,19)], scale.unit = TRUE, graph = FALSE)
+summary(f_pca)
+##corelaciones
+f_pca_cor<-round(f_pca$var$cor[,1:4],3)
+#Biplot
+fviz_pca_biplot(f_pca, axes = c(1,2),  col.ind=sit, label = "var")
+```
+
+
+
+En PCA considerando las variables físicas y químicas de manera transformada y 
+considerando que las submuestras se encuentran agrupadas, 
+se pueden observar la separación de 3 grupos como una especie de función donde f y g de x se aproximan a h y por lo tanto sirven para calcular valores en ella.
+
+Por un lado inicia el sistema G, le sigue el A y el N al final.
+
+Observando los vectores representan a G la concentración de nitrógeno en el suelo 
+y un tanto la proporción de fósforo casi marginalmente y tambien un poco 
+relacionado con el A
+
+Para A resulta clara la relacion con el contenido de MO y HR en el suelo, 
+aunque también la CE se relaciona con este y marginalmente con N.
+
+En N varias variables se encontraron bien correlacionadas entre ellas el DAP el 
+sodio el pH y el Calcio, también la resistencia mecánica y los aumentos en sus 
+valores son asociados particularmente con el sistema N y el contenido de K que 
+resulta importante.
+
+
+
+
+
+
+### Diversidad de las comunidades edáficas que habitan los campos Sandler(2019)
+
+#### Riqueza de especies
+
+```{r spc, echo=FALSE,warning=FALSE}
+
+######
+
+#Lista de especie agrupadas según el colector
+#De los datos brutos de RO
+#Arrastrado a partir de los agrupamientos y pivoteo en ancho
+#Nombres tomados de la columnas de abun_RO y "reformateados"
+spc.colector<-c("Apo_cal","Apo_tra", "Mic_dub",
+                "lom_juv","isotomidae", "gastropoda", "epilohmannioidea",
+                "euphthiracaroidea","oripodoidea","oppioidea",
+                "onychiuridae","Apo_ros","formicidae",
+                "parasitoidea","ceratozetoidea",
+                "brachychthonioidea","crotonioidea","hypogastruridae",
+                "eupodoidea","sciaridae","veigaioidea","ptiliidae",
+                "entomobroidea","miriapoda","rhodacaroidea",
+                "galumnioidea","symphila","chylopoda","carabidae",
+                "ecidomyiidae","psocoptera","symphypleona",
+                "staphylinidae","octala","bdelloidea",
+                "isoptera","dermanyssoidea","trombidioidea",
+                "octacy","gryllotalpidae","acaroidea","pauropoda",
+                "tydeoidea","uropodoidea","mesostigmata","linyphiidae",
+                "euker","oribatida","Mic_pho","scarabaeidae","isopoda",
+                "gryllidae" )
+
+#Lo llamo Abun pero es Densidad
+#abund_RO[,4:55]
+ab<-abund_RO[,56:107]
+colnames(ab)<-spc.colector
+rownames(ab)<-abund_RO$nombre
+
+# Uso de función riqueza especies
+print("#############################################")
+print("Tabla de riqueza de especies por cada muestra")
+Muestras<-abund_RO$nombre
+Riqueza<-specnumber(ab)
+data.frame(Muestras,Riqueza,row.names = NULL)
+
+print("#############################################")
+print("Tabla de riqueza de especies por cada sitio")
+print(data.frame(Sitios=levels(as.factor(abund_RO$site)),Riqueza=specnumber(ab,groups=abund_RO$site),row.names = NULL))
+
+print("#############################################")
+print("Tabla de riqueza de especies en cada sistema de uso del suelo")
+print(data.frame(system=levels(as.factor(abund_RO$system)),
+                 Riqueza=specnumber(ab,groups=abund_RO$system),row.names = NULL))
+```
+La riqueza por sistema de uso del suelo, considerando algunas especies de la mesofauna que no corresponden a ácaros y colémbolos, es de A = 44; G = 39; N = 38.
+
+
+#### Diversidad
+
+```{r}
+# Diversidad Total se trabaja con abundancias
+
+mtxRO_D<-RO_db_full[,c(20:22,75:126)]
+mtxRO_D$nombre<-paste(mtxRO_D$system.x,mtxRO_D$replica)
+
+
+H_RO.D<-as.matrix(mtxRO_D[,-c(1:3,56)])
+row.names(H_RO.D)<-mtxRO_D$nombre
+
+H_RO<-vegan::diversity(H_RO.D, index="shannon")
+
+#matriz de diversidad
+RO_div<-mtxRO_D[,c(1:3,56)]
+
+RO_div$diversidad<-H_RO
+names(RO_div)<-c("replica","sitio","n_sit","nombre","diversidad")
+
+print(data.frame(habitats=levels(as.factor(RO_div$sitio)),
+                 mean=c(mean(as.matrix(RO_div[RO_div$sitio=="A","diversidad"])),
+                        mean(as.matrix(RO_div[RO_div$sitio=="G","diversidad"])),
+                        mean(as.matrix(RO_div[RO_div$sitio=="N","diversidad"]))
+                        ),
+                 desvio_std=c(sd(as.matrix(RO_div[RO_div$sitio=="A","diversidad"])),
+                        sd(as.matrix(RO_div[RO_div$sitio=="G","diversidad"])),
+                        sd(as.matrix(RO_div[RO_div$sitio=="N","diversidad"]))
+                        ),
+                 mediana=c(median(as.matrix(RO_div[RO_div$sitio=="A","diversidad"])),
+                        median(as.matrix(RO_div[RO_div$sitio=="G","diversidad"])),
+                        median(as.matrix(RO_div[RO_div$sitio=="N","diversidad"]))
+                        ),
+                row.names = NULL))
+
+kruskal.test(diversidad ~ sitio, data = RO_div)
+
+
+
+```
+### Multivariado de la comunidad
+
+
+```{r anosim, include=FALSE, warning=FALSE}
+#Densidad nro ind/m2
+#Se utiliará la transformación "log" = (log x) + 1 si x > 0 o 0 si x = 0
+#Especies ocasionales, no muestreados correctamente
+#En total 18 especies, 
+
+spe.no<-c(6,13,20,22,24,27,28,29,30,31,33,36,40,42,46,50,51,52)
+
+#########################
+#Listado completo de especies
+D_anosim<-RO_db_full[,c(1,2,3,20,75:126)]
+colnames(D_anosim)<-c("nombre","system","site","replica",spc.colector)
+
+tb_D<-decostand(D_anosim[,-c(1:4)],"log")
+
+Den_anosim<-vegan::anosim(tb_D, 
+              as.matrix(D_anosim[,"system"]), 
+              permutations = 1670, 
+              distance = "bray")
+print("Resumen del ANOSIM para los datos de densidad log +1 transformados")
+summary(Den_anosim)
+
+```
+
+ANOSIM nos muestra que existen diferencias en las comunidades en sus valores densidad y de peso que han sido previamente transformadas pero no re escaladas. 
+
+Si se consideran las matrices con todas las especies o sin las especies submuestreadas, los valores muestran patrones semejantes.
+
+Estos patrones son: 
+  1. diferencias significativas en las comunidades considerando la densidad de los organismos y también considerando los pesos corporales de la fauna edáfica.
+  2. Valores de r^2^ interpretados como poder de explicación de la variabilidad de los datos por parte de los sistemas de uso del suelo bajos, < a 15
+  3. Valores de r^2^ siempre más altos para el peso de los organismos que para su densidad. 
+  
+En general el anosim filtrado no aumenta mucho el valor del modelos no filtrado.
+
+```{r Beta, echo=FALSE, warning=FALSE}
+
+D_site<-RO_full[,c("system","site","specie","D")] %>% 
+  pivot_wider(names_from = specie,
+              values_from = D,
+              values_fill = 0,
+              values_fn = sum)%>%
+  distinct(system,.keep_all=TRUE)
+D_site<-as.data.frame(D_site)
+D_site$replica
+D_site[D_site$site=="triangulo","replica"]<-1
+D_site[D_site$site=="L27","replica"]<-1
+D_site[D_site$site=="molino","replica"]<-1
+
+D_site[D_site$site=="festuca","replica"]<-2
+D_site[D_site$site=="L24","replica"]<-2
+D_site[D_site$site=="manga","replica"]<-2
+
+D_site[D_site$site=="romina","replica"]<-3
+D_site[D_site$site=="L25","replica"]<-3
+D_site[D_site$site=="casuarina","replica"]<-3
+
+row.names(D_site)<-paste(D_site$system,D_site$replica)
+
+######
+# Disimilitudd entre los sitios
+betaBK_ro<-betadiver(D_site[,-c(1,2,55)],method=8)
+  
+div.beta<-hclust(betaBK_ro,method = "average")
+plot(div.beta,cex=0.6,main="Agrupamiento según Bray-Curtis",sub="Diversidad Beta entre sitios",ylab="Índice de Bray Curtis",xlab="")
+
+#######
+# Índice de Beta Diveridad
+#beta<-betadiver(D_site[,-c(1,2)], method=8)
+#div.beta<-hclust(beta,method = "mcquitty")
+#plot(div.beta,cex=0.6,main="Agrupamiento según índice Wilson",sub="Diversidad Beta entre sitios",ylab="Índice de Wilson",xlab="")
+
+```
+Globalmente se observa separación de los diferentes sitios. El triángulo que es pastizal naturalizado esta levemente relacionado a los agrícolas.
+
+Living communities are spatially structured at many scales, and
+these structures are the result of several classes of processes. On the other hand,
+beta diversity is the spatial variation in community composition; so, a study of the
+factors that can explain the spatial variation of community composition is in every
+respect an analysis of beta diversity. (Numerical Ecology con R pp 228)
+
+
+
+** Análisis de Componentes Prinipales de los sitios de estudio
+en función de la densidad de la fauna edáfica **
+
+```{r tb_PCA, echo=FALSE}
+tb_D<-decostand(D_site[,-c(1,2,55)],"log")
+sit<-c(rep("A", 3), rep("G", 3), rep("N", 3))
+pch<-c(1,1,1,1,9, 3, 5,5,5,5,9,1,3, 6,5,5,5,9,7,3,6,3,
+         9,3,6,5,10,3,3,3,3,10,3,1,7,3,6,7,1,3,5,10,
+           7,6,6,3,1,5,1,3,3,3)
+col.sp<-pch
+col.sp <- case_when(
+  col.sp == 1 ~ "lom",
+  col.sp == 3 ~ "macro",
+  col.sp == 5 ~ "ori",
+  col.sp == 6 ~ "mes",
+  col.sp == 7 ~ "pro",
+  col.sp == 9 ~ "art",
+  col.sp == 10 ~ "no.art",
+  TRUE ~ as.character(col.sp)
+)
+
+#lombrices=1=lom; macro=3=macro; acaros_orib= 5=ori; ac_meso= 6=mes
+#ac_prost=7=pro; artropleona=9=art; no_artropleona=10=no.art
+
+
+
+####################
+#con Densidades standarizadas por log(ab)+1
+
+std_ab_pca<-PCA(t(tb_D), scale.unit = TRUE, graph = FALSE)
+summary(std_ab_pca)
+#correlaciones
+std_ab_pca_cor<-round(std_ab_pca$var$cor[,1:5],3)
+
+#fviz_pca_var(std_ab_pca, col.var=sit,repel = TRUE, label="none")
+
+#fviz_pca_ind(std_ab_pca, col.ind=col.sp,label="none",repel = TRUE)
+
+fviz_pca_biplot(std_ab_pca, axes = c(1,2),  col.ind=as.factor(col.sp), col.var = sit,repel = TRUE,label = "none")
+
+
+```
+
+
+
+
 
 # ref
 

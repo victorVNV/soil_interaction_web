@@ -190,6 +190,47 @@ web0<-web%>%
   summarise(body=mean(body,na.rm=TRUE),
             biomass=mean(biomass,na.rm=TRUE))%>%
   distinct(taxa,.keep_all=TRUE)
+#######
+#Eficiencias de consumo dicho por mi, justificación quien sabe
+#Detritivoros 0.15
+#Herbívoros 0.2
+#Omnívoros 0.4
+#Microbivoros y geófagos 0.6
+#predadores 0.75
+
+micf<-c("alycidae", "bac","diplura",
+  "Aporrectodea caliginosa","Aporrectodea rosea","Bimastos parvus",
+  "Aporrectodea trapezoides","Bimastos beddardi sophiae",
+   "ceratozetoidea","cryptophagidae","enchytraeida","entomobridae",
+  "epilhomanioidea","eremobelbidae","Eukerria halophila","fungi","galumnidae",
+   "Glossoscolex sp.","isotomidae","juvenil","macropilina","Microscolex phosphoreus",
+  "nem_bacterivoro", "nem_fitofago","nem_fungivoro","Octalasion cyaneum",
+  "Octolasion tyrtaeum","onichiuridae","oppioidea","oribatulidae",
+  "oripodidae","protura","scheloribatidae","symphyla","symphypleona"
+  )
+pred<-c("ameroseidae","anystidae","arctacaridae","bdelloidea","carabidae",
+  "coccinelidae","cunaxide","dermanisoidea","eupodoidea","eviphididae",
+  "geophylomorpha","grillopalpidae","ichtyostomatogasteridae", "laelapidae", "larva_carabidae","linyphiidae","lycosidae","nem_predador","mesostigmata",
+  "ologamasidae","parasitidae",  "penthalidae","proto","pseudoscorpionida",
+  "rhagidiidae","rhodacarioidea","staphiliniidae","tarsonemidae","teneriffidae",
+  "trombidiidae","tydeioidea", "uropodoidea","veigaioidea") 
+det<-c("anthribidae","blattodea","gasteropoda","diplopoda","elateriforme",
+  "embrioptera","eupthiracaroidea","larva_coleoptero",
+ "larva_diptera","larva_elateridae","larva_scarabidae","larva_sciaridae",
+  "larva_tenebrionidae","limnozetidae","oniscidea","ptilidae","pupa_diptera",
+ "tenebrionidae","terebrantia","trogossitidae")
+herb<-c("aphidoidea","cicadidae","coleoptera_suctor","hemiptero","larva_curculionidae",
+   "ortoptero","thysanoptera")
+omn<-c("astigmata","formicidae","hipogastruridae","nem_omnivor","tardigrado"  )
+
+no_a<-c("nematomorpha")  
+web0$ef<-NA
+web0$ef[web0$taxa%in%micf]<-0.6
+web0$ef[web0$taxa%in%pred]<-0.75
+web0$ef[web0$taxa%in%det]<-0.25
+web0$ef[web0$taxa%in%herb]<-0.125
+web0$ef[web0$taxa%in%omn]<-0.4
+web0$ef[web0$taxa%in%no_a]<-0.075
 
 L<-web0%>%filter(sitio=="L")
 P<-web0%>%filter(sitio=="P")
@@ -418,7 +459,8 @@ mG["formicidae",c("carrion","fungi","tej_veg",
                   "Bimastos parvus","arctacaridae","enchytraeida",
                   "astigmata","limnozetidae","embrioptera","grillopalpidae",
                   "macropilina","Microscolex phosphoreus",
-                  "Octalasion cyaneum","Octolasion tyrtaeum","ortoptero","penthalidae",
+                  "Octalasion cyaneum",
+                  "Octolasion tyrtaeum","ortoptero","penthalidae",
                       "ceratozetoidea", "diplura","entomobridae",
                    "epilhomanioidea","eremobelbidae","eupthiracaroidea","eupodoidea",
                    "eviphididae","galumnidae","hipogastruridae","isotomidae",
@@ -472,6 +514,9 @@ L_net <-graph_from_adjacency_matrix(t(mG[c(L$taxa,"litter","carrion","tej_veg","
 R_net <-graph_from_adjacency_matrix(t(mG[c(R$taxa,"litter","carrion","tej_veg","hummus"),c(R$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
 #Red Pastizal
 P_net <-graph_from_adjacency_matrix(t(mG[c(P$taxa,"litter","carrion","tej_veg","hummus"),c(P$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+
+
+
 ```
 
 ```{r multiweb,echo=FALSE}
@@ -539,26 +584,28 @@ bm_P<-c(P$biomass,
 #tasas metabolicas, 
 # usamos la para "invertebrados" de flux web package
 #
-#18.18 W^ -0.29
+#17.17 W^ -0.29
 
-t_metL<- 18.18*body_L^(-0.29)
+t_metL<- 17.17*body_L^(-0.29)
 t_metL[is.na(t_metL)|t_metL==Inf]<-0
-t_metR<- 18.18*body_R^(-0.29)
+t_metR<- 17.17*body_R^(-0.29)
 t_metR[is.na(t_metR)|t_metR==Inf]<-0
-t_metP<- 18.18*body_P^(-0.29)
+t_metP<- 17.17*body_P^(-0.29)
 t_metP[is.na(t_metP)|t_metP==Inf]<-0
 
 #Para las eficiencias, generar una columna, con eficiencias por tipo de consumidor
 
-ef_L<- rep(0.1, times = length(body_L))
-ef_R<- rep(0.1, times = length(body_R))
-ef_P<- rep(0.1, times = length(body_P))
+ef_L<- c(L$ef,NA,NA,NA,NA)
+ef_R<- c(R$ef,NA,NA,NA,NA)
+ef_P<- c(P$ef,NA,NA,NA,NA)
 
-flux_L<-fluxing(t(mG[c(L$taxa,"litter","carrion","tej_veg","hummus"),c(L$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_L, losses =  t_metL, efficiencies =  ef_L)
+flux_L<-fluxing(t(mG[c(L$taxa,"litter","carrion","tej_veg","hummus"),c(L$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_L, losses =  t_metL, efficiencies =  ef_L,ef.level = "pred")
 
-flux_R<-fluxing(t(mG[c(R$taxa,"litter","carrion","tej_veg","hummus"),c(R$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_R, losses =  t_metR, efficiencies =  ef_R)
+#ef.level	
+#Set to "prey" if efficiencies are defined by prey, "pred" if they are a property of the predator.
+flux_R<-fluxing(t(mG[c(R$taxa,"litter","carrion","tej_veg","hummus"),c(R$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_R, losses =  t_metR, efficiencies =  ef_R,ef.level = "pred")
 
-flux_P<-fluxing(t(mG[c(P$taxa,"litter","carrion","tej_veg","hummus"),c(P$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_P, losses =  t_metP, efficiencies =  ef_P)
+flux_P<-fluxing(t(mG[c(P$taxa,"litter","carrion","tej_veg","hummus"),c(P$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_P, losses =  t_metP, efficiencies =  ef_P,ef.level = "pred")
 
 ```
 
@@ -569,6 +616,8 @@ in a stable equilibrium only if the real parts of eigenvalues from the Jacobian
 are all negative. In this case, resilience is the absolute value of the real part
 of the largest eigenvalue, ... -->
 ```
+
+
 ```{r}
 #Red Lote con Flujo energia
 
@@ -587,5 +636,36 @@ P_netf<-asNetwork(P_net)
 P_netf %e% "flux" <- flux_P
 
 
+```
+
+```{r}
+#se puede calcular el QSS, me da positivo :(
+#calc_QSS(intergraph::asIgraph(L_netf))
+
+plot_troph_level(intergraph::asIgraph(L_netf),modules=TRUE,vertexLabel = TRUE, tk = TRUE)
+
 
 ```
+
+```{r}
+
+#para igraph
+#gestionar Nodos y Ejes
+#Para ver el atributo de clase Network P_netf %e% "flux"
+
+#V(inet2)$name <- c("A","B","C","D","E")
+#E(inet2)$val <- c(1:6)
+#flujo<-L_netf%e%"flux"
+L_igf<-intergraph::asIgraph(L_netf)
+#L_ig<- graph_from_adjacency_matrix(flux_L,mode=c("directed") )
+E(L_igf)$"flux"<-L_netf%e%"flux"
+E(L_igf)$"dim"<-"2D"
+V(L_igf)$"densidad"<-bm_L/body_L
+V(L_igf)$"body_mass"<-body_L
+V(L_igf)$"vertex.names"<-c(L$taxa,"litter","carrion","tej_veg","hummus")
+
+#calc_interaction_intensity(as.edgelist(L_netf))
+
+```
+
+
