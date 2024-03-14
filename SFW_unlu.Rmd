@@ -111,7 +111,7 @@ library(tidyverse)
 ```{r ,echo=FALSE}
 #Carga datos, comunidad completa, abundancia, pesos corporales medios, 
 SFW_unlu <- read.delim(
-  "~/Documentos/Redes/soil_interaction_web/unlu_ab_mass_mean_web.txt"
+  "~/Documentos/Redes/soil_interaction_web/database/unlu_ab_mass_mean_web.txt"
   )
 ```
 

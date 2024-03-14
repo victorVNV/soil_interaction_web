@@ -34,7 +34,7 @@ Luego ir fragmentando el análisis-->
 
 library("tidyverse")
 
-ab_bulk <- read.csv("~/Documentos/Redes/soil_interaction_web/other_scripts/ab_bulk.txt", sep="")
+ab_bulk <- read.csv("~/Documentos/Redes/soil_interaction_web/database/ab_bulk.txt", sep="")
 
 ###########
 #Llevando abundancias a densidad
@@ -76,7 +76,7 @@ unlu_ab[unlu_ab$sitio == "L", "sitio"] <- "A"
 
 ```{r carga_fq, include=FALSE}
 
-fyq_unlu <- read.delim("~/Documentos/Redes/soil_interaction_web/fyq_unlu.txt")
+fyq_unlu <- read.delim("~/Documentos/Redes/soil_interaction_web/database/fyq_unlu.txt")
 fyq<-fyq_unlu%>%mutate(sitio=substr(Sitio, 3, 3),
                        estrato=substr(Sitio, 1, 2),
                        replica=substr(Sitio, 4, 4),
@@ -123,7 +123,7 @@ unlu_merg$bacteria<-round((unlu_merg$bio.micro-unlu_merg$fungi),4)
 ```
 
 ```{r body_mass, echo=FALSE}
-com_body<- read.delim("~/Documentos/Redes/soil_interaction_web/community_bodymass.txt")
+com_body<- read.delim("~/Documentos/Redes/soil_interaction_web/database/community_bodymass.txt")
 body<-com_body%>%
   mutate(nombre=paste(sitio,replica))%>%
   group_by(nombre,sitio,estrato,replica,taxa)%>%

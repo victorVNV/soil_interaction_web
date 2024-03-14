@@ -269,7 +269,7 @@ y al tratamiento.
 ```{r carga_variablesFQB, include=FALSE}
 
 library("tidyverse")
-fyq_unlu <- read.delim("~/Documentos/Redes/soil_interaction_web/fyq_unlu.txt")
+fyq_unlu <- read.delim("~/Documentos/Redes/soil_interaction_web/database/fyq_unlu.txt")
 
 
 ####
@@ -909,7 +909,7 @@ Para los valores de hojarasca en metros cuadrados mediante la prueba estadístic
 
 ```{r matriz_pca, include=FALSE}
 
-fyq_unlu <- read.delim("~/Documentos/Redes/soil_interaction_web/fyq_unlu.txt")
+fyq_unlu <- read.delim("~/Documentos/Redes/soil_interaction_web/database/fyq_unlu.txt")
 fyq.pca<-fyq_unlu%>%mutate(sitio=substr(Sitio, 3, 3),
                        estrato=substr(Sitio, 1, 2),
                        replica=substr(Sitio, 4, 4),
@@ -1027,7 +1027,7 @@ La CE se relaciona con el pastizal.
 ### Diversidad de las comunidades edáficas que habitan los suelos de la UNLu
 
 ```{r mat_D,include=FALSE}
-ab_bulk <- read.csv("~/Documentos/Redes/soil_interaction_web/other_scripts/ab_bulk.txt", sep="")
+ab_bulk <- read.csv("~/Documentos/Redes/soil_interaction_web/database/ab_bulk.txt", sep="")
 ab_bulk[ab_bulk$sitio == "L", "sitio"] <- "A"
 ###########
 #Llevando abundancias a densidad
@@ -1167,7 +1167,7 @@ kruskal.test(diversidad ~ sitio, data = g_H)
 ```
 
 ```{r H_nematodos, echo=FALSE}
-microH <- read.delim("~/Documentos/Redes/soil_interaction_web/nematofauna_diversityH.txt")
+microH <- read.delim("~/Documentos/Redes/soil_interaction_web/database/nematofauna_diversityH.txt")
 
 microH$sitio<-substr(microH$nombre,3,3)
 microH$replica<-substr(microH$nombre,4,4)
@@ -1216,7 +1216,7 @@ kruskal.test(diversidad ~ sitio, data = microabH)
 ```{r mesoH, echo=FALSE}
 
 mesoH <- read.delim(
-  "~/Documentos/Redes/soil_interaction_web/mesofauna_diversityH.txt"
+  "~/Documentos/Redes/soil_interaction_web/database/mesofauna_diversityH.txt"
   )
 
 #reasignar nombre a agrícola
@@ -1298,7 +1298,7 @@ kruskal.test(diversidad ~ sitio, data = mesoabH, subset=mesoabH$estrato=="10")
 ```
 
 ```{r macroH,echo=FALSE}
-macroH <- read.delim("~/Documentos/Redes/soil_interaction_web/macrofauna_diversityH.txt")
+macroH <- read.delim("~/Documentos/Redes/soil_interaction_web/database/macrofauna_diversityH.txt")
 
 #reasignar nombre a agrícola
 
@@ -1495,7 +1495,7 @@ A partir de este se calcula la Biomasa de los organismos
 #Anális de datos de ROSANA
 #Carga de datos
 
-RO <- read_excel("soil_networks.xlsx", sheet = "Ro_web")
+RO <-RO <- read_excel("./database/soil_networks.xlsx", sheet = "Ro_web")
 RO[is.na(RO)]<-0
 
 #Filtrar la macrofauna, razon, el diseño de muestreo no lo contempla

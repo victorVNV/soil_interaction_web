@@ -47,7 +47,7 @@ if( require(multiweb) == FALSE)
 
 ```{r datos, include=FALSE}
 
-completo <- read_excel("soil_networks.xlsx", sheet = "Ro_web")
+completo <- read_excel("./database/soil_networks.xlsx", sheet = "Ro_web")
 
 #Es el factor de conversión para llevar las abundancias a densidad
 #Densidadde lombrice en 25*25 = a n()/0.0625

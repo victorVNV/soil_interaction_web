@@ -21,7 +21,7 @@ set.seed(167)
 
 ```{r carga,echo=FALSE,warning=FALSE}
 #Anális de datos de ROSANA
-RO <- read_excel("soil_networks.xlsx", sheet = "Ro_web")
+RO <- read_excel("./database/soil_networks.xlsx", sheet = "Ro_web")
 RO[is.na(RO)]<-0
 
 resumen_bruto<-summary(RO)
