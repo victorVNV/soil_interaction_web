@@ -640,9 +640,9 @@ P_netf %e% "flux" <- flux_P
 
 ```{r}
 #se puede calcular el QSS, me da positivo :(
-#calc_QSS(intergraph::asIgraph(L_netf))
+calc_QSS(intergraph::asIgraph(L_netf))
 
-plot_troph_level(intergraph::asIgraph(L_netf),modules=TRUE,vertexLabel = TRUE, tk = TRUE)
+#plot_troph_level(intergraph::asIgraph(L_netf),modules=TRUE,vertexLabel = TRUE, tk = TRUE)
 
 
 ```
@@ -685,7 +685,6 @@ edge_list_UNLu$densidad_recurso<-NA
 for (dr in 1:length(v_ig$nombre)) {edge_list_UNLu[edge_list_UNLu$consumidor==as.character(v_ig$nombre[dr]),"densidad_recurso"]<-v_ig$peso[dr]
 }
 
-edge_list_UNLu<-edge_list_UNLu[,c(2,1,4,3,6,5)]
 edge_list_UNLu$dimension<-"2D"
 #edge_list_UNLu[edge_list_UNLu$peso_recurso==0|edge_list_UNLu$peso_recurso==-999,"peso_recurso"]<-1e-15
 #edge_list_UNLu[edge_list_UNLu$peso_consumidor==0|edge_list_UNLu$peso_consumidor==-999,"peso_consumidor"]<-1e-15
@@ -697,7 +696,18 @@ interaction_strenght_UNLu<-calc_interaction_intensity(da=edge_list_UNLu,
 
 E(L_igf)$"int_strength"<-interaction_strenght_UNLu$qRC
 
+IS_ig_UNLu<-interaction_strenght_UNLu[,c(1,2,11)]
+names(IS_ig_UNLu)<-c("recurso","consumidor","qRC")
+QSS_IS_UNLu<-graph_from_data_frame(IS_ig_UNLu,directed = TRUE, vertices =NULL)
 
+
+quasi_unlu<-calc_QSS(QSS_IS_UNLu, istrength=TRUE, returnRaw = FALSE)
+
+E(QSS_IS_UNLu)$weight<-IS_ig_UNLu$qRC
+
+#calc_QSS_extinction_dif_grp(g=QSS_IS_UNLu,  sp_list=V(QSS_IS_UNLu)$name[1:6] , nsim = 10, ncores = 4, istrength = TRUE) 
+
+#calc_QSS_extinctions_seq(QSS_IS_UNLu, seq = V(QSS_IS_UNLu)$name , nsim = 100, ncores = 4, istrength = TRUE)
 
 ```
 
