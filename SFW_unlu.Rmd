@@ -111,7 +111,7 @@ library(tidyverse)
 ```{r ,echo=FALSE}
 #Carga datos, comunidad completa, abundancia, pesos corporales medios, 
 SFW_unlu <- read.delim(
-  "~/Documentos/Redes/soil_interaction_web/database/unlu_ab_mass_mean_web.txt"
+  "database/unlu_ab_mass_mean_web.txt"
   )
 ```
 
@@ -538,6 +538,7 @@ tr_Ln<-gtrans(asNetwork(L_net))
 tr_Rn<-gtrans(asNetwork(R_net))
 tr_Pn<-gtrans(asNetwork(P_net))
 
+
 ```
 
 ```{r flux, echo=FALSE}
@@ -584,7 +585,7 @@ bm_P<-c(P$biomass,
 #tasas metabolicas, 
 # usamos la para "invertebrados" de flux web package
 #
-#17.17 W^ -0.29
+# 17.17 W^ -0.29
 
 t_metL<- 17.17*body_L^(-0.29)
 t_metL[is.na(t_metL)|t_metL==Inf]<-0
@@ -638,12 +639,19 @@ P_netf %e% "flux" <- flux_P
 
 ```
 
+
+
+
+
 ```{r}
 #se puede calcular el QSS, me da positivo :(
-calc_QSS(intergraph::asIgraph(L_netf))
+calc_QSS(intergraph::asIgraph(L_netf), nsim=100)
 
 #plot_troph_level(intergraph::asIgraph(L_netf),modules=TRUE,vertexLabel = TRUE, tk = TRUE)
 
+# QSS es la proporcion de simulaciones que dan negativo
+# medida de lo que falta de auto regulacion para que sea estable
+# para estadistica usar la funcion raw= TRUE, distribuciones. 
 
 ```
 
@@ -698,17 +706,25 @@ E(L_igf)$"int_strength"<-interaction_strenght_UNLu$qRC
 
 IS_ig_UNLu<-interaction_strenght_UNLu[,c(1,2,11)]
 names(IS_ig_UNLu)<-c("recurso","consumidor","qRC")
+
 QSS_IS_UNLu<-graph_from_data_frame(IS_ig_UNLu,directed = TRUE, vertices =NULL)
 
 
-quasi_unlu<-calc_QSS(QSS_IS_UNLu, istrength=TRUE, returnRaw = FALSE)
+quasi_unlu<-calc_QSS(QSS_IS_UNLu, istrength=TRUE, returnRaw = FALSE, nsim=10)
 
-E(QSS_IS_UNLu)$weight<-IS_ig_UNLu$qRC
 
-#calc_QSS_extinction_dif_grp(g=QSS_IS_UNLu,  sp_list=V(QSS_IS_UNLu)$name[1:6] , nsim = 10, ncores = 4, istrength = TRUE) 
 
-#calc_QSS_extinctions_seq(QSS_IS_UNLu, seq = V(QSS_IS_UNLu)$name , nsim = 100, ncores = 4, istrength = TRUE)
+QSS_unlu_seq<-calc_QSS_extinctions_seq(QSS_IS_UNLu, seq = (QSS_IS_UNLu)$name, nsim = 100, ncores = 4, istrength = TRUE)
 
+
+IS_ig_UNLu.W<-interaction_strenght_UNLu[,c(1,2,11)]
+names(IS_ig_UNLu.W)<-c("recurso","consumidor","weight")
+
+QSS_IS_UNLu.w<-graph_from_data_frame(IS_ig_UNLu.W,directed = TRUE, vertices =NULL)
+
+#E(QSS_IS_UNLu)$weight<-IS_ig_UNLu$qRC 
+
+calc_QSS_extinction_dif(g=QSS_IS_UNLu.w,  sp_list=V(QSS_IS_UNLu.w)$name[5,15,8] , nsim = 10, ncores = 4, istrength = FALSE) 
 ```
 
 

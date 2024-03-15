@@ -1,3 +1,13 @@
+
+
+
+*Beetles feeding on bugs (Coleoptera, Hemiptera) repeated shifts from mycophagous ancestors Leschen 2000 DOI:10.1071/IT00025*
+
+De aca se tomará que estos escarabajos son fungivoros. 
+
+A review of the literature shows that predation on Hemiptera (mainly Sternorrhyncha) by Coleoptera is widespread in the order, but little understood, even from a biocontrol perspective. Phylogenetic information indicates that feeding on hemipterans evolved predominantly in lineages containing fungus feeders (Derodontidae, Silvanidae, Laemophloeidae, Nitidulidae, Endomychidae, Anthribidae) and whose ancestors were fungus feeders (Coccinellidae) or were sap feeders (cetoniine Scarabaeidae). Other predators on Hemiptera whose ancestry could not be determined unequivocally (predatory/phytophagy or phytophagy/mycophagy) are included in families that contain a large number of species that are mycophagous (Trogossitidae, Mycetophagidae, and Salpingidae). Because changes in diet to feeding on hemipterans have repeatedly occurred in mycophagous taxa, and this shift is not present in other largely predatory groups of beetles, it is presumed that certain preconditions, which have promoted this specialised behaviour, only exist in these lineages. Ancestral associations with sooty moulds that grow on honeydew may have mediated shifts from mycophagy to predation, rather than having ancestors that were predatory and attracted to a novel prey type. Natural history data show that species that prey on Hemiptera also feed on honeydew and sooty moulds and a model is presented for the host shift from mycophagy to feeding on Hemiptera. An annotated list of Hemiptera prey for beetles (exclusive of Coccinellidae) includes records for species in the families Adelgidae, Aleyrodidae, Aphididae, Coccidae, Diaspididae, Kermesidae, Kerriidae, Margarodidae, Membracidae, Phoenicococcidae, and Pseudococcidae.
+
+
 *Mechanisms of Microarthropod-Microbial Interactions in Soil JOHN LUSSENHOP 1992*
 
 Interactions among fungi, bacteria, and invertebrates are central to many processes in soil ranging from decomposition to the functioning of the rhizosphere.
