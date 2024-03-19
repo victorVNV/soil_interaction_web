@@ -1,0 +1,60 @@
+# Ecología trófica del sistem detritívoro del suelo.
+
+
+
+# Microfauna
+## Protozoos
+Segun Digel,  protozoos de vida libre se encuentran normalmente asociados con las capas superficiales del suelo y se caracterian por su intima relacion con el tejido vegetal en descomposición. Estos organismos son bacteríofagos y son los principales predadores de las bacterias del suelo por lo que influyen tanto en la regulación como en la caracerización de ls comunidades de bacterias del suelo. Por otra parte el papel de los diferentes taxones que pueden componer la comunidad de protozoos del suelo sobre la comunidad de bacterias no varía sino más bien en el grado en el ue las afectan. 
+Además solo algunas especies son consumidores de materia orgánica en un estado avanzado de descomposición "humus" de manera facultativa cuando las poblaciones bacterianas que foman parte de su dieta son escasas.
+Como mecanismos de nutrición los protozoos pueden ser fagotróficos, en el que enguyen el alimento, u osmotrópicos, mecanismo mediante el cual los nutrientes pasan del medio extracelular hacia el interior celular.
+Por otra parte los prozoos tambíen predan sobre otros protozoos y sobre levaduras e hifas de hongos.
+Los protozoos intervienen en el ciclo de la materia orgánica de manera indirecta mediante su predación continua sobre las bacterias y otra microflora, a su vez, estos son presas de otros orgaanismos.
+La fauna protozoaria del suelo es cosmopolita y varia ampliamente segun las condiciones puntuales al nive e sus microhábitats "la zona de bio films" o las condiciones ambientales relacionadas con el hábitat edáfico. 
+
+## Tardigrada
+
+Lor tardigrados son micrometazoos y se encuentran en hábitats marinos, acuáticos y terrestres, el largo corporal, de aquellos que habitan los suelos, en promedio varía entre los 200 y 700 $\mu$m, su coloración general es pálidad blancuzca pero pueden encontrarse diferentes colores. Los tardígrados terrestres requieren de una película de agua para desarrollar sus actividades y permanecer activos, además de habitar la hojarasca y los primeros centímetros del suelo pueden encontrarse asociados a musgos, líquenes y helechos. 
+<!-- tardigrados abigarrados color "violeta", en suelos de unlu"-->
+Los tardígrados de gran tamaño predan sobre protozoos, nemátodos y otros tardígrados, además existen especies hervíboras que consumen plantas no vasculares y en general consumen material vegetal descompuesto, bacterias y hongos. Su mecanismo de alimentación involucra el uso del estilete bucal que perfora a la presa y el tardigrado succiona el contenido del mismo, 
+## Nemátodos
+Los nemátodos, en general, son animales con un gran capacidad para ocupar diversos hábitat que contenga una película de agua son gusanos cilíndricos y elongados con simetria bilateral y no segmentados. Los nemátodos de vida libre del suelo son los metazoos más abundantes varían en su tamaño pero en general son de un largo menor a 7 mm, su caracterización anatomo-morfológica está desarrollada y permite la clasificación taxonómica de estos hasta el nivel de género (@.chaves_etal2019).
+
+Los nemátodos poseen una serie de adaptaciones a diferentes hábitos alimenticios que se observa mediante la diversidad de sus sistemas digestivos específicamente adaptaciones morfológicas bien aparentes en la región anterior del tracto digestivo, estos animales a través mediante el mecanismo de succión permiten el ingreso del alimento a travéz de la apertura bucal además poseen la capacidad de perforar células y de desgarrar a su presa según el mecanismo de alimentación del nemátodo en cuestión.
+Estas adaptaciones se correlacionan con su modo principal de alimentación y permite definir grupos tróficos.
+Los grupo tróficos de nemátodos de vida libre del suelo son: los nemátodos bacteríofagos, los nemátodos fungívoros, que se encuentran vinculados funcionalmente con la regulación poblacional de las comunidades de la microflora, los nemátodos predadores que predan sobre protozoos, tardígrados, y otros nemátodos, los nemátodos omnívoros, estos regulan las poblaciones de la microfauna y son importantes en el control de poblaciones fitófagas y los nemátodos fitófagos que parasitan las raices y tejidos vegetales y que resultan de interés productivo por su potencial efecto nocivo sobre especies de interés agronómico. (@.momoyfalco2009, @.yeatesetal1993).
+
+# Mesofauna
+
+## Enchytraeidae
+Los enquitreidos es una familia de Oligochaetes que se encuentran en habitat terrestres, litorales y acuáticos. Son gusanos segmentados cuyo largo no supera los 15 mm y en general su cuerpo es de color pálido blancuzco. 
+Estos animales se relacionan con la formación del suelo debida a su papel en la fragmentación de la materia orgánica, su mezcla con la fracción mineral del suelo y la deposición de capsulas fecales ("pellets fecales") sobre el suelo.
+Dash (1990) comenta que los enquitreidos consumen remanentes vegetales, sílice, grandes cantidades de hifas de hongos, algas unicelulares, bacterias y nemátodos fitófagos. Además los enquitreidos muestran preferencia por los hongos y por material vegetal en descomposición con una gran cantidad de hifas de hongos. 
+
+# Macrofauna
+## Gastropoda terrestres.
+Los moluscos terrestres son los caracoles y babosas estos prefieren hábitats húmedos, con abundante cantidad de alimento y una fuente de calcio. Estos animales requieren de la presencia de humedad constante y tanto adultos como huevos no resisten la desecación extrema por lo que recurren a estrategias de evitación para tolerar condiciones de sequía.
+
+Estos animales habitan entre la hojarasca y el suelo orgánico ("humus"). Burch y Pearce 1990 define los gastrópodos como la gran mayoría de ellos son herbívoros generalistas, pero en el sistema detritívoro del suelo ellos consumen hongos y tejido vegetal senescente.
+<!-- Completar con lo que dice Potapov 2022 protista a vertebrados -->
+
+## Lombrices de tierra
+La lombrices de tierra son gusanos pertenecen a los Oligochaeta y se encuentran en una amplia variedad de ecosistemas terrestres con excepcion de lugares áridos o zonas desérticas debido a sus requerimientos de humedad para poder llevar adelante sus actividades (Schewert 1990). Son importantes en el funcionamiento del ecosistema del suelo debido a su capacidad de cavar galerias a través del suelo mineral, de mezclar la hojarasca con el suelo y con bacterias intestinales y de transportar y relocalizar la materia orgánica que toma de la superficie y la deposita como heces blandas ("castings") en cuya composición se encuentran nutrientes asimilables por las plantas (@.momofalco2019; @.schewert1990).
+Las lombrices se alimentan ya sea enguyendo el suelo, enguyendo porciones de hojarasca y materia orgánica o una combinación de ambas, a su vez, las especies pueden encontrarse viviendo entre los intersticios que se forma entre la hojarasca y la superficie del suelo o pueden habitar en el suelo orgánico-mineral medio en el cual se habren paso construyendo galerías. 
+Por su mecanismo de alimentación son saprófagas, alimentandose de la materia orgánica en descomposición aunque al mismo tiempo consumen organismos de la microflora, de la microfauna, consumen humus y partículas de suelo mineral.
+
+## Araneae de la hojarasca
+
+Las arañas de la hojarasca son aquellos arácnidos que se encuentran habitando entre la hojarasca que se acumula sobre el suelo y los intersiticios y espacios que puedan formarse entre el suelo y la hojarasca. Son organismos solitarios en su gran mayoría e importantes depredadores (@.dondale 1990), como depredares poseen dos estrategias para capturar a sus presas, aquellas que buscan activamente a su presa y aquellas que se "sientan a esperar" hasta que la presas caigan en sus trampas, una vez la presa ha sido capturada la inmovilizan y predigieren el contenido interno a través de enzimas que inyectan mediante sus estructuras bucales y finalmente succionan los fluidos corporales.
+
+## Pseudoscorpionida
+
+Los pseudoscorpiones son pequeños arácnidos similares a los escorpiones pero no poseen como parte de su forma corporal una cola, que en caso de los escorpiones esta es larga y curvada con un aguijón ponzoñoso al final. Son artrópodos predadores en el suelo cuyas presas incluyen a los ácaros y colémbolos y a otros pequeños artrópodos, Muchmore (1990) comenta que la estrategia de caza es esperar a que la presa pase y luego capturarla. De manera similar a las arañas, los psudoescoprpiones aprapan a la presa inyectan enzimas y se alimentan de sus fluidos. Debido a su pequeño tamaño sus hábitos de vida son crípticos ocupando los pequeños espacios que se forman entre la hojaras, el suelo, troncos,rocas, etc. y moviendose fácilmente a través de ellos y hacia otros espacios sobre el suelo, tales como, los troncos de árboles, superficies de grandes piedras, etc (@.muchmore1990).
+
+
+# ref
+Chaves et al 2019 Clave para determinar generos de nematodos de la república argentina.
+Burch y Pearce 1990 GASTROPODA in Dindal 1990
+Dash 1990 Oligochaeta: Enchytraeidae in Dindal 1990
+Schewert 1990 Oligochaeta: Enchytraeidae in Dindal 1990
+Momo y Falco 2019 Biologia y Ecología de la fauna del suelo
+Dondale 1990 Litter Araneae in Dindal 1990

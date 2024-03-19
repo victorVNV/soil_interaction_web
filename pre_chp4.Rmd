@@ -521,13 +521,16 @@ g_net %e% "flujo" <- flux
 g_net %e% "flujo_red" <- flux*0.05
 
 #Asumo 1/ingreso por año
+#Microgramos por tiempo, misma unidad
 #Entonces 
 #Carroña = ingreso 4trimestral
 #Tejido vegetal ingreso diario
 #Humus formacion bianual
-tasa_ingreso<-c(3.33,333,0.5,rep(0.0001, times = 61))
+tasa_ingreso<-c(3.33,333,0.5,rep(NA, times = 61))
 
-valor_stab<-stability.value(t(m0),biomasas, t_met,eficiencias,tasa_ingreso,bioms.prefs = TRUE,bioms.losses = TRUE,ef.level = "prey" )
+valor_stab<-stability.value(t(m0), biomasas, t_met, eficiencias, 
+                            tasa_ingreso,bioms.prefs = TRUE,bioms.losses = TRUE,
+                            ef.level = "prey" )
 
 #warnings "especies no basales" definen tasas de crecimientos ? eso no es posible si se lo asigno a las basales ...
 

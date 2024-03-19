@@ -702,6 +702,8 @@ interaction_strenght_UNLu<-calc_interaction_intensity(da=edge_list_UNLu,
                          res_mm =peso_recurso,res_den = densidad_recurso,
                         con_mm = peso_consumidor, int_dim =dimension )
 
+#multiplicar qRC por la densidad el consumidor para que de la fuerza de interaccion total, sino es por unidad de peso del consumidor
+
 E(L_igf)$"int_strength"<-interaction_strenght_UNLu$qRC
 
 IS_ig_UNLu<-interaction_strenght_UNLu[,c(1,2,11)]
@@ -724,7 +726,7 @@ QSS_IS_UNLu.w<-graph_from_data_frame(IS_ig_UNLu.W,directed = TRUE, vertices =NUL
 
 #E(QSS_IS_UNLu)$weight<-IS_ig_UNLu$qRC 
 
-calc_QSS_extinction_dif(g=QSS_IS_UNLu.w,  sp_list=V(QSS_IS_UNLu.w)$name[5,15,8] , nsim = 10, ncores = 4, istrength = FALSE) 
+#calc_QSS_extinction_dif(g=QSS_IS_UNLu.w,  sp_list=V(QSS_IS_UNLu.w)$name[5,15,8] , nsim = 10, ncores = 4, istrength = FALSE) 
 ```
 
 
