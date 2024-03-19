@@ -78,6 +78,20 @@ Conocidos como cienpies (@.mundel1990) son drepredadores en la hojarasca y en lo
 ## Diplopoda
 Conocidos como milpies son animales terrestres comunes de hallar al remover la hojarasca y sobre el suelo orgánico y cuando son encontrados algunos se enrrollan sobre si mismos formando una espiral, su cuerpo se encuentra protegido por su rígida estrutura y sumando a esta característica algunos liberan sustancias repelentes para evitar o protegerse del ataque de los predadores. Los diplópodos, que viven en los suelos, son detritívoros se alimentan principalmente de hojarasca, además de materia orgánica en descomposición y ocasionalmente de la carroña de invertebrados, para ello utilizan sus piezas bucales para cortar el tejido vegetal e ingerirlo (@.hoffman1990). 
 
+## Isoptera
+
+Las termitas son insectos sociales cuya importancia en el suelo radica en su capacidad de modificar la estrutura de este de manera puntual al construir su nidos. Sus modos alimenticios incluyen la herbivoría mediante el consumo de tejido vegetal vivo tanto raices como de las estructura vegetales que se encuentra sobre el suelo y la detritivoría en el cual utilizan materiales ricos en celulosa y dek que Nutting (1990) menciona vegetación muerta tanto la hojarasca como troncos y ramas en descomposición, bosta, hifas de hongos y humus.
+
+## Psocóptera
+
+Son insectos con un largo corporal de hasta 12mm, según su categoría ecológica los hay quiene cumplen todo su ciclo de vida en la hojarasca y aquellos que son transitorios. Se alimentan con preferencia de ahifas de hongos y de artículas de material orgánico en avanzado estado de descomposición ("debris"), además se incluye también el consumo de algas y líquenes.
+
+## Coleóptera Carabidae
+
+Los carábidos pertenecen a una familia de coleópteros que habitan la superficie de los suelos en el que se halla la hojarasca, tienen la capacidad de formar espacios a través del suelo orgánico en el que se resguardan pero su efecto sobre la estructura del suelo es puntual e ínfimo. Estos escarabajos son carnívoros y se alimentan de todo tipo de presas que puedan capturar entre sus apéndices y también los hay aquellos que se alimentan de presas enfermas convalecientes y de carroña de animales invertebrados, aunque también existen especies hervívoras en la familia estas se hallan sobre el suelo, por otra parte existen especialistas cuyas adaptaciones bucales le permiten consumir gastrópodos, diplododos, colémbolos y microartrópodos, coleópteros estafilínidos y huevos de insectos. Su mecanismo de alimentación es peculiar, utilizando la digestión extraoral, fragmentan a sus presas, las enrollan y las almacenan un tiempo a manera de un cultivo que está digiriendose. Con respecto a la alimentación de las larvas de los carábidos se asumen que se alimentan de items similares a aquelos que consumen los adultos, algunas especies poseen estructurs bucales que permiten capturar y perforar a los microartrópodos (Bell 1990). 
+
+
+
 # ref
 Chaves et al 2019 Clave para determinar generos de nematodos de la república argentina.
 Burch y Pearce 1990 GASTROPODA in Dindal 1990
@@ -91,4 +105,6 @@ Scheller 1990 Pauropoda in Dindal 1990
 Edwards 1990 Pauropoda in Dindal 1990
 Copeland and Imadaté 1990 Protura in Dindal 1990
 Ferguson 1990 Diplura in Dindal 1990
+Nutting 1990 Isoptera in Dindal 1990
+Bell 1990 Carabidae in Dindal 1990
 Potapov 2018 paper donde dice que ve a protura comer ectomicorriza
