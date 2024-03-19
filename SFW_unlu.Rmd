@@ -698,6 +698,9 @@ edge_list_UNLu$dimension<-"2D"
 #edge_list_UNLu[edge_list_UNLu$peso_consumidor==0|edge_list_UNLu$peso_consumidor==-999,"peso_consumidor"]<-1e-15
 #error
 #Ya tengo todos los componentes solicitados
+
+# Para detritos litter, carrion, etc. el tamaño del recurso res_mm y la densidad del recurso res_den están desacoplados del tamaño del consumidor, hay que asignar 1 a ambos 
+
 interaction_strenght_UNLu<-calc_interaction_intensity(da=edge_list_UNLu,
                          res_mm =peso_recurso,res_den = densidad_recurso,
                         con_mm = peso_consumidor, int_dim =dimension )
@@ -707,12 +710,13 @@ interaction_strenght_UNLu<-calc_interaction_intensity(da=edge_list_UNLu,
 E(L_igf)$"int_strength"<-interaction_strenght_UNLu$qRC
 
 IS_ig_UNLu<-interaction_strenght_UNLu[,c(1,2,11)]
-names(IS_ig_UNLu)<-c("recurso","consumidor","qRC")
+names(IS_ig_UNLu)<-c("recurso","consumidor","weigth")
 
 QSS_IS_UNLu<-graph_from_data_frame(IS_ig_UNLu,directed = TRUE, vertices =NULL)
 
-
-quasi_unlu<-calc_QSS(QSS_IS_UNLu, istrength=TRUE, returnRaw = FALSE, nsim=10)
+edge_attr_names(QSS_IS_UNLu)
+E(QSS_IS_UNLu)
+(quasi_unlu<-calc_QSS(QSS_IS_UNLu, istrength=TRUE, returnRaw = FALSE, nsim=10))
 
 
 
