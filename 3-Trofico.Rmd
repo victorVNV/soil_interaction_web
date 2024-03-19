@@ -30,6 +30,26 @@ Los enquitreidos es una familia de Oligochaetes que se encuentran en habitat ter
 Estos animales se relacionan con la formación del suelo debida a su papel en la fragmentación de la materia orgánica, su mezcla con la fracción mineral del suelo y la deposición de capsulas fecales ("pellets fecales") sobre el suelo.
 Dash (1990) comenta que los enquitreidos consumen remanentes vegetales, sílice, grandes cantidades de hifas de hongos, algas unicelulares, bacterias y nemátodos fitófagos. Además los enquitreidos muestran preferencia por los hongos y por material vegetal en descomposición con una gran cantidad de hifas de hongos. 
 
+## Pauropoda
+
+Los paurópodos son pequeños miriápodos blanquecinos y ciegos su cuerpo cilíndrico y unos pocos pares de patas aproximadamente entre 8 y 11 alcanzando largos de hasta 1,5 mm. Habitan en los poros del suelo orgánico, entre la hojarasca, entre los troncos en descomposición y lugares donde permanece oscuro, la humedad alta y temperaturas moderadas.
+Su movilidad es reducida, sus partes bucales son poco desarrolladas y consumen hifas de hongos principalmente y fluidos que son producto del material vegetal descompuesto (@.scheller1990).
+
+## Symphyla
+
+La clase sínfila habitan los suelos alrededor del mundo son importante en el fraccionamiento de la materia orgánica del cual obtienen sus nutrientes y además se alimentan de pequeñas raices y raicillas. Son animáles elongados, blanquecinos, con hasta 12 pares de patas y pueden alcanzar largos de hasta 1,5 cm, debido a su forma corporal pueden recorrer a lo largo de los poros del suelo orgánico mineral (@.edwards1990). Edwards 1990 menciona como hábitos alimenticios que la clase incluye especie voraces consumiendo hasta 20 veces su peso, algunos son herbívoros pudiendo llegar a causar daños en especies vegetales de interés productivo, pero en general se alimental de material vegetal en descomposición, microrganimos y carroña de invertebrados. 
+
+## Protura
+
+Los proturos son hexapodos diminutos, delgados, aplanados, ciegos, se encuentran en la hojarasca y el suelo orgánico, debajo de troncos y piedras en lugares donde se mantienen la humedad alta entre los poros e intersticios que ellos ocupan y también se hallan a profundidades mayores a los 5 cm en el suelo mineral  (@.copeland_imadaté1990). Los items alimenticios de estos animales son desconocidos aunque su alimentación sobre ectomicorrizas ha sido documentada (@.potapov2018) 
+
+## Diplura
+
+Los dipluros son hexapodos alargados, de pequeño tamaño, adaptados a la vida en los poros del suelo, su característica es el apéndice caudal que puede ser del tipo pinzas de fuerza (Japygidos) o de tipo filamento (Campodeidos). Ambos clases de animales son omnívoros con preferencia por items alimenticios animales que incluyen colémbolos, ácaros, dipluros (i.e. canivales), larvas de insectos, enquitreidos y en menor grado consumen detritos y micelios y esporas de hongos (@.ferguson1990).
+
+
+
+
 # Macrofauna
 ## Gastropoda terrestres.
 Los moluscos terrestres son los caracoles y babosas estos prefieren hábitats húmedos, con abundante cantidad de alimento y una fuente de calcio. Estos animales requieren de la presencia de humedad constante y tanto adultos como huevos no resisten la desecación extrema por lo que recurren a estrategias de evitación para tolerar condiciones de sequía.
@@ -51,6 +71,13 @@ Las arañas de la hojarasca son aquellos arácnidos que se encuentran habitando 
 Los pseudoscorpiones son pequeños arácnidos similares a los escorpiones pero no poseen como parte de su forma corporal una cola, que en caso de los escorpiones esta es larga y curvada con un aguijón ponzoñoso al final. Son artrópodos predadores en el suelo cuyas presas incluyen a los ácaros y colémbolos y a otros pequeños artrópodos, Muchmore (1990) comenta que la estrategia de caza es esperar a que la presa pase y luego capturarla. De manera similar a las arañas, los psudoescoprpiones aprapan a la presa inyectan enzimas y se alimentan de sus fluidos. Debido a su pequeño tamaño sus hábitos de vida son crípticos ocupando los pequeños espacios que se forman entre la hojaras, el suelo, troncos,rocas, etc. y moviendose fácilmente a través de ellos y hacia otros espacios sobre el suelo, tales como, los troncos de árboles, superficies de grandes piedras, etc (@.muchmore1990).
 
 
+## Chilopoda
+
+Conocidos como cienpies (@.mundel1990) son drepredadores en la hojarasca y en los poros del suelo organico mineral y en espacios que se forman entre piedras o troncos que se mantienen húmedos y oscuros. Las estructuras anatómicas relacionadas con la región anterior permiten procesar a la presa tienen formas de pinzas en la cual se encuentran los ductos de las glándulas que liberan toxinas para matar a su presa.
+
+## Diplopoda
+Conocidos como milpies son animales terrestres comunes de hallar al remover la hojarasca y sobre el suelo orgánico y cuando son encontrados algunos se enrrollan sobre si mismos formando una espiral, su cuerpo se encuentra protegido por su rígida estrutura y sumando a esta característica algunos liberan sustancias repelentes para evitar o protegerse del ataque de los predadores. Los diplópodos, que viven en los suelos, son detritívoros se alimentan principalmente de hojarasca, además de materia orgánica en descomposición y ocasionalmente de la carroña de invertebrados, para ello utilizan sus piezas bucales para cortar el tejido vegetal e ingerirlo (@.hoffman1990). 
+
 # ref
 Chaves et al 2019 Clave para determinar generos de nematodos de la república argentina.
 Burch y Pearce 1990 GASTROPODA in Dindal 1990
@@ -58,3 +85,10 @@ Dash 1990 Oligochaeta: Enchytraeidae in Dindal 1990
 Schewert 1990 Oligochaeta: Enchytraeidae in Dindal 1990
 Momo y Falco 2019 Biologia y Ecología de la fauna del suelo
 Dondale 1990 Litter Araneae in Dindal 1990
+Dondale 1990 Chilopoda in Dindal 1990
+Dondale 1990 Diplopoda in Dindal 1990
+Scheller 1990 Pauropoda in Dindal 1990
+Edwards 1990 Pauropoda in Dindal 1990
+Copeland and Imadaté 1990 Protura in Dindal 1990
+Ferguson 1990 Diplura in Dindal 1990
+Potapov 2018 paper donde dice que ve a protura comer ectomicorriza
