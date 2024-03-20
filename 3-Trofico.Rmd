@@ -90,7 +90,25 @@ Son insectos con un largo corporal de hasta 12mm, según su categoría ecológic
 
 Los carábidos pertenecen a una familia de coleópteros que habitan la superficie de los suelos en el que se halla la hojarasca, tienen la capacidad de formar espacios a través del suelo orgánico en el que se resguardan pero su efecto sobre la estructura del suelo es puntual e ínfimo. Estos escarabajos son carnívoros y se alimentan de todo tipo de presas que puedan capturar entre sus apéndices y también los hay aquellos que se alimentan de presas enfermas convalecientes y de carroña de animales invertebrados, aunque también existen especies hervívoras en la familia estas se hallan sobre el suelo, por otra parte existen especialistas cuyas adaptaciones bucales le permiten consumir gastrópodos, diplododos, colémbolos y microartrópodos, coleópteros estafilínidos y huevos de insectos. Su mecanismo de alimentación es peculiar, utilizando la digestión extraoral, fragmentan a sus presas, las enrollan y las almacenan un tiempo a manera de un cultivo que está digiriendose. Con respecto a la alimentación de las larvas de los carábidos se asumen que se alimentan de items similares a aquelos que consumen los adultos, algunas especies poseen estructurs bucales que permiten capturar y perforar a los microartrópodos (Bell 1990). 
 
+## Coleoptera Staphylinidae
 
+Los escarabajos estafilinidos son una familia de coleópteros muy diversa y especiosa, estos se caracterizan por su élitros cortos y truncados, el abdomen expuesto y con el cuerpo elongado en la mayoría de los habitantes del suelo alcanzando largos de hasta 3,5 cm. Los estafilínidos son predaores ágiles en los hábitats que se encuentra entre la hojarasca y los poros del suelo orgánico, sus presas incluyen a los colémbolos, ácaros, ácaros oribátidos, larvas y adultos de escarabajos e insectos de pequeño tamaño y nemátodos. Similar a los carábidos ellos hacen uso de la estrategia de digestión extra oral de sus presas capturadas y procesadas. Las excepciones a este modo alimenticio incluyen su alimentación sobre material orgánico descompuesto y hongos (@.newton1960)
+
+## Coleoptera Ptiliidae
+
+La familia de Ptiliidae incluye escarabajos más pequeños con largos de hasta 1mm. Habitan en la hojarasca y sitios en el cual exista una alta humedad tal que permita el desarrollo de hongos de los cuales se alimenta (@.dybas1990).
+
+## Coleoptera Scarabaeidae
+
+Las larvas de los escarabajos escarabeidos, conocidos como "gusano blanco", son el estadío que habitan de los suelos en el cual se habren paso a través del suelo orgánico mineral cavando túneles, son características de esta larva su gran tamaño, la posición que toman naturalmente en forma de "C", la cabeza definida oscura y los espiráculos visibles a lo largo de los laterales del cuerpo de la larva, poseen partes bucales bien definidas que le permiten masticar el alimento. Algunas de estas larvas son reconocidas por su impacto económico al alimentarse de las raices de plantas cultivada, pero en la mayoría de las especies la alimentación de estas larvas se basa en el consumo de material vegetal en descomposición, hojarasca y raices, humus, estiercol y carroña. Los adultos de esta familia pueden ser coprófagos, carroñeros, herbívoros o no alimentarse (Tashiro 1990).
+
+## Díptera
+
+El orden de los dípteros en el que se encuentran las moscas y mosquitos son importantes en el suelo en su estadío larval, muchas especies de dipteros depositan sus huevos en el material orgánico en descomosición o directamente sobre el suelo, en zonas donde la humedad es alta y constante y la materia orgánica es abundante, posteriormente los huevos eclosionan y sus larvas se alimentan de las hifas de hongos, hojarasca en descomosición, estiercol, carroña y en fluidos ricos en compuestos orgánicos (@.mcalpine1990; @.teskey1990).
+
+## Hymenoptera Formicidae
+
+Las hormigas son insectos sociales cuya actividad sobre el suelo es de importancia debida a las moificaciones que hacen en el mismo para construir sus nidos y su impacto puede ser sobre una superficie de unos pocos cm² hasta varios m². 
 
 # ref
 Chaves et al 2019 Clave para determinar generos de nematodos de la república argentina.
@@ -107,4 +125,9 @@ Copeland and Imadaté 1990 Protura in Dindal 1990
 Ferguson 1990 Diplura in Dindal 1990
 Nutting 1990 Isoptera in Dindal 1990
 Bell 1990 Carabidae in Dindal 1990
+Bell 1990 Ptiliidae in Dindal 1990
+Divas 1990 Ptiliidae in Dindal 1990
+Tashiro 1990 Scarabaeidae larvae in Dindal 1990
+McAlpine 1990 Diptera larvae in Dindal 1990
+Teskey 1990 Diptera larvae larvae in Dindal 1990
 Potapov 2018 paper donde dice que ve a protura comer ectomicorriza
