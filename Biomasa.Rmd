@@ -1,0 +1,298 @@
+---
+title: "Biomasa y espectro de tamaños de los microartrópodos edáficos"
+author: "Velazco V. N."
+output:
+  html_document: default
+  word_document: default
+  
+bibliography: Soilnetworks.bib
+---
+
+```{r setup, include=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+#rm(list=ls())
+
+{require(tidyverse); require(kableExtra); require(quantreg)}
+
+#Cantidad de digitos a usar y quitamos la notacion cientifica
+options("scipen"=999, "digits"=2)
+# Guardar las opciones gráficas básicas
+oldpar<-par(no.readonly = TRUE)
+#semilla numeros aleatorios
+set.seed(30)
+theme_set(theme_bw())
+
+completo <- read_csv2("body_fq_guil_22.csv" , locale = readr::locale(encoding = "ISO-8859-1"))
+
+#Superficie en metros cuadrados a partir del sacabocados de 5 centímetros cuadrados
+#factor de conversión
+superficie <- pi*2.5^2/10000
+
+#sin macrofauna
+#Datos brutos, biomasa individual de microartropodos
+meso <- filter(completo,class!="macrofauna"&specie!="oribátido"&specie!="mesostigmata")%>%mutate( season=fct_relevel(season, c("O","I","P","V")))
+
+#%>%mutate( season=fct_relevel(season, c("O","I","P","V")),habitat=fct_relevel(habitat, c("epiedaphic","hemiedaphic","euedaphic")))
+
+#Base con biomasas promedios por especie
+#sample, son submuestras, por lo que no sirve para dividir sino para promediar la muestra
+base <-meso %>% group_by(system,site,year,month,sample,season,class,order,specie,guild) %>%  summarise(abundance=(n()/superficie), bio.ind=mean(biomass),Tbiomass=(bio.ind*abundance))
+
+```
+
+# Introducción
+
+Los ácaros y colémbolos que habitan el sistema poroso del suelo son los microartrópodos edáficos más abundantes [@lavelle2012; @ritz2012]. Estos se vinculan con el ciclo del carbono y de los nutrientes a través del consumo de materia orgánica, del transporte de propágulos, del control de poblaciones y además son los recursos alimenticios de otros organismos edáficos, de esta manera contribuyen con el funcionamiento del ecosistema edáfico [@brussaard2012; @wurst2012].
+
+La identificación taxonómica de las comunidades que habitan la red de poros del suelo se dificulta a medida que el tamaño corporal de los organismos disminuye [@briones2014], sumado a esto, los microartrópodos edáficos se caracterizan por formar una comunidad con una importante redundancia funcional debido a su gran abundancia y a sus hábitos alimenticios generalistas [@hattenschwiler2005; @walker1992]. Para avanzar en la compresión de las comunidades crípticas del suelo tomando en cuenta estas características se puede abordar, por un lado, con el uso de agrupamientos que clasifiquen los microartrópodos en diferentes gremios (requerimientos de nichos similares) o en grupos funcionales (funciones ecológicas específicas), y por el otro utilizando rasgos de los individuos, sin considerar necesariamente su identificación hasta el nivel de especie, lo que permite mejorar la capacidad predictiva y la comprensión sobre los procesos que ocurren en las comunidades ecológicas [@moretti2017; @leguillarme2023].
+
+Todos los organismos responden a las presiones ambientales: estas respuestas pueden observarse, ya sea como cambios en los rasgos morfológicos, fisiológicos, fenológicos o de comportamiento y o como respuestas a nivel poblacional. Por lo tanto, el efecto de las interacciones de los organismos con su ambiente queda reflejado en las variaciones de dichos rasgos, que pueden ser utilizados como indicadores de procesos ecológicos a nivel de la comunidad [@brussaard2012; @mittelbach2019; @petchey2010; @sechi2017].
+
+Los microartrópodos edáficos son sensibles a las perturbaciones que ocurren sobre el suelo, debido a que las actividades de manejo pueden alterar el hábitat y la fuente de los recursos que estos organismos utilizan [@lavelle2006]. Por ejemplo, las perturbaciones pueden alterar los ingresos y salidas de materia orgánica y nutrientes debido a los pulsos derivados de la aplicación de fertilizantes y pesticidas, o la alteración de las condiciones del microclima poroso cuando se expone el suelo a los factores ambientales en periodos de barbecho cuando el cultivo no se encuentra presente, o ,en sistemas ganaderos, el efecto de la compactación sobre la estructura física del suelo que afecta la distribución y tamaño de los poros. 
+
+La estimación del tamaño corporal de los organismos edáficos, medida a partir del peso corporal, permite relacionar tanto parámetros fisiológicos como el metabolismo y el uso de los recursos, como parámetros ecológicos tales como las interacciones tróficas y las adaptaciones de estos organismos ante cambios en el ambiente [@pey2014; @white2007; @turnbull2014]. 
+
+Las variaciones del tamaño corporal en las comunidades ecológicas pueden analizarse mediante las distribuciones del peso corporal, esto es, mediante espectro de tamaños y pueden ser relacionadas con diferentes aspectos de las comunidades, tales como, los gremios tróficos, grupos funcionales, habitats, posiciones en la red trófica, entre otros [@edwards2020]. Por otra parte, se pueden establecer relaciones entre el tamaño corporal y la abundancia de las especies: la abundancia permite describir la importancia de las especies en el ecosistema y relacionarlas con la redundancia funcional y el funcionamiento ecosistémico [@briones2014], los cambios en la distribución del tamaño corporal de los organismos en una comunidad reflejan cambios en los procesos ecológicos relacionados con variaciones en el ambiente o variaciones en las red de interaciones biológicas [@pey2014;@white2007], a su vez, la relación directa de ambos parámetros constituye la biomasa media que mide la cantidad de materia orgánica retenida por los actores en la red de interacciones y con el metabolismo y el flujo de energía que atraviesa los nodos [@potapov2019]. De esta manera, los cambios en la biomasa, en el espectro de tamaños o ambos, se enlazan la historia de vida de los organismos y la respuesta individual a las presiones ambientales, con la estructura y dinámica de las comunidades, y, con los efectos subsecuentes en los procesos ecológicos y con el funcionamiento del ecosistema [@sechi2017; @moretti2017; @blanchard2017; @jonsson2005; @peters1986] y pueden dar cuenta de efectos diferenciales debidas a las intensidades de las perturbaciones sobre el ecosistema del suelo asociadas con el uso antrópico. 
+
+Mediante el análisis de la biomasa y del espectro de tamaños de los ácaros y colémbolos que habitan suelos Argiudoles típicos de la Pampa Ondulada sometidos a diferentes sistemas de manejo se pretende conocer la respuesta diferencial de dichas comunidades y determinar cuáles son los efectos del manejo antrópico sobre los microartrópodos; por lo que se espera que los microartrópodos respondan a los efectos del uso del suelo y que los efectos se vean reflejados sobre los gremios tróficos de microartrópodos edáficos.
+
+Entonces a partir de un suelo natural definido como referencia donde se encuentran las características de un suelo no disturbado, se podrían comparar parámetros estructurales y funcionales de la comunidad de microartrópodos edáficos que permitan evaluar la estabilidad de la red de interacciones como indicadora del estado de conservación del suelo y determinar a través de su estudio la sustentabilidad de los sistemas de manejo [@bedano2007;@socarras2013]. 
+
+<!-- Esto es demasiado largo para una sola oracion y deberia ser el planteo del objetivo de este capitulo. ¿A ver algo asi? "El objetivo de esta parte de la tesis es el de estudiar posibles diferencias en los espectros de tamaño que puedan reflejar los efectos del manejo antrópico sobre la comunidad de microartrópodos edàficos" -->
+
+# Métodos
+
+## Sitios de estudio
+
+Se tomaron muestras en sitios con diferentes intensidades de uso: a- Pastizales naturalizados (N) pastizales abandonados sin influencia antrópica directa significativa por al menos 50 años: son campos cuya vegetación predominante es _Festuca pratensis_, _Stipa sp._, _Cirsium vulgare_ y _Solanum laucophylumm_; b- Sistema mixto, agrícola-ganadero (G) con 25 años bajo pastoreo continuo con alta carga animal y a partir del año 2007 producción de pasturas para feedlot; c- Sistema agrícola intensivo (A), bajo agricultura intensiva con labranza continúa por 50 años y bajo siembra directa desde el año 2001, en suelos Argiudoles Típicos [@usda2014] ubicados en los partidos de Chivilcoy y Navarro de la provincia de Buenos Aires, en la Pampa Húmeda Argentina.
+
+El diseño de muestreo consistió en tres réplicas por cada sistema de uso con una frecuencia de muestreo bimensual durante 2 años consecutivos. La toma de muestras de suelo se realizó con sacabocados ($\varnothing$ 5 cm y 10 cm profundidad), la extracción de microartrópodos se realizó mediante la técnica de tamizado y flotación [@vargas2007] y la identificación de taxones fue realizada hasta el nivel de familias de Collembola y superfamilias de Acari [@momo2009;@dindal1990;@krantz2009]. Se hallaron 27, 31 y 32 taxas en los sistemas naturalizado, agrícola-ganadero y agrícola respectivamente; la riqueza global fué de 32 taxas de los cuáles 5 pertenecen a Collembolla; descripciones detalladas sobre sitios de estudio, diseño de muestreo, otras variables analizadas y técnicas de extracción, ver en Sandler et al. [-@sandler2019].
+
+## Estimación de la biomasa individual de los micrartrópodos
+
+Se tomaron fotografías con un esteroscopio Leica (S8AP0) de cada ácaro (Acari) y colémbolo (Collembola), montados temporalmente. Mediante el software ImageJ se tomaron las longitudes del largo y ancho corporal que permite estimar la biomasa corporal a partir de ecuaciones morfométricas [@rasband2018; @newton2013]. Se realizó 7042 estimaciones de pesos corporales individuales, distribuidos en 1592 registros para el sistema natural (N), 2698 para el sistema mixto agrícola-ganadero (G) y 2752 para el sistema intensivo agrícola (A). Las ecuaciones utilizadas son presentadas en el Apéndice. 
+
+A partir de los pesos corporales ( $\mu g_ {\;p.s.}$ ) para cada individuo, se calcularon los valores de densidad ( $no. ind/m^{-2}$ ) para cada taxa, el valor del peso corporal medio para el taxón ( $\mu g_{\;p.s.}$ ) y la biomasa media total ( $\mu g_{p.s.} * m^{-2}$ ). Tambíen a cada taxón se asigno una categoría de gremio trófico en función del uso que hacen de los recursos tróficos [@velazco2022; @simberloff2022a] (Apendice: Metadatos)
+
+## Análisis estadístico
+
+Se resumen las valores medio de densidad, biomasa y pesos corporales de los taxones en cada sistema de manejo, para observar diferencias estructurales entre los microartrópodos y el impacto del uso del suelo en los diferentes sistemas de manejo. 
+
+Se analizó la relación entre la biomasa media en función de la categorización por gremios tróficos, del efecto de las estaciones del año y del efecto vinculado con los sistemas de manejo, además de las interacciones entre estos utilizando un modelo lineal multifactorial y pruebas post-hoc de Tukey HSD para evaluar diferencias de medias de manera simultánea.
+
+Las relaciones entre los pesos corporales medios y las abundancias se abordó mediante el uso de la regresión sobre el tercer cuartil[@white2007], que permite, obtener una relacion de regresión sin realizar supuestos sobre la distribución de las variables, además el tercer cuartil disminuye el efecto de las especies raras y permite centrarse en los valores más probables del peso adulto de los microartrópodos [@cade2003; @turnbull2014]. Se realizaron comparaciones entre los interceptos y las pendientes para evaluar la existencia de diferencias, y como se relacionan estas con las características ecológicas y el impacto de las actividades sobre las comunidades de los microartrópodos edáficos [@cade2003]; para ello se hizo uso del paquete "quantreg" que permite realizar modelos de regresión de cuartiles y utilizar técnicas de remuestreo (bootstraping) no paramétricas para evaluar las diferencias. Se relacionó el peso corporal medio versus la densidad en relación a dos factores: los gremios tróficos y los sistemas de uso del suelo; este enfoque es conocido como LSDR "Local Size-Density Relationships" y expresa que valor//es de pendientes más pronunciadas se relacionan con impactos fuertes sobre los taxones [@white2007].
+
+Las variables fueron transformadas con logaritmos naturales, debido a que la distribución de los pesos corporales ajustan a la distribución logarítmica normal [@koch1966]. Mediante prueba de Anderson Darling se verifica que las muestras provienen de poblaciones independientes ver Apéndice. Todos los análisis se realizaron R 4.2.1 [@clauset2009; @crawley2013].
+
+<!-- corrección para comparaciones múltiples; “inferencia simultánea”-->
+
+# Resultados
+
+
+El peso corporal promedio de los ácaros en N, G y A fué de 5,53 -  4,23 - 6,31 $\mu g_{p.s.}$ respectivamente, con pesos mínimos de 0,059 - 0,082 - 0,09 $\mu g_{p.s.}$ y máximos de 77,4 - 49,4 - 37,5 $\mu g_{p.s.}$ respectivamente. El peso corporal promedio de los colémbolos en N, G y A fué de 4,69 - 5,75 - 2,61 $\mu g_{p.s.}$ con pesos mínimos de 0,015 - 0,08 - 0,034 $ug_{p.s.}$ y máximos de 29,8 - 71,2 - 75 $\mu g_{p.s.}$.
+
+La biomasa media de los microartrópodos del sistema pastizal naturalizado (N) alcanza los 212,2 $mg_{p.s.}/m^2$, los 754,1 $mg_{p.s.}/m^2$ en el sistema mixto agrícola ganadero (G) y 636 $mg_{p.s.}/m^2$ en el sistema agrícola intensivo (A).
+
+
+**Tabla 1. Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total ($mg_{p.s.}/m^2$) para los órdenes de Acari y Collembola hallados en los sistemas de manejo**
+
+```{r Tabla1, echo=FALSE,warning=FALSE,message=FALSE}
+#Tabla de biomasa total, densidad, y promedio por órdenes
+
+A1<-meso%>%mutate(order=factor(order,labels=c("Astigmata","Entomobryomorpha","Mesostigmata","Oribatida","Poduromorpha","Symphypleona","Trombidiformes")),order=fct_relevel(order, c("Poduromorpha","Entomobryomorpha","Symphypleona","Oribatida","Mesostigmata","Trombidiformes","Astigmata")))%>%mutate(Manejo=system, Orden=order,Taxon=specie)%>%mutate(Manejo=factor(Manejo,labels= c("Agrícola intensivo","Agrícola-ganadero","Pastizal natural")),Taxon=factor(Taxon,labels=c("Acaroidea","Bdelloidea","Brachychthonioidea","Ceratozetoidea","Crotonioidea","Dermanyssoidea","Entomobroidea","Epilohmannioidea","Euphthiracaroidea", "Eupodoidea","Galumnioidea","Hypogastruridae","Isotomidae","Onychiuridae","Oppioidea","Oripodoidea","Parasitoidea","Rhodacaroidea","Symphypleona","Trombidioidea","Tydeoidea","Uropodoidea","Veigaioidea")),Gremio=factor(guild,labels=c("Detrívoro","Microfitófago","Omnívoro","Predador")))%>%group_by(Manejo,Orden,site,year,month,sample,Taxon,Gremio)%>%summarise(peso=biomass,bio=sum(biomass), abT= n(), bioT=bio/superficie, D=abT/superficie)
+
+A2<-A1%>%group_by(Manejo,Orden,Taxon,Gremio)%>%summarise(peso_corp=mean(peso),pmin=min(peso),pmax=max(peso), d=mean(D),Bt=mean(bioT)/1000) %>% distinct(Taxon,.keep_all=TRUE)
+
+A3<-A2%>%group_by(Manejo,Orden)%>%summarise('Peso corporal'=mean(peso_corp),'Peso corporal mínimo'= min(pmin),'Peso corporal máximo'= max(pmax), Densidad=sum(d),'Biomasa media'=sum(Bt)) %>% distinct(Orden,.keep_all=TRUE)
+
+A3%>% kbl() %>%kable_classic(full_width = F, html_font = "Cambria")
+
+#caption = "Tabla 1. Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total ($mg_{p.s.}/m^2$) para los órdenes de Acari y Collembola hallados en los sistemas de manejo"
+#test Nemenyi que sigue a KW, para comparar entre medianas
+```
+
+En cada sistema de uso la mayor densidad de individuos (Tabla 1) se observa en el orden Poduromorpha, el segundo taxón más abundante para los tres sistemas fúe el suborden Oribatida. Los taxones con mayor participación de biomasa en los sistemas de uso naturalizado, mixto e intensivo,se observaron en el suborden Oribátida con una importancia del 36% y en el orden Poduromorpha con importancias del 56% y 57% respectivamente.
+
+Para los Poduromorpha la mayor biomasa total (425 $m g_{p.s.}/m^2$) y el mayor peso corporal medio (5,1 $\mu g_{p.s.}$) se observa en el sistema mixto, pero la mayor densidad de estos se observa en el sistema A. Este orden (Tabla I. Apéndice.1) se conforma con las familias de Hypogastruridae y Onichiuridae, entre estos, los primeros son *omnívoros*, de un mayor peso corporal medio y con mayores valores de biomasa media, los Onychiuridae por su parte son *microfitófagos*, de menor tamaño corporal, menor biomasa media pero presentan una mayor densidad poblacional que los hipogastruridos en el sistema del pastizal naturalizado.
+
+De manera similar a los Poduromorpha, el orden Entomobryomorpha presenta la mayor biomasa en el sistema G. Estos, en los tres sistemas de uso, presentan valores de peso corporal próximos entre sí, y, la mayor densidad se dío en el pastizal naturalizado. Para este orden se hallaron individuos clasificados en dos familias: Entomobroidea e Isotomidae. Los entomobridos, son *microfitófagos*, con pesos corporales medios mayores a 5 $\mu g_{p.s.}$, poco abundantes y contribuyen poco, aproximadamente un 12%, con la biomasa del orden en los tres sistemas. Los isotomidos son *detritívoros* de pequeño tamaño (< 3,5 $\mu g_{p.s.}$), y muy importantes en términos de biomasa y densidad dentro del orden; estos presentan la mayor biomasa en el sistema mixto y la menor biomasa en el sistema intensivo.  
+
+El suborden Oribátida muestra el mayor valor de biomasa en el sistema G donde también se presenta el mayor peso corporal medio del orden, sigue a este, en términos de biomasa el sistema A. Se observa también que, en A se da la mayor densidad de individuos superando tanto a G como a N con una diferencia de aproximadamente 15 mil individuos. En este suborden, se hallaron individuos pertenecientes a 8 superfamilias con hábitos alimenticios *detritívoro* y *microfitófago*. En general, los oppididos son el taxón de menor tamaño y los galumnidos seguidos por los euphtiracaridos los de mayor tamaño corporal; con relación a la densidad, las poblaciones de oppididos y oripodidos son los de mayor importancia, y los taxones de mayor tamaño mencionados antes son los menos abundantes. Los *detritívoros* expresan los valores más altos de biomasa en G y en A, en el pastizal naturalizado la biomasa de detritívoros se aleja aproximadamente 57 $m g_{p.s.}/m^2$; en todos los sistemas son los oripodidos los representantes en términos de abundancia. Los oribátidos *microfitófagos*, similar al caso anterior, expresan el mayor valor de biomasa en el sistema mixto, pero en este sistema se observa la menor densidad alejándose en al menos 16 mil individuos del sistema A donde se observa mayor densidad para esta categoría.
+
+El orden de ácaros Mesostigmata, representados por cuatro superfamilias, son organismos con hábitos alimenticio de tipo *predador*. El orden presenta la mayor biomasa en el sistema agrícola intensivo, también se dan, en este sistema, el mayor peso corporal promedio y la mayor densidad de mesostigmatas; sigue a este en orden de importancia y para estas variables el sistema del pastizal naturalizado. Dentro de los Mesostigmata son los uropododidos en los sistemas A y N el taxa con el mayor peso corporal medio ($\approx 17 \mu g_{p.s.}$), en cambio en G el peso corporal de los Uropodoidea disminuyó fuertemente hasta $\approx 3,5 \mu g_{p.s.}$ y son los Parasioidea quienes representan el mayor peso corporal medio en G.  
+
+En el caso del orden de ácaros Trombidiformes, la mayor biomasa media se dió en el sistema agrícola intensivo donde se observa también la mayor densidad superando al sistema del pastizal naturalizado en unos pocas decenas de individuos; destaca también, en el sistema A, el sesgo del peso corporal medio. En este orden enontramos 4 superfamilias, una de ellas *omnívora*, los Tydeoidea y el resto con hábitos alimenticios *predadores*. Los tydeidos presentan la mayor abundancia y el mayor valor de biomasa media en el sistema intensivo, estos tydeidos *omnívoros* en términos de biomasa representan el 36%, el 27% y el 13% del orden Trombidiformes en los sistemas A, G y N respectivamente. 
+
+Es en el sistema mixto donde el orden Symphypleona presenta la mayor biomasa media y el mayor peso corporal medio, pero la mayor abundancia de estos se observó en el sistema agrícola. No se han observado organismos pertenecientes a Astigmata en sistema del pastizal naturalizado.
+
+## Variaciones de la biomasa total de los microartrópodos edáficos
+
+Las variaciones en la biomasa total de los microartrópodos edáficos se explican como efectos principales con los sistemas de manejo, las estaciones del año y con los gremios tróficos (Tabla 2), existen también interacciones significativas, entre las estaciones del año y los sistemas de manejo y entre los gremios tróficos que se encuentran en cada sistema de manejo.
+
+```{r Tabla2, include=FALSE, warning=FALSE, message=FALSE}
+#options(contrasts=c("contr.treatment","contr.poly"))
+m1<-aov(formula = log(Tbiomass) ~ system + season + guild + system:guild + system:season, data = base)
+print("Tabla 2")
+summary.aov(m1)
+summary.lm(m1)
+#En apéndice los summary y model table
+```
+
+
+**Tabla 2. Análisis de la varianza de la Biomasa de los microartrópodos edáficos**
+
+Fuente de Variación |Grados de libertad | Suma de cuadrados |Cuadrados medios | valor F | prob. (>F)|
+-|-|-|-|-|-|
+Manejo |2 |15 |7,5 | 3,68| 0,0255|
+Estación del año |3 |142 |47,2 |23,18 |1,6x10^-14^ 
+Gremio trófico |3 |157 |52,2 |25,61 |5,8x10^-16^
+Manejo x Gremio |6 |40 |6,6 |3,25 |0,0036 
+Manejo x Estación |6 |50 |8,4 |4,12 |0,0004
+Residuos |996 |2030 |2 | | |
+
+
+La biomasa media (Tabla 3) de los microartrópodos edáficos aumentan desde el otoño, donde se observan los menores valores de biomasa, hacia la primavera en donde se expresa la mayor biomasa media ($e^{8,507} \approx 4950 \; m g_{p.s.}\:/m^2$), luego, durante el verano, la biomasa disminuye. 
+
+
+Considerando las interacciones entre los sistemas de uso del suelo y las estaciones el año se observa que la menor biomasa media se da en el pastizal naturalizado durante el otoño ($e^{7}$) y la mayor biomasa se observa en el sistema G durante la primavera con un valor de $e^{8,8}$. Las comparaciones de una misma estación del año contra los diferentes sistemas de uso del suelo indican que la biomasa de los microartrópodos edáficos del sistema mixto durante el verano fué diferente significativamente, con un menor valor de biomasa que en los otros sistemas durante el verano. Por otra parte el mayor valor puntual observado (Apéndice -A- Figura IV.d ) se da en el sistema ganadero durante la primavera con un valor aproximado de $e^{14}$ que representa $\approx 1200 \; mg_{p.s.}\:/m^2$ y el menor valor puntual se observó en N durante el verano ($e^{3,5}\approx 0,033 \; m g_{p.s.}\:/m^2$).
+
+
+```{r Tabla2b, include=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
+print("Tabla 3. Tabla de medias")
+model.tables(m1, "means", se = TRUE)
+summary.lm(m1)
+```
+
+**Tabla 3. Valores medios del exponente** ($e^{\;\mu _ {\;biomasa}}$) **de la biomasa media para los efectos y las interacciones incluidas en el modelo lineal**
+
+
+- |Promedio|Otoño |Invierno |Primavera |Verano |Detritívoro |Microfitófago |Omnívoro | Predador
+ -|-|-|-|-|-|-|-|-|-|
+Promedio |8 |7,43^a^ |8,242^bc^ |8,507^c^ |7,3^d^ |8,477^b^ |7,731^a^ |8,324^b^ |7,569^a^
+Intensivo (A) |8,038^a^ |7,4^a^ |8,2^a^ |8,3^a^ |8,1^a^ |8,6^a^ |7,8^a^ |8^a^ |7,5^a^
+Mixto (G) |8,186^ab^|7,8^a^ |8,4^a^ |8,8^a^ |7,3^b^ |8,6^a^ |7,6^a^ |8,7^a^ |7,4^a^
+Pastizal (N) |7,867^b^ |7^a^ |8,1^a^ |8,6^a^ |7,7^a^ |8,1^a^ |7,7^a^ |7,9^a^ |7,8^a^
+
+<font size = 1> Las letras indican diferencias significativas (p-valores <0,1, TukeyHSD) entre niveles del mismo factor; para el caso de las interacciones se consideraron aquellas que relacionan un mismo nivel entre los diferentes sistemas de uso, esto es por ejemplo, los predadores se compararon entre sí contra los diferentes sistemas de uso </font>
+
+
+Los gremios tróficos de los microartrópodos edáficos en conjunto, esto es, sin separarlos según los sistemas de uso del suelo (Tabla 3.; Fig.1 A) ), muestran que los detritívoros seguidos por los omnívoros poseen los mayores valores de biomasa y estos no difieren significativamente; por otra parte la menor biomasa total se observa en los predadores seguido de los microfitófagos, que de manera similar al caso anterior no resultan diferentes significativamente en sus valores de biomasa. 
+
+
+Para el gremio de los microfitófagos (Fig.1 A)) se observa asimetría hacia valores por debajo de sus medidas de posición central, además la moda del espectro de biomasa de los microfitófagos ($\approx e^{7}$) se encuentra por debajo de los valores modales de los demás gremios tróficos. El gremio de los omnívoros también muestra una asimetría con la moda debajo de los valores de posición central, a la vez que la distribución de biomasasen este gremio se observa más platicúrtica ("achatada") en comparación con los demás los gremios tróficos, es decir, que los diferentes valores de biomasa muestran valores de frecuencias similares a lo largo de la distribución. 
+
+
+Los detritívoros de los sistemas A y G presentan valores de moda, mediana y promedio próximos entre sí y en N este disminuye ligeramente (Fig 1 B)) aunque en promedio no difieren significativamente (Tabla 3).  El promedio de la biomasa total de los microfitófagos en los diferentes sistemas de uso es similar y se halla alrededor de $\approx e^{7,7}$, una ligera asimetría se observa en la distribución de estos representados con valores modales por debajo de la mediana observándose en N el valor modal más bajo.
+
+
+```{r fig.sys.gd,echo=FALSE, warning=FALSE, message=FALSE}
+
+#guild
+meso %>% mutate(guild=factor(guild,labels=c("Detritívoros","Microfitófagos","Omnívoros","Predadores"))) %>% group_by(system,site,year,month,sample,season,class,order,specie,guild,habitat) %>%  summarise(abundance=(n()/superficie), bio.ind=mean(biomass),Tbiomass=(bio.ind*abundance))  %>% ggplot( aes(log(Tbiomass),guild, fill=guild)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +stat_summary(fun = "mean",geom = "point",color = "white")+ scale_x_continuous(breaks = seq(from=3, to=14, by=1))+  scale_fill_viridis_d(guide="none") +  geom_jitter(alpha=0.4) +labs(subtitle="A)",y=NULL, x=expression(paste("Biomasa","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))
+# System : guild
+
+meso %>% mutate(guild=factor(guild,labels=c("Detritívoros","Microfitófagos","Omnívoros","Predadores"))) %>% group_by(system,site,year,month,sample,season,class,order,specie,guild,habitat) %>%  summarise(abundance=(n()/superficie), bio.ind=mean(biomass),Tbiomass=(bio.ind*abundance)) %>% ggplot(aes(y=log(Tbiomass),x= system,fill=system)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +stat_summary(fun = "mean",geom = "point",color = "white")+ scale_y_continuous(breaks = seq(from=3, to=15, by=1))+scale_fill_viridis_d(guide="none") +geom_jitter(alpha=0.4) + facet_grid(.~guild) +labs(subtitle="B)",x='Sistemas de manejo', y=expression(paste("Biomasa","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))
+
+```
+
+
+**Fig. 1. Espectro de biomasa media de los gremios tróficos de microartrópodos edáficos en los sistemas de uso del suelo. a) Gremios tróficos en conjunto sin diferenciar por sistema de uso. b) Gremios tróficos en comparación con los sistemas de uso del suelo**
+
+
+El gremio de los omnívoros muestra el rango de biomasa más amplio, además se observan en este gremio los valores puntuales más altos de biomasa ($> \; e^{12} \; \approx \;162 \; m g_{p.s.}\:/m^2$) en los sistemas A y G; en este gremio se observa el mayor promeio de biomasa en el sistema ganadero y con $\approx 0,7$ puntos por debajo de este valor se observan valores idénticos del exponente en A y N, a pesar de ello no se observan diferencias significativas.
+
+
+El rango de variación de la distribución de biomasa de los predadores es el más estrecho en comparación con los demás gremios tróficos, por otra parte, los sistemas A y G muestran valores promedio de biomasa similares y son superados por el valor en el sistema del pastizal naturalizado, aunque no computan diferencias significativas.
+
+La biomasa de microartrópodos edáficos, en los sistemas intensivo y naturalizado fueron, en promedio, diferentes significativamente (Tabla 3) con su menor valor medio representado en el pastizal naturalizado. El sistema agrícola-ganadero representa un intermedio en su valor promedio de biomasa, ya que no se diferencia significativamente de A o N. La distribución de la biomasa (Apéndice -A- Figura II.a) en los diferentes sistemas de uso del suelo muestran un rango de tamaños similar y con valores modales por debajo de la mediana en todos los casos.
+
+
+## Espectro de tamaños corporales de micrortrópodos edáficos
+
+La regresión sobre el tercer de cuartil (Tabla 4) muestra interacciones significativas entre el logaritmo natural del peso corporal y los sistemas de uso del suelo e interacciones significativas entre el logaritmo natural del peso corporal y los gremios tróficos.
+
+```{r qq, include=FALSE, message=FALSE, warning=FALSE}
+
+base %>% mutate(system = factor(system,levels=c("N","G","A")),guild = factor(guild,levels=c("predator","microphytophages","detritivore","omnivore")))%>%rq(log(abundance) ~ (system+guild+log(bio.ind))^2, tau = .75, data = .)%>%summary(.,se="boot")
+
+
+```
+
+
+**Tabla 4. Resumen del modelo de regresión sobre el tercer cuartil** ($\tau= 0,75$) **que relaciona el peso corporal medio del los microartrópodos edáficos con la densidad y con los sistemas de uso del suelo y con los gremios tróficos**
+
+Coeficientes de regresión |Valor estimado |Error Estándar |Valor t | Prob.($>|t|$)
+- |- |- |- |- 
+Intercepto general |7,816 | 0,286|27,36 | < 1x10^-5^
+Dif. inter. G |-0,546 |0,316 |-1,726 |0,085
+Dif. inter. A |-0.617 |0,299 |-2,07 |0,039
+Dif. inter. mic. |0,365 |0,305 |1,198 |0,231
+Dif. inter. det. |0,708 |0,371 |1,908 |0,057
+Dif. inter. omn. |-0,754 |0,418 |-1,803 |0,072
+Dif. inter. G x mic. |0.331 |0.338 |0.98 |0.327
+Dif. inter. A x mic. |0.342 |0.335 |1.02 |0.304
+Dif. inter. G x det. |1.253 |0.34 |3.67 |2,4x10^-4^
+Dif. inter. A x det. |0.825 |0.363 |2.27 | 0.023
+Dif. inter. G x omn. |0.75 |0.506 |1.483 | 0.138
+Dif. inter. A x omn. |1.859 |0.635 |2.928 | 0.0035
+Pendiente general |-0,439 |0,128 |-3,42 | 6x10^-4^
+Dif. G x pendiente |0.132 |0.119 |1.111 | 0.267
+Dif. A x pendiente |0.24 |0.113 |2.13 |0.0335
+Dif. mic. x pendiente |-0.102 |0.0998 |-1.02 | 0.308
+Dif. det. x pendiente |-0.204 |0.17 |-1.202 | 0.2296
+Dif. omn. x pendiente |1.102 |0.187 |5.89 | < 1x10^-5^
+
+<font size=1> Los sistemas de uso de suelo se resumen con sus acrónimos A = Agrícola intensivo - G = mixto agrícola ganadero - N = pastizal naturalizado. Los gremios tróficso se abrevian en sus primers tres letras. inter= Intercepto. Dif = valor de la diferencia del parámetro general con el parámetro de la categoría abordada </font>
+
+
+En este análisis resalta (Tabla 4, Figura 2) el gremio de los omnívoros cuya pendiente sigue una tendencia contraria a los demás gremios tróficos diferenciándose siempre de manera significativa (prueba >| t |; p<0.001), la pendiente de los microartrópodos omnívoros es una pendiente positiva ($b = 0.664$) lo que implica que los microartrópodos omnívoros de mayor peso corporal son los omnívoros más abundantes sin importar el sistema de uso del suelo. Por otra parte, las pendientes de los gremios no omnívoros no indican diferencias significativas con relación a la pendiente general ($b = -0.439$), aunque si se observa que con relación a los predadores, la pendiente de los microfitófagos y de los detritiívoros son menores. 
+
+
+```{r qqreg.1, echo=FALSE, message=FALSE, warning=FALSE}
+
+base%>%ggplot(aes(x=log(bio.ind), y=log(abundance),color=guild))+geom_point(size=1.1,shape=8,color=1)+geom_quantile(quantiles = 0.75, size=1.5) +  scale_color_viridis_d()+facet_grid(system~.)+  labs( x=expression(paste("Biomasa corporal","  ",paste(ln," ",mu,"g")[ps])), y=expression(paste("Densidad","  ",ln," ","n°"[ind]/m^{2})))
+
+```
+
+**Figura 2. Regresión sobre el tercer cuartil: relaciones locales entre el tamaño corporal y la densidad ("LSDR")**
+
+La pendiente de regresión del sistema agrícola intensivo difiere de la pendiente del sistema del pastizal naturalizado significativamente (prueba >| t |;p<0.05). La pendiente del sistema agrícola intensivo ($b= -0.199$) resulta mayor que la pendiente común ($b = -0.439$) que representa a los sistemas de uso pastizal naturalizado y al sistema mixto agrícola-ganadero, ya que pendiente para el sistema G no indica diferencia significativa con relación la pendiente general.
+
+
+El intercepto de los gremios tróficos varío de manera significativa (prueba > | t |; p<0,1). El gremio de los omnívoros es aquel que muestra el menor valor del intercepto  ($ln\;a = 7,06$)  en comparación con los predadores edáficos, incluidos en el valor estimado del intercepto general  ($ln\;a = 7,82$), lo que se relaciona con menores valores de abundancia para el gremio omnívoro. Los detrívoros, en cambio, se alejan significativamente del intercepto general con un diferencia a favor de + 0,71 y los microfitófagos comparten el valor del intercepto general junto con los predores. 
+
+Los sistemas de uso del suelo se alejan significativamente (prueba >| t |; p<0,1) del intercepto general, este alejamiento es mayor en el sistema Agrícola intensivo.
+
+
+## Discusión
+
+Los microartrópodos edáficos aunque son muy abundantes y diversos, debido a sus rango de pesos corporales, no representan un componente importante del metabolismo total edáfico [@hale1971]. Sin embargo por causa de sus mecanismos de alimentación y el modo y uso  que hacen de los recursos, estos cumplen un papel crucial en en la estimulación de la actividad microbiana y en el control de las poblaciones tanto de la microflora como de la microfauna edáfica [@butcher1971], por lo que la magnitud de los cambios en la comunidad de los microartrópodos edáficos podría tener un impacto significativo en los procesos ecológicos y biogeoquímicos en el suelo.
+
+La diversidad de taxones en las comunidades y las funciones biológicas vinculadas con ellos, permite relacionar la biomasa por unidad de superficie directamente con la cantidad de materia acumulada e indirectamente con la energía que circula a través de la red de interacciones del sistema detritívoro del suelo. Esto refleja de manera integral la respuesta de la red trófica edáfica a los disturbios [@jonsson2005], constituye un indicador integrador de los procesos a nivel de la comunidad [@turnbull2014] y permite relacionar las asimetrías en los flujos de energía con la forma en como se modulan la resistencia y resiliencia ante las perturbaciones [@zhou2022].
+
+El espectro de tamaños de los microartrópodos edáficos se restringe al espacio de la red de poros que configura su hábitat [@kampichler1995;@wallwork1971], en los suelos argiudoles de la pampa ondulada, la distribución de los pesos corporales varíó desde algo menos de 0,5 $\mu g_{p.s}$ hasta algo más de 45 $\mu g_{p.s}$. En general, y en estos suelos con diferentes sistemas de uso, la respuesta de los microartrópodos edáficos, en términos de biomasa total a lo largo de las estaciones del año sigue la dinámica característica de los organismos edáficos [@momo2009;@lavelle2012], esto es, la mayor biomasa total al inicio de la época estival, donde se dan las mayores precipitaciones y mejores condiciones de temperatura, y una disminución de la biomasa en las demás estaciones del año. Por lo que cualquier variación de la biomasa se relaciona con los efectos debido a los disturbios, que se reflejan en las respuestas de los microartrópodos edáficos ya sea por el afecto sobre el hábitat o sobre el metabolismo de los organismos.
+
+La biomasa de los gremios tróficos varía en sus valores centrales, en sus modas y en la forma de sus distribuciones, entre los diferentes gremios tróficos las variaciones de las biomasas medias son marcadas pero las variaciones de cada gremio en comparación con los diferentes sistema de uso fueron sutiles. 
+
+En este contexto resulta lógico pensar que los microartrópodos edáficos son actores claves que configuran la topología de las redes tróficas edáficas detritívoras [@lavelle2006] y no sorprende que los detritívoros destaquen como el gremio vinculado con los mayores valores medios de biomasa que podemos relacionar con mayores flujos de la energia. Por otra parte, los microfitófagos mostraron una mayor participación en el sistema agrícola intensivo lo que podría reflejar el enriquecimiento debido a la fertilización, relacionado con el aumento del flujo de energía a través del canal de los bacterívoros en la red trófica edáfica [@kardol2016;@potapov2019;@zhou2022]. Con respecto a los predadores sus valores de biomasa siguen el rango de distribución de biomasa más estrecho, pero entre los sistemas de uso ellos destacan en el pastizal naturalizado lo que refleja que en el sistema naturalizado existe una mayor cantidad y disponibilidad de recursos para los predadores. 
+
+Potapov et al. [-@potapov2021] deduce que en las redes detritívoras del suelo, las relaciones entre los niveles tróficos y la biomasa no siguen las relaciones predador - presa clásicas, sino que los predadores dentro de su propia clase de tamaño buscarán presas de menor tamaño. También resalta que existe compartimentalización de los canales de energía que atraviesan las redes tróficas del suelo en el cuál destacan los consumidores primarios (detritívoros y microfitófagos) por sobre los predadores, tal como se ha observado en el análisis de estas comunidades edáficas en estos sistemas de uso del suelo.
+
+Las relaciones entre la densidad y los pesos corporales sirven también para visualizar el metabolismo de la comunidad y si relacionamos esto con las funciones biológicas de los diferentes grupos taxonómicos permitirá ver las relaciones funcionales entre los organismos y su medio ambiente y el efecto de las perturbaciones debida a los cambios que ocurren en los ecosistemas bajo estudio [@potapov2022;@zhou2022]. Por esto Antunes et al. [-@antunes2023] explican que las fluctuaciones en la composición, en los pesos corporales y en la densidad de las especies que conforman las comunidades del suelo afectarán al flujo de energía que atraviesa cada nivel trófico y la multiplicidad de funciones asociada con ellos, explica también que, estas variaciones se dan a nivel local, a la vez que afectan la estabilidad y el funcionamiento del ecosistema y que esto se refleja en fuertes variaciones de las pendientes que relacionan el peso corporal y la densidad.
+
+Turnbull [-@turnbull2014] indica que el análisis de curvas de regresión pueden servir como puntos de referencia para comparar comunidades o para entender los efectos vinculados con disturbios sobre el hábitat; en este caso, el análisis de regresión mostró diferencias a favor en las pendientes relacionadas con un grado de antropización en el uso del suelo, esto podría indicar que la comunidad de microartrópodos edáficos como un todo responde a favor de las prácticas de manejo desarrolladas en estos campos, lo que puede traducirse en una mayor disponibilidad de recursos para los actores que conforman la red trófica detritívora. Al considerar los gremios tróficos, en la relación peso corporal - densidad, resaltan los omnívoros con una pendiente positiva, lo que se traduce en que organismos de mayor tamaño son más abundantes que podría vincularse con mayor disponibilidad de recursos y condiciones favorables para este gremio, ya sea porque otros grupos no logran utilizar todo el recurso disponible, porque pueden aprovechar recursos que no son utilizados por los demás gremios tróficos, o las condiciones de hábitat favorecería a el gremio de los omnívoros. 
+
+Estos hallazgos sugieren que la relación entre el tamaño de los microartrópodos y el uso que se hace del suelo en estos sistemas de la pampa húmeda no sigue una respuesta que vincule efectos fuertes debido a perturbaciones en detrimento de la comunidad [@potapov2019;@zhou2022;@sechi2017], sino que las prácticas de manejo a nivel local reflejan que el suelo mantuvo cercanos entre sí los atributos estudiados en esta comunidad de microartrópodos edáficos, por lo que resulta interesante continuar con investigaciones para comprender mejor estas relaciónes de modo que retroalimente las buenas prácticas con objetivos de lograr el equilibrio entre el uso del suelo, su estabilidad y la conservación del mismo.
+
+
+<!-- La misma naturaleza de las cosas -limitación de recursos y de espacio, organización de cadenas tróficas- lleva a la manifestación de algunas regularidades, por ejemplo,  en las  distribuciones  del tamaño de  los  organismos o en la riqueza total de especies. Tales regularidades son una expresión estadística proyectada hacia fuera de las propiedades de sistemas históricos transitorios y es natural que se encuentren relaciones entre unos y otros descriptores que, en el mejor de los casos, son de expresión alométrica o fractal y se interpretan como resultado de una uniformidad  de los  principios  actuantes. La organizacion compleja del ecosistema que puede tener una expresión jerárquica, proporciona, con su flexibilidad, una defensa en rofundidad  contra inevitables perturbaciones(Margalef, Teoría de sistemas ecológicos pp.165) -->
+
+<!-- Esto es para cambiar tamaño de letra color, tipo etc -->
+<!-- <font face = "Microsoft Yahei"> Ingrese el texto aquí </font> -->
+<!--  <font size = 5> Ingrese el texto aquí </font> -->
+<!--  <font color = # 1E90FF> Ingrese el texto aquí </font> -->
+<!--  <font color = gray> Ingrese el texto aquí </font> -->
+<!--  <font face = "Microsoft Yahei" size = 5 color = # 1E90FF> Ingrese el texto aquí </font> -->
+
+# Referencias

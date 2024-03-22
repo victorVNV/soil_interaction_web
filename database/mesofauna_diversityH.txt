@@ -47,7 +47,7 @@ L	1	10	eupodoidea	1
 R	2	10	onychiurudae	16
 R	2	10	enquitreido	14
 R	2	10	tarditigrado	7
-R	2	10	paragapygidae_diplura	1
+R	2	10	parajapygidae_diplura	1
 R	2	10	lycosidae	1
 R	2	10	gasteropoda	1
 R	2	10	ceratozetoidea	1
@@ -518,7 +518,7 @@ P	1	humus	anystidae	2
 P	1	humus	ptilidae	1
 P	1	humus	euphthiracaridae	1
 P	1	humus	epilohmania	1
-P	1	humus	diplura	1
+P	1	humus	japygidae_diplura	1
 P	1	humus	dermapteta	1
 L	1	humus	hipogastruridae	224
 L	1	humus	oripodoidea	101

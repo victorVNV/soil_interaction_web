@@ -1,0 +1,435 @@
+---
+title: "Apéndice"
+author: "Velazco, Victor Nicolás"
+output: html_document
+---
+
+```{r setup, include=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Apéndice - A -
+
+
+```{r paquetes,include=FALSE}
+{require(tidyverse); require(lubridate); require(kableExtra);require(quantreg); require(kSamples);require(ggridges)}
+
+```
+
+```{r datos,include=FALSE}
+
+#Cantidad de digitos a usar y quitamos la notacion cientifica
+options("scipen"=999, "digits"=3)
+# Guardar las opciones gráficas básicas
+oldpar<-par(no.readonly = TRUE)
+set.seed(30)
+theme_set(theme_bw())
+
+completo <- read_csv2("body_fq_guil_22.csv" , locale = readr::locale(encoding = "ISO-8859-1"))
+
+#Superficie en metros cuadrados a partir del sacabocados de 5 centímetros cuadrados
+#factor de conversión
+superficie <- pi*2.5^2/10000
+
+#sin macrofauna
+#Datos brutos, biomasa individual de microartropodos
+meso <- filter(completo,class!="macrofauna"&specie!="oribátido"&specie!="mesostigmata")%>%mutate( season=fct_relevel(season, c("O","I","P","V")),habitat=fct_relevel(habitat, c("epiedaphic","hemiedaphic","euedaphic")))
+
+#Base con biomasas promedios por especie
+#sample, son submuestras, por lo que no sirve para dividir sino para promediar la muestra
+base <-meso %>% group_by(system,site,year,month,sample,season,class,order,specie,guild,habitat) %>%  summarise(abundance=(n()/superficie), bio.ind=mean(biomass),Tbiomass=(bio.ind*abundance))
+
+```
+
+
+**Tabla I. Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total ($mg_{p.s.}/m^2$) de cada taxón de Acaros y Collémbolos hallados en los diferentes sistemas de uso del suelo**
+
+
+```{r tab.fam, echo=FALSE,warning=FALSE,message=FALSE,error=FALSE}
+
+#Para guardar archivos directamente en excel
+#writexl::write_xlsx(A3,"pororden.xlsx")
+#writexl::write_xlsx(B2,"portaxa.xlsx")
+
+B1<-meso%>%mutate(order=factor(order,labels=c("Astigmata","Entomobryomorpha","Mesostigmata","Oribatida","Poduromorpha","Symphypleona","Trombidiformes")),order=fct_relevel(order, c("Poduromorpha","Entomobryomorpha","Symphypleona","Oribatida","Mesostigmata","Trombidiformes","Astigmata")))%>%mutate(Manejo=system, Orden=order,Taxon=specie)%>%mutate(Manejo=factor(Manejo,labels= c("Agrícola intensivo","Agrícola-ganadero","Pastizal natural")),Taxon=factor(Taxon,labels=c("Acaroidea","Bdelloidea","Brachychthonioidea","Ceratozetoidea","Crotonioidea","Dermanyssoidea","Entomobroidea","Epilohmannioidea","Euphthiracaroidea", "Eupodoidea","Galumnioidea","Hypogastruridae","Isotomidae","Onychiuridae","Oppioidea","Oripodoidea","Parasitoidea","Rhodacaroidea","Symphypleona","Trombidioidea","Tydeoidea","Uropodoidea","Veigaioidea")),Gremio=factor(guild,labels=c("Detrívoro","Microfitófago","Omnívoro","Predador")))%>%group_by(Manejo,Orden,site,year,month,sample,Taxon,Gremio)%>%summarise(peso=biomass,bio=sum(biomass), abT= n(), bioT=bio/superficie, D=abT/superficie)
+
+B2<-B1%>%group_by(Manejo,Orden,Taxon,Gremio)%>%summarise('Peso corporal'=mean(peso),'Peso corporal mínimo'=min(peso),'Peso corporal máximo'=max(peso), Densidad=mean(D),'Biomasa total media'=mean(bioT)/1000) %>% distinct(Taxon,.keep_all=TRUE)
+
+
+B2%>% kbl() %>%kable_classic(full_width = F, html_font = "Cambria")
+#caption = "Tabla I. Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total ($mg_{p.s.}/m^2$) para los taxones de Acari y Collembola en cada sistema de manejo"
+```
+
+```{r normalidad, include=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+
+kruskal.test(Tbiomass ~ system, data = base)
+pairwise.wilcox.test(base$Tbiomass, base$system,data=.,p.adjust.method = "BH")
+
+print("Kruskall-Wallis y pruebas apareadas")
+print("Orden Poduromorpha")
+kruskal.test(bio.ind ~ system, data = base, subset=base$order=="poduromorpha")
+Po<-base%>%filter(order=="poduromorpha")
+pairwise.wilcox.test(Po$bio.ind, Po$system,data=.,p.adjust.method = "BH")
+
+print("Orden Entomobryomorpha")
+kruskal.test(bio.ind ~ system, data = base, subset=base$order=="entomobryomorpha")
+En<-base%>%filter(order=="entomobryomorpha")
+pairwise.wilcox.test(En$bio.ind, En$system,data=.,p.adjust.method = "BH")
+
+print("Orden Symphypleona")
+kruskal.test(bio.ind ~ system, data = base, subset=base$order=="entomobryomorpha")
+Sy<-base%>%filter(order=="Symphypleona")
+pairwise.wilcox.test(Sy$bio.ind, Sy$system,data=.,p.adjust.method = "BH")
+
+print("Orden Oribatida")
+kruskal.test(bio.ind ~ system, data = base, subset=base$order=="oribatida")
+Or<-base%>%filter(order=="oribatida")
+pairwise.wilcox.test(Or$bio.ind, Or$system,data=.,p.adjust.method = "BH")
+
+print("Orden Mesostigmata")
+kruskal.test(bio.ind ~ system, data = base, subset=base$order=="mesostigmata")
+Me<-base%>%filter(order=="mesostigmata")
+pairwise.wilcox.test(Me$bio.ind, Me$system,data=.,p.adjust.method = "BH")
+
+print("Orden Trombidiformes")
+kruskal.test(bio.ind ~ system, data = base, subset=base$order=="trombidiformes")
+To<-base%>%filter(order=="trombidiformes")
+pairwise.wilcox.test(To$bio.ind, To$system,data=.,p.adjust.method = "BH")
+
+print("Orden Astigmata")
+kruskal.test(bio.ind ~ system, data = base, subset=base$order=="astigmata")
+As<-base%>%filter(order=="astigmata")
+pairwise.wilcox.test(As$bio.ind, As$system,data=.,p.adjust.method = "BH")
+
+#ver: https://www.datanovia.com/en/lessons/wilcoxon-test-in-r/
+#pairwise.t.test(log(base$bio.ind), base$order, p.adj = "bonf")
+
+#
+```
+
+
+
+
+```{r ggridge,echo=FALSE,message=FALSE,warning=FALSE,error=FALSE}
+#por Unidad Taxonómica
+
+
+meso%>%ggplot(aes(x=log(biomass), y=specie, fill=guild)) + geom_density_ridges(rel_min_height = 0.0000005) +scale_x_continuous(breaks = seq(from=-4, to=5, by=2))+  scale_fill_viridis_d(alpha = 0.8)+facet_grid(.~system)+labs(title='Peso corporal individual para los taxones de microartrópodos', x= 'Peso corporal en ln ug/m^2')
+
+```
+
+
+**Figura I. Distribucion de frecuencia del peso corporal, esto es, el espectro de tamaño para cada taxón en cada sistema de manejo según gremios tróficos**
+
+Aquí se observa como el rango de tamaños varía aproximadamente entre $e^{-3,4}= 0,033 \; \mu g_{p.s.}\:/m^2$   y   $e^{4,4}= 81,45 \; \mu g_{p.s.}\:/m^2$. 
+La distribución de tamaños para los diferentes taxones no es unimodal.
+Cada taxón tiene un rango de distribución de tamaño particular.
+No se observan grandes diferencias en los valores modales, o en la kurtosis de la distribución de frecuencias de un taxón cualquiera en contraste con los sistema de manejo
+
+
+```{r F. III,echo=FALSE, warning=FALSE, message=FALSE}
+
+# Sistema
+
+base %>% ggplot( aes(log(Tbiomass),system, fill=system)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +stat_summary(fun = "mean",geom = "point",color = "white")+scale_fill_viridis_d(guide="none")  +scale_x_continuous(breaks =seq(from=3, to=14, by=1))+  geom_jitter(alpha=0.4)+labs(subtitle="IV.a. Biomasa media de la comunidad de microartrópodos en los sistemas de uso",y=NULL, x=expression(paste("Biomasa total","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))
+
+# Estación
+#
+meso %>% mutate(season=factor(season,labels=c("Otoño","Invierno","Primavera","Verano"))) %>% group_by(system,site,year,month,sample,season,class,order,specie,guild) %>%  summarise(abundance=(n()/superficie), bio.ind=mean(biomass),Tbiomass=(bio.ind*abundance))  %>% ggplot( aes(log(Tbiomass),season, fill=season)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +stat_summary(fun = "mean",geom = "point",color = "white")+  scale_fill_viridis_d(guide="none") +scale_x_continuous(breaks = seq(from=3, to=14, by=1))+  geom_jitter(alpha=0.4)+labs(subtitle="IV.b. Biomasa media de la comunidad de microartrópodos en las estaciones del año",y=NULL, x=expression(paste("Biomasa total","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))
+
+# Guild
+
+meso %>% mutate(guild=factor(guild,labels=c("Detritívoros","Microfitófagos","Omnívoros","Predadores"))) %>% group_by(system,site,year,month,sample,season,class,order,specie,guild,habitat) %>%  summarise(abundance=(n()/superficie), bio.ind=mean(biomass),Tbiomass=(bio.ind*abundance))  %>% ggplot( aes(log(Tbiomass),guild, fill=guild)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +stat_summary(fun = "mean",geom = "point",color = "white")+ scale_x_continuous(breaks = seq(from=3, to=14, by=1))+  scale_fill_viridis_d(guide="none") +  geom_jitter(alpha=0.4) +labs(subtitle="IV.c. Biomasa media de los gremios tróficos de microartrópodos",y=NULL, x=expression(paste("Biomasa total","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))
+
+# System : season
+
+meso %>% mutate(season=factor(season,labels=c("Otoño","Invierno","Primavera","Verano"))) %>% group_by(system,site,year,month,sample,season,class,order,specie,guild,habitat) %>%  summarise(abundance=(n()/superficie), bio.ind=mean(biomass),Tbiomass=(bio.ind*abundance)) %>% ggplot( aes(y=log(Tbiomass), x=system,fill=system)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +stat_summary(fun = "mean",geom = "point",color = "white")+ scale_y_continuous(breaks = seq(from=3, to=15, by=1))+scale_fill_viridis_d(guide="none") +  geom_jitter(alpha=0.4) + facet_grid(.~season) +labs(subtitle="IV.d. Biomasa media de la comunidad de microartrópodos en cada estación y en cada sistema de manejo",x='Sistemas de manejo', y=expression(paste("Biomasa total","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))
+
+# System : guild
+
+meso %>% mutate(guild=factor(guild,labels=c("Detritívoros","Microfitófagos","Omnívoros","Predadores"))) %>% group_by(system,site,year,month,sample,season,class,order,specie,guild,habitat) %>%  summarise(abundance=(n()/superficie), bio.ind=mean(biomass),Tbiomass=(bio.ind*abundance)) %>% ggplot( aes(y=log(Tbiomass),x= system,fill=system)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +stat_summary(fun = "mean",geom = "point",color = "white")+ scale_y_continuous(breaks = seq(from=3, to=15, by=1))+scale_fill_viridis_d(guide="none") +geom_jitter(alpha=0.4) + facet_grid(.~guild) +labs(subtitle="IV.e. Biomasa media de los gremios tróficos de microartrópodos edáficos para cada sistema de manejo",x='Sistemas de manejo', y=expression(paste("Biomasa total","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))
+
+
+```
+
+
+**Figura II. Gráfico de violines que muestran la distribución de la biomasa media  **
+
+# Apéndice - B - 
+
+```{r AD, include=FALSE,warning=FALSE,message=FALSE,error=FALSE}
+#require(kSamples)
+#AD_class<-ad.test(biomass ~ system,data=meso, method = "simulated", dist = FALSE, Nsim = 1000)
+```
+
+
+**Prueba de Anderson Darling, prueba con k-muestras**
+
+
+Número de muestras:  3
+
+Tamaño de las muestras:  2752, 2660, 1592
+
+Número de colas ("ties"): 20
+
+Promedio del criterio de Anderson-Darling: 2
+
+Desviación estandar del criterio Anderson-Darling Criterion: 1.07642
+
+T.AD = ( Anderson-Darling  Criterion - mean)/sigma
+
+Hipótesis Nula: todas las muestras provienen de una población común. 
+
+Número de simulaciones en el cual se basa la prueba: 1000 simulaciones
+
+
+ | AD| T.AD| asíntota p-valor| p-valor de las simulaciones
+- | - | - | - |-
+version 1| 413| 382| 4.504* 10 ^-237^| 0
+version 2| 413| 382| 4.07 * 10 ^-238^| 0
+
+Conclusión: Se rechaza la hipótesis nula de que las muestras provienen de poblaciones similares, por lo tanto, si consideramos las estimaciones de los pesos corporales individuales, las muestras todas provienen de poblaciones diferentes.
+
+
+**Exploración del tipo de distribución: "Distribuciones con cola"**
+
+Como la distribución de las biomasas corporales sigue un patrón de tipo "distribuciones con cola" se evaluó el ajuste de los datos entre las distribuciones de tipo "cola" comunes, a saber: la distribución exponencial, la distribución potencial, la distribución potencial exponencial y la distribución logarítmica normal.
+
+Considerando no estimar el valor mínimo ya que este se encuentra presente en el conjunto de datos.
+
+
+```{r aj-PW, include=FALSE,message=FALSE}
+# Ajuste espectro con paquete Power Law
+# Ajuste con paquete poweRlaw con Xmin ajustado
+
+require(poweRlaw)
+source("D:/Documentos/Documents/Doctorando/Año 3/Body_Size/R/functions.r")
+
+# Ajuste a partir del minimo de los datos, esto es, considerando que 
+# el valor mínimo se encuentra dentro de los datos
+
+dist_manejo <- meso %>% group_by(system) %>% summarise(evaluate_distr(biomass,est_xmin=FALSE))
+
+dist_manejo %>% filter(min(AICc)==AICc) %>% mutate(moda=exp(expo))
+
+# Plots usando ggplot
+#
+dist_plot <- meso %>% group_by(system) %>% summarise(gplot=list(evaluate_distr(biomass,est_xmin=FALSE,returnOBJ=TRUE)))
+
+# Estimación para todos los datos
+
+dist_total <- evaluate_distr(meso$biomass,est_xmin=FALSE)
+dist_total %>% filter(min(AICc)==AICc) %>% mutate(moda=exp(expo))
+
+dist_plot_tot <- evaluate_distr(meso$biomass,est_xmin=FALSE,returnOBJ = TRUE) 
+
+```
+
+
+**Ajuste de la distribución de los pesos corporales de la comunidad de microartrópodos edáficos**
+
+system |type    |expo  |rate   |xmin  |AICc |moda
+ -|-|-|-|-|-|-
+A |ln |0.491 |1.15 |0.0345 |11290 |1.63 
+G |ln |0.874 |1.24 |0.0792 |13345 |2.40 
+N |ln |-0.265 |1.35 |0.0145 |4619 |0.767
+
+**Ajuste de la distribución de los pesos corporales de Collembola**
+
+system |type    |expo  |rate   |xmin  |AICc |moda
+ -|-|-|-|-|-|-
+A |ln |0.355 |1.07 |0.0345 |6091 |1.43 
+G |ln |1.05 |1.28 |0.0792 |8352 |2.85 
+N |ln |-0.563 |1.17 |0.0145 |2142 |0.569
+
+**Ajuste de la distribución de los pesos corporales de Acari**
+
+system |type |expo |rate |xmin |AICc |moda
+ -|-|-|-|-|-|-
+A |ln |0.675 |1.25 |0.0901 |5108 |1.96
+G |ln |0.642 |1.15 |0.0823 |4914 |1.90
+N |ln |0.263 |1.53 |0.0587 |2262 |1.30
+
+En consideración del criterio de Akaike (AIC), la distribución que más ajusta con los datos es la distribución logarítmica normal.
+
+
+```{r aj, warning=FALSE, message=FALSE,echo=FALSE}
+
+require(cowplot)
+prow <- plot_grid(
+  dist_plot$gplot[1][[1]] + xlab("Biomass")  + theme(legend.position="none")+ theme(axis.text.x = element_text(angle = 50, hjust = 1)), 
+  dist_plot$gplot[2][[1]] + xlab("Biomass")  + theme(legend.position="none") + theme(axis.text.x = element_text(angle = 50, hjust = 1)) + ylab(NULL),
+  dist_plot$gplot[3][[1]]  + xlab("Biomass") + theme(legend.position="none") + theme(axis.text.x = element_text(angle = 50, hjust = 1)) + ylab(NULL),
+  dist_plot_tot  + xlab("Biomass") + theme(legend.position="none") + theme(axis.text.x = element_text(angle = 50, hjust = 1)) + ylab(NULL),
+  align = 'vh',
+  nrow = 2,
+  labels = c('A', 'G','N','T' )
+  )
+legend_b <- get_legend(
+  dist_plot$gplot[3][[1]] +
+    guides(color = guide_legend(nrow = 2)) +
+    theme(legend.position = "bottom")
+)
+pg <- plot_grid(prow, legend_b, nrow = 2, rel_heights = c(1, .1));pg
+
+#save_plot("Figures/BodySizeSpectra_Landuses.png",pg,base_width=8,base_height=6,dpi=600)
+#dist_plot$gplot[1][[1]] + xlab("Biomass")
+
+```
+
+
+**Figura I. Distribución empírica acumulada inversa contra distribuciones teóricas de las distribucones "tipo cola"**
+
+
+
+<!-- Hipótesis: el espectro de tamaño de las poblaciones de una misma especie siguen una distribución normal con una media definida. Si consideramos el espectro de tamaño a nivel de ensambles o comunidades teóricamente debido a las interacciones, este seguiría una distribución logarítmica normal (Koch 1966, "The Logarithm in Biology"). -->
+
+
+
+**Modelo parsimonioso que incluye como efectos a los sistemas de uso del suelo, las estaciones del año y los gremios tróficos de microartrópodos edáficos.**
+
+```{r mod.sim,echo=FALSE,warning=FALSE, message=FALSE}
+
+m<-aov(log(Tbiomass) ~ system * season * guild ,data = base)
+mstep<-step(m)
+m1<-aov(formula = log(Tbiomass) ~ system + season + guild + system:season + system:guild, data = base)
+
+```
+
+
+
+
+```{r plotparm, warning=FALSE, message=FALSE,echo=FALSE}
+
+par(mfrow=c(2,2))
+plot(m1)
+
+par(mfrow=c(1,1))
+
+```
+
+
+**Figura II. Gráfico exploratorio para verificar los supuestos del modelo lineal multifactorial**
+
+
+**Pruebas simultáneas Post-Hoc sobre la significancia en las diferencias de medias mediante prueba de Tukey para los efectos principales y para las interacciones.**
+
+```{r Tukey, echo=FALSE, warning=FALSE, message=FALSE}
+print("Diferencias entre sistemas de uso")
+
+TukeyHSD(m1, "system")
+
+print("Diferencias entre estaciones del año")
+
+TukeyHSD(m1, "season")
+
+print("Diferencias entre gremios tróficos")
+
+TukeyHSD(m1, "guild")
+
+print("Diferencias de las interacciones sistemas de uso del suelo y las estaciones del año")
+
+TukeyHSD(m1, "system:season")
+
+print("Diferencias de las interacciones sistemas de uso del suelo y los gremios tróficos")
+
+TukeyHSD(m1, "system:guild")
+
+```
+<font size = 1> Nota: Aquí se obtienen la diferencia de medias para cada una de las combinaciones, en el caso de las interacciones muchas de las combinaciones no son comparables en sentido biológico, ya que la idea es comparar una misma categoría en relación al sistema de uso. </font>
+
+
+**Modelo de regresión de cuartiles parsimonioso que incluye como efectos a los sistemas de uso del suelo y a los gremios tróficos de microartrópodos edáficos y como variables los pesos corporales y la densidad.**
+
+
+```{r test.QQ, echo=FALSE, warning=FALSE, message=FALSE }
+rq0<-rq(log(abundance) ~ (system+guild+log(bio.ind))^3, tau = .75, data = base)
+
+rq1<-rq(log(abundance) ~ (system+guild+log(bio.ind))^2, tau = .75, data = base)
+
+anova.rq(rq0,rq1)
+rq2<-rq(log(abundance) ~ (system+guild+log(bio.ind))^2-system:guild, tau = .75, data = base)
+
+anova.rq(rq1,rq2)
+
+print("La regresión de cuartiles hasta el 2do nivel de interacción resulta en el modelo parsimonioso")
+
+print("Resumen del modelo global parsimonioso")
+
+```
+
+# Apéndice - C -
+
+
+**Tabla I. Estimación del peso corporal a partir de ecuaciones morfométricas que relacionan el largo y ancho corporal para diferentes taxa de microartrópodos y macroartrópodos edáficos según su forma característica**
+
+Identificador de la ecuación |Autoría |Taxón |Coeficientes |Coeficiente de peso seco |Observaciones 
+--------|------|----|------------|-----------------|-----------
+1 |Tanaka 1970 |Hipogastrura manubrialis |b= 2,78 ±  0,24 ; a= 0,71 ±  0,025 |expressed as dry biomass | log Y (weigth in ug) = b * log X (length in mm) + a
+2 |Tanaka 1970  |Onychiurus spp. and Isotomids	|b= 2,55 ±  0,93 ; a= 0,99 ±  0,088 |expressed as dry biomass | log Y (weigth in ug) = b * log X (length in mm) + a
+3	|Tanaka 1970  |Onychiurus spp. |b= 2,75 ±  0,34 ; a= 0,63 ±  0,037 |expressed as dry biomass | log Y (weigth in ug) = b * log X (length in mm) + a
+3.1 |Tanaka 1970  |Entomobriidae |b= 2,5 ±  0,38 ; a= 1,07 ±  0,04 |expressed as dry biomass | log Y (weigth in ug) = b * log X (length in mm) + a
+3.2	|Tanaka 1970 |Symphypleona	|b= 3,71 ; a= 6,89	|expressed as dry biomass | log Y (weigth in ug) = b * log X (length + width in mm) + a
+4	|Lebrum Philippe. (1971) |Achipteriforme	|log P = 2,09 log L + 0,93 log l – 6,67	|0,4 |*coef según Persson and Lohm, (1977);  Fórmulas Oribátidos según Morfología
+5	|Lebrum Philippe. (1971) |Nothriforme	|log P = 2,09 log L + 0,84 log l – 6,44	|0,4 |*coef según Persson and Lohm, (1977);  Fórmulas Oribátidos según Morfología
+6	|Lebrum Philippe. (1971) |Carabodiforme	|log P = 1,62 log L + 1,40 log l – 6,56	|0,4 |*coef según Persson and Lohm, (1977);  Fórmulas Oribátidos según Morfología
+7	|Lebrum Philippe. (1971) |Forma general utilizada en la tabla 9 |Log P = 1,53 log L + 1,53 log l – 6,67	|0,4	|*coef según Persson and Lohm, (1977);  Fórmulas Oribátidos según Morfología
+8	|Persson and Lohm, (1977)	|Trombidiformes	|^3^√W = 0,00387 * L de Edwards 1967 $\Rightarrow$ W = (0,00387* L)^3^	|0,4	|*coef según Persson and Lohm, (1977)
+9	|Persson and Lohm, (1977)	|Mesostigmatas	|W = 0,85 * ( L ^2,09^ * l ^0,84^ * 10 ^-6,44^ )	|0,4	|* coef según Persson and Lohm, (1977)
+10 |Ganihar (1997) |Aracnida 	|ln (weight) = ln b~0~ + b~1~ * (length); ln b~0~= -3.2105 ; b~1~= 2.4681 |expressed as dry biomass		
+11 |Ganihar (1997) |Coleoptera adulto	|ln (weight) = ln b~0~ + b~1~ * (length); ln b~0~= -3.2689 ; b~1~= 2.4625	|expressed as dry biomass |	Expresado en miligramos	
+12 |Ganihar (1997) |Coleoptera larva |ln (weight) = ln b~0~ + b~1~ * (length); ln b~0~= -7,1392 ; b~1~= 0,8095 |expressed as dry biomass| Expresado en miligramos
+13 |Ganihar (1997) |Díptera	|ln (weight) = ln b~0~ + b~1~ * (length); ln b~0~= -3,4294 ; b~1~= 2,5943 |expressed as dry biomass |
+14 |Ganihar (1997) |Formicidae |ln (weight) = ln b~0~ + b~1~ * (length); ln b~0~= -3,1415 ; b~1~= 2,3447	|expressed as dry biomass |
+15 |Hawkins et al. (1997) |Gasterópoda	 | Y = 0,172* X^1,688^ (log transformed:  ln(Y)  = 0.199  +  1.688 . ln(X)) | expressed as dry biomass | Expresado en miligramos de peso seco y Longitud en mm y la mitad porque va del centro al labio		16	|Ganihar 1997 |Insecta	|ln (weight) = ln b~0~ + b~1~ * (length); ln b~0~=-3,0710 ; b~1~=2,2968	|expressed as dry biomass|		
+17	|Ganihar 1997 | Isopoda	| weight = b~0~  + b~1~ * (length); b~0~=-1,1167 ; b~1~=0,4762	|expressed as dry biomass	|	
+18	|Coulis & Joly 2017 peso fresco	|Diplopoda miriapoda	|ln (weigth) = 2,38* ln(length)-2,77	|0,45	|*Según Edwards 1967 en Lebrum Philippe. (1971)	
+19	|Ganihar 1997 |Collembola utilizado para pauropoda	|ln (weight) = ln b~0~ + b~1~ * (length); ln b~0~=-1,8749 ; b~1~=2,3002 |	expressed as dry biomass	|	
+20	|Ganihar 1997 |Chilopoda Scolopendromorfa	|ln (weight) = ln b~0~ + b~1~ * (length); ln b~0~=-6,7041 ; b~1~=2,8420 |expressed as dry biomass |
+21	|Persson and Lohm (1977)	|Ecuación Pauropoda peso fresco en microgramos|	W=(1,20+L)^3	|0,2 |		
+22	|Ganihar 1997 |Ortóptera	|ln (weight) = ln b~0~ + b~1~ * (length); ln b~0~=-3,5338 ; b~1~=2,4619	|expressed as dry biomass |
+23 |Tita et al. 1999 |Nemátoda |weight = ((530 * L * W^2^)*1,084)/4 |expressed as dry biomass |
+24 |Hale et al. 1999 |Oligochaeta | ln (weight~af~) = 2.6365*ln(length)-12,6 |expressed as dry biomass ash-free | length in milimeter
+25 |Greiner et al. 2010 |Enchitraeid | ln (weight~af~) = 1.10*ln(length)-8,22 |expressed as dry biomass ash-free | length in milimeter
+
+# Apéndice - D -
+
+## Metadatos
+
+La base de datos contiene datos de los sitios de muestreo, los taxas, sobre rasgos funcionales tales como la biomasa, largo, ancho, habitat, gremio trófico, y sobre variables físico químicas.
+Las variables fisico-químicas y la identificación de los taxas pertenecen a Sandler 2019
+
+* ID: identificador que ordena tal cual se cargó en la base de datos
+* system: hace referencia al sistema de manejo
+* site: hace referencia al la réplica dentro de cada sistema de manejo
+* sample: se refiere a la submuestra tomada dentro de la réplica
+* month: refiere al mes en el cual se tomo la submuentra
+* year: refiere al año en el cual se tomo la submuentra
+* specie: se refiere al taxón, esta puede ser familia (colémbolla), superfamilia (acari)
+* ind: indica el individuo de un mismo taxa de una misma submuestra en la misma fecha
+* biomass: es la biomasa en microgramos de peso seco de cada individuo estimada mediantes ecuaciones morfométricas que relacionan el largo y el ancho corporal con regresiones cuyos coeficientes varían según la forma y/o el taxa
+* length: largo corporal de cada individuo en micrómetros medido desde anterior hacia porterior sin considerar apéndices; estimado a partir de fotografias individuales mediante escala de referencia (Leica system) y software ImageJ
+* width: ancho corporal de cada individuo en micrómetros medido en la zona corporal más ancha sin considerar apéndices; estimado a partir de fotografias individuales mediante escala de referencia (Leica system) y software ImageJ
+* season: estación del año basado en las fechas de muestreo
+* class: jerarquía taxonómica clase
+* order: jerarquía taxonómica orden
+* habitat: rasgo funcional relacionado con el estrato del suelo al que se encuentra mayormente vinculado un taxón
+* guild: rasgo funcional del taxón que indica el gremio trófico
+* diet: similar al gremio trófico, calculado a partir de <https://doi.org/10.1101/2021.02.06.430061>
+* P: Fósforo (ppm)
+* MO: porcentaje de materia orgánica (%)
+* CE: Conductividad eléctrica (dS/m)
+* Ph: potencial hidrógeno 
+* DAP: Densidad aparente g/cm^3^
+* HR: Humedad relativa (%)
+* Ca: Calcio (cmol/Kg suelo)
+* Mg: Magnesio (cmol/Kg suelo)
+* Na: Sodio (cmol/Kg suelo)
+* K: Potasio (cmol/Kg suelo)
+* N: Nitrógeno (%)
+* ARA: Reducción de acetileno 
+* RESP: Respiración microbiana heterotrófica del suelo (mg de CO~2~/g suelo^1^/dia^1^)
+* RM0-5: Resistencia mecánica en los primeros 5 cm de suelo (kg/cm^2^)
+* RM5-10: Resistencia mecánica en los segundos 5 cm de suelo (kg/cm^2^)
+
+
