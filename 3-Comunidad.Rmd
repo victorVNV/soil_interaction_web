@@ -1027,7 +1027,7 @@ La CE se relaciona con el pastizal.
 ### Diversidad de las comunidades edáficas que habitan los suelos de la UNLu
 
 ```{r mat_D,include=FALSE}
-ab_bulk <- read.csv("~/Documentos/Redes/soil_interaction_web/database/ab_bulk.txt", sep="")
+ab_bulk <- read.csv("database/ab_bulk.txt", sep="")
 ab_bulk[ab_bulk$sitio == "L", "sitio"] <- "A"
 ###########
 #Llevando abundancias a densidad

@@ -502,7 +502,7 @@ biomasas<-c(7.5323,1.5865,1533.87,0.0952,0.2221,0.00507,1.772,9.46e-4,9.46e-4,1.
 #biomasas*100
 
 #Por el momento eficiencias iguales
-eficiencias<- rep(0.1, times = 64)
+eficiencias<- rep(0.2, times = 64)
 #eficiencias[c(1,2,3,5)]<- 0
 
 
@@ -526,7 +526,8 @@ g_net %e% "flujo_red" <- flux*0.05
 #Carroña = ingreso 4trimestral
 #Tejido vegetal ingreso diario
 #Humus formacion bianual
-tasa_ingreso<-c(3.33,333,0.5,rep(NA, times = 61))
+
+tasa_ingreso<-c(3.33,333,0.5,rep(0, times = 61))
 
 valor_stab<-stability.value(t(m0), biomasas, t_met, eficiencias, 
                             tasa_ingreso,bioms.prefs = TRUE,bioms.losses = TRUE,

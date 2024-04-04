@@ -12,6 +12,114 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+En el ecosistema edáfico, las especies presentes se relacionan entre sí
+de diferentes maneras y estas relaciones establecen complejas redes de
+interacciones (Montoya et al. 2001), que muestran todas las posibles
+formas en las que las especies pueden interactuar (Delmas et al. 2019;
+Kéfi et al. 2012) y en función del tipo de interacción se obtienen redes
+tróficas, redes de competidores, redes mutualistas, etc. (Labrador 2008;
+Montoya et al. 2001)
+
+Estas redes de interacciones están influenciadas por factores de largo
+plazo tales como el clima, el suelo, la disponibilidad de recursos e
+influencias biogeográficas en el grupo de especies y por factores de
+corto plazo como las perturbaciones antrópicas (Kardol et al. 2016) por
+lo que resulta de particular interés la respuesta de la estructura de
+las redes ante los distintos tipos de disturbios y su relación con el
+funcionamiento del ecosistema del suelo (Sabatté, 2011; Kardol et al.,
+2016).
+
+El análisis de las redes de interacciones de alimentación (redes
+tróficas) ha sido el más utilizado pero se ha demostrado que incluir
+todos los tipos de interacciones es fundamental para entender el
+funcionamiento de los ecosistemas (Kéfi et al. 2012).
+
+Mediante este análisis se pueden reconocen las especies claves y los
+grupos funcionales, definidos como el grupo de especies con un papel
+semejante en el funcionamiento de un ecosistema (Gitay y Noble, 1997).
+De este análisis se obtienen patrones generales (topología de la red) y
+las consecuencias de estos patrones sobre la dinámica de una comunidad y
+sus especies constituyentes (Kéfi et al. 2012; Pimm et. al. 1991; Scheu
+2001) y su estructura condiciona las funciones en los ecosistemas
+(Montoya et al. 2001; Labrador 2008)
+
+Las redes tróficas se pueden describir mediante la teoría de grafos en
+la que los nodos (especies o gremios tróficos) y sus bordes
+(interacciones) determinan parámetros asociados a las redes tales como
+la conectividad, el grado de correlación, la longitud de un camino
+trófico, etc., hasta variables ecológicas de una comunidad en el que se
+incluyen por ejemplo la riqueza, el máximo nivel trófico, la fracción de
+omnívoros o la fracción de predación entre gremios, etc. (Digel et. al.
+2014; Delmas 2019 et al. 2019; Maggioto et al. 2019).
+
+En las redes ecológicas las conexiones características son aquellas en
+las que unas pocas especies poseen un gran número de enlaces en tanto
+que la mayoría poseen pocas conexiones (Delmas et al. 2019; Montoya et
+al. 2001; Pimm et al. 1991) y este es el modo en que la diversidad
+biológica y el funcionamiento de los ecosistemas están ligados
+(Balvanera et al., 2006).
+
+Un grupo funcional con especies redundantes (Martín-López 2007)
+permitirán una mayor capacidad de respuesta ante las perturbaciones ya
+que asegura el reemplazo de las funciones de especies extintas (Delmas
+et al. 2019; Montoya et al. 2001; Pimm et al. 1991) de modo que se puede
+mantener la misma estructura, funcionamiento y mecanismos de
+autorregulación en un ecosistema (Martín-Lopez 2007) pero la
+desaparición de especies muy conectadas puede producir extinciones
+secundarias y fragmentaciones de la red (Montoya et al. 2001)
+
+Como la estructura de las redes ecológicas condiciona el funcionamiento
+intrínseco de un ecosistema (Labrador, 2008; Martín López et al., 2007)
+la complejidad del entramado de la red trófica edáfica es un factor
+clave en la estabilidad de los procesos del suelo (Sabatté, 2011;
+Wardle, 1995), y por lo tanto en el estado de conservación del mismo que
+será mayor cuanto mayor sea la estabilidad de la red de interacciones.
+
+Los componentes de los sistemas ecológicos no funcionan aislados sino a
+través de interacciones de complejidad variable y su organización se
+encuentra enmarcada por factores evolutivos, dinámicos y energéticos
+(Saravia 2018) La modelación matemática resulta en una herramienta clave
+para la comprensión del funcionamiento de los sistemas biológicos porque
+cuenta con la propiedad de síntesis de variables con efectos dominantes
+(Polo 2013).
+
+Los estudios de redes de interacciones proporcionan información acerca
+de la estructura autoorganizada de los ecosistemas (Momo 2018); en redes
+tróficas del suelo los flujos de energía y la comprensión de los efectos
+de la descomposición de la materia orgánica y el ciclo de nutrientes
+(Scheu 2002) fueron tema central de los investigadores que se centraron
+en los flujos de energía y redes tróficas de sistemas arables (Scheu
+2002).
+
+La comprensión de la estructura y topología de la red se constituye en
+una herramienta útil para describir y cuantificar la complejidad de los
+ecosistemas y de cómo las comunidades de la mesofauna edáfica responden
+a las perturbaciones asociadas al manejo del suelo (Delmas et al. 2019;
+Maggioto et. al. 2019)
+
+Digel et al. (2014) utilizó las redes tróficas de 48 comunidades del
+suelo de bosques alemanes y comparó 22 parámetros de las métricas y
+topología de las redes tróficas entre las comunidades del suelo y las
+comunidades de ecosistemas acuáticos y terrestres. En la Argentina
+Maggioto et al. (2019) utilizaron las herramientas del análisis de las
+redes tróficas del suelo para estudiar los efectos de forestar
+pastizales naturalizados de la Pampa Húmeda. En este estudio, compararon
+11 parámetros entre 2 sitios forestados y un pastizal naturalizado.
+
+En ambos casos el análisis de la estructura de las redes fue realizado
+comparando diferentes comunidades ó diferentes manejos del suelo,
+hallando características particulares de cada comunidad y coinciden en
+que la estructura general de las redes no varía considerablemente según
+el uso del suelo, aunque en los sitios bajo estudio no implicaron
+manejos de suelos en el que hubiera prácticas agrícolas intensivas.
+
+En este contexto, pretendemos comparar la estabilidad estructural de las
+redes de interacciones de la fauna del suelo entre ambientes con
+distintas intensidades en el tiempo de uso del suelo, una sin uso de
+suelo correspondiente a un pastizal naturalizado que servirá como
+sistema de referencia y un sistema de alta perturbación que se
+corresponde con un sistema agrícola intensivo con más de 50 años de
+actividad ininterrumpida.
 
 ```{r , include=FALSE}
 library(tidyverse)
@@ -79,10 +187,11 @@ rec_base<-data.frame(sitio,replica,taxa,biomass)
 rec_base<-rec_base%>%
              mutate(
              body=case_when(
-  taxa=="bac"~ 9.5e-10, #peso medio bacteria, segun digel, en ug
-  taxa=="fungi"~ -999, #si considero el promedio entre ambos sería 5.560547e-05, 
-                      #pero se coloca -999 cuando no hay info.
-  taxa=="proto"~ 1.1121e-4)#peso medio, segun digel y en microgramos
+  taxa=="bac"~ 9.5e-4, #peso medio bacteria, segun digel, en ug
+  taxa=="fungi"~ 2.3e-1, #si considero el promedio entre ambos sería 5.560547e-05, 
+                      #pero se coloca -999 cuando no hay info. #nueva info 4/4/24
+                      # Andres Pilar et al 2016. soilfoodweb prairie
+  taxa=="proto"~ 1.1121e-3)#peso medio, segun digel y en microgramos
   )
   
 rec_base<-rec_base%>%
@@ -527,8 +636,6 @@ in a stable equilibrium only if the real parts of eigenvalues from the Jacobian
 are all negative. In this case, resilience is the absolute value of the real part
 of the largest eigenvalue, ... -->
 ```
-
-
 ```{r}
 #Red Lote con Flujo energia
 
@@ -548,10 +655,6 @@ P_netf %e% "flux" <- flux_P
 
 
 ```
-
-
-
-
 
 ```{r}
 #se puede calcular el QSS, me da positivo :(
@@ -630,7 +733,7 @@ E(QSS_IS_UNLu)
 
 
 
-QSS_unlu_seq<-calc_QSS_extinctions_seq(QSS_IS_UNLu, seq = (QSS_IS_UNLu)$name, nsim = 1000, ncores = 4, istrength = TRUE)
+QSS_unlu_seq<-calc_QSS_extinctions_seq(QSS_IS_UNLu, seq = (QSS_IS_UNLu)$name, nsim = 100, ncores = 4, istrength = TRUE)
 
 
 IS_ig_UNLu.W<-interaction_strenght_UNLu[,c(1,2,11)]
@@ -642,5 +745,3 @@ QSS_IS_UNLu.w<-graph_from_data_frame(IS_ig_UNLu.W,directed = TRUE, vertices =NUL
 
 #calc_QSS_extinction_dif(g=QSS_IS_UNLu.w,  sp_list=V(QSS_IS_UNLu.w)$name[5,15,8] , nsim = 10, ncores = 4, istrength = FALSE) 
 ```
-
-

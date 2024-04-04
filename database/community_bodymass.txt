@@ -1,4 +1,4 @@
-sitio	replica	estrato	taxa	length	width	body_mass
+Sitio	replica	estrato	UnidadTaxonómica	Largo	Ancho	body_mass
 P	3	20	larva_scarabidae			967200
 P	1	10	larva_scarabidae			841200
 L	1	10	larva_scarabidae			488400
@@ -16,93 +16,93 @@ R	1	H	gastropoda			163600
 R	1	20	cicadidae			158000
 R	1	20	cicadidae			148400
 R	2	H	oniscoidea			132000
-L	1	10	Apodorrectodea trapezoides			118800
+L	1	10	Apodorrectodeatrapezoides			118800
 P	3	10	larva_scarabidae			110000
 R	1	10	larva_carabidae			106800
 L	2	H	pythidae			96000
-L	2	10	Apodorrectodea caliginosa			89250
-L	1	10	Apodorrectodea caliginosa			84900
-R	1	10	Bimastos beddardi sophiae			75750
-L	2	10	Apodorrectodea caliginosa			73650
+L	2	10	Apodorrectodeacaliginosa			89250
+L	1	10	Apodorrectodeacaliginosa			84900
+R	1	10	Bimastosbeddardisophiae			75750
+L	2	10	Apodorrectodeacaliginosa			73650
 L	2	H	oniscoidea			73200
-P	1	10	Apodorrectodea trapezoides			72750
+P	1	10	Apodorrectodeatrapezoides			72750
 P	1	H	diplopoda			72000
-P	2	10	Apodorrectodea trapezoides			68700
-L	2	10	Juvenil			68700
-P	3	10	Octolasion tyrtaeum			68100
-P	2	20	Juvenil			65250
-P	1	10	Juvenil			64950
-R	3	10	Apodorrectodea caliginosa			64500
+P	2	10	Apodorrectodeatrapezoides			68700
+L	2	10	juvenil			68700
+P	3	10	Octolasiontyrtaeum			68100
+P	2	20	juvenil			65250
+P	1	10	juvenil			64950
+R	3	10	Apodorrectodeacaliginosa			64500
 L	2	H	oniscoidea			63200
 L	1	H	lycosidae			62400
-P	2	10	Glossoscolex sp.			59550
-L	1	10	Octalasion cyaneum			58200
+P	2	10	Glossoscolexsp.			59550
+L	1	10	Octalasioncyaneum			58200
 P	3	H	oniscoidea			58000
-R	2	10	Juvenil			57900
-P	1	10	Juvenil			52950
-P	1	10	Juvenil			52200
+R	2	10	juvenil			57900
+P	1	10	juvenil			52950
+P	1	10	juvenil			52200
 P	1	H	oniscoidea			51600
 L	3	H	lycosidae			51200
-R	1	10	Juvenil			49650
-R	3	10	Juvenil 			49350
+R	1	10	juvenil			49650
+R	3	10	juvenil			49350
 R	3	10	diplopoda			49200
-R	1	10	Bimastos beddardi sophiae			48600
-L	1	10	Aporrectodea rosea			48000
+R	1	10	Bimastosbeddardisophiae			48600
+L	1	10	Aporrectodearosea			48000
 P	1	H	oniscoidea			47600
 P	1	H	oniscoidea			47600
 P	3	10	oniscoidea			47200
 P	3	10	juvenil			47200
 R	2	H	diplopoda			47200
 R	1	10	oniscoidea			45600
-L	3	10	Juvenil			45600
-R	1	10	Aporrectodea caliginosa			44250
+L	3	10	juvenil			45600
+R	1	10	Aporrectodeacaliginosa			44250
 P	1	10	oniscoidea			43200
-R	1	10	Aporrectodea trapezoides			42900
+R	1	10	Aporrectodeatrapezoides			42900
 P	2	H	oniscoidea			42800
-R	2	10	Juvenil			42600
-R	1	10	Bimastos beddardi sophiae			42600
-P	2	10	Juvenil			42600
-R	2	10	Juvenil			41100
+R	2	10	juvenil			42600
+R	1	10	Bimastosbeddardisophiae			42600
+P	2	10	juvenil			42600
+R	2	10	juvenil			41100
 R	1	10	oniscoidea			40400
-R	1	10	Bimastos beddardi sophiae			39600
+R	1	10	Bimastosbeddardisophiae			39600
 L	3	10	grillopalpidae			39200
 P	1	H	oniscoidea			39200
 P	1	H	oniscoidea			38800
-L	2	10	Juvenil			38250
-P	2	10	Juvenil			38100
-R	3	10	Juvenil 			35700
+L	2	10	juvenil			38250
+P	2	10	juvenil			38100
+R	3	10	juvenil			35700
 L	3	10	oniscoidea			35600
 R	1	H	oniscoidea			35200
-P	2	10	Juvenil			34350
-P	2	10	Juvenil			34350
+P	2	10	juvenil			34350
+P	2	10	juvenil			34350
 P	1	H	oniscoidea			33200
 P	1	H	oniscoidea			33200
 R	1	10	oniscoidea			33200
-P	2	10	Juvenil			33150
-P	1	10	Juvenil			31650
-R	2	10	Juvenil			30750
-R	1	10	Aporrectodea trapezoides			30300
+P	2	10	juvenil			33150
+P	1	10	juvenil			31650
+R	2	10	juvenil			30750
+R	1	10	Aporrectodeatrapezoides			30300
 P	1	20	lycosidae			30000
-R	1	10	Juvenil			29850
-P	1	10	Juvenil			29850
-R	3	10	Juvenil 			29850
-R	1	10	Juvenil			29700
-L	2	10	Juvenil			29400
+R	1	10	juvenil			29850
+P	1	10	juvenil			29850
+R	3	10	juvenil			29850
+R	1	10	juvenil			29700
+L	2	10	juvenil			29400
 R	1	H	oniscoidea			29200
 L	1	10	diplopoda			29200
-P	3	10	Juvenil			28950
+P	3	10	juvenil			28950
 R	2	10	geophylomorpha			28800
-R	1	20	Aporrectodea rosea			28650
-R	1	10	Juvenil			28050
-P	2	10	Juvenil			27900
-R	2	10	Juvenil			27450
+R	1	20	Aporrectodearosea			28650
+R	1	10	juvenil			28050
+P	2	10	juvenil			27900
+R	2	10	juvenil			27450
 R	1	H	oniscoidea			26800
 L	1	10	diplopoda			25600
-R	2	10	Juvenil			25500
-R	1	20	Juvenil			25350
+R	2	10	juvenil			25500
+R	1	20	juvenil			25350
 R	3	H	oniscoidea			24800
-P	1	10	Juvenil			24750
-P	2	10	Juvenil			24450
+P	1	10	juvenil			24750
+P	2	10	juvenil			24450
 R	1	H	oniscoidea			24400
 L	1	10	diplopoda			24400
 R	2	H	oniscoidea			24000
@@ -112,24 +112,24 @@ P	1	10	oniscoidea			23600
 R	3	10	oniscoidea			23600
 L	2	H	diplopoda			23600
 P	1	10	diplopoda			23600
-P	2	10	Juvenil			23250
-P	2	10	Juvenil			23250
+P	2	10	juvenil			23250
+P	2	10	juvenil			23250
 P	2	20	anthribidae			23200
 R	1	20	cicadidae			23200
-R	2	10	Juvenil			22950
-P	1	H	Aporrectodea rosea			22500
+R	2	10	juvenil			22950
+P	1	H	Aporrectodearosea			22500
 R	2	10	diptera			22400
 R	1	20	nematomorpha			22400
 L	1	10	diplopoda			22000
 P	2	H	oniscoidea			21600
 L	3	20	oniscoidea			21600
 L	1	10	tenebrionidae			21600
-L	2	10	Juvenil			21450
+L	2	10	juvenil			21450
 L	2	H	diplopoda			21200
-R	2	10	Juvenil			20850
+R	2	10	juvenil			20850
 L	2	10	diplopoda			20400
 L	2	10	diplopoda			20400
-R	1	10	Juvenil			20400
+R	1	10	juvenil			20400
 L	1	10	diplopoda			20000
 R	2	10	diplopoda			19600
 L	2	H	diplopoda			19600
@@ -138,16 +138,16 @@ R	2	H	larva_sciaridae	11760.209	1032.288	19391.3587915594
 P	2	20	anthribidae			19200
 P	2	H	juvenil			19200
 P	2	H	larva_staphynilidae			19200
-P	1	10	Juvenil			19050
+P	1	10	juvenil			19050
 R	2	H	larva_sciaridae	11653.267	977.3	18937.1999372878
 L	2	10	diplopoda			18800
 L	2	10	diplopoda			18800
 R	3	20	oniscoidea			18400
-P	1	10	Juvenil			18300
+P	1	10	juvenil			18300
 P	1	10	diplopoda			18000
-R	2	10	Juvenil			18000
-P	1	10	Juvenil			17850
-R	3	10	Juvenil 			17550
+R	2	10	juvenil			18000
+P	1	10	juvenil			17850
+R	3	10	juvenil			17550
 P	2	H	oniscoidea			17200
 R	2	H	oniscoidea			17200
 R	2	H	oniscoidea			17200
@@ -163,8 +163,8 @@ R	2	10	oniscoidea			16000
 L	2	H	diplopoda			16000
 L	1	H	diplopoda			15600
 P	2	H	tenebrionidae			15600
-P	1	10	Juvenil			15600
-R	1	10	Juvenil			15450
+P	1	10	juvenil			15600
+R	1	10	juvenil			15450
 R	3	H	carabidae			15200
 P	1	H	oniscoidea			15200
 R	2	H	oniscoidea			15200
@@ -180,25 +180,25 @@ P	1	H	oniscoidea			14400
 R	2	10	oniscoidea			14400
 L	1	10	diplopoda			14400
 L	2	10	diplopoda			14400
-R	2	10	Juvenil			14100
+R	2	10	juvenil			14100
 P	1	20	hemiptero			14000
 R	2	10	diplopoda			14000
 L	1	10	diplopoda			14000
-R	1	10	Juvenil			13950
-P	2	10	Juvenil			13800
+R	1	10	juvenil			13950
+P	2	10	juvenil			13800
 P	2	10	coleoptera			13600
 L	2	H	diplopoda			13600
 L	2	H	diplopoda			13600
 P	1	10	tenebrionidae			13600
-R	1	10	Juvenil			13500
+R	1	10	juvenil			13500
 R	3	10	oniscoidea			13200
 L	2	10	oniscoidea			13200
 L	1	10	diplopoda			13200
 P	1	H	oniscoidea			12800
 R	2	10	oniscoidea			12800
-R	3	10	Juvenil 			12750
+R	3	10	juvenil			12750
 R	2	Frag	larva_sciaridae	9998.012	1299.286	12726.427140492
-R	1	10	Juvenil			12600
+R	1	10	juvenil			12600
 P	3	20	oniscoidea			12400
 R	2	10	oniscoidea			12400
 R	2	10	oniscoidea			12400
@@ -206,7 +206,7 @@ R	2	H	oniscoidea			12400
 R	2	H	oniscoidea			12400
 R	1	10	oniscoidea			12400
 L	1	10	diplopoda			12400
-P	2	10	Juvenil			12300
+P	2	10	juvenil			12300
 R	3	20	geophylomorpha			12000
 R	2	10	oniscoidea			12000
 L	3	10	oniscoidea			12000
@@ -215,7 +215,7 @@ R	1	10	diplopoda			12000
 L	1	H	diplopoda			12000
 L	1	10	diplopoda			12000
 L	2	10	diplopoda			12000
-P	2	10	Juvenil			11850
+P	2	10	juvenil			11850
 R	3	H	gastropoda			11600
 R	2	10	geophylomorpha			11600
 R	2	10	oniscoidea			11600
@@ -223,7 +223,7 @@ R	2	H	oniscoidea			11600
 R	3	10	oniscoidea			11600
 R	1	10	oniscoidea			11600
 R	3	20	oniscoidea			11600
-R	1	10	Juvenil			11400
+R	1	10	juvenil			11400
 R	1	20	cicadidae			11200
 R	2	10	oniscoidea			11200
 R	3	10	oniscoidea			11200
@@ -232,7 +232,7 @@ L	1	H	diplopoda			11200
 L	2	10	diplopoda			11200
 R	3	H	larva_scarabidae			11200
 R	2	Frag	larva_sciaridae	9507.173	1073.129	11168.3558294051
-R	2	10	Juvenil			10950
+R	2	10	juvenil			10950
 R	1	Frag	enquitreido	28856.37	797.499	10873.3965385434
 P	2	20	anthribidae			10800
 P	1	H	oniscoidea			10800
@@ -252,7 +252,7 @@ R	3	H	oniscoidea			10400
 L	1	H	lycosidae			10400
 L	2	10	diplopoda			10400
 R	3	20	diplopoda			10400
-R	1	10	Juvenil			10350
+R	1	10	juvenil			10350
 P	1	10	geophylomorpha			10000
 P	2	10	oniscoidea			10000
 P	2	10	oniscoidea			10000
@@ -266,9 +266,9 @@ L	1	10	diplopoda			10000
 L	2	10	diplopoda			10000
 R	3	10	nematomorpha			10000
 L	1	Hoja	pupa_diptero	12253.242	2568.046	9911.860199
-R	1	10	Juvenil			9900
-R	3	10	Juvenil 			9900
-R	1	10	Juvenil			9750
+R	1	10	juvenil			9900
+R	3	10	juvenil			9900
+R	1	10	juvenil			9750
 P	2	10	oniscoidea			9600
 P	2	10	oniscoidea			9600
 P	1	10	oniscoidea			9600
@@ -289,7 +289,7 @@ R	3	10	larva_curculionidae			9200
 L	1	10	lycosidae			9200
 L	3	H	linyphiidae			9200
 L	1	10	staphylinidae			9200
-P	2	10	Eukerria halophila			9150
+P	2	10	Eukerriahalophila			9150
 L	1	Hoja	pupa_diptero	11251.148	2415.638	9100.665106
 L	1	Hoja	pupa_diptero	11122.172	2829.302	8996.259034
 R	2	20	carabidae			8800
@@ -319,12 +319,12 @@ R	3	H	lycosidae			8400
 R	3	H	lycosidae			8400
 L	3	H	diplopoda			8400
 R	1	10	trogossitidae			8400
-L	2	10	Juvenil			8400
+L	2	10	juvenil			8400
 L	1	Hoja	pupa_diptero	10302.887	2645.386	8333.0478265
 L	2	Hoja	pupa_diptero	10287.371	2962.294	8320.4876245
-P	2	20	Juvenil			8250
+P	2	20	juvenil			8250
 L	1	Hoja	pupa_diptero	10033.728	2276.104	8115.163616
-R	3	10	Juvenil 			8100
+R	3	10	juvenil			8100
 L	2	Hoja	pupa_diptero	9976.649	2377.037	8068.9581655
 L	1	Hoja	pupa_diptero	9973.302	2659.324	8066.248769
 L	1	Hoja	pupa_diptero	9921.267	2518040	8024.1264365
@@ -337,8 +337,8 @@ R	3	H	oniscoidea			8000
 L	2	H	larva_diptera			8000
 R	3	10	lycosidae			8000
 L	1	H	lycosidae			8000
-R	3	10	pupa díptera			8000
-R	2	10	Juvenil			7650
+R	3	10	pupadíptera			8000
+R	2	10	juvenil			7650
 P	1	10	blattodea			7600
 P	3	10	carabidae			7600
 R	2	H	oniscoidea			7600
@@ -354,7 +354,7 @@ L	2	Hoja	pupa_diptero	9289.58	2844.911	7512.77581
 L	2	Hoja	pupa_diptero	9264.822	3323.593	7492.734209
 P	2	Frag	larva_coleoptero	9109.101	2649.376	7366.6780595
 L	1	Hoja	pupa_diptero	9105.073	2312.09	7363.4173935
-R	1	10	Juvenil			7350
+R	1	10	juvenil			7350
 P	2	10	oniscoidea			7320
 L	1	Hoja	pupa_diptero	9018.924	2433.363	7293.679778
 L	1	H	larva_carabidae	8997.154	2193.417	7276.056963
@@ -375,11 +375,11 @@ L	1	10	diplopoda			7200
 L	3	20	nematomorpha			7200
 R	3	20	diplopoda			7200
 P	1	20	ptilidae			7200
-R	1	10	Juvenil			7200
+R	1	10	juvenil			7200
 L	1	Hoja	pupa_diptero	8638.108	3365.359	6985.409226
 L	2	Hoja	pupa_diptero	8608.956	2815.489	6961.810682
-R	3	10	Juvenil 			6900
-R	3	10	Juvenil 			6900
+R	3	10	juvenil			6900
+R	3	10	juvenil			6900
 P	1	10	carabidae			6800
 P	1	10	coccinelidae			6800
 P	2	10	oniscoidea			6800
@@ -402,10 +402,10 @@ R	2	20	lycosidae			6800
 L	1	10	diplopoda			6800
 P	2	H	staphylinidae			6800
 L	2	Hoja	pupa_diptero	8331.499	3092.564	6737.2092405
-R	2	10	Juvenil			6600
+R	2	10	juvenil			6600
 L	2	10	pupa_diptero	8137.66	2468.353	6580.29657
 L	2	Hoja	pupa_diptero	8025.341	2501.922	6489.3743395
-P	2	20	Microscolex phosphoreus			6450
+P	2	20	Microscolexphosphoreus			6450
 R	3	H	gastropoda			6400
 P	1	H	oniscoidea			6400
 R	2	10	oniscoidea			6400
@@ -416,9 +416,9 @@ R	3	20	larva_coleoptero			6400
 L	1	10	diplopoda			6400
 L	1	20	diplopoda			6400
 L	1	10	staphylinidae			6400
-P	3	10	Juvenil			6300
-P	2	10	Juvenil			6300
-R	1	10	Juvenil			6150
+P	3	10	juvenil			6300
+P	2	10	juvenil			6300
+R	1	10	juvenil			6150
 P	1	Frag	enquitreido	17043.972	815.203	6092.94491848213
 P	2	10	larva_coleoptero	7512.877	2435.033	6074.5347315
 P	1	10	carabidae			6000
@@ -436,7 +436,7 @@ R	3	10	oniscoidea			6000
 R	3	H	oniscoidea			6000
 R	3	H	lycosidae			6000
 R	3	Frag	larva_carabido	7384.32	1183.366	5970.46784
-R	2	10	Juvenil			5850
+R	2	10	juvenil			5850
 R	3	humus	larva_sciaridae	7340.193	731.476	5708.67629056343
 L	1	10	enquitreido	15938.137	539.837	5659.53395548273
 P	2	10	oniscoidea			5600
@@ -448,10 +448,10 @@ R	3	10	oniscoidea			5600
 R	3	H	oniscoidea			5600
 L	3	20	linyphiidae			5600
 P	1	20	staphylinidae			5600
-R	2	10	Juvenil			5550
+R	2	10	juvenil			5550
 P	1	Frag	enquitreido	15521.546	396.883	5497.02652649311
-R	2	10	Juvenil			5250
-R	1	10	Juvenil			5250
+R	2	10	juvenil			5250
+R	1	10	juvenil			5250
 P	2	20	anthribidae			5200
 R	3	20	blattodea			5200
 R	2	20	formicidae			5200
@@ -470,9 +470,9 @@ R	3	10	larva_elateridae			5200
 L	1	10	larva_tenebrionidae			5200
 P	1	H	staphylinidae			5200
 L	2	10	enquitreido	14685.451	395.744	5172.20078839002
-P	2	10	Microscolex phosphoreus			5100
-R	2	10	Juvenil			4950
-P	2	10	Juvenil			4950
+P	2	10	Microscolexphosphoreus			5100
+R	2	10	juvenil			4950
+P	2	10	juvenil			4950
 P	2	Frag	larva_coleoptero	6122.273	879.256	4948.8407935
 P	1	10	carabidae			4800
 R	2	20	formicidae			4800
@@ -494,7 +494,7 @@ P	3	10	staphylinidae			4800
 P	1	H	staphylinidae			4800
 P	1	10	staphylinidae			4800
 R	1	10	larva_diptera	6762.768	464.97	4615.53943138152
-P	2	20	Juvenil			4500
+P	2	20	juvenil			4500
 L	3	10	larva_coleoptero	5567.376	848.977	4499.651672
 L	1	Hoja	pupa_diptero	5452.346	902.622	4406.534887
 R	1	10	elateriforme			4400
@@ -520,8 +520,8 @@ R	3	H	oniscoidea			4400
 R	1	10	oniscoidea			4400
 P	1	H	linyphiidae			4400
 L	1	10	staphylinidae			4400
-R	1	20	Juvenil			4350
-P	1	10	Juvenil			4350
+R	1	20	juvenil			4350
+P	1	10	juvenil			4350
 R	3	Frag	enquitreido	12291.495	513.405	4252.69795621225
 L	3	Frag	enquitreido	12210.135	681.42	4221.74376862489
 L	1	10	enquitreido	12194.884	445.283	4215.94367134194
@@ -529,7 +529,7 @@ L	2	humus	enquitreido	12122.084	413.878	4188.26716243979
 L	3	Hoja	pupa_insecto	5180.363	1421.284	4186.3646485
 R	3	Hoja	enquitreido	11989.874	463.291	4138.04719791806
 L	3	Frag	enquitreido	11984.817	439.808	4136.12739211749
-R	1	10	Juvenil			4050
+R	1	10	juvenil			4050
 R	3	Frag	enquitreido	11728.901	726.762	4039.07959322121
 R	1	10	formicidae			4000
 R	2	20	formicidae			4000
@@ -545,7 +545,7 @@ L	3	H	lycosidae			4000
 R	3	10	staphylinidae			4000
 L	3	Frag	larva_coleoptero	4883.403	774.899	3945.9755285
 L	2	10	enquitreido	11419.464	490.613	3922.01861356379
-R	1	10	Juvenil			3900
+R	1	10	juvenil			3900
 L	3	Frag	larva_coleoptero	4807.404	1014.042	3884.454338
 L	1	Frag	enquitreido	11202.85	388.011	3840.26091236567
 P	1	10	staphylinidae	6493.025	794.016	3810.53267815322
@@ -576,16 +576,16 @@ R	2	H	staphylinidae	6324.144	863.145	3571.09643347206
 P	1	H	staphylinidae	6306.257	708.863	3546.27568864727
 L	3	Frag	enquitreido	10344.787	407.788	3517.97757679095
 R	3	Hoja	enquitreido	10296.926	494.418	3500.0778933154
-R	1	20	Bimastos parvus			3450
-P	2	20	Juvenil			3450
+R	1	20	Bimastosparvus			3450
+P	2	20	juvenil			3450
 L	2	Hoja	enquitreido	10098.241	390.428	3425.86040831773
 P	1	Frag	enquitreido	10067.703	623.391	3414.46600793537
 R	3	10	enquitreido	9890.968	470.629	3348.59045710209
 L	1	10	larva_sciaridae	5974.911	619.168	3347.08822581161
 L	1	10	enquitreido	9874.283	401.599	3342.37739801151
 R	3	10	enquitreido	9818.174	495.859	3321.49157898229
-R	3	10	Juvenil 			3300
-P	2	20	Eukerria halophila			3300
+R	3	10	juvenil			3300
+P	2	20	Eukerriahalophila			3300
 L	3	10	enquitreido	9705.186	1112.455	3279.46959008546
 R	1	Frag	enquitreido	9698.203	441.685	3276.8741031654
 L	2	10	enquitreido	9642.333	401.021	3256.114716798
@@ -615,8 +615,8 @@ P	1	Frag	enquitreido	9313.213	273.375	3134.07112391223
 L	1	10	enquitreido	9215.121	474.926	3097.7795261849
 L	1	Hoja	enquitreido	9087.714	397.94	3050.69980796933
 L	1	Hoja	enquitreido	9012.772	309.641	3023.03782973124
-R	2	10	Juvenil			3000
-R	3	10	Juvenil 			3000
+R	2	10	juvenil			3000
+R	3	10	juvenil			3000
 P	1	Frag	enquitreido	8892.31	333.955	2978.62213594732
 L	1	Frag	enquitreido	8868.084	500.229	2969.69697606388
 R	3	Frag	enquitreido	8817.173	477.601	2950.9486820544
@@ -631,8 +631,8 @@ R	3	Frag	enquitreido	8636.519	437.866	2884.50944154003
 P	2	Frag	oniscoidea	8377.852	1924.735	2872.8331224
 R	3	20	enquitreido	8577.962	412.943	2863.00356337439
 L	2	Frag	enquitreido	8552.402	309.123	2853.62089128879
-R	1	10	Juvenil			2850
-R	3	10	Juvenil 			2850
+R	1	10	juvenil			2850
+R	3	10	juvenil			2850
 L	2	Frag	pupa_diptero	3514.276	766.63	2837.667222
 P	2	Frag	oniscoidea	8300.406	1721.354	2835.9533372
 R	3	Frag	enquitreido	8499.425	514.392	2834.18280818525
@@ -661,12 +661,12 @@ L	1	10	staphylinidae			2800
 L	2	Frag	pupa_diptero	3414.19	1020.661	2756.647605
 P	1	Frag	enquitreido	8269.845	264.83	2750.08720488032
 R	3	Hoja	enquitreido	8135.857	249.011	2701.11451077579
-R	2	10	Juvenil			2700
-R	1	10	Juvenil			2700
-R	1	10	Juvenil			2700
-R	1	10	Juvenil			2700
-R	3	10	Juvenil 			2700
-P	2	20	Microscolex phosphoreus			2700
+R	2	10	juvenil			2700
+R	1	10	juvenil			2700
+R	1	10	juvenil			2700
+R	1	10	juvenil			2700
+R	3	10	juvenil			2700
+P	2	20	Microscolexphosphoreus			2700
 L	1	10	enquitreido	8088.795	317.168	2683.9323844354
 P	2	Frag	oniscoidea	7964.284	1567.531	2675.8920408
 P	1	Frag	enquitreido	8051.012	383.625	2670.14520967245
@@ -712,7 +712,7 @@ L	1	20	larva_elateridae			2400
 L	2	10	larva_tenebrionidae			2400
 P	1	20	ptilidae			2400
 P	1	H	symphyla			2400
-R	1	10	Juvenil			2400
+R	1	10	juvenil			2400
 R	3	Frag	enquitreido	7276.3	382.08	2388.91674722636
 L	3	Frag	enquitreido	7214.974	499.19	2366.77844952981
 P	1	humus	enquitreido	7203.256	454.288	2362.55046169903
@@ -785,8 +785,8 @@ P	3	10	oniscoidea	6483.818	1787.197	1970.8941316
 L	3	Hoja	enquitreido	6105.311	504.229	1969.59951835765
 P	1	Frag	staphiliniidae	4955.927	700.053	1959.20479938395
 L	2	10	enquitreido	6055.733	507.463	1952.01319617517
-R	3	10	Juvenil 			1950
-R	3	10	Juvenil 			1950
+R	3	10	juvenil			1950
+R	3	10	juvenil			1950
 R	3	Frag	larva_sciaridae	4842.497	625.939	1940.4655874397
 P	1	Hoja	enquitreido	6007.52	371.204	1934.92486942311
 L	3	Frag	enquitreido	5995.645	800.925	1930.71806585235
@@ -816,10 +816,10 @@ R	3	humus	enquitreido	5672.114	354.379	1816.43057985052
 R	3	Frag	larva_sciaridae	4718.65	726.507	1814.32854006344
 L	2	humus	enquitreido	5646.86	303.353	1807.53652313995
 L	2	Frag	pupa_diptero	2234.195	516.05	1801.4416525
-R	1	20	Juvenil			1800
-R	1	20	Juvenil			1800
-R	3	10	Juvenil 			1800
-R	3	10	Juvenil 			1800
+R	1	20	juvenil			1800
+R	1	20	juvenil			1800
+R	3	10	juvenil			1800
+R	3	10	juvenil			1800
 L	1	Frag	enquitreido	5607.179	451.802	1793.56954629332
 R	3	humus	enquitreido	5569.244	342.643	1780.22636641551
 R	3	Frag	enquitreido	5561.134	359.774	1777.37494841784
@@ -848,10 +848,10 @@ L	1	10	staphylinidae	4647.448	644.203	1672.44009528171
 R	3	Frag	enquitreido	5254.742	367.133	1669.95933646376
 L	1	10	enquitreido	5244.391	231.716	1666.34118544235
 R	3	Hoja	enquitreido	5226.554	442.221	1660.10800892864
-R	2	10	Juvenil			1650
-R	1	10	Juvenil			1650
-R	3	10	Juvenil 			1650
-R	3	10	Juvenil 			1650
+R	2	10	juvenil			1650
+R	1	10	juvenil			1650
+R	3	10	juvenil			1650
+R	3	10	juvenil			1650
 L	1	Frag	enquitreido	5164.46	268.328	1638.42576419869
 L	2	Frag	enquitreido	5153.125	412.478	1634.47056495078
 L	1	Frag	enquitreido	5119.907	441.176	1622.88459704607
@@ -900,8 +900,8 @@ L	1	10	enquitreido	4820.774	551.18	1518.89519422669
 P	1	humus	enquitreido	4807.019	203.16	1514.12866456215
 P	2	H	staphylinidae	4459.588	633.435	1510.85595564689
 R	3	Frag	enquitreido	4787.597	349.857	1507.40066852124
-R	1	10	Juvenil			1500
-R	1	10	Juvenil			1500
+R	1	10	juvenil			1500
+R	1	10	juvenil			1500
 L	2	Frag	pupa_diptero	1853.509	523.05	1493.2763355
 L	1	10	enquitreido	4742.867	420.015	1491.91609660101
 R	2	20	formicidae	4522.842	875.375	1487.32895671695
@@ -959,8 +959,8 @@ L	2	humus	enquitreido	4348.649	335.548	1356.09198579133
 L	1	Frag	enquitreido	4338.409	338.989	1352.57980984655
 P	1	10	enquitreido	4334.872	273.652	1351.36686111466
 R	1	20	formicidae	4340.165	1101.505	1350.2828974244
-R	1	10	Juvenil			1350
-R	1	10	Juvenil			1350
+R	1	10	juvenil			1350
+R	1	10	juvenil			1350
 R	3	humus	enquitreido	4320.323	343.52	1346.37859222862
 L	1	Frag	enquitreido	4314.615	277.54	1344.42200628889
 R	3	Hoja	enquitreido	4314.461	517.975	1344.36922181533
@@ -1030,7 +1030,7 @@ P	1	H	staphylinidae			1200
 P	1	10	staphylinidae			1200
 L	1	H	staphylinidae			1200
 L	3	H	staphylinidae			1200
-R	1	10	Juvenil			1200
+R	1	10	juvenil			1200
 L	2	Frag	enquitreido	3882.822	328.851	1197.18588716064
 R	3	humus	enquitreido	3880.624	279.624	1196.44043086723
 L	2	humus	enquitreido	3874.502	425.91	1194.36436441131
@@ -1114,9 +1114,9 @@ P	1	humus	enquitreido	3478.647	287.311	1060.84212109289
 L	2	10	enquitreido	3471.357	394.414	1058.39691724271
 R	3	humus	enquitreido	3468.265	237.269	1057.35995699031
 P	3	humus	tardigrado	1051.571	280.419	1055.38347397717
-R	1	20	Juvenil			1050
-R	1	10	Juvenil			1050
-R	1	10	Juvenil			1050
+R	1	20	juvenil			1050
+R	1	10	juvenil			1050
+R	1	10	juvenil			1050
 L	1	Frag	enquitreido	3440.129	315.089	1047.92827820804
 L	3	10	staphylinidae	3842.029	494.092	1046.68341028019
 P	2	Frag	larva_diptero	3816.333	559.865	1046.15347775849
@@ -1218,8 +1218,8 @@ R	1	humus	enquitreido	3039.592	333.126	914.526260799288
 L	1	10	enquitreido	3019.12	240.107	907.753164136237
 L	1	10	enquitreido	3014.163	202.156	906.113845679425
 L	1	10	enquitreido	3012.533	313.061	905.574850877581
-R	1	20	Juvenil			900
-R	1	10	Juvenil			900
+R	1	20	juvenil			900
+R	1	10	juvenil			900
 R	3	humus	enquitreido	2991.146	375.154	898.505483076485
 P	1	10	ichtyostomatogasteridae	5237.471	305.58	895.257699422101
 L	2	Frag	pupa_diptero	1111.323	290.159	892.4767685
@@ -1521,8 +1521,8 @@ R	2	Hoja	enquitreido	1125.779	183.339	306.688729400133
 R	1	10	tardigrado	695.695	202.007	305.59844033176
 R	1	10	enquitreido	1108.573	158.232	301.536635901187
 P	3	hoja	tardigrado	692.107	339.208	300.894474368076
-R	1	10	Juvenil			300
-R	1	10	Juvenil			300
+R	1	10	juvenil			300
+R	1	10	juvenil			300
 P	3	hoja	tardigrado	690.321	267.591	298.571082367124
 P	2	Frag	trip	2276.146	594.345	295.860540655166
 R	1	humus	tardigrado	688.097	271.961	295.69465917497
@@ -1681,7 +1681,7 @@ P	2	10	tardigrado	550.892	134.384	151.73783530682
 P	3	hoja	tardigrado	550.196	179.161	151.16344234833
 P	3	Frag	tardigrado	549.306	242.588	150.431059947805
 R	2	10	arannae	1703.034	743.105	150.099704811027
-R	2	10	Juvenil			150
+R	2	10	juvenil			150
 P	3	Frag	tardigrado	548.595	180.19	149.847679629165
 L	3	Frag	oribatulidae	1381.317	770.383	148.157825812667
 L	1	humus	larva_sciaridae	1788.167	320.744	146.370236643571

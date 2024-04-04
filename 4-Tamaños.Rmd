@@ -1,0 +1,537 @@
+---
+title: "4-Tamaños"
+author: "VNV"
+date: "2024-03-25"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r lib, include=FALSE}
+{require(tidyverse); require(kableExtra); require(quantreg);require(lubridate)
+  require(kSamples);require(ggridges)}
+```
+
+# Espectro de tamaños UNLu
+## Densidades y pesos corporales por taxón
+```{r limp_dtb,include=FALSE}
+body_unlu <- read.delim("database/community_bodymass.txt")
+names(body_unlu)<-c("sitio","replica","microhabitat","taxa","length","width","body_mass")
+#microhábitat diferencia entre hoja gruesa, hojafragmentada y humus
+body_unlu[body_unlu$sitio == "L", "sitio"] <- "A"
+body_unlu$estrato<-body_unlu$microhabitat
+#estrato queda por los 3 estratos, esto hace a la replicabilidad
+body_unlu$estrato[body_unlu$microhabitat=="Frag"|body_unlu$microhabitat=="Hoja"|
+                    body_unlu$microhabitat=="hoja"|body_unlu$microhabitat=="humus"]<-"H"
+
+body_unlu<-body_unlu[,c(c("sitio","replica","estrato","microhabitat","taxa","body_mass"))]
+
+#corrección nombres duplicados o erróneos
+{body_unlu$taxa[body_unlu$taxa=="Apodorrectodeacaliginosa"|
+                 body_unlu$taxa=="Aporrectodeacaliginosa"]<-"Aporrectodea_caliginosa"
+body_unlu$taxa[body_unlu$taxa=="Apodorrectodeatrapezoides"|
+                 body_unlu$taxa=="Aporrectodeatrapezoides"]<-"Aporrectodea_trapezoides"
+body_unlu$taxa[body_unlu$taxa=="Aporrectodearosea"]<-"Aporrectodea_rosea"
+body_unlu$taxa[body_unlu$taxa=="Bimastosbeddardisophiae"]<-"Bimastos_beddardi_sophiae"
+body_unlu$taxa[body_unlu$taxa=="Bimastosparvus"]<-"Bimastos_parvus"
+body_unlu$taxa[body_unlu$taxa=="entomobridae"|
+                 body_unlu$taxa=="entomobridae"|
+                 body_unlu$taxa=="entomobriidae"]<-"entomobryoidea"
+body_unlu$taxa[body_unlu$taxa=="Eukerriahalophila"]<-"Eukerria_halophila"
+body_unlu$taxa[body_unlu$taxa=="insecto_polinizador"|
+                 body_unlu$taxa=="insecto_suctor"]<-"hemiptera"
+body_unlu$taxa[body_unlu$taxa=="larva_carabidae"|
+                 body_unlu$taxa=="larva_carabido"]<-"larva_carabidae"
+body_unlu$taxa[body_unlu$taxa=="larva_diptera"|
+                 body_unlu$taxa=="larva_diptero"]<-"larva_diptera"
+body_unlu$taxa[body_unlu$taxa=="larva_scarabidae"]<-"larva_scarabaeidae"
+body_unlu$taxa[body_unlu$taxa=="larva_staphynilidae"]<-"larva_staphylinidae"
+body_unlu$taxa[body_unlu$taxa=="Microscolexphosphoreus"]<-"Microscolex_phosphoreus"
+body_unlu$taxa[body_unlu$taxa=="Microscolexphosphoreus"]<-"Microscolex_phosphoreus"
+body_unlu$taxa[body_unlu$taxa=="Octalasioncyaneum"]<-"Octalasion_cyaneum"
+body_unlu$taxa[body_unlu$taxa=="Octolasiontyrtaeum"]<-"Octolasion_tyrtaeum"
+body_unlu$taxa[body_unlu$taxa=="paholaspidae"]<-"parholaspidae"
+body_unlu$taxa[body_unlu$taxa=="pupa_diptero"|
+                 body_unlu$taxa=="pupa_insecto"|
+                 body_unlu$taxa=="pupadíptera"]<-"pupa_diptera"
+body_unlu$taxa[body_unlu$taxa=="raghididae"|
+                 body_unlu$taxa=="rhagididae"]<-"rhagidiidae"
+body_unlu$taxa[body_unlu$taxa=="staphiliniidae"|
+                 body_unlu$taxa=="staphylinidae"]<-"staphylinidae"
+#correccion glososscolex
+body_unlu$taxa[body_unlu$taxa=="Glossoscolexsp."]<-"Octolasion_tyrtaeum"
+body_unlu$taxa[body_unlu$taxa=="hemiptera"|
+                 body_unlu$taxa=="hemiptero"|
+                 body_unlu$taxa=="heteroptera"]<-"hemiptera"
+body_unlu$taxa[body_unlu$taxa=="gasteropoda"|
+                 body_unlu$taxa=="gastropoda"]<-"gasteropoda"
+body_unlu$taxa[body_unlu$taxa=="macropilina"]<-"lohmanidae"
+
+}
+
+#asignamos gremios. Predadores, Omnivoros, Detritivoros, Microfitofagos, Herviboros
+body_unlu$gremio<-NA
+#predadores
+body_unlu$gremio<-ifelse(
+  body_unlu$taxa%in%c("alycidae","amerosidae","arannae","arctacaridae","coccinelidae",
+                      "bdelloidea","carabidae","cunaxide","dermanisoidea","eupodoidea",
+                      "eviphididae","formicidae","geophylomorpha","grillopalpidae",
+                      "ichtyostomatogasteridae","japygiidae","laelapidae","larva_carabidae",
+                      "larva_staphylinidae","linyphiidae","lycosidae","mesostigmata",
+                      "nematomorpha",
+                      "ologamasidae","parajapygidae","parasitidae","parholaspidae",
+                      "penthalidae","predador","pseudoscorpionida","rhagidiidae",
+                      "rhodacaroidea","staphylinidae","tarsonemidae","tenerifidae",
+                      "trogossitidae","tydeoidea","uropodidae"),"predador",
+  ifelse(
+    body_unlu$taxa%in%c("anthribidae","Aporrectodea_caliginosa","Aporrectodea_rosea",
+                        "coleoptera",
+                        "Aporrectodea_trapezoides","Bimastos_beddardi_sophiae",
+                        "Bimastos_parvus",
+                        "blattodea","ceratozetoidea",
+                        "diplopoda","elateriforme","enquitreido","epilhomanioidea",
+                        "Eukerria_halophila","eupthiracaroidea","Glossoscolex","isotomidae",
+                        "juvenil","larva_coleoptero","larva_curculionidae","larva_diptera",
+                        "larva_scarabaeidae","larva_tenebrionidae",
+                        "Microscolex_phosphoreus","Octalasion_cyaneum","Octolasion_tyrtaeum",
+                        "oniscoidea","oribatido","oripodidae","ptinidae","ptilidae",
+                        "pupa_diptera",
+                        "pythidae","scheloribates","symphypleona","tenebrionidae"
+                        ),"detritivoro",
+    ifelse(
+    body_unlu$taxa%in%c("bacterivoro","cryptophagidae","entomobryoidea",
+                        "eremobelbidae","fungivoro","galumnidae","gasteropoda",
+                        "larva_elateridae","larva_sciaridae","limnozetidae","lohmanidae",
+                        "macropilina","onichiuridae","oppioidea","oribatulidae",
+                        "protura","psocoptera","symphyla"
+                        ),"microfitofago",
+    ifelse(
+      body_unlu$taxa%in%c("afido","cicadidae","fitofago",
+                          "hemiptera","ortoptero","trip","terebrantia"),"herbivoro",
+      ifelse(
+        body_unlu$taxa%in%c("astigmata","hipogastruridae",
+                            "larva_elateridae","omnivoro","tardigrado"
+                            ),"omnivoro",body_unlu$gremio
+      )))))
+
+#datos$food <- ifelse(datos$taxa %in% especies_predadoras, "predadora",
+#            ifelse(datos$taxa %in% especies_herbivoras, "herbívora",
+#            ifelse(datos$taxa %in% especies_omnivoras, "omnívora", datos$food)))
+
+
+#correción celda
+#araña de 4 son 400 microgramos 
+body_unlu[4163,"body_mass"]<-400
+
+### clase de tamaño para calcular densidad
+
+body_unlu$clase_tam<-NA
+#predadores
+body_unlu$clase_tam<-ifelse(
+  body_unlu$taxa%in%c("bacterivoro","fitofago","fungivoro","omnivoro","predador"),"micro",
+  ifelse(
+    body_unlu$taxa%in%c("afido","alycidae","amerosidae","arctacaridae",
+                        "astigmata","bdelloidea","ceratozetoidea","cunaxide",
+                        "dermanisoidea","enquitreido","entomobryoidea",
+                        "epilhomanioidea","eremobelbidae","eupodoidea",
+                        "eupthiracaroidea","eviphididae","galumnidae",
+                        "hipogastruridae","ichtyostomatogasteridae",
+                        "isotomidae","japygiidae","laelapidae","larva_diptera",
+                        "larva_sciaridae","limnozetidae","lohmanidae","macropilina",
+                        "mesostigmata","ologamasidae","onichiuridae","oppioidea",
+                        "oribatido","oribatulidae","oripodidae","parajapygidae",
+                        "parasitidae","parholaspidae","penthalidae","protura",
+                        "pupa_diptera","rhagidiidae","rhodacaroidea","scheloribates",
+                        "symphyla","symphypleona","tardigrado","tarsonemidae","tenerifidae",
+                        "trip","tydeoidea","uropodidae"),"meso",
+    ifelse(
+    body_unlu$taxa%in%c("anthribidae","Aporrectodea_caliginosa","Aporrectodea_rosea",
+                        "Aporrectodea_trapezoides","arannae","Bimastos_beddardi_sophiae",
+                        "Bimastos_parvus","blattodea","carabidae","cicadidae","coccinelidae",
+                        "coleoptera","cryptophagidae","diplopoda","diptera","elateriforme",
+                        "Eukerria_halophila","formicidae","gasteropoda","geophylomorpha",
+                        "Glossoscolex","grillopalpidae","hemiptera","juvenil","larva_carabidae",
+                        "larva_coleoptero","larva_curculionidae","larva_elateridae",
+                        "larva_scarabaeidae","larva_staphylinidae","larva_tenebrionidae",
+                        "linyphiidae","lycosidae", "Microscolex_phosphoreus","nematomorpha",
+                        "Octalasion_cyaneum","Octolasion_tyrtaeum","oniscoidea","ortoptero",
+                        "pseudoscorpionida","psocoptera","ptilidae","ptinidae","pythidae",
+                        "staphylinidae","tenebrionidae","terebrantia","trogossitidae"),"macro",body_unlu$clase_tam)))
+
+
+#taxones
+bodyU_taxa<-levels(as.factor(body_unlu$taxa))
+
+```
+
+```{r resumen_dtb, include=FALSE}
+
+baseU <-body_unlu %>% group_by(sitio, replica,estrato, microhabitat,clase_tam,gremio,taxa) %>%  summarise(abundance=n(), bio.ind=mean(as.numeric(body_mass)))
+#R1	452 R2	998 R3	1207
+#L1	212 L2	473 L3	378
+#P1	556 P2	518 P3	636
+#1.05 es el factor de aumento del 5% por pérdida
+names(baseU)<-c("sitio","replica","estrato","microhabitat","clase","gremio","taxa","abundance","bio.ind")
+baseU<-baseU%>%
+  mutate(ab=floor(case_when(
+  sitio=="R"&replica==1&clase=="micro"~(abundance/100)*452*1.05,
+  sitio=="R"&replica==2&clase=="micro"~(abundance/100)*998*1.05,
+  sitio=="R"&replica==3&clase=="micro"~(abundance/100)*1207*1.05,
+  sitio=="A"&replica==1&clase=="micro"~(abundance/100)*212*1.05,
+  sitio=="A"&replica==2&clase=="micro"~(abundance/100)*473*1.05,
+  sitio=="A"&replica==3&clase=="micro"~(abundance/100)*378*1.05,
+  sitio=="P"&replica==1&clase=="micro"~(abundance/100)*556*1.05,
+  sitio=="P"&replica==2&clase=="micro"~(abundance/100)*518*1.05,
+  sitio=="P"&replica==3&clase=="micro"~(abundance/100)*636*1.05,
+  TRUE~abundance*1.20
+  )))
+  
+#microfauna (se contaron los nemátodos de 4 sacabocados)
+sup.bocado.micro <- (1/(pi*2.5^2/10000))*4
+#mesofauna (se contaron y extrajeron de 3 frasquitos homojeneizados del monolito)
+sup.bocado.meso <- (1/(pi*2.5^2/10000))*3
+#macrofauna (superficie estandar 25 x 25)
+sup.monolito <- 1/(0.25*0.25)
+
+baseU<-baseU%>%mutate(
+             D=floor(case_when(
+  clase=="macro"~sup.monolito*ab,
+  clase=="meso"~sup.bocado.meso*ab,
+  clase=="micro"~sup.bocado.micro*ab)
+  )
+  )
+
+
+```
+
+```{r densidad_peso_unlu, echo=FALSE, warning=FALSE}
+Dp_U<-baseU%>%group_by(sitio,taxa)%>%summarise('Peso corporal'=round(mean(bio.ind),2), Densidad=round(mean(D),2),'Biomasa total media'=round(mean(D*bio.ind)/1000,1)) %>% distinct(taxa,.keep_all=TRUE)
+Dp_U%>% kbl() %>%kable_classic(full_width = F, html_font = "Cambria")
+```
+
+```{r KW,include=FALSE}
+
+kruskal.test(bio.ind ~ sitio, data = baseU,subset=baseU$taxa=="staphylinidae")
+isotom<-baseU%>%filter(taxa=="staphylinidae")
+pairwise.wilcox.test(isotom$bio.ind, isotom$sitio,data=.,p.adjust.method = "BH")
+
+```
+
+
+
+## Distribución de peso corporal
+
+```{r ridge_unlu, echo=FALSE}
+
+
+body_unlu%>%filter(clase_tam=="micro")%>%
+  ggplot(aes(x=log(body_mass), y=taxa, fill=gremio)) + 
+  geom_density_ridges(rel_min_height = 0.0000005)+ 
+  scale_fill_viridis_d(alpha = 0.8)+
+  facet_grid(.~sitio)+
+  labs(title='Peso corporal individual para los taxones de microartrópodos', 
+       x= 'Peso corporal en ln ug/m^2')
+
+body_unlu%>%filter(clase_tam=="meso")%>%
+  ggplot(aes(x=log(body_mass), y=taxa, fill=gremio)) + 
+  geom_density_ridges(rel_min_height = 0.0000005)+ 
+  scale_fill_viridis_d(alpha = 0.8)+
+  facet_grid(.~sitio)+
+  labs(title='Peso corporal individual para los taxones de microartrópodos', 
+       x= 'Peso corporal en ln ug/m^2')
+
+body_unlu%>%filter(clase_tam=="macro")%>%
+  ggplot(aes(x=log(body_mass), y=taxa, fill=gremio)) + 
+  geom_density_ridges(rel_min_height = 0.0000005)+ 
+  scale_fill_viridis_d(alpha = 0.8)+
+  facet_grid(.~sitio)+
+  labs(title='Peso corporal individual para los taxones de microartrópodos', 
+       x= 'Peso corporal en ln ug/m^2')
+
+ # scale_x_continuous(breaks = seq(from=-4, to=5, by=2))+ 
+```
+```{r pwrU, include=FALSE}
+
+# Ajuste espectro con paquete Power Law
+# Ajuste con paquete poweRlaw con Xmin ajustado
+
+require(poweRlaw)
+source("R/functions.r")
+
+# Ajuste a partir del minimo de los datos, esto es, considerando que 
+# el valor mínimo se encuentra dentro de los datos
+
+dist_manejoU <- body_unlu %>% group_by(sitio) %>% summarise(evaluate_distr(body_mass,est_xmin=FALSE))
+
+dist_manejoU %>% filter(min(AICc)==AICc) %>% mutate(moda=exp(expo))
+
+# Plots usando ggplot
+#
+dist_plotU <- body_unlu %>% group_by(sitio) %>% summarise(gplot=list(evaluate_distr(body_mass,est_xmin=FALSE,returnOBJ=TRUE)))
+
+# Estimación para todos los datos
+
+dist_totalU <- evaluate_distr(body_unlu$body_mass,est_xmin=FALSE)
+dist_totalU %>% filter(min(AICc)==AICc) %>% mutate(moda=exp(expo))
+
+dist_plot_totU <- evaluate_distr(body_unlu$body_mass,est_xmin=FALSE,returnOBJ = TRUE) 
+
+```
+
+```{r aj, warning=FALSE, message=FALSE,echo=FALSE}
+
+require(cowplot)
+prowU <- plot_grid(
+  dist_plotU$gplot[1][[1]] + xlab("Biomass")  + theme(legend.position="none")+ theme(axis.text.x = element_text(angle = 50, hjust = 1)), 
+  dist_plotU$gplot[2][[1]] + xlab("Biomass")  + theme(legend.position="none") + theme(axis.text.x = element_text(angle = 50, hjust = 1)) + ylab(NULL),
+  dist_plotU$gplot[3][[1]]  + xlab("Biomass") + theme(legend.position="none") + theme(axis.text.x = element_text(angle = 50, hjust = 1)) + ylab(NULL),
+  dist_plot_totU  + xlab("Biomass") + theme(legend.position="none") + theme(axis.text.x = element_text(angle = 50, hjust = 1)) + ylab(NULL),
+  align = 'vh',
+  nrow = 2,
+  labels = c('A', 'G','N','T' )
+  )
+legend_b <- get_legend(
+  dist_plotU$gplot[3][[1]] +
+    guides(color = guide_legend(nrow = 2)) +
+    theme(legend.position = "bottom")
+)
+pgU <- plot_grid(prowU, legend_b, nrow = 2, rel_heights = c(1, .1));pgU
+
+#save_plot("Figures/BodySizeSpectra_Landuses.png",pg,base_width=8,base_height=6,dpi=600)
+#dist_plot$gplot[1][[1]] + xlab("Biomass")
+
+```
+
+
+## Biomasa
+
+```{r B_unlu, echo=FALSE}
+baseU<-baseU%>%mutate(Tbiomass=D*bio.ind)
+mU<-aov(log(Tbiomass) ~ sitio * gremio * estrato,data = baseU)
+mstep<-step(mU)
+mU_1<-aov(log(Tbiomass) ~ sitio + gremio + estrato,data = baseU)
+
+par(mfrow=c(2,2))
+plot(mU_1)
+
+par(mfrow=c(1,1))
+```
+
+```{r plotbtU, echo=FALSE}
+
+baseU %>%  ggplot( aes(log(Tbiomass),sitio, fill=sitio)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +stat_summary(fun = "mean",geom = "point",color = "white")+ scale_fill_viridis_d(guide="none") +  geom_jitter(alpha=0.4) +labs(subtitle="A)",y=NULL, x=expression(paste("Biomasa","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))
+
+#guild
+baseU %>%  ggplot( aes(log(Tbiomass),gremio, fill=gremio)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +stat_summary(fun = "mean",geom = "point",color = "white")+ scale_fill_viridis_d(guide="none") +  geom_jitter(alpha=0.4) +labs(subtitle="A)",y=NULL, x=expression(paste("Biomasa","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))
+
+baseU %>%  ggplot( aes(log(Tbiomass),estrato, fill=estrato)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +stat_summary(fun = "mean",geom = "point",color = "white")+ scale_fill_viridis_d(guide="none") +  geom_jitter(alpha=0.4) +labs(subtitle="A)",y=NULL, x=expression(paste("Biomasa","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))
+
+```
+
+
+```{r}
+TukeyHSD(mU_1, "sitio")
+TukeyHSD(mU_1, "gremio")
+TukeyHSD(mU_1, "estrato")
+```
+
+
+## Relación tamaño de espectro
+
+```{r qq_unlu, echo=FALSE}
+rq0<-rq(log(D) ~ (sitio+gremio+log(bio.ind))^3, tau = .75, data = baseU)
+summary(rq0,se="boot")
+
+step(rq0)
+
+rq1<-rq(log(D) ~ sitio + gremio + log(bio.ind) + sitio:log(bio.ind) + 
+    gremio:log(bio.ind),tau = .75, data = baseU)
+
+```
+
+```{r qqplotU,warning=FALSE}
+
+baseU%>%ggplot(aes(x=log(bio.ind),y=log(D),color=gremio))+
+  geom_point(size=1.1,shape=8,color=1)+
+  geom_quantile(quantiles = 0.75, size=1.5) +  
+  scale_color_viridis_d()+facet_grid(sitio~.)+  geom_smooth()+
+  labs( x=expression(paste("Biomasa corporal","  ",paste(ln," ",mu,"g")[ps])),
+        y=expression(paste("Densidad","  ",ln," ","n°"[ind]/m^{2})))
+
+
+baseU%>%filter(gremio!="herbivoro")%>%
+  ggplot(aes(x=log(bio.ind),y=log(D),color=gremio))+
+  geom_point(size=1.1,shape=8,color=1)+
+  geom_quantile(quantiles = 0.75, size=1.5) +  
+  scale_color_viridis_d()+facet_grid(sitio~.)+  
+  labs( x=expression(paste("Biomasa corporal","  ",paste(ln," ",mu,"g")[ps])),
+        y=expression(paste("Densidad","  ",ln," ","n°"[ind]/m^{2})))
+
+baseU%>%filter(gremio=="herbivoro")%>%
+  ggplot(aes(x=log(bio.ind),y=log(D),color=gremio))+
+  geom_point(size=1.1,shape=8,color=1)+
+  geom_quantile(quantiles = 0.75, size=1.5) +  
+  scale_color_viridis_d()+facet_grid(sitio~.)+  
+  labs( x=expression(paste("Biomasa corporal","  ",paste(ln," ",mu,"g")[ps])),
+        y=expression(paste("Densidad","  ",ln," ","n°"[ind]/m^{2})))
+
+
+```
+
+Los herbívoros no ajustan a la linea recta, es bimodal dado en la meso fauna no es continua y en los hevíboros de mayor tamaño no estan correctamente representados linealmente.
+
+# Espectro de tamaños Rosana
+
+## Densidades y pesos corporales por taxón
+
+
+```{r dtbRO,include=FALSE}
+completo <- read_csv2("database/body_fq_guil_22.csv" , locale = readr::locale(encoding = "ISO-8859-1"))
+
+#Superficie en metros cuadrados a partir del sacabocados de 5 centímetros cuadrados
+#factor de conversión
+superficie <- pi*2.5^2/10000
+
+#sin macrofauna
+#Datos brutos, biomasa individual de microartropodos
+meso <- filter(completo,class!="macrofauna"&specie!="oribátido"&specie!="mesostigmata")%>%mutate( season=fct_relevel(season, c("O","I","P","V")),habitat=fct_relevel(habitat, c("epiedaphic","hemiedaphic","euedaphic")))
+
+#Base con biomasas promedios por especie
+#sample, son submuestras, por lo que no sirve para dividir sino para promediar la muestra
+base <-meso %>% group_by(system,site,year,month,sample,season,class,order,specie,guild,habitat) %>%  summarise(abundance=(n()/superficie), bio.ind=mean(biomass),Tbiomass=(bio.ind*abundance))
+
+```
+
+```{r den_peso_ro, echo=FALSE}
+
+B1<-meso%>%mutate(order=factor(order,labels=c("Astigmata","Entomobryomorpha","Mesostigmata","Oribatida","Poduromorpha","Symphypleona","Trombidiformes")),order=fct_relevel(order, c("Poduromorpha","Entomobryomorpha","Symphypleona","Oribatida","Mesostigmata","Trombidiformes","Astigmata")))%>%mutate(Manejo=system, Orden=order,Taxon=specie)%>%mutate(Manejo=factor(Manejo,labels= c("Agrícola intensivo","Agrícola-ganadero","Pastizal natural")),Taxon=factor(Taxon,labels=c("Acaroidea","Bdelloidea","Brachychthonioidea","Ceratozetoidea","Crotonioidea","Dermanyssoidea","Entomobroidea","Epilohmannioidea","Euphthiracaroidea", "Eupodoidea","Galumnioidea","Hypogastruridae","Isotomidae","Onychiuridae","Oppioidea","Oripodoidea","Parasitoidea","Rhodacaroidea","Symphypleona","Trombidioidea","Tydeoidea","Uropodoidea","Veigaioidea")),Gremio=factor(guild,labels=c("Detrívoro","Microfitófago","Omnívoro","Predador")))%>%group_by(Manejo,Orden,site,year,month,sample,Taxon,Gremio)%>%summarise(peso=biomass,bio=sum(biomass), abT= n(), bioT=bio/superficie, D=abT/superficie)
+
+B2<-B1%>%group_by(Manejo,Orden,Taxon,Gremio)%>%summarise('Peso corporal'=mean(peso),'Peso corporal mínimo'=min(peso),'Peso corporal máximo'=max(peso), Densidad=mean(D),'Biomasa total media'=mean(bioT)/1000) %>% distinct(Taxon,.keep_all=TRUE)
+
+
+B2%>% kbl() %>%kable_classic(full_width = F, html_font = "Cambria")
+#caption = "Tabla I. Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total ($mg_{p.s.}/m^2$) para los taxones de Acari y Collembola en cada sistema de manejo"
+```
+
+## Distribución de peso corporal
+
+```{r ridge_ro,echo=FALSE}
+#por Unidad Taxonómica
+
+
+meso%>%ggplot(aes(x=log(biomass), y=specie, fill=guild)) + geom_density_ridges(rel_min_height = 0.0000005) +scale_x_continuous(breaks = seq(from=-4, to=5, by=2))+  scale_fill_viridis_d(alpha = 0.8)+facet_grid(.~system)+labs(title='Peso corporal individual para los taxones de microartrópodos', x= 'Peso corporal en ln ug/m^2')
+
+```
+
+
+```{r pwRO,echo=FALSE}
+# Ajuste a partir del minimo de los datos, esto es, considerando que 
+# el valor mínimo se encuentra dentro de los datos
+
+dist_manejo <- meso %>% group_by(system) %>% summarise(evaluate_distr(biomass,est_xmin=FALSE))
+
+dist_manejo %>% filter(min(AICc)==AICc) %>% mutate(moda=exp(expo))
+
+# Plots usando ggplot
+#
+dist_plot <- meso %>% group_by(system) %>% summarise(gplot=list(evaluate_distr(biomass,est_xmin=FALSE,returnOBJ=TRUE)))
+
+# Estimación para todos los datos
+
+dist_total <- evaluate_distr(meso$biomass,est_xmin=FALSE)
+dist_total %>% filter(min(AICc)==AICc) %>% mutate(moda=exp(expo))
+
+dist_plot_tot <- evaluate_distr(meso$biomass,est_xmin=FALSE,returnOBJ = TRUE) 
+
+prow <- plot_grid(
+  dist_plot$gplot[1][[1]] + xlab("Biomass")  + theme(legend.position="none")+ theme(axis.text.x = element_text(angle = 50, hjust = 1)), 
+  dist_plot$gplot[2][[1]] + xlab("Biomass")  + theme(legend.position="none") + theme(axis.text.x = element_text(angle = 50, hjust = 1)) + ylab(NULL),
+  dist_plot$gplot[3][[1]]  + xlab("Biomass") + theme(legend.position="none") + theme(axis.text.x = element_text(angle = 50, hjust = 1)) + ylab(NULL),
+  dist_plot_tot  + xlab("Biomass") + theme(legend.position="none") + theme(axis.text.x = element_text(angle = 50, hjust = 1)) + ylab(NULL),
+  align = 'vh',
+  nrow = 2,
+  labels = c('A', 'G','N','T' )
+  )
+legend_b <- get_legend(
+  dist_plot$gplot[3][[1]] +
+    guides(color = guide_legend(nrow = 2)) +
+    theme(legend.position = "bottom")
+)
+pg <- plot_grid(prow, legend_b, nrow = 2, rel_heights = c(1, .1));pg
+```
+
+## Biomasa
+
+```{r B_ro, echo=FALSE}
+
+m<-aov(log(Tbiomass) ~ system * season * guild ,data = base)
+mstep<-step(m)
+m1<-aov(formula = log(Tbiomass) ~ system + season + guild + system:season + system:guild, data = base)
+
+
+par(mfrow=c(2,2))
+plot(m1)
+
+par(mfrow=c(1,1))
+
+TukeyHSD(m1, "system")
+
+TukeyHSD(m1, "season")
+
+TukeyHSD(m1, "guild")
+
+TukeyHSD(m1, "system:season")
+
+TukeyHSD(m1, "system:guild")
+```
+
+```{r B_ROplot, echo=FALSE}
+
+# Sistema
+
+base %>% ggplot( aes(log(Tbiomass),system, fill=system)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +stat_summary(fun = "mean",geom = "point",color = "white")+scale_fill_viridis_d(guide="none")  +scale_x_continuous(breaks =seq(from=3, to=14, by=1))+  geom_jitter(alpha=0.4)+labs(subtitle="IV.a. Biomasa media de la comunidad de microartrópodos en los sistemas de uso",y=NULL, x=expression(paste("Biomasa total","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))
+
+# Estación
+#
+meso %>% mutate(season=factor(season,labels=c("Otoño","Invierno","Primavera","Verano"))) %>% group_by(system,site,year,month,sample,season,class,order,specie,guild) %>%  summarise(abundance=(n()/superficie), bio.ind=mean(biomass),Tbiomass=(bio.ind*abundance))  %>% ggplot( aes(log(Tbiomass),season, fill=season)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +stat_summary(fun = "mean",geom = "point",color = "white")+  scale_fill_viridis_d(guide="none") +scale_x_continuous(breaks = seq(from=3, to=14, by=1))+  geom_jitter(alpha=0.4)+labs(subtitle="IV.b. Biomasa media de la comunidad de microartrópodos en las estaciones del año",y=NULL, x=expression(paste("Biomasa total","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))
+
+# Guild
+
+meso %>% mutate(guild=factor(guild,labels=c("Detritívoros","Microfitófagos","Omnívoros","Predadores"))) %>% group_by(system,site,year,month,sample,season,class,order,specie,guild,habitat) %>%  summarise(abundance=(n()/superficie), bio.ind=mean(biomass),Tbiomass=(bio.ind*abundance))  %>% ggplot( aes(log(Tbiomass),guild, fill=guild)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +stat_summary(fun = "mean",geom = "point",color = "white")+ scale_x_continuous(breaks = seq(from=3, to=14, by=1))+  scale_fill_viridis_d(guide="none") +  geom_jitter(alpha=0.4) +labs(subtitle="IV.c. Biomasa media de los gremios tróficos de microartrópodos",y=NULL, x=expression(paste("Biomasa total","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))
+
+# System : season
+
+meso %>% mutate(season=factor(season,labels=c("Otoño","Invierno","Primavera","Verano"))) %>% group_by(system,site,year,month,sample,season,class,order,specie,guild,habitat) %>%  summarise(abundance=(n()/superficie), bio.ind=mean(biomass),Tbiomass=(bio.ind*abundance)) %>% ggplot( aes(y=log(Tbiomass), x=system,fill=system)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +stat_summary(fun = "mean",geom = "point",color = "white")+ scale_y_continuous(breaks = seq(from=3, to=15, by=1))+scale_fill_viridis_d(guide="none") +  geom_jitter(alpha=0.4) + facet_grid(.~season) +labs(subtitle="IV.d. Biomasa media de la comunidad de microartrópodos en cada estación y en cada sistema de manejo",x='Sistemas de manejo', y=expression(paste("Biomasa total","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))
+
+# System : guild
+
+meso %>% mutate(guild=factor(guild,labels=c("Detritívoros","Microfitófagos","Omnívoros","Predadores"))) %>% group_by(system,site,year,month,sample,season,class,order,specie,guild,habitat) %>%  summarise(abundance=(n()/superficie), bio.ind=mean(biomass),Tbiomass=(bio.ind*abundance)) %>% ggplot( aes(y=log(Tbiomass),x= system,fill=system)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +stat_summary(fun = "mean",geom = "point",color = "white")+ scale_y_continuous(breaks = seq(from=3, to=15, by=1))+scale_fill_viridis_d(guide="none") +geom_jitter(alpha=0.4) + facet_grid(.~guild) +labs(subtitle="IV.e. Biomasa media de los gremios tróficos de microartrópodos edáficos para cada sistema de manejo",x='Sistemas de manejo', y=expression(paste("Biomasa total","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))
+
+
+```
+
+
+
+## Relación tamaño de espectro
+
+```{r qq_RO, echo=FALSE}
+rq1<-rq(log(abundance) ~ (system+guild+log(bio.ind))^2, tau = .75, data = base)
+step(rq1)
+
+base %>% mutate(system = factor(system,levels=c("N","G","A")),guild = factor(guild,levels=c("predator","microphytophages","detritivore","omnivore")))%>%rq(log(abundance) ~ (system+guild+log(bio.ind))^2, tau = .75, data = .)%>%summary(.,se="boot")
+
+```
+
+```{r qrplot_RO,echo=FALSE}
+
+
+base%>%ggplot(aes(x=log(bio.ind), y=log(abundance),color=guild))+geom_point(size=1.1,shape=8,color=1)+geom_quantile(quantiles = 0.75, size=1.5) +  scale_color_viridis_d()+facet_grid(system~.)+  labs( x=expression(paste("Biomasa corporal","  ",paste(ln," ",mu,"g")[ps])), y=expression(paste("Densidad","  ",ln," ","n°"[ind]/m^{2})))
+
+
+```
+
+# ref
+
+Edwards 1973 Relationships between weights, volumes and numbers of soil animals. in Progress in soil zoology
