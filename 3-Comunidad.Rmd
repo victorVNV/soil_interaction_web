@@ -316,9 +316,9 @@ h<-c(
 ```{r matrices_FQB, echo=FALSE}
 
 fyq.box<-fyq_unlu%>%mutate(
-  sistema=substr(sitio, 3, 3),
-                       estrato=substr(sitio, 1, 2),
-                       replica=substr(sitio, 4, 4),
+  sistema=substr(Sitio, 3, 3),
+                       estrato=substr(Sitio, 1, 2),
+                       replica=substr(Sitio, 4, 4),
  )
 names(fyq.box)<-c("nombre","muestra","CE","pH","MO","C","P","N","TOC","D_TOC_C","C_TOC","sitio","estrato","replica")
 #se eligen las variables de interés
@@ -1002,12 +1002,12 @@ unlu_pcaFQB<-PCA(fq1, scale.unit = TRUE, graph = FALSE)
 
 #Biplot
 sit<-sit<-c(rep("L", 3), rep("P", 3), rep("R", 3))
-fviz_pca_biplot(f_pca, axes = c(1,2),  col.ind=sit, label = "var")
+fviz_pca_biplot(unlu_pcaFQB, axes = c(1,2),  col.ind=sit, label = "var")
 
 print(unlu_pcaFQB$eig)
 #summary(f_pca)
 ##corelaciones
-f_pca_cor<-round(f_pca$var$cor[,1:3],3);
+f_pca_cor<-round(unlu_pcaFQB$var$cor[,1:3],3);
 print("-----------------------------");
 #print(f_pca_cor)
 
@@ -1216,7 +1216,7 @@ kruskal.test(diversidad ~ sitio, data = microabH)
 ```{r mesoH, echo=FALSE}
 
 mesoH <- read.delim(
-  "~/Documentos/Redes/soil_interaction_web/database/mesofauna_diversityH.txt"
+  "database/mesofauna_diversityH.txt"
   )
 
 #reasignar nombre a agrícola
@@ -1246,7 +1246,7 @@ mesoabH$diversidad<-H_meso_unlu
 
 
 print("Tabla de Promedio y desvío standar del índice de Shannon en cada sistema de uso del suelo")
-print("Método no paramétrico 'boostraping'\n")
+
 print(data.frame(habitats=levels(as.factor(paste(mesoabH$sitio,mesoabH$estrato))),
                  mean=c(
                    mean(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="10","diversidad"])),
@@ -1268,7 +1268,7 @@ print(data.frame(habitats=levels(as.factor(paste(mesoabH$sitio,mesoabH$estrato))
                    sd(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="humus","diversidad"])),
                    sd(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="10","diversidad"])),
                    sd(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="fragmentado","diversidad"])),
-                   (as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="hoja","diversidad"])),
+                   sd(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="hoja","diversidad"])),
                    sd(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$estrato=="humus","diversidad"])),
                    sd(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="10","diversidad"])),
                    sd(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="fragmentado","diversidad"])),
@@ -1446,9 +1446,9 @@ col.sp.unlu<-c("macro_herb","ing","ing","ing","ast","macro_pred","macro_fun",
 
 #Matriz transpuesta
 tb_U_D_pca<-PCA(t(tb_D_U), scale.unit = TRUE, graph = FALSE)
-summary(f_pca)
+summary(tb_U_D_pca)
 ##corelaciones
-f_pca_cor<-round(f_pca$var$cor[,1:4],3)
+f_pca_cor<-round(tb_U_D_pca$var$cor[,1:4],3)
 #Biplot
 sit<-c(rep("A", 3), rep("P", 3), rep("R", 3))
 fviz_pca_biplot(tb_U_D_pca, axes = c(1,2),  col.var=sit, col.ind =as.factor(col.sp.unlu) , label = "none")
@@ -1563,7 +1563,10 @@ fq_RO[fq_RO$site=="casuarina","replica"]<-3
 
 #En esta matriz e datos completa se encuentra la réplica
 
-RO_db_full <- merge(fq_RO, merge(abund_RO, peso_RO, by = "nombre", all = TRUE), by = "nombre", all = TRUE)
+RO_db_full <- merge(fq_RO, abund_RO, by = "nombre", all = TRUE)
+name.RO_db_full<-c(names(RO_db_full))
+
+names(RO_db_full)<-c("nombre","system","site",name.RO_db_full[-c(1:3)])
 
 ```
 

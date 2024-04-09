@@ -40,7 +40,9 @@ actuales, tales como isótopos estables, análisis de ácidos grasos, y análisi
 nivel del contenido intestinal para dilucidar los hábitos alimenticios de estos animales
 reforzando la evidencia empírica anterior y a la vez relacionandolos con diversos aspectos
 como la especialización en hábitats, rasgos individuales como el tamaño corporal entre
-otros. \# Microfauna
+otros.
+
+# Microfauna
 
 ## Eukariota: Protozoa
 

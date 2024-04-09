@@ -12,61 +12,63 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-En el ecosistema edáfico, las especies presentes se relacionan entre sí
-de diferentes maneras y estas relaciones establecen complejas redes de
-interacciones (Montoya et al. 2001), que muestran todas las posibles
-formas en las que las especies pueden interactuar (Delmas et al. 2019;
-Kéfi et al. 2012) y en función del tipo de interacción se obtienen redes
-tróficas, redes de competidores, redes mutualistas, etc. (Labrador 2008;
-Montoya et al. 2001)
+En los ecosistemas las especies presentes se relacionan entre sí de
+maneras diferentes y estas relaciones establecen complejas redes de
+interacciones (Montoya et al. 2001). Las redes de interacciones nos
+muestran todas las posibles tramas en las que las especies pueden
+interactuar (Delmas et al. 2019; Kéfi et al. 2012). Las redes pueden
+caracterizarse en función del tipo de interacción que representan
+describiendo así redes tróficas, redes de competidores, redes
+mutualistas, entre otras (Labrador 2008; Montoya et al. 2001).
 
-Estas redes de interacciones están influenciadas por factores de largo
-plazo tales como el clima, el suelo, la disponibilidad de recursos e
-influencias biogeográficas en el grupo de especies y por factores de
-corto plazo como las perturbaciones antrópicas (Kardol et al. 2016) por
-lo que resulta de particular interés la respuesta de la estructura de
-las redes ante los distintos tipos de disturbios y su relación con el
-funcionamiento del ecosistema del suelo (Sabatté, 2011; Kardol et al.,
-2016).
+El enfoque que permite integrar la diversidad de especies, las
+interacciones interespecíficas, las interacciones con el ambiente, la
+redundancia funcional, el papel de las especies claves y la
+multiplicidad de canales de materia y energia que ocurren en los
+ecosistemas es estudio de la red de interacciones (.\@.barrios2007,
+.\@.briones2014, .\@.potapov2023) que permite simplificar la complejidad
+de interacciones y conetarlos con diferentes parámetros que emergen el
+estudio de los ecosistemas (.\@.Hooperetal2005;.\@.delmas_etal2019)
 
-El análisis de las redes de interacciones de alimentación (redes
-tróficas) ha sido el más utilizado pero se ha demostrado que incluir
-todos los tipos de interacciones es fundamental para entender el
-funcionamiento de los ecosistemas (Kéfi et al. 2012).
+En los suelos las redes de interacciones están influenciadas por
+**factores de largo plazo** tales como el clima, las características
+edáficas regionales y locales, la disponibilidad de recursos para los
+organismos que en el habitan, las influencias biogeográficas sobre las
+comunidades y por **factores de corto plazo** como las perturbaciones
+antrópicas (Kardol et al. 2016) por lo que resulta de particular interés
+la respuesta de la estructura de las redes ante los distintos tipos de
+disturbios y su relación con el funcionamiento del ecosistema del suelo
+(Sabatté, 2011; Kardol et al., 2016).
 
-Mediante este análisis se pueden reconocen las especies claves y los
-grupos funcionales, definidos como el grupo de especies con un papel
-semejante en el funcionamiento de un ecosistema (Gitay y Noble, 1997).
-De este análisis se obtienen patrones generales (topología de la red) y
-las consecuencias de estos patrones sobre la dinámica de una comunidad y
-sus especies constituyentes (Kéfi et al. 2012; Pimm et. al. 1991; Scheu
-2001) y su estructura condiciona las funciones en los ecosistemas
-(Montoya et al. 2001; Labrador 2008)
+```{=html}
+<!--Las redes tróficas permiten el análisis de las interacciones de
+alimentación y ha sido el enfoque más utilizado pero se ha demostrado
+que incluir todos los tipos de interacciones es fundamental para
+entender el funcionamiento de los ecosistemas (Kéfi et al. 2012).-->
+```
+Las redes tróficas permiten el análisis de las interacciones de
+alimentación y es el enfoque más utilizado en ecología para describir
+los canales por los cuales se mueve la materia y la energía (\@.citar)
+Mediante el estudio de las redes tróficas se pueden reconocen las
+especies claves y los grupos funcionales claves, definidos como el grupo
+de especies con un papel semejante en el funcionamiento de un ecosistema
+(Gitay y Noble, 1997) que permiten el mantenimiento de las funciones
+ecológicas del suelo (\@.citar).
 
-Las redes tróficas se pueden describir mediante la teoría de grafos en
-la que los nodos (especies o gremios tróficos) y sus bordes
-(interacciones) determinan parámetros asociados a las redes tales como
-la conectividad, el grado de correlación, la longitud de un camino
-trófico, etc., hasta variables ecológicas de una comunidad en el que se
-incluyen por ejemplo la riqueza, el máximo nivel trófico, la fracción de
-omnívoros o la fracción de predación entre gremios, etc. (Digel et. al.
+Las redes tróficas se apoya en la teoría de grafos en la que los nodos
+(especies tróficas) y sus bordes (interacciones) determinan métricas
+asociados con las redes empíricas tales como la conectividad, el grado
+de correlación, la longitud de un camino trófico, etc., hasta variables
+ecológicas de una comunidad en el que se incluyen por ejemplo la
+riqueza, la diversidad, el máximo nivel trófico, la fracción de
+omnívoros, la fracción de predación entre gremios, etc. (Digel et. al.
 2014; Delmas 2019 et al. 2019; Maggioto et al. 2019).
 
-En las redes ecológicas las conexiones características son aquellas en
-las que unas pocas especies poseen un gran número de enlaces en tanto
-que la mayoría poseen pocas conexiones (Delmas et al. 2019; Montoya et
-al. 2001; Pimm et al. 1991) y este es el modo en que la diversidad
-biológica y el funcionamiento de los ecosistemas están ligados
-(Balvanera et al., 2006).
-
-Un grupo funcional con especies redundantes (Martín-López 2007)
-permitirán una mayor capacidad de respuesta ante las perturbaciones ya
-que asegura el reemplazo de las funciones de especies extintas (Delmas
-et al. 2019; Montoya et al. 2001; Pimm et al. 1991) de modo que se puede
-mantener la misma estructura, funcionamiento y mecanismos de
-autorregulación en un ecosistema (Martín-Lopez 2007) pero la
-desaparición de especies muy conectadas puede producir extinciones
-secundarias y fragmentaciones de la red (Montoya et al. 2001)
+Por lo tanto mediante el análisis se obtienen patrones generales sobre
+la topología de la red y las consecuencias de estos patrones sobre la
+dinámica de la comunidad y las especies constituyentes (Kéfi et al.
+2012; Pimm et. al. 1991; Scheu 2001) y su estructura condiciona las
+funciones en los ecosistemas (Montoya et al. 2001; Labrador 2008)
 
 Como la estructura de las redes ecológicas condiciona el funcionamiento
 intrínseco de un ecosistema (Labrador, 2008; Martín López et al., 2007)
@@ -75,21 +77,32 @@ clave en la estabilidad de los procesos del suelo (Sabatté, 2011;
 Wardle, 1995), y por lo tanto en el estado de conservación del mismo que
 será mayor cuanto mayor sea la estabilidad de la red de interacciones.
 
-Los componentes de los sistemas ecológicos no funcionan aislados sino a
-través de interacciones de complejidad variable y su organización se
-encuentra enmarcada por factores evolutivos, dinámicos y energéticos
-(Saravia 2018) La modelación matemática resulta en una herramienta clave
-para la comprensión del funcionamiento de los sistemas biológicos porque
-cuenta con la propiedad de síntesis de variables con efectos dominantes
-(Polo 2013).
+En las redes ecológicas las conexiones características son aquellas en
+las que unas pocas especies poseen un gran número de enlaces por lo
+tanto la mayoría de las especies poseen pocas conexiones (Delmas et al.
+2019; Montoya et al. 2001; Pimm et al. 1991) y este es el modo en que la
+diversidad biológica y el funcionamiento de los ecosistemas están
+ligados (Balvanera et al., 2006).
+
+Los grupos funcionales con especies redundantes (Martín-López 2007)
+permitirán una mayor capacidad de respuesta ante las perturbaciones ya
+que asegura el mantenimiento de las funciones en el ecosistema (Delmas
+et al. 2019; Montoya et al. 2001; Pimm et al. 1991) y de este modo que
+se puede mantener la estructura, el funcionamiento y los mecanismos de
+autorregulación del ecosistema (Martín-Lopez 2007) pero la desaparición
+de especies muy conectadas puede producir extinciones secundarias y
+fragmentaciones de la red (Montoya et al. 2001)
+
+<!--Los componentes de los sistemas ecológicos no funcionan aislados sino a través de interacciones de complejidad variable y su organización se encuentra enmarcada por factores evolutivos, dinámicos y energéticos (Saravia 2018). La modelación matemática resulta en una herramienta clave para la comprensión del funcionamiento de los sistemas biológicos porque cuenta con la propiedad de síntesis de variables con efectos dominantes (Polo 2013).-->
 
 Los estudios de redes de interacciones proporcionan información acerca
-de la estructura autoorganizada de los ecosistemas (Momo 2018); en redes
-tróficas del suelo los flujos de energía y la comprensión de los efectos
-de la descomposición de la materia orgánica y el ciclo de nutrientes
-(Scheu 2002) fueron tema central de los investigadores que se centraron
-en los flujos de energía y redes tróficas de sistemas arables (Scheu
-2002).
+de la estructura autoorganizada de los ecosistemas (Momo 2018); en las
+redes tróficas del suelo se busca comprender los efectos sobre la
+descomposición de la materia orgánica y el ciclo de nutrientes (Scheu
+2002) y otras funciones del ecosistema edáfico (\@citar) que son tema
+central de los investigadores al centrarse en los flujos de energía y en
+las redes tróficas de las comunidades de diferentes sistemas de uso del
+suelo (Scheu 2002; potapov2023(historicalperspe)).
 
 La comprensión de la estructura y topología de la red se constituye en
 una herramienta útil para describir y cuantificar la complejidad de los
@@ -108,32 +121,81 @@ pastizales naturalizados de la Pampa Húmeda. En este estudio, compararon
 
 En ambos casos el análisis de la estructura de las redes fue realizado
 comparando diferentes comunidades ó diferentes manejos del suelo,
-hallando características particulares de cada comunidad y coinciden en
+hallando características particulares para cada comunidad y coinciden en
 que la estructura general de las redes no varía considerablemente según
 el uso del suelo, aunque en los sitios bajo estudio no implicaron
 manejos de suelos en el que hubiera prácticas agrícolas intensivas.
 
-En este contexto, pretendemos comparar la estabilidad estructural de las
-redes de interacciones de la fauna del suelo entre ambientes con
-distintas intensidades en el tiempo de uso del suelo, una sin uso de
-suelo correspondiente a un pastizal naturalizado que servirá como
-sistema de referencia y un sistema de alta perturbación que se
-corresponde con un sistema agrícola intensivo con más de 50 años de
-actividad ininterrumpida.
+.\@.potapov2023 declara que el uso de las redes tróficas es una
+herramienta esencial que debe ser utilizada en los ecosistemas
+terrestres para comprender el funcionamiento del ecosistema del suelo,
+ya que une los aspetos relacionados con la diversidad específica, la
+diversidad de rasgos, la diversidad funcional y los aspectos que se
+relacionan con la estabilidad y resiliencia de estos sistemas.
+
+Por otra parte, a las redes de interacciones, pueden relacionarse rasgos
+como el peso corporal con los nodos de la red y atributos poblacionales
+como la abundancia de los taxones, lo que permite relacionar tanto
+parámetros fisiológicos como el metabolismo y el uso de los recursos,
+como parámetros ecológicos tales como las interacciones tróficas y las
+adaptaciones de estos organismos ante cambios en el ambiente
+[.\@.pey2014; .\@.white2007; .\@.turnbull2014].
+
+En este contexto, pretendemos comparar las métricas estruturales, los
+flujos de energía vinculados a las redes tróficas, las fuerzas de
+interacciones y la estabilidad estructural de las redes tróficas de la
+fauna del suelo entre ambientes con distintas intensidades en el tiempo
+de uso del suelo.
+
+En este contexto, el presente trabajo busca comparar la estabilidad
+estructural de las redes de tróficas de la fauna del suelo de suelos
+Argiudoles típicos de la Pampa Ondulada entre ambientes con distintas
+estrategias en el uso del suelo, como aproximación a distintas
+intensidades de perturbación: a) suelos sin uso agropecuario, tales como
+un pastizal naturalizado sin uso por mas de 50 años o un lote clausurado
+sin uso por más de 30 años, que servirán como sistema de referencia; b)
+suelos con uso pastoril como forraje para el ganado considerados como
+sistemas con intensidad de uso intermedio o leve; y c) suelos con
+actividad agrícola contínua considerado como sistema con intensidad de
+uso alta.
+
+<!--, una sin uso de suelo correspondiente a un pastizal naturalizado que servirá como sistema de referencia y un sistema de alta perturbación que se corresponde con un sistema agrícola intensivo con más de 50 años de actividad ininterrumpida.-->
+
+Para la construcción y el modelado de la red de interacciones tróficas
+de la fauna del suelo es necesario conocer a) tanto las comunidades que
+habitan los diferentes ambientes como las características físicas y
+químicas de los ambientes, b) además es necesario recopilar información
+sobre los recursos tróficos que estos animales utilizan para poder
+modelar la matriz de interacciones tróficas (.\@.delmas_etal_2019), c)
+de manera complementaria tener información sobre rasgos funcionales
+específicamente sobre el peso corporal de los taxas involucrados
+(.\@.laigle_etal_2018) que permite conocer las fuerzas de
+interacciones(.\@.deRuiter_etal_1995), los flujos de energía através de
+la red (.\@.potapov2023, .\@.barnes_etal_2017) y calcular la resiliencia
+y estabilidad de los sistemas bajo estudio (.\@.mooreandderutier_2018,
+.\@.gauzen_etal_2018, .\@.allisina_etal_2008).
+
+# Metodología
+
+## Construccion de la red
+
+## Métricas y estadísticas
+
+# Resultados
 
 ```{r , include=FALSE}
 library(tidyverse)
 {library(statnet);library(network);library(igraph);library(intergraph)}
 ```
 
-```{r ,echo=FALSE}
+```{r dtb,include=FALSE}
 #Carga datos, comunidad completa, abundancia, pesos corporales medios, 
 SFW_unlu <- read.delim(
   "database/unlu_ab_mass_mean_web.txt"
   )
 ```
 
-```{r Densidad,echo=FALSE}
+```{r Densidad,include=FALSE}
 #microfauna (se contaron los nemátodos de 4 sacabocados)
 sup.bocado.micro <- (1/(pi*2.5^2/10000))*4
 #mesofauna (se contaron y extrajeron de 3 frasquitos homojeneizados del monolito)
@@ -636,7 +698,7 @@ in a stable equilibrium only if the real parts of eigenvalues from the Jacobian
 are all negative. In this case, resilience is the absolute value of the real part
 of the largest eigenvalue, ... -->
 ```
-```{r}
+```{r flux_, echo=FALSE}
 #Red Lote con Flujo energia
 
 L_netf<-asNetwork(L_net)
@@ -656,7 +718,7 @@ P_netf %e% "flux" <- flux_P
 
 ```
 
-```{r}
+```{r qss, echo=FALSE}
 #se puede calcular el QSS, me da positivo :(
 calc_QSS(intergraph::asIgraph(L_netf), nsim=100)
 
@@ -668,7 +730,7 @@ calc_QSS(intergraph::asIgraph(L_netf), nsim=100)
 
 ```
 
-```{r}
+```{r stability, echo=FALSE}
 
 #para igraph
 #gestionar Nodos y Ejes
@@ -744,4 +806,445 @@ QSS_IS_UNLu.w<-graph_from_data_frame(IS_ig_UNLu.W,directed = TRUE, vertices =NUL
 #E(QSS_IS_UNLu)$weight<-IS_ig_UNLu$qRC 
 
 #calc_QSS_extinction_dif(g=QSS_IS_UNLu.w,  sp_list=V(QSS_IS_UNLu.w)$name[5,15,8] , nsim = 10, ncores = 4, istrength = FALSE) 
+```
+
+```{r plot,echo=FALSE}
+
+plot_troph_level(QSS_IS_UNLu.w,modules=TRUE,vertexLabel = FALSE, tk = FALSE)
+
+```
+
+# Ro red
+
+```{r , include=FALSE}
+library(tidyverse)
+library(readxl)
+#{require(ggplot2);require(dplyr);require(tidyr);require(readr);require(purrr);require(tibble);require(stringr);require(forcats);require(readxl);require(magrittr);require(glue)}
+
+```
+
+<!-- ver también, https://github.com/robertwbuchkowski/soilfoodwebs -->
+
+```{r datos, include=FALSE}
+
+completo <- read_excel("./database/soil_networks.xlsx", sheet = "Ro_web")
+
+#Es el factor de conversión para llevar las abundancias a densidad
+#Densidadde lombrice en 25*25 = a n()/0.0625
+#Densidad de los demás es 2.5²*3.14 = n()/0,00471 
+
+sup.bocado <- 1/(pi*2.5^2/10000)
+sup.monolito <- 1/(0.25*0.25)
+
+
+#Para 1mgCO2 / 100g suelo * hora son 20.6 mg C-microbiano / 100g suelo
+#Estos datos estan en mgCO2 /20 g suelo * dia
+#Entonces multplico x 5 (a 100 g) divido * 24 (h/dia) luego multiplico por factor 20,6
+# En un m2 a 10 cm son 100k cm3 por el DAP pero con 100 g suelo queda solo 1k*DAP
+
+#####Factor de conversión de respiración microbiana = 4292000 = 4,3e6, para que quede en **microgramos**
+
+#Materia organica particulada, es el proxi del humus, se asume que el 30% del mismo es hummus, aunque la bibliografia sugiere entre 40 al 60 % seré pesimista, entonces quearía POM en ug/m2
+
+#octalaceom cyaneum es mas chico que lacteum, tuve que reordenar la base de datos
+
+#base <-completo%>% mutate(bm=RESP*DAP*4.292e6,POM=0.3*(MO/100)*DAP*1e11,specie=case_when(specie=="octa_la"~"octacy",specie=="octa_cy"~"octala",specie!="octa_la"|specie!="octa_cy"~specie),biomass=case_when(order=="crassiclitellata"~exp(biomass*(1e-6))*1000,order!="crassiclitellata"~biomass))
+base<-completo
+
+#A partir de aqui determina las abundancias
+
+base.sitio<-base%>%group_by(system,site,season,class,order,specie,guild,habitat) %>%  summarise(abundance=n(), bio.ind=mean(biomass), bm=(mean(bm)),POM=mean(POM))%>%distinct(specie,.keep_all=TRUE)
+
+ab.sitio<-base.sitio%>%mutate(BT=case_when(order=="crassiclitellata"~sup.monolito*abundance*bio.ind,order!="crassiclitellata"~sup.bocado*abundance*bio.ind))
+
+#El uso de case_when() permite relacionar estructuras condicionales al mutate
+
+#writexl::write_xlsx(base,"bundancias.xlsx")
+
+#segun YOU IA, se requieren 1 Tn hoja seca para 0,5%MO por hectarea, es decir que por m2 son 0,1 kg de hojas
+
+
+```
+
+Se realizan varias suposiciones:
+
+Sobre el humus, se considera que lo utilizable como recurso es el 30% de
+la %MO en los primeros 10 cm La relación H:B será por el momento
+25-30-35 de bacterias:hongos en los sistemas N G A respectivamente.
+Además protozoos y otra microfauna representará el 5% e la respiración
+
+Según Digel
+
+\|Taxón \| Peso corporal \| \|Bacteria \|9,5 x 10\^-16 g\| \|Ameba \|2,8
+10\^-8 g\| \|Ciliados \|2,63 10\^-9 g\| \|Flegelados \|3,03 10\^-7 g\|
+\|------------\|-----------\| \|bacterívoros \|8,5 x 10\^-7\|
+\|omnivoros \|6,02 x 10\^-5\| \|predadores \|3,56 x 10\^-6\|
+\|fungivoros \|5,35 x 10\^-7\| \|fitófagos root feeding \|2,35 x
+10\^-7\|
+
+Peso promedio de los protozoos en 1,1121 x10\^-4 µg
+
+Nematodos son 10⁵ ind/m2 biomasa tomada de potapov y digel. En este caso
+la proporción de fungivoros 40 % y bacterivoros sera igual en todos 30%
+predadores 8% omnivoros 8% 14% fitofagos.
+
+Nemátodos 15 x 10⁵ ind/m² un poco por debajo de lo que encontró Mondino
+en su tesis doctoral, unque el rango varío ampliamente de 2,67 a 18,58
+Asumiendo como 15 x10⁵ ind nemátodos / m² y los porcentajes de gremios
+más arriba, entonces tendríamos una biomasa de:
+
+bacterívoros 8,5 x 10\^-7; ==\> x450 x10³ ind/m² ==\> 382, 5 µg/m²
+omnivoros 6,02 x 10\^-5; ==\> x120 x10³ind/m² ==\> 7224 µg/m² predadores
+3,56 x 10\^-6; ==\> x120 x10³ind/m² ==\> 427 µg/m² fungivoros 5,35 x
+10\^-7; ==\> x600 x10³ ind/m² ==\> 321 µg/m² fitófagos root feeding 2,35
+x 10\^-7; ==\> x210 x10³ ind/m² ==\> 49,35 µg/m²
+
+Serían 8404 µg nemátodos/m²
+
+Número de protozoos por gramo de suelo Ameba 123x10³ =\> x 2,8 10\^-8
+=\>3,4 10\^-3 g/g suelo =\> 274,19 g/m2 Flagelados 27.3x10³ =\> x 3,03
+10\^-7 =\> 8,2719 10\^-3 g/g suelo =\> 667,08 g/m2 Ciliados 12.1 x 10³
+=\> x 2,63 10\^-7 =\> 3,1823 x10\^-3 g/g suelo =\> 256,63 g/m2
+
+Protozoos en un gramo de suelo según Vargas y Hattori 1990 Microbiology
+Ecology 74 (1990) 73-78
+
+5480 protozoos por gramo de suelo activos según Griffiths and Ritz soil
+Biol. Biochem. Vol. 20. No. 2.pp163-173 (1998)
+
+Tardígrados número por 10 cm³ suelo entre 250 individuos según Bingemer
+et al. 2020 Zoological Journal of the Linnean Society 188. 887-899
+
+Potapov en el Bosque tropical de indonesia calculó de hojarasca 11kg/ha
+en Miramar hemos encontrado 700 g/m2
+
+Microfauna calculada como 6,57 x10 \^-5 g, es el promedio de protozoos y
+nemátodos sería 0.066 µg peso
+
+```{r ,include=FALSE}
+
+base1 <-ab.sitio %>% group_by(system,site,season) %>%  summarise(humus=mean(POM), bm=(mean(bm)) )%>%distinct(season,.keep_all=TRUE)
+
+base2 <- base1%>%mutate(bacteria=case_when(system=="A"~bm*0.35,system=="G"~bm*0.3,system=="N"~bm*0.25),hongo=((bm-(0.05*bm))-bacteria),microfauna=(0.05*bm*0.25),nem_f=(0.05*bm*0.75*0.4),nem_b=(0.05*bm*0.75*0.3),nem_phy=(0.05*bm*0.75*0.14),nem_pr=(0.05*bm*0.75*0.08),nem_om=(0.05*bm*0.75*0.08))
+
+#elijo solo los recursos y le asigno nombre
+
+columnas_recursos<-t(base2[,c(1:4,6:13)])
+colnames(columnas_recursos) <- paste(base2$system,base2$site,base2$season)
+
+
+```
+
+La materia orgánica particulada es el proxi a la cantidad de recurso que
+se corresponde con el Humus y esta es una fracción del %de MO
+(Biological indicator of Soil Healt pp 70 - 71)
+
+El 0.25% de lo que corresponde a microfauna sera no nematodo.
+
+```{r}
+
+#lista de especies
+esp<-as.vector(levels(as.factor(base$specie)))
+#completar con los recursos
+esp_full<-c("carrion","tej_veg","hummus","bacterias","hongos","microfauna","enquitreido","nem_pre","nem_om","nem_fit","nem_bac","nem_fun",esp)
+
+#construcción full matrix
+#crear matriz, dimensiones igual al número de especies y recursos
+m0<-matrix(nrow = 64,ncol = 64,dimnames = list(esp_full,esp_full))
+#reemplazar NA por ceros
+
+m0[is.na(m0)] <- 0
+
+#Recursos
+m0["bacterias",c("hummus","tej_veg","carrion")]<-1
+m0["hongos",c("hummus","tej_veg","carrion")]<-1
+m0["microfauna",c("bacterias","hummus","microfauna")]<-1
+m0["enquitreido",c("bacterias","hummus","microfauna","hongos")]<-1
+m0["nem_pre",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","microfauna")]<-1
+m0["nem_om",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","microfauna","bacterias","hongos")]<-1
+m0["nem_fit",c("tej_veg")]<-1
+m0["nem_fun",c("hongos")]<-1
+m0["nem_bac",c("bacterias")]<-1
+
+#Especies "reales"
+
+m0["acaroidea",c("bacterias","hongos","nem_bac","nem_fun")]<-1
+
+m0[c("Apo_cal","Apo_ros","Apo_tra","lom_juv","Mic_dub","Mic_pho","euker","octacy","octala"),c("bacterias","hongos","microfauna","hummus")]<-1
+
+m0["bdelloidea",c("lom_juv","onychiuridae","hypogastruridae","isotomidae","enquitreido","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea")]<-1
+
+m0["carabidae",c("lom_juv","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea","chylopoda","ecidomyiidae","gasteropoda","miriapodo","sciaridae","staphylinidae")]<-1
+
+m0[c("ceratozetoidea","onychiuridae","isotomidae"),c("bacterias","hongos","hummus")]<-1
+
+m0["chylopoda",c("enquitreido","lom_juv","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea","chylopoda","miriapodo","sciaridae","staphylinidae")]<-1
+
+m0[c("brachychthonioidea","crotonioidea","oripodoidea","oribatido","symphypleona"),c("bacterias","hongos","hummus","tej_veg")]<-1
+
+m0[c("dermanyssoidea","parasitoidea"),c("enquitreido","lom_juv","nem_pre","nem_om","nem_fit","nem_bac","nem_fun","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea")]<-1
+
+m0[c("ecidomyiidae","gryllidae","scarabaeidae"),c("tej_veg")]<-1
+
+m0[c("entomobroidea"),c("bacterias","hongos","nem_bac","nem_fun")]<-1
+
+m0[c("epilohmannioidea"),"hummus"]<-1
+
+m0["euphthiracaroidea",c("hummus","hongos","tej_veg")]<-1
+
+m0["eupodoidea",c("bacterias","hongos","nem_pre","nem_om","nem_fit","nem_bac","nem_fun","onychiuridae","hypogastruridae","isotomidae","symphypleona","entomobroidea")]<-1
+
+
+m0["formicidae",c("lom_juv","gryllidae","gryllotalpidae","carrion","hongos","tej_veg","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea","staphylinidae","ptiliidae","carabidae","ecidomyiidae","psocoptera")]<-1
+
+m0["galumnioidea",c("carrion","nem_bac","nem_fun","nem_fit","bacterias","hongos")]<-1
+
+m0["gasteropoda",c("carrion","bacterias","hongos","hummus","tej_veg")]<-1
+
+m0["gasteropoda",c("carrion","bacterias","hongos","hummus","tej_veg")]<-1
+
+m0["gryllotalpidae",c("carrion","bacterias","hongos","tej_veg","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","entomobroidea","nem_pre","nem_om","nem_fit","nem_bac","nem_fun","pauropoda")]<-1
+
+m0["hypogastruridae",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","microfauna","carrion","bacterias","hongos")]<-1
+
+m0[c("isopodos","miriapodo"),c("hummus","hongos","bacterias","microfauna")]<-1
+
+m0["isoptera",c("hummus","hongos","bacterias","microfauna","tej_veg")]<-1
+
+m0["linyphiidae",c("gryllidae","gryllotalpidae","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea","staphylinidae","ptiliidae","carabidae","ecidomyiidae","psocoptera","sciaridae","scarabaeidae")]<-1
+
+m0["mesostigmata",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","microfauna")]<-1
+
+m0["oppioidea",c("bacterias","hongos")]<-1
+
+m0["pauropoda",c("carrion","bacterias","hongos","microfauna")]<-1
+
+m0["psocoptera",c("hummus","hongos")]<-1
+
+m0["ptiliidae",c("hummus","hongos","carrion","bacterias","microfauna","nem_bac","nem_fun")]<-1
+
+m0["rhodacaroidea",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","entomobroidea","pauropoda","enquitreido")]<-1
+
+m0["staphylinidae",c("lom_juv","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea","nem_pre","nem_om","nem_fit","nem_bac","nem_fun","enquitreido")]<-1
+
+m0["symphila",c("hongos","bacterias","microfauna","hummus","tej_veg")]<-1
+
+m0["trombidioidea",c("lom_juv","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea","enquitreido")]<-1
+
+m0["tydeoidea",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","hongos","bacterias","microfauna")]<-1
+
+m0["uropodoidea",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","microfauna")]<-1
+
+m0["veigaioidea",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","entomobroidea","pauropoda","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea")]<-1
+
+
+```
+
+#Libro sobre uso de statnet
+
+```{r}
+library(statnet)
+library(network)
+library(igraph)
+library(intergraph)
+```
+
+```{r}
+#la red global; es necesario completar con todas las interacciones probables en la Pampa Húmeda.
+#Determina la red Potencial.
+#global_net, es g_net.
+
+g_net<-network(t(m0),vertex.attrnames=esp_full)
+resumen_red_global<-summary(g_net)
+#Red con 64 nodos
+#Grafo dirigido
+#Tipo lista de ejes; edjelist
+#Total de enlaces 528
+#Densidad de enlaces 0.1309524 aprox 0.131
+#Según Maggioto et al. 2019 densidad de enlaces promedios 1.68, con 14 nodos
+#El cálculo de densidad en Maggioto no es el mismo que el del libro 
+#Ya que este varía de 0 a 1.
+
+#gplot(g_net,diag = TRUE,displaylabels = FALSE,mode="mds")
+
+#scalado multidimensional métrico
+```
+
+```{r}
+
+print("TAMAÑO DE LA RED")
+network.size(g_net)
+#Densidad
+print("DENSIDAD DE LA RED, DENSIDAD DE ENLACES")
+gden(g_net)
+
+#subgrupos
+print("COMPONENTES")
+components(asIgraph(g_net))
+count_components(asIgraph(g_net))
+
+# asNetwork()
+#No existen subgrupos fuerte o débilmente conectados
+
+#Nos genera una matriz con las distancias geodesicas esto es los caminos más cortos
+#El valor Inf nos indica los nodos desconectados
+print("Distancias geodésicas")
+distancias_geodesicas<-geodist(g_net)
+#De todos los caminos más cortos, el más largo es el diámetro de la red
+table(distancias_geodesicas$gdist)
+#ignorando al Inf y mirando la matriz 
+#el diámetro sería 3.
+#Esto implica una red vastante condensada y con caminos de información energía cortos
+
+#Transitividad, esto indica la formación de triángulos cerrados en la red. 
+#Que es una forma básica de agrupamiento o clusters.
+print("Transitividad")
+gtrans(g_net)
+
+#transforma edgelist en matriz
+#as.sociomatrix(g_net)
+
+#atributos de nodos
+#grado de nodos
+print("Grado del nodo")
+grado_nodo<-degree(asIgraph(g_net))
+hist(grado_nodo)
+summary(grado_nodo)
+#Grado 0-5 y 15-20 son iguales en abundancias, luego 10-15, 30-40,
+
+print("Cercania del nodo")
+cercania_nodo<-closeness(asIgraph(g_net))
+hist(cercania_nodo)
+summary(cercania_nodo)
+print("Entre quienes del nodo")
+entre_quien_nodo<-betweenness(asIgraph(g_net))
+hist(entre_quien_nodo)
+summary(entre_quien_nodo)
+# nodo_gg gran grupo
+#Esto es a que gran grupo o gremio pertenece el nodo
+nodo_gg<-c("rec.base","rec.base","rec.base","microflora","microflora","microfauna","mesof","microfauna","microfauna","microfauna","microfauna","microfauna","acari","clitelata","clitelata","clitelata","acari","acari","macro","acari","macro","acari","acari","macro","colem","acari","clitelata","acari","acari","macro","acari","macro","macro","macro","colem","macro","macro","colem","macro","clitelata","acari","clitelata","clitelata","macro","clitelata","clitelata","colem","acari","acari","acari","acari","mesof","mesof","macro","acari","macro","macro","macro","mesof","colem","acari","acari","acari","acari")
+
+table(nodo_gg)
+
+#Esto es el manejo de nodos según statnet
+#set.vertex.attribute(g_net, "gran_grupo", nodo_gg)
+
+g_net %v% "gran_grupo" <- nodo_gg
+
+g_net %v% "grado_nodo" <- degree(asIgraph(g_net))/10
+
+g_net %v% "cercania_nodo" <- closeness(asIgraph(g_net))/10
+
+g_net %v% "entre_quien_nodo" <- betweenness(asIgraph(g_net))/10
+
+g_net %v% "k_core_nodo" <- graph.coreness(asIgraph(g_net))
+
+#g_net %v% "vertex.names"
+
+#para igraph
+#gestionar Nodos y Ejes
+#V(inet2)$name <- c("A","B","C","D","E")
+#E(inet2)$val <- c(1:6)
+
+#para ver los atributos
+print("Lista de atributos del nodo")
+list.vertex.attributes(asIgraph(g_net))
+print("Lista de atributos de los ejes")
+list.edge.attributes(asIgraph(g_net))
+#get.vertex.attribute(asIgraph(g_net), "na")
+#Atributos de los ejes
+print("Configuración ejes, nodo a nodo")
+#print(get.adjedgelist(asIgraph(g_net)))
+
+#g_net %v% "gran_grupo"
+
+#Filtrar redes según el atributo del nodo
+
+#get.inducedSubgraph(g_net,which(g_net%v%"gran_grupo"=="clitelata"))
+```
+
+```{r}
+
+
+
+#plot(g_net,label="gran_grupo",usearrows=FALSE,vertex.col="gran_grupo",vertex.cex="grado_nodo",mode="fruchtermanreingold")
+
+#write.csv(g_net, file = "red_global.csv", row.names = FALSE)
+
+x<-c(-1,2,4,1,3,1.5,-2,-1.5,3,2,1,0,2,0,-1,3,1,0,1,3,2,4,-2.5,1,4,-1,-2,1.5,0.5,3,1,-3,0,2,5.5,-1,1.5,3,-2.5,1.5,2,2.5,2,3,3.5,-0.5,-0.5,-1.5,2.5,3.7,3,4.5,3,2,1.7,1,4,4,-0.75,1.75,-1.75,-0.75,0.75,1.75)*2.7
+
+y<-c(1,1,1,2,2,2.5,4,4,3.5,3,3,3,5,4,4,4,6,5,11,5,8,5,6,4,5.5,5,4,5,6,8,5,4,7,7,5.5,7,7,5.5,8,4,6,4,4,7,4,4,5.5,5,5,5,6,5.5,6.5,6.5,6,7.5,4,8,5.5,5.5,6,6,6,6)*3
+     
+coord=cbind(x,y)
+
+#Tuve que seguir la guía pag 69 libro Statnet
+#Para que los nodos me quedasen en un formato color amigable.
+paleta_color<-RColorBrewer::brewer.pal(9, "Set1")
+fact_gran_grupo<-as.factor(get.vertex.attribute(asIgraph(g_net),"gran_grupo"))
+
+
+plot(g_net,coord=coord,vertex.col=paleta_color[fact_gran_grupo],vertex.cex="grado_nodo",suppress.axes = FALSE)
+
+```
+
+#Flux web packge
+
+Implementacion *Falta tasas metabolicas por especie* Tal vez
+preferencias alimenticias *Entender el tema de flujos* Utilizar la
+salida de flujos como atributo de ejes *Clasificar los organismos por
+gremios como atributo del nodo* Clasificar por funcion ecologica, para
+atributo de nodo y para calcular el flujo de energía \*Entender que
+significa el valor de estabilidad tambien
+
+```{r}
+library(fluxweb)
+peso<-c(NA,NA,NA,9.5e-16,-999,3e-8,9e-5,3.56e-6,6.02e-5,2.35e-7,8.5e-7,5.35e-7,2.13e-6,2.16e-2,1.04e-2,0.65,9.6e-7,1.84e-6,5.45e-6,1.187e-5,7.713e-5,5.08e-6,6.03e-6,8.033e-5, 6.82e-6,2.15e-6,0.013,1.119e-5,6e-7,1.16e-4,2.994e-5,7.04e-5,1.03e-4,1.33e-4,6.73e-6,2.35e-3,4.131e-5,2.32e-6,6.715e-5,2e-3,1.022e-5,0.017,4.5e-3,2.3e-3,0.374,0.0862,9.72e-7,8.4e-7,1.11e-6,4.11e-6,8.77e-6,5e-6,3.6e-5,5.51e-4,4.64e-6,3.25e-3,3.42e-4,2.64e-4,1.68e-6,2.55e-6,8.2e-6,0.71e-6,1.4e-5,1.09e-5)
+#Pasar todos los valores a microgramos
+#La carroña será el 5%de la biomasa de todos los invertebrados excepto bacterias hongos
+#Enquitreidos tomado de soil biology guide en promedio 11,5 g/m2 pero a peso seco 
+#asumiendo 15%MS son 1,7g/m2
+
+biomasas<-c(7.5323,1.5865,1533.87,0.0952,0.2221,0.00507,1.772,9.46e-4,9.46e-4,1.67e-3,3.55e-3,4.73e-3,2.36e-3,3.7873,1.081,4.531,1.525e-3,1.551e-3,5.384e-3,1.31e-2,3.92e-2,6.91e-3,7e-3,4.1e-2,9.52e-3,4.84e-3,2.3986,1.65e-2,3.1e-3,0.207,3.43e-2,0.1394,0.0523,0.06786,0.15476,1.19,0.02805,4.273e-2,0.041,0.6562,0.01823,1.9747,0.1803,3.51,25.14,7.204,0.0207,6.7e-3,3.53e-3,8.12e-2,5.49e-3,2.5e-3,0.01842,0.2807,6.68e-3,1.6,0.134,0.47,1.5e-3,7.68e-3,7.31e-3,1.826e-3,9.76e-3,1.07e-2)
+
+
+#biomasas*100
+
+#Por el momento eficiencias iguales
+eficiencias<- rep(0.2, times = 64)
+#eficiencias[c(1,2,3,5)]<- 0
+
+
+#The \textbf{losses} parameter will be defined in this context as metabolic rates.
+t_met<- 0.71*peso^(-0.25) #Esta tasa metabólica es la sugerida en el paper. Pero es diferente según la taxa 
+#Esto lo puedo encontrar en Brown et al. creo. Luego filtrar, yasociar cada tasa a su grupo
+t_met[c(1,2,3,5)]<-0
+
+
+#Error imposible calcular segun los datos. RESUELTO
+flux<-fluxing(t(m0) ,biomasses = biomasas, losses =  t_met, eficiencias, bioms.losses = TRUE,ef.level = "prey")
+
+#Agregar como atributo de los ejes
+
+g_net %e% "flujo" <- flux
+g_net %e% "flujo_red" <- flux*0.05
+
+#Asumo 1/ingreso por año
+#Microgramos por tiempo, misma unidad
+#Entonces 
+#Carroña = ingreso 4trimestral
+#Tejido vegetal ingreso diario
+#Humus formacion bianual
+
+tasa_ingreso<-c(3.33,333,0.5,rep(0, times = 61))
+
+valor_stab<-stability.value(t(m0), biomasas, t_met, eficiencias, 
+                            tasa_ingreso,bioms.prefs = TRUE,bioms.losses = TRUE,
+                            ef.level = "prey" )
+
+#warnings "especies no basales" definen tasas de crecimientos ? eso no es posible si se lo asigno a las basales ...
+
+
+plot(g_net,coord=coord,vertex.col=paleta_color[fact_gran_grupo],vertex.cex="grado_nodo",suppress.axes = FALSE, edge.lwd="flujo_red",edge.col="grey")
+
+
 ```
