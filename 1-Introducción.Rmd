@@ -14,6 +14,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Los organismos del suelo y el funcionamiento del ecosistema del suelo
 
+<!-- Soil is key to the survival of life on Earth and supports a wide range of ecosystem services, for example, nutrient cycling, carbon (C) sequestration, climate regulation and flood prevention (Brown et al., 2021a; Chomel et al., 2016; Jones et al., 2014; Lehmann et al., 2020a, Lehmann et al., 2020b; Pereira et al., 2018). However, sustaining soil function into the future is a major challenge, due to increasing agricultural intensification, acidification, salinisation, biological invasions, desertification and urbanisation (Prăvălie, 2021), in addition to increasingly unpredictable weather patterns (Borrelli et al., 2020). Consequently, a deeper understanding of soil processes and the design of effective management strategies remains key to maintaining soil health and quality (Baveye, 2015). Soil biology is now recognised as the key driver of soil functioning. However, it is generally underrepresented in soil quality assessments, likely due to its immense complexity, both in terms of multispecies interaction, and interpretation, compared to more traditional chemical and physical properties (Bünemann et al., 2018). Tomado de https://doi.org/10.1016/j.soilbio.2024.109382-->
+
 El suelo es el componente principal de la biósfera terrestre (Georges P.
 en (Lavelle and Spain 1994)) y el sustrato físico sobre el que se dan la
 mayor parte de las actividades humanas (Brussaard 1997).
@@ -254,6 +256,8 @@ real and model ecosystems. Oxford University Press, 2012.
 
 Hall et al 19992 Field crop system of the Pampas. In field crop system
 
-Lavado	R.	y	M.	Taboada.	2009.	The	Argentinean	Pampas:	A	key	region	with	a	negative	nutrient	balance	and	soil	degradation	needs	better	nutrient	management	and	conservation
-programs	 to	sustain	its	
-future	viability	as	a	world	agroresource.	Journal	of	Soil	and	Water	Conservation	64	(5):	150-153.	doi:10.2489/jswc.64.5.150A
+Lavado R. y M. Taboada. 2009. The Argentinean Pampas: A key region with
+a negative nutrient balance and soil degradation needs better nutrient
+management and conservation programs to sustain its future viability as
+a world agroresource. Journal of Soil and Water Conservation 64 (5):
+150-153. <doi:10.2489/jswc.64.5.150A>

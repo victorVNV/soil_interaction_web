@@ -262,9 +262,6 @@ m0["veigaioidea",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","onychiurida
 #Libro sobre uso de statnet
 
 ```{r}
-```
-
-```{r}
 #la red global; es necesario completar con todas las interacciones probables en la Pampa Húmeda.
 #Determina la red Potencial.
 #global_net, es g_net., 

@@ -3,6 +3,7 @@ title: "4-Tamaños"
 author: "VNV"
 date: "2024-03-25"
 output: html_document
+bibliography: size_spectra.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -14,8 +15,95 @@ knitr::opts_chunk$set(echo = TRUE)
   require(kSamples);require(ggridges)}
 ```
 
+# Introducción
+
+Los organismos que viven en el suelo ocupan los espacios formados entre la hojarasca que se acumula sobre la superficie del suelo y los poros de la matriz organomineral del suelo [@wallwork1971; @ritz2012].
+
+La fauna edáfica desempeña un papel fundamental en el funcionamiento edáfico mediante el consumo de materia orgánica, el transporte de propágulos de bacterias y hongos, el control de poblaciones, son los recursos alimenticios de otros organismos y median transformaciones biológicas sobre la estructura organomineral del suelo (**bioturbación o biotransformación**). Estas funciones, a su vez, contribuyen a servicios ecosistémicos más amplios como el ciclo del carbono, de los nutrientes y el agua, la regulación de la materia orgánica del suelo y la fertilidad química y física del suelo [@brussaard2012; @wurst2012; .\@.cita_paper_redesyservicios].
+
+La identificación taxonómica de las comunidades que habitan la red de poros del suelo se dificulta debido a la gran diversidad taxonómica en constante revisión, como al pequeño tamaño corporal de la criptofauna [@briones2014], sumado a esto, los microartrópodos edáficos se caracterizan por formar una comunidad con una importante redundancia funcional debido a su gran abundancia y a sus hábitos alimenticios generalistas [@hattenschwiler2005; @walker1992].
+
+Para avanzar en la compresión de las comunidades crípticas del suelo han tomando en cuenta características tales como el uso de clasificaciones que agrupan la criptofauna ya sea en **gremios** (taxones con requerimientos de nichos similares) o en **grupos funcionales** (taxones con funciones ecológicas específicas), como el uso de las variaciones en los **rasgos** de los individuos en cada comunidad. Esto permite avanzar sobre la caracterización de las comunidades y su estado sin considerar necesariamente su identificación hasta el nivel de especie, lo que permite mejorar la capacidad predictiva y la comprensión sobre los procesos que ocurren en las comunidades ecológicas [@moretti2017; @leguillarme2023].
+
+Todos los organismos responden a las presiones ambientales, estas respuestas pueden observarse como cambios en los rasgos morfológicos, fisiológicos, fenológicos o de comportamiento. Las presiones que modifican las características del medio también se reflejan como cambios en la estructura poblacional de los diferentes taxones en la comunida [@sechi2017; @mittelbach2019]. Por lo tanto, el efecto de las interacciones de los organismos con su ambiente queda reflejado en las variaciones poblacionales y en las variaciones de los rasgos individuales, que pueden ser utilizados como indicadores de procesos ecológicos a nivel de la comunidad [@brussaard2012; @petchey2010].
+
+La fauna edáfica es sensible a las perturbaciones que ocurren sobre el suelo, las actividades de manejo pueden alterar el hábitat y la fuente de los recursos que estos organismos utilizan [@lavelle2006]. Por ejemplo, las perturbaciones pueden alterar los ingresos y salidas de materia orgánica y nutrientes debido a los pulsos derivados de la aplicación de fertilizantes y pesticidas[.\@.citas_sobre_alteracion_ciclo_N], o pueden alterarse las condiciones del microclima poroso cuando se expone el suelo a factores ambientales en periodos de barbecho (p.e. cuando el cultivo no se encuentra presente), o, en sistemas ganaderos, el efecto de la compactación sobre la estructura física del suelo que afecta la distribución y el tamaño de los poros.
+
+La estimación del tamaño corporal de los organismos edáficos, medida a partir del peso corporal, permite relacionar parámetros fisiológicos como el metabolismo y el uso de los recursos, con parámetros ecológicos tales como las interacciones tróficas y las adaptaciones de estos organismos ante cambios en el ambiente [@pey2014; @white2007; @turnbull2014].
+
+Las variaciones del tamaño corporal en las comunidades ecológicas pueden analizarse mediante las distribuciones del peso corporal, esto es, mediante el espectro de tamaños y pueden ser relacionadas con diferentes aspectos de las comunidades, tales como, los gremios tróficos, los grupos funcionales, los habitats, las posiciones en la red trófica, entre otras [@edwards2020]. También es factible establecer relaciones entre el tamaño corporal y la abundancia de las especies: la abundancia permite describir la importancia numérica de los taxones presentes en el ecosistema y relacionarlos con la redundancia funcional y el funcionamiento ecosistémico [@briones2014], los cambios en la distribución del tamaño corporal de los organismos en una comunidad reflejan cambios en los procesos ecológicos relacionados con variaciones en el ambiente o con variaciones en la red de interaciones biológicas [@pey2014; @white2007], a su vez, la relación directa de ambos parámetros constituye la biomasa media que mide la cantidad de materia orgánica retenida por los actores en la red de interacciones y vincula el metabolismo y el flujo de energía que atraviesa los nodos [@potapov2019]. De esta manera, los cambios en la biomasa, en el espectro de tamaños o en ambos, enlazan la historia de vida de los organismos y la respuesta individual a las presiones ambientales, con la estructura y dinámica de las comunidades, y, con los efectos subsecuentes sobre los procesos ecológicos y con el funcionamiento del ecosistema [@sechi2017; @moretti2017; @blanchard2017; @jonsson2005; @peters1986] y pueden dar cuenta de efectos diferenciales debidas a las intensidades de las perturbaciones sobre el ecosistema del suelo asociadas con el uso antrópico.
+
+Mediante el análisis de la biomasa y del espectro de tamaños de los ácaros y colémbolos que habitan suelos Argiudoles típicos de la Pampa Ondulada sometidos a diferentes sistemas de manejo se pretende conocer la respuesta diferencial de dichas comunidades y determinar cuáles son los efectos del manejo antrópico sobre los microartrópodos; por lo que se espera que los microartrópodos respondan a los efectos del uso del suelo y que los efectos se vean reflejados sobre los gremios tróficos de microartrópodos edáficos.
+
+<!-- Esto es demasiado largo para una sola oracion y deberia ser el planteo del objetivo de este capitulo. ¿A ver algo asi? "El objetivo de esta parte de la tesis es el de estudiar posibles diferencias en los espectros de tamaño que puedan reflejar los efectos del manejo antrópico sobre la comunidad de microartrópodos edàficos" -->
+
+## Estimación del peso corporal individual de la fauna edáfica
+
+La macrofauna edáfica con tamaños mayores a 1 cm de longitud, previamente identificada, fue
+llevada a estufa a 60ºC hasta pesada constante para estimar el peso seco mediante balanza 
+analítica con precisión de 1 mg. Para la fauna edáfica con menores tamaños corporales se tomaron
+fotografías de cada individuo colectado y montados temporalmente, con un esteroscopio Leica (S8AP0) con cámara fotográfica incluida y escala de referencia integrada (Leica Application Suite V4.4).
+Mediante el software ImageJ se tomaron las longitudes del largo y ancho corporal que permite estimar
+el peso corporal corporal utilizando ecuaciones morfométricas [@rasband2018; @newton2013] estas son
+ecuaciones lineales que consideran la forma general del taxa y su relaciones con el largo y el ancho
+corporal [.\@.velazco2023citasizespectra]. Las ecuaciones utilizadas son presentadas en la tabla 4.1. <!-- poner las ecuaciones aquí debajo, completarlas-->
+
+A partir de los pesos corporales ( $\mu g_ {\;p.s.}$ ) de cada individuo se calculó el valor del peso corporal medio para el taxón ( $\mu g_{\;p.s.}$ ), también se calcularon los valores de densidad por taxón ( $no. ind/m^{-2}$ ) extrapolando a partir de los valores de abundancias y en función del marco de muestreo a partir de ambas variables se obtuvo la biomasa total promedio ( $\mu g_{p.s.} * m^{-2}$ ). Además a cada taxón se asigno una categoría de gremio trófico en función del uso que hacen de los recursos tróficos [@velazco2023; @simberloff2022a]
+
+**Tabla 4.1. Ecuaciones morfométricas que relacionana el largo y el ancho corporal para estimar el peso corporal de los taxones de la fauna edáfica según su forma característica** <!-- controlar y corregir --> 
+
+Identificador de la ecuación |Autoría |Taxón |Coeficientes |Coeficiente de peso seco |Observaciones 
+--------|------|----|------------|-----------------|-----------
+1 |Tanaka 1970 |Hipogastrura manubrialis |b= 2,78 ±  0,24 ; a= 0,71 ±  0,025 |expressed as dry biomass | log Y (weigth in ug) = b * log X (length in mm) + a
+2 |Tanaka 1970  |Onychiurus spp. and Isotomids	|b= 2,55 ±  0,93 ; a= 0,99 ±  0,088 |expressed as dry biomass | log Y (weigth in ug) = b * log X (length in mm) + a
+3	|Tanaka 1970  |Onychiurus spp. |b= 2,75 ±  0,34 ; a= 0,63 ±  0,037 |expressed as dry biomass | log Y (weigth in ug) = b * log X (length in mm) + a
+3.1 |Tanaka 1970  |Entomobriidae |b= 2,5 ±  0,38 ; a= 1,07 ±  0,04 |expressed as dry biomass | log Y (weigth in ug) = b * log X (length in mm) + a
+3.2	|Tanaka 1970 |Symphypleona	|b= 3,71 ; a= 6,89	|expressed as dry biomass | log Y (weigth in ug) = b * log X (length + width in mm) + a
+4	|Lebrum Philippe. (1971) |Achipteriforme	|log P = 2,09 log L + 0,93 log l – 6,67	|0,4 |*coef según Persson and Lohm, (1977);  Fórmulas Oribátidos según Morfología
+5	|Lebrum Philippe. (1971) |Nothriforme	|log P = 2,09 log L + 0,84 log l – 6,44	|0,4 |*coef según Persson and Lohm, (1977);  Fórmulas Oribátidos según Morfología
+6	|Lebrum Philippe. (1971) |Carabodiforme	|log P = 1,62 log L + 1,40 log l – 6,56	|0,4 |*coef según Persson and Lohm, (1977);  Fórmulas Oribátidos según Morfología
+7	|Lebrum Philippe. (1971) |Forma general utilizada en la tabla 9 |Log P = 1,53 log L + 1,53 log l – 6,67	|0,4	|*coef según Persson and Lohm, (1977);  Fórmulas Oribátidos según Morfología
+8	|Persson and Lohm, (1977)	|Trombidiformes	|^3^√W = 0,00387 * L de Edwards 1967 $\Rightarrow$ W = (0,00387* L)^3^	|0,4	|*coef según Persson and Lohm, (1977)
+9	|Persson and Lohm, (1977)	|Mesostigmatas	|W = 0,85 * ( L ^2,09^ * l ^0,84^ * 10 ^-6,44^ )	|0,4	|* coef según Persson and Lohm, (1977)
+10 |Ganihar (1997) |Aracnida 	|ln (weight) = ln b~0~ + b~1~ * (length); ln b~0~= -3.2105 ; b~1~= 2.4681 |expressed as dry biomass		
+11 |Ganihar (1997) |Coleoptera adulto	|ln (weight) = ln b~0~ + b~1~ * (length); ln b~0~= -3.2689 ; b~1~= 2.4625	|expressed as dry biomass |	Expresado en miligramos	
+12 |Ganihar (1997) |Coleoptera larva |ln (weight) = ln b~0~ + b~1~ * (length); ln b~0~= -7,1392 ; b~1~= 0,8095 |expressed as dry biomass| Expresado en miligramos
+13 |Ganihar (1997) |Díptera	|ln (weight) = ln b~0~ + b~1~ * (length); ln b~0~= -3,4294 ; b~1~= 2,5943 |expressed as dry biomass |
+14 |Ganihar (1997) |Formicidae |ln (weight) = ln b~0~ + b~1~ * (length); ln b~0~= -3,1415 ; b~1~= 2,3447	|expressed as dry biomass |
+15 |Hawkins et al. (1997) |Gasterópoda	 | Y = 0,172* X^1,688^ (log transformed:  ln(Y)  = 0.199  +  1.688 . ln(X)) | expressed as dry biomass | Expresado en miligramos de peso seco y Longitud en mm y la mitad porque va del centro al labio		16	|Ganihar 1997 |Insecta	|ln (weight) = ln b~0~ + b~1~ * (length); ln b~0~=-3,0710 ; b~1~=2,2968	|expressed as dry biomass|		
+17	|Ganihar 1997 | Isopoda	| weight = b~0~  + b~1~ * (length); b~0~=-1,1167 ; b~1~=0,4762	|expressed as dry biomass	|	
+18	|Coulis & Joly 2017 peso fresco	|Diplopoda miriapoda	|ln (weigth) = 2,38* ln(length)-2,77	|0,45	|*Según Edwards 1967 en Lebrum Philippe. (1971)	
+19	|Ganihar 1997 |Collembola utilizado para pauropoda	|ln (weight) = ln b~0~ + b~1~ * (length); ln b~0~=-1,8749 ; b~1~=2,3002 |	expressed as dry biomass	|	
+20	|Ganihar 1997 |Chilopoda Scolopendromorfa	|ln (weight) = ln b~0~ + b~1~ * (length); ln b~0~=-6,7041 ; b~1~=2,8420 |expressed as dry biomass |
+21	|Persson and Lohm (1977)	|Ecuación Pauropoda peso fresco en microgramos|	W=(1,20+L)^3	|0,2 |		
+22	|Ganihar 1997 |Ortóptera	|ln (weight) = ln b~0~ + b~1~ * (length); ln b~0~=-3,5338 ; b~1~=2,4619	|expressed as dry biomass |
+23 |Tita et al. 1999 |Nemátoda |weight = ((530 * L * W^2^)*1,084)/4 |expressed as dry biomass |
+24 |Hale et al. 1999 |Oligochaeta | ln (weight~af~) = 2.6365*ln(length)-12,6 |expressed as dry biomass ash-free | length in milimeter |
+25 |Greiner et al. 2010 |Enchitraeid | ln (weight~af~) = 1.10*ln(length)-8,22 |expressed as dry biomass ash-free | length in milimeter |
+
+## Análisis estadístico
+
+Se resumen las valores medio de densidad, biomasa y pesos corporales de los taxones en cada sistema de manejo, para observar posibles diferencias estructurales dentro de la fauna edáfica relacionadas con el impacto del uso del suelo en los diferentes sistemas de manejo.
+
+Para cada comunidad se analizó la respuesta de la biomasa media de cada gremio trófico vinculado con el efecto de los sistemas de manejo, a la vez se abordaron las posibles relaciones causales que podrían afectar la respuesta de la biomasa media ya sea por el efecto de las estaciones del año o por los estratos en el cuál habitan los taxas y las interacciones entre estos.
+
+El análisis se realizó utilizando un modelo lineal multifactorial y pruebas post-hoc de Tukey HSD para evaluar diferencias de medias de manera simultánea.
+
+Las relaciones entre los pesos corporales medios y las abundancias se abordó mediante el uso de la regresión sobre el tercer cuartil [@white2007], que permite, obtener una relacion de regresión sin realizar supuestos sobre la distribución de las variables, además el tercer cuartil disminuye el efecto de las especies raras y permite centrarse en los valores más probables del peso adulto de los invertebrados edáficos [@cade2003; @turnbull2014].
+
+Mediante la regresión sobre el tercer cuartil se realizaron comparaciones entre los interceptos y las pendientes para evaluar la existencia de diferencias, las relaciones de estas con las características ecológicas y el impacto de las actividades antrópicas sobre las comunidades de los microartrópodos edáficos [@cade2003]; para ello se hizo uso del paquete "quantreg" [.\@.buscarcitadelpaquete] que permite realizar modelos de regresión de cuartiles y utilizar técnicas de remuestreo (bootstraping) no paramétricas para evaluar las diferencias. 
+
+Se relacionó el peso corporal medio versus la densidad en relación a dos factores: los gremios tróficos y los sistemas de uso del suelo; este enfoque es conocido en inglés como *"Local Size-Density Relationships (**LSDR**)"* y expresa que valores de pendientes más pronunciadas se relacionan con impactos fuertes sobre los taxones [@white2007].
+
+Las variables fueron transformadas con logaritmos naturales, debido a que la distribución de cada uno de los pesos corporales en conjunto y por cada sistema de uso (Fig. 4.1) ajustan a la distribución logarítmica normal [@koch1966]. Todos los análisis se realizaron R 4.2.1 [@clauset2009; @crawley2013].
+
+
+<!-- colocar las imágenes de las curvas de acumulación empírica-->
+
 # Espectro de tamaños UNLu
+
 ## Densidades y pesos corporales por taxón
+
 ```{r limp_dtb,include=FALSE}
 body_unlu <- read.delim("database/community_bodymass.txt")
 names(body_unlu)<-c("sitio","replica","microhabitat","taxa","length","width","body_mass")
@@ -219,8 +307,6 @@ pairwise.wilcox.test(isotom$bio.ind, isotom$sitio,data=.,p.adjust.method = "BH")
 
 ```
 
-
-
 ## Distribución de peso corporal
 
 ```{r ridge_unlu, echo=FALSE}
@@ -252,6 +338,7 @@ body_unlu%>%filter(clase_tam=="macro")%>%
 
  # scale_x_continuous(breaks = seq(from=-4, to=5, by=2))+ 
 ```
+
 ```{r pwrU, include=FALSE}
 
 # Ajuste espectro con paquete Power Law
@@ -304,7 +391,6 @@ pgU <- plot_grid(prowU, legend_b, nrow = 2, rel_heights = c(1, .1));pgU
 
 ```
 
-
 ## Biomasa
 
 ```{r B_unlu, echo=FALSE}
@@ -330,13 +416,11 @@ baseU %>%  ggplot( aes(log(Tbiomass),estrato, fill=estrato)) + geom_violin(alpha
 
 ```
 
-
 ```{r}
 TukeyHSD(mU_1, "sitio")
 TukeyHSD(mU_1, "gremio")
 TukeyHSD(mU_1, "estrato")
 ```
-
 
 ## Relación tamaño de espectro
 
@@ -384,8 +468,7 @@ Los herbívoros no ajustan a la linea recta, es bimodal dado en la meso fauna no
 
 # Espectro de tamaños Rosana
 
-## Densidades y pesos corporales por taxón
-
+Se realizó 7042 estimaciones de pesos corporales individuales, distribuidos en 1592 registros para el sistema natural (N), 2698 para el sistema mixto agrícola-ganadero (G) y 2752 para el sistema intensivo agrícola (A). \## Densidades y pesos corporales por taxón
 
 ```{r dtbRO,include=FALSE}
 completo <- read_csv2("database/body_fq_guil_22.csv" , locale = readr::locale(encoding = "ISO-8859-1"))
@@ -425,8 +508,7 @@ meso%>%ggplot(aes(x=log(biomass), y=specie, fill=guild)) + geom_density_ridges(r
 
 ```
 
-
-```{r pwRO,echo=FALSE}
+```{r pwRO,include=FALSE}
 # Ajuste a partir del minimo de los datos, esto es, considerando que 
 # el valor mínimo se encuentra dentro de los datos
 
@@ -512,8 +594,6 @@ meso %>% mutate(guild=factor(guild,labels=c("Detritívoros","Microfitófagos","O
 
 ```
 
-
-
 ## Relación tamaño de espectro
 
 ```{r qq_RO, echo=FALSE}
@@ -535,3 +615,7 @@ base%>%ggplot(aes(x=log(bio.ind), y=log(abundance),color=guild))+geom_point(size
 # ref
 
 Edwards 1973 Relationships between weights, volumes and numbers of soil animals. in Progress in soil zoology
+
+Wallwork J (1958) Notes on the Feeding Behaviour of Some Forest Soil Acarina. Oikos 9 (2). <https://doi.org/10.2307/3564770>
+
+Ritz K, van der Putten W (2012) The living soil and ecosystem services: Introduction. In: Wall DH, et al. (Ed.) Soil ecology and ecosystem services. Oxford University Press, 421 pp. [ISBN 978-0-19-957592-3].

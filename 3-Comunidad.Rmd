@@ -44,8 +44,7 @@ Los suelos de los tres establecimientos agropecuarios ubicados en los partidos d
 Chivilcoy y Navarro fueron muestreados por Sandler (2019), en cada estación del año
 durante dos años entre 2009 y 2010, dejando un conjunto de datos tanto con la
 clasificación de los taxas como con la caracterización de las variables físicas y
-químicas. A su vez, los organismos colectados fueron preservados, lo que permitió al autor
-la medición de rasgos corporales.
+químicas. Además la fauna edáfica de estos lotes fueron fueron preservados lo que permitió al autor la medición de rasgos corporales.
 
 ## Comunidad de la fauna edáfica de la Universidad Nacional de Luján
 
@@ -60,8 +59,8 @@ su ciclo de vida en el suelo \@.momoyfalco_chap1 que incluye tres rangos de tama
 microartrópodos y otros invertebrados cuyo diametro corporal es menor a 2 mm y la
 macrofauna.
 
-Además de manera complementaria se estimaron, por un lado, la proporción de procariotas y
-eucariotas y la biomasa de los mismos, y por el otro, las variables edáficas químicas y
+Además de manera complementaria se estimaron, por un lado, la biomasa de la microflora y 
+la proporción de procariotas y eucariotas, y por el otro, las variables edáficas químicas y
 físicas.
 
 Se eligieron 3 sitios con diferentes usos del suelo y en cada sitio se ubicaron 3 réplicas
@@ -70,9 +69,10 @@ los bordes (\@.potapov_etal_2022; \@.moreira_etal_2012). [Colocar tabla con las
 coordenadas]
 
 Los sitios elegidos fueron: a) un lote agrícola (A) sobre el cuál se practica la
-agricultura convencional con labranza para la producción de forraje de alfalfa *Medicago
-sativa* para pastoreo de bovinos en producción lechera; b) un área de pastizal natural (P)
-con dominancia de Sorgo de Alepo *Sorghum halepense* y Cardo mariano *Silybum marianum*,
+agricultura convencional con labranza para la producción de forraje de alfalfa 
+*Medicago sativa* para pastoreo de bovinos en producción lechera; b) un área de 
+pastizal natural (P) con dominancia de Sorgo de Alepo *Sorghum halepense* y 
+Cardo mariano *Silybum marianum*,
 áreas que reciben presión de pastoreo por los bovinos de producción lechera con descanso
 entre pastoreos, y; c) un área clausurada (R) por más de 30 años considerada como reserva
 cuya vegetación característica es de tipo arbórea dominada por Ligustro *Ligustrum
@@ -95,9 +95,10 @@ suelo decante, la solución se deja pasar a través de tamices con diferente di�
 apertura de malla y los nemátodos se colectan en las mallas con diámetro de apertura de
 170 y 53 micrones. seguidamente se colecta los nemátodos atrapados por las mallas y se
 conservan en formalina 4% (\@.moreira_etal_2012) o alcohol 96º (\@.potapov_etal_2022)
-hasta su posterior extracción y conteo bajo lupa binocular, e identificación en grupos
+hasta su posterior conteo y extracción bajo lupa binocular, e identificación en grupos
 tróficos según la morfología de su aparato bucal (\@.yeates; \@.mondino \@.momo-falco)
-proceso que se realiza con porta y cubreobjeto bajo microscopio óptico.
+proceso que se realiza con porta y cubreobjeto bajo microscopio óptico con aumentos de
+hasta 400 veces.
 
 Para extraer la macrofauna del suelo se trabajó en 2 etapas una a campo y otra en
 laboratorio, en ambos casos los animales se capturaban directamente utilizando pinzas y
@@ -162,14 +163,16 @@ La muestra se desagrega en agua en relación 1:4 de suelo:agua, se agita enérgi
 durante 2 min, se deja reposar la solución durante unos minutos y luego se vuelca la
 solución a través de los tamices. El juego de tamices consistío en tamices apilados de 4
 mm, 2mm, 1mm, 500 $\mu m$, 250 $\mu m$ y 170 $\mu m$; la mesofauna se colecta de lo que
-queda atrapado en los tamices de 500 $\mu m$ a 170 $\mu m$.
+queda atrapado en los tamices de 1000 $\mu m$ a 170 $\mu m$.
 
 Los animales colectados se almacenan en alcohol 96º, luego se procede al conteo e
-identificación de los taxones en diferentes rangos taxonómicos hasta familias Burges and
+identificación de los taxones en diferentes rangos taxonómicos hasta familias utilizando 
+claves taxonómicas que pueden consultarse en: Burges and
 Raw 1967, Balogh and Balogh 1972, Evans and Till 1979, Balogh and Balogh 1988, Dindal
-1990, Krantz and Walter 2009, Momo and Falco 2009, Claps et al. 2020, Janssens 2023).
+1990, Krantz and Walter 2009, Momo and Falco 2009, Claps et al. 2020, Janssens 2023.
 
-Con el suelo de los primeros 10 cm de profundidad se llevó adelante la técnica de
+Con el suelo de los primeros 10 cm de profundidad, porción en la cuál se desarrolla la 
+mayor actividad de la microbiota (.@.librodesoilhealt), se llevó adelante la técnica de
 respiración inducida por sustrato en conjunto con el uso de antibióticos tanto para
 estimar la respiración heterotrófica del suelo y como para determinar la proporción de
 procariotas y eucariotas halladas por gramo de suelo que resulta en la aproximación del
@@ -179,22 +182,21 @@ El procedimiento consiste en aplicar diferente soluciones, a razón 1:1 suelo:so
 antibióticos sobre cada gramo de suelo para estimular la respiración del grupo de interés,
 el procedimiento se repite por cada muestra y réplica.
 
-La solución con a) solo el sustrato no discrimina entre grupos contiene 150 mg glucosa /
+La solución con a) *solo* el sustrato no discrimina entre grupos contiene 150 mg glucosa /
 mm solución y su valor estima la respiración heterotrófica total; la solución que b)
 inhibe la respiración de procariotas y que por lo tanto mide la respiración de los
-eucariotas contiene 11 mg cloranfenicol + 150 mg glucosa / mm sn.; c) la respiración de
-procariotas se mide con la solución de 2,3 mg cicloheximia + 150 mg glucosa / mm y
+*eucariotas* contiene 11 mg cloranfenicol + 150 mg glucosa / mm sn.; c) la respiración de
+*procariotas* se mide con la solución de 2,3 mg cicloheximia + 150 mg glucosa / mm y
 finalmente la solución que contiene d) ambos antibióticos, en las mismas cantidades,
-estima la respiración residual, es decir, la respiración de aquellos organismos que
+estima la respiración *residual*, es decir, la respiración de aquellos organismos que
 respiran a pesar de la presencia de los antibióticos en el medio líquido.
 
-Se coloca un gramo de suelo / réplica / muestra embebidos con alguna solución en
-recipientes de 350 ml que se cierran herméticamente y que funcionan como cámaras de
-incubación; en el interior del recipiente, además, se encuentra la trampa de álcali, un
-frasco de menor volumen con 5 ml de solución de hidróxido de sodio NaOH O,1 M.
-
-Los recipientes se colocaron en estufa a 30ºC durante 48h para incubar el suelo y
-estimular la actividad biológica. Como blancos (controles) de la reacción se utilizaron
+Se coloca un gramo de suelo / réplica / muestra en recipientes de 350 ml que se cierran
+herméticamente y que funcionan como cámaras de incubación, luego el suelo es embebido con 
+alguna de las soluciones descrita arriba y se coloca en el interior del recipiente la 
+trampa de álcali, un frasco de menor volumen con 5 ml de solución de hidróxido de sodio 
+NaOH O,1 M. Los recipientes se colocaron en estufa a 30ºC durante 48h para incubar el suelo
+y estimular la actividad biológica. Como blancos (controles) de la reacción se utilizaron
 frascos sin suelo con la trampa de NaOH para medir el contenido de CO~2~ que corresponde
 al aire incubado. El CO~2~ liberado por la respiración biológica se recupera en la trampa
 de álcali y se determina por titulación con ácido clorhídrico HCl 0,1 M y fenolftaleína
@@ -217,7 +219,7 @@ midió la respiración del suelo (expresada en μg de C-CO2 g -1 de suelo día -
 emisión y captación en solución de Na OH de CO2 de muestras de 20 g de suelo con
 el contenido de humedad original. Se colocaron en recipientes de 350 ml, los cuales
 contenían en su interior un recipiente menor en el centro del frasco con 20 ml de
-NaOH 0,2 N. El sistema se cierra herméticamente y se incuba a 28o C durante 10 días.
+NaOH 0,2 N. El sistema se cierra herméticamente y se incuba a 28 C durante 10 días.
 El CO2 liberado por la respiración biológica se recupera en el recipiente con el Na OH.
 Como controles de la reacción se utilizaron frascos sin suelo y con la trampa de álcali.
 La producción de CO2 se determina por titulación con ácido HCl 0,2 N y fenolftaleína
@@ -232,19 +234,20 @@ eléctrica en milisiemens por centímetro.
 Para describir las variables físicas, químicas y biológicas medidas se realiza un análisis
 descripivo de estas, para ello se calcularon las medidas de tendencia central para cada
 sitio y estrato. Se compararon posibles diferencias entre las medianas de estas variables
-mediante análisis de varianza no paramétrico Kruskal-Wallis. Luego se procede al análisis
-descriptivo multivariado mediante el uso de componentes principales con los valores de las
+mediante análisis de varianza no paramétrico Kruskal-Wallis. Luego se procede al análisis multivariado mediante el uso de componentes principales con los valores de las
 variables previamente transformados con log_b_x + 1. (\@.numerical_ecology)
 
 Para describir la comunidad edáfica se realizo un análisis de la diversidad alfa
 utilizando el valor de la riqueza de unidades taxonómica y del índice de diversidad de
 shanon-wiener. Mediante análisis de similitudes multivariado se evalua la diferencia entre
-las comunidades, se realiza un dendograma basado en el índice de diversidad Beta de Wilson
-(paper done estan los indices segun el paquete Vegan) para visualizar cuáles son las
-comunidades similes. Para describir las relación entre los taxones y los sitios se realizó
+las comunidades, se realiza un dendograma basado en el índice de diversidad Beta de
+Bray-Curtis (paper done estan los indices segun el paquete Vegan) para visualizar cuáles 
+son las comunidades similes. 
+Para describir las relación entre los taxones y los sitios se realizó
 análisis de componentes principales transformados con log_b_x + 1. (\@.numerical_ecology)
-e invertidos (en modo R) de modo de poder observar en el biplot a los sitios como vectores
-y a los taxones como puntos en el espacio euclidiano de las coordenadas principales.
+e invertidos (en modo R) de modo de poder observar en el gráfico biplot a los sitios como 
+vectores y a los taxones como puntos en el espacio euclidiano de las coordenadas 
+principales.
 
 <!-- indice de Wilson y Schmida 1984 en Measuring beta diversity for presence–absence data Koleff et al 2003  y numerical ecology con R libro-->
 
@@ -276,19 +279,20 @@ fyq_unlu <- read.delim("~/Documentos/Redes/soil_interaction_web/database/fyq_unl
 # Respiración heterotrófica
 # Valores expresados en miligramos de CO2/h/100g suelo
 
-resp.b<-c(          0.131588785046729,0.14803738317757,0.14803738317757, #Pastizal
-                    0.188187372708758,0.15234215885947,0.170264765784114, #Reserva
-                    0.066236559139785,0.0851612903225806,0.0946236559139785) #Agrícola
+resp.b<-c( 0.131588785046729,0.14803738317757,0.14803738317757, #Pastizal
+           0.188187372708758,0.15234215885947,0.170264765784114, #Reserva
+           0.066236559139785,0.0851612903225806,0.0946236559139785) #Agrícola
 
 
 
 # Relación de hongos : bacterias
 
+#pasar las relaciones decimales a fracción
+ratio.hb<-c( 11/8, 11/6, 7/6, #Pastizal
+            2.42857142857143, 11/6, 3.5, #Reserva
+                       3.25, 14/3, 5/6) #Agrícola
 
-#agrego relación Hongo-Bacterias
-ratio.hb<-c( 1.375, 1.83333333333333, 1.16666666666667, #Pastizal
-                       2.42857142857143, 1.83333333333333, 3.5, #Reserva
-                       3.25, 1.4000000000001, 0.833333333333333) #Agrícola
+#Agrícola, corrección de 14 por 4.66 (como? usando la biomasa residual)
 # en agrícola existe un valor atípico de 14 y lo corregi a 1.4
 
 
@@ -1584,11 +1588,12 @@ las lombrices tendrían 16 ind/m² y los microartrópodos 510 ind/m².
 A partir de este se calcula la Biomasa de los organismos
 
 ### Variables físcas y químicas, resumen datos Sandler(2019)
-Trabajar con las variables similares a las de la comunidad de la UNLu, para análisis completo
-ir a la tesis.
+
+Trabajar con las variables similares a las de la comunidad de la UNLu, para análisis 
+completto ir a la tesis.
 
 #### Descriptivas
-
+Solo tabular las variables. No realizar boxplot.
 ```{r pH_RO,echo=FALSE}
 pH.df<-data.frame(uso=levels(as.factor(RO_db_full$system)),
                  promedio=c(mean(RO_db_full[RO_db_full$system=="A","pH"]),
@@ -1900,7 +1905,7 @@ print("Tabla de riqueza de especies por cada sitio")
 print(data.frame(Sitios=levels(as.factor(paste(RO_db_full$system,RO_db_full$replica))),Riqueza=specnumber(ab,groups=abund_RO$site),row.names = NULL))
 
 ```
-La riqueza por sistema de uso del suelo, considerando algunas especies de la mesofauna que no corresponden a ácaros y colémbolos, es de A = 44; G = 39; N = 38.
+<!--La riqueza por sistema de uso del suelo, considerando algunas especies de la mesofauna que no corresponden a ácaros y colémbolos, es de A = 44; G = 39; N = 38.-->
 
 
 #### Diversidad

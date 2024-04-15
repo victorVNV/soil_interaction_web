@@ -1,5 +1,5 @@
 ---
-title: "3-Trofico"
+title: "2-Trofico"
 author: "VNV"
 date: "2024-03-25"
 output: html_document
@@ -65,12 +65,12 @@ descomposición "humus" de manera facultativa cuando las poblaciones bacterianas
 parte de su dieta son escasas, los prozoos también predan sobre otros protozoos y sobre
 levaduras e hifas de hongos.
 
-Los protozoos intervienen en el ciclo de la materia orgánica y de manera indirecta
-mediante su predación continua sobre las bacterias y otra microflora, a su vez, estos son
-presas de otros organismos, intervinene también en el ciclo de nutrientes mediante la
-liberación de compuestos asimilables por las raices de los vegetales. La fauna protozoaria
-del suelo es cosmopolita y varia ampliamente segun las condiciones puntuales al nivel de
-sus microhábitats "la zona de bio films" o las condiciones ambientales relacionadas con el
+Los protozoos intervienen en el ciclo de la materia orgánica de manera indirecta mediante
+la predación continua sobre las bacterias y otra microflora, a su vez, estos son presas de
+otros organismos, intervinene también en el ciclo de nutrientes mediante la liberación de
+compuestos asimilables por las raices de los vegetales. La fauna protozoaria del suelo es
+cosmopolita y varia ampliamente segun las condiciones puntuales al nivel de sus
+microhábitats "la zona de bio films" o las condiciones ambientales relacionadas con el
 hábitat edáfico.
 
 ## Ecdysozoa: Tardigrada

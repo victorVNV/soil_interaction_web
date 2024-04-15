@@ -5,7 +5,7 @@ output:
   pdf_document:
     latex_engine: xelatex
     keep_tex: true
-bibliography: TrophicResourcesEdaphic.bib
+bibliography: trophic.bib
 
 documentclass: article
 geometry:
@@ -83,7 +83,7 @@ Asociamos los taxones y esos recursos de modo que: a) si la publicación indicab
 A partir de esta estrategia de asignación, desarrollamos una base de datos que se presenta en el material suplementario II. La información taxonómica y los recursos tróficos se obtuvieron de las diferentes secciones de las publicaciones y sus apéndices [@Thakur2020]. De forma complementaria, cada taxón encontrado tiene todos los niveles de clasificación según @Krantz2009 y @Hopkin1997, para ácaros y colémbolos respectivamente. La base de datos también está disponible en el repositorio de GitHub <https://github.com/EcoComplex/TrophicResources> y Zenodo <https://doi.org/10.5281/zenodo.6508661>.
 
 | **Recurso trófico**          |                                               **Descrición**                                               | **Total de consumidores registrados (%)** | Familia | Genero  | Especie |
-|:----------|:------------------:|:---------:|:---------:|:---------:|:---------:|
+|:-----------------------------|:----------------------------------------------------------------------------------------------------------:|:-----------------------------------------:|:-------:|:-------:|:-------:|
 | **Hongos saprófitos**        |                   Son hongos ubicuos en el suelo que descomponen la materia orgánica.^c^                   |              **599 (19.8)**               | **16**  | **105** | **478** |
 | **Microfauna**               |     Nemátodos de vida libre del suelo, protozoos, tardígrados, rotíferos y otra microfauna edáfica.^e^     |              **468 (15.5)**               | **34**  | **140** | **294** |
 | **Bacteria**                 |                  Incluyen bacterias con enormes capacidades heterótrofas y autótrofas.^b^                  |              **325 (10.7)**               |  **7**  | **63**  | **255** |
