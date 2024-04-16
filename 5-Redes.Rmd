@@ -191,21 +191,24 @@ manejo [@bedano2007; @socarras2013].
 
 # Resultados
 
-```{r , include=FALSE}
+```{r lib, include=FALSE}
 
 {library(tidyverse);library(statnet);library(network);
-  library(igraph);library(intergraph)}
+  library(igraph);library(intergraph);library(multiweb)}
+set.seed(167)
 
 ```
 
 ```{r dtb,include=FALSE}
-#Carga datos, comunidad completa, abundancia, pesos corporales medios, 
+#Carga datos, comunidad completa, abundancia, pesos corporales medios, de suelos UNLu
 SFW_unlu <- read.delim(
   "database/unlu_ab_mass_mean_web.txt"
   )
+#carga datos, suelos ROSANA, Chivilcoy y Navarro
+completo <- readxl::read_excel("database/soil_networks.xlsx", sheet = "Ro_web")
 ```
 
-```{r Densidad,include=FALSE}
+```{r densidad_unlu,include=FALSE}
 #microfauna (se contaron los nemátodos de 4 sacabocados)
 sup.bocado.micro <- (1/(pi*2.5^2/10000))*4
 #mesofauna (se contaron y extrajeron de 3 frasquitos homojeneizados del monolito)
@@ -232,7 +235,7 @@ web<-unlu_D%>%
 
 ```
 
-```{r recurso_base,echo=FALSE}
+```{r recurso_base_unlu,echo=FALSE}
 #se utilizaron la biomasa estimada por m2 hasta los 5 cm
 
 #recursos base, hongo, bacteria, protozoa
@@ -275,7 +278,7 @@ web<-rbind(rec_base, web)
 
 ```
 
-```{r SFW_site,echo=FALSE}
+```{r redes_sitio_unlu,echo=FALSE}
 web0<-web%>%
   group_by(sitio,taxa)%>%
   summarise(body=mean(body,na.rm=TRUE),
@@ -328,7 +331,181 @@ L<-web0%>%filter(sitio=="L")
 P<-web0%>%filter(sitio=="P")
 R<-web0%>%filter(sitio=="R")
 
+#Pesos corporales
+body_L<-c(L$body,0,0,0,0)
+body_R<-c(R$body,0,0,0,0)
+body_P<-c(P$body,0,0,0,0)
+#biomasas
+#tejido vegetal se asume 25% mas que la materia orgánica aunque puede ser 125% más
+bm_L<-c(L$biomass,
+        (77.0321/0.0625)*0.3*1e6, #Hojarasca
+        mean(R[R$taxa!="fungi"&R$taxa!="bac"&R$taxa!="proto",]$biomass)*0.05, #Carroña
+        1.25*0.0273*1.2*50000*1e6,#Tej_veg
+        0.4*0.0273*1.2*50000*1e6)#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
+bm_R<-c(R$biomass,
+        55.753/0.065*0.3*1e6, #Hojarasca
+        mean(R[R$taxa!="fungi"&R$taxa!="bac"&R$taxa!="proto",]$biomass)*0.05, #carroña
+        1.25*0.0352*1.2*50000*1e6, #tej_veg
+        0.4*0.0352*1.2*50000*1e6) #"humus" = POM = 0.4MO
+bm_P<-c(P$biomass,
+        (58.63/0.0625)*0.3*1e6, #Hojarasca
+        mean(P[P$taxa!="fungi"&P$taxa!="bac"&P$taxa!="proto",]$biomass)*0.05, #carroña
+        1.25*0.0352*1.2*50000*1e6, #Tej_veg
+        0.4*0.0309*1.2*50000*1e6) #Humus
+#######
+
 ```
+
+```{r datosRO, include=FALSE}
+
+#completo <- readxl::read_excel("database/soil_networks.xlsx", sheet = "Ro_web")
+#Hacer red por sitio, no por estación, ignorar la macrofauna 
+#ya que no tuvieron un correcto diseño de muestreo
+#representan 166 registros macrofauna / 8662 registros totales
+#lombrices 1454 / 8662 totales, pero correctamente muestreados
+
+
+base<-completo%>%filter(class!="macrofauna")
+#Es el factor de conversión para llevar las abundancias a densidad
+
+#Densidad de los demás es 2.5²*3.14 = n()/0,00471 
+sup.bocado <- 1/(pi*2.5^2/10000)
+#Densidad de lombrice en 25*25 = a n()/0.0625
+sup.monolito <- 1/(0.25*0.25)
+
+
+####### 
+#por sitio
+#A partir de aqui determina las abundancias
+base.sitio<-base%>%group_by(system,site,class,order,specie) %>%
+  summarise(abundance=n(), bio.ind=mean(biomass),
+            bm=(mean(bm)),POM=mean(POM))%>%distinct(specie,.keep_all=TRUE)
+
+#densidad y biomasa
+ab.sitio<-base.sitio%>%
+  mutate(D=case_when(order=="crassiclitellata"~sup.monolito*abundance,
+                     order!="crassiclitellata"~sup.bocado*abundance),
+         BT=case_when(order=="crassiclitellata"~sup.monolito*abundance*bio.ind,
+                      order!="crassiclitellata"~sup.bocado*abundance*bio.ind))
+
+base1 <-ab.sitio %>% group_by(system,site) %>%  
+  summarise(humus=mean(POM),bm=(mean(bm)))%>%
+  mutate(bacteria=case_when(system=="A"~bm*0.35,system=="G"~bm*0.3,system=="N"~bm*0.25),
+         hongo=((bm-(0.05*bm))-bacteria),
+         microfauna=(0.05*bm*0.25),
+         nem_f=(0.05*bm*0.75*0.4),nem_b=(0.05*bm*0.75*0.3),nem_phy=(0.05*bm*0.75*0.14),
+         nem_pr=(0.05*bm*0.75*0.08),nem_om=(0.05*bm*0.75*0.08))%>%distinct(site,.keep_all=TRUE)
+
+# matriz red
+mRO<-ab.sitio[,c("system","site","specie","bio.ind","D","BT")]
+mRO_rec<-base1%>% 
+  pivot_longer(cols = c("humus","bacteria","hongo","microfauna","nem_f",
+                        "nem_b","nem_phy","nem_pr","nem_om"),
+              names_to = "specie",
+              values_to = "BT"
+              )
+#en pivot longer no usar, distinct(site,.keep_all=TRUE), porque elimina las observaciones con las
+#mismas filas y columnas
+
+#en microgramos
+{mRO_rec$bio.ind<-NA
+mRO_rec[mRO_rec$specie=="humus","bio.ind"]<-1
+mRO_rec[mRO_rec$specie=="bacteria","bio.ind"]<-9.5e-4
+mRO_rec[mRO_rec$specie=="hongo","bio.ind"]<-2.3e-1
+mRO_rec[mRO_rec$specie=="microfauna","bio.ind"]<-3.3363e-1 # este sale de promediar, 
+                                          #lo que los protozoos "pesan"
+
+#para los nemátodos utilizo el promedio GLOBAL de peso de los encontrados en suelos de Luján
+
+#fitófago, luján 1.02ug, digel
+#fungivoro, luján 5,184 ug, digel
+#bacterivoro, luján 1,854, digel
+#omnivoro, luján 16,89 ug, digel
+#predador, luján 4,58 ug, digel
+mRO_rec[mRO_rec$specie=="nem_b","bio.ind"]<-1.854
+mRO_rec[mRO_rec$specie=="nem_f","bio.ind"]<-5.184
+mRO_rec[mRO_rec$specie=="nem_phy","bio.ind"]<-1.02
+mRO_rec[mRO_rec$specie=="nem_om","bio.ind"]<-16.89
+mRO_rec[mRO_rec$specie=="nem_pr","bio.ind"]<-4.58
+#elijo solo los recursos y le asigno nombre
+
+mRO_rec$D<-mRO_rec$BT/mRO_rec$bio.ind}
+mRO_rec<-mRO_rec[c("system","site","specie","bio.ind","D","BT")]
+
+#matriz Rosana. Completo con recursos
+mRO<-rbind(mRO,mRO_rec)
+#corregir nombres de taxas para que sean simlares
+{
+mRO$specie[mRO$specie=="acaroidea"]<-"astigmata"
+mRO$specie[mRO$specie=="Apo_cal"]<-"Aporrectodea caliginosa"
+mRO$specie[mRO$specie=="Apo_ros"]<-"Aporrectodea rosea"
+mRO$specie[mRO$specie=="Apo_tra"]<-"Aporrectodea trapezoides"
+mRO$specie[mRO$specie=="hongo"]<-"fungi"
+mRO$specie[mRO$specie=="bacteria"]<-"bac"
+mRO$specie[mRO$specie=="dermanyssoidea"]<-"dermanisoidea"
+mRO$specie[mRO$specie=="entomobroidea"]<-"entomobridae"
+mRO$specie[mRO$specie=="epilohmannioidea"]<-"epilhomanioidea"
+mRO$specie[mRO$specie=="euker"]<-"Eukerria stagnalis" #agregar
+mRO$specie[mRO$specie=="euphthiracaroidea"]<-"eupthiracaroidea"
+mRO$specie[mRO$specie=="galumnioidea"]<-"galumnidae"
+mRO$specie[mRO$specie=="humus"]<-"hummus"
+mRO$specie[mRO$specie=="hypogastruridae"]<-"hipogastruridae"
+mRO$specie[mRO$specie=="lom_juv"]<-"juvenil"
+mRO$specie[mRO$specie=="Mic_pho"]<-"Microscolex phosphoreus"
+mRO$specie[mRO$specie=="Mic_dub"]<-"Microscolex dubius" #agregar
+mRO$specie[mRO$specie=="microfauna"]<-"proto"
+mRO$specie[mRO$specie=="nem_b"]<-"nem_bacterivoro"
+mRO$specie[mRO$specie=="nem_f"]<-"nem_fungivoro"
+mRO$specie[mRO$specie=="nem_phy"]<-"nem_fitofago"
+mRO$specie[mRO$specie=="nem_om"]<-"nem_omnivor"
+mRO$specie[mRO$specie=="nem_pr"]<-"nem_predador"
+mRO$specie[mRO$specie=="octacy"]<-"Octalasion cyaneum"
+mRO$specie[mRO$specie=="octala"]<-"Octalasion lacteum" #agregar
+mRO$specie[mRO$specie=="onychiuridae"]<-"onichiuridae"
+#oribatido agregar
+mRO$specie[mRO$specie=="oripodoidea"]<-"oripodidae"
+mRO$specie[mRO$specie=="parasitoidea"]<-"parasitidae"
+mRO$specie[mRO$specie=="rhodacaroidea"]<-"rhodacarioidea"
+mRO$specie[mRO$specie=="trombidioidea"]<-"trombidiidae"
+mRO$specie[mRO$specie=="tydeoidea"]<-"tydeioidea"
+
+}
+
+webRO<-mRO%>%
+  group_by(system,specie)%>%
+  summarise(body=mean(bio.ind,na.rm=TRUE),
+            d=mean(D,na.rm=TRUE),
+            biomass=mean(BT,na.rm=TRUE))%>%
+  distinct(specie,.keep_all=TRUE)
+
+N<-webRO%>%filter(system=="N")
+G<-webRO%>%filter(system=="G")
+A<-webRO%>%filter(system=="A")
+
+#Pesos corporales
+body_N<-c(N$body,0,0,0,0)
+body_G<-c(G$body,0,0,0,0)
+body_A<-c(A$body,0,0,0,0)
+
+```
+<!-- # Biomasas
+# Hojarasca, Dato tomado de biomasas y abundancias de la red unlu
+# Esto es el peso de la hojarasca encontrada en los 25*25 cm
+# 0.3 es el coeficiente de peso seco
+# L= 77,0321g/0.0625m2*0.3 P= 58.63g/0.0625m2*0.3 R= 55.753g/0.065m2*0.3
+# asumir 40% de la MOS es POM
+# %MO L=2.73% R=3.52% P= 3.09%
+# dap aprox. 1.2
+# Datos tomados de fyq_unlu, determinación de la materia orgánica.
+# Tej_veg sin datos, seria conocer el peso de las raices y/o sus metabolitos liberados
+# Como proxy, decimos que es una vez y media el contenido de materia orgánica
+# Carroña, puede ser el 5% de la biomasa promedio total de los invertebrados
+# L = 6980566 *0.01, R= 9231538*0.01, P=7122637*0.01
+# Fórmula: mean(P[P$taxa!="fungi"&P$taxa!="bac"&P$taxa!="proto",]$biomass)
+#Lavelle: Root biomass may be extremely high in soils and often constitutes the major resource for soil organisms. 
+#raices 2mg por cm en figure III.19 soil organims. root. pp 237
+#####
+-->
 
 
 ```{r Gamma_matrix, include=FALSE}
@@ -340,12 +517,15 @@ webG<-web%>%
   distinct(taxa,.keep_all=TRUE)
 
 #print(R$taxa)
-sp_G<-c("litter","carrion","tej_veg","hummus","isoptera",levels(as.factor(webG$taxa)))
+#agregar crotonioidea; Octalasion lacteum; Microscolex dubius; Eukerria stagnalis; brachychthonioidea
+#provenientes de la comunidad Rosana
+sp_G<-c("litter","carrion","tej_veg","hummus","isoptera","crotonioidea","Octalasion lacteum","Microscolex dubius","Eukerria stagnalis","brachychthonioidea","oribatido","limnozetidae",levels(as.factor(webG$taxa)))
 mG<-matrix(nrow = length(sp_G),ncol = length(sp_G),
            dimnames = list(sp_G,sp_G))
 #reemplazar NA por ceros
 
 mG[is.na(mG)] <- 0
+{
 #####
 #Microflora
 mG["bac",c("hummus","litter","carrion")]<-1
@@ -367,8 +547,8 @@ mG["nem_bacterivoro","bac"]<-1
 mG[c("juvenil","Aporrectodea caliginosa",
      "Aporrectodea rosea","Aporrectodea trapezoides",
      "Bimastos beddardi sophiae","Bimastos parvus",
-     "Eukerria halophila","Glossoscolex sp.",
-     "Microscolex phosphoreus","Octalasion cyaneum","Octolasion tyrtaeum"),
+     "Eukerria halophila","Glossoscolex sp.","Octalasion lacteum", "Microscolex dubius",
+     "Eukerria stagnalis","Microscolex phosphoreus","Octalasion cyaneum","Octolasion tyrtaeum"),
    c("litter","bac","fungi","proto","hummus")]<-1
 #####
 mG["astigmata",c("bac","fungi","nem_fitofago",
@@ -383,7 +563,8 @@ mG[c("aphidoidea","coleoptera_suctor","thysanoptera","hemiptero",
 
 #grandes detritivoros
 mG[c("oniscidea","blattodea","diplopoda","gasteropoda",
-     "larva_coleoptero","larva_tenebrionidae","larva_curculionidae","larva_diptera",
+     "larva_coleoptero","larva_tenebrionidae","larva_curculionidae",
+     "larva_diptera",
      "larva_elateridae","larva_scarabidae","larva_sciaridae",
      "pupa_diptera","trogossitidae","cryptophagidae",
      "ptilidae","elateriforme","tenebrionidae","anthribidae"),
@@ -547,12 +728,13 @@ mG["nematomorpha",c("aphidoidea","blattodea","carabidae",
 
 
 #microfitofagos
-mG[c("macropilina","limnozetidae",
+mG[c("macropilina","limnozetidae","oribatido",
      "scheloribatidae","oripodidae","oribatulidae",
-     "protura","eremobelbidae","oppioidea"),c("bac","fungi","hummus")]<-1
+     "protura","eremobelbidae","oppioidea","brachychthonioidea"),c("bac","fungi","hummus")]<-1
 #macrofitofago
-mG["symphypleona",c("bac","fungi","hummus","tej_veg","litter")]<-1
+mG[c("symphypleona","crotonioidea"),c("bac","fungi","hummus","tej_veg","litter")]<-1
 mG[c("epilhomanioidea","eupthiracaroidea","isoptera"),c("litter")]<-1
+mG[c("isoptera"),c("hummus")]<-1
 #macrofitofago omnivoro
 mG[c("ceratozetoidea","onichiuridae","isotomidae",
      "scheloribatidae","symphyla"),
@@ -575,19 +757,33 @@ mG[c("protura","symphyla"),c("carrion","bac","fungi","proto")]<-1
 mG["ptilidae",c("hummus","fungi","carrion","bac","proto","nem_fitofago",
                    "nem_bacterivoro","nem_fungivoro")]<-1
 
-
-
+#agregar crotonioidea; Octalasion lacteum; Microscolex dubius; Eukerria stagnalis; brachychthonioidea
+#provenientes de la comunidad Rosana
+}
 
 ```
 
-```{r R, echo=FALSE}
+
+
+
+```{r redes, echo=FALSE}
+#red global "diveridad gamma"
 G_net <- graph_from_adjacency_matrix(t(mG),mode=c("directed") )
-#Red Lote
+#Red Lote UNLu
 L_net <-graph_from_adjacency_matrix(t(mG[c(L$taxa,"litter","carrion","tej_veg","hummus"),c(L$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
-#Red Reserva
+#Red Reserva UNLu
 R_net <-graph_from_adjacency_matrix(t(mG[c(R$taxa,"litter","carrion","tej_veg","hummus"),c(R$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
-#Red Pastizal
+#Red Pastizal UNLu
 P_net <-graph_from_adjacency_matrix(t(mG[c(P$taxa,"litter","carrion","tej_veg","hummus"),c(P$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+
+#Datos de ácaros - colémbolos -lombrices - y respiración heterotrófica
+#Red Pastizal Naturalizado RO
+N_net <-graph_from_adjacency_matrix(t(mG[c(N$specie,"litter","carrion","tej_veg"),c(N$specie,"litter","carrion","tej_veg")]),mode=c("directed") )
+#Red mixto Agrícola Ganadero RO
+G_net <-graph_from_adjacency_matrix(t(mG[c(G$specie,"litter","carrion","tej_veg"),c(G$specie,"litter","carrion","tej_veg")]),mode=c("directed") )
+#Red agrícola intensivo RO
+A_net <-graph_from_adjacency_matrix(t(mG[c(A$specie,"litter","carrion","tej_veg"),c(A$specie,"litter","carrion","tej_veg")]),mode=c("directed") )
+
 
 ```
 
@@ -598,11 +794,9 @@ names(gamma_matrix)<-c("Recurso","Consumidor")
 kableExtra::kable(gamma_matrix)
 ```
 
-
 ```{r multiweb,echo=FALSE}
 library(multiweb)
 #plot_troph_level(G_net,modules=TRUE,vertexLabel = TRUE, tk = TRUE)
-
 
 #####
 # índices topológicos
@@ -611,17 +805,29 @@ calc_topological_indices(L_net)
 calc_topological_indices(R_net)
 calc_topological_indices(P_net)
 
-#####
-#Transitividad, proporción de triángulos
-tr_Gn<-gtrans(asNetwork(G_net))
-tr_Ln<-gtrans(asNetwork(L_net))
-tr_Rn<-gtrans(asNetwork(R_net))
-tr_Pn<-gtrans(asNetwork(P_net))
-
+calc_topological_indices(A_net)
+calc_topological_indices(G_net)
+calc_topological_indices(N_net)
 
 ```
 
-```{r multiweb, echo=FALSE}
+```{r plot_redes, echo=FALSE, warning=FALSE}
+par(mfrow=c(1,3))
+plot_troph_level(R_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE)
+plot_troph_level(P_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE)
+plot_troph_level(L_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE)
+
+plot_troph_level(N_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE)
+plot_troph_level(G_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE)
+plot_troph_level(A_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE)
+
+
+par(mfrow=c(1,1))
+```
+
+
+```{r multiweb1, echo=FALSE}
+
 #Agrícola
 {#genero el edge list
 edge_list_UNLu <- as.data.frame(as.matrix(L_net, "edgelist"))
@@ -705,12 +911,12 @@ quasi_unlu<-calc_QSS(QSS_IS_UNLu, istrength=TRUE, returnRaw = FALSE, nsim=10)
 
 #acá colocar los gremios tróficos
 # o los taxas
-QSS_unlu_seq<-calc_QSS_extinctions_seq(QSS_IS_UNLu, seq = V(QSS_IS_UNLu)$name[20:25], nsim = 100, ncores = 4, istrength = TRUE)
+#usar en su lugar calc_QSS_extinction_dif_grp
+#QSS_unlu_seq<-calc_QSS_extinctions_seq(QSS_IS_UNLu, seq = V(QSS_IS_UNLu)$name[20:25], nsim = 100, ncores = 4, istrength = TRUE)
 
 
 
 ```
-
 
 ```{r flux, echo=FALSE}
 library(fluxweb)
@@ -718,8 +924,6 @@ library(fluxweb)
 body_L<-c(L$body,0,0,0,0)
 body_R<-c(R$body,0,0,0,0)
 body_P<-c(P$body,0,0,0,0)
-
-#######
 # Biomasas
 # Hojarasca, Dato tomado de biomasas y abundancias de la red unlu
 # Esto es el peso de la hojarasca encontrada en los 25*25 cm
@@ -788,8 +992,6 @@ in a stable equilibrium only if the real parts of eigenvalues from the Jacobian
 are all negative. In this case, resilience is the absolute value of the real part
 of the largest eigenvalue, ... -->
 ```
-
-
 ```{r flux_, echo=FALSE}
 #Red Lote con Flujo energia
 
@@ -943,27 +1145,15 @@ plot_troph_level(QSS_IS_UNLu.w,modules=TRUE,vertexLabel = FALSE, tk = FALSE)
 
 # Ro red
 
-```{r , include=FALSE}
-library(tidyverse)
-library(readxl)
-#{require(ggplot2);require(dplyr);require(tidyr);require(readr);require(purrr);require(tibble);require(stringr);require(forcats);require(readxl);require(magrittr);require(glue)}
-
+```{=html}
+<!-- ver también, https://github.com/robertwbuchkowski/soilfoodwebs 
+análisis con C y N "estequimetría"-->
 ```
 
-<!-- ver también, https://github.com/robertwbuchkowski/soilfoodwebs -->
-
-```{r datos, include=FALSE}
-
-completo <- read_excel("./database/soil_networks.xlsx", sheet = "Ro_web")
-
-#Es el factor de conversión para llevar las abundancias a densidad
-#Densidadde lombrice en 25*25 = a n()/0.0625
-#Densidad de los demás es 2.5²*3.14 = n()/0,00471 
-
-sup.bocado <- 1/(pi*2.5^2/10000)
-sup.monolito <- 1/(0.25*0.25)
 
 
+
+<!--
 #Para 1mgCO2 / 100g suelo * hora son 20.6 mg C-microbiano / 100g suelo
 #Estos datos estan en mgCO2 /20 g suelo * dia
 #Entonces multplico x 5 (a 100 g) divido * 24 (h/dia) luego multiplico por factor 20,6
@@ -976,38 +1166,42 @@ sup.monolito <- 1/(0.25*0.25)
 #octalaceom cyaneum es mas chico que lacteum, tuve que reordenar la base de datos
 
 #base <-completo%>% mutate(bm=RESP*DAP*4.292e6,POM=0.3*(MO/100)*DAP*1e11,specie=case_when(specie=="octa_la"~"octacy",specie=="octa_cy"~"octala",specie!="octa_la"|specie!="octa_cy"~specie),biomass=case_when(order=="crassiclitellata"~exp(biomass*(1e-6))*1000,order!="crassiclitellata"~biomass))
-base<-completo
 
-#A partir de aqui determina las abundancias
 
-base.sitio<-base%>%group_by(system,site,season,class,order,specie,guild,habitat) %>%  summarise(abundance=n(), bio.ind=mean(biomass), bm=(mean(bm)),POM=mean(POM))%>%distinct(specie,.keep_all=TRUE)
-
-ab.sitio<-base.sitio%>%mutate(BT=case_when(order=="crassiclitellata"~sup.monolito*abundance*bio.ind,order!="crassiclitellata"~sup.bocado*abundance*bio.ind))
-
-#El uso de case_when() permite relacionar estructuras condicionales al mutate
-
-#writexl::write_xlsx(base,"bundancias.xlsx")
 
 #segun YOU IA, se requieren 1 Tn hoja seca para 0,5%MO por hectarea, es decir que por m2 son 0,1 kg de hojas
 
-
-```
-
+-->
 Se realizan varias suposiciones:
 
 Sobre el humus, se considera que lo utilizable como recurso es el 30% de
 la %MO en los primeros 10 cm La relación H:B será por el momento
-25-30-35 de bacterias:hongos en los sistemas N G A respectivamente.
+N25-G30-A35 de bacterias:hongos en los sistemas N G A respectivamente.
 Además protozoos y otra microfauna representará el 5% e la respiración
 
 Según Digel
 
-\|Taxón \| Peso corporal \| \|Bacteria \|9,5 x 10\^-16 g\| \|Ameba \|2,8
-10\^-8 g\| \|Ciliados \|2,63 10\^-9 g\| \|Flegelados \|3,03 10\^-7 g\|
-\|------------\|-----------\| \|bacterívoros \|8,5 x 10\^-7\|
-\|omnivoros \|6,02 x 10\^-5\| \|predadores \|3,56 x 10\^-6\|
-\|fungivoros \|5,35 x 10\^-7\| \|fitófagos root feeding \|2,35 x
-10\^-7\|
+\|Taxón \| Peso corporal \|
+
+\|Bacteria \|9,5 x 10\^-16 g\|
+
+\|Ameba \|2,8 10\^-8 g\|
+
+\|Ciliados \|2,63 10\^-9 g\|
+
+\|Flegelados \|3,03 10\^-7 g\|
+
+\|------------\|-----------\|
+
+\|bacterívoros \|8,5 x 10\^-7\|
+
+\|omnivoros \|6,02 x 10\^-5\|
+
+\|predadores \|3,56 x 10\^-6\|
+
+\|fungivoros \|5,35 x 10\^-7\|
+
+\|fitófagos root feeding \|2,35 x 10\^-7\|
 
 Peso promedio de los protozoos en 1,1121 x10\^-4 µg
 
@@ -1048,27 +1242,13 @@ en Miramar hemos encontrado 700 g/m2
 Microfauna calculada como 6,57 x10 \^-5 g, es el promedio de protozoos y
 nemátodos sería 0.066 µg peso
 
-```{r ,include=FALSE}
-
-base1 <-ab.sitio %>% group_by(system,site,season) %>%  summarise(humus=mean(POM), bm=(mean(bm)) )%>%distinct(season,.keep_all=TRUE)
-
-base2 <- base1%>%mutate(bacteria=case_when(system=="A"~bm*0.35,system=="G"~bm*0.3,system=="N"~bm*0.25),hongo=((bm-(0.05*bm))-bacteria),microfauna=(0.05*bm*0.25),nem_f=(0.05*bm*0.75*0.4),nem_b=(0.05*bm*0.75*0.3),nem_phy=(0.05*bm*0.75*0.14),nem_pr=(0.05*bm*0.75*0.08),nem_om=(0.05*bm*0.75*0.08))
-
-#elijo solo los recursos y le asigno nombre
-
-columnas_recursos<-t(base2[,c(1:4,6:13)])
-colnames(columnas_recursos) <- paste(base2$system,base2$site,base2$season)
-
-
-```
-
 La materia orgánica particulada es el proxi a la cantidad de recurso que
 se corresponde con el Humus y esta es una fracción del %de MO
 (Biological indicator of Soil Healt pp 70 - 71)
 
 El 0.25% de lo que corresponde a microfauna sera no nematodo.
 
-```{r}
+```{r matrix_gamma_ro, include=FALSE}
 
 #lista de especies
 esp<-as.vector(levels(as.factor(base$specie)))
@@ -1081,7 +1261,7 @@ m0<-matrix(nrow = 64,ncol = 64,dimnames = list(esp_full,esp_full))
 #reemplazar NA por ceros
 
 m0[is.na(m0)] <- 0
-
+#en esta matriz no incluyo la hojarasca...
 #Recursos
 m0["bacterias",c("hummus","tej_veg","carrion")]<-1
 m0["hongos",c("hummus","tej_veg","carrion")]<-1
@@ -1136,7 +1316,7 @@ m0["hypogastruridae",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","microfa
 
 m0[c("isopodos","miriapodo"),c("hummus","hongos","bacterias","microfauna")]<-1
 
-m0["isoptera",c("hummus","hongos","bacterias","microfauna","tej_veg")]<-1
+m0["isoptera",c("hummus","hongos","bacterias","microfauna")]<-1 #,"litter"
 
 m0["linyphiidae",c("gryllidae","gryllotalpidae","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea","staphylinidae","ptiliidae","carabidae","ecidomyiidae","psocoptera","sciaridae","scarabaeidae")]<-1
 
@@ -1170,13 +1350,6 @@ m0["veigaioidea",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","onychiurida
 #Libro sobre uso de statnet
 
 ```{r}
-library(statnet)
-library(network)
-library(igraph)
-library(intergraph)
-```
-
-```{r}
 #la red global; es necesario completar con todas las interacciones probables en la Pampa Húmeda.
 #Determina la red Potencial.
 #global_net, es g_net.
@@ -1197,7 +1370,7 @@ resumen_red_global<-summary(g_net)
 #scalado multidimensional métrico
 ```
 
-```{r}
+```{r metricas_ro, echo=FALSE}
 
 print("TAMAÑO DE LA RED")
 network.size(g_net)
@@ -1227,7 +1400,12 @@ table(distancias_geodesicas$gdist)
 #Que es una forma básica de agrupamiento o clusters.
 print("Transitividad")
 gtrans(g_net)
-
+#####
+#Transitividad, proporción de triángulos
+tr_Gn<-gtrans(asNetwork(G_net))
+tr_Ln<-gtrans(asNetwork(L_net))
+tr_Rn<-gtrans(asNetwork(R_net))
+tr_Pn<-gtrans(asNetwork(P_net))
 #transforma edgelist en matriz
 #as.sociomatrix(g_net)
 
@@ -1290,7 +1468,7 @@ print("Configuración ejes, nodo a nodo")
 #get.inducedSubgraph(g_net,which(g_net%v%"gran_grupo"=="clitelata"))
 ```
 
-```{r}
+```{r plot_RO,echo=FALSE}
 
 
 
@@ -1323,8 +1501,9 @@ gremios como atributo del nodo* Clasificar por funcion ecologica, para
 atributo de nodo y para calcular el flujo de energía \*Entender que
 significa el valor de estabilidad tambien
 
-```{r}
+```{r flux_RO,echo=FALSE}
 library(fluxweb)
+#porque todo a mano ?
 peso<-c(NA,NA,NA,9.5e-16,-999,3e-8,9e-5,3.56e-6,6.02e-5,2.35e-7,8.5e-7,5.35e-7,2.13e-6,2.16e-2,1.04e-2,0.65,9.6e-7,1.84e-6,5.45e-6,1.187e-5,7.713e-5,5.08e-6,6.03e-6,8.033e-5, 6.82e-6,2.15e-6,0.013,1.119e-5,6e-7,1.16e-4,2.994e-5,7.04e-5,1.03e-4,1.33e-4,6.73e-6,2.35e-3,4.131e-5,2.32e-6,6.715e-5,2e-3,1.022e-5,0.017,4.5e-3,2.3e-3,0.374,0.0862,9.72e-7,8.4e-7,1.11e-6,4.11e-6,8.77e-6,5e-6,3.6e-5,5.51e-4,4.64e-6,3.25e-3,3.42e-4,2.64e-4,1.68e-6,2.55e-6,8.2e-6,0.71e-6,1.4e-5,1.09e-5)
 #Pasar todos los valores a microgramos
 #La carroña será el 5%de la biomasa de todos los invertebrados excepto bacterias hongos
