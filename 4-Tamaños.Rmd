@@ -279,7 +279,9 @@ baseU<-baseU%>%
 #microfauna (se contaron los nemátodos de 4 sacabocados)
 sup.bocado.micro <- (1/(pi*2.5^2/10000))*4
 #mesofauna (se contaron y extrajeron de 3 frasquitos homojeneizados del monolito)
-sup.bocado.meso <- (1/(pi*2.5^2/10000))*3
+#se utiliza 1.8 ya que el volumen fue de 100 cm para una profundidad de 10 cm.
+# la superficie de todo estrato diferente a 10 fue 25*25, corregir datos de densidad. 
+sup.bocado.meso <- (1/(pi*1.8^2/10000))*3
 #macrofauna (superficie estandar 25 x 25)
 sup.monolito <- 1/(0.25*0.25)
 

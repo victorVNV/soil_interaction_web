@@ -21,101 +21,170 @@ set.seed(167)
 
 ```
 
-# Análisis de la comunidad
+# Análisis de las comunidad
 
-## Intro sobre la pampa ondulada y los suelos en general.
+## Introducción
 
-## Generalidades sobre el conjunto de datos.
+La Pampa argentina es una amplia llanura con una extensión de más de 120 millones de hectáreas, 
+de las cuales se estima que la Pampa Ondulada ocupa 44 mil km^2^, esta ocupa la parte 
+centro-oriental de la provincia de Córdoba, el norte de Buenos Aires y el suroeste de Santa Fé (.@.morello_etal_2000).
+
+Fitogeográficamente, la Pampa Ondulada, se ubica en la Región Neotropical, dominio Chaqueño, distrito Oriental de la provincia Pampeana y en ella la vegetación dominante es la estepa o pseudoestepa de gramíneas (.@.Cabrera 1976, .@.Oyarzabal et al. 2018). El clima es templado con cuyo rango de precipitaciones varía entre los 850 a 1000 mm anuales y una temperatura media anual alrededor de los 17 ºC, la distribución de las lluvias es casi uniforme, interrumpida periódicamente por sequías derivadas de los fenómenos meteorogicos El Niño y La Niña. 
+
+La Pampa Onduada es la zona más fértil y productiva de la región Pampeana, donde más del 80% de la tierra se dedica a la producción de cultivos agrícolas. Los suelos de la Pampa tienen relativamente pocas limitaciones para la producción de cultivos y son aptos para la ganadería. Son suelos profundos, bien drenados, no ofrecen limitaciones para el crecimiento de las raíces y tienen un buen contenido de materia orgánica (Cabrera y Willink 1973) la topografía es plana y extensa, además se encuentran en la región importante acuíferos cuya explotación se realiza para proporcionar riego a los cultivos, sumando a estas bondadosas características para la producción agrícola, el estrecho periodo de probabilidad de heladas y los inviernos sin nieve permiten el cultivo de especies invernales de manera que al año pueden realizarse hasta tres cosechas (.@.morello_etal_2000).
+
+Urricariet y Lavado en 1999 ya mencionaban que la Pampa Ondulada estaba siendo 
+sometida a la pérdida de fertilidad debidas a las prácticas intensivas de manejo. 
+ellos basaban sus conjeturas en estudios regionales realizados en la Pampa Ondulada y
+mencionan que la erosión de los suelos y los efectos de las prácticas agrícolas intensivas
+sobre estos, alteran la fertilidad física y estructural del suelo, 
+la fertilidad química principalmente por la disminución de 
+nutrientes extraidos por los cultivos y la fertilidad biológica debida a las alteraciones 
+sobre los procesos biológicos que tienen la perdida de la materia orgánica en los suelos. 
+Podemos decir que las practicas agrícolas intensivas estaban motivadas por las grandes 
+bondades productivas provistas por las características del ecosistema ante descrita.
+
+Es importante conocer como es afectada la vida "bajo nuestros pies" 
+(.@.fao_atlas_soil_biodiversity), es decir la vida del suelo, 
+ya que la diversidad biológica puede ser afectada por diferentes factores relacionadas con las
+diferentes prácticas de manejo, tales como, el establecimiento de diferentes estructuras vegetales, 
+el fraccionamiento del hábitat, el cambio de uso del suelo, la compactación de los suelos, el
+uso de insumos como fertilizantes y biocidas, y que alteran los fenómenos funcionales y
+estructurales que conforman los procesos ecologicos de los ecosistemas terrestres (.@.citas; .@.Colombo_etal_2014; .@.bedano2006) 
+
+La fauna edáfica refleja el efecto de las perturbaciones naturales y antrópicas mediante 
+respuestas en su composición de especies o la abundancia de estos, ya que, las perturbaciones 
+según su intensidad podrían llevar a la disminuciones de las abundancias y la desaparición 
+de especies, lo que se traducirá en efectos sobre estabilidad y fertilidad de los suelos, dado
+que, la fauna edáfica está íntimamente vinculada con la descomposición de la materia orgánica y la 
+dinámica del ciclo de los nutrientes, además la diversidad trófica y la dinámica de los diferentes 
+taxones se relacionan con el control de las poblaciones, la distribución y el transporte de esporas
+y propágulos de la microflora del suelo, la deposición de sus extretas líquidas o sólidas que
+contribuyen a la formación de microagregados y son almacen de carbono en el suelo y también sus
+actividades de búsqueda de alimento o movimientos en búsqueda de mejores condiciones ambientales 
+los tornan organismos que contribuyen, a diferentes escalas, a la formación del suelo.(.@.todas las 
+citas). 
+
+Por ello es que Socarras (2013) menciona que conocer el número de los diferentes taxones, 
+su abundancia y el balance entre estos permite evaluar y predecir el impacto de los diferentes
+métodos de producción ocurridos en sistemas con condiciones edáficas y climáticas particulares;
+tambíen Cruz et al. (2009) mencionan en su síntesis sobre los indicadores que dan cuenta sobre la 
+calidad del suelo, entendida como *"la utilidad del suelo para un propósito específico en una escala
+amplia de tiempo"*, que los indicadores biológicos integran a la gran cantidad de factores que 
+podrían estar afectando al suelo y su "calidad". Dado que el suelo es el hábitat de estos
+organismos y la fauna edáfica es rectora sobre los procesos biológicos que afectan al 
+funcionamiento del ecosistema edáfico, la diversidad biológica en los suelos se vincula 
+estrechamente con el mantenimiento de la fertilidad, la estabilidad física y biológica y
+con la productividad ecológica (productividad primaria) y económica (rendimiento de los cultivos
+y producción de proteina animal) de los suelos.
+
+El objetivo de esta sección es describir las comunidades.
+
+## Materiales y métodos.
+### Sitios de estudio
 
 Las comunidades de la fauna del suelo trabajadas aquí ocurren en suelos Argiudoles típicos
 de la Pampa Ondulada. Las comunidades se trabajan en dos conjuntos de datos, a saber,
-fauna edáfica tomada en suelos de la Universidad Nacional de Luján y fauna edáfica de
-suelos de tres estabecimientos agropecuarios localizados en los partidos de Chivilcoy y
-Navarro.
+fauna edáfica tomada en suelos del partido de Luján y fauna edáfica pertenecientes a 
+suelos de los partidos de Chivilcoy y Navarro (Tabla 3.1[coordenadas]), estas distancias en la Pampa son prácticamente irrelevantes en términos de clima o elevación.
 
-En ambos casos se tomaron muestras sobre suelos con diferentes usos y se consideraron
+En ambos casos se tomaron muestras de suelos con diferentes formas de uso y se consideraron
 estos como diferentes grados en la intensidad de perturbación sobre el suelo.
 
-Los suelos de la Universidad Nacional de Luján fueron muestreados en una sola fecha en el
+Los suelos de Luján fueron muestreados en una sola fecha en el
 mes de Mayo del año 2022 y el trabajo de extracción, clasificación de los taxas y medición
 de rasgos fué realizado por el autor y colaboradores.
 
-Los suelos de los tres establecimientos agropecuarios ubicados en los partidos de
+Los suelos ubicados en los partidos de
 Chivilcoy y Navarro fueron muestreados por Sandler (2019), en cada estación del año
 durante dos años entre 2009 y 2010, dejando un conjunto de datos tanto con la
-clasificación de los taxas como con la caracterización de las variables físicas y
-químicas. Además la fauna edáfica de estos lotes fueron fueron preservados lo que permitió al autor la medición de rasgos corporales.
+clasificación de los taxas de Arachnida: Acari, Hexapoda: Collembola y 
+Oligochaetta: Crassiclitelata como con la caracterización de las variables físicas y
+químicas. Además la organismos de la fauna mesofauna edáfica 
+de estos lotes fueron preservados en el laboratorio de Ecología: programa de Ecología Terrestre
+(INEDES-UNLu) lo que permitió al autor la medición de rasgos corporales.
 
-## Comunidad de la fauna edáfica de la Universidad Nacional de Luján
+** Tabla 3.1. Ubicación georreferenciada de los sitios de muestreo **
+|Uso del suelo|Sitio de muestreo| Coordenadas |
+|---|---|---|
+| R |  L |S E   |
+| PN|   C y N|S E   |
+| P |   L|   |S E
+| G |   C y N|S E   |
+| A |   L |S E   |
+| A |   C y N|S E   |
 
-Durante el mes de mayo del año 2022 se llevó adelante el muestreo de los suelos Argiudoles
-típicos de la Universidad Nacional de Luján de la serie CO3
-(\@.sfeir_etal_1988_tesis_de_series\_) [imagen1_mapa].
+### Diseño de muestreo
 
-El muestreo se llevó adelante con el objetivo de colectar la fauna edáfica que pasa todo
-su ciclo de vida en el suelo \@.momoyfalco_chap1 que incluye tres rangos de tamaño
-(\@.swift, agregar imagen tamaños), esto es, la microfauna constituida por los nemátodos
-(anco corporal menor a 200 \$\mu m\$), la mesofauna en el que se incluyen los
-microartrópodos y otros invertebrados cuyo diametro corporal es menor a 2 mm y la
-macrofauna.
+Durante el mes de mayo del año 2022 se llevó adelante el muestreo de suelos Argiudoles
+típicos ubicados el campo experimental de la Universidad Nacional de Luján (\@.sfeir_etal_1988_tesis_de_series\_) [imagen1_mapa].
 
-Además de manera complementaria se estimaron, por un lado, la biomasa de la microflora y 
-la proporción de procariotas y eucariotas, y por el otro, las variables edáficas químicas y
-físicas.
+El muestreo se llevó adelante con la intención de colectar la fauna edáfica que pasa todo
+su ciclo de vida en el suelo (\@.momoyfalco_chap1; .@.walk_trabajo original), conocidos también como **geobiontes**.
+Los geobiontes incluyen tres rangos de tamaño (\@.swift, agregar imagen tamaños y formas de vida):
+la **microfauna** constituida por los nemátodos
+(ancho corporal menor a 200 \$\mu m\$), la **mesofauna** en el que se incluyen los
+microartrópodos y otros invertebrados cuyo diametro corporal es menor a 2 mm y la **macrofauna**.
 
-Se eligieron 3 sitios con diferentes usos del suelo y en cada sitio se ubicaron 3 réplicas
+De manera complementaria se estimaron, por un lado, la respiración heterotrófica, 
+la biomasa de la microflora y la proporción de procariotas y eucariotas, 
+y por el otro, las variables químicas y
+físicas que caracterizan estos ambientes edáficos.
+
+Se eligieron 3 sitios [Fig 3.1 Colocar imagendiseño muestreo] con diferentes usos del suelo 
+y en cada sitio se ubicaron 3 réplicas
 de un metro cuadrado de superficie separadas 50 metros entre sí y separadas 10 metros de
-los bordes (\@.potapov_etal_2022; \@.moreira_etal_2012). [Colocar tabla con las
-coordenadas]
+los bordes (\@.potapov_etal_2022; \@.moreira_etal_2012). 
 
 Los sitios elegidos fueron: a) un lote agrícola (A) sobre el cuál se practica la
-agricultura convencional con labranza para la producción de forraje de alfalfa 
+agricultura convencional con labranza para la producción forrajera de alfalfa 
 *Medicago sativa* para pastoreo de bovinos en producción lechera; b) un área de 
 pastizal natural (P) con dominancia de Sorgo de Alepo *Sorghum halepense* y 
 Cardo mariano *Silybum marianum*,
-áreas que reciben presión de pastoreo por los bovinos de producción lechera con descanso
-entre pastoreos, y; c) un área clausurada (R) por más de 30 años considerada como reserva
-cuya vegetación característica es de tipo arbórea dominada por Ligustro *Ligustrum
-lucidum* y Acacia *Acacia melanoxylon*.
+áreas que reciben presión de pastoreo por los bovinos lecheros con descanso
+entre pastoreos, y; c) un área clausurada por más de 30 años (R) considerada como reserva
+cuya vegetación característica es de tipo arbórea dominada por Ligustro *Ligustrum lucidum* 
+y Acacia *Acacia melanoxylon*.
 
-Para extraer los nemátodos de vida libre del suelo para cada una de las réplicas
-muestrales se tomaron 4 submuestras al azar dentro del área de un metro cuadrado
-delimitada como área muestral con sacadocados de 5 cm diámetro y 10 cm de profundidad. Las
-submuestras fueron almacenadas cuidando que no se compacten, que no pierdan humedad del
-suelo y que no se sobre calienten para ser llevadas al laboratorio donde se procedió a la
-extracción de la microfauna.
+### Métodos de extracción de la fauna edáfica. 
 
-Las submuestras fueron mecladas, homogeneizadas y pesadas, luego cada una fué sometida al
-método de flotación y tamizado. (\@.mondino; \@.jekings; \@.moreira_etal_2012)
+Para muestrear los nemátodos de vida libre del suelo para cada réplica muestral
+se tomaron 4 submuestras, en puntos al azar dentro del área muestral de un metro cuadrado
+previamente delimitada, con sacadocados de 5 cm diámetro y 10 cm de profundidad. 
+
+Las submuestras fueron almacenadas evitando la compactación, la pérdida de humedad y el 
+sobrecalentamiento para luego llevarlas al laboratorio donde se procedió a la
+extracción de la microfauna. Las submuestras fueron mecladas, homogeneizadas y pesadas, luego cada 
+muestra compuesta fué sometida al método de flotación y tamizado. (\@.mondino; \@.jekings; \@.moreira_etal_2012)
 
 La muestra de suelo se desagrega suavemente con la mano y luego se incorpora agua en
-relación 1:4 suelo:agua p/p se agita la solución enérgicamente durante 2 minutos
+relación 1:6 suelo:agua p/p se agita la solución enérgicamente durante 2 minutos
 aproximadamente y luego se deja reposar unos minutos hasta que la fracción más pesada del
 suelo decante, la solución se deja pasar a través de tamices con diferente diámetro de
 apertura de malla y los nemátodos se colectan en las mallas con diámetro de apertura de
-170 y 53 micrones. seguidamente se colecta los nemátodos atrapados por las mallas y se
+170 y 53 micrones; seguidamente se colecta los nemátodos atrapados por las mallas y se
 conservan en formalina 4% (\@.moreira_etal_2012) o alcohol 96º (\@.potapov_etal_2022)
 hasta su posterior conteo y extracción bajo lupa binocular, e identificación en grupos
 tróficos según la morfología de su aparato bucal (\@.yeates; \@.mondino \@.momo-falco)
-proceso que se realiza con porta y cubreobjeto bajo microscopio óptico con aumentos de
+proceso que se realiza con montajes temporales y observación bajo microscopio óptico con aumentos de
 hasta 400 veces.
 
-Para extraer la macrofauna del suelo se trabajó en 2 etapas una a campo y otra en
+Para extraer la macrofauna del suelo se trabajó en 2 etapas una a campo y otra en el
 laboratorio, en ambos casos los animales se capturaban directamente utilizando pinzas y
 pinceles y se los almacenaba directamente en alcohol de 96º (en inglés: *"Hand
 shorting"*), hasta su posterior conteo e identificación (\@.potapov_etal_2022).
 
-En el campo se delimitó dentro del área de muestreo de un metro cuadrado una sub parcela
-ubicada al azar de 25 x 25 cm y se excavó el suelo hasta los 20 cm de profundidad, esta
-muestra se trabajó de manera estratificada separando en hojarasca, suelo hasta los 10 cm y
+En el campo se delimitó dentro del área de muestreo de un metro cuadrado una sub-parcela,
+ubicada al azar, de 25 x 25 cm y se excavó el suelo hasta los 20 cm de profundidad, esta
+muestra se trabajó de manera estratificada separando en: hojarasca, suelo hasta los 10 cm y
 suelo hasta los 20 cm de profundidad.
 
 Para cada estrato las muestras de suelo fueron trasladadas al laboratorio, manteniendo el
 suelo intacto y cuidando que no pierda la humedad natural para evitar la deshidratación de
-la macrofauna hasta que el proceso de exploración y extracción de los animales termine,
-proceso que llevo aproximadamente 5 días.
+la macrofauna hasta que el culmine el proceso de exploración y extracción de los animales,
+proceso que llevo aproximadamente una semana (Fig 3.2).
 
-<!--(colocar la imágen donde estamos los tres con la lupa y el suelo)-->
+[colocar mosaico de imágenes donde estamos suelo lupa y balanza]
 
 Cada muestra de suelo fue desagregada minusiosamente, sobre fondo blanco, prestando
 atención al movimiento de los animales de la macrofauna con la ayuda de lupa de mesa y luz
@@ -126,7 +195,8 @@ lombrices de tierra, arañas lobo, bichos bolita, milpies, cienpies, entre otros
 
 Los animales capturados son almacenados en alcohol 96º hasta su identificación taxonómica.
 Para la identificación se utilizaron claves taxonómicas que separan en grandes grupos
-taxonómicos. Las lombrices de tierra (Oligochaeta: Crassiclitellata) fueron identificadas
+taxonómicos(.@.cita_libro_general_de_clasif). 
+Las lombrices de tierra (Oligochaeta: Crassiclitellata) fueron identificadas
 hasta especies (\@.Satchell_1983, \@.Reynolds_1996, \@.deMichisandMoreno_1999) y la
 macrofauna restante fué separada en diferentes rangos taxonómicos desde órdenes hasta
 familias (\@.Dindal 1990, \@.Klimaszewiski and Watt 1997, \@.Choate 1999, \@.Zhang 2011,
@@ -137,13 +207,12 @@ correspondientes a las muestras tomadas para capturar la macrofauna, de ellos se
 la hojarasca y el suelo hasta la profundidad de 10 cm.
 
 Se tomó toda la hojarasca que se encontraba sobre la superficie que cubría el monolito de
-25 x 25 cm, luego fue tamizada con malla de 2mm separando así, de manera arbitraria, la
+625 cm^2^, luego fue tamizada con malla de 2 mm separando así, de manera arbitraria, la
 hojarasca "fresca" que es la que queda sobre el tamiz de 2mm de la hojarasca "fermentada"
-y el suelo orgánico-mineral que corresponden a la fracción que pasa el tamiz.
-
+y el suelo orgánico-mineral ("humus") que corresponden a la fracción que pasa el tamiz. 
 La fracción que pasaba el tamiz fué considerado como hojarasca con un gran avance en
-términos de descomposición (hojarasca fermentada según a bibliografía clásica (\@.citas
-citas)), esta fracción luego fue separada por un tamiz de 500 $\mu m$ separando, también
+términos de descomposición (hojarasca fermentada según a bibliografía clásica (.@.citas), 
+esta fracción luego fue separada por un tamiz de 500 $\mu m$ separando, también
 de manera arbitraria, el "humus" que incluye el suelo orgánico mineral más porciones de
 tejidos vegetal "amorfo" de la "hojarasca fragmentada" que es la que queda sobre el tamiz
 de 500 $\mu m$.
@@ -153,23 +222,33 @@ mezclado y homogeneizado para tomar tres submuestras de suelo con un volumen de 
 previo a la toma de muestras el suelo fue disminuido en volumen mediante la técnica de
 cuarteo, lo que asegura la representatividad de las fracciones submuestreadas.
 
-Este procedimiento se llevó adelante con la intención de conocer la diversidad de
-organismos de la mesofauna edáfica según el estrato de suelo considerando este como un
-proxi del hábitat. Las submuestras fueron congeladas hasta el momento de la extracción de
-la mesofauna.
+Este procedimiento de estratificación se llevó adelante con la intención de conocer 
+la diversidad de organismos de la mesofauna edáfica según el estrato de suelo 
+considerando este procedimiento como proxi del hábitat más probable. 
+Luego las submuestras fueron congeladas hasta el momento de la extracción de la mesofauna.
 
-Las muestras de hojarasca y de suelo fueron sometidas al método de flotación y tamizado.
-La muestra se desagrega en agua en relación 1:4 de suelo:agua, se agita enérgicamente
-durante 2 min, se deja reposar la solución durante unos minutos y luego se vuelca la
-solución a través de los tamices. El juego de tamices consistío en tamices apilados de 4
-mm, 2mm, 1mm, 500 $\mu m$, 250 $\mu m$ y 170 $\mu m$; la mesofauna se colecta de lo que
-queda atrapado en los tamices de 1000 $\mu m$ a 170 $\mu m$.
+Las submuestras de la mesofauna edáfica fueron sometidas al método de flotación 
+y tamizado (.@.palacios-vargas). Estas se desagregan en agua en relación 1:4 de suelo:agua, 
+se agita enérgicamente durante 2 min, se deja reposar la solución durante unos minutos 
+y luego se vuelca la solución a través del juego de tamices. 
+El juego de tamices consistío en tamices apilados de 4 mm, 2mm, 1mm, 500 $\mu m$,
+250 $\mu m$ y 170 $\mu m$; la mesofauna se colecta de lo que
+queda atrapado en los tamices desde los 1000 $\mu m$ hasta las 170 $\mu m$.
 
 Los animales colectados se almacenan en alcohol 96º, luego se procede al conteo e
 identificación de los taxones en diferentes rangos taxonómicos hasta familias utilizando 
 claves taxonómicas que pueden consultarse en: Burges and
 Raw 1967, Balogh and Balogh 1972, Evans and Till 1979, Balogh and Balogh 1988, Dindal
 1990, Krantz and Walter 2009, Momo and Falco 2009, Claps et al. 2020, Janssens 2023.
+
+La metodología utilizada para extraer la fauna edáfica de 
+los suelos de Chivilcoy y Navarro según describe Sandler (2019) implicó, 
+el uso de la técnica de flotación y tamizado para extraer los ácaros y colémbolos
+cuya identificación taxonómica se realizó con lupa binocular y microscopio óptico 
+utilizando montaje temporal, y, el en el sitio y momento de muestreo de un marco 
+de 625 cm^2^ hasta los 20 cm de profundidad el uso de la extracción manual de 
+lombrices de tierra luego se realizó su posterior identificación
+taxonómica bajo lupa binocular. 
 
 Con el suelo de los primeros 10 cm de profundidad, porción en la cuál se desarrolla la 
 mayor actividad de la microbiota (.@.librodesoilhealt), se llevó adelante la técnica de
@@ -187,7 +266,7 @@ mm solución y su valor estima la respiración heterotrófica total; la solució
 inhibe la respiración de procariotas y que por lo tanto mide la respiración de los
 *eucariotas* contiene 11 mg cloranfenicol + 150 mg glucosa / mm sn.; c) la respiración de
 *procariotas* se mide con la solución de 2,3 mg cicloheximia + 150 mg glucosa / mm y
-finalmente la solución que contiene d) ambos antibióticos, en las mismas cantidades,
+finalmente la solución que contiene d) ambos antibióticos, en las mismas concentraciones,
 estima la respiración *residual*, es decir, la respiración de aquellos organismos que
 respiran a pesar de la presencia de los antibióticos en el medio líquido.
 
@@ -196,11 +275,10 @@ herméticamente y que funcionan como cámaras de incubación, luego el suelo es 
 alguna de las soluciones descrita arriba y se coloca en el interior del recipiente la 
 trampa de álcali, un frasco de menor volumen con 5 ml de solución de hidróxido de sodio 
 NaOH O,1 M. Los recipientes se colocaron en estufa a 30ºC durante 48h para incubar el suelo
-y estimular la actividad biológica. Como blancos (controles) de la reacción se utilizaron
-frascos sin suelo con la trampa de NaOH para medir el contenido de CO~2~ que corresponde
-al aire incubado. El CO~2~ liberado por la respiración biológica se recupera en la trampa
-de álcali y se determina por titulación con ácido clorhídrico HCl 0,1 M y fenolftaleína
-como indicador (\@.coleman seccion de metodologias \@.Frioni1986).
+y estimular la actividad biológica. Como controles (blancos) de la reacción se utilizaron
+frascos sin suelo con la trampa de álcali para medir el contenido de CO~2~ presente en la aire al momento del procedimiento. El CO~2~ liberado por la respiración biológica se recupera en la trampa
+de NaOH y se determina por titulación con ácido clorhídrico HCl 0,1 M y fenolftaleína
+como indicador (.@.coleman seccion de metodologias; .@.Frioni1986).
 
 La biomasa microbiana se aproxima considerando que 1 ml HCl 0.1M, equivale a 2.2mg de
 CO~2~ y que para un coeficiente de respiración igual a 1, se cumple que:
@@ -225,27 +303,33 @@ Como controles de la reacción se utilizaron frascos sin suelo y con la trampa d
 La producción de CO2 se determina por titulación con ácido HCl 0,2 N y fenolftaleína
 como indicador (Frioni, 1999)-->
 ```
-También se obtuvieron a través del servicio del Laboratorio del Campo de la Universidad
-Nacional de Luján los valores para el porcentaje de materia orgánica, el porcentaje de
-carbono, el carbono orgánico total, el porcentaje de nitrógeno, la cantidad de fósforo en
-partes por millón, el valor del potencial hidrógeno en escala de pH y conductividad
-eléctrica en milisiemens por centímetro.
 
-Para describir las variables físicas, químicas y biológicas medidas se realiza un análisis
-descripivo de estas, para ello se calcularon las medidas de tendencia central para cada
-sitio y estrato. Se compararon posibles diferencias entre las medianas de estas variables
-mediante análisis de varianza no paramétrico Kruskal-Wallis. Luego se procede al análisis multivariado mediante el uso de componentes principales con los valores de las
-variables previamente transformados con log_b_x + 1. (\@.numerical_ecology)
+De manera complementaria se obtuvieron, a través del servicio del Laboratorio del Campo de 
+la Universidad Nacional de Luján, los valores para el porcentaje de materia orgánica, 
+el porcentaje de carbono, el carbono orgánico total, el porcentaje de nitrógeno, 
+la cantidad de fósforo extratable en partes por millón, el valor del potencial de hidrogeniones 
+en escala de pH y la conductividad eléctrica en milisiemens por centímetro.
 
-Para describir la comunidad edáfica se realizo un análisis de la diversidad alfa
-utilizando el valor de la riqueza de unidades taxonómica y del índice de diversidad de
-shanon-wiener. Mediante análisis de similitudes multivariado se evalua la diferencia entre
-las comunidades, se realiza un dendograma basado en el índice de diversidad Beta de
-Bray-Curtis (paper done estan los indices segun el paquete Vegan) para visualizar cuáles 
-son las comunidades similes. 
-Para describir las relación entre los taxones y los sitios se realizó
-análisis de componentes principales transformados con log_b_x + 1. (\@.numerical_ecology)
-e invertidos (en modo R) de modo de poder observar en el gráfico biplot a los sitios como 
+
+
+### Análisis de datos
+
+Para describir las variables físicas, químicas y biológicas medidas se realizó un análisis
+descripivo de estas, para ello se calcularon las medidas de tendencia central y de disperción 
+para cada sitio y estrato. Se compararon las posibles diferencias entre las medianas de estas variables utilizando el análisis de varianza no paramétrico de Kruskal-Wallis (.@.cita_libro_metodos_estadisticos). Luego se procede al análisis multivariado mediante el uso de componentes principales (PCA) para identificar las posibles relaciones entre las variables ambientales (.@.numerical_ecology).
+
+Para describir la estructura de las comunidades edáficas se realizó el análisis de la 
+diversidad alfa utilizando tanto el valor de la riqueza de unidades taxonómica como el índice de diversidad de Shanon-Wiener (**H'**). 
+Además mediante análisis de similitudes multivariado (ANOSIM) se determinan las posibles diferencias
+entre las comunidades, a la vez para conocer cuáles son las comunidades similares entre sí, se 
+calculó el
+dendograma basado en el agrupamiento jerárquico con el método de enlace promedio. En ambos análisis
+se utilizó el coeficiente de distancia de Bray-Curtis (.@.Koleff et al 2003paper_Vegan; .@.numerical_ecology). 
+
+Para describir las relación entre los taxones y los sitios de muestreo se realizó el
+análisis de los componentes principales de las comunidades en modo R con los valores de
+la abundancia de los taxones previamente transformados con $\log_b(x) + 1$ (\@.numerical_ecology)
+de esta manera, podemos observar en el gráfico biplot a los sitios como 
 vectores y a los taxones como puntos en el espacio euclidiano de las coordenadas 
 principales.
 
@@ -267,7 +351,7 @@ y al tratamiento.
 
 <!--Imágenes ![texto_alternativo](ubicacion_de_la_imagen){width=width height=height}-->
 ```
-### Variables físcas y químicas de la UNLu.
+## Resultados
 
 ```{r carga_variablesFQB, include=FALSE}
 
@@ -2111,8 +2195,16 @@ Swift M, Heal O, Anderson J (1979) Decomposition in terrestial ecosystems. CAB U
 Frioni, L. 1999. Procesos microbianos. Anexo Práctico. p 290-295 Ed. de la Fundación
 Universidad Nacional de Río Cuarto. Argentina. 322 páginas.
 
-```{=html}
-<!-- Achiorno, C.L., de Villalobos, C., Ferrari, L., 2008. Toxicity of the herbicide glyphosate
-to Chordodes nobilii (Gordiida, Nematomorpha). Chemosphere 71 (10): 1816–
-1822. Los nematomorfas adultos son de via libre, los parásitos son sus larvas-->
-```
+Measuring beta diversity for presence–absence data Koleff et al 2003 
+
+S URRICARIET, R S LAVADO 1999 INDICADORES DE DETERIORO EN SUELOS DE LA PAMPA ONDULADA
+
+R.P. Colombo, L. Fernández Bidondo, V.A. Silvani, M.B. Carbonetto, N. Rascovan, M.J. Bompadre,
+M. Pérgola, G. Cuenca, and A.M. Godeas. 2014. Diversity of arbuscular mycorrhizal fungi in soil from the
+Pampa Ondulada, Argentina, assessed by pyrosequencing and
+morphological techniques
+
+Socarras 2013 Soil mesofauna: biological indicator of soil quality
+
+Bedano et al 2006 Influence of three different land management practices on soil
+mite (Arachnida: Acari) densities in relation to a natural soil

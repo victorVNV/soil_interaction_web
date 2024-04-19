@@ -826,7 +826,7 @@ par(mfrow=c(1,1))
 ```
 
 
-```{r multiweb1, echo=FALSE}
+```{r int_strength, echo=FALSE}
 
 #Agrícola
 {#genero el edge list
@@ -1557,3 +1557,34 @@ plot(g_net,coord=coord,vertex.col=paleta_color[fact_gran_grupo],vertex.cex="grad
 
 [elseiver para
 discu](https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/soil-food-web)
+
+# ref
+
+<!--Pawar menciona que si no conocemos el peso del recurso y se sabe que su tamaño es mayor se considera como uo.-->
+El autor trabaja sobre la abundancia de individuos del suelo 
+a escala global, y encontró patrones, entre la temp, la masa, y al transferencia a traves de niveles troficos
+siendo estos similares a los que se hallan o se sabían eran patrones generales en los ecosistemas
+For example, though
+abundance and body masses of litter and soil animals
+can be estimated fairly simply (Coleman et al. 1999), it
+can be extremely difficult to accurately estimate resource
+availability and average body temperature in the soil
+environment. Meanwhile, energetic resources available to
+soil invertebrates at a given locale can vary at the scale
+of centimeters (Coleman et al. 2004).  important physical and
+biological factors. These factors could include physical
+conditions of the litter and soil environment, such as pH,
+nutrient content, and moisture availability, which are
+known to affect soil invertebrate community structure
+(Coleman et al. 2004, Reich et al. 2005). Also, the
+stoichiometric profiles of resources relative to consumers
+are known to affect rates of resource consumption ENERGY USE AND ANIMAL ABUNDANCE
+IN LITTER AND SOIL COMMUNITIES
+TIMOTHY D. MEEHAN 2006
+
+```{=html}
+<!-- Achiorno, C.L., de Villalobos, C., Ferrari, L., 2008. Toxicity of the herbicide glyphosate
+to Chordodes nobilii (Gordiida, Nematomorpha). Chemosphere 71 (10): 1816–
+1822. Los nematomorfas adultos son de via libre, los parásitos son sus larvas-->
+```
+

@@ -146,7 +146,8 @@ Habitan principalmente en los poros del suelo mineral y orgánico (\@.raw1967), 
 hojarasca, entre los troncos en descomposición y lugares donde permanece oscuro, la
 humedad alta y temperaturas moderadas. Su movilidad es reducida, sus partes bucales son
 poco desarrolladas y consumen hifas de hongos principalmente y fluidos que son producto
-del material vegetal descompuesto (\@.scheller1990).
+del material vegetal descompuesto (\@.scheller1990) también se han registrado el consumo de 
+humus y de carroña de microartrópodos (.@.Starling1944).
 
 ## Myriapoda: Symphyla
 
@@ -444,3 +445,5 @@ Satchell 1967 Lumbrícidos, in Soil Biology de Burges y Raw 1967
 Raw 1967 Artrópodos (excepto ácaros y colémbolos) in Soil Biology de Burges y Raw 1967
 
 Potapov 2018 paper donde dice que ve a protura comer ectomicorriza
+
+Starling 1994. Ecological Studies of the Pauropoda of the Duke Forest
