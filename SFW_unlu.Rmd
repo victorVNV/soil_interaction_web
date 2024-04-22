@@ -436,7 +436,7 @@ library(multiweb)
 
 #####
 # índices topológicos
-calc_topological_indices(G_net)
+calc_topological_indices(Gl_net)
 calc_topological_indices(L_net)
 calc_topological_indices(R_net)
 calc_topological_indices(P_net)

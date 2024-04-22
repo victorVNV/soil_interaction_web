@@ -186,9 +186,25 @@ manejo [@bedano2007; @socarras2013].
 # Metodología
 
 ## Construccion de la red
+Se construyo una matriz de interacciones tróficas cutos nodos son todas los taxones hallados 
+en las comunidades de la fauna de suelo ("Gamma"). A partir de ella se seleccionan los actores que 
+corresponden a cada comunidad en particular ("Alpha"). 
+
+Se tomaron los pesos corporales medios. 
+Se tomaron las biomasas medias
+Se tomaron las densidades medias. 
+Se asumieron ciertos parámetros con respecto a los recursos bases, los cuales debida a su complejidad 
+son dificiles de cuantificar, pero se pueden relacionar con variables calculadas por bibliografía
 
 ## Métricas y estadísticas
+Se calcularon los índices topológicos
+Se calcularon los valores de estabilidad de quasi-signo utilizando el valor de máximo autovalor como proxi 
+de resiliencia una de las definiciones intuitivamente más relacionada al concepto de estabilidad.
+Se calculó la fuerza de interacciones entre los actores mediante el uso del peso corporal promedio del taxón 
+y la densidad numérica promedio siguiendo el método de (paper_ interaction strength_ con busqueda dimensional)
 
+Se utilizó el pequete "multiweb" <enlace_github> para calcular las métricas de topología y estabilidad de las redes. 
+con el apoyo de paquetes complementarios para manejo de datos todos ellos implementados en R.
 # Resultados
 
 ```{r lib, include=FALSE}
@@ -248,15 +264,37 @@ replica<-c(1,2,3,1,2,3,1,2,3,
 taxa<-c("bac","bac","bac","bac","bac","bac","bac","bac","bac",
         "fungi","fungi","fungi","fungi","fungi","fungi","fungi","fungi","fungi",
         "proto","proto","proto","proto","proto","proto","proto","proto","proto")
-biomass<-c(31182224-31182224*0.025,10506443-10506443*0.025,68378710-68378710*0.025,
-           117115935-117115935*0.025,90987488-90987488*0.025,131508231-131508231*0.025,
-           56295276-56295276*0.025,90096858-90096858*0.025,38740835-38740835*0.025,
-          101342228-101342228*0.025,147090202-147090202*0.025,56982258-56982258*0.025,
-          161034411-161034411*0.025,166810394-166810394*0.025,
-          153426270-153426270*0.025,136717098-136717098*0.025,165177572-165177572*0.025,
-          135592922-135592922*0.025,132524452*0.05,157596645*0.05,125360968*0.05,
-          278150346*0.05,257797882*0.05,284934501*0.05,193012374*0.05,
-          255274430*0.05,174333757*0.05)
+#los recursos disponibles para consumo del total, serán el 50% de la biomasa microbiana
+# de ello se proporciona para bacterias y hongos según la relación hongo bacterias
+
+# acá utilio la relacion hongos bacterias
+# 1-(relaciónHB/(1+relacionHB)) = bacterias
+# (relaciónHB/(1+relacionHB)) = hongos
+# de la "biomasa total" el 50% disponible, de los cuales 5% es protozoos y 45% seran hongos y bacterias.
+# se multiplican el 45 que es disponible por la proporcion HB previamente calculada.
+
+ratio.hb<-c( 11/8, 11/6, 7/6, #Pastizal
+            2.42857142857143, 11/6, 3.5, #Reserva
+                       3.25, 14/3, 5/6) #Agrícola
+
+biomass<-c(31182224*(1-0.45)*(1-(3.25/(1+3.25))),10506443*(1-0.45)*(1-(14/3/(1-14/3))),
+           68378710*(1-0.45)*(1-(5/6/(1+5/6))),
+           117115935*(1-0.45)*(1-(11/8/(1+11/8))),90987488*(1-0.45)*(1-(11/6/(1+11/6))),
+           131508231*(1-0.45)*(1-(7/6/(1+7/6))),
+           56295276*(1-0.45)*(1-(2.42857142857143/(1+2.42857142857143))),90096858*(1-0.45)*(1-(11/6/(1+11/6))),
+           38740835*(1-0.45)*(1-(3.5/(1+3.5))),
+           
+          101342228*(1-0.45)*((3.25/(1+3.25))),147090202*(1-0.45)*((14/3/(1+14/3))),
+          56982258*(1-0.45)*((5/6/(1+5/6))),
+          161034411*(1-0.45)*((11/8/(1+11/8))),166810394*(1-0.45)*((11/6/(1+11/6))),
+          153426270*(1-0.45)*((7/6/(1+7/6))),
+          136717098*(1-0.45)*((2.42857142857143/(1+2.42857142857143))),165177572*(1-0.45)*((11/6/(1+11/6))),
+          135592922*(1-0.45)*((3.5/(1+3.5))),
+          
+          132524452*0.05,157596645*0.05,125360968*0.05,
+          278150346*0.05,257797882*0.05,284934501*0.05,
+          193012374*0.05,255274430*0.05,174333757*0.05)
+
 
 rec_base<-data.frame(sitio,replica,taxa,biomass)
 rec_base<-rec_base%>%
@@ -276,15 +314,48 @@ rec_base<-rec_base[,c("nombre","sitio","replica","taxa","body","biomass")]
 
 web<-rbind(rec_base, web)
 
-```
+#############
 
-```{r redes_sitio_unlu,echo=FALSE}
 web0<-web%>%
   group_by(sitio,taxa)%>%
   summarise(body=mean(body,na.rm=TRUE),
             biomass=mean(biomass,na.rm=TRUE))%>%
   distinct(taxa,.keep_all=TRUE)
 #######
+
+
+L<-web0%>%filter(sitio=="L")
+P<-web0%>%filter(sitio=="P")
+R<-web0%>%filter(sitio=="R")
+
+#biomasas
+#tejido vegetal se asume 125% (1+125/100) mas que la materia orgánica aunque puede ser 225% más
+#carroña será el 5% de la biomasa total de los invertebrados
+#hojarasca llevada a peso seco, factor de 0.32 P ; 0.37 R ; 0.28 L
+bm_L<-c(L$biomass,
+        (77.0321/0.0625)*0.28*1e6, #Hojarasca
+        mean(L[L$taxa!="fungi"&L$taxa!="bac"&L$taxa!="proto",]$biomass)*0.05, #Carroña
+        2.25*0.0273*1.2*50000*1e6,#Tej_veg
+        0.4*0.0273*1.2*50000*1e6)#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
+bm_R<-c(R$biomass,
+        55.753/0.065*0.37*1e6, #Hojarasca
+        mean(R[R$taxa!="fungi"&R$taxa!="bac"&R$taxa!="proto",]$biomass)*0.05, #carroña
+        2.25*0.0352*1.2*50000*1e6, #tej_veg
+        0.4*0.0352*1.2*50000*1e6) #"humus" = POM = 0.4MO
+bm_P<-c(P$biomass,
+        (58.63/0.0625)*0.32*1e6, #Hojarasca
+        mean(P[P$taxa!="fungi"&P$taxa!="bac"&P$taxa!="proto",]$biomass)*0.05, #carroña
+        2.25*0.0352*1.2*50000*1e6, #Tej_veg
+        0.4*0.0309*1.2*50000*1e6) #Humus
+#######
+
+
+#Pesos corporales
+body_L<-c(L$body,0,0,0,0)
+body_R<-c(R$body,0,0,0,0)
+body_P<-c(P$body,0,0,0,0)
+
+
 #Eficiencias de consumo dicho por mi, justificación quien sabe
 #Ver la carpeta de coefbiol la biblio con las eficiencias. Libro Colemann p.e.
 #Detritivoros 0.15
@@ -327,32 +398,6 @@ web0$ef[web0$taxa%in%herb]<-0.125
 web0$ef[web0$taxa%in%omn]<-0.4
 web0$ef[web0$taxa%in%no_a]<-0.075
 
-L<-web0%>%filter(sitio=="L")
-P<-web0%>%filter(sitio=="P")
-R<-web0%>%filter(sitio=="R")
-
-#Pesos corporales
-body_L<-c(L$body,0,0,0,0)
-body_R<-c(R$body,0,0,0,0)
-body_P<-c(P$body,0,0,0,0)
-#biomasas
-#tejido vegetal se asume 25% mas que la materia orgánica aunque puede ser 125% más
-bm_L<-c(L$biomass,
-        (77.0321/0.0625)*0.3*1e6, #Hojarasca
-        mean(R[R$taxa!="fungi"&R$taxa!="bac"&R$taxa!="proto",]$biomass)*0.05, #Carroña
-        1.25*0.0273*1.2*50000*1e6,#Tej_veg
-        0.4*0.0273*1.2*50000*1e6)#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
-bm_R<-c(R$biomass,
-        55.753/0.065*0.3*1e6, #Hojarasca
-        mean(R[R$taxa!="fungi"&R$taxa!="bac"&R$taxa!="proto",]$biomass)*0.05, #carroña
-        1.25*0.0352*1.2*50000*1e6, #tej_veg
-        0.4*0.0352*1.2*50000*1e6) #"humus" = POM = 0.4MO
-bm_P<-c(P$biomass,
-        (58.63/0.0625)*0.3*1e6, #Hojarasca
-        mean(P[P$taxa!="fungi"&P$taxa!="bac"&P$taxa!="proto",]$biomass)*0.05, #carroña
-        1.25*0.0352*1.2*50000*1e6, #Tej_veg
-        0.4*0.0309*1.2*50000*1e6) #Humus
-#######
 
 ```
 
@@ -388,8 +433,11 @@ ab.sitio<-base.sitio%>%
          BT=case_when(order=="crassiclitellata"~sup.monolito*abundance*bio.ind,
                       order!="crassiclitellata"~sup.bocado*abundance*bio.ind))
 
+#acá agrego biomasa microbiana total, como bmt, pero la biomasa disponible la dejo en 50% como bm, 
+#ya que es el criterio anteriormente dado. 
+
 base1 <-ab.sitio %>% group_by(system,site) %>%  
-  summarise(humus=mean(POM),bm=(mean(bm)))%>%
+  summarise(humus=mean(POM),bm=(mean(bm)*0.5),bmt=(mean(bm)))%>% 
   mutate(bacteria=case_when(system=="A"~bm*0.35,system=="G"~bm*0.3,system=="N"~bm*0.25),
          hongo=((bm-(0.05*bm))-bacteria),
          microfauna=(0.05*bm*0.25),
@@ -483,9 +531,35 @@ G<-webRO%>%filter(system=="G")
 A<-webRO%>%filter(system=="A")
 
 #Pesos corporales
-body_N<-c(N$body,0,0,0,0)
-body_G<-c(G$body,0,0,0,0)
-body_A<-c(A$body,0,0,0,0)
+body_N<-c(N$body,0,0,0)
+body_G<-c(G$body,0,0,0)
+body_A<-c(A$body,0,0,0)
+
+
+#biomasas
+#el hummus ya se calculó
+#la carroña se calcula igual que en el anterior
+#no informacion sobre los demás
+bm_N<-c(N$biomass,
+        NA, #Hojarasca
+        mean(N[N$specie!="fungi"&N$specie!="bac"&N$specie!="proto",]$biomass)*0.05, #Carroña
+        NA#Tej_veg
+        )#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
+bm_G<-c(G$biomass,
+        NA, #Hojarasca
+        mean(G[G$specie!="fungi"&G$specie!="bac"&N$specie!="proto",]$biomass)*0.05, #Carroña
+        NA#Tej_veg
+        #G$biomass[G$specie=="hummus"]
+        ) #humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
+bm_A<-c(A$biomass,
+        NA, #Hojarasca
+        mean(A[A$specie!="fungi"&A$specie!="bac"&A$specie!="proto",]$biomass)*0.05, #Carroña
+        NA#Tej_veg
+)
+        #G$biomass[G$specie=="hummus"]
+
+#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
+#######
 
 ```
 <!-- # Biomasas
@@ -511,6 +585,8 @@ body_A<-c(A$body,0,0,0,0)
 ```{r Gamma_matrix, include=FALSE}
 
 #Esta es la mtriz global. Falta colocar aquellos ácaros y colémbolos de la matriz de Rosana
+#Agregados 22/4 como strig a mano
+
 
 webG<-web%>%
   group_by(taxa)%>%
@@ -761,6 +837,8 @@ mG["ptilidae",c("hummus","fungi","carrion","bac","proto","nem_fitofago",
 #provenientes de la comunidad Rosana
 }
 
+# Interacciones que perjudican entonces, mG*-1
+
 ```
 
 
@@ -768,7 +846,7 @@ mG["ptilidae",c("hummus","fungi","carrion","bac","proto","nem_fitofago",
 
 ```{r redes, echo=FALSE}
 #red global "diveridad gamma"
-G_net <- graph_from_adjacency_matrix(t(mG),mode=c("directed") )
+Gl_net <- graph_from_adjacency_matrix(t(mG),mode=c("directed") )
 #Red Lote UNLu
 L_net <-graph_from_adjacency_matrix(t(mG[c(L$taxa,"litter","carrion","tej_veg","hummus"),c(L$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
 #Red Reserva UNLu
@@ -789,7 +867,7 @@ A_net <-graph_from_adjacency_matrix(t(mG[c(A$specie,"litter","carrion","tej_veg"
 
 ```{r ady_matrix, echo=FALSE}
 #aca colocar la tabla 
-gamma_matrix <- as.data.frame(as.matrix(G_net, "edgelist"))
+gamma_matrix <- as.data.frame(as.matrix(Gl_net, "edgelist"))
 names(gamma_matrix)<-c("Recurso","Consumidor")
 kableExtra::kable(gamma_matrix)
 ```
@@ -800,14 +878,20 @@ library(multiweb)
 
 #####
 # índices topológicos
-calc_topological_indices(G_net)
-calc_topological_indices(L_net)
-calc_topological_indices(R_net)
-calc_topological_indices(P_net)
+#calc_topological_indices(Gl_net)
+topological<-rbind(
+calc_topological_indices(L_net),
+calc_topological_indices(R_net),
+calc_topological_indices(P_net),
 
-calc_topological_indices(A_net)
-calc_topological_indices(G_net)
-calc_topological_indices(N_net)
+calc_topological_indices(A_net),
+calc_topological_indices(G_net),
+calc_topological_indices(N_net), colnames=NULL
+)
+
+kableExtra::kable(topological)
+
+
 
 ```
 
@@ -825,16 +909,73 @@ plot_troph_level(A_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE)
 par(mfrow=c(1,1))
 ```
 
+<!-- Re(lM,1), is a measure of stability, as it
+expresses the amount of self-regulation we would need to stabilize
+the equilibrium2 Modularity and stability in ecological communities
+Jacopo Grilli1, Tim Rogers2 & Stefano Allesina1,3,4-->
 
-```{r int_strength, echo=FALSE}
+<!-- ###########
+#estas son las suposiciones previas
+#v_ig[v_ig$nombre=="litter","peso"]<-100
+#v_ig[v_ig$nombre=="carrion","peso"]<-1 #tomo el mínimo y lo llevo a unidad
+#v_ig[v_ig$nombre=="tej_veg","peso"]<-1000 #peso de las raices por centímero
+#v_ig[v_ig$nombre=="hummus","peso"]<-0.5 #la mitad de la carroña, a dedo, es un componente amorfo y no tiene una unidad en concreto lo mismo las demás recursos.
+#asignando densidades a los recursos
+#v_ig[v_ig$nombre=="litter","densidad"]<-bm_L[72]/100
+#v_ig[v_ig$nombre=="carrion","densidad"]<-bm_L[73]/1 #tomo el mínimo y lo llevo a unidad
+#v_ig[v_ig$nombre=="tej_veg","densidad"]<-bm_L[74]/1000 #peso de las raices por centímero
+#v_ig[v_ig$nombre=="hummus","densidad"]<-bm_L[75]/0.5-->
 
-#Agrícola
+```{r QSS_noIS, echo=FALSE}
+#sin fuerzas de interacción
+QSS_R<-calc_QSS(R_net, nsim=1000,returnRaw=TRUE)
+QSS_P<-calc_QSS(P_net, nsim=1000,returnRaw=TRUE)
+QSS_L<-calc_QSS(L_net, nsim=1000,returnRaw=TRUE)
+
+QSS_N<-calc_QSS(N_net, nsim=1000,returnRaw=TRUE)
+QSS_G<-calc_QSS(G_net, nsim=1000,returnRaw=TRUE)
+QSS_A<-calc_QSS(A_net, nsim=1000,returnRaw=TRUE)
+
+QSS_noIS<-cbind(summary(QSS_R),summary(QSS_P),summary(QSS_L),
+      summary(QSS_N),summary(QSS_G),summary(QSS_A))
+```
+
+** Histogramas y boxplot del QSS **
+
+El valor absoluto del máximo autovalor es una medida de estabilidad en el que se indica 
+la cantidad de "autoregulación" necesaria para llegar al equilibrio. (Grilli, Rogerts, Allesina 201x)
+
+Con el histograma se muestra la distribución de 1000 simulaciones, y con el boxplot se resume sus valores descriptivos.
+
+```{r plot_QSS_noIS, echo=FALSE}
+
+boxplot(QSS_R$maxre,main = "reserva UNLu", sub= "QSS_noIS", xlab = NULL)
+hist(QSS_R$maxre,main = "reserva UNLu", sub= "QSS_noIS", xlab = NULL)
+boxplot(QSS_P$maxre, main = "pastizal UNLu", sub= "QSS_noIS", xlab = NULL)
+hist(QSS_P$maxre, main = "pastizal UNLu", sub= "QSS_noIS", xlab = NULL)
+boxplot(QSS_L$maxre, main = "lote agricola UNLu", sub= "QSS_noIS", xlab = NULL)
+hist(QSS_L$maxre, main = "lote agricola UNLu", sub= "QSS_noIS", xlab = NULL)
+boxplot(QSS_N$maxre, main= "pastizal nat", sub= "QSS_noIS", xlab = NULL)
+hist(QSS_N$maxre, main= "pastizal nat", sub= "QSS_noIS", xlab = NULL)
+boxplot(QSS_G$maxre, main = "mixto", sub= "QSS_noIS", xlab = NULL)
+hist(QSS_G$maxre, main = "mixto", sub= "QSS_noIS", xlab = NULL)
+boxplot(QSS_A$maxre, main= "agricola intensivo", sub= "QSS_noIS", xlab = NULL)
+hist(QSS_A$maxre, main= "agricola intensivo", sub= "QSS_noIS", xlab = NULL)
+
+
+```
+
+```{r interaction_strenght, include=FALSE}
+#R P L N G A
+#Los pesos ya se configuran con 1e-9 para convertir los microgramos a kilogramos. Pawar así lo calcula
+#RESERVA
 {#genero el edge list
-edge_list_UNLu <- as.data.frame(as.matrix(L_net, "edgelist"))
-names(edge_list_UNLu)<-c("recurso","consumidor")
+edge_R_net <- as.data.frame(as.matrix(R_net, "edgelist"))
+names(edge_R_net)<-c("recurso","consumidor")
 
 #a cada nodo agrego el peso corporal y la densidad 
-v_ig<-data.frame(nombre=c(L$taxa,"litter","carrion","tej_veg","hummus"),peso=body_L,densidad=bm_L/body_L)
+v_ig<-data.frame(nombre=c(R$taxa,"litter","carrion","tej_veg","hummus"),peso=body_R*1e-9,
+                 densidad=bm_R/body_R)
 
 ###########
 #se asume que la relacion densidad de recurso y peso es 1
@@ -851,79 +992,415 @@ v_ig[v_ig$nombre=="tej_veg","densidad"]<-1 #peso de las raices por centímero
 v_ig[v_ig$nombre=="hummus","densidad"]<-1
 # con bucle busco asignar a cada eje su correspondiente peso corporal y densidad
 
-###########
-#estas son las suposiciones previas
-#v_ig[v_ig$nombre=="litter","peso"]<-100
-#v_ig[v_ig$nombre=="carrion","peso"]<-1 #tomo el mínimo y lo llevo a unidad
-#v_ig[v_ig$nombre=="tej_veg","peso"]<-1000 #peso de las raices por centímero
-#v_ig[v_ig$nombre=="hummus","peso"]<-0.5 #la mitad de la carroña, a dedo, es un componente amorfo y no tiene una unidad en concreto lo mismo las demás recursos.
-#asignando densidades a los recursos
-#v_ig[v_ig$nombre=="litter","densidad"]<-bm_L[72]/100
-#v_ig[v_ig$nombre=="carrion","densidad"]<-bm_L[73]/1 #tomo el mínimo y lo llevo a unidad
-#v_ig[v_ig$nombre=="tej_veg","densidad"]<-bm_L[74]/1000 #peso de las raices por centímero
-#v_ig[v_ig$nombre=="hummus","densidad"]<-bm_L[75]/0.5
+
 # con bucle busco asignar a cada eje su correspondiente peso corporal y densidad
 ###########
 
-edge_list_UNLu$peso_consumidor<-NA
+edge_R_net$peso_consumidor<-NA
 # columna peso del consumidor
-for (pc in 1:length(v_ig$nombre)) {edge_list_UNLu[edge_list_UNLu$consumidor==as.character(v_ig$nombre[pc]),"peso_consumidor"]<-v_ig$peso[pc]
+for (pc in 1:length(v_ig$nombre)) {edge_R_net[edge_R_net$consumidor==as.character(v_ig$nombre[pc]),"peso_consumidor"]<-v_ig$peso[pc]
 }
 
 #columna peso del recurso
-edge_list_UNLu$peso_recurso<-NA
-for (pr in 1:length(v_ig$nombre)) {edge_list_UNLu[edge_list_UNLu$recurso==as.character(v_ig$nombre[pr]),"peso_recurso"]<-v_ig$peso[pr]
+edge_R_net$peso_recurso<-NA
+for (pr in 1:length(v_ig$nombre)) {edge_R_net[edge_R_net$recurso==as.character(v_ig$nombre[pr]),"peso_recurso"]<-v_ig$peso[pr]
 }
 
 #columna densidad del consumidor
-edge_list_UNLu$densidad_consumidor<-NA
-for (dc in 1:length(v_ig$nombre)) {edge_list_UNLu[edge_list_UNLu$consumidor==as.character(v_ig$nombre[dc]),"densidad_consumidor"]<-v_ig$densidad[dc]
+edge_R_net$densidad_consumidor<-NA
+for (dc in 1:length(v_ig$nombre)) {edge_R_net[edge_R_net$consumidor==as.character(v_ig$nombre[dc]),"densidad_consumidor"]<-v_ig$densidad[dc]
 }
 #columna densidad del recurso
-edge_list_UNLu$densidad_recurso<-NA
-for (dr in 1:length(v_ig$nombre)) {edge_list_UNLu[edge_list_UNLu$recurso==as.character(v_ig$nombre[dr]),"densidad_recurso"]<-v_ig$densidad[dr]
+edge_R_net$densidad_recurso<-NA
+for (dr in 1:length(v_ig$nombre)) {edge_R_net[edge_R_net$recurso==as.character(v_ig$nombre[dr]),"densidad_recurso"]<-v_ig$densidad[dr]
 }
 
-edge_list_UNLu$dimension<-"2D"
+edge_R_net$dimension<-"2D"
 }
 #edge_list_UNLu[edge_list_UNLu$peso_recurso==0|edge_list_UNLu$peso_recurso==-999,"peso_recurso"]<-1e-15
 #edge_list_UNLu[edge_list_UNLu$peso_consumidor==0|edge_list_UNLu$peso_consumidor==-999,"peso_consumidor"]<-1e-15
 #error
-#Ya tengo todos los componentes solicitados
-
-# Para detritos litter, carrion, etc. el tamaño del recurso res_mm y la densidad del recurso res_den están desacoplados del tamaño del consumidor, hay que asignar 1 a ambos 
-
-interaction_strenght_UNLu<-calc_interaction_intensity(da=edge_list_UNLu,
-                         res_mm =peso_recurso,res_den = densidad_recurso,
-                        con_mm = peso_consumidor, int_dim =dimension )
-
-#multiplicar qRC por la densidad el consumidor para que de la fuerza de interaccion total, sino es por unidad de peso del consumidor
-
-IS_ig_UNLu<-interaction_strenght_UNLu[,c(1,2,11)]
-names(IS_ig_UNLu)<-c("recurso","consumidor","weight")
-
-QSS_IS_UNLu<-graph_from_data_frame(IS_ig_UNLu,directed = TRUE, vertices =NULL)
-
-#edge_attr_names(QSS_IS_UNLu)
-#E(QSS_IS_UNLu)
-quasi_unlu<-calc_QSS(QSS_IS_UNLu, istrength=TRUE, returnRaw = FALSE, nsim=10)
 
 
-#acá colocar los gremios tróficos
-# o los taxas
-#usar en su lugar calc_QSS_extinction_dif_grp
-#QSS_unlu_seq<-calc_QSS_extinctions_seq(QSS_IS_UNLu, seq = V(QSS_IS_UNLu)$name[20:25], nsim = 100, ncores = 4, istrength = TRUE)
+
+#PASTIZAL
+{#genero el edge list
+edge_P_net <- as.data.frame(as.matrix(P_net, "edgelist"))
+names(edge_P_net)<-c("recurso","consumidor")
+
+#a cada nodo agrego el peso corporal y la densidad 
+v_ig<-data.frame(nombre=c(P$taxa,"litter","carrion","tej_veg","hummus"),peso=body_P*1e-9,densidad=bm_P/body_P)
+
+###########
+#se asume que la relacion densidad de recurso y peso es 1
+#cuando no el consumidor no deppende del peso del recurso
+#asignandos pesos
+v_ig[v_ig$nombre=="litter","peso"]<-1
+v_ig[v_ig$nombre=="carrion","peso"]<-1 #tomo el mínimo y lo llevo a unidad
+v_ig[v_ig$nombre=="tej_veg","peso"]<-1 #peso de las raices por centímero
+v_ig[v_ig$nombre=="hummus","peso"]<-1 #la mitad de la carroña, a dedo, es un componente amorfo y no tiene una unidad en concreto lo mismo las demás recursos.
+#asignando densidades a los recursos
+v_ig[v_ig$nombre=="litter","densidad"]<-1
+v_ig[v_ig$nombre=="carrion","densidad"]<-1 #tomo el mínimo y lo llevo a unidad
+v_ig[v_ig$nombre=="tej_veg","densidad"]<-1 #peso de las raices por centímero
+v_ig[v_ig$nombre=="hummus","densidad"]<-1
+# con bucle busco asignar a cada eje su correspondiente peso corporal y densidad
+
+
+# con bucle busco asignar a cada eje su correspondiente peso corporal y densidad
+###########
+
+edge_P_net$peso_consumidor<-NA
+# columna peso del consumidor
+for (pc in 1:length(v_ig$nombre)) {edge_P_net[edge_P_net$consumidor==as.character(v_ig$nombre[pc]),"peso_consumidor"]<-v_ig$peso[pc]
+}
+
+#columna peso del recurso
+edge_P_net$peso_recurso<-NA
+for (pr in 1:length(v_ig$nombre)) {edge_P_net[edge_P_net$recurso==as.character(v_ig$nombre[pr]),"peso_recurso"]<-v_ig$peso[pr]
+}
+
+#columna densidad del consumidor
+edge_P_net$densidad_consumidor<-NA
+for (dc in 1:length(v_ig$nombre)) {edge_P_net[edge_P_net$consumidor==as.character(v_ig$nombre[dc]),"densidad_consumidor"]<-v_ig$densidad[dc]
+}
+#columna densidad del recurso
+edge_P_net$densidad_recurso<-NA
+for (dr in 1:length(v_ig$nombre)) {edge_P_net[edge_P_net$recurso==as.character(v_ig$nombre[dr]),"densidad_recurso"]<-v_ig$densidad[dr]
+}
+
+edge_P_net$dimension<-"2D"
+}
+
+
+#LOTE AGRICOLA
+{#genero el edge list
+edge_L_net <- as.data.frame(as.matrix(L_net, "edgelist"))
+names(edge_L_net)<-c("recurso","consumidor")
+
+#a cada nodo agrego el peso corporal y la densidad 
+v_ig<-data.frame(nombre=c(L$taxa,"litter","carrion","tej_veg","hummus"),peso=body_L*1e-9,densidad=bm_L/body_L)
+
+###########
+#se asume que la relacion densidad de recurso y peso es 1
+#cuando no el consumidor no deppende del peso del recurso
+#asignandos pesos
+v_ig[v_ig$nombre=="litter","peso"]<-1
+v_ig[v_ig$nombre=="carrion","peso"]<-1 #tomo el mínimo y lo llevo a unidad
+v_ig[v_ig$nombre=="tej_veg","peso"]<-1 #peso de las raices por centímero
+v_ig[v_ig$nombre=="hummus","peso"]<-1 #la mitad de la carroña, a dedo, es un componente amorfo y no tiene una unidad en concreto lo mismo las demás recursos.
+#asignando densidades a los recursos
+v_ig[v_ig$nombre=="litter","densidad"]<-1
+v_ig[v_ig$nombre=="carrion","densidad"]<-1 #tomo el mínimo y lo llevo a unidad
+v_ig[v_ig$nombre=="tej_veg","densidad"]<-1 #peso de las raices por centímero
+v_ig[v_ig$nombre=="hummus","densidad"]<-1
+# con bucle busco asignar a cada eje su correspondiente peso corporal y densidad
+
+
+# con bucle busco asignar a cada eje su correspondiente peso corporal y densidad
+###########
+
+edge_L_net$peso_consumidor<-NA
+# columna peso del consumidor
+for (pc in 1:length(v_ig$nombre)) {edge_L_net[edge_L_net$consumidor==as.character(v_ig$nombre[pc]),"peso_consumidor"]<-v_ig$peso[pc]
+}
+
+#columna peso del recurso
+edge_L_net$peso_recurso<-NA
+for (pr in 1:length(v_ig$nombre)) {edge_L_net[edge_L_net$recurso==as.character(v_ig$nombre[pr]),"peso_recurso"]<-v_ig$peso[pr]
+}
+
+#columna densidad del consumidor
+edge_L_net$densidad_consumidor<-NA
+for (dc in 1:length(v_ig$nombre)) {edge_L_net[edge_L_net$consumidor==as.character(v_ig$nombre[dc]),"densidad_consumidor"]<-v_ig$densidad[dc]
+}
+#columna densidad del recurso
+edge_L_net$densidad_recurso<-NA
+for (dr in 1:length(v_ig$nombre)) {edge_L_net[edge_L_net$recurso==as.character(v_ig$nombre[dr]),"densidad_recurso"]<-v_ig$densidad[dr]
+}
+
+edge_L_net$dimension<-"2D"
+}
+
+
+#N = PASTIZAL NATURALIZADO 
+{#genero el edge list
+edge_N_net <- as.data.frame(as.matrix(N_net, "edgelist"))
+names(edge_N_net)<-c("recurso","consumidor")
+
+#a cada nodo agrego el peso corporal y la densidad 
+v_ig<-data.frame(nombre=c(N$specie,"litter","carrion","tej_veg"),peso=body_N*1e-9,densidad=bm_N/body_N)
+
+###########
+#se asume que la relacion densidad de recurso y peso es 1
+#cuando no el consumidor no deppende del peso del recurso
+#asignandos pesos
+v_ig[v_ig$nombre=="litter","peso"]<-1
+v_ig[v_ig$nombre=="carrion","peso"]<-1 #tomo el mínimo y lo llevo a unidad
+v_ig[v_ig$nombre=="tej_veg","peso"]<-1 #peso de las raices por centímero
+v_ig[v_ig$nombre=="hummus","peso"]<-1 #la mitad de la carroña, a dedo, es un componente amorfo y no tiene una unidad en concreto lo mismo las demás recursos.
+#asignando densidades a los recursos
+v_ig[v_ig$nombre=="litter","densidad"]<-1
+v_ig[v_ig$nombre=="carrion","densidad"]<-1 #tomo el mínimo y lo llevo a unidad
+v_ig[v_ig$nombre=="tej_veg","densidad"]<-1 #peso de las raices por centímero
+v_ig[v_ig$nombre=="hummus","densidad"]<-1
+# con bucle busco asignar a cada eje su correspondiente peso corporal y densidad
+
+
+# con bucle busco asignar a cada eje su correspondiente peso corporal y densidad
+###########
+
+edge_N_net$peso_consumidor<-NA
+# columna peso del consumidor
+for (pc in 1:length(v_ig$nombre)) {edge_N_net[edge_N_net$consumidor==as.character(v_ig$nombre[pc]),"peso_consumidor"]<-v_ig$peso[pc]
+}
+
+#columna peso del recurso
+edge_N_net$peso_recurso<-NA
+for (pr in 1:length(v_ig$nombre)) {edge_N_net[edge_N_net$recurso==as.character(v_ig$nombre[pr]),"peso_recurso"]<-v_ig$peso[pr]
+}
+
+#columna densidad del consumidor
+edge_N_net$densidad_consumidor<-NA
+for (dc in 1:length(v_ig$nombre)) {edge_N_net[edge_N_net$consumidor==as.character(v_ig$nombre[dc]),"densidad_consumidor"]<-v_ig$densidad[dc]
+}
+#columna densidad del recurso
+edge_N_net$densidad_recurso<-NA
+for (dr in 1:length(v_ig$nombre)) {edge_N_net[edge_N_net$recurso==as.character(v_ig$nombre[dr]),"densidad_recurso"]<-v_ig$densidad[dr]
+}
+
+edge_N_net$dimension<-"2D"
+}
+
+
+#G: Ganadero mixto
+{#genero el edge list
+edge_G_net <- as.data.frame(as.matrix(G_net, "edgelist"))
+names(edge_G_net)<-c("recurso","consumidor")
+
+#a cada nodo agrego el peso corporal y la densidad 
+v_ig<-data.frame(nombre=c(G$specie,"litter","carrion","tej_veg"),peso=body_G*1e-9,densidad=bm_G/body_G)
+
+###########
+#se asume que la relacion densidad de recurso y peso es 1
+#cuando no el consumidor no deppende del peso del recurso
+#asignandos pesos
+v_ig[v_ig$nombre=="litter","peso"]<-1
+v_ig[v_ig$nombre=="carrion","peso"]<-1 #tomo el mínimo y lo llevo a unidad
+v_ig[v_ig$nombre=="tej_veg","peso"]<-1 #peso de las raices por centímero
+v_ig[v_ig$nombre=="hummus","peso"]<-1 #la mitad de la carroña, a dedo, es un componente amorfo y no tiene una unidad en concreto lo mismo las demás recursos.
+#asignando densidades a los recursos
+v_ig[v_ig$nombre=="litter","densidad"]<-1
+v_ig[v_ig$nombre=="carrion","densidad"]<-1 #tomo el mínimo y lo llevo a unidad
+v_ig[v_ig$nombre=="tej_veg","densidad"]<-1 #peso de las raices por centímero
+v_ig[v_ig$nombre=="hummus","densidad"]<-1
+# con bucle busco asignar a cada eje su correspondiente peso corporal y densidad
+
+
+# con bucle busco asignar a cada eje su correspondiente peso corporal y densidad
+###########
+
+edge_G_net$peso_consumidor<-NA
+# columna peso del consumidor
+for (pc in 1:length(v_ig$nombre)) {edge_G_net[edge_G_net$consumidor==as.character(v_ig$nombre[pc]),"peso_consumidor"]<-v_ig$peso[pc]
+}
+
+#columna peso del recurso
+edge_G_net$peso_recurso<-NA
+for (pr in 1:length(v_ig$nombre)) {edge_G_net[edge_G_net$recurso==as.character(v_ig$nombre[pr]),"peso_recurso"]<-v_ig$peso[pr]
+}
+
+#columna densidad del consumidor
+edge_G_net$densidad_consumidor<-NA
+for (dc in 1:length(v_ig$nombre)) {edge_G_net[edge_G_net$consumidor==as.character(v_ig$nombre[dc]),"densidad_consumidor"]<-v_ig$densidad[dc]
+}
+#columna densidad del recurso
+edge_G_net$densidad_recurso<-NA
+for (dr in 1:length(v_ig$nombre)) {edge_G_net[edge_G_net$recurso==as.character(v_ig$nombre[dr]),"densidad_recurso"]<-v_ig$densidad[dr]
+}
+
+edge_G_net$dimension<-"2D"
+}
+
+
+#A: Agricola intensivo
+{#genero el edge list
+edge_A_net <- as.data.frame(as.matrix(A_net, "edgelist"))
+names(edge_A_net)<-c("recurso","consumidor")
+
+#a cada nodo agrego el peso corporal y la densidad 
+v_ig<-data.frame(nombre=c(A$specie,"litter","carrion","tej_veg"),peso=body_A*1e-9,densidad=bm_A/body_A)
+
+###########
+#se asume que la relacion densidad de recurso y peso es 1
+#cuando no el consumidor no deppende del peso del recurso
+#asignandos pesos
+v_ig[v_ig$nombre=="litter","peso"]<-1
+v_ig[v_ig$nombre=="carrion","peso"]<-1 #tomo el mínimo y lo llevo a unidad
+v_ig[v_ig$nombre=="tej_veg","peso"]<-1 #peso de las raices por centímero
+v_ig[v_ig$nombre=="hummus","peso"]<-1 #la mitad de la carroña, a dedo, es un componente amorfo y no tiene una unidad en concreto lo mismo las demás recursos.
+#asignando densidades a los recursos
+v_ig[v_ig$nombre=="litter","densidad"]<-1
+v_ig[v_ig$nombre=="carrion","densidad"]<-1 #tomo el mínimo y lo llevo a unidad
+v_ig[v_ig$nombre=="tej_veg","densidad"]<-1 #peso de las raices por centímero
+v_ig[v_ig$nombre=="hummus","densidad"]<-1
+# con bucle busco asignar a cada eje su correspondiente peso corporal y densidad
+
+
+# con bucle busco asignar a cada eje su correspondiente peso corporal y densidad
+###########
+
+edge_A_net$peso_consumidor<-NA
+# columna peso del consumidor
+for (pc in 1:length(v_ig$nombre)) {edge_A_net[edge_A_net$consumidor==as.character(v_ig$nombre[pc]),"peso_consumidor"]<-v_ig$peso[pc]
+}
+
+#columna peso del recurso
+edge_A_net$peso_recurso<-NA
+for (pr in 1:length(v_ig$nombre)) {edge_A_net[edge_A_net$recurso==as.character(v_ig$nombre[pr]),"peso_recurso"]<-v_ig$peso[pr]
+}
+
+#columna densidad del consumidor
+edge_A_net$densidad_consumidor<-NA
+for (dc in 1:length(v_ig$nombre)) {edge_A_net[edge_A_net$consumidor==as.character(v_ig$nombre[dc]),"densidad_consumidor"]<-v_ig$densidad[dc]
+}
+#columna densidad del recurso
+edge_A_net$densidad_recurso<-NA
+for (dr in 1:length(v_ig$nombre)) {edge_A_net[edge_A_net$recurso==as.character(v_ig$nombre[dr]),"densidad_recurso"]<-v_ig$densidad[dr]
+}
+
+edge_A_net$dimension<-"2D"
+}
 
 
 
 ```
 
+```{r IS, echo=FALSE}
+#Ya tengo todos los componentes solicitados
+
+# Para detritos litter, carrion, etc. el tamaño del recurso res_mm y la densidad del recurso res_den están desacoplados del tamaño del consumidor, hay que asignar 1 a ambos
+
+#el peso debe ser utilizado como en kilogramos,
+#como esto está en microgramos será 1e-9
+
+IS_R1<-calc_interaction_intensity(da=edge_R_net,
+                         res_mm =peso_recurso,res_den = densidad_recurso,
+                        con_mm = peso_consumidor, int_dim =dimension )
+IS_P1<-calc_interaction_intensity(da=edge_P_net,
+                         res_mm =peso_recurso,res_den = densidad_recurso,
+                        con_mm = peso_consumidor, int_dim =dimension )
+IS_L1<-calc_interaction_intensity(da=edge_L_net,
+                         res_mm =peso_recurso,res_den = densidad_recurso,
+                        con_mm = peso_consumidor, int_dim =dimension )
+
+IS_N1<-calc_interaction_intensity(da=edge_N_net,
+                         res_mm =peso_recurso,res_den = densidad_recurso,
+                        con_mm = peso_consumidor, int_dim =dimension )
+IS_G1<-calc_interaction_intensity(da=edge_G_net,
+                         res_mm =peso_recurso,res_den = densidad_recurso,
+                        con_mm = peso_consumidor, int_dim =dimension )
+IS_A1<-calc_interaction_intensity(da=edge_A_net,
+                         res_mm =peso_recurso,res_den = densidad_recurso,
+                        con_mm = peso_consumidor, int_dim =dimension )
+```
+
+** Histogramas de la fuerza de interacción per cápita, siguiendo Pawar (20xx) y multiweb **
+
+```{r hist_IS, echo=FALSE}
+par(mfrow=c(2,3))
+
+hist(log(IS_R1$qRC),main = "reserva UNLu", sub= "log nat del IS", xlab = NULL)
+hist(log(IS_P1$qRC), main = "pastizal UNLu", sub= "log nat del IS", xlab = NULL)
+hist(log(IS_L1$qRC), main = "lote agricola UNLu", sub= "log nat del IS", xlab = NULL)
+hist(log(IS_N1$qRC), main= "pastizal nat", sub= "log nat del IS", xlab = NULL)
+hist(log(IS_G1$qRC), main = "mixto", sub= "log nat del IS", xlab = NULL)
+hist(log(IS_A1$qRC), main= "agricola intensivo", sub= "log nat del IS", xlab = NULL)
+
+par(mfrow=c(1,1))
+
+```
+
+
+La forma de los histogramas es similar entre los dos conjunto de datos. En la UNLu los histogramas son unimodales, en Rosana son bi modales. Las fuerzas de interacciones entre estos deberán ser puesta a prueba para ver si hay diferencias
+
+```{r QSS_IS, echo=FALSE}
+#multiplicar qRC por la densidad el consumidor para que de la fuerza de interaccion total, sino es por unidad de peso del consumidor
+#Reserva
+IS_R<-IS_R1[,c(1,2,11)]
+names(IS_R)<-c("recurso","consumidor","weight")
+IS_R_net<-graph_from_data_frame(IS_R,directed = TRUE, vertices =NULL)
+#Pastizal
+IS_P<-IS_P1[,c(1,2,11)]
+names(IS_P)<-c("recurso","consumidor","weight")
+IS_P_net<-graph_from_data_frame(IS_P,directed = TRUE, vertices =NULL)
+#Lote unlu
+IS_L<-IS_L1[,c(1,2,11)]
+names(IS_L)<-c("recurso","consumidor","weight")
+IS_L_net<-graph_from_data_frame(IS_L,directed = TRUE, vertices =NULL)
+
+#Reserva
+IS_N<-IS_N1[,c(1,2,11)]
+names(IS_N)<-c("recurso","consumidor","weight")
+IS_N_net<-graph_from_data_frame(IS_N,directed = TRUE, vertices =NULL)
+#Pastizal
+IS_G<-IS_G1[,c(1,2,11)]
+names(IS_G)<-c("recurso","consumidor","weight")
+IS_G_net<-graph_from_data_frame(IS_G,directed = TRUE, vertices =NULL)
+#Lote unlu
+IS_A<-IS_A1[,c(1,2,11)]
+names(IS_A)<-c("recurso","consumidor","weight")
+IS_A_net<-graph_from_data_frame(IS_A,directed = TRUE, vertices =NULL)
+
+####
+QSS_IS_R<-calc_QSS(IS_R_net, istrength=TRUE, returnRaw = TRUE, nsim=1000)
+QSS_IS_P<-calc_QSS(IS_P_net, istrength=TRUE, returnRaw = TRUE, nsim=1000)
+QSS_IS_L<-calc_QSS(IS_L_net, istrength=TRUE, returnRaw = TRUE, nsim=1000)
+
+
+QSS_IS_N<-calc_QSS(IS_N_net, istrength=TRUE, returnRaw = TRUE, nsim=1000)
+QSS_IS_G<-calc_QSS(IS_G_net, istrength=TRUE, returnRaw = TRUE, nsim=1000)
+QSS_IS_A<-calc_QSS(IS_A_net, istrength=TRUE, returnRaw = TRUE, nsim=1000)
+
+```
+
+**Gráficos de cajas e histogramas del valor de estabilidad en escala 
+logaritmica calculado a partir de la intensidad de interacciones**
+
+```{r plot_QSS_IS, echo=FALSE}
+
+boxplot(log(QSS_IS_R$maxre),main = "reserva UNLu", sub= "logQSS_IS", xlab = NULL)
+hist(log(QSS_IS_R$maxre),main = "reserva UNLu", sub= "logQSS_IS", xlab = NULL)
+boxplot(log(QSS_IS_P$maxre), main = "pastizal UNLu", sub= "logQSS_IS", xlab = NULL)
+hist(log(QSS_IS_P$maxre), main = "pastizal UNLu", sub= "logQSS_IS", xlab = NULL)
+boxplot(log(QSS_IS_L$maxre), main = "lote agricola UNLu", sub= "logQSS_IS", xlab = NULL)
+hist(log(QSS_IS_L$maxre), main = "lote agricola UNLu", sub= "logQSS_IS", xlab = NULL)
+boxplot(log(QSS_IS_N$maxre), main= "pastizal nat", sub= "logQSS_IS", xlab = NULL)
+hist(log(QSS_IS_N$maxre), main= "pastizal nat", sub= "logQSS_IS", xlab = NULL)
+boxplot(log(QSS_IS_G$maxre), main = "mixto", sub= "logQSS_IS", xlab = NULL)
+hist(log(QSS_IS_G$maxre), main = "mixto", sub= "logQSS_IS", xlab = NULL)
+boxplot(log(QSS_IS_A$maxre), main= "agricola intensivo", sub= "logQSS_IS", xlab = NULL)
+hist(log(QSS_IS_A$maxre), main= "agricola intensivo", sub= "logQSS_IS", xlab = NULL)
+
+
+```
+
+```{r QSS_taxon, include=FALSE}
+
+#acá colocar los gremios tróficos
+# o los taxas
+#usar en su lugar calc_QSS_extinction_dif_grp
+#QSS_unlu_seq<-calc_QSS_extinctions_seq(QSS_IS_UNLu, seq = V(QSS_IS_UNLu)$name[20:25], nsim = 100, ncores = 4, istrength = TRUE)
+```
+
+
 ```{r flux, echo=FALSE}
 library(fluxweb)
+#pasar todo a grama con 1e-6
 #litter carrion tej_veg hummus
-body_L<-c(L$body,0,0,0,0)
-body_R<-c(R$body,0,0,0,0)
-body_P<-c(P$body,0,0,0,0)
+body_L<-c(L$body,0,0,0,0)*1e-6
+body_R<-c(R$body,0,0,0,0)*1e-6
+body_P<-c(P$body,0,0,0,0)*1e-6
 # Biomasas
 # Hojarasca, Dato tomado de biomasas y abundancias de la red unlu
 # Esto es el peso de la hojarasca encontrada en los 25*25 cm
@@ -944,18 +1421,18 @@ body_P<-c(P$body,0,0,0,0)
 bm_L<-c(L$biomass,
         (77.0321/0.0625)*0.3*1e6, #Hojarasca
         mean(R[R$taxa!="fungi"&R$taxa!="bac"&R$taxa!="proto",]$biomass)*0.05, #Carroña
-        1.25*0.0273*1.2*50000*1e6,#Tej_veg
-        0.4*0.0273*1.2*50000*1e6)#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
+        2.25*0.0273*1.2*50000*1e6,#Tej_veg
+        0.4*0.0273*1.2*50000*1e6)*1e-6#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
 bm_R<-c(R$biomass,
         55.753/0.065*0.3*1e6, #Hojarasca
         mean(R[R$taxa!="fungi"&R$taxa!="bac"&R$taxa!="proto",]$biomass)*0.05, #carroña
-        1.25*0.0352*1.2*50000*1e6, #tej_veg
-        0.4*0.0352*1.2*50000*1e6) #"humus" = POM = 0.4MO
+        2.25*0.0352*1.2*50000*1e6, #tej_veg
+        0.4*0.0352*1.2*50000*1e6)*1e-6 #"humus" = POM = 0.4MO
 bm_P<-c(P$biomass,
         (58.63/0.0625)*0.3*1e6, #Hojarasca
         mean(P[P$taxa!="fungi"&P$taxa!="bac"&P$taxa!="proto",]$biomass)*0.05, #carroña
-        1.25*0.0352*1.2*50000*1e6, #Tej_veg
-        0.4*0.0309*1.2*50000*1e6) #Humus
+        2.25*0.0352*1.2*50000*1e6, #Tej_veg
+        0.4*0.0309*1.2*50000*1e6)*1e-6 #Humus
 #######
 #tasas metabolicas, 
 # usamos la para "invertebrados" de flux web package
@@ -982,7 +1459,6 @@ flux_L<-fluxing(t(mG[c(L$taxa,"litter","carrion","tej_veg","hummus"),c(L$taxa,"l
 flux_R<-fluxing(t(mG[c(R$taxa,"litter","carrion","tej_veg","hummus"),c(R$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_R, losses =  t_metR, efficiencies =  ef_R,ef.level = "pred")
 
 flux_P<-fluxing(t(mG[c(P$taxa,"litter","carrion","tej_veg","hummus"),c(P$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_P, losses =  t_metP, efficiencies =  ef_P,ef.level = "pred")
-
 ```
 
 ```{=html}
@@ -992,158 +1468,6 @@ in a stable equilibrium only if the real parts of eigenvalues from the Jacobian
 are all negative. In this case, resilience is the absolute value of the real part
 of the largest eigenvalue, ... -->
 ```
-```{r flux_, echo=FALSE}
-#Red Lote con Flujo energia
-
-L_netf<-asNetwork(L_net)
-
-L_netf %e% "flux" <- flux_L
-
-#Reserva
-R_netf<-asNetwork(R_net)
-
-R_netf %e% "flux" <- flux_R
-
-#Pastizal
-P_netf<-asNetwork(P_net)
-
-P_netf %e% "flux" <- flux_P
-
-
-```
-
-```{r qss, echo=FALSE}
-#se puede calcular el QSS, me da positivo :(
-calc_QSS(intergraph::asIgraph(L_netf), nsim=100)
-
-#plot_troph_level(intergraph::asIgraph(L_netf),modules=TRUE,vertexLabel = TRUE, tk = TRUE)
-
-# QSS es la proporcion de simulaciones que dan negativo
-# medida de lo que falta de auto regulacion para que sea estable
-# para estadistica usar la funcion raw= TRUE, distribuciones. 
-
-```
-
-```{r stability, echo=FALSE}
-
-#para igraph
-#gestionar Nodos y Ejes
-#Para ver el atributo de clase Network P_netf %e% "flux"
-
-#V(inet2)$name <- c("A","B","C","D","E")
-#E(inet2)$val <- c(1:6)
-#flujo<-L_netf%e%"flux"
-L_igf<-intergraph::asIgraph(L_netf)
-#L_ig<- graph_from_adjacency_matrix(flux_L,mode=c("directed") )
-E(L_igf)$"flux"<-L_netf%e%"flux"
-E(L_igf)$"dim"<-"2D"
-V(L_igf)$"densidad"<-bm_L/body_L
-V(L_igf)$"body_mass"<-body_L
-V(L_igf)$"names"<-c(L$taxa,"litter","carrion","tej_veg","hummus")
-
-{#genero el edge list
-edge_list_UNLu <- as.data.frame(as.matrix(L_net, "edgelist"))
-names(edge_list_UNLu)<-c("recurso","consumidor")
-
-#a cada nodo agrego el peso corporal y la densidad 
-v_ig<-data.frame(nombre=c(L$taxa,"litter","carrion","tej_veg","hummus"),peso=body_L,densidad=bm_L/body_L)
-
-###########
-#se asume que la relacion densidad de recurso y peso es 1
-#cuando no el consumidor no deppende del peso del recurso
-#asignandos pesos
-v_ig[v_ig$nombre=="litter","peso"]<-1
-v_ig[v_ig$nombre=="carrion","peso"]<-1 #tomo el mínimo y lo llevo a unidad
-v_ig[v_ig$nombre=="tej_veg","peso"]<-1 #peso de las raices por centímero
-v_ig[v_ig$nombre=="hummus","peso"]<-1 #la mitad de la carroña, a dedo, es un componente amorfo y no tiene una unidad en concreto lo mismo las demás recursos.
-#asignando densidades a los recursos
-v_ig[v_ig$nombre=="litter","densidad"]<-1
-v_ig[v_ig$nombre=="carrion","densidad"]<-1 #tomo el mínimo y lo llevo a unidad
-v_ig[v_ig$nombre=="tej_veg","densidad"]<-1 #peso de las raices por centímero
-v_ig[v_ig$nombre=="hummus","densidad"]<-1
-# con bucle busco asignar a cada eje su correspondiente peso corporal y densidad
-
-###########
-#estas son las suposiciones previas
-#v_ig[v_ig$nombre=="litter","peso"]<-100
-#v_ig[v_ig$nombre=="carrion","peso"]<-1 #tomo el mínimo y lo llevo a unidad
-#v_ig[v_ig$nombre=="tej_veg","peso"]<-1000 #peso de las raices por centímero
-#v_ig[v_ig$nombre=="hummus","peso"]<-0.5 #la mitad de la carroña, a dedo, es un componente amorfo y no tiene una unidad en concreto lo mismo las demás recursos.
-#asignando densidades a los recursos
-#v_ig[v_ig$nombre=="litter","densidad"]<-bm_L[72]/100
-#v_ig[v_ig$nombre=="carrion","densidad"]<-bm_L[73]/1 #tomo el mínimo y lo llevo a unidad
-#v_ig[v_ig$nombre=="tej_veg","densidad"]<-bm_L[74]/1000 #peso de las raices por centímero
-#v_ig[v_ig$nombre=="hummus","densidad"]<-bm_L[75]/0.5
-# con bucle busco asignar a cada eje su correspondiente peso corporal y densidad
-###########
-
-edge_list_UNLu$peso_consumidor<-NA
-# columna peso del consumidor
-for (pc in 1:length(v_ig$nombre)) {edge_list_UNLu[edge_list_UNLu$consumidor==as.character(v_ig$nombre[pc]),"peso_consumidor"]<-v_ig$peso[pc]
-}
-
-#columna peso del recurso
-edge_list_UNLu$peso_recurso<-NA
-for (pr in 1:length(v_ig$nombre)) {edge_list_UNLu[edge_list_UNLu$recurso==as.character(v_ig$nombre[pr]),"peso_recurso"]<-v_ig$peso[pr]
-}
-
-#columna densidad del consumidor
-edge_list_UNLu$densidad_consumidor<-NA
-for (dc in 1:length(v_ig$nombre)) {edge_list_UNLu[edge_list_UNLu$consumidor==as.character(v_ig$nombre[dc]),"densidad_consumidor"]<-v_ig$densidad[dc]
-}
-#columna densidad del recurso
-edge_list_UNLu$densidad_recurso<-NA
-for (dr in 1:length(v_ig$nombre)) {edge_list_UNLu[edge_list_UNLu$recurso==as.character(v_ig$nombre[dr]),"densidad_recurso"]<-v_ig$densidad[dr]
-}
-
-edge_list_UNLu$dimension<-"2D"
-}
-#edge_list_UNLu[edge_list_UNLu$peso_recurso==0|edge_list_UNLu$peso_recurso==-999,"peso_recurso"]<-1e-15
-#edge_list_UNLu[edge_list_UNLu$peso_consumidor==0|edge_list_UNLu$peso_consumidor==-999,"peso_consumidor"]<-1e-15
-#error
-#Ya tengo todos los componentes solicitados
-
-# Para detritos litter, carrion, etc. el tamaño del recurso res_mm y la densidad del recurso res_den están desacoplados del tamaño del consumidor, hay que asignar 1 a ambos 
-
-interaction_strenght_UNLu<-calc_interaction_intensity(da=edge_list_UNLu,
-                         res_mm =peso_recurso,res_den = densidad_recurso,
-                        con_mm = peso_consumidor, int_dim =dimension )
-
-#multiplicar qRC por la densidad el consumidor para que de la fuerza de interaccion total, sino es por unidad de peso del consumidor
-
-E(L_igf)$"int_strength"<-interaction_strenght_UNLu$qRC
-
-IS_ig_UNLu<-interaction_strenght_UNLu[,c(1,2,11)]
-names(IS_ig_UNLu)<-c("recurso","consumidor","weight")
-
-QSS_IS_UNLu<-graph_from_data_frame(IS_ig_UNLu,directed = TRUE, vertices =NULL)
-
-edge_attr_names(QSS_IS_UNLu)
-E(QSS_IS_UNLu)
-(quasi_unlu<-calc_QSS(QSS_IS_UNLu, istrength=TRUE, returnRaw = FALSE, nsim=10))
-
-
-
-QSS_unlu_seq<-calc_QSS_extinctions_seq(QSS_IS_UNLu, seq = (QSS_IS_UNLu)$name, nsim = 100, ncores = 4, istrength = TRUE)
-
-
-IS_ig_UNLu.W<-interaction_strenght_UNLu[,c(1,2,11)]
-names(IS_ig_UNLu.W)<-c("recurso","consumidor","weight")
-
-QSS_IS_UNLu.w<-graph_from_data_frame(IS_ig_UNLu.W,directed = TRUE, vertices =NULL)
-
-#E(QSS_IS_UNLu)$weight<-IS_ig_UNLu$qRC 
-
-#calc_QSS_extinction_dif(g=QSS_IS_UNLu.w,  sp_list=V(QSS_IS_UNLu.w)$name[5,15,8] , nsim = 10, ncores = 4, istrength = FALSE) 
-```
-
-```{r plot,echo=FALSE}
-
-plot_troph_level(QSS_IS_UNLu.w,modules=TRUE,vertexLabel = FALSE, tk = FALSE)
-
-```
-
-# Ro red
 
 ```{=html}
 <!-- ver también, https://github.com/robertwbuchkowski/soilfoodwebs 
@@ -1248,312 +1572,7 @@ se corresponde con el Humus y esta es una fracción del %de MO
 
 El 0.25% de lo que corresponde a microfauna sera no nematodo.
 
-```{r matrix_gamma_ro, include=FALSE}
 
-#lista de especies
-esp<-as.vector(levels(as.factor(base$specie)))
-#completar con los recursos
-esp_full<-c("carrion","tej_veg","hummus","bacterias","hongos","microfauna","enquitreido","nem_pre","nem_om","nem_fit","nem_bac","nem_fun",esp)
-
-#construcción full matrix
-#crear matriz, dimensiones igual al número de especies y recursos
-m0<-matrix(nrow = 64,ncol = 64,dimnames = list(esp_full,esp_full))
-#reemplazar NA por ceros
-
-m0[is.na(m0)] <- 0
-#en esta matriz no incluyo la hojarasca...
-#Recursos
-m0["bacterias",c("hummus","tej_veg","carrion")]<-1
-m0["hongos",c("hummus","tej_veg","carrion")]<-1
-m0["microfauna",c("bacterias","hummus","microfauna")]<-1
-m0["enquitreido",c("bacterias","hummus","microfauna","hongos")]<-1
-m0["nem_pre",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","microfauna")]<-1
-m0["nem_om",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","microfauna","bacterias","hongos")]<-1
-m0["nem_fit",c("tej_veg")]<-1
-m0["nem_fun",c("hongos")]<-1
-m0["nem_bac",c("bacterias")]<-1
-
-#Especies "reales"
-
-m0["acaroidea",c("bacterias","hongos","nem_bac","nem_fun")]<-1
-
-m0[c("Apo_cal","Apo_ros","Apo_tra","lom_juv","Mic_dub","Mic_pho","euker","octacy","octala"),c("bacterias","hongos","microfauna","hummus")]<-1
-
-m0["bdelloidea",c("lom_juv","onychiuridae","hypogastruridae","isotomidae","enquitreido","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea")]<-1
-
-m0["carabidae",c("lom_juv","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea","chylopoda","ecidomyiidae","gasteropoda","miriapodo","sciaridae","staphylinidae")]<-1
-
-m0[c("ceratozetoidea","onychiuridae","isotomidae"),c("bacterias","hongos","hummus")]<-1
-
-m0["chylopoda",c("enquitreido","lom_juv","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea","chylopoda","miriapodo","sciaridae","staphylinidae")]<-1
-
-m0[c("brachychthonioidea","crotonioidea","oripodoidea","oribatido","symphypleona"),c("bacterias","hongos","hummus","tej_veg")]<-1
-
-m0[c("dermanyssoidea","parasitoidea"),c("enquitreido","lom_juv","nem_pre","nem_om","nem_fit","nem_bac","nem_fun","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea")]<-1
-
-m0[c("ecidomyiidae","gryllidae","scarabaeidae"),c("tej_veg")]<-1
-
-m0[c("entomobroidea"),c("bacterias","hongos","nem_bac","nem_fun")]<-1
-
-m0[c("epilohmannioidea"),"hummus"]<-1
-
-m0["euphthiracaroidea",c("hummus","hongos","tej_veg")]<-1
-
-m0["eupodoidea",c("bacterias","hongos","nem_pre","nem_om","nem_fit","nem_bac","nem_fun","onychiuridae","hypogastruridae","isotomidae","symphypleona","entomobroidea")]<-1
-
-
-m0["formicidae",c("lom_juv","gryllidae","gryllotalpidae","carrion","hongos","tej_veg","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea","staphylinidae","ptiliidae","carabidae","ecidomyiidae","psocoptera")]<-1
-
-m0["galumnioidea",c("carrion","nem_bac","nem_fun","nem_fit","bacterias","hongos")]<-1
-
-m0["gasteropoda",c("carrion","bacterias","hongos","hummus","tej_veg")]<-1
-
-m0["gasteropoda",c("carrion","bacterias","hongos","hummus","tej_veg")]<-1
-
-m0["gryllotalpidae",c("carrion","bacterias","hongos","tej_veg","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","entomobroidea","nem_pre","nem_om","nem_fit","nem_bac","nem_fun","pauropoda")]<-1
-
-m0["hypogastruridae",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","microfauna","carrion","bacterias","hongos")]<-1
-
-m0[c("isopodos","miriapodo"),c("hummus","hongos","bacterias","microfauna")]<-1
-
-m0["isoptera",c("hummus","hongos","bacterias","microfauna")]<-1 #,"litter"
-
-m0["linyphiidae",c("gryllidae","gryllotalpidae","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea","staphylinidae","ptiliidae","carabidae","ecidomyiidae","psocoptera","sciaridae","scarabaeidae")]<-1
-
-m0["mesostigmata",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","microfauna")]<-1
-
-m0["oppioidea",c("bacterias","hongos")]<-1
-
-m0["pauropoda",c("carrion","bacterias","hongos","microfauna")]<-1
-
-m0["psocoptera",c("hummus","hongos")]<-1
-
-m0["ptiliidae",c("hummus","hongos","carrion","bacterias","microfauna","nem_bac","nem_fun")]<-1
-
-m0["rhodacaroidea",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","entomobroidea","pauropoda","enquitreido")]<-1
-
-m0["staphylinidae",c("lom_juv","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea","nem_pre","nem_om","nem_fit","nem_bac","nem_fun","enquitreido")]<-1
-
-m0["symphila",c("hongos","bacterias","microfauna","hummus","tej_veg")]<-1
-
-m0["trombidioidea",c("lom_juv","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","parasitoidea","pauropoda","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea","bdelloidea","dermanyssoidea","trombidioidea","enquitreido")]<-1
-
-m0["tydeoidea",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","hongos","bacterias","microfauna")]<-1
-
-m0["uropodoidea",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","microfauna")]<-1
-
-m0["veigaioidea",c("nem_pre","nem_om","nem_fit","nem_bac","nem_fun","onychiuridae","hypogastruridae","isotomidae","symphypleona","symphila","entomobroidea","pauropoda","brachychthonioidea","ceratozetoidea","crotonioidea","entomobroidea","epilohmannioidea","euphthiracaroidea","eupodoidea","galumnioidea","mesostigmata","oribatido","oripodoidea","oppioidea","rhodacaroidea","tydeoidea","uropodoidea","veigaioidea")]<-1
-
-
-```
-
-#Libro sobre uso de statnet
-
-```{r}
-#la red global; es necesario completar con todas las interacciones probables en la Pampa Húmeda.
-#Determina la red Potencial.
-#global_net, es g_net.
-
-g_net<-network(t(m0),vertex.attrnames=esp_full)
-resumen_red_global<-summary(g_net)
-#Red con 64 nodos
-#Grafo dirigido
-#Tipo lista de ejes; edjelist
-#Total de enlaces 528
-#Densidad de enlaces 0.1309524 aprox 0.131
-#Según Maggioto et al. 2019 densidad de enlaces promedios 1.68, con 14 nodos
-#El cálculo de densidad en Maggioto no es el mismo que el del libro 
-#Ya que este varía de 0 a 1.
-
-#gplot(g_net,diag = TRUE,displaylabels = FALSE,mode="mds")
-
-#scalado multidimensional métrico
-```
-
-```{r metricas_ro, echo=FALSE}
-
-print("TAMAÑO DE LA RED")
-network.size(g_net)
-#Densidad
-print("DENSIDAD DE LA RED, DENSIDAD DE ENLACES")
-gden(g_net)
-
-#subgrupos
-print("COMPONENTES")
-components(asIgraph(g_net))
-count_components(asIgraph(g_net))
-
-# asNetwork()
-#No existen subgrupos fuerte o débilmente conectados
-
-#Nos genera una matriz con las distancias geodesicas esto es los caminos más cortos
-#El valor Inf nos indica los nodos desconectados
-print("Distancias geodésicas")
-distancias_geodesicas<-geodist(g_net)
-#De todos los caminos más cortos, el más largo es el diámetro de la red
-table(distancias_geodesicas$gdist)
-#ignorando al Inf y mirando la matriz 
-#el diámetro sería 3.
-#Esto implica una red vastante condensada y con caminos de información energía cortos
-
-#Transitividad, esto indica la formación de triángulos cerrados en la red. 
-#Que es una forma básica de agrupamiento o clusters.
-print("Transitividad")
-gtrans(g_net)
-#####
-#Transitividad, proporción de triángulos
-tr_Gn<-gtrans(asNetwork(G_net))
-tr_Ln<-gtrans(asNetwork(L_net))
-tr_Rn<-gtrans(asNetwork(R_net))
-tr_Pn<-gtrans(asNetwork(P_net))
-#transforma edgelist en matriz
-#as.sociomatrix(g_net)
-
-#atributos de nodos
-#grado de nodos
-print("Grado del nodo")
-grado_nodo<-degree(asIgraph(g_net))
-hist(grado_nodo)
-summary(grado_nodo)
-#Grado 0-5 y 15-20 son iguales en abundancias, luego 10-15, 30-40,
-
-print("Cercania del nodo")
-cercania_nodo<-closeness(asIgraph(g_net))
-hist(cercania_nodo)
-summary(cercania_nodo)
-print("Entre quienes del nodo")
-entre_quien_nodo<-betweenness(asIgraph(g_net))
-hist(entre_quien_nodo)
-summary(entre_quien_nodo)
-# nodo_gg gran grupo
-#Esto es a que gran grupo o gremio pertenece el nodo
-nodo_gg<-c("rec.base","rec.base","rec.base","microflora","microflora","microfauna","mesof","microfauna","microfauna","microfauna","microfauna","microfauna","acari","clitelata","clitelata","clitelata","acari","acari","macro","acari","macro","acari","acari","macro","colem","acari","clitelata","acari","acari","macro","acari","macro","macro","macro","colem","macro","macro","colem","macro","clitelata","acari","clitelata","clitelata","macro","clitelata","clitelata","colem","acari","acari","acari","acari","mesof","mesof","macro","acari","macro","macro","macro","mesof","colem","acari","acari","acari","acari")
-
-table(nodo_gg)
-
-#Esto es el manejo de nodos según statnet
-#set.vertex.attribute(g_net, "gran_grupo", nodo_gg)
-
-g_net %v% "gran_grupo" <- nodo_gg
-
-g_net %v% "grado_nodo" <- degree(asIgraph(g_net))/10
-
-g_net %v% "cercania_nodo" <- closeness(asIgraph(g_net))/10
-
-g_net %v% "entre_quien_nodo" <- betweenness(asIgraph(g_net))/10
-
-g_net %v% "k_core_nodo" <- graph.coreness(asIgraph(g_net))
-
-#g_net %v% "vertex.names"
-
-#para igraph
-#gestionar Nodos y Ejes
-#V(inet2)$name <- c("A","B","C","D","E")
-#E(inet2)$val <- c(1:6)
-
-#para ver los atributos
-print("Lista de atributos del nodo")
-list.vertex.attributes(asIgraph(g_net))
-print("Lista de atributos de los ejes")
-list.edge.attributes(asIgraph(g_net))
-#get.vertex.attribute(asIgraph(g_net), "na")
-#Atributos de los ejes
-print("Configuración ejes, nodo a nodo")
-#print(get.adjedgelist(asIgraph(g_net)))
-
-#g_net %v% "gran_grupo"
-
-#Filtrar redes según el atributo del nodo
-
-#get.inducedSubgraph(g_net,which(g_net%v%"gran_grupo"=="clitelata"))
-```
-
-```{r plot_RO,echo=FALSE}
-
-
-
-#plot(g_net,label="gran_grupo",usearrows=FALSE,vertex.col="gran_grupo",vertex.cex="grado_nodo",mode="fruchtermanreingold")
-
-#write.csv(g_net, file = "red_global.csv", row.names = FALSE)
-
-x<-c(-1,2,4,1,3,1.5,-2,-1.5,3,2,1,0,2,0,-1,3,1,0,1,3,2,4,-2.5,1,4,-1,-2,1.5,0.5,3,1,-3,0,2,5.5,-1,1.5,3,-2.5,1.5,2,2.5,2,3,3.5,-0.5,-0.5,-1.5,2.5,3.7,3,4.5,3,2,1.7,1,4,4,-0.75,1.75,-1.75,-0.75,0.75,1.75)*2.7
-
-y<-c(1,1,1,2,2,2.5,4,4,3.5,3,3,3,5,4,4,4,6,5,11,5,8,5,6,4,5.5,5,4,5,6,8,5,4,7,7,5.5,7,7,5.5,8,4,6,4,4,7,4,4,5.5,5,5,5,6,5.5,6.5,6.5,6,7.5,4,8,5.5,5.5,6,6,6,6)*3
-     
-coord=cbind(x,y)
-
-#Tuve que seguir la guía pag 69 libro Statnet
-#Para que los nodos me quedasen en un formato color amigable.
-paleta_color<-RColorBrewer::brewer.pal(9, "Set1")
-fact_gran_grupo<-as.factor(get.vertex.attribute(asIgraph(g_net),"gran_grupo"))
-
-
-plot(g_net,coord=coord,vertex.col=paleta_color[fact_gran_grupo],vertex.cex="grado_nodo",suppress.axes = FALSE)
-
-```
-
-#Flux web packge
-
-Implementacion *Falta tasas metabolicas por especie* Tal vez
-preferencias alimenticias *Entender el tema de flujos* Utilizar la
-salida de flujos como atributo de ejes *Clasificar los organismos por
-gremios como atributo del nodo* Clasificar por funcion ecologica, para
-atributo de nodo y para calcular el flujo de energía \*Entender que
-significa el valor de estabilidad tambien
-
-```{r flux_RO,echo=FALSE}
-library(fluxweb)
-#porque todo a mano ?
-peso<-c(NA,NA,NA,9.5e-16,-999,3e-8,9e-5,3.56e-6,6.02e-5,2.35e-7,8.5e-7,5.35e-7,2.13e-6,2.16e-2,1.04e-2,0.65,9.6e-7,1.84e-6,5.45e-6,1.187e-5,7.713e-5,5.08e-6,6.03e-6,8.033e-5, 6.82e-6,2.15e-6,0.013,1.119e-5,6e-7,1.16e-4,2.994e-5,7.04e-5,1.03e-4,1.33e-4,6.73e-6,2.35e-3,4.131e-5,2.32e-6,6.715e-5,2e-3,1.022e-5,0.017,4.5e-3,2.3e-3,0.374,0.0862,9.72e-7,8.4e-7,1.11e-6,4.11e-6,8.77e-6,5e-6,3.6e-5,5.51e-4,4.64e-6,3.25e-3,3.42e-4,2.64e-4,1.68e-6,2.55e-6,8.2e-6,0.71e-6,1.4e-5,1.09e-5)
-#Pasar todos los valores a microgramos
-#La carroña será el 5%de la biomasa de todos los invertebrados excepto bacterias hongos
-#Enquitreidos tomado de soil biology guide en promedio 11,5 g/m2 pero a peso seco 
-#asumiendo 15%MS son 1,7g/m2
-
-biomasas<-c(7.5323,1.5865,1533.87,0.0952,0.2221,0.00507,1.772,9.46e-4,9.46e-4,1.67e-3,3.55e-3,4.73e-3,2.36e-3,3.7873,1.081,4.531,1.525e-3,1.551e-3,5.384e-3,1.31e-2,3.92e-2,6.91e-3,7e-3,4.1e-2,9.52e-3,4.84e-3,2.3986,1.65e-2,3.1e-3,0.207,3.43e-2,0.1394,0.0523,0.06786,0.15476,1.19,0.02805,4.273e-2,0.041,0.6562,0.01823,1.9747,0.1803,3.51,25.14,7.204,0.0207,6.7e-3,3.53e-3,8.12e-2,5.49e-3,2.5e-3,0.01842,0.2807,6.68e-3,1.6,0.134,0.47,1.5e-3,7.68e-3,7.31e-3,1.826e-3,9.76e-3,1.07e-2)
-
-
-#biomasas*100
-
-#Por el momento eficiencias iguales
-eficiencias<- rep(0.2, times = 64)
-#eficiencias[c(1,2,3,5)]<- 0
-
-
-#The \textbf{losses} parameter will be defined in this context as metabolic rates.
-t_met<- 0.71*peso^(-0.25) #Esta tasa metabólica es la sugerida en el paper. Pero es diferente según la taxa 
-#Esto lo puedo encontrar en Brown et al. creo. Luego filtrar, yasociar cada tasa a su grupo
-t_met[c(1,2,3,5)]<-0
-
-
-#Error imposible calcular segun los datos. RESUELTO
-flux<-fluxing(t(m0) ,biomasses = biomasas, losses =  t_met, eficiencias, bioms.losses = TRUE,ef.level = "prey")
-
-#Agregar como atributo de los ejes
-
-g_net %e% "flujo" <- flux
-g_net %e% "flujo_red" <- flux*0.05
-
-#Asumo 1/ingreso por año
-#Microgramos por tiempo, misma unidad
-#Entonces 
-#Carroña = ingreso 4trimestral
-#Tejido vegetal ingreso diario
-#Humus formacion bianual
-
-tasa_ingreso<-c(3.33,333,0.5,rep(0, times = 61))
-
-valor_stab<-stability.value(t(m0), biomasas, t_met, eficiencias, 
-                            tasa_ingreso,bioms.prefs = TRUE,bioms.losses = TRUE,
-                            ef.level = "prey" )
-
-#warnings "especies no basales" definen tasas de crecimientos ? eso no es posible si se lo asigno a las basales ...
-
-
-plot(g_net,coord=coord,vertex.col=paleta_color[fact_gran_grupo],vertex.cex="grado_nodo",suppress.axes = FALSE, edge.lwd="flujo_red",edge.col="grey")
-
-
-```
 
 [elseiver para
 discu](https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/soil-food-web)
