@@ -323,37 +323,7 @@ web0<-web%>%
   distinct(taxa,.keep_all=TRUE)
 #######
 
-
-L<-web0%>%filter(sitio=="L")
-P<-web0%>%filter(sitio=="P")
-R<-web0%>%filter(sitio=="R")
-
-#biomasas
-#tejido vegetal se asume 125% (1+125/100) mas que la materia orgánica aunque puede ser 225% más
-#carroña será el 5% de la biomasa total de los invertebrados
-#hojarasca llevada a peso seco, factor de 0.32 P ; 0.37 R ; 0.28 L
-bm_L<-c(L$biomass,
-        (77.0321/0.0625)*0.28*1e6, #Hojarasca
-        mean(L[L$taxa!="fungi"&L$taxa!="bac"&L$taxa!="proto",]$biomass)*0.05, #Carroña
-        2.25*0.0273*1.2*50000*1e6,#Tej_veg
-        0.4*0.0273*1.2*50000*1e6)#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
-bm_R<-c(R$biomass,
-        55.753/0.065*0.37*1e6, #Hojarasca
-        mean(R[R$taxa!="fungi"&R$taxa!="bac"&R$taxa!="proto",]$biomass)*0.05, #carroña
-        2.25*0.0352*1.2*50000*1e6, #tej_veg
-        0.4*0.0352*1.2*50000*1e6) #"humus" = POM = 0.4MO
-bm_P<-c(P$biomass,
-        (58.63/0.0625)*0.32*1e6, #Hojarasca
-        mean(P[P$taxa!="fungi"&P$taxa!="bac"&P$taxa!="proto",]$biomass)*0.05, #carroña
-        2.25*0.0352*1.2*50000*1e6, #Tej_veg
-        0.4*0.0309*1.2*50000*1e6) #Humus
-#######
-
-
-#Pesos corporales
-body_L<-c(L$body,0,0,0,0)
-body_R<-c(R$body,0,0,0,0)
-body_P<-c(P$body,0,0,0,0)
+#############
 
 
 #Eficiencias de consumo dicho por mi, justificación quien sabe
@@ -397,6 +367,39 @@ web0$ef[web0$taxa%in%det]<-0.25
 web0$ef[web0$taxa%in%herb]<-0.125
 web0$ef[web0$taxa%in%omn]<-0.4
 web0$ef[web0$taxa%in%no_a]<-0.075
+
+######## 
+L<-web0%>%filter(sitio=="L")
+P<-web0%>%filter(sitio=="P")
+R<-web0%>%filter(sitio=="R")
+
+#biomasas
+#tejido vegetal se asume 125% (1+125/100) mas que la materia orgánica aunque puede ser 225% más
+#carroña será el 5% de la biomasa total de los invertebrados
+#hojarasca llevada a peso seco, factor de 0.32 P ; 0.37 R ; 0.28 L
+bm_L<-c(L$biomass,
+        (77.0321/0.0625)*0.28*1e6, #Hojarasca
+        mean(L[L$taxa!="fungi"&L$taxa!="bac"&L$taxa!="proto",]$biomass)*0.05, #Carroña
+        2.25*0.0273*1.2*50000*1e6,#Tej_veg
+        0.4*0.0273*1.2*50000*1e6)#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
+bm_R<-c(R$biomass,
+        55.753/0.065*0.37*1e6, #Hojarasca
+        mean(R[R$taxa!="fungi"&R$taxa!="bac"&R$taxa!="proto",]$biomass)*0.05, #carroña
+        2.25*0.0352*1.2*50000*1e6, #tej_veg
+        0.4*0.0352*1.2*50000*1e6) #"humus" = POM = 0.4MO
+bm_P<-c(P$biomass,
+        (58.63/0.0625)*0.32*1e6, #Hojarasca
+        mean(P[P$taxa!="fungi"&P$taxa!="bac"&P$taxa!="proto",]$biomass)*0.05, #carroña
+        2.25*0.0352*1.2*50000*1e6, #Tej_veg
+        0.4*0.0309*1.2*50000*1e6) #Humus
+#######
+
+
+#Pesos corporales
+body_L<-c(L$body,0,0,0,0)
+body_R<-c(R$body,0,0,0,0)
+body_P<-c(P$body,0,0,0,0)
+
 
 
 ```
@@ -1396,11 +1399,12 @@ hist(log(QSS_IS_A$maxre), main= "agricola intensivo", sub= "logQSS_IS", xlab = N
 
 ```{r flux, echo=FALSE}
 library(fluxweb)
-#pasar todo a grama con 1e-6
+#pasar todo a gramos con *1e-6
+#además los recursos se colocan como uno, de manera similar a lo que dice Pawar
 #litter carrion tej_veg hummus
-body_L<-c(L$body,0,0,0,0)*1e-6
-body_R<-c(R$body,0,0,0,0)*1e-6
-body_P<-c(P$body,0,0,0,0)*1e-6
+body_L<-c(L$body*1e-6,1.00,1.0,1.0,1.0)
+body_R<-c(R$body*1e-6,1.00,1.0,1.0,1.0)
+body_P<-c(P$body*1e-6,1.00,1.0,1.0,1.0)
 # Biomasas
 # Hojarasca, Dato tomado de biomasas y abundancias de la red unlu
 # Esto es el peso de la hojarasca encontrada en los 25*25 cm
@@ -1419,20 +1423,20 @@ body_P<-c(P$body,0,0,0,0)*1e-6
 #raices 2mg por cm en figure III.19 soil organims. root. pp 237
 #####
 bm_L<-c(L$biomass,
-        (77.0321/0.0625)*0.3*1e6, #Hojarasca
-        mean(R[R$taxa!="fungi"&R$taxa!="bac"&R$taxa!="proto",]$biomass)*0.05, #Carroña
+       (77.0321/0.0625)*0.3*1e6, #Hojarasca
+      mean(R[R$taxa!="fungi"&R$taxa!="bac"&R$taxa!="proto",]$biomass)*0.05, #Carroña
         2.25*0.0273*1.2*50000*1e6,#Tej_veg
-        0.4*0.0273*1.2*50000*1e6)*1e-6#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
+       0.4*0.0273*1.2*50000*1e6)*1e-6#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
 bm_R<-c(R$biomass,
-        55.753/0.065*0.3*1e6, #Hojarasca
-        mean(R[R$taxa!="fungi"&R$taxa!="bac"&R$taxa!="proto",]$biomass)*0.05, #carroña
-        2.25*0.0352*1.2*50000*1e6, #tej_veg
-        0.4*0.0352*1.2*50000*1e6)*1e-6 #"humus" = POM = 0.4MO
+       55.753/0.065*0.3*1e6, #Hojarasca
+      mean(R[R$taxa!="fungi"&R$taxa!="bac"&R$taxa!="proto",]$biomass)*0.05, #carroña
+     2.25*0.0352*1.2*50000*1e6, #tej_veg
+      0.4*0.0352*1.2*50000*1e6)*1e-6 #"humus" = POM = 0.4MO
 bm_P<-c(P$biomass,
-        (58.63/0.0625)*0.3*1e6, #Hojarasca
+      (58.63/0.0625)*0.3*1e6, #Hojarasca
         mean(P[P$taxa!="fungi"&P$taxa!="bac"&P$taxa!="proto",]$biomass)*0.05, #carroña
         2.25*0.0352*1.2*50000*1e6, #Tej_veg
-        0.4*0.0309*1.2*50000*1e6)*1e-6 #Humus
+              0.4*0.0309*1.2*50000*1e6)*1e-6 #Humus
 #######
 #tasas metabolicas, 
 # usamos la para "invertebrados" de flux web package
@@ -1448,9 +1452,9 @@ t_metP[is.na(t_metP)|t_metP==Inf]<-0
 
 #Para las eficiencias, generar una columna, con eficiencias por tipo de consumidor
 
-ef_L<- c(L$ef,NA,NA,NA,NA)
-ef_R<- c(R$ef,NA,NA,NA,NA)
-ef_P<- c(P$ef,NA,NA,NA,NA)
+ef_L<- c(L$ef,0.03,0.03,0.03,0.03)
+ef_R<- c(R$ef,0.03,0.03,0.03,0.03)
+ef_P<- c(P$ef,0.03,0.03,0.03,0.03)
 
 flux_L<-fluxing(t(mG[c(L$taxa,"litter","carrion","tej_veg","hummus"),c(L$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_L, losses =  t_metL, efficiencies =  ef_L,ef.level = "pred")
 
@@ -1459,6 +1463,16 @@ flux_L<-fluxing(t(mG[c(L$taxa,"litter","carrion","tej_veg","hummus"),c(L$taxa,"l
 flux_R<-fluxing(t(mG[c(R$taxa,"litter","carrion","tej_veg","hummus"),c(R$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_R, losses =  t_metR, efficiencies =  ef_R,ef.level = "pred")
 
 flux_P<-fluxing(t(mG[c(P$taxa,"litter","carrion","tej_veg","hummus"),c(P$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_P, losses =  t_metP, efficiencies =  ef_P,ef.level = "pred")
+
+# growth rates of basal sppecies
+growth.rates = rep(NA, dim(flux_R)[1])
+growth.rates[colSums(flux_R) == 0] = c(2,10,365,0.3)
+
+####### 
+
+valor_stabR<-stability.value(flux_R , biomasses = bm_R, losses=t_metR, efficiencies=ef_R, 
+                            growth.rate=growth.rates,bioms.prefs = TRUE,bioms.losses = TRUE,
+                            ef.level = "pred" ); valor_stabR
 ```
 
 ```{=html}

@@ -2,9 +2,11 @@
 title: "Comunidad"
 author: "VNV"
 date: "2024-02-29"
-output: html_document
-editor_options: 
-  markdown: 
+output:
+  html_document: default
+  word_document: default
+editor_options:
+  markdown:
     wrap: 90
 ---
 
@@ -16,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 #Carga paquetes
 {library("tidyverse");library("readxl");library("ade4") 
 library("vegan");library("cluster");library("BiodiversityR") 
-library("FactoMineR");library("factoextra")}
+library("FactoMineR");library("factoextra"); library(kableExtra)}
 set.seed(167)
 
 ```
@@ -25,137 +27,153 @@ set.seed(167)
 
 ## Introducción
 
-La Pampa argentina es una amplia llanura con una extensión de más de 120 millones de hectáreas, 
-de las cuales se estima que la Pampa Ondulada ocupa 44 mil km^2^, esta ocupa la parte 
-centro-oriental de la provincia de Córdoba, el norte de Buenos Aires y el suroeste de Santa Fé (.@.morello_etal_2000).
+La Pampa argentina es una amplia llanura con una extensión de más de 120 millones de
+hectáreas, de las cuales se estima que la Pampa Ondulada ocupa 44 mil km^2^, esta ocupa la
+parte centro-oriental de la provincia de Córdoba, el norte de Buenos Aires y el suroeste
+de Santa Fé (.\@.morello_etal_2000).
 
-Fitogeográficamente, la Pampa Ondulada, se ubica en la Región Neotropical, dominio Chaqueño, distrito Oriental de la provincia Pampeana y en ella la vegetación dominante es la estepa o pseudoestepa de gramíneas (.@.Cabrera 1976, .@.Oyarzabal et al. 2018). El clima es templado con cuyo rango de precipitaciones varía entre los 850 a 1000 mm anuales y una temperatura media anual alrededor de los 17 ºC, la distribución de las lluvias es casi uniforme, interrumpida periódicamente por sequías derivadas de los fenómenos meteorogicos El Niño y La Niña. 
+Fitogeográficamente, la Pampa Ondulada, se ubica en la Región Neotropical, dominio
+Chaqueño, distrito Oriental de la provincia Pampeana y en ella la vegetación dominante es
+la estepa o pseudoestepa de gramíneas (.\@.Cabrera 1976, .\@.Oyarzabal et al. 2018). El
+clima es templado con cuyo rango de precipitaciones varía entre los 850 a 1000 mm anuales
+y una temperatura media anual alrededor de los 17 ºC, la distribución de las lluvias es
+casi uniforme, interrumpida periódicamente por sequías derivadas de los fenómenos
+meteorogicos El Niño y La Niña.
 
-La Pampa Onduada es la zona más fértil y productiva de la región Pampeana, donde más del 80% de la tierra se dedica a la producción de cultivos agrícolas. Los suelos de la Pampa tienen relativamente pocas limitaciones para la producción de cultivos y son aptos para la ganadería. Son suelos profundos, bien drenados, no ofrecen limitaciones para el crecimiento de las raíces y tienen un buen contenido de materia orgánica (Cabrera y Willink 1973) la topografía es plana y extensa, además se encuentran en la región importante acuíferos cuya explotación se realiza para proporcionar riego a los cultivos, sumando a estas bondadosas características para la producción agrícola, el estrecho periodo de probabilidad de heladas y los inviernos sin nieve permiten el cultivo de especies invernales de manera que al año pueden realizarse hasta tres cosechas (.@.morello_etal_2000).
+La Pampa Onduada es la zona más fértil y productiva de la región Pampeana, donde más del
+80% de la tierra se dedica a la producción de cultivos agrícolas. Los suelos de la Pampa
+tienen relativamente pocas limitaciones para la producción de cultivos y son aptos para la
+ganadería. Son suelos profundos, bien drenados, no ofrecen limitaciones para el
+crecimiento de las raíces y tienen un buen contenido de materia orgánica (Cabrera y
+Willink 1973) la topografía es plana y extensa, además se encuentran en la región
+importante acuíferos cuya explotación se realiza para proporcionar riego a los cultivos,
+sumando a estas bondadosas características para la producción agrícola, el estrecho
+periodo de probabilidad de heladas y los inviernos sin nieve permiten el cultivo de
+especies invernales de manera que al año pueden realizarse hasta tres cosechas
+(.\@.morello_etal_2000).
 
-Urricariet y Lavado en 1999 ya mencionaban que la Pampa Ondulada estaba siendo 
-sometida a la pérdida de fertilidad debidas a las prácticas intensivas de manejo. 
-ellos basaban sus conjeturas en estudios regionales realizados en la Pampa Ondulada y
-mencionan que la erosión de los suelos y los efectos de las prácticas agrícolas intensivas
-sobre estos, alteran la fertilidad física y estructural del suelo, 
-la fertilidad química principalmente por la disminución de 
-nutrientes extraidos por los cultivos y la fertilidad biológica debida a las alteraciones 
-sobre los procesos biológicos que tienen la perdida de la materia orgánica en los suelos. 
-Podemos decir que las practicas agrícolas intensivas estaban motivadas por las grandes 
-bondades productivas provistas por las características del ecosistema ante descrita.
+Urricariet y Lavado en 1999 ya mencionaban que la Pampa Ondulada estaba siendo sometida a
+la pérdida de fertilidad debidas a las prácticas intensivas de manejo. ellos basaban sus
+conjeturas en estudios regionales realizados en la Pampa Ondulada y mencionan que la
+erosión de los suelos y los efectos de las prácticas agrícolas intensivas sobre estos,
+alteran la fertilidad física y estructural del suelo, la fertilidad química principalmente
+por la disminución de nutrientes extraidos por los cultivos y la fertilidad biológica
+debida a las alteraciones sobre los procesos biológicos que tienen la perdida de la
+materia orgánica en los suelos. Podemos decir que las practicas agrícolas intensivas
+estaban motivadas por las grandes bondades productivas provistas por las características
+del ecosistema ante descrita.
 
-Es importante conocer como es afectada la vida "bajo nuestros pies" 
-(.@.fao_atlas_soil_biodiversity), es decir la vida del suelo, 
-ya que la diversidad biológica puede ser afectada por diferentes factores relacionadas con las
-diferentes prácticas de manejo, tales como, el establecimiento de diferentes estructuras vegetales, 
-el fraccionamiento del hábitat, el cambio de uso del suelo, la compactación de los suelos, el
-uso de insumos como fertilizantes y biocidas, y que alteran los fenómenos funcionales y
-estructurales que conforman los procesos ecologicos de los ecosistemas terrestres (.@.citas; .@.Colombo_etal_2014; .@.bedano2006) 
+Es importante conocer como es afectada la vida "bajo nuestros pies"
+(.\@.fao_atlas_soil_biodiversity), es decir la vida del suelo, ya que la diversidad
+biológica puede ser afectada por diferentes factores relacionadas con las diferentes
+prácticas de manejo, tales como, el establecimiento de diferentes estructuras vegetales,
+el fraccionamiento del hábitat, el cambio de uso del suelo, la compactación de los suelos,
+el uso de insumos como fertilizantes y biocidas, y que alteran los fenómenos funcionales y
+estructurales que conforman los procesos ecologicos de los ecosistemas terrestres
+(.\@.citas; .\@.Colombo_etal_2014; .\@.bedano2006)
 
-La fauna edáfica refleja el efecto de las perturbaciones naturales y antrópicas mediante 
-respuestas en su composición de especies o la abundancia de estos, ya que, las perturbaciones 
-según su intensidad podrían llevar a la disminuciones de las abundancias y la desaparición 
-de especies, lo que se traducirá en efectos sobre estabilidad y fertilidad de los suelos, dado
-que, la fauna edáfica está íntimamente vinculada con la descomposición de la materia orgánica y la 
-dinámica del ciclo de los nutrientes, además la diversidad trófica y la dinámica de los diferentes 
-taxones se relacionan con el control de las poblaciones, la distribución y el transporte de esporas
-y propágulos de la microflora del suelo, la deposición de sus extretas líquidas o sólidas que
-contribuyen a la formación de microagregados y son almacen de carbono en el suelo y también sus
-actividades de búsqueda de alimento o movimientos en búsqueda de mejores condiciones ambientales 
-los tornan organismos que contribuyen, a diferentes escalas, a la formación del suelo.(.@.todas las 
-citas). 
+La fauna edáfica refleja el efecto de las perturbaciones naturales y antrópicas mediante
+respuestas en su composición de especies o la abundancia de estos, ya que, las
+perturbaciones según su intensidad podrían llevar a la disminuciones de las abundancias y
+la desaparición de especies, lo que se traducirá en efectos sobre estabilidad y fertilidad
+de los suelos, dado que, la fauna edáfica está íntimamente vinculada con la descomposición
+de la materia orgánica y la dinámica del ciclo de los nutrientes, además la diversidad
+trófica y la dinámica de los diferentes taxones se relacionan con el control de las
+poblaciones, la distribución y el transporte de esporas y propágulos de la microflora del
+suelo, la deposición de sus extretas líquidas o sólidas que contribuyen a la formación de
+microagregados y son almacen de carbono en el suelo y también sus actividades de búsqueda
+de alimento o movimientos en búsqueda de mejores condiciones ambientales los tornan
+organismos que contribuyen, a diferentes escalas, a la formación del suelo.(.\@.todas las
+citas).
 
-Por ello es que Socarras (2013) menciona que conocer el número de los diferentes taxones, 
-su abundancia y el balance entre estos permite evaluar y predecir el impacto de los diferentes
-métodos de producción ocurridos en sistemas con condiciones edáficas y climáticas particulares;
-tambíen Cruz et al. (2009) mencionan en su síntesis sobre los indicadores que dan cuenta sobre la 
-calidad del suelo, entendida como *"la utilidad del suelo para un propósito específico en una escala
-amplia de tiempo"*, que los indicadores biológicos integran a la gran cantidad de factores que 
-podrían estar afectando al suelo y su "calidad". Dado que el suelo es el hábitat de estos
-organismos y la fauna edáfica es rectora sobre los procesos biológicos que afectan al 
-funcionamiento del ecosistema edáfico, la diversidad biológica en los suelos se vincula 
-estrechamente con el mantenimiento de la fertilidad, la estabilidad física y biológica y
-con la productividad ecológica (productividad primaria) y económica (rendimiento de los cultivos
-y producción de proteina animal) de los suelos.
+Por ello es que Socarras (2013) menciona que conocer el número de los diferentes taxones,
+su abundancia y el balance entre estos permite evaluar y predecir el impacto de los
+diferentes métodos de producción ocurridos en sistemas con condiciones edáficas y
+climáticas particulares; tambíen Cruz et al. (2009) mencionan en su síntesis sobre los
+indicadores que dan cuenta sobre la calidad del suelo, entendida como *"la utilidad del
+suelo para un propósito específico en una escala amplia de tiempo"*, que los indicadores
+biológicos integran a la gran cantidad de factores que podrían estar afectando al suelo y
+su "calidad". Dado que el suelo es el hábitat de estos organismos y la fauna edáfica es
+rectora sobre los procesos biológicos que afectan al funcionamiento del ecosistema
+edáfico, la diversidad biológica en los suelos se vincula estrechamente con el
+mantenimiento de la fertilidad, la estabilidad física y biológica y con la productividad
+ecológica (productividad primaria) y económica (rendimiento de los cultivos y producción
+de proteina animal) de los suelos.
 
 El objetivo de esta sección es describir las comunidades.
 
 ## Materiales y métodos.
+
 ### Sitios de estudio
 
 Las comunidades de la fauna del suelo trabajadas aquí ocurren en suelos Argiudoles típicos
 de la Pampa Ondulada. Las comunidades se trabajan en dos conjuntos de datos, a saber,
-fauna edáfica tomada en suelos del partido de Luján y fauna edáfica pertenecientes a 
-suelos de los partidos de Chivilcoy y Navarro (Tabla 3.1[coordenadas]), estas distancias en la Pampa son prácticamente irrelevantes en términos de clima o elevación.
+fauna edáfica tomada en suelos del partido de Luján y fauna edáfica pertenecientes a
+suelos de los partidos de Chivilcoy y Navarro (Tabla 3.1[coordenadas]), estas distancias
+en la Pampa son prácticamente irrelevantes en términos de clima o elevación.
 
-En ambos casos se tomaron muestras de suelos con diferentes formas de uso y se consideraron
-estos como diferentes grados en la intensidad de perturbación sobre el suelo.
+En ambos casos se tomaron muestras de suelos con diferentes formas de uso y se
+consideraron estos como diferentes grados en la intensidad de perturbación sobre el suelo.
 
-Los suelos de Luján fueron muestreados en una sola fecha en el
-mes de Mayo del año 2022 y el trabajo de extracción, clasificación de los taxas y medición
-de rasgos fué realizado por el autor y colaboradores.
+Los suelos de Luján fueron muestreados en una sola fecha en el mes de Mayo del año 2022 y
+el trabajo de extracción, clasificación de los taxas y medición de rasgos fué realizado
+por el autor y colaboradores.
 
-Los suelos ubicados en los partidos de
-Chivilcoy y Navarro fueron muestreados por Sandler (2019), en cada estación del año
-durante dos años entre 2009 y 2010, dejando un conjunto de datos tanto con la
-clasificación de los taxas de Arachnida: Acari, Hexapoda: Collembola y 
-Oligochaetta: Crassiclitelata como con la caracterización de las variables físicas y
-químicas. Además la organismos de la fauna mesofauna edáfica 
-de estos lotes fueron preservados en el laboratorio de Ecología: programa de Ecología Terrestre
-(INEDES-UNLu) lo que permitió al autor la medición de rasgos corporales.
+Los suelos ubicados en los partidos de Chivilcoy y Navarro fueron muestreados por Sandler
+(2019), en cada estación del año durante dos años entre 2009 y 2010, dejando un conjunto
+de datos tanto con la clasificación de los taxas de Arachnida: Acari, Hexapoda: Collembola
+y Oligochaetta: Crassiclitelata como con la caracterización de las variables físicas y
+químicas. Además la organismos de la fauna mesofauna edáfica de estos lotes fueron
+preservados en el laboratorio de Ecología: programa de Ecología Terrestre (INEDES-UNLu) lo
+que permitió al autor la medición de rasgos corporales.
 
-** Tabla 3.1. Ubicación georreferenciada de los sitios de muestreo **
-|Uso del suelo|Sitio de muestreo| Coordenadas |
-|---|---|---|
-| R |  L |S E   |
-| PN|   C y N|S E   |
-| P |   L|   |S E
-| G |   C y N|S E   |
-| A |   L |S E   |
-| A |   C y N|S E   |
+\*\* Tabla 3.1. Ubicación georreferenciada de los sitios de muestreo \*\* \|Uso del
+suelo\|Sitio de muestreo\| Coordenadas \| \|---\|---\|---\| \| R \| L \|S E \| \| PN\| C y
+N\|S E \| \| P \| L\| \|S E \| G \| C y N\|S E \| \| A \| L \|S E \| \| A \| C y N\|S E \|
 
 ### Diseño de muestreo
 
 Durante el mes de mayo del año 2022 se llevó adelante el muestreo de suelos Argiudoles
-típicos ubicados el campo experimental de la Universidad Nacional de Luján (\@.sfeir_etal_1988_tesis_de_series\_) [imagen1_mapa].
+típicos ubicados el campo experimental de la Universidad Nacional de Luján
+(\@.sfeir_etal_1988_tesis_de_series\_) [imagen1_mapa].
 
 El muestreo se llevó adelante con la intención de colectar la fauna edáfica que pasa todo
-su ciclo de vida en el suelo (\@.momoyfalco_chap1; .@.walk_trabajo original), conocidos también como **geobiontes**.
-Los geobiontes incluyen tres rangos de tamaño (\@.swift, agregar imagen tamaños y formas de vida):
-la **microfauna** constituida por los nemátodos
+su ciclo de vida en el suelo (\@.momoyfalco_chap1; .\@.walk_trabajo original), conocidos
+también como **geobiontes**. Los geobiontes incluyen tres rangos de tamaño (\@.swift,
+agregar imagen tamaños y formas de vida): la **microfauna** constituida por los nemátodos
 (ancho corporal menor a 200 \$\mu m\$), la **mesofauna** en el que se incluyen los
-microartrópodos y otros invertebrados cuyo diametro corporal es menor a 2 mm y la **macrofauna**.
+microartrópodos y otros invertebrados cuyo diametro corporal es menor a 2 mm y la
+**macrofauna**.
 
-De manera complementaria se estimaron, por un lado, la respiración heterotrófica, 
-la biomasa de la microflora y la proporción de procariotas y eucariotas, 
-y por el otro, las variables químicas y
-físicas que caracterizan estos ambientes edáficos.
+De manera complementaria se estimaron, por un lado, la respiración heterotrófica, la
+biomasa de la microflora y la proporción de procariotas y eucariotas, y por el otro, las
+variables químicas y físicas que caracterizan estos ambientes edáficos.
 
-Se eligieron 3 sitios [Fig 3.1 Colocar imagendiseño muestreo] con diferentes usos del suelo 
-y en cada sitio se ubicaron 3 réplicas
-de un metro cuadrado de superficie separadas 50 metros entre sí y separadas 10 metros de
-los bordes (\@.potapov_etal_2022; \@.moreira_etal_2012). 
+Se eligieron 3 sitios [Fig 3.1 Colocar imagendiseño muestreo] con diferentes usos del
+suelo y en cada sitio se ubicaron 3 réplicas de un metro cuadrado de superficie separadas
+50 metros entre sí y separadas 10 metros de los bordes (\@.potapov_etal_2022;
+\@.moreira_etal_2012).
 
 Los sitios elegidos fueron: a) un lote agrícola (A) sobre el cuál se practica la
-agricultura convencional con labranza para la producción forrajera de alfalfa 
-*Medicago sativa* para pastoreo de bovinos en producción lechera; b) un área de 
-pastizal natural (P) con dominancia de Sorgo de Alepo *Sorghum halepense* y 
-Cardo mariano *Silybum marianum*,
-áreas que reciben presión de pastoreo por los bovinos lecheros con descanso
-entre pastoreos, y; c) un área clausurada por más de 30 años (R) considerada como reserva
-cuya vegetación característica es de tipo arbórea dominada por Ligustro *Ligustrum lucidum* 
-y Acacia *Acacia melanoxylon*.
+agricultura convencional con labranza para la producción forrajera de alfalfa *Medicago
+sativa* para pastoreo de bovinos en producción lechera; b) un área de pastizal natural (P)
+con dominancia de Sorgo de Alepo *Sorghum halepense* y Cardo mariano *Silybum marianum*,
+áreas que reciben presión de pastoreo por los bovinos lecheros con descanso entre
+pastoreos, y; c) un área clausurada por más de 30 años (R) considerada como reserva cuya
+vegetación característica es de tipo arbórea dominada por Ligustro *Ligustrum lucidum* y
+Acacia *Acacia melanoxylon*.
 
-### Métodos de extracción de la fauna edáfica. 
+### Métodos de extracción de la fauna edáfica.
 
-Para muestrear los nemátodos de vida libre del suelo para cada réplica muestral
-se tomaron 4 submuestras, en puntos al azar dentro del área muestral de un metro cuadrado
-previamente delimitada, con sacadocados de 5 cm diámetro y 10 cm de profundidad. 
+Para muestrear los nemátodos de vida libre del suelo para cada réplica muestral se tomaron
+4 submuestras, en puntos al azar dentro del área muestral de un metro cuadrado previamente
+delimitada, con sacadocados de 5 cm diámetro y 10 cm de profundidad.
 
-Las submuestras fueron almacenadas evitando la compactación, la pérdida de humedad y el 
-sobrecalentamiento para luego llevarlas al laboratorio donde se procedió a la
-extracción de la microfauna. Las submuestras fueron mecladas, homogeneizadas y pesadas, luego cada 
-muestra compuesta fué sometida al método de flotación y tamizado. (\@.mondino; \@.jekings; \@.moreira_etal_2012)
+Las submuestras fueron almacenadas evitando la compactación, la pérdida de humedad y el
+sobrecalentamiento para luego llevarlas al laboratorio donde se procedió a la extracción
+de la microfauna. Las submuestras fueron mecladas, homogeneizadas y pesadas, luego cada
+muestra compuesta fué sometida al método de flotación y tamizado. (\@.mondino; \@.jekings;
+\@.moreira_etal_2012)
 
 La muestra de suelo se desagrega suavemente con la mano y luego se incorpora agua en
 relación 1:6 suelo:agua p/p se agita la solución enérgicamente durante 2 minutos
@@ -166,8 +184,8 @@ apertura de malla y los nemátodos se colectan en las mallas con diámetro de ap
 conservan en formalina 4% (\@.moreira_etal_2012) o alcohol 96º (\@.potapov_etal_2022)
 hasta su posterior conteo y extracción bajo lupa binocular, e identificación en grupos
 tróficos según la morfología de su aparato bucal (\@.yeates; \@.mondino \@.momo-falco)
-proceso que se realiza con montajes temporales y observación bajo microscopio óptico con aumentos de
-hasta 400 veces.
+proceso que se realiza con montajes temporales y observación bajo microscopio óptico con
+aumentos de hasta 400 veces.
 
 Para extraer la macrofauna del suelo se trabajó en 2 etapas una a campo y otra en el
 laboratorio, en ambos casos los animales se capturaban directamente utilizando pinzas y
@@ -176,8 +194,8 @@ shorting"*), hasta su posterior conteo e identificación (\@.potapov_etal_2022).
 
 En el campo se delimitó dentro del área de muestreo de un metro cuadrado una sub-parcela,
 ubicada al azar, de 25 x 25 cm y se excavó el suelo hasta los 20 cm de profundidad, esta
-muestra se trabajó de manera estratificada separando en: hojarasca, suelo hasta los 10 cm y
-suelo hasta los 20 cm de profundidad.
+muestra se trabajó de manera estratificada separando en: hojarasca, suelo hasta los 10 cm
+y suelo hasta los 20 cm de profundidad.
 
 Para cada estrato las muestras de suelo fueron trasladadas al laboratorio, manteniendo el
 suelo intacto y cuidando que no pierda la humedad natural para evitar la deshidratación de
@@ -195,12 +213,11 @@ lombrices de tierra, arañas lobo, bichos bolita, milpies, cienpies, entre otros
 
 Los animales capturados son almacenados en alcohol 96º hasta su identificación taxonómica.
 Para la identificación se utilizaron claves taxonómicas que separan en grandes grupos
-taxonómicos(.@.cita_libro_general_de_clasif). 
-Las lombrices de tierra (Oligochaeta: Crassiclitellata) fueron identificadas
-hasta especies (\@.Satchell_1983, \@.Reynolds_1996, \@.deMichisandMoreno_1999) y la
-macrofauna restante fué separada en diferentes rangos taxonómicos desde órdenes hasta
-familias (\@.Dindal 1990, \@.Klimaszewiski and Watt 1997, \@.Choate 1999, \@.Zhang 2011,
-\@.Vargas et al. 2014, \@.Claps et al. 2020)
+taxonómicos(.\@.cita_libro_general_de_clasif). Las lombrices de tierra (Oligochaeta:
+Crassiclitellata) fueron identificadas hasta especies (\@.Satchell_1983, \@.Reynolds_1996,
+\@.deMichisandMoreno_1999) y la macrofauna restante fué separada en diferentes rangos
+taxonómicos desde órdenes hasta familias (\@.Dindal 1990, \@.Klimaszewiski and Watt 1997,
+\@.Choate 1999, \@.Zhang 2011, \@.Vargas et al. 2014, \@.Claps et al. 2020)
 
 Para muestrear la comunidad de la mesofauna del suelo, se utilizaron los suelos
 correspondientes a las muestras tomadas para capturar la macrofauna, de ellos se tomaron
@@ -209,49 +226,48 @@ la hojarasca y el suelo hasta la profundidad de 10 cm.
 Se tomó toda la hojarasca que se encontraba sobre la superficie que cubría el monolito de
 625 cm^2^, luego fue tamizada con malla de 2 mm separando así, de manera arbitraria, la
 hojarasca "fresca" que es la que queda sobre el tamiz de 2mm de la hojarasca "fermentada"
-y el suelo orgánico-mineral ("humus") que corresponden a la fracción que pasa el tamiz. 
-La fracción que pasaba el tamiz fué considerado como hojarasca con un gran avance en
-términos de descomposición (hojarasca fermentada según a bibliografía clásica (.@.citas), 
-esta fracción luego fue separada por un tamiz de 500 $\mu m$ separando, también
-de manera arbitraria, el "humus" que incluye el suelo orgánico mineral más porciones de
-tejidos vegetal "amorfo" de la "hojarasca fragmentada" que es la que queda sobre el tamiz
-de 500 $\mu m$.
+y el suelo orgánico-mineral ("humus") que corresponden a la fracción que pasa el tamiz. La
+fracción que pasaba el tamiz fué considerado como hojarasca con un gran avance en términos
+de descomposición (hojarasca fermentada según a bibliografía clásica (.\@.citas), esta
+fracción luego fue separada por un tamiz de 500 $\mu m$ separando, también de manera
+arbitraria, el "humus" que incluye el suelo orgánico mineral más porciones de tejidos
+vegetal "amorfo" de la "hojarasca fragmentada" que es la que queda sobre el tamiz de 500
+$\mu m$.
 
 El suelo del monolito de los primeros 10 centímetros de profundidad fue desagregado,
 mezclado y homogeneizado para tomar tres submuestras de suelo con un volumen de 100 cm³,
 previo a la toma de muestras el suelo fue disminuido en volumen mediante la técnica de
 cuarteo, lo que asegura la representatividad de las fracciones submuestreadas.
 
-Este procedimiento de estratificación se llevó adelante con la intención de conocer 
-la diversidad de organismos de la mesofauna edáfica según el estrato de suelo 
-considerando este procedimiento como proxi del hábitat más probable. 
-Luego las submuestras fueron congeladas hasta el momento de la extracción de la mesofauna.
+Este procedimiento de estratificación se llevó adelante con la intención de conocer la
+diversidad de organismos de la mesofauna edáfica según el estrato de suelo considerando
+este procedimiento como proxi del hábitat más probable. Luego las submuestras fueron
+congeladas hasta el momento de la extracción de la mesofauna.
 
-Las submuestras de la mesofauna edáfica fueron sometidas al método de flotación 
-y tamizado (.@.palacios-vargas). Estas se desagregan en agua en relación 1:4 de suelo:agua, 
-se agita enérgicamente durante 2 min, se deja reposar la solución durante unos minutos 
-y luego se vuelca la solución a través del juego de tamices. 
-El juego de tamices consistío en tamices apilados de 4 mm, 2mm, 1mm, 500 $\mu m$,
-250 $\mu m$ y 170 $\mu m$; la mesofauna se colecta de lo que
-queda atrapado en los tamices desde los 1000 $\mu m$ hasta las 170 $\mu m$.
+Las submuestras de la mesofauna edáfica fueron sometidas al método de flotación y tamizado
+(.\@.palacios-vargas). Estas se desagregan en agua en relación 1:4 de suelo:agua, se agita
+enérgicamente durante 2 min, se deja reposar la solución durante unos minutos y luego se
+vuelca la solución a través del juego de tamices. El juego de tamices consistío en tamices
+apilados de 4 mm, 2mm, 1mm, 500 $\mu m$, 250 $\mu m$ y 170 $\mu m$; la mesofauna se
+colecta de lo que queda atrapado en los tamices desde los 1000 $\mu m$ hasta las 170
+$\mu m$.
 
 Los animales colectados se almacenan en alcohol 96º, luego se procede al conteo e
-identificación de los taxones en diferentes rangos taxonómicos hasta familias utilizando 
-claves taxonómicas que pueden consultarse en: Burges and
-Raw 1967, Balogh and Balogh 1972, Evans and Till 1979, Balogh and Balogh 1988, Dindal
-1990, Krantz and Walter 2009, Momo and Falco 2009, Claps et al. 2020, Janssens 2023.
+identificación de los taxones en diferentes rangos taxonómicos hasta familias utilizando
+claves taxonómicas que pueden consultarse en: Burges and Raw 1967, Balogh and Balogh 1972,
+Evans and Till 1979, Balogh and Balogh 1988, Dindal 1990, Krantz and Walter 2009, Momo and
+Falco 2009, Claps et al. 2020, Janssens 2023.
 
-La metodología utilizada para extraer la fauna edáfica de 
-los suelos de Chivilcoy y Navarro según describe Sandler (2019) implicó, 
-el uso de la técnica de flotación y tamizado para extraer los ácaros y colémbolos
-cuya identificación taxonómica se realizó con lupa binocular y microscopio óptico 
-utilizando montaje temporal, y, el en el sitio y momento de muestreo de un marco 
-de 625 cm^2^ hasta los 20 cm de profundidad el uso de la extracción manual de 
-lombrices de tierra luego se realizó su posterior identificación
-taxonómica bajo lupa binocular. 
+La metodología utilizada para extraer la fauna edáfica de los suelos de Chivilcoy y
+Navarro según describe Sandler (2019) implicó, el uso de la técnica de flotación y
+tamizado para extraer los ácaros y colémbolos cuya identificación taxonómica se realizó
+con lupa binocular y microscopio óptico utilizando montaje temporal, y, el en el sitio y
+momento de muestreo de un marco de 625 cm^2^ hasta los 20 cm de profundidad el uso de la
+extracción manual de lombrices de tierra luego se realizó su posterior identificación
+taxonómica bajo lupa binocular.
 
-Con el suelo de los primeros 10 cm de profundidad, porción en la cuál se desarrolla la 
-mayor actividad de la microbiota (.@.librodesoilhealt), se llevó adelante la técnica de
+Con el suelo de los primeros 10 cm de profundidad, porción en la cuál se desarrolla la
+mayor actividad de la microbiota (.\@.librodesoilhealt), se llevó adelante la técnica de
 respiración inducida por sustrato en conjunto con el uso de antibióticos tanto para
 estimar la respiración heterotrófica del suelo y como para determinar la proporción de
 procariotas y eucariotas halladas por gramo de suelo que resulta en la aproximación del
@@ -271,14 +287,16 @@ estima la respiración *residual*, es decir, la respiración de aquellos organis
 respiran a pesar de la presencia de los antibióticos en el medio líquido.
 
 Se coloca un gramo de suelo / réplica / muestra en recipientes de 350 ml que se cierran
-herméticamente y que funcionan como cámaras de incubación, luego el suelo es embebido con 
-alguna de las soluciones descrita arriba y se coloca en el interior del recipiente la 
-trampa de álcali, un frasco de menor volumen con 5 ml de solución de hidróxido de sodio 
-NaOH O,1 M. Los recipientes se colocaron en estufa a 30ºC durante 48h para incubar el suelo
-y estimular la actividad biológica. Como controles (blancos) de la reacción se utilizaron
-frascos sin suelo con la trampa de álcali para medir el contenido de CO~2~ presente en la aire al momento del procedimiento. El CO~2~ liberado por la respiración biológica se recupera en la trampa
-de NaOH y se determina por titulación con ácido clorhídrico HCl 0,1 M y fenolftaleína
-como indicador (.@.coleman seccion de metodologias; .@.Frioni1986).
+herméticamente y que funcionan como cámaras de incubación, luego el suelo es embebido con
+alguna de las soluciones descrita arriba y se coloca en el interior del recipiente la
+trampa de álcali, un frasco de menor volumen con 5 ml de solución de hidróxido de sodio
+NaOH O,1 M. Los recipientes se colocaron en estufa a 30ºC durante 48h para incubar el
+suelo y estimular la actividad biológica. Como controles (blancos) de la reacción se
+utilizaron frascos sin suelo con la trampa de álcali para medir el contenido de CO~2~
+presente en la aire al momento del procedimiento. El CO~2~ liberado por la respiración
+biológica se recupera en la trampa de NaOH y se determina por titulación con ácido
+clorhídrico HCl 0,1 M y fenolftaleína como indicador (.\@.coleman seccion de metodologias;
+.\@.Frioni1986).
 
 La biomasa microbiana se aproxima considerando que 1 ml HCl 0.1M, equivale a 2.2mg de
 CO~2~ y que para un coeficiente de respiración igual a 1, se cumple que:
@@ -303,34 +321,48 @@ Como controles de la reacción se utilizaron frascos sin suelo y con la trampa d
 La producción de CO2 se determina por titulación con ácido HCl 0,2 N y fenolftaleína
 como indicador (Frioni, 1999)-->
 ```
-
-De manera complementaria se obtuvieron, a través del servicio del Laboratorio del Campo de 
-la Universidad Nacional de Luján, los valores para el porcentaje de materia orgánica, 
-el porcentaje de carbono, el carbono orgánico total, el porcentaje de nitrógeno, 
-la cantidad de fósforo extratable en partes por millón, el valor del potencial de hidrogeniones 
-en escala de pH y la conductividad eléctrica en milisiemens por centímetro.
-
-
+De manera complementaria se obtuvieron, a través del servicio del Laboratorio del Campo de
+la Universidad Nacional de Luján, los valores para el porcentaje de materia orgánica, el
+porcentaje de carbono, el carbono orgánico total, el porcentaje de nitrógeno, la cantidad
+de fósforo extratable en partes por millón, el valor del potencial de hidrogeniones en
+escala de pH y la conductividad eléctrica en milisiemens por centímetro.
 
 ### Análisis de datos
 
-Para describir las variables físicas, químicas y biológicas medidas se realizó un análisis
-descripivo de estas, para ello se calcularon las medidas de tendencia central y de disperción 
-para cada sitio y estrato. Se compararon las posibles diferencias entre las medianas de estas variables utilizando el análisis de varianza no paramétrico de Kruskal-Wallis (.@.cita_libro_metodos_estadisticos). Luego se procede al análisis multivariado mediante el uso de componentes principales (PCA) para identificar las posibles relaciones entre las variables ambientales (.@.numerical_ecology).
+Para describir las variables físicas, químicas y biológicas se realizó un análisis
+descripivo, para ello se calcularon las medidas de tendencia central y de dispersión para
+cada sitio y estrato. Se compararon las posibles diferencias entre las medianas de estas
+variables utilizando el análisis de varianza no paramétrico de Kruskal-Wallis (.\@.zar).
+Luego se procede al análisis multivariado mediante el uso de componentes principales (PCA)
+para identificar las posibles relaciones entre las variables ambientales
+(.\@.numerical_ecology).
 
-Para describir la estructura de las comunidades edáficas se realizó el análisis de la 
-diversidad alfa utilizando tanto el valor de la riqueza de unidades taxonómica como el índice de diversidad de Shanon-Wiener (**H'**). 
-Además mediante análisis de similitudes multivariado (ANOSIM) se determinan las posibles diferencias
-entre las comunidades, a la vez para conocer cuáles son las comunidades similares entre sí, se 
-calculó el
-dendograma basado en el agrupamiento jerárquico con el método de enlace promedio. En ambos análisis
-se utilizó el coeficiente de distancia de Bray-Curtis (.@.Koleff et al 2003paper_Vegan; .@.numerical_ecology). 
+Para describir la estructura de las comunidades edáficas se realizó el análisis de la
+diversidad alfa utilizando tanto el valor de la riqueza de unidades taxonómica como el
+índice de diversidad de Shanon-Wiener (**H'**). Además mediante análisis de similitudes
+multivariado (ANOSIM) se determinan las posibles diferencias entre las comunidades, a la
+vez para conocer cuáles son las comunidades similares entre sí, se calculó el dendograma
+basado en el agrupamiento jerárquico con el método de enlace promedio. En ambos análisis
+se utilizó el coeficiente de distancia de Bray-Curtis (.\@.Koleff et al 2003paper_Vegan;
+.\@.numerical_ecology).
+
+$$
+H' = -\sum_{i=1}^{S} p_i \ln(p_i)
+$$
+
+Donde: - $H'$ es el índice de Shannon-Wiener. - $S$ es el número total de especies en la
+comunidad. - $p_i$ es la proporción de la $i$-ésima especie en la comunidad.
+
+$$ BC = \frac{\sum |x_i - y_i|}{\sum (x_i + y_i)} $$
+
+Donde: - $BC$ es el coeficiente de distancia de Bray-Curtis. - $x_i$ y $y_i$ son los
+valores de las muestras en los sitios $i$.
 
 Para describir las relación entre los taxones y los sitios de muestreo se realizó el
-análisis de los componentes principales de las comunidades en modo R con los valores de
-la abundancia de los taxones previamente transformados con $\log_b(x) + 1$ (\@.numerical_ecology)
-de esta manera, podemos observar en el gráfico biplot a los sitios como 
-vectores y a los taxones como puntos en el espacio euclidiano de las coordenadas 
+análisis de los componentes principales de las comunidades en modo R con los valores de la
+abundancia de los taxones previamente transformados con $\log_b(x) + 1$
+(\@.numerical_ecology) de esta manera, podemos observar en el gráfico biplot a los sitios
+como vectores y a los taxones como puntos en el espacio euclidiano de las coordenadas
 principales.
 
 <!-- indice de Wilson y Schmida 1984 en Measuring beta diversity for presence–absence data Koleff et al 2003  y numerical ecology con R libro-->
@@ -353,11 +385,9 @@ y al tratamiento.
 ```
 ## Resultados
 
-```{r carga_variablesFQB, include=FALSE}
+```{r carga_variablesFQB, include=FALSE, warning=FALSE}
 
-library("tidyverse")
-fyq_unlu <- read.delim("~/Documentos/Redes/soil_interaction_web/database/fyq_unlu.txt")
-
+fyq_unlu <- read.delim("database/fyq_unlu.txt")
 
 ####
 # Respiración heterotrófica
@@ -379,30 +409,26 @@ ratio.hb<-c( 11/8, 11/6, 7/6, #Pastizal
 #Agrícola, corrección de 14 por 4.66 (como? usando la biomasa residual)
 # en agrícola existe un valor atípico de 14 y lo corregi a 1.4
 
-
 #hojarasca g/m2
 h<-c(
-  70.85*16, #P
-44.15*16,
-60.9*16,
-48.81*16, #R
-64.319*16,
-54.13*16,
+  160.59*0.5*16, #P
+147.55*0.5*16,
+144.48*0.5*16,
 
-80.6664*16, #A
-46.009*16,
-104.421*16)
+200.324*0.55*16, #R
+77.736*0.55*16,
+135.25*0.55*16,
 
-
-
-```
+173.93*0.3*16, #A
+81.38*0.3*16,
+259.77*0.3*16)*0.3
 
 
 
-#### Descriptivas
 
-```{r matrices_FQB, echo=FALSE}
 
+#########
+# matrices fisicoquimicas
 fyq.box<-fyq_unlu%>%mutate(
   sistema=substr(Sitio, 3, 3),
                        estrato=substr(Sitio, 1, 2),
@@ -413,26 +439,104 @@ names(fyq.box)<-c("nombre","muestra","CE","pH","MO","C","P","N","TOC","D_TOC_C",
 
 fyq.box<-fyq.box[,c(1,12,14,13,3,4,5,8,7)]
 
-resp.b<-c(0.131588785046729,0.14803738317757,0.14803738317757, #Pastizal
-          0.188187372708758,0.15234215885947,0.170264765784114, #Reserva
-          0.066236559139785,0.0851612903225806,0.0946236559139785) #Agrícola
-
-#agrego relación Hongo-Bacterias
-ratio.hb<-c( 1.375, 1.83333333333333, 1.16666666666667, #Pastizal
-             2.42857142857143, 1.83333333333333, 3.5, #Reserva
-             3.25, 1.4, 0.833333333333333) #Agrícola
-
-
 fqb.box<-data.frame(resp.b,ratio.hb,h,sitio=c(rep("P",3),rep("R",3),rep("A",3)),estrato=rep(10,9))
 
 ```
 
-La conductividad eléctrica medida en milisiemens por centímetro (ms/cm) fue determinada
-para el estrato de 10 a 20 cm. En cada sitio se observa claras diferencias y esto se
-convalida con el test de K-W p:H\<0.01, en el gráfico de cajas y bigotes se observa el
-mayor valor de CE se da en el pastizal natural, seguido del lote agrícola
+```{r carga_variables_fqb_RO, include=FALSE, warning=FALSE}
+#Anális de datos de ROSANA
+#Carga de datos
 
-```{r CE_unlu,echo=FALSE}
+RO <-RO <- read_excel("database/soil_networks.xlsx", sheet = "Ro_web")
+RO[is.na(RO)]<-0
+
+#Filtrar la macrofauna, razon, el diseño de muestreo no lo contempla
+
+RO_f<-RO %>% filter(class!="macrofauna")%>%
+  mutate(nombre=paste(system,
+                                    substr(site,1,3),
+                                    substr(year,3,4),
+                                    substr(month,1,3)))%>%
+  group_by(nombre,
+           system,site,year,month,season,
+           order,guild,specie) %>%
+  summarise(abundance=n(), peso.ind=median(biomass), 
+            bmicro=(median(bm)), 
+            res.mec=median((RM5+RM10)/2),DAP=median(DAP),HR=median(HR),
+            pH=median(Ph),CE=median(CE),
+            MO=median(MO),N=median(N),P=median(P),K=median(K),
+            Ca=median(Ca),Mg=median(Mg),Na=median(Sodio),respH=mean(RESP))%>%
+  distinct(specie,.keep_all=TRUE)
+
+#####################
+#Llevando abundancias a densidad
+
+sup.bocado <- 1/(pi*2.5^2/10000)
+sup.monolito <- 1/(0.25*0.25)
+
+#################
+RO_full<-RO_f%>%mutate(D=floor(case_when(
+  order=="crassiclitellata"~sup.monolito*abundance,
+  order!="crassiclitellata"~sup.bocado*abundance)
+  ),BT=D*peso.ind)
+
+##################
+#Matriz de comunidad
+
+abund_RO<-RO_full[,c("nombre","system","site","specie","abundance","D")] %>% 
+  pivot_wider(names_from = specie,
+              values_from = c(abundance,D),
+              values_fill = 0,
+              values_fn = sum)%>%
+  distinct(nombre,.keep_all=TRUE)
+#########
+#Matriz fisico quimica
+fq_RO<-RO_full%>%group_by(nombre,
+           system,site,year,month,season,
+           )%>%
+  summarise(res.mec=mean(res.mec),DAP=mean(DAP),HR=mean(HR),
+            pH=mean(pH),CE=mean(CE),
+            MO=mean(MO),N=mean(N),P=mean(P),K=mean(K),
+            Ca=mean(Ca),Mg=mean(Mg),Sodio=mean(Na),rH=mean(respH))%>%
+  distinct(nombre,.keep_all=TRUE)
+#Asignar número de réplica según la tesis de Rosana. pp53 tabla 2.1.
+#En el espectro de tamaños esto se encuentra con sus nombres.
+fq_RO$replica
+fq_RO[fq_RO$site=="triangulo","replica"]<-1
+fq_RO[fq_RO$site=="L27","replica"]<-1
+fq_RO[fq_RO$site=="molino","replica"]<-1
+
+fq_RO[fq_RO$site=="festuca","replica"]<-2
+fq_RO[fq_RO$site=="L24","replica"]<-2
+fq_RO[fq_RO$site=="manga","replica"]<-2
+
+fq_RO[fq_RO$site=="romina","replica"]<-3
+fq_RO[fq_RO$site=="L25","replica"]<-3
+fq_RO[fq_RO$site=="casuarina","replica"]<-3
+
+#En esta matriz de datos completa se encuentra la réplica, no se incluye
+# los pesos corporales, será trabajada en la próxima sección
+# cada sitio con sus variables FyQ y con las especies con densidad y abundancias
+
+RO_db_full <- merge(fq_RO, abund_RO, by = "nombre", all = TRUE)
+name.RO_db_full<-c(names(RO_db_full))
+
+names(RO_db_full)<-c("nombre","system","site",name.RO_db_full[-c(1:3)])
+
+```
+
+### Descriptivas
+
+**Conductividad Eléctrica** 
+
+La conductividad eléctrica medida en milisiemens por
+centímetro (milisiemens por centímetro $\frac{mS}{cm}$), para los suelos argiudoles de
+Luján, fue determinada para el estrato de 10 a 20 cm. En cada sitio se observan claras
+diferencias y esto se convalida con el test de K-W p:H\<0.01, en el gráfico de cajas y
+bigotes se observa el mayor valor de CE se da en el pastizal natural.
+
+```{r CE_unlu,include=FALSE}
+fyq.box$CE<-fyq.box$CE/100
 CE.sum<-data.frame(Sitio=c("A 20", "P 20", "R 20"),
                    Promedio=c(
                      mean(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"CE"]),
@@ -474,7 +578,48 @@ kruskal.test(CE ~ sitio, data = fyq.box, subset=fyq.box$estrato==20)
 pairwise.wilcox.test(fyq.box$CE, fyq.box$sitio,data=fyq.box,
                      subset=fyq.box$estrato==20,
                      p.adjust.method = "BH")
-{boxplot(CE ~ sitio+estrato, data = fyq.box, main = "Conductividad Eléctrica ms/cm")
+
+
+
+```
+
+```{r CE_RO, include=FALSE}
+CE.df<-data.frame(uso=levels(as.factor(RO_db_full$system)),
+                 promedio=c(mean(RO_db_full[RO_db_full$system=="A","CE"]),
+                        mean(RO_db_full[RO_db_full$system=="G","CE"]),
+                        mean(RO_db_full[RO_db_full$system=="N","CE"])
+                        ),
+                sd=c(sd(RO_db_full[RO_db_full$system=="A","CE"]),
+                        sd(RO_db_full[RO_db_full$system=="G","CE"]),
+                        sd(RO_db_full[RO_db_full$system=="N","CE"])
+                        ),
+                mediana=c(median(RO_db_full[RO_db_full$system=="A","CE"]),
+                        median(RO_db_full[RO_db_full$system=="G","CE"]),
+                        median(RO_db_full[RO_db_full$system=="N","CE"])
+                        ),
+                 quartil_1=c(quantile(RO_db_full[RO_db_full$system=="A","CE"],prob=0.25),
+                        quantile(RO_db_full[RO_db_full$system=="G","CE"],prob=0.25),
+                        quantile(RO_db_full[RO_db_full$system=="N","CE"],prob=0.25)
+                        ),
+                quartil_3=c(quantile(RO_db_full[RO_db_full$system=="A","CE"],prob=0.75),
+                        quantile(RO_db_full[RO_db_full$system=="G","CE"],prob=0.75),
+                        quantile(RO_db_full[RO_db_full$system=="N","CE"],prob=0.75)
+                        ),
+                row.names = NULL)
+
+kruskal.test(CE ~ system, data = RO_db_full)
+pairwise.wilcox.test(RO_db_full$CE, RO_db_full$system,data=RO_db_full,
+                                          p.adjust.method = "BH")
+
+
+```
+
+```{r CE_boxplot}
+
+par(mfrow=c(1,2))
+{boxplot(CE ~ sitio+estrato, data = fyq.box, main = "Argiudoles de Luján",
+         sub = "Conductividad Eléctrica mS/cm", xlab=NULL,
+         names = c("A", "P", "R"))
 # Calcular las coordenadas para colocar las letras
 # Puedes ajustar estas coordenadas según la posición deseada
 x_coords <- c(1.3, 2.3, 3.3)  # Coordenadas x para las letras
@@ -486,18 +631,39 @@ letras <- c("b", "a", "c")
 # Agregar las letras al gráfico
 text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
 
+{boxplot(CE ~ system, data = RO_db_full, main= "Argiudoles Chivilcoy y Navarro",
+         sub = "Conductividad Eléctrica mS/cm", xlab=NULL)
+         
+x_coords <- c(0.7, 1.7, 2.7)  # Coordenadas x para las letras
+y_coords <- rep(3.7, 3)  # Coordenadas y para las letras
+
+# Letras a colocar
+letras <- c("b", "b", "a")
+
+# Agregar las letras al gráfico
+text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
+
+
+par(mfrow=c(1,1))
 
 ```
 
+La conductividad eléctrica promedio de los suelos argiudoles de Chivilcoy y Navarro,
+muestran diferencias significativas (K-W p:H\<0.01) entre el pastizal naturalizado (N) que
+tiene el mayor valor medio de conductividad eléctrica y un importante rango de dispersión
+en comparación con los suelos con actividad antrópica cuyos valores de conductividad,
+tanto en su medida central como en la dispercion de sus valores, son similares entre sus
+sitios.
 
+**Potencial Hidrógeno**
 
+Los valores del pH, en los suelos argiudoles de Luján, no mostraron diferencias
+significativas (K-W p:H\>0.1) entre los sitios. En los suelos de Chivilcoy y Navarro
+existió diferencias significativas entre grupos (K-W p:H\<0.01) en los cuáles, es el
+pastizal naturalizado que se diferencia de los demás sistemas de usos, siendo los sistemas
+de uso similares entre sí.
 
-Los valores de pH fueron similares entre sitios considerando el suelo mineral que se halla
-entre los 10 - 20 cm.
-
-```{r pH_unlu,echo=FALSE}
-
-
+```{r pH_unlu,include=FALSE}
 pH.sum<-data.frame(Sitio=c("A 20", "P 20", "R 20"),
                    Promedio=c(
                      mean(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"pH"]),
@@ -535,41 +701,105 @@ print(pH.sum)
 
 
 # Crear los boxplots para cada variable
-kruskal.test(pH ~ sitio, data = fyq.box, subset=fyq.box$estrato==20)
-pairwise.wilcox.test(fyq.box$pH, fyq.box$sitio,data=fyq.box,
-                     subset=fyq.box$estrato==20,
-                     p.adjust.method = "BH",exact=FALSE)
+# corregir el valor extremo del pH por el promedio
+# lugar del dato 43
+fyq.box1<-fyq.box
 
-boxplot(pH ~ sitio+estrato, data = fyq.box, main = "potencial Hidrógeno")
+fyq.box1$pH[43]<-mean(fyq.box1[fyq.box1$estrato==20&fyq.box1$sitio=="R","pH"])
+
+
+kruskal.test(pH ~ sitio, data = fyq.box, subset=fyq.box$estrato==20)
 
 #no hay diferencias, la prueba areada dice R ab ;P b ;L bc
-# Calcular las coordenadas para colocar las letras
-# Puedes ajustar estas coordenadas según la posición deseada
-#x_coords <- c(1.3, 2.3, 3.3)  # Coordenadas x para las letras
-#y_coords <- rep(9, 3)  # Coordenadas y para las letras
-
-# Letras a colocar
-#letras <- c("b", "a", "c")
-
-# Agregar las letras al gráfico
-#text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
-
 
 ```
 
-El porcentaje de materia orgánica del suelo no resulto diferente al valor H:p\<0.05, pero
-se observan diferencias en los diferentes estratos. En el estrato superficial (0 a 10cm)
-el %MO fue mayor en la reserva seguido por el pastizal natural, esto se relaciona con la
-vegetación que se mantine sobre el suelo, en cambio en el lote el % de MO es menor en el
-primer estrato. Con respecto al estato más profundo (10 a 20 cm) la tendencia se invierte,
-el Lote agrícola y el pastizal muestran valores similares y mayores que el de la reserva,
-esto puede ser explicado en el fenómeno de la lixiviación que arrastra componentes del
-estrato superior del suelo y se acumula en el estrato inmediatamente inferior, en cambio
-en vegetación tipo boscosa como lo es la reserva la mayor proporción de materia orgánica
-se encontraría en pie y a la vez lo lixiviado seria utilizado por la vegetación viva por
-parte de las raices que exploran el suelo más allá de la capa superficial del suelo.
+```{r pH_RO,include=FALSE}
+pH.df<-data.frame(uso=levels(as.factor(RO_db_full$system)),
+                 promedio=c(mean(RO_db_full[RO_db_full$system=="A","pH"]),
+                        mean(RO_db_full[RO_db_full$system=="G","pH"]),
+                        mean(RO_db_full[RO_db_full$system=="N","pH"])
+                        ),
+                sd=c(sd(RO_db_full[RO_db_full$system=="A","pH"]),
+                        sd(RO_db_full[RO_db_full$system=="G","pH"]),
+                        sd(RO_db_full[RO_db_full$system=="N","pH"])
+                        ),
+                mediana=c(median(RO_db_full[RO_db_full$system=="A","pH"]),
+                        median(RO_db_full[RO_db_full$system=="G","pH"]),
+                        median(RO_db_full[RO_db_full$system=="N","pH"])
+                        ),
+                 quartil_1=c(quantile(RO_db_full[RO_db_full$system=="A","pH"],prob=0.25),
+                        quantile(RO_db_full[RO_db_full$system=="G","pH"],prob=0.25),
+                        quantile(RO_db_full[RO_db_full$system=="N","pH"],prob=0.25)
+                        ),
+                quartil_3=c(quantile(RO_db_full[RO_db_full$system=="A","pH"],prob=0.75),
+                        quantile(RO_db_full[RO_db_full$system=="G","pH"],prob=0.75),
+                        quantile(RO_db_full[RO_db_full$system=="N","pH"],prob=0.75)
+                        ),
+                row.names = NULL)
+print(pH.df)
+kruskal.test(pH ~ system, data = RO_db_full)
+pairwise.wilcox.test(RO_db_full$pH, RO_db_full$system,data=RO_db_full,
+                                          p.adjust.method = "BH")
 
-```{r MO_unlu,echo=FALSE}
+```
+
+```{r pH_boxplot, echo=FALSE}
+par(mfrow=c(1,2))
+boxplot(pH ~ sitio+estrato, data = fyq.box1, sub = "potencial Hidrógeno",
+        main= "Argiudoles Luján", names=c("A","P","R"))
+
+{boxplot(pH ~ system, data = RO_db_full, sub = "potencial Hidrógeno",
+         main= "Argiudoles Chivilcoy y Navarro")
+x_coords <- c(0.7, 1.7, 2.7)  # Coordenadas x para las letras
+y_coords <- rep(8.8, 3)  # Coordenadas y para las letras
+
+# Letras a colocar
+letras <- c("b", "b", "a")
+
+# Agregar las letras al gráfico
+text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
+
+par(mfrow=c(1,1))
+```
+
+Observando las cajas que resumen la variabilidad del pH en los suelos de Luján, podemos
+observar que los valores de mediana más altos se dió en la reserva con una dispersión de
+datos importante, en el suelo de pastizal e valor de la mediana fué el más bajo pero la
+dispersión de valores es amplia. En el sistema Agrícola la mediana y los rangos de
+dispersión se encuentran cercanos entre sí con un valor por arriba de 6,2 en escala de pH.
+
+En los suelos de Chivilcoy y Navarro, el pastizal naturalizado muestra el mayor valor de
+la mediana y se separa significativamente de los demás sistemas de uso, además se observa
+un mayor rango en la dispersión de estos datos. Los sistemas A y G tienen valores de
+mediana y rasgos de dispersión estrechos y similares entre sí aunque en el sistema mixto
+lo valores de pH son ligeramente mayores.
+
+El patrón general muestra que en sistemas agrícolas los valores de pH son más bajos y
+menos variables fenómeno que podríamos relacionar con la aplicación de insumos inorgánicos
+que podrían disminuir el pH y a la vez por su forma de aplicación homogénea a lo ancho del
+lote "homogeneizar" el valor de este en la superficie agrícola.
+
+**Materia Orgánica**
+
+En los suelos argiudoles de Luján el porcentaje de materia orgánica del suelo no resulto
+diferente significativamente (K-W H:p\<0.05), pero se observan valores diferentes del
+porcentaje de materia orgánica en los diferentes estratos.
+
+En el estrato superficial (0 a 10cm) el %MO fue mayor en la reserva seguido por el
+pastizal, esto posiblemente se relaciona con la vegetación que se mantine sobre el suelo,
+en cambio en el predio agrícola el % de MO es menor en el primer estrato.
+
+Con respecto al estato más profundo (10 a 20 cm) la tendencia se invierte, el lote
+agrícola y el pastizal muestran valores similares y mayores que el de la reserva, esto
+puede ser explicado basándonos en el fenómeno de lixiviación edáfica en el que se
+arrastran componentes del estrato superior del suelo y se acumula en el estrato
+inmediatamente inferior. En cambio en la vegetación tipo arbórea como se da en la reserva
+la mayor proporción de materia orgánica se encontraría en pie, a la vez que el material
+lixiviado seria utilizado por la vegetación viva a través de las raices que exploran el
+suelo más allá del estrato superficial del suelo.
+
+```{r MO_unlu,include=FALSE}
 
 MO.sum<-data.frame(Sitio=c("A 10", "P 10", "R 10","A 20", "P 20", "R 20"),
                    Promedio=c(mean(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==10,"MO"]),
@@ -638,32 +868,87 @@ pairwise.wilcox.test(fyq.box$MO, fyq.box$sitio,data=fyq.box,
                      subset=fyq.box$estrato==20,
                      p.adjust.method = "BH")
 #no significativo al p=0.05
-boxplot(MO ~ sitio+estrato, data = fyq.box, main = "% Materia Orgánica")
+
 
 ```
 
-Con relación al porcentaje de Nitrógeno en el suelo la prueba de diferencia de las
-medianas K-W no indica diferencias al p\<0.05 en a capa superficial del suelo, pero si
-indica diferencias significactivas en la capa subsuperficial.
+```{r MO_RO,echo=FALSE}
+
+MO.df<-data.frame(uso=levels(as.factor(RO_db_full$system)),
+                 promedio=c(mean(RO_db_full[RO_db_full$system=="A","MO"]),
+                        mean(RO_db_full[RO_db_full$system=="G","MO"]),
+                        mean(RO_db_full[RO_db_full$system=="N","MO"])
+                        ),
+                sd=c(sd(RO_db_full[RO_db_full$system=="A","MO"]),
+                        sd(RO_db_full[RO_db_full$system=="G","MO"]),
+                        sd(RO_db_full[RO_db_full$system=="N","MO"])
+                        ),
+                mediana=c(median(RO_db_full[RO_db_full$system=="A","MO"]),
+                        median(RO_db_full[RO_db_full$system=="G","MO"]),
+                        median(RO_db_full[RO_db_full$system=="N","MO"])
+                        ),
+                 quartil_1=c(quantile(RO_db_full[RO_db_full$system=="A","MO"],prob=0.25),
+                        quantile(RO_db_full[RO_db_full$system=="G","MO"],prob=0.25),
+                        quantile(RO_db_full[RO_db_full$system=="N","MO"],prob=0.25)
+                        ),
+                quartil_3=c(quantile(RO_db_full[RO_db_full$system=="A","MO"],prob=0.75),
+                        quantile(RO_db_full[RO_db_full$system=="G","MO"],prob=0.75),
+                        quantile(RO_db_full[RO_db_full$system=="N","MO"],prob=0.75)
+                        ),
+                row.names = NULL)
+print(MO.df)
+kruskal.test(MO ~ system, data = RO_db_full)
+pairwise.wilcox.test(RO_db_full$MO, RO_db_full$system,data=RO_db_full,
+                                          p.adjust.method = "BH")
+
+
+```
+
+```{r MO_boxplot,echo=FALSE}
+par(mfrow=c(1,2))
+boxplot(MO ~ sitio+estrato, data = fyq.box, main="Argiudoles Luján" 
+        ,sub = "% Materia Orgánica",names=c("A","P","R","A","P","R"),xlab=NULL)
+
+boxplot(MO ~ system, data = RO_db_full, main="Argiudoles Chivilcoy y Navarro", sub = "% Materia Orgánica",xlab=NULL)
+par(mfrow=c(1,1))
+```
+
+Los suelos argiudoles de Chivilcoy y Navarro no fueron diferentes significativamente (K-W
+H:p\>0.05), sin embargo, se puede observar que los lotes agrícola intensivo y mixto
+agrícola ganadero tuvieron valores del porcentaje de materia orgánica del suelo similares
+y mayores a los del pastizal naturalizado. Los pastizales sin activdad ganadera mantienen
+en pié el material vegetal aereo por más tiempo por lo que la incorporación de la
+hojarasca en este sistema lleva más tiempo en comparacón con el sistema agrícola bajo
+siembra directa, por otra parte, la materia orgánica que se incorpora al suelo en sistemas
+de pastizales proviene principalmente de las raices cuyas extensiones pueden ir más allá
+de los primeros centímetros de profundidad del suelo y a la vez la relación C/N de las
+raíces influiría en la incorporación de materia orgánica en el suelo.
+
+**Nitrógeno**
+
+En los suelos Argiudoles de Luján con relación al porcentaje de Nitrógeno en el suelo la
+prueba de diferencia de las medianas de Kruskal-Wallis no indica diferencias al H:p\<0.05
+en la capa superficial del suelo, pero si indica diferencias significactivas en la capa
+subsuperficial.
 
 El % de Nitrógeno en el suelo en ambos estratos fué mayor en el lote agrícola y esto puede
 estar reflejando las fertilizaciones que recibe este suelo para llevar adelante la
 producción de forraje, ya sea debido a la fijación biológica por parte de los rizobios
-mutualistas con la alfalfa o fertilización mineral. En la capa superficial, el menor valor
-se observa en el pastizal natural lo que se relaciona con la demanda de nitrógeno para el
-desarrollo de los pastizales, la reserva se posiciona en un lugar intermedio y su
-contenido puede relacionarse con la mineraliación del nutriente debido al proceso de
-descomposición y humificación de la hojarasca que se deposita sobre la superficie del
-suelo.
+mutualistas con la alfalfa o a la fertilización mineral. En la capa superficial, el menor
+valor se observa en el pastizal natural lo que se relaciona con la demanda de nitrógeno
+para el desarrollo y crecimiento de los pastizales, la reserva se posiciona en un lugar
+intermedio y su contenido puede relacionarse con la mineraliación del nutriente debido al
+proceso de descomposición y humificación de la hojarasca que se deposita sobre la
+superficie del suelo.
 
-En el estrato subsuperficial la relación entre las medianas es de mayor a menor lote
+En el estrato subsuperficial la relación entre las medianas es de mayor a menor, lote
 agrícola, pastizal y reserva. Con respecto al pastizal podemos relacionar esto con el
-lixiviado del nitrógeno y la poca exploración de las raices en estas profundidades lo que
-se observa en los valores atípicos, en sentido contrario la demanda de nitrógeno por las
-raices de la vegetación arbórea podría estar relacionada con la menor concentracion de N
-en el estrato inferior.
+lixiviado del nitrógeno y la poca exploración de las raices de las gramíneas en estas
+profundidades lo que se observa en los valores atípicos, en sentido contrario la demanda
+de nitrógeno por las raices de la vegetación arbórea podría estar relacionada con la menor
+concentracion de N en el estrato inferior.
 
-```{r N_unlu,echo=FALSE}
+```{r N_unlu,include=FALSE}
 
 N.sum<-data.frame(Sitio=c("A 10", "P 10", "R 10","A 20", "P 20", "R 20"),
                    Promedio=c(mean(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==10,"N"]),
@@ -729,17 +1014,88 @@ pairwise.wilcox.test(fyq.box$N, fyq.box$sitio,data=fyq.box,
 pairwise.wilcox.test(fyq.box$N, fyq.box$sitio,data=fyq.box,
                      subset=fyq.box$estrato==20,
                      p.adjust.method = "BH",exact=FALSE)
-boxplot(N ~ sitio+estrato, data = fyq.box, main = "% Nitrógeno")
+```
+
+```{r N_RO,echo=FALSE}
+
+N.df<-data.frame(uso=levels(as.factor(RO_db_full$system)),
+                 promedio=c(mean(RO_db_full[RO_db_full$system=="A","N"]),
+                        mean(RO_db_full[RO_db_full$system=="G","N"]),
+                        mean(RO_db_full[RO_db_full$system=="N","N"])
+                        ),
+                sd=c(sd(RO_db_full[RO_db_full$system=="A","N"]),
+                        sd(RO_db_full[RO_db_full$system=="G","N"]),
+                        sd(RO_db_full[RO_db_full$system=="N","N"])
+                        ),
+                mediana=c(median(RO_db_full[RO_db_full$system=="A","N"]),
+                        median(RO_db_full[RO_db_full$system=="G","N"]),
+                        median(RO_db_full[RO_db_full$system=="N","N"])
+                        ),
+                 quartil_1=c(quantile(RO_db_full[RO_db_full$system=="A","N"],prob=0.25),
+                        quantile(RO_db_full[RO_db_full$system=="G","N"],prob=0.25),
+                        quantile(RO_db_full[RO_db_full$system=="N","N"],prob=0.25)
+                        ),
+                quartil_3=c(quantile(RO_db_full[RO_db_full$system=="A","N"],prob=0.75),
+                        quantile(RO_db_full[RO_db_full$system=="G","N"],prob=0.75),
+                        quantile(RO_db_full[RO_db_full$system=="N","N"],prob=0.75)
+                        ),
+                row.names = NULL)
+
+kruskal.test(N ~ system, data = RO_db_full)
+pairwise.wilcox.test(RO_db_full$N, RO_db_full$system,data=RO_db_full,
+                                          p.adjust.method = "BH")
+
 
 ```
 
-Con respecto al fósforo claramente al ser un nutriente poco movil y disponible, la
-amplitud de los valores para el lote agrícola en ambos estratos refleja la fertilización
-de este nutriente sobre el suelo. En los demás sitios los valores de la concentración de
-fósforo fueron similares en ambos estratos tanto para la reserva como para el pastizal
-natural.
+```{r N_boxplot,echo=FALSE}
+par(mfrow=c(1,2))
+{boxplot(N ~ sitio+estrato, data = fyq.box, 
+         main="Argiudoles Luján", sub = "% Nitrógeno",
+         names=c("A","P","R","A","P","R"),xlab=NULL)
+x_coords <- c(0.7, 1.7, 2.7,3.7,4.7,5.7)  # Coordenadas x para las letras
+y_coords <- rep(3.6, 6)
+letras <- c("a","a","a","b","c","d")
+text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)
+  }
 
-```{r P_unlu, echo=FALSE}
+{boxplot(N ~ system, data = RO_db_full, main="Argiudoles Chivilcoy y Navarro",
+         sub = "% Nitrógeno",xlab=NULL)
+x_coords <- c(0.7, 1.7, 2.7)  # Coordenadas x para las letras
+y_coords <- rep(0.4, 3)  # Coordenadas y para las letras
+
+# Letras a colocar
+letras <- c("b", "a", "b")
+
+# Agregar las letras al gráfico
+text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
+par(mfrow=c(1,1))
+```
+
+En los suelos de Chivilcoy y Navarro el porcentaje de nitrógeno de los suelos fué
+diferente (K-W H:p\<0.5). En el gráfico puede observarse que el mayor valor de la mediana
+ocurrió en el sistema G (mixto agrícola-ganadero). Tanto para el pastizal naturalizado
+como para el sistema agrícola intensivo, las diferencias no fueron significativas pero se
+observa que en el pastizal naturalizado la mediana del porcentaje del nitrógeno es mas
+bajo aunque la dispersión de esta variable en este sistema fué más amplia que la del
+sistema agrícola intensivo. En el sistema mixto, además de las prácticas agrícolas se debe
+tener encuenta que existe la fertilización por parte de la excreta de los animales lo que
+podría relacionarse con mayores valores en el % de nitrógeno. El sistema agrícola requiere
+del uso de nutrientes externos sobre el suelo para contemplar la demanda de los cultivos a
+la vez que algunos cultivos tienen la capacidad de la fijación biológica del nitrógeno
+mediante relaciones simbióticas entre las raices y las bcterias noduladoras.
+
+**Fósforo** 
+En los suelos argiudoles de Luján con respecto al fósforo, las diferencias fueron 
+significativas estadísticamente para la prueba de Kruskal-Wallis (H: p<0.01).
+El fósforo al ser un nutriente poco movil y poco disponible en el suelo puede asociarse 
+su amplitud de valores para el uso agrícola en ambos estratos
+con el efecto de la fertilización de este nutriente sobre el suelo. 
+En los demás sitios los valores 
+de la concentración de fósforo fueron similares en ambos estratos tanto para la reserva como
+para el pastizal natural.
+
+```{r P_unlu, include=FALSE}
 
 P.sum<-data.frame(Sitio=c("A 10", "P 10", "R 10","A 20", "P 20", "R 20"),
                    Promedio=c(mean(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==10,"P"]),
@@ -805,7 +1161,48 @@ pairwise.wilcox.test(fyq.box$P, fyq.box$sitio,data=fyq.box,
 pairwise.wilcox.test(fyq.box$P, fyq.box$sitio,data=fyq.box,
                      subset=fyq.box$estrato==20,
                      p.adjust.method = "BH",exact=FALSE)
-{boxplot(P ~ sitio+estrato, data = fyq.box, main = "Fósforo intercambiable p.p.m.")
+
+
+```
+
+```{r P_RO,include=FALSE}
+
+P.df<-data.frame(uso=levels(as.factor(RO_db_full$system)),
+                 promedio=c(mean(RO_db_full[RO_db_full$system=="A","P"]),
+                        mean(RO_db_full[RO_db_full$system=="G","P"]),
+                        mean(RO_db_full[RO_db_full$system=="N","P"])
+                        ),
+                sd=c(sd(RO_db_full[RO_db_full$system=="A","P"]),
+                        sd(RO_db_full[RO_db_full$system=="G","P"]),
+                        sd(RO_db_full[RO_db_full$system=="N","P"])
+                        ),
+                mediana=c(median(RO_db_full[RO_db_full$system=="A","P"]),
+                        median(RO_db_full[RO_db_full$system=="G","P"]),
+                        median(RO_db_full[RO_db_full$system=="N","P"])
+                        ),
+                 quartil_1=c(quantile(RO_db_full[RO_db_full$system=="A","P"],prob=0.25),
+                        quantile(RO_db_full[RO_db_full$system=="G","P"],prob=0.25),
+                        quantile(RO_db_full[RO_db_full$system=="N","P"],prob=0.25)
+                        ),
+                quartil_3=c(quantile(RO_db_full[RO_db_full$system=="A","P"],prob=0.75),
+                        quantile(RO_db_full[RO_db_full$system=="G","P"],prob=0.75),
+                        quantile(RO_db_full[RO_db_full$system=="N","P"],prob=0.75)
+                        ),
+                row.names = NULL)
+kruskal.test(P ~ system, data = RO_db_full)
+pairwise.wilcox.test(RO_db_full$P, RO_db_full$system,data=RO_db_full,
+                                          p.adjust.method = "BH")
+
+
+```
+
+```{r P_boxplot,echo=FALSE}
+
+par(mfrow=c(1,2))
+
+{boxplot(P ~ sitio+estrato, data = fyq.box,main="Argiudol Luján",
+         sub = "Fósforo intercambiable p.p.m.",
+         names=c("A","P","R","A","P","R"))
 x_coords <- c(1.3, 2.3, 3.3,4.3, 5.3, 6.3)  # Coordenadas x para las letras
 y_coords <- rep(30, 3)  # Coordenadas y para las letras
 
@@ -815,19 +1212,37 @@ letras <- c("a", "b", "b","c", "d", "d")
 # Agregar las letras al gráfico
 text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
 
+boxplot(P ~ system, data = RO_db_full, main="Argiudol Chivicoy y Navarro",
+         sub = "Fósforo intercambiable p.p.m.")
 
+par(mfrow=c(1,1))
 ```
+
+En los suelos argiudoles de Chivilcoy y Navarro, la variación del fósforo entre los sistemas de uso del suelo no mostraron diferencias significativas (K-W H:p>0.05), se observan en los
+gráficos de cajas que la mediane del sistema G fué levemente mayor a las medianas del 
+pastizal naturalizado y el sistema agrícola cuyos valores de mediana fueron mróximos entre 
+sí. Además en el sistema intensivo agrícola los valores en partes por millón del fósforo 
+asimilable muestran una gran amplitud, que podría tratarse del efecto del balance adición de nutriente / consumo del cultivo, en cambio, en el sistema del pastizal naturalizado 
+el rango de variabilidad es más estrecho reflejando las condiciones ambientales más homogénea del sistema.
+
+**Respiración Heterotrófica**
 
 La respiración heterotrófica se midió para el estrato que corresponde hasta los 10 cm de
 profundidad dado que allí se da la mayor actividad de los microorganismos involucrados en
-el metabolismo del suelo (\@.aca colocar la cita del libro verde). Se observan diferencias
-significaivas en las medianas entre los sitios, la reserva muestra el mayor valor de
-resiracion seguido de cerca por el pastizal y con el cual no muestra diferencias
-significativas y el valor mas bajo se da en el agrícola el cual si difiere de ambos
-grupos. Basicamente en los suelos permanentemente cubiertos la actividad biológica de la
-microbiota/microflora es mayor.
+el metabolismo del suelo (\@.aca colocar la cita del libro verde). 
 
-```{r resp_het,echo=FALSE}
+Se observan diferencias
+significaivas en las medianas entre los sitios (K-W H:p<0.01),
+la reserva muestra el mayor valor de resiracion seguido de cerca por el pastizal y 
+con el cual no muestra diferencias significativas, pero si se puede observar que las cajas 
+no se superponen entre sí. El valor mas bajo de la actividad respiratoria se da en el 
+sistema agrícola el cual difiere marcadamente de ambos grupos. 
+
+Para estos suelos, podríamos decir que en los suelos de lotes que se encuentran
+permanentemente cubiertos 
+la actividad respiratoria biológica de la microbiota es mayor.
+
+```{r resp_het_UNLu,include=FALSE}
 
 rH.sum<-data.frame(Sitio=c("A 10", "P 10", "R 10"),
                    Promedio=c(
@@ -869,7 +1284,47 @@ kruskal.test(resp.b ~ sitio, data = fqb.box)
 pairwise.wilcox.test(fqb.box$resp.b, fqb.box$sitio,data=fqb.box,
                      p.adjust.method = "BH",exact=FALSE)
 
-{boxplot(resp.b ~ sitio+estrato, data = fqb.box, main = "Respiración Heterotrófica")
+
+
+
+```
+
+```{r respH_RO,include=FALSE}
+
+rH.df<-data.frame(uso=levels(as.factor(RO_db_full$system)),
+                 promedio=c(mean(RO_db_full[RO_db_full$system=="A","rH"]),
+                        mean(RO_db_full[RO_db_full$system=="G","rH"]),
+                        mean(RO_db_full[RO_db_full$system=="N","rH"])
+                        ),
+                sd=c(sd(RO_db_full[RO_db_full$system=="A","rH"]),
+                        sd(RO_db_full[RO_db_full$system=="G","rH"]),
+                        sd(RO_db_full[RO_db_full$system=="N","rH"])
+                        ),
+                mediana=c(median(RO_db_full[RO_db_full$system=="A","rH"]),
+                        median(RO_db_full[RO_db_full$system=="G","rH"]),
+                        median(RO_db_full[RO_db_full$system=="N","rH"])
+                        ),
+                 quartil_1=c(quantile(RO_db_full[RO_db_full$system=="A","rH"],prob=0.25),
+                        quantile(RO_db_full[RO_db_full$system=="G","rH"],prob=0.25),
+                        quantile(RO_db_full[RO_db_full$system=="N","rH"],prob=0.25)
+                        ),
+                quartil_3=c(quantile(RO_db_full[RO_db_full$system=="A","rH"],prob=0.75),
+                        quantile(RO_db_full[RO_db_full$system=="G","rH"],prob=0.75),
+                        quantile(RO_db_full[RO_db_full$system=="N","rH"],prob=0.75)
+                        ),
+                row.names = NULL)
+kruskal.test(rH ~ system, data = RO_db_full)
+pairwise.wilcox.test(RO_db_full$rH, RO_db_full$system,data=RO_db_full,
+                                          p.adjust.method = "BH")
+
+
+```
+
+```{r resp_boxplot,echo=FALSE}
+par(mfrow=c(1,2))
+{boxplot(resp.b ~ sitio+estrato, data = fqb.box, names=c("A","P","R"),
+         sub = "Respiración Heterotrófica",xlab=NULL,
+         main="Argiudoles Lujan")
 x_coords <- c(1.3, 2.3, 3.3)  # Coordenadas x para las letras
 y_coords <- rep(0.1, 3)  # Coordenadas y para las letras
 
@@ -879,9 +1334,28 @@ letras <- c("b", "a", "a")
 # Agregar las letras al gráfico
 text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
 
+{boxplot(rH ~ system, data = RO_db_full, sub = "Respiración Heterotrófica",xlab=NULL,
+         main="Argiudoles Chivilcoy y Navarro")
+x_coords <- c(0.7, 1.7, 2.7)  # Coordenadas x para las letras
+y_coords <- rep(0.18, 3)  # Coordenadas y para las letras
 
+# Letras a colocar
+letras <- c("b", "a", "a")
 
+# Agregar las letras al gráfico
+text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
+par(mfrow=c(1,1))
 ```
+
+
+En los suelos argiudoles de Chivilcoy y Navarro, la respiración heterotrófica en 
+el sistema agrícola fue menor y se diferenció significativamente (K-W H:p<0.05) de los 
+sistema mixto y naturalizado cuyos valores de respiración entre ellos y según la prueba 
+estadística fué similar. El gráfico de cajas muestra una mayor disperción del valor de la 
+respiración para el sistema del pastizal naturalizado pero con valores mínimos de actividad 
+respiratoria por arriba de los valores mínimos de los demás sistemas de uso.
+
+
 
 ```{r ratioHB,echo=FALSE}
 
@@ -927,22 +1401,33 @@ kruskal.test(ratio.hb ~ sitio, data = fqb.box)
 pairwise.wilcox.test(fqb.box$ratio.hb, fqb.box$sitio,data=fqb.box,
                      p.adjust.method = "BH",exact=FALSE)
 
-boxplot(ratio.hb ~ sitio+estrato, data = fqb.box, main = "Relación Eucariotas:Procariotas")
+```
+
+```{r h/b_plot, echo=FALSE}
+
+boxplot(ratio.hb ~ sitio+estrato, data = fqb.box, 
+        main= "Argiudoles Luján",
+        sub = "Relación Eucariotas:Procariotas")
 
 ```
 
 Con respecto a la relación entre eucariotas:procariotas que indica la proporcion de hongos
-y bacteria que forman parte de la actividd de la respiración heterotrófica, no se
-observaron diferencias significativas. Pero observando las medianas en la reserva la
+y bacteria que forman parte de la actividad de la respiración heterotrófica, no se
+observaron diferencias significativas (K-W H:p>0.05). 
+
+Pero observando las medianas, en la reserva la
 relación de eucariotas:procariotas es mayor, lo que indica una mayor proporcion de la
-actividad de hongos en este sitio y ello está ligado a un sistema más maduro o a la
-actividad de descomposición de la hojarasca por parte de hongos y micorrizas. En el caso
-del lote agrícola el valor de su mediana es similar al del pastizal pero el rango
+actividad de hongos en este sitio y ello está ligado a un sistema más maduro en términos de 
+sucesión ecológica y a los canales de energía en sistemas detitívoros del suelo 
+(.@.cita/cita) o a la
+actividad de descomposición de la hojarasca por parte de hongos y micorrizas. 
+En el caso del lote agrícola el valor de su mediana es similar al del pastizal pero el rango
 intercuartílico es más amplio lo que muestra que la proporción de hongos que intervienen
 en el metabolismo del suelo es heterogéneo y dependerá del punto de muestreo, en cambio el
-valor del pastizal refleja una mayor estabilidad del microbioma en el lote.
+valor del pastizal refleja una mayor homogeneidad en las proporciones de taxones 
+del microbioma en estos suelos.
 
-```{r hojarasca, echo=FALSE}
+```{r hojarasca, include=FALSE}
 
 h.sum<-data.frame(Sitio=c("A 10", "P 10", "R 10"),
                    Promedio=c(
@@ -987,13 +1472,24 @@ kruskal.test(h ~ sitio, data = fqb.box)
 pairwise.wilcox.test(fqb.box$h, fqb.box$sitio,data=fqb.box,
                      p.adjust.method = "BH",exact=FALSE)
 
-boxplot(h ~ sitio+estrato, data = fqb.box, main = "Biomasa de la hojarasca")
+```
 
-
+```{r hojarasca_boxplot, echo=FALSE,warning=FALSE}
+boxplot(h ~ sitio+estrato, data = fqb.box, 
+        sub = "Biomasa de la hojarasca en superficie",
+        xlab=NULL, names=c("A","P","R"))
 ```
 
 
-Para los valores de hojarasca en metros cuadrados mediante la prueba estadística de K-W no se observan valores de diferencias entre los sitios, sin embargo los gráficos de cajas y bigotes nos muestran que la cantidad de hojarasca en el suelo agrícola tiene un mayor biomasa que een los demás sistemas, además se observa el valor más bajo de la mediana y con una dispersión más estrecha en el sistema de la Reserva.
+Para los valores de hojarasca en metros cuadrados mediante la prueba estadística de 
+Kruskal-Wallis (H:p<0.05) no se observan valores de diferencias entre los sitios, sin 
+embargo los gráficos de cajas y bigotes nos muestran que la cantidad de hojarasca en el
+suelo de la Reserva tiene un mayor biomasa que en los demás sistemas, además se observa el valor
+más bajo de la mediana y una dispersión más estrecha en el sistema de la Agrícola y en el 
+pastizal un valor de la mediana del peso similar al de la Reserva pero con muy poca variación.
+
+**Correlaciones de Spearman entre pares de variables**
+
 
 ```{r matriz_pca, include=FALSE}
 
@@ -1053,68 +1549,201 @@ fq1<-fyq.pca[,c(4,6,8,14,16,18,19,24)]
 fq1<-as.data.frame(fq1)
 row.names(fq1)<-fyq.pca$nombre
 
-corr_fqb_unlu<-Hmisc::rcorr(as.matrix(fq1),type = "pearson");
-print(corr_fqb_unlu[3])
-print(corr_fqb_unlu[1])
+corr_fqb_unlu<-Hmisc::rcorr(as.matrix(fq1),type = "spearman");
+print(round(as.matrix(corr_fqb_unlu$P),2))
+print(round(as.matrix(corr_fqb_unlu$r),2))
 
 #corrplot::corrplot(cor(fq1),tl.pos="t",type = "upper",tl.col = "black",tl.cex = .8,bg="brown4",diag=FALSE)
 #col=col3(100),
+
+# PerformanceAnalytics::chart.Correlation(as.matrix(fq1), histogram = TRUE, method = "spearman")
 ```
 
-La matriz de correlaciones de a pares nos muestran que las variables no están
-correlacionadas entre si con excepción de fósforo y el nitrógeno que se correlacionan con
-la respiración heterotrófica, esto se observa mediante el valor de significacia de menor
-al p\<0.05, se observa tambien una significacancia marginal con valor p\<0.1 entre el P y
-N lo que puede estar reflejando el efecto conjunto de la respiración heterotrófica.
+En los suelos de Luján la matriz de correlaciones de a pares nos muestran que las 
+variables están poco correlacionadas entre si con excepción del nitrógeno que se 
+correlaciona negativamente con la respiración heterotrófica, 
+esto se observa mediante el valor de significacia del p-valor de Spearman $\rho$: p<0.05, 
+se observa tambien una significancia marginal con valor $\rho$: p\<0.1 entre la 
+conductividad eléctrica y la relación hongos/bacterias con correlaciones negativas 
+por lo que indicaría que suelos más salobres disminiyen la proporción de hongos por gramo de
+suelo.
+El P también presenta una situación marginal, con su p-valor igual a $\rho$: p\=0.1,
+con relación a la respiración heterotrófica, estas variables se corelacionan entre sí negativamente.
+También hay una correlación positiva entre el fośforo y nitrógeno $\rho = 0.57$ pero su significancia
+esta un punto por arriba de la situación marginal  $\rho$: p=0.11.
 
 Considerando que los organismos requieren de nutrientes y que justamente el P y N forman
 parte de los macronutrientes, puede ligarse la concentracion de estos con la respiración
 heterotrofica, aunque en este caso nos muestran correlaciones negativas, es decir, mayores
 concentraciones de estos nutrientes menor es la actividad respiratoria por parte de los
 heterótrofos, lo que podría reflejar un mecanismo de retroalimentacion negativa si
-consideramos que el papeel de la microbiota esta ligada a la descomposición y
-mineraliación de los nutrientes
+consideramos que el papel de la microbiota esta ligada a la descomposición y
+mineralización de los nutrientes
 
-La relacion entre el nitrógeno y el fósforo es positiva, lo que puede ser debido al efecto
-de la fertilización con compuestos que poseen ambos componentes.
+La corelacion entre el nitrógeno y el fósforo es positiva, aunque no significativas, 
+lo que puede ser debido al efecto de la fertilización con compuestos que poseen ambos
+componentes.
 
-#### Análisis multivariado
+```{r cor_RO,echo=FALSE}
+corrRO<-Hmisc::rcorr(as.matrix(RO_db_full[,c(10:14,19)]),type = "spearman")
 
-```{r PCA, echo=FALSE, warning=FALSE}
+print(round(as.matrix(corrRO$P),2))
+print(round(as.matrix(corrRO$r),2))
+
+#corrplot::corrplot(cor(as.matrix(RO_db_full[,c(10:14,19)])),tl.pos="t",type = "upper",tl.col = "black",tl.cex = .8,bg="brown4",diag=FALSE)
+```
+
+Las correlaciones entre pares de las variables medidas en los suelos Argiudoles 
+de Chivilcoy y Navarro mostraron relaciones diferentes a aquellas de los suelos de Luján. 
+
+El pH se correlacionó significativamente con el nitrógeno, el fósforo y la respiración heterotrófica, las correlaciones fueron negativas entre el pH y el nitrógeno y el fósforo, por lo que aumentos en la cantidad de estos nutientes disminuyen el valor del pH
+y positiva entre el pH y la respiración heterotrófica, por lo que la actividad biológica 
+aumenta los niveles de pH volviendo el medio más alcalino.
+
+La conductividad eléctrica se correlacionó significativamente con la materia orgánica,
+el fósforo y la respiración heterotrófica. Con relación a la materia orgánica la 
+correlación es negativa, esto puede asociarse al efecto de las sales de sodio
+de dispersar la materia orgánica del suelo, y, correlaciones positivas se 
+dan con el fósforo y levemente con la respiración heterotrófica.
+
+La materia orgánica además de la correlación con la CE, antes descrita, se relacionó 
+significativamente con el nitrógeno, el fósforo y la respiración heterotrófica. Con el 
+fósforo la correlación es negativa, en cambio con la respiración heterotrófica y el 
+nitrógeno las correlaciones fueron positivas, en los tres casos los valores de 
+correlaciones son inferiores a $\rho < 0.5$.
+
+El nitrógeno se correlacionó además con el fósforo y la respiración heterotrófica en ambos 
+casos de manera positiva, con la respiración heterotrófica la correlación es mayor.
+
+El fósforo no muestra correlación significativa con la respiración heterotrófica, con las 
+demás variables mostró relaciones significativas pero con ninguna de las variables las 
+correlaciones fueron fuertes $\rho > 0.75$
+
+### Análisis multivariado
+
+**Análisis de Componentes Principales (PCA) de las variables físicas-químicas en suelos Argiudoles**
+
+La relación entre las variables físico químicas y los sitios de estudios en los suelos 
+argiudoles de Luján a través de la observación de los autovectores indica que los primeros 
+tres componentes principales tienen autovectores mayores a uno. A la vez los ejes acumulan el 
+80% de la varianza según el criterio de ordenación de los componentes principales.
+
+```{r PCA, include=FALSE, warning=FALSE}
+
 library("FactoMineR");library("factoextra")
-#tb_fq<-decostand(fq1,"log")
 
-#f_pca<-PCA(tb_fq, scale.unit = TRUE, graph = FALSE)
 #No se transformará solo dejar para las comunidades
 unlu_pcaFQB<-PCA(fq1, scale.unit = TRUE, graph = FALSE)
 
-#Biplot
-sit<-sit<-c(rep("L", 3), rep("P", 3), rep("R", 3))
-fviz_pca_biplot(unlu_pcaFQB, axes = c(1,2),  col.ind=sit, label = "var")
+print(summary(unlu_pcaFQB))
 
-print(unlu_pcaFQB$eig)
-#summary(f_pca)
-##corelaciones
-f_pca_cor<-round(unlu_pcaFQB$var$cor[,1:3],3);
-print("-----------------------------");
-#print(f_pca_cor)
+#print(unlu_pcaFQB$eig)
+
+print(unlu_pcaFQB$eig[1:4, c(1,3)])
+
+print(round(unlu_pcaFQB$var$cor[,1:3],3))
 
 
 ```
 
-Los primeros 2 ejes explican el 60 % de la variabilidad Acorde a las variables Fy Q se
-separan los tres sistemas de uso. El pH y la MO se encuentrn estrechamente relacionadas y
-se relacionan con la R reserva
+```{r biplot_UNLu, echo=FALSE, warning=FALSE}
+#Biplot
+sit<-c(rep("L", 3), rep("P", 3), rep("R", 3))
+fviz_pca_biplot(unlu_pcaFQB, axes = c(1,2),  col.ind=sit, label = "var")
 
-el P y N se relacionan con los sitios de uso Agrícola, el lote de Alfalfa Lo que tiene
-sentido si asumimos el uso de fertilizantes, además al momento de muestreo la alfalfa se
-encontraba sin follaje.
+```
 
-La CE se relaciona con el pastizal.
 
-### Diversidad de las comunidades edáficas que habitan los suelos de la UNLu
+Las primeras 2 dimensiones de PCA resumen el 64,77 % de la variabilidad entre las variables
+físico químicas y los sitios. Con estas dimensiones pueden observarse, en el biplot,
+que cada sistema de uso del suelo se separan claramente.
 
-```{r mat_D,include=FALSE}
+Sobre la dimensión 1 los centroides del sistema de uso del suelo Agrícola y el sistema
+de la Reserva se separan en cuadrantes opuestos. A la vez el porcentáje de nitrógeno del suelo 
+muestra una correlación importante (r = 0.77) con el lado positivo del primer componente principal 
+y esta variable se relacionó más con el sistema Agrícola. 
+Sobre la dimensión 1 todas las variables presentan correlaciones importantes con excepción de la conductividad eléctrica. 
+
+Sobre la dimensión 2 se ubica el centroide de sistema de uso de suelo Pastizal sobre el 
+lado negativo del eje. La variable conductividad eléctrica se dirige hacia el lado negativo 
+del segundo componente a la vez que apunta al centroide del pastizal, estableciendo una 
+clara relación entre estos.
+
+El pH y la relación hongos:bacterias se encuentran cercanamente relacionadas a la vez que los 
+vectores apuntan hacia el centroide del sistema de Reserva. 
+
+La materia orgánica se relaciona con la respiración heterotrófica pero la mayor exlicación 
+de esta variable se da con el tercer componente con una importante correlación (r= 0.91), 
+ambas variables, se encuentran en una situación intermedia si consideramos el sentido y la 
+dirección de los vectores que se ubican entre los centroide y las coordenadas de los sitios 
+Reserva y Pastizal.
+
+El vector que resume la relación de la cantidad de hojarasca en superficie muestra una relación 
+con el fósforo y apunta al centroide del lote agrícola.
+
+```{r pcaFQ_RO,include=FALSE, warning=FALSE}
+
+f_pca<-PCA(RO_db_full[,c(10:14,19)], scale.unit = TRUE, graph = FALSE)
+
+print(summary(f_pca))
+
+#autovalores
+#print(f_pca$eig)
+print(f_pca$eig[1:4, c(1,3)])
+#correlaciones
+print(round(f_pca$var$cor[,1:4],3))
+
+```
+
+```{r biplot_RO, echo=FALSE, warning=FALSE}
+#Biplot
+sit<-RO_db_full$system
+fviz_pca_biplot(f_pca, axes = c(1,2),  col.ind=sit, label = "var")
+fviz_pca_biplot(f_pca, axes = c(1,3),  col.ind=sit, label = "var")
+fviz_pca_biplot(f_pca, axes = c(2,3),  col.ind=sit, label = "var")
+```
+
+Para los suelos argiudoles de Chivilcoy y Navarro las primeras tres dimensiones de los componentes
+principales tienen autovalores mayores a 1 resumiendo el 78,2% de la variabilidad.
+
+En el biplot se observa una separación a lo largo de la 
+dimensión 1 del centroide del sistema del pastizal naturalizado que se ubica 
+hacia el lado positivo del eje de coordenadas de los sistemas de uso agrícola y mixto 
+que se ubican haciea el lado opuesto, estos dos últimos, se encuentran cercanos y se separan 
+levemente con el sistema de uso agrícola intensivo sobre el sentido negativo del segundo eje 
+dimensional.
+
+La conductividad eléctrica se expresa fuertemente relacionada con la dimensión 1 en sentido 
+positivo a la vez que el vector se dirige hacia el centroide del pastizal naturalizado.
+
+La concentración del fósforo asimilable se relaciona con el lado negativo de la dimensión 2 y
+el vector se halla relacionado, aunque levemente, con el sistema de uso agrícola intensivo.
+
+El porcentaje de nitrógeno y el porcentaje de materia orgánica en el suelo se hallan 
+en el mismo cuadrante del plano de coordenadas aunque estos no se relacionan estrechamente.
+El porcentaje de nitrógeno tiene una correlación importante con la dimensión 3 ($r = 0.662$)y 
+con la dimensión 1 ($r= -0.427$) y su vector se dirige más cercanamente hacia el centroide 
+del sistema mixto agrícola-ganadero.
+En comparación, al vector del porcentaje de nitrógeno, la materia orgánica dibuja un vector 
+más extenso, su correlación es mayor con la dimensión 2 ($r = 0.71$) y 
+también es importante la correlación con la dimensión 1 ($r = -0.498$), no se puede relacionar
+al porcentaje de materia orgánica con algún sistema de uso de suelo por lo que se encuentra en
+una situación intermedia, aunque gráficamente pareciese relacionarce con el centroide 
+del sistema mixto.
+
+El vector del potencial hidrógeno tiene un recorrido importante y apunta hacia el centroide
+del pastizal natural, esta variable tiene correlaciones importantes con la primera y la segunda 
+dimensión de los componentes principales ($r_{PCA_1} = 0.768$ y $r_{PCA_2} = 0.454$, respectivamente). 
+
+Por arriba se observa a la respiración heterotrófica con una relación importante con el 
+segundo eje dimensional ($r=0.754$), ubicándose en el cuadrante donde se sitúa el
+sistema del pastizal naturalizado, relacionado marginalmente con varios de los sitios de este 
+sistema y a la vez en una situación intermedia con el sistema mixto agrícola ganadero.
+
+### Diversidad de las comunidades edáficas que habitan los suelos Argiudoles
+
+```{r mat_D_unlu,include=FALSE, warning=FALSE}
+
 ab_bulk <- read.csv("database/ab_bulk.txt", sep="")
 ab_bulk[ab_bulk$sitio == "L", "sitio"] <- "A"
 ###########
@@ -1147,9 +1776,6 @@ unlu_ab<-unlu_full[,c("nombre","sitio","replica","taxon","D","abundance")] %>%
               values_fn = sum)%>%
   distinct(nombre,.keep_all=TRUE)
 
-#Renombrar Lote L, por A de agrícola
-
-#unlu_ab[unlu_ab$sitio == "L", "sitio"] <- "A"
 
 ##############
 # variables microbiológicas adjuntas a la matriz de datos
@@ -1159,22 +1785,24 @@ unlu_merg$resp.b<-c(0.066236559139785,0.0851612903225806,0.0946236559139785,
                     0.131588785046729,0.14803738317757,0.14803738317757,
                     0.188187372708758,0.15234215885947,0.170264765784114)
 #agrego relación Hongo-Bacterias
-unlu_merg$ratio.hb<-c(3.25, 1.400000000001, 0.833333333333333,
-                       1.375, 1.83333333333333, 1.16666666666667,
-                       2.42857142857143, 1.83333333333333, 3.5)
+unlu_merg$ratio.hb<-c(3.25, 14/3, 5/6, #agrícola
+                       1.375, 11/6, 7/6,#pastizal
+                       2.42857142857143, 11/6, 3.5) #reserva
+
+
 #Valores expresados en microgramos de C-biomasa/g suelo
+
 unlu_merg$ug_biom_x_g<-c(1.80305376344086, 2.14417204301075, 1.70559139784947,
 3.78435845213849, 3.50745417515275, 3.87665987780041, 2.62601869158878,
-3.4731214953271, 2.37188785046729)*1000
+3.4731214953271, 2.37188785046729)
 
 # con la idea de tener la cantidad de hongos y bacterias
-# densidad aparente 1,47 g/cm3 (sacado del promedio pastura, agricola, reserva, tesina
+# densidad aparente 1,27 g/cm3 (sacado del promedio pastura, agricola, reserva, tesina
 #Veronica)
 # suelo a 5 cm en un m2 son 50k cm3 aprox 0.5m3, esto es, 73500 g en 0.5m3 suelo 
-# más factor 1e6 para microgramos
 
 
-unlu_merg$bio.micro<-unlu_merg$ug_biom_x_g*73500
+unlu_merg$bio.micro<-unlu_merg$ug_biom_x_g*63500
 
 
 unlu_merg$fungi<-round(unlu_merg$bio.micro*(unlu_merg$ratio.hb/(unlu_merg$ratio.hb+1)),4)
@@ -1184,8 +1812,12 @@ unlu_merg$bacteria<-round((unlu_merg$bio.micro-unlu_merg$fungi),4)
 
 
 ```
-#### Riqueza en la UNLu
-```{r S,echo=FALSE}
+
+**Índice de diversidad alfa en los suelos Argiudoles**
+
+**Riqueza de unidades taxonómicas**
+
+```{r S,include=FALSE}
 library("vegan")
 library("BiodiversityR") 
 # 1 a 122 hongo:bacterias + 246, 247 
@@ -1196,7 +1828,7 @@ D<-unlu_merg[,c(4:122)]
 
 rownames(D)<-unlu_merg$nombre
 
-Muestras<-unlu_merg$nombre
+Sitios<-unlu_merg$nombre
 Riqueza<-specnumber(D)
 Riqueza_nematodos<-specnumber(D[40:44])
 Riqueza_lombrices<-specnumber(D[c(2:4,19,61,87:89,93,98,99)])
@@ -1212,30 +1844,131 @@ Riqueza_macrofauna<-specnumber(D[c(1,6:8,10,13:15,17,20:25,33:38,54,60,62,63,69,
                                  70:75,78,80:84,86,90:92,94,100,101)])
 
 
-data.frame(Muestras,Riqueza,Riqueza_macrofauna,Riqueza_lombrices,
+
+
+#Lista de especie agrupadas según el colector
+#De los datos brutos de RO
+#Arrastrado a partir de los agrupamientos y pivoteo en ancho
+#Nombres tomados de la columnas de abun_RO y "reformateados"
+spc.colector<-c("Apo_cal","Apo_tra", "Mic_dub",
+                "lom_juv","isotomidae",  "epilohmannioidea",
+                "euphthiracaroidea","oripodoidea","oppioidea",
+                "onychiuridae","Apo_ros",
+                "parasitoidea","ceratozetoidea",
+                "brachychthonioidea","crotonioidea","hypogastruridae",
+                "eupodoidea","veigaioidea",
+                "entomobroidea","rhodacaroidea",
+                "galumnioidea","symphypleona",
+               "octala","bdelloidea",
+                "dermanyssoidea","trombidioidea",
+                "octacy","acaroidea",
+                "tydeoidea","uropodoidea","mesostigmata",
+                "euker","oribatida","Mic_pho")
+
+ab<-RO_db_full[,23:56]
+colnames(ab)<-spc.colector
+
+Riq<-specnumber(ab,groups=abund_RO$site)
+
+Riq_lombrices<-specnumber(ab[,c("Apo_cal","Apo_tra", "Mic_dub",
+                "lom_juv","Apo_ros","octala","octacy","euker","Mic_pho")],groups=abund_RO$site)
+
+Riq_sarcoptiformes<-specnumber(ab[,c("epilohmannioidea",
+                "euphthiracaroidea","oripodoidea","oppioidea",
+               "ceratozetoidea", "brachychthonioidea","crotonioidea",
+                "galumnioidea","acaroidea",
+                "oribatida")],groups=abund_RO$site)
+Riq_prostigmata<-specnumber(ab[,c("eupodoidea","bdelloidea",
+                                      "trombidioidea","tydeoidea")],groups=abund_RO$site)
+
+Riq_mesostigmata<-specnumber(ab[,c("parasitoidea","veigaioidea",
+                "rhodacaroidea","dermanyssoidea","uropodoidea",
+                "mesostigmata")],groups=abund_RO$site)
+
+Riq_colembola<-specnumber(ab[,c("isotomidae", "onychiuridae","hypogastruridae",
+                "entomobroidea","symphypleona")],groups=abund_RO$site)
+
+
+
+
+S_UNLu<-data.frame(Sitios,Riqueza,Riqueza_collembola,
            Riqueza_sarcoptiformes,Riqueza_mesostigmata, Riqueza_prostigmata,
-           Riqueza_collembola,Riqueza_otra_mesofauna,Riqueza_nematodos,
+           Riqueza_lombrices,Riqueza_otra_mesofauna,Riqueza_macrofauna,Riqueza_nematodos,
            row.names = NULL)
 
-
+S_RO<-data.frame(Sitios=levels(as.factor(paste(RO_db_full$system,RO_db_full$replica)))
+                 ,Riqueza=Riq,Riqueza_collembola=Riq_colembola,
+                 Riqueza_sarcoptiformes=Riq_sarcoptiformes,
+                 Riqueza_mesostigmata=Riq_mesostigmata,
+                 Riqueza_prostigmata=Riq_prostigmata,Riqueza_lombrices=Riq_lombrices,
+                 Riqueza_otra_mesofauna=c(rep("-",times=length(Sitios))),
+                 Riqueza_macrofauna=c(rep("-",times=length(Sitios))),
+                 Riqueza_nematodos=c(rep("-",times=length(Sitios))),
+                 row.names = NULL)
 ```
-#### Diversidad
-```{r H_general, echo=FALSE}
 
+En los suelos de la Luján el máximo valor de la riqueza en unidades taxonómicas se 
+halló en suelos de la reserva ($S_{reserva_1}=63$). De manera similar en suelos de
+Chivilcoy y Navarro se halló la máxima riqueza en unidades taxonómicas en suelos 
+del pastizal naturalizado ($S_{pastizal\; naturalizado\,_1}=63$).
+
+La riqueza de colémbolos en los suelos argiudoles en general fue similar.
+
+```{r Riqueza, echo=FALSE, warning=FALSE}
+
+S<-rbind(S_UNLu,S_RO)
+print(S)
+```
+
+Observando la riqueza de unidades taxonómicas de ácaros oribátidos (Acari:Sarcoptiformes)
+los mayores valores se observaron en suelos de Luján con una riqueza máxima de 15 en 
+el sistema de la reserva y de 11 en el sistema del pastizal. En los suelos de 
+Chivilcoy y Navarro la riqueza máxima se observó en el sistema mixto con un valor de 9,
+aunque en los demás sitios se mantuvo constante con 8 unidades taxonómicas.
+
+La riqueza en unidades taxonómicas de ácaros mesostigmatas (Acari: Mesostigmata)
+no fué muy diferente entre los suelos argiudoles. Se observa el mayor valor en 
+el sistema de la Reserva seguidos por el sistema agrícola en suelos de Luján.
+
+Los ácaros prostigmatas (Acari: Prostigmata) tambíen tuvieron una mayor riqueza en 
+suelos de Luján, el mayor valor se observó en el sistema de uso agrícola. En comparación,
+los suelos de Chivilcoy y Navarro tuvieron valores de riquezas similares entre sistemas 
+de uso pero en el uso agrícola la riqueza fué menor que la de los sistemas mixto y 
+pastizal naturalizado.
+
+Las lombrices de tierra (Oligochaeta: Crassiclitellata) expresan una mayor riqueza en
+los suelos de Chivilcoy y Navarro, con el valor máximo en el sistema del pastizal 
+naturalizado ($S_{pastizal\,naturalizado\,_1}=8$), seguidos en valores máximos 
+por el valor de riqueza en el sistema mixto agrícola ganadero.
+
+La macrofauna tuvo la mayor riqueza de unidades taxonómicas en los suelos del
+sistema Agrícola, seguidos por la riqueza en el pastizal y por detrás la riqueza de la 
+macrofauna en el sistema de la Reserva.
+
+**Índice de Shannon-Wiener**
+
+El índice de diversidad de Shanon-Wiener no mostró diferencias significativas
+entre los sistemas de uso del suelo, ni en suelos de Luján ni en suelos de 
+Chivilcoy y Navarro. ($\chi^2 : p_{_{valor}} < 0.05$)
+
+```{r H_general_UNLu_RO, include=FALSE}
+
+#Matriz de densidades de UNLu
 H<-vegan::diversity(D, index="shannon")
 diversidad<-round(H,3)
+Muestras<-Sitios
 g_H<-data.frame(Muestras,diversidad,row.names = NULL)
 g_H$sitio<-substr(g_H$Muestras,1,1)
 g_H$replica<-substr(g_H$Muestras,3,3)
 
 g_H.sum<-data.frame(
-  sitio=c("A","P","R"),
-  promedio=c(
+  Sitio=c("A","P","R"),
+  Promedio=c(
              mean(g_H[g_H$sitio=="A","diversidad"]),
              mean(g_H[g_H$sitio=="P","diversidad"]),
              mean(g_H[g_H$sitio=="R","diversidad"])
                          ),
-  "Desvío estandar"=c(
+  Desvío=c(
              sd(g_H[g_H$sitio=="A","diversidad"]),
              sd(g_H[g_H$sitio=="P","diversidad"]),
              sd(g_H[g_H$sitio=="R","diversidad"])
@@ -1252,9 +1985,72 @@ print(g_H.sum)
 
 kruskal.test(diversidad ~ sitio, data = g_H)
 
+# Diversidad Total se trabaja con abundancias
+
+mtxRO_D<-RO_db_full[,c(20:22,57:90)]
+mtxRO_D$nombre<-paste(mtxRO_D$system.x,mtxRO_D$replica)
+
+
+H_RO.D<-as.matrix(mtxRO_D[,-c(1:3,38)])
+row.names(H_RO.D)<-mtxRO_D$nombre
+
+H_RO<-vegan::diversity(H_RO.D, index="shannon")
+
+#matriz de diversidad
+RO_div<-mtxRO_D[,c(1:3,38)]
+
+RO_div$diversidad<-H_RO
+names(RO_div)<-c("replica","sitio","n_sit","nombre","diversidad")
+
+g_H.ro<-data.frame(Sitio=levels(as.factor(RO_div$sitio)),
+                 Promedio=c(mean(as.matrix(RO_div[RO_div$sitio=="A","diversidad"])),
+                        mean(as.matrix(RO_div[RO_div$sitio=="G","diversidad"])),
+                        mean(as.matrix(RO_div[RO_div$sitio=="N","diversidad"]))
+                        ),
+                 Desvío=c(sd(as.matrix(RO_div[RO_div$sitio=="A","diversidad"])),
+                        sd(as.matrix(RO_div[RO_div$sitio=="G","diversidad"])),
+                        sd(as.matrix(RO_div[RO_div$sitio=="N","diversidad"]))
+                        ),
+                 Mediana=c(median(as.matrix(RO_div[RO_div$sitio=="A","diversidad"])),
+                        median(as.matrix(RO_div[RO_div$sitio=="G","diversidad"])),
+                        median(as.matrix(RO_div[RO_div$sitio=="N","diversidad"]))
+                        ),
+                row.names = NULL)
+
+kruskal.test(diversidad ~ sitio, data = RO_div)
+
+#######
+# comparando la diversidad entre todos los sistemas de uso
+# si observo diferencias, pero se debe a la presencia de otros actores en el 
+#muestreo. 
+#solo será comparables con los grupos muestreados dado el caso.
+
+RO_div1<-RO_div[,c("sitio","replica","diversidad")]
+
+g_H1<-g_H[,c("sitio","replica","diversidad")]
+g_H1[g_H1$sitio == "A", "sitio"] <- "L"
+
+h<-rbind(g_H1,RO_div1)
+
+kruskal.test(diversidad ~ sitio, data = h)
+
+pairwise.wilcox.test(h$diversidad, h$sitio,data=h,
+                     p.adjust.method = "BH",exact=FALSE)
+
 ```
 
-```{r H_nematodos, echo=FALSE}
+```{r shanon_global, echo=FALSE, warning=FALSE}
+H<-rbind(g_H.sum,g_H.ro)
+print(H)
+```
+
+Mirando los valores de diversidad, se observa que en suelos de Luján, la mayor diversidad
+se dío en el sistema agrícola tanto en promedio como en la mediana y con una 
+baja dispersión. En suelos de Chivilcoy y Navarro el patrón se repite, en suelos donde
+la actividad agrícola está presente, la diversidad es mayor tanto en promedio como en la
+mediana.
+
+```{r H_nematodos, include=FALSE, warning=FALSE}
 microH <- read.delim("~/Documentos/Redes/soil_interaction_web/database/nematofauna_diversityH.txt")
 
 microH$sitio<-substr(microH$nombre,3,3)
@@ -1279,27 +2075,41 @@ H_micro_unlu<-vegan::diversity(H_micro_unlu, index="shannon")
 microabH<-micro_abH[,1:3]
 microabH$diversidad<-H_micro_unlu
 
-print(data.frame(habitats=levels(as.factor(microabH$sitio)),
-                 mean=c(mean(as.matrix(microabH[microabH$sitio=="A","diversidad"])),
+H_nem<-data.frame(Sitios=levels(as.factor(microabH$sitio)),
+                 Promedio=c(mean(as.matrix(microabH[microabH$sitio=="A","diversidad"])),
                         mean(as.matrix(microabH[microabH$sitio=="P","diversidad"])),
                         mean(as.matrix(microabH[microabH$sitio=="R","diversidad"]))
                         ),
-                 desvio_std=c(
+                 Desvío=c(
                    sd(as.matrix(microabH[microabH$sitio=="A","diversidad"])),
                         sd(as.matrix(microabH[microabH$sitio=="P","diversidad"])),
                         sd(as.matrix(microabH[microabH$sitio=="R","diversidad"]))
                         ),
-                 mediana=c(
+                 Mediana=c(
                    median(as.matrix(microabH[microabH$sitio=="A","diversidad"])),
                                          median(as.matrix(microabH[microabH$sitio=="P","diversidad"])),
                         median(as.matrix(microabH[microabH$sitio=="R","diversidad"]))
                         ),
-                row.names = NULL))
+                row.names = NULL)
 
 kruskal.test(diversidad ~ sitio, data = microabH)
 
 ```
 
+```{r print_Hnem,echo=FALSE}
+
+print(H_nem)
+
+```
+
+
+La diversidad (H') para la composición de nemátodos no fué diferente significativamente
+entre sistemas de uso de suelos en argiudoles de Luján. Esto podría relacionarse
+con la clasificación de los nemátodos según su aparato bucal en 5 categorías tróficas
+fitófagos, fungívoros, baterivoros, redadores y omnívoros y tal véz podrían existir
+diferencias en la diversidad alfa si se consideraran jerarquías taxonómicas de familias,
+géneros o especies. Teniendo esto en consideración, puede observarse que el valor de 
+diversidad fué menor en el sistema de la Reserva.
 
 ```{r mesoH, echo=FALSE}
 
@@ -1335,7 +2145,7 @@ mesoabH$diversidad<-H_meso_unlu
 
 print("Tabla de Promedio y desvío standar del índice de Shannon en cada sistema de uso del suelo")
 
-print(data.frame(habitats=levels(as.factor(paste(mesoabH$sitio,mesoabH$estrato))),
+meso_H_UNLu<-data.frame(habitats=levels(as.factor(paste(mesoabH$sitio,mesoabH$estrato))),
                  mean=c(
                    mean(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="10","diversidad"])),
                    mean(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$estrato=="fragmentado","diversidad"])),
@@ -1375,7 +2185,7 @@ print(data.frame(habitats=levels(as.factor(paste(mesoabH$sitio,mesoabH$estrato))
                    median(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="fragmentado","diversidad"])),
                    median(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="hoja","diversidad"])),
                    median(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$estrato=="humus","diversidad"]))),
-                row.names = NULL))
+                row.names = NULL)
 
 
 kruskal.test(diversidad ~ sitio, data = mesoabH, subset=mesoabH$estrato=="hoja");#p-valor h[[3]][1]; estadístico Chi h[[1]][[1]]
@@ -1384,6 +2194,13 @@ kruskal.test(diversidad ~ sitio, data = mesoabH, subset=mesoabH$estrato=="humus"
 kruskal.test(diversidad ~ sitio, data = mesoabH, subset=mesoabH$estrato=="10")
 
 ```
+
+```{r print_H_meso, echo=FALSE, warning=FALSE}
+names(meso_H_UNLu)<-c("Habitat","Promedio","Desvío","Mediana")
+print(meso_H_UNLu %>% arrange(Habitat=="R 10",Habitat=="P 10",Habitat=="A 10",Habitat=="R humus",Habitat=="P humus",Habitat=="A humus",Habitat=="R fragmentado",Habitat=="P fragmentado",Habitat=="A fragmentado",Habitat=="R hoja",Habitat=="P hoja",Habitat=="A hoja"))
+```
+
+
 
 ```{r macroH,echo=FALSE}
 macroH <- read.delim("~/Documentos/Redes/soil_interaction_web/database/macrofauna_diversityH.txt")
@@ -1455,9 +2272,9 @@ kruskal.test(diversidad ~ sitio, data = macroabH, subset=macroabH$estrato=="20")
 
 ```
 
+### Multivariado de la comunidad
 
-#### Multivariado de la comunidad
-``` {r anosim_unlu, echo=FALSE, warning=FALSE}
+```{r anosim_unlu, echo=FALSE, warning=FALSE}
 
 tb_D_anosim<-D
 row.names(tb_D_anosim)<-unlu_merg$nombre
@@ -1475,9 +2292,9 @@ summary(D_unlu_anosim)
 
 ```
 
-Si bien no se encontraron diferencias en los valores de la diversidad del índice de shannon según 
-la prueba de Kruskall-Wallis al p-valor menor de 0.05 el análisis de similitudes de las comunidades
-nos muestra que existen disimilaridades en la comunidades.
+Si bien no se encontraron diferencias en los valores de la diversidad del índice de
+shannon según la prueba de Kruskall-Wallis al p-valor menor de 0.05 el análisis de
+similitudes de las comunidades nos muestra que existen disimilaridades en la comunidades.
 Se observa en la disimilariad de rangos que el R es más disimil entre sí que los de A y P,
 lo que marca una comunidad más heterogénea, o tal ve más diversa. La disimilaridad entre
 los grupos fué más alta que la de entre los grupos. EL valor de R = 0.76 indica la
@@ -1566,24 +2383,23 @@ Los oribátidos se relacionan con la Reserva
 
 ## Comunidad de la fauna edáfica Sandler (2019)
 
-Trabajaré con la base de datos completa sin considerar las submuestras,
-ya que las sub muestras deben ser agrupadas para evitar la autocorrelación
+Trabajaré con la base de datos completa sin considerar las submuestras, ya que las sub
+muestras deben ser agrupadas para evitar la autocorrelación
 
-Es necesario llevar las abundancias de los animales a valores de densidad
-ya que las lombrices fueron tomadas con monolitos (factor= 16)
-y los microartrópodos con sacabocados (factor= 509.2958).
+Es necesario llevar las abundancias de los animales a valores de densidad ya que las
+lombrices fueron tomadas con monolitos (factor= 16) y los microartrópodos con sacabocados
+(factor= 509.2958).
 
-A la vez se redondean los valores hacia el más bajo, de esta manera
-las lombrices tendrían 16 ind/m² y los microartrópodos 510 ind/m².
+A la vez se redondean los valores hacia el más bajo, de esta manera las lombrices tendrían
+16 ind/m² y los microartrópodos 510 ind/m².
 
 A partir de este se calcula la Biomasa de los organismos
 
-
-```{r matricesRO, echo=FALSE, warning=FALSE}
+```{r matricesRO1, include=FALSE, warning=FALSE}
 #Anális de datos de ROSANA
 #Carga de datos
 
-RO <-RO <- read_excel("./database/soil_networks.xlsx", sheet = "Ro_web")
+RO <-RO <- read_excel("database/soil_networks.xlsx", sheet = "Ro_web")
 RO[is.na(RO)]<-0
 
 #Filtrar la macrofauna, razon, el diseño de muestreo no lo contempla
@@ -1658,27 +2474,28 @@ names(RO_db_full)<-c("nombre","system","site",name.RO_db_full[-c(1:3)])
 
 ```
 
+Trabajaré con la base de datos completa sin considerar las submuestras, ya que las sub
+muestras deben ser agrupadas para evitar la autocorrelación
 
-Trabajaré con la base de datos completa sin considerar las submuestras,
-ya que las sub muestras deben ser agrupadas para evitar la autocorrelación
+Es necesario llevar las abundancias de los animales a valores de densidad ya que las
+lombrices fueron tomadas con monolitos (factor= 16) y los microartrópodos con sacabocados
+(factor= 509.2958).
 
-Es necesario llevar las abundancias de los animales a valores de densidad
-ya que las lombrices fueron tomadas con monolitos (factor= 16)
-y los microartrópodos con sacabocados (factor= 509.2958).
-
-A la vez se redondean los valores hacia el más bajo, de esta manera
-las lombrices tendrían 16 ind/m² y los microartrópodos 510 ind/m².
+A la vez se redondean los valores hacia el más bajo, de esta manera las lombrices tendrían
+16 ind/m² y los microartrópodos 510 ind/m².
 
 A partir de este se calcula la Biomasa de los organismos
 
 ### Variables físcas y químicas, resumen datos Sandler(2019)
 
-Trabajar con las variables similares a las de la comunidad de la UNLu, para análisis 
+Trabajar con las variables similares a las de la comunidad de la UNLu, para análisis
 completto ir a la tesis.
 
 #### Descriptivas
+
 Solo tabular las variables. No realizar boxplot.
-```{r pH_RO,echo=FALSE}
+
+```{r pH_RO1,echo=FALSE}
 pH.df<-data.frame(uso=levels(as.factor(RO_db_full$system)),
                  promedio=c(mean(RO_db_full[RO_db_full$system=="A","pH"]),
                         mean(RO_db_full[RO_db_full$system=="G","pH"]),
@@ -1719,7 +2536,7 @@ text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
 
 ```
 
-```{r CE_RO, echo=FALSE}
+```{r CE_RO1, echo=FALSE}
 
 
 CE.df<-data.frame(uso=levels(as.factor(RO_db_full$system)),
@@ -1760,8 +2577,7 @@ text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
 
 ```
 
-
-```{r MO_RO,echo=FALSE}
+```{r MO_RO1,echo=FALSE}
 
 MO.df<-data.frame(uso=levels(as.factor(RO_db_full$system)),
                  promedio=c(mean(RO_db_full[RO_db_full$system=="A","MO"]),
@@ -1793,8 +2609,7 @@ boxplot(MO ~ system, data = RO_db_full, main = "% Materia Orgánica")
 
 ```
 
-
-```{r N_RO,echo=FALSE}
+```{r N_RO1,echo=FALSE}
 
 N.df<-data.frame(uso=levels(as.factor(RO_db_full$system)),
                  promedio=c(mean(RO_db_full[RO_db_full$system=="A","N"]),
@@ -1834,8 +2649,7 @@ text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
 
 ```
 
-
-```{r P_RO,echo=FALSE}
+```{r P_RO1,echo=FALSE}
 
 P.df<-data.frame(uso=levels(as.factor(RO_db_full$system)),
                  promedio=c(mean(RO_db_full[RO_db_full$system=="A","P"]),
@@ -1866,8 +2680,7 @@ boxplot(P ~ system, data = RO_db_full, main = "Fósforo asimilable en ppm")
 
 ```
 
-
-```{r respH_RO,echo=FALSE}
+```{r respH_RO1,echo=FALSE}
 
 rH.df<-data.frame(uso=levels(as.factor(RO_db_full$system)),
                  promedio=c(mean(RO_db_full[RO_db_full$system=="A","rH"]),
@@ -1907,16 +2720,17 @@ text(x = x_coords, y = y_coords, labels = letras, col = "black", cex = 0.9)}
 ```
 
 #### Multivariado
-```{r cor_RO,echo=FALSE}
+
+```{r cor_RO1,echo=FALSE}
 corrRO<-Hmisc::rcorr(as.matrix(RO_db_full[,c(10:14,19)]),type = "pearson");corrRO[1];corrRO[3]
 
 #corrplot::corrplot(cor(as.matrix(RO_db_full[,c(10:14,19)])),tl.pos="t",type = "upper",tl.col = "black",tl.cex = .8,bg="brown4",diag=FALSE)
 ```
 
-** Análisis de Componentes Prinipales de los sitios de estudio
-en función de sus variables físicas y químicas **
+\*\* Análisis de Componentes Prinipales de los sitios de estudio en función de sus
+variables físicas y químicas \*\*
 
-```{r pcaFQ_RO,echo=FALSE}
+```{r pcaFQ_RO1,echo=FALSE}
 ################
 #FyQ Completo con todas y densidades estandarizadas
 sit<-RO_db_full$system
@@ -1932,26 +2746,22 @@ f_pca_cor<-round(f_pca$var$cor[,1:4],3)
 fviz_pca_biplot(f_pca, axes = c(1,2),  col.ind=sit, label = "var")
 ```
 
-
-
-En PCA considerando las variables físicas y químicas de manera transformada y 
-considerando que las submuestras se encuentran agrupadas, 
-se pueden observar la separación de 3 grupos como una especie de función donde f y g de x se aproximan a h y por lo tanto sirven para calcular valores en ella.
+En PCA considerando las variables físicas y químicas de manera transformada y considerando
+que las submuestras se encuentran agrupadas, se pueden observar la separación de 3 grupos
+como una especie de función donde f y g de x se aproximan a h y por lo tanto sirven para
+calcular valores en ella.
 
 Por un lado inicia el sistema G, le sigue el A y el N al final.
 
-Observando los vectores representan a G la concentración de nitrógeno en el suelo 
-y un tanto la proporción de fósforo casi marginalmente y tambien un poco 
-relacionado con el A
+Observando los vectores representan a G la concentración de nitrógeno en el suelo y un
+tanto la proporción de fósforo casi marginalmente y tambien un poco relacionado con el A
 
-Para A resulta clara la relacion con el contenido de MO y HR en el suelo, 
-aunque también la CE se relaciona con este y marginalmente con N.
+Para A resulta clara la relacion con el contenido de MO y HR en el suelo, aunque también
+la CE se relaciona con este y marginalmente con N.
 
-En N varias variables se encontraron bien correlacionadas entre ellas el DAP el 
-sodio el pH y el Calcio, también la resistencia mecánica y los aumentos en sus 
-valores son asociados particularmente con el sistema N y el contenido de K que 
-resulta importante.
-
+En N varias variables se encontraron bien correlacionadas entre ellas el DAP el sodio el
+pH y el Calcio, también la resistencia mecánica y los aumentos en sus valores son
+asociados particularmente con el sistema N y el contenido de K que resulta importante.
 
 ### Diversidad de las comunidades edáficas que habitan los campos Sandler(2019)
 
@@ -1989,12 +2799,12 @@ print("Tabla de riqueza de especies por cada sitio")
 print(data.frame(Sitios=levels(as.factor(paste(RO_db_full$system,RO_db_full$replica))),Riqueza=specnumber(ab,groups=abund_RO$site),row.names = NULL))
 
 ```
-<!--La riqueza por sistema de uso del suelo, considerando algunas especies de la mesofauna que no corresponden a ácaros y colémbolos, es de A = 44; G = 39; N = 38.-->
 
+<!--La riqueza por sistema de uso del suelo, considerando algunas especies de la mesofauna que no corresponden a ácaros y colémbolos, es de A = 44; G = 39; N = 38.-->
 
 #### Diversidad
 
-```{r}
+```{r shanon_RO, include=FALSE, warning=FALSE}
 # Diversidad Total se trabaja con abundancias
 
 mtxRO_D<-RO_db_full[,c(20:22,57:90)]
@@ -2032,8 +2842,8 @@ kruskal.test(diversidad ~ sitio, data = RO_div)
 
 
 ```
-### Multivariado de la comunidad
 
+### Multivariado de la comunidad
 
 ```{r anosim, include=FALSE, warning=FALSE}
 #Densidad nro ind/m2
@@ -2059,15 +2869,18 @@ summary(Den_anosim)
 
 ```
 
-ANOSIM nos muestra que existen diferencias en las comunidades en sus valores densidad y de peso que han sido previamente transformadas pero no re escaladas. 
+ANOSIM nos muestra que existen diferencias en las comunidades en sus valores densidad y de
+peso que han sido previamente transformadas pero no re escaladas.
 
-Si se consideran las matrices con todas las especies o sin las especies submuestreadas, los valores muestran patrones semejantes.
+Si se consideran las matrices con todas las especies o sin las especies submuestreadas,
+los valores muestran patrones semejantes.
 
-Estos patrones son: 
-  1. diferencias significativas en las comunidades considerando la densidad de los organismos y también considerando los pesos corporales de la fauna edáfica.
-  2. Valores de r^2^ interpretados como poder de explicación de la variabilidad de los datos por parte de los sistemas de uso del suelo bajos, < a 15
-  3. Valores de r^2^ siempre más altos para el peso de los organismos que para su densidad. 
-  
+Estos patrones son: 1. diferencias significativas en las comunidades considerando la
+densidad de los organismos y también considerando los pesos corporales de la fauna
+edáfica. 2. Valores de r^2^ interpretados como poder de explicación de la variabilidad de
+los datos por parte de los sistemas de uso del suelo bajos, \< a 15 3. Valores de r^2^
+siempre más altos para el peso de los organismos que para su densidad.
+
 En general el anosim filtrado no aumenta mucho el valor del modelos no filtrado.
 
 ```{r Beta, echo=FALSE, warning=FALSE}
@@ -2108,18 +2921,18 @@ plot(div.beta,cex=0.6,main="Agrupamiento según Wilson",sub="Diversidad Beta ent
 #plot(div.beta,cex=0.6,main="Agrupamiento según índice Wilson",sub="Diversidad Beta entre sitios",ylab="Índice de Wilson",xlab="")
 
 ```
-Globalmente se observa separación de los diferentes sitios. El triángulo que es pastizal naturalizado esta levemente relacionado a los agrícolas.
 
-Living communities are spatially structured at many scales, and
-these structures are the result of several classes of processes. On the other hand,
-beta diversity is the spatial variation in community composition; so, a study of the
-factors that can explain the spatial variation of community composition is in every
-respect an analysis of beta diversity. (Numerical Ecology con R pp 228)
+Globalmente se observa separación de los diferentes sitios. El triángulo que es pastizal
+naturalizado esta levemente relacionado a los agrícolas.
 
+Living communities are spatially structured at many scales, and these structures are the
+result of several classes of processes. On the other hand, beta diversity is the spatial
+variation in community composition; so, a study of the factors that can explain the
+spatial variation of community composition is in every respect an analysis of beta
+diversity. (Numerical Ecology con R pp 228)
 
-
-** Análisis de Componentes Prinipales de los sitios de estudio
-en función de la densidad de la fauna edáfica **
+\*\* Análisis de Componentes Prinipales de los sitios de estudio en función de la densidad
+de la fauna edáfica \*\*
 
 ```{r tb_PCA, echo=FALSE}
 tb_D<-decostand(D_site[,-c(1,2,37)],"log")
@@ -2164,10 +2977,6 @@ std_ab_pca_cor<-round(std_ab_pca$var$cor[,1:5],3)
 
 ```
 
-
-
-
-
 # ref
 
 West, A. W. (1986). Improvement of the selective respiratory inhibition technique to
@@ -2195,16 +3004,16 @@ Swift M, Heal O, Anderson J (1979) Decomposition in terrestial ecosystems. CAB U
 Frioni, L. 1999. Procesos microbianos. Anexo Práctico. p 290-295 Ed. de la Fundación
 Universidad Nacional de Río Cuarto. Argentina. 322 páginas.
 
-Measuring beta diversity for presence–absence data Koleff et al 2003 
+Measuring beta diversity for presence–absence data Koleff et al 2003
 
 S URRICARIET, R S LAVADO 1999 INDICADORES DE DETERIORO EN SUELOS DE LA PAMPA ONDULADA
 
-R.P. Colombo, L. Fernández Bidondo, V.A. Silvani, M.B. Carbonetto, N. Rascovan, M.J. Bompadre,
-M. Pérgola, G. Cuenca, and A.M. Godeas. 2014. Diversity of arbuscular mycorrhizal fungi in soil from the
-Pampa Ondulada, Argentina, assessed by pyrosequencing and
-morphological techniques
+R.P. Colombo, L. Fernández Bidondo, V.A. Silvani, M.B. Carbonetto, N. Rascovan, M.J.
+Bompadre, M. Pérgola, G. Cuenca, and A.M. Godeas. 2014. Diversity of arbuscular
+mycorrhizal fungi in soil from the Pampa Ondulada, Argentina, assessed by pyrosequencing
+and morphological techniques
 
 Socarras 2013 Soil mesofauna: biological indicator of soil quality
 
-Bedano et al 2006 Influence of three different land management practices on soil
-mite (Arachnida: Acari) densities in relation to a natural soil
+Bedano et al 2006 Influence of three different land management practices on soil mite
+(Arachnida: Acari) densities in relation to a natural soil
