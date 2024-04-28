@@ -2716,6 +2716,16 @@ variation in community composition; so, a study of the factors that can explain 
 spatial variation of community composition is in every respect an analysis of beta
 diversity. (Numerical Ecology con R pp 228)-->
 
+El ordenamiento de las variables nos muestran a través de las coordenadas principales 
+que las primeras dos dimensiones explican el 75 y el 77 porciento de la variabilidad
+para los suelos de Luján y los suelos de Chivilcoy y Navarro, respectivamente.
+
+En ambos casos a lo largo del primer eje se resume la diversidad de taxones que se hallan
+en las comunidades edáfica estudiadas e intuitivamente podemos decir que este eje también
+acomoda la abundancia de los organismos a lo largo del eje y a través del segundo eje de
+las coordenadas se explican la variabilidad en términos de la 
+composición de la comunidad hallada entre los sistemas de uso del suelo.
+
 ```{r pca_tb, include=FALSE,warning=FALSE}
 #hellinger
 tb_D_U<-decostand(D[-c(75,107)],"log")
@@ -2814,6 +2824,36 @@ fviz_pca_biplot(tb_U_D_pca, axes = c(1,2), col.var = "black", #as.factor(sit),
 ```
 
 
+En los suelos de Luján la separación del sistema agrícola de los demás sistemas de 
+uso del suelo es clara dirigiéndose hacia el lado negativo del segundo eje de cooredenadas.
+El sistema de la reserva se posiciona en el nivel superior de del segundo eje y el 
+sistema del pastizal se encuentra en una situación intermedia. 
+Por lo que podría interpretarse una situación de gradiente con respecto a la composición
+de as comunidades del suelo. 
+
+Si observamos los principales grupos taxonómicos, se forma un agrupamiento entre los nemátodos
+los enquitreidos y los astigmatas en el extremo positivo de la primera dimensión de las 
+coordenadas principales. En el extremo opuesto, se agrupan organismos que corresponden 
+principalmente a la macrofauna, de mayor a menor serían las lombrices de tierra, herbívoros,
+detritívoros, predadores, fungívoros y otra mesofauna. 
+Entre los grupos escritos anteriormente se dan situaciones particulares, los ácaros
+prostigmatas se ubican sobre el brazo negativo del segundo eje corelacionandose con los 
+sistemas de uso de suelo agrícola. Los ácaros mesostigmatas, ácaros predadores del suelo, 
+se encuentran en una situación cercana al centro de coordenadas (0,0) por lo que su 
+variabilidad no se encuentra bien representada por estas dimensiones. De cerca se encuentran
+los ácaros oribátidos con una leve relación con los vectores de los sitios que corresponden
+al suelo de la Reserva, en esta situación también se hallan los macroartrópodos omnívoros
+con una relación más fuerte con los sistemas de uso de la Reserva, los tardígrados se hallan 
+fuertemente relacionados con el sistema de la Reserva. 
+Los colémbolos se relacionan con los argiudoles del sistema del pastizal.
+
+En los suelos argiudoles de Chivilcoy y Navarro se observa una clara separación del
+sistema de uso del suelo mixto agrícola ganadero ubicándose en el nivel superior de la mitad
+derecha del plano de componentes principales, en el nivel inferior se ubica al sistema 
+del pastizal naturalizado y el sistema agrícola relacionandose con el pastizal naturalizado
+en una situación intermedia. 
+
+
 ```{r plot_pca_Ro, echo=FALSE, warning=FALSE}
 
 fviz_pca_biplot(std_ab_pca, axes = c(1,2) , col.ind=col.sp,
@@ -2823,28 +2863,13 @@ fviz_pca_biplot(std_ab_pca, axes = c(1,2) , col.ind=col.sp,
   theme(legend.position = "bottom")
 ```
 
-
-
-Observando el PCA y colocando los sitios como variables. La comunidad de especies separa
-claramente al Lote de la Reserva y el Pastizal estará en una situación intermediaen cuanto
-a composición de la comunidad.
-
-si consideramos por grandes grupos, los ing, macro det, macro herb, macro fung, no art
-forman un cluster entre centroides.
-
-los tardigrados se alej y se relacionan con la Reserva
-
-Los nemátodos Artroleonas y Astigmata estan formando otro cluster y opuesto al anterior y
-son descrito por el primer eje
-
-los mesostigmata y macropredadora no se explican por los ejes y se encuentran cercanos al
-0 0
-
-Los prostigmata explicados por el 2do eje en sentido negativo se relacionan con los lotes
-
-Los oribátidos se relacionan con la Reserva
-
-
+Observando los centroides de los taxones estudiados en los suelos de Chivilcoy y Navarro
+de menor a mayor a lo largo de la primera dimensión observamos a las lombrices
+de tierra, luego a los ácaros predadores del suelo (Mesostigmatas), en un valor similar de 
+este eje se encuentran los ácaros prostigmatas y los ácaros oribátidos relacionandose 
+con el los sitios del sistema agrícola intensivo y con el sistema mixo agrícola ganadero, 
+respectivamente, y más alejados se ubica el centroide que corresponde a los colémbelos
+relacionados también con el sistema agrícola intensivo.
 
 # Conclusión
 
