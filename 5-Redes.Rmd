@@ -205,6 +205,17 @@ y la densidad numérica promedio siguiendo el método de (paper_ interaction str
 
 Se utilizó el pequete "multiweb" <enlace_github> para calcular las métricas de topología y estabilidad de las redes. 
 con el apoyo de paquetes complementarios para manejo de datos todos ellos implementados en R.
+
+<!-- TASA de INGRESO: Indica que en suelos de la Pampa Ondulada y en la region de la provincia en la cual nos 
+ubicamos, la incorporacion de materia orgánica anual es de 6 tn de C/ha * año con una
+relacion del C del 40% de la vegetación. Roberto Alvarez, MATERIA ORGANICA, valor agronomico y dinamica en suelos pampeanos. pp.34 
+
+pp.56 indica que la perdida de C-CO2 es 7,9 tn/haaño descomposición y mineralizacion
+pp. 57 usando C14 se establece el coef de humificacion del C, que es del 0.5 in situ
+coeficiente de mineralizaión media del humus del 5,7% anual
+En la figura 5.3 el aporte del carbono es de 4,3 tn/ha/año del rastrojo y 1,9 tn/ha/año para las raices 
+los residuos pierden a la atmosfera 3,1 y 3,1 va al humus-->
+
 # Resultados
 
 ```{r lib, include=FALSE}

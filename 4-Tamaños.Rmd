@@ -8,6 +8,7 @@ bibliography: size_spectra.bib
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+loadNamespace('printr')
 ```
 
 ```{r lib, include=FALSE}
@@ -31,9 +32,17 @@ La fauna edáfica es sensible a las perturbaciones que ocurren sobre el suelo, l
 
 La estimación del tamaño corporal de los organismos edáficos, medida a partir del peso corporal, permite relacionar parámetros fisiológicos como el metabolismo y el uso de los recursos, con parámetros ecológicos tales como las interacciones tróficas y las adaptaciones de estos organismos ante cambios en el ambiente [@pey2014; @white2007; @turnbull2014].
 
-Las variaciones del tamaño corporal en las comunidades ecológicas pueden analizarse mediante las distribuciones del peso corporal, esto es, mediante el espectro de tamaños y pueden ser relacionadas con diferentes aspectos de las comunidades, tales como, los gremios tróficos, los grupos funcionales, los habitats, las posiciones en la red trófica, entre otras [@edwards2020]. También es factible establecer relaciones entre el tamaño corporal y la abundancia de las especies: la abundancia permite describir la importancia numérica de los taxones presentes en el ecosistema y relacionarlos con la redundancia funcional y el funcionamiento ecosistémico [@briones2014], los cambios en la distribución del tamaño corporal de los organismos en una comunidad reflejan cambios en los procesos ecológicos relacionados con variaciones en el ambiente o con variaciones en la red de interaciones biológicas [@pey2014; @white2007], a su vez, la relación directa de ambos parámetros constituye la biomasa media que mide la cantidad de materia orgánica retenida por los actores en la red de interacciones y vincula el metabolismo y el flujo de energía que atraviesa los nodos [@potapov2019]. De esta manera, los cambios en la biomasa, en el espectro de tamaños o en ambos, enlazan la historia de vida de los organismos y la respuesta individual a las presiones ambientales, con la estructura y dinámica de las comunidades, y, con los efectos subsecuentes sobre los procesos ecológicos y con el funcionamiento del ecosistema [@sechi2017; @moretti2017; @blanchard2017; @jonsson2005; @peters1986] y pueden dar cuenta de efectos diferenciales debidas a las intensidades de las perturbaciones sobre el ecosistema del suelo asociadas con el uso antrópico.
+Las variaciones del tamaño corporal en las comunidades ecológicas pueden analizarse mediante las distribuciones del peso corporal, esto es, mediante el espectro de tamaños y pueden ser relacionadas con diferentes aspectos de las comunidades, tales como, los gremios tróficos, los grupos funcionales, los habitats, las posiciones en la red trófica, entre otras [@edwards2020]. 
 
-Mediante el análisis de la biomasa y del espectro de tamaños de los ácaros y colémbolos que habitan suelos Argiudoles típicos de la Pampa Ondulada sometidos a diferentes sistemas de manejo se pretende conocer la respuesta diferencial de dichas comunidades y determinar cuáles son los efectos del manejo antrópico sobre los microartrópodos; por lo que se espera que los microartrópodos respondan a los efectos del uso del suelo y que los efectos se vean reflejados sobre los gremios tróficos de microartrópodos edáficos.
+También es factible establecer relaciones entre el tamaño corporal y la abundancia de las especies: la abundancia permite describir la importancia numérica de los taxones presentes en el ecosistema y relacionarlos con la redundancia funcional y el funcionamiento ecosistémico [@briones2014].
+
+
+Los cambios en la distribución del tamaño corporal de los organismos en una comunidad reflejan cambios en los procesos ecológicos relacionados con variaciones en el ambiente o con variaciones en la red de interaciones biológicas [@pey2014; @white2007], a su vez, la relación directa de ambos parámetros constituye la biomasa media que mide la cantidad de materia orgánica retenida por los actores en la red de interacciones y vincula el metabolismo y el flujo de energía que atraviesa los nodos [@potapov2019]. 
+
+
+De esta manera, los cambios en la biomasa, en el espectro de tamaños o en ambos, enlazan la historia de vida de los organismos y la respuesta individual a las presiones ambientales, con la estructura y dinámica de las comunidades, y, con los efectos subsecuentes sobre los procesos ecológicos y con el funcionamiento del ecosistema [@sechi2017; @moretti2017; @blanchard2017; @jonsson2005; @peters1986] y pueden dar cuenta de efectos diferenciales debidas a las intensidades de las perturbaciones sobre el ecosistema del suelo asociadas con el uso antrópico.
+
+Mediante el análisis de la biomasa y del espectro de tamaños de la fauna edáfica que habitan suelos Argiudoles típicos de la Pampa Ondulada sometidos a diferentes sistemas de manejo se pretende conocer la respuesta diferencial de dichas comunidades y determinar cuáles son los efectos del manejo antrópico sobre el espectro de tamaño de los geobiontes; por lo que se espera que la fauna respondan a los efectos del uso del suelo y que los efectos se vean reflejados sobre los gremios tróficos de la fauna edáfica.
 
 <!-- Esto es demasiado largo para una sola oracion y deberia ser el planteo del objetivo de este capitulo. ¿A ver algo asi? "El objetivo de esta parte de la tesis es el de estudiar posibles diferencias en los espectros de tamaño que puedan reflejar los efectos del manejo antrópico sobre la comunidad de microartrópodos edàficos" -->
 
@@ -100,15 +109,18 @@ Las variables fueron transformadas con logaritmos naturales, debido a que la dis
 
 <!-- colocar las imágenes de las curvas de acumulación empírica-->
 
-# Espectro de tamaños UNLu
+# Resultados y Discusión
 
-## Densidades y pesos corporales por taxón
+## Densidades y pesos corporales por grupo taxonómicos
 
 ```{r limp_dtb,include=FALSE}
 body_unlu <- read.delim("database/community_bodymass.txt")
 names(body_unlu)<-c("sitio","replica","microhabitat","taxa","length","width","body_mass")
 #microhábitat diferencia entre hoja gruesa, hojafragmentada y humus
 body_unlu[body_unlu$sitio == "L", "sitio"] <- "A"
+#corrección peso de tardígrados
+body_unlu[body_unlu$taxa == "tardigrado", "body_mass"]<-body_unlu[body_unlu$taxa == "tardigrado", "body_mass"]/100
+
 body_unlu$estrato<-body_unlu$microhabitat
 #estrato queda por los 3 estratos, esto hace a la replicabilidad
 body_unlu$estrato[body_unlu$microhabitat=="Frag"|body_unlu$microhabitat=="Hoja"|
@@ -220,20 +232,19 @@ body_unlu$clase_tam<-NA
 body_unlu$clase_tam<-ifelse(
   body_unlu$taxa%in%c("bacterivoro","fitofago","fungivoro","omnivoro","predador"),"micro",
   ifelse(
-    body_unlu$taxa%in%c("afido","alycidae","amerosidae","arctacaridae",
+    body_unlu$taxa%in%c("alycidae","amerosidae","arctacaridae",
                         "astigmata","bdelloidea","ceratozetoidea","cunaxide",
                         "dermanisoidea","enquitreido","entomobryoidea",
                         "epilhomanioidea","eremobelbidae","eupodoidea",
                         "eupthiracaroidea","eviphididae","galumnidae",
                         "hipogastruridae","ichtyostomatogasteridae",
-                        "isotomidae","japygiidae","laelapidae","larva_diptera",
-                        "larva_sciaridae","limnozetidae","lohmanidae","macropilina",
+                        "isotomidae","japygiidae","laelapidae","limnozetidae","lohmanidae","macropilina",
                         "mesostigmata","ologamasidae","onichiuridae","oppioidea",
                         "oribatido","oribatulidae","oripodidae","parajapygidae",
                         "parasitidae","parholaspidae","penthalidae","protura",
-                        "pupa_diptera","rhagidiidae","rhodacaroidea","scheloribates",
+                        "rhagidiidae","rhodacaroidea","scheloribates",
                         "symphyla","symphypleona","tardigrado","tarsonemidae","tenerifidae",
-                        "trip","tydeoidea","uropodidae"),"meso",
+                        "tydeoidea","uropodidae"),"meso",
     ifelse(
     body_unlu$taxa%in%c("anthribidae","Aporrectodea_caliginosa","Aporrectodea_rosea",
                         "Aporrectodea_trapezoides","arannae","Bimastos_beddardi_sophiae",
@@ -246,11 +257,32 @@ body_unlu$clase_tam<-ifelse(
                         "linyphiidae","lycosidae", "Microscolex_phosphoreus","nematomorpha",
                         "Octalasion_cyaneum","Octolasion_tyrtaeum","oniscoidea","ortoptero",
                         "pseudoscorpionida","psocoptera","ptilidae","ptinidae","pythidae",
-                        "staphylinidae","tenebrionidae","terebrantia","trogossitidae"),"macro",body_unlu$clase_tam)))
+                        "staphylinidae","tenebrionidae","terebrantia","trogossitidae",
+                        "trips","larva_sciaridae","larva_diptera","afido","pupa_diptera"),"macro",
+    body_unlu$clase_tam)))
 
+
+forbody_unlu<-body_unlu
 
 #taxones
 bodyU_taxa<-levels(as.factor(body_unlu$taxa))
+
+```
+
+```{r dtbRO,include=FALSE}
+completo <- read_csv2("database/body_fq_guil_22.csv" , locale = readr::locale(encoding = "ISO-8859-1"))
+
+#Superficie en metros cuadrados a partir del sacabocados de 5 centímetros cuadrados
+#factor de conversión
+superficie <- pi*2.5^2/10000
+
+#sin macrofauna
+#Datos brutos, biomasa individual de microartropodos
+meso <- filter(completo,class!="macrofauna"&specie!="oribátido"&specie!="mesostigmata")%>%mutate( season=fct_relevel(season, c("O","I","P","V")),habitat=fct_relevel(habitat, c("epiedaphic","hemiedaphic","euedaphic")))
+
+#Base con biomasas promedios por especie
+#sample, son submuestras, por lo que no sirve para dividir sino para promediar la muestra
+base <-meso %>% group_by(system,site,year,month,sample,season,class,order,specie,guild,habitat) %>%  summarise(abundance=(n()/superficie), bio.ind=mean(biomass),Tbiomass=(bio.ind*abundance))
 
 ```
 
@@ -261,7 +293,11 @@ baseU <-body_unlu %>% group_by(sitio, replica,estrato, microhabitat,clase_tam,gr
 #L1	212 L2	473 L3	378
 #P1	556 P2	518 P3	636
 #1.05 es el factor de aumento del 5% por pérdida
-names(baseU)<-c("sitio","replica","estrato","microhabitat","clase","gremio","taxa","abundance","bio.ind")
+names(baseU)<-c("sitio","replica","estrato","microhabitat",
+                "clase","gremio","taxa","abundance","bio.ind")
+#corrigiendo densidades de nemátodos
+#además se asume un error de 20% por pérdida de animales no fotografiados pero si contabilizados
+
 baseU<-baseU%>%
   mutate(ab=floor(case_when(
   sitio=="R"&replica==1&clase=="micro"~(abundance/100)*452*1.05,
@@ -278,6 +314,7 @@ baseU<-baseU%>%
   
 #microfauna (se contaron los nemátodos de 4 sacabocados)
 sup.bocado.micro <- (1/(pi*2.5^2/10000))*4
+
 #mesofauna (se contaron y extrajeron de 3 frasquitos homojeneizados del monolito)
 #se utiliza 1.8 ya que el volumen fue de 100 cm para una profundidad de 10 cm.
 # la superficie de todo estrato diferente a 10 fue 25*25, corregir datos de densidad. 
@@ -297,48 +334,179 @@ baseU<-baseU%>%mutate(
 ```
 
 ```{r densidad_peso_unlu, echo=FALSE, warning=FALSE}
-Dp_U<-baseU%>%group_by(sitio,taxa)%>%summarise('Peso corporal'=round(mean(bio.ind),2), Densidad=round(mean(D),2),'Biomasa total media'=round(mean(D*bio.ind)/1000,1)) %>% distinct(taxa,.keep_all=TRUE)
-Dp_U%>% kbl() %>%kable_classic(full_width = F, html_font = "Cambria")
+Dp_U_m<-baseU%>%filter(clase=="micro")%>%group_by(taxa,sitio)%>%summarise('Peso corporal'=round(mean(bio.ind),1), Densidad=round(mean(D)),'Biomasa total media'=round(mean(D*bio.ind)/1000,1)) #%>% distinct(taxa,.keep_all=TRUE)
+Dp_U_me<-baseU%>%filter(clase=="meso")%>%group_by(taxa,sitio)%>%summarise('Peso corporal'=round(mean(bio.ind),1), Densidad=round(mean(D)),'Biomasa total media'=round(mean(D*bio.ind)/1000,1)) #%>% distinct(taxa,.keep_all=TRUE)
+Dp_U_Ma<-baseU%>%filter(clase=="macro")%>%group_by(taxa,sitio)%>%summarise('Peso corporal'=round(mean(bio.ind),1), Densidad=round(mean(D)),'Biomasa total media'=round(mean(D*bio.ind)/1000,1)) #%>% distinct(taxa,.keep_all=TRUE)
+
+Dp_U_m%>% kbl() %>%kable_classic(full_width = F, html_font = "Cambria")
+Dp_U_me%>% kbl() %>%kable_classic(full_width = F, html_font = "Cambria")
+Dp_U_Ma%>% kbl() %>%kable_classic(full_width = F, html_font = "Cambria")
+
 ```
+
+
+```{r den_peso_ro, echo=FALSE}
+
+B1<-meso%>%mutate(Manejo=factor(system,labels= c("Agrícola intensivo","Agrícola-ganadero","Pastizal natural")),Taxon=factor(specie,labels=c("Acaroidea","Bdelloidea","Brachychthonioidea","Ceratozetoidea","Crotonioidea","Dermanyssoidea","Entomobroidea","Epilohmannioidea","Euphthiracaroidea", "Eupodoidea","Galumnioidea","Hypogastruridae","Isotomidae","Onychiuridae","Oppioidea","Oripodoidea","Parasitoidea","Rhodacaroidea","Symphypleona","Trombidioidea","Tydeoidea","Uropodoidea","Veigaioidea")))%>%group_by(Manejo,site,year,month,sample,Taxon)%>%summarise(peso=biomass,bio=sum(biomass), abT= n(), bioT=bio/superficie, D=abT/superficie)
+
+
+B2<-B1%>%group_by(Taxon,Manejo)%>%summarise('Peso corporal'=round(mean(peso),1), Densidad=round(mean(D)),'Biomasa total media'=round((mean(bioT)/1000),2)) %>% distinct(Taxon,.keep_all=TRUE)
+
+#'Peso corporal mínimo'=min(peso),'Peso corporal máximo'=max(peso),
+
+B2%>% kbl() %>%kable_classic(full_width = F, html_font = "Cambria")
+#caption = "Tabla I. Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total ($mg_{p.s.}/m^2$) para los taxones de Acari y Collembola en cada sistema de manejo"
+```
+
 
 ```{r KW,include=FALSE}
 
-kruskal.test(bio.ind ~ sitio, data = baseU,subset=baseU$taxa=="staphylinidae")
-isotom<-baseU%>%filter(taxa=="staphylinidae")
-pairwise.wilcox.test(isotom$bio.ind, isotom$sitio,data=.,p.adjust.method = "BH")
+forbody_unlu<-body_unlu
+names(forbody_unlu)<-c("sitio","replica","estrato","microhabitat",
+                       "taxa","bio.ind","gremio","clase_tam")
+# Crear una lista de taxones únicos en los datos
+taxones <- unique(forbody_unlu$taxa)
+
+# Inicializar listas para almacenar los resultados
+resultados_kruskal <- list()
+resultados_wilcoxon <- list()
+
+# Recorrer cada taxón
+for (taxon in taxones) {
+  # Filtrar los datos para el taxón actual
+  datos_taxon <- forbody_unlu %>% filter(taxa == taxon)
+  
+  # Calcular el rango de los datos
+  rango <- diff(range(datos_taxon$bio.ind))
+  
+  # Verificar si hay suficiente variación en los datos para realizar el test
+  if (length(unique(datos_taxon$bio.ind)) > 3 && length(unique(datos_taxon$sitio)) > 1) {
+  # Realizar el test de Kruskal-Wallis
+  resultado_kruskal <- kruskal.test(bio.ind ~ sitio, data = datos_taxon)
+  
+  # Almacenar el resultado en la lista
+  resultados_kruskal[[taxon]] <- resultado_kruskal
+  
+  # Realizar comparaciones a pares con el test de Wilcoxon
+  pairwise_test <- pairwise.wilcox.test(datos_taxon$bio.ind, datos_taxon$sitio, p.adjust.method = "BH",exact=FALSE)
+  
+  # Almacenar el resultado en la lista
+  resultados_wilcoxon[[taxon]] <- pairwise_test
+} else {
+  cat("No hay suficientes datos distintos en los sitios para el taxón:", taxon, "\n")
+}
+}
+
+# Ver los resultados
+print(resultados_kruskal)
+print(resultados_wilcoxon)
+
+## Rosana
+formeso<-meso
+
+# Crear una lista de taxones únicos en los datos
+taxones <- unique(formeso$specie)
+
+# Inicializar listas para almacenar los resultados
+resultados_kruskalRO <- list()
+resultados_wilcoxonRO <- list()
+
+# Recorrer cada taxón
+for (taxon in taxones) {
+  # Filtrar los datos para el taxón actual
+  datos_taxon <- formeso %>% filter(specie == taxon)
+  
+  # Calcular el rango de los datos
+  rango <- diff(range(datos_taxon$biomass))
+  
+  # Verificar si hay suficiente variación en los datos para realizar el test
+  if (length(unique(datos_taxon$biomass)) > 3 && length(unique(datos_taxon$system)) > 1) {
+  # Realizar el test de Kruskal-Wallis
+  resultado_kruskal <- kruskal.test(biomass ~ system, data = datos_taxon)
+  
+  # Almacenar el resultado en la lista
+  resultados_kruskalRO[[taxon]] <- resultado_kruskal
+  
+  # Realizar comparaciones a pares con el test de Wilcoxon
+  pairwise_test <- pairwise.wilcox.test(datos_taxon$biomass, datos_taxon$system, p.adjust.method = "BH",exact=FALSE)
+  
+  # Almacenar el resultado en la lista
+  resultados_wilcoxonRO[[taxon]] <- pairwise_test
+} else {
+  cat("No hay suficientes datos distintos en los sitios para el taxón:", taxon, "\n")
+}
+}
+
+# Ver los resultados
+print(resultados_kruskalRO)
+print(resultados_wilcoxonRO)
+
 
 ```
 
 ## Distribución de peso corporal
 
-```{r ridge_unlu, echo=FALSE}
-
+```{r ridge_unlu, echo=FALSE, warning=FALSE}
 
 body_unlu%>%filter(clase_tam=="micro")%>%
   ggplot(aes(x=log(body_mass), y=taxa, fill=gremio)) + 
-  geom_density_ridges(rel_min_height = 0.0000005)+ 
-  scale_fill_viridis_d(alpha = 0.8)+
+  geom_density_ridges(rel_min_height = 0.001,scale=1.5,show.legend=FALSE)+ 
+  scale_fill_viridis_d(alpha = 0.8)+  
   facet_grid(.~sitio)+
   labs(title='Peso corporal individual para los taxones de microartrópodos', 
-       x= 'Peso corporal en ln ug/m^2')
+       x= 'Peso corporal en ln ug/m^2',y=NULL)
 
-body_unlu%>%filter(clase_tam=="meso")%>%
+body_unlu%>%filter(clase_tam=="meso"
+                   &body_unlu$taxa%in%c("amerosidae","arctacaridae",
+                        "bdelloidea","cunaxide",
+                        "dermanisoidea","eupodoidea",
+                        "eviphididae","ichtyostomatogasteridae",
+                        "laelapidae",
+                        "mesostigmata","ologamasidae",
+                        "parasitidae","parholaspidae","penthalidae",
+                    "rhagidiidae","rhodacaroidea",
+                    #"tarsonemidae",#"tenerifidae", sin gráfica
+                        "tydeoidea","uropodidae"))%>%
   ggplot(aes(x=log(body_mass), y=taxa, fill=gremio)) + 
-  geom_density_ridges(rel_min_height = 0.0000005)+ 
+  geom_density_ridges(rel_min_height = 0.001,scale = 1.5,show.legend=FALSE)+ 
   scale_fill_viridis_d(alpha = 0.8)+
   facet_grid(.~sitio)+
   labs(title='Peso corporal individual para los taxones de microartrópodos', 
-       x= 'Peso corporal en ln ug/m^2')
+       x= 'Peso corporal en ln ug/m^2',y=NULL)
+
+body_unlu%>%filter(clase_tam=="meso"&body_unlu$taxa%in%c("alycidae",
+                        "astigmata","ceratozetoidea",
+                        "enquitreido","entomobryoidea",
+                        "epilhomanioidea","eremobelbidae",
+                        "eupthiracaroidea","galumnidae",
+                        "hipogastruridae",
+                      "isotomidae","japygiidae",
+                      "limnozetidae","lohmanidae","macropilina",
+                        "onichiuridae","oppioidea",
+                    "oribatido","oribatulidae","oripodidae",
+                    "parajapygidae","scheloribates",
+                    "symphyla","symphypleona","tardigrado"))%>%
+  ggplot(aes(x=log(body_mass), y=taxa, fill=gremio)) + 
+  geom_density_ridges(rel_min_height = 0.001,scale = 2.5)+ 
+  scale_fill_viridis_d(alpha = 0.8)+
+  facet_grid(.~sitio)+
+  labs(title='Peso corporal individual para los taxones de microartrópodos', 
+       x= 'Peso corporal en ln ug/m^2',y=NULL)
 
 body_unlu%>%filter(clase_tam=="macro")%>%
   ggplot(aes(x=log(body_mass), y=taxa, fill=gremio)) + 
-  geom_density_ridges(rel_min_height = 0.0000005)+ 
+  geom_density_ridges(rel_min_height = 0.001,scale = 2.5)+ 
   scale_fill_viridis_d(alpha = 0.8)+
   facet_grid(.~sitio)+
   labs(title='Peso corporal individual para los taxones de microartrópodos', 
-       x= 'Peso corporal en ln ug/m^2')
+       x= 'Peso corporal en ln ug/m^2',y=NULL)
 
  # scale_x_continuous(breaks = seq(from=-4, to=5, by=2))+ 
+
+
+
+meso%>%ggplot(aes(x=log(biomass), y=specie, fill=guild)) + geom_density_ridges(rel_min_height = 0.0000005) +scale_x_continuous(breaks = seq(from=-4, to=5, by=2))+  scale_fill_viridis_d(alpha = 0.8)+facet_grid(.~system)+labs(title='Peso corporal individual para los taxones de microartrópodos', x= 'Peso corporal en ln ug/m^2',y=NULL)
+
 ```
 
 ```{r pwrU, include=FALSE}
@@ -367,11 +535,31 @@ dist_totalU %>% filter(min(AICc)==AICc) %>% mutate(moda=exp(expo))
 
 dist_plot_totU <- evaluate_distr(body_unlu$body_mass,est_xmin=FALSE,returnOBJ = TRUE) 
 
+###########
+#ROSANA
+# Ajuste a partir del minimo de los datos, esto es, considerando que 
+# el valor mínimo se encuentra dentro de los datos
+
+dist_manejo <- meso %>% group_by(system) %>% summarise(evaluate_distr(biomass,est_xmin=FALSE))
+
+dist_manejo %>% filter(min(AICc)==AICc) %>% mutate(moda=exp(expo))
+
+# Plots usando ggplot
+#
+dist_plot <- meso %>% group_by(system) %>% summarise(gplot=list(evaluate_distr(biomass,est_xmin=FALSE,returnOBJ=TRUE)))
+
+# Estimación para todos los datos
+
+dist_total <- evaluate_distr(meso$biomass,est_xmin=FALSE)
+dist_total %>% filter(min(AICc)==AICc) %>% mutate(moda=exp(expo))
+
+dist_plot_tot <- evaluate_distr(meso$biomass,est_xmin=FALSE,returnOBJ = TRUE) 
 ```
 
 ```{r aj, warning=FALSE, message=FALSE,echo=FALSE}
 
 require(cowplot)
+
 prowU <- plot_grid(
   dist_plotU$gplot[1][[1]] + xlab("Biomass")  + theme(legend.position="none")+ theme(axis.text.x = element_text(angle = 50, hjust = 1)), 
   dist_plotU$gplot[2][[1]] + xlab("Biomass")  + theme(legend.position="none") + theme(axis.text.x = element_text(angle = 50, hjust = 1)) + ylab(NULL),
@@ -391,6 +579,28 @@ pgU <- plot_grid(prowU, legend_b, nrow = 2, rel_heights = c(1, .1));pgU
 #save_plot("Figures/BodySizeSpectra_Landuses.png",pg,base_width=8,base_height=6,dpi=600)
 #dist_plot$gplot[1][[1]] + xlab("Biomass")
 
+
+
+prow <- plot_grid(
+  dist_plot$gplot[1][[1]] + xlab("Biomass")  + theme(legend.position="none")+ theme(axis.text.x = element_text(angle = 50, hjust = 1)), 
+  dist_plot$gplot[2][[1]] + xlab("Biomass")  + theme(legend.position="none") + theme(axis.text.x = element_text(angle = 50, hjust = 1)) + ylab(NULL),
+  dist_plot$gplot[3][[1]]  + xlab("Biomass") + theme(legend.position="none") + theme(axis.text.x = element_text(angle = 50, hjust = 1)) + ylab(NULL),
+  dist_plot_tot  + xlab("Biomass") + theme(legend.position="none") + theme(axis.text.x = element_text(angle = 50, hjust = 1)) + ylab(NULL),
+  align = 'vh',
+  nrow = 2,
+  labels = c('A', 'G','N','T' )
+  )
+legend_b <- get_legend(
+  dist_plot$gplot[3][[1]] +
+    guides(color = guide_legend(nrow = 2)) +
+    theme(legend.position = "bottom")
+)
+pg <- plot_grid(prow, legend_b, nrow = 2, rel_heights = c(1, .1));pg
+
+
+```
+
+```{r pwRO,include=FALSE}
 ```
 
 ## Biomasa
@@ -424,129 +634,6 @@ TukeyHSD(mU_1, "gremio")
 TukeyHSD(mU_1, "estrato")
 ```
 
-## Relación tamaño de espectro
-
-```{r qq_unlu, echo=FALSE}
-rq0<-rq(log(D) ~ (sitio+gremio+log(bio.ind))^3, tau = .75, data = baseU)
-summary(rq0,se="boot")
-
-step(rq0)
-
-rq1<-rq(log(D) ~ sitio + gremio + log(bio.ind) + sitio:log(bio.ind) + 
-    gremio:log(bio.ind),tau = .75, data = baseU)
-
-```
-
-```{r qqplotU,warning=FALSE}
-
-baseU%>%ggplot(aes(x=log(bio.ind),y=log(D),color=gremio))+
-  geom_point(size=1.1,shape=8,color=1)+
-  geom_quantile(quantiles = 0.75, size=1.5) +  
-  scale_color_viridis_d()+facet_grid(sitio~.)+  geom_smooth()+
-  labs( x=expression(paste("Biomasa corporal","  ",paste(ln," ",mu,"g")[ps])),
-        y=expression(paste("Densidad","  ",ln," ","n°"[ind]/m^{2})))
-
-
-baseU%>%filter(gremio!="herbivoro")%>%
-  ggplot(aes(x=log(bio.ind),y=log(D),color=gremio))+
-  geom_point(size=1.1,shape=8,color=1)+
-  geom_quantile(quantiles = 0.75, size=1.5) +  
-  scale_color_viridis_d()+facet_grid(sitio~.)+  
-  labs( x=expression(paste("Biomasa corporal","  ",paste(ln," ",mu,"g")[ps])),
-        y=expression(paste("Densidad","  ",ln," ","n°"[ind]/m^{2})))
-
-baseU%>%filter(gremio=="herbivoro")%>%
-  ggplot(aes(x=log(bio.ind),y=log(D),color=gremio))+
-  geom_point(size=1.1,shape=8,color=1)+
-  geom_quantile(quantiles = 0.75, size=1.5) +  
-  scale_color_viridis_d()+facet_grid(sitio~.)+  
-  labs( x=expression(paste("Biomasa corporal","  ",paste(ln," ",mu,"g")[ps])),
-        y=expression(paste("Densidad","  ",ln," ","n°"[ind]/m^{2})))
-
-
-```
-
-Los herbívoros no ajustan a la linea recta, es bimodal dado en la meso fauna no es continua y en los hevíboros de mayor tamaño no estan correctamente representados linealmente.
-
-# Espectro de tamaños Rosana
-
-Se realizó 7042 estimaciones de pesos corporales individuales, distribuidos en 1592 registros para el sistema natural (N), 2698 para el sistema mixto agrícola-ganadero (G) y 2752 para el sistema intensivo agrícola (A). \## Densidades y pesos corporales por taxón
-
-```{r dtbRO,include=FALSE}
-completo <- read_csv2("database/body_fq_guil_22.csv" , locale = readr::locale(encoding = "ISO-8859-1"))
-
-#Superficie en metros cuadrados a partir del sacabocados de 5 centímetros cuadrados
-#factor de conversión
-superficie <- pi*2.5^2/10000
-
-#sin macrofauna
-#Datos brutos, biomasa individual de microartropodos
-meso <- filter(completo,class!="macrofauna"&specie!="oribátido"&specie!="mesostigmata")%>%mutate( season=fct_relevel(season, c("O","I","P","V")),habitat=fct_relevel(habitat, c("epiedaphic","hemiedaphic","euedaphic")))
-
-#Base con biomasas promedios por especie
-#sample, son submuestras, por lo que no sirve para dividir sino para promediar la muestra
-base <-meso %>% group_by(system,site,year,month,sample,season,class,order,specie,guild,habitat) %>%  summarise(abundance=(n()/superficie), bio.ind=mean(biomass),Tbiomass=(bio.ind*abundance))
-
-```
-
-```{r den_peso_ro, echo=FALSE}
-
-B1<-meso%>%mutate(order=factor(order,labels=c("Astigmata","Entomobryomorpha","Mesostigmata","Oribatida","Poduromorpha","Symphypleona","Trombidiformes")),order=fct_relevel(order, c("Poduromorpha","Entomobryomorpha","Symphypleona","Oribatida","Mesostigmata","Trombidiformes","Astigmata")))%>%mutate(Manejo=system, Orden=order,Taxon=specie)%>%mutate(Manejo=factor(Manejo,labels= c("Agrícola intensivo","Agrícola-ganadero","Pastizal natural")),Taxon=factor(Taxon,labels=c("Acaroidea","Bdelloidea","Brachychthonioidea","Ceratozetoidea","Crotonioidea","Dermanyssoidea","Entomobroidea","Epilohmannioidea","Euphthiracaroidea", "Eupodoidea","Galumnioidea","Hypogastruridae","Isotomidae","Onychiuridae","Oppioidea","Oripodoidea","Parasitoidea","Rhodacaroidea","Symphypleona","Trombidioidea","Tydeoidea","Uropodoidea","Veigaioidea")),Gremio=factor(guild,labels=c("Detrívoro","Microfitófago","Omnívoro","Predador")))%>%group_by(Manejo,Orden,site,year,month,sample,Taxon,Gremio)%>%summarise(peso=biomass,bio=sum(biomass), abT= n(), bioT=bio/superficie, D=abT/superficie)
-
-B2<-B1%>%group_by(Manejo,Orden,Taxon,Gremio)%>%summarise('Peso corporal'=mean(peso),'Peso corporal mínimo'=min(peso),'Peso corporal máximo'=max(peso), Densidad=mean(D),'Biomasa total media'=mean(bioT)/1000) %>% distinct(Taxon,.keep_all=TRUE)
-
-
-B2%>% kbl() %>%kable_classic(full_width = F, html_font = "Cambria")
-#caption = "Tabla I. Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total ($mg_{p.s.}/m^2$) para los taxones de Acari y Collembola en cada sistema de manejo"
-```
-
-## Distribución de peso corporal
-
-```{r ridge_ro,echo=FALSE}
-#por Unidad Taxonómica
-
-
-meso%>%ggplot(aes(x=log(biomass), y=specie, fill=guild)) + geom_density_ridges(rel_min_height = 0.0000005) +scale_x_continuous(breaks = seq(from=-4, to=5, by=2))+  scale_fill_viridis_d(alpha = 0.8)+facet_grid(.~system)+labs(title='Peso corporal individual para los taxones de microartrópodos', x= 'Peso corporal en ln ug/m^2')
-
-```
-
-```{r pwRO,include=FALSE}
-# Ajuste a partir del minimo de los datos, esto es, considerando que 
-# el valor mínimo se encuentra dentro de los datos
-
-dist_manejo <- meso %>% group_by(system) %>% summarise(evaluate_distr(biomass,est_xmin=FALSE))
-
-dist_manejo %>% filter(min(AICc)==AICc) %>% mutate(moda=exp(expo))
-
-# Plots usando ggplot
-#
-dist_plot <- meso %>% group_by(system) %>% summarise(gplot=list(evaluate_distr(biomass,est_xmin=FALSE,returnOBJ=TRUE)))
-
-# Estimación para todos los datos
-
-dist_total <- evaluate_distr(meso$biomass,est_xmin=FALSE)
-dist_total %>% filter(min(AICc)==AICc) %>% mutate(moda=exp(expo))
-
-dist_plot_tot <- evaluate_distr(meso$biomass,est_xmin=FALSE,returnOBJ = TRUE) 
-
-prow <- plot_grid(
-  dist_plot$gplot[1][[1]] + xlab("Biomass")  + theme(legend.position="none")+ theme(axis.text.x = element_text(angle = 50, hjust = 1)), 
-  dist_plot$gplot[2][[1]] + xlab("Biomass")  + theme(legend.position="none") + theme(axis.text.x = element_text(angle = 50, hjust = 1)) + ylab(NULL),
-  dist_plot$gplot[3][[1]]  + xlab("Biomass") + theme(legend.position="none") + theme(axis.text.x = element_text(angle = 50, hjust = 1)) + ylab(NULL),
-  dist_plot_tot  + xlab("Biomass") + theme(legend.position="none") + theme(axis.text.x = element_text(angle = 50, hjust = 1)) + ylab(NULL),
-  align = 'vh',
-  nrow = 2,
-  labels = c('A', 'G','N','T' )
-  )
-legend_b <- get_legend(
-  dist_plot$gplot[3][[1]] +
-    guides(color = guide_legend(nrow = 2)) +
-    theme(legend.position = "bottom")
-)
-pg <- plot_grid(prow, legend_b, nrow = 2, rel_heights = c(1, .1));pg
-```
-
-## Biomasa
 
 ```{r B_ro, echo=FALSE}
 
@@ -598,6 +685,48 @@ meso %>% mutate(guild=factor(guild,labels=c("Detritívoros","Microfitófagos","O
 
 ## Relación tamaño de espectro
 
+```{r qq_unlu, echo=FALSE}
+rq0<-rq(log(D) ~ (sitio+gremio+log(bio.ind))^3, tau = .75, data = baseU)
+summary(rq0,se="boot")
+
+step(rq0)
+
+rq1<-rq(log(D) ~ sitio + gremio + log(bio.ind) + sitio:log(bio.ind) + 
+    gremio:log(bio.ind),tau = .75, data = baseU)
+
+```
+
+```{r qqplotU,warning=FALSE}
+
+baseU%>%ggplot(aes(x=log(bio.ind),y=log(D),color=gremio))+
+  geom_point(size=1.1,shape=8,color=1)+
+  geom_quantile(quantiles = 0.75, size=1.5) +  
+  scale_color_viridis_d()+facet_grid(sitio~.)+  geom_smooth()+
+  labs( x=expression(paste("Biomasa corporal","  ",paste(ln," ",mu,"g")[ps])),
+        y=expression(paste("Densidad","  ",ln," ","n°"[ind]/m^{2})))
+
+
+baseU%>%filter(gremio!="herbivoro")%>%
+  ggplot(aes(x=log(bio.ind),y=log(D),color=gremio))+
+  geom_point(size=1.1,shape=8,color=1)+
+  geom_quantile(quantiles = 0.75, size=1.5) +  
+  scale_color_viridis_d()+facet_grid(sitio~.)+  
+  labs( x=expression(paste("Biomasa corporal","  ",paste(ln," ",mu,"g")[ps])),
+        y=expression(paste("Densidad","  ",ln," ","n°"[ind]/m^{2})))
+
+baseU%>%filter(gremio=="herbivoro")%>%
+  ggplot(aes(x=log(bio.ind),y=log(D),color=gremio))+
+  geom_point(size=1.1,shape=8,color=1)+
+  geom_quantile(quantiles = 0.75, size=1.5) +  
+  scale_color_viridis_d()+facet_grid(sitio~.)+  
+  labs( x=expression(paste("Biomasa corporal","  ",paste(ln," ",mu,"g")[ps])),
+        y=expression(paste("Densidad","  ",ln," ","n°"[ind]/m^{2})))
+
+
+```
+
+Los herbívoros no ajustan a la linea recta, es bimodal dado en la meso fauna no es continua y en los hevíboros de mayor tamaño no estan correctamente representados linealmente.
+
 ```{r qq_RO, echo=FALSE}
 rq1<-rq(log(abundance) ~ (system+guild+log(bio.ind))^2, tau = .75, data = base)
 step(rq1)
@@ -613,6 +742,8 @@ base%>%ggplot(aes(x=log(bio.ind), y=log(abundance),color=guild))+geom_point(size
 
 
 ```
+
+
 
 # ref
 
