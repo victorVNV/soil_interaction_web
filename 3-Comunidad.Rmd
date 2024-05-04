@@ -537,7 +537,7 @@ con el test de K-W p:H\<0.01, en el gráfico de cajas y bigotes se observa el ma
 de CE se da en el pastizal natural.
 
 ```{r CE_unlu,include=FALSE}
-fyq.box$CE<-fyq.box$CE/100
+fyq.box$CE<-fyq.box$CE#/100
 CE.sum<-data.frame(Sitio=c("A 20", "P 20", "R 20"),
                    Promedio=c(
                      mean(fyq.box[fyq.box$sitio=="A"&fyq.box$estrato==20,"CE"]),
