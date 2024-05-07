@@ -13,15 +13,15 @@ set.seed(167)
 ```
 
 ```{r lib, include=FALSE}
-{require(tidyverse); require(kableExtra); require(quantreg);require(lubridate)
-  require(kSamples);require(ggridges)}
+{require(tidyverse); require(kableExtra); require(quantreg);require(lubridate);
+  require(kSamples);require(ggridges);require(gridExtra)}
 ```
 
 # Introducción
 
-Los organismos que viven en el suelo ocupan los espacios formados entre la hojarasca que se acumula sobre la superficie del suelo y los poros de la matriz organomineral del suelo [@wallwork1971; @ritz2012].
+Los organismos que viven en el suelo ocupan los espacios formados entre la hojarasca que se acumula sobre la superficie del suelo y los poros de la matriz organo-mineral del suelo [@wallwork1971; @ritz2012].
 
-La fauna edáfica desempeña un papel fundamental en el funcionamiento edáfico mediante el consumo de materia orgánica, el transporte de propágulos de bacterias y hongos, el control de poblaciones, son los recursos alimenticios de otros organismos y median transformaciones biológicas sobre la estructura organomineral del suelo (**bioturbación o biotransformación**). Estas funciones, a su vez, contribuyen a servicios ecosistémicos más amplios como el ciclo del carbono, de los nutrientes y el agua, la regulación de la materia orgánica del suelo y la fertilidad química y física del suelo [@brussaard2012; @wurst2012; .\@.cita_paper_redesyservicios].
+La fauna edáfica desempeña un papel fundamental en el funcionamiento edáfico mediante el consumo de materia orgánica, el transporte de propágulos de bacterias y hongos, el control de poblaciones, son los recursos alimenticios de otros organismos y median transformaciones biológicas sobre la estructura organomineral del suelo (**bioturbación o biotransformación**). Estas funciones, a su vez, contribuyen a servicios ecosistémicos más amplios como el ciclo del carbono, de los nutrientes y el agua, la regulación de la materia orgánica del suelo y la fertilidad química y física del suelo [@brussaard2012; @wurst2012]; .\@.cita_paper_redesyservicio.
 
 La identificación taxonómica de las comunidades que habitan la red de poros del suelo se dificulta debido a la gran diversidad taxonómica en constante revisión, como al pequeño tamaño corporal de la criptofauna [@briones2014], sumado a esto, los microartrópodos edáficos se caracterizan por formar una comunidad con una importante redundancia funcional debido a su gran abundancia y a sus hábitos alimenticios generalistas [@hattenschwiler2005; @walker1992].
 
@@ -29,7 +29,8 @@ Para avanzar en la compresión de las comunidades crípticas del suelo han toman
 
 Todos los organismos responden a las presiones ambientales, estas respuestas pueden observarse como cambios en los rasgos morfológicos, fisiológicos, fenológicos o de comportamiento. Las presiones que modifican las características del medio también se reflejan como cambios en la estructura poblacional de los diferentes taxones en la comunida [@sechi2017; @mittelbach2019]. Por lo tanto, el efecto de las interacciones de los organismos con su ambiente queda reflejado en las variaciones poblacionales y en las variaciones de los rasgos individuales, que pueden ser utilizados como indicadores de procesos ecológicos a nivel de la comunidad [@brussaard2012; @petchey2010].
 
-La fauna edáfica es sensible a las perturbaciones que ocurren sobre el suelo, las actividades de manejo pueden alterar el hábitat y la fuente de los recursos que estos organismos utilizan [@lavelle2006]. Por ejemplo, las perturbaciones pueden alterar los ingresos y salidas de materia orgánica y nutrientes debido a los pulsos derivados de la aplicación de fertilizantes y pesticidas[.\@.citas_sobre_alteracion_ciclo_N], o pueden alterarse las condiciones del microclima poroso cuando se expone el suelo a factores ambientales en periodos de barbecho (p.e. cuando el cultivo no se encuentra presente), o, en sistemas ganaderos, el efecto de la compactación sobre la estructura física del suelo que afecta la distribución y el tamaño de los poros.
+La fauna edáfica es sensible a las perturbaciones que ocurren sobre el suelo, las actividades de manejo pueden alterar el hábitat y la fuente de los recursos que estos organismos utilizan [@lavelle2006]. Por ejemplo, las perturbaciones pueden alterar los ingresos y salidas de materia orgánica y nutrientes debido a los pulsos derivados de la aplicación de fertilizantes y pesticidas[.\@.citas_sobre_alteracion_ciclo_N], o pueden alterarse las condiciones del microclima poroso cuando se expone el suelo a factores ambientales en periodos de barbecho (p.e. cuando el cultivo no se encuentra presente), o, en sistemas ganaderos, el efecto de la compactación 
+por el pisoteo sobre la estructura física del suelo que afecta la distribución y el tamaño de los poros.
 
 La estimación del tamaño corporal de los organismos edáficos, medida a partir del peso corporal, permite relacionar parámetros fisiológicos como el metabolismo y el uso de los recursos, con parámetros ecológicos tales como las interacciones tróficas y las adaptaciones de estos organismos ante cambios en el ambiente [@pey2014; @white2007; @turnbull2014].
 
@@ -86,6 +87,12 @@ A partir de los pesos corporales ( $\mu g_ {\;p.s.}$ ) de cada individuo se calc
 ## Análisis estadístico
 
 Se resumen las valores medio de densidad, biomasa y pesos corporales de los taxones en cada sistema de manejo, para observar posibles diferencias estructurales dentro de la fauna edáfica relacionadas con el impacto del uso del suelo en los diferentes sistemas de manejo.
+
+<!--La curva de acumulación empírica inversa permite comparar la distribución de los datos observados con la distribuciones teóricas.
+
+Los datos observados son los puntos que se acumulan en la fig. 4.x y estos se corresponden con cada una de los pesos corporales de la fauna edáfica compilada, estas observaciones se contrastan con las distribuciones teóricas exponencial, potencial exponencial, potencial exponencial truncada y logarítmica normal.
+
+Re redactar para darle sentido a los resultados y que no parezca repetición de -->
 
 Para cada comunidad se analizó la respuesta de la biomasa media de cada gremio trófico vinculado con el efecto de los sistemas de manejo, a la vez se abordaron las posibles relaciones causales que podrían afectar la respuesta de la biomasa media ya sea por el efecto de las estaciones del año o por los estratos en el cuál habitan los taxas y las interacciones entre estos.
 
@@ -417,6 +424,8 @@ body_unlu%>%filter(clase_tam=="micro")%>%
        x= 'Peso corporal en ln ug/m^2',y=NULL)
 
 ```
+
+
 Los nemátodos omnívoros y los nemátodos predadores muestran modas del pesos corporal mayores que en las 
 demás categorías tróficas, siguen de cerca a los predadores las modas de los nemátodos fungívoros, luego 
 los bacterívoros y los nemátodos fitófagos que en general son más pequeños debido a sus hábitos de vida.
@@ -428,6 +437,19 @@ demás gremios tróficos.
 ```{r tab_nem_ridg,echo=FALSE,warning=FALSE,message=FALSE}
 Dp_U_m%>% kbl(caption = "Tabla 4.x. Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) para las categorías tróficas de nematodos de vida libre de suelos Argiudoles de Luján") %>%kable_classic(full_width = F, html_font = "Cambria")
 ```
+
+```{r jun, include=FALSE, warning=FALSE, message=FALSE}
+grid.arrange(tableGrob(Dp_U_m,rows=NULL), body_unlu%>%filter(clase_tam=="micro")%>%
+  ggplot(aes(x=log(body_mass), y=Taxón, fill=Gremio)) + 
+  geom_density_ridges(rel_min_height = 0.001,scale=1.5,show.legend=FALSE)+ 
+  scale_fill_viridis_d(alpha = 0.8)+  
+  facet_grid(.~Sistema)+
+  labs(title='Nemátodos de vida libre de suelos Argiudoles de Luján', 
+       x= 'Peso corporal en ln ug/m^2',y=NULL), ncol = 2)
+
+#aca intento juntar tablas y gráficos para que queden uno al lado del otro.
+```
+
 
 Los nemátodos omnívoros de la Reserva muestran el mayor valor de peso corporal promedio y 
 la mayor biomasa media, la mayor abundancia se observó en el sistema del pastizal. 
@@ -469,12 +491,14 @@ body_unlu%>%filter(clase_tam=="meso"&body_unlu$taxa%in%c("alycidae",
 
 ```
 
+
 La distribución de pesos corporales de la mayoría de los taxones son unimodales y con una forma en general
 de tipo campana.
 
 ```{r tab_mesodet_ridg,echo=FALSE,warning=FALSE,message=FALSE}
 Dp_U_me_D%>% kbl(caption = "Tabla 4.x. Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) para la mesofauna no predadora de suelos Argiudoles de Luján") %>%kable_classic(full_width = F, html_font = "Cambria")
 ```
+
 
 Los enquitreidos, animales con función ecológica similar a la de las lombrices de tierra pero con su efecto operando a menor escala debida a su tamaño corporal, muestran el mayor peso corporales medio, la mayor densiad y la mayor biomasa media en el suelo agrícola.
 
@@ -516,11 +540,15 @@ body_unlu%>%filter(clase_tam=="meso"
 ```{r tab_msopred_ridg,echo=FALSE,warning=FALSE,message=FALSE}
 Dp_U_me_P%>% kbl(caption="Tabla 4.x. Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) para la mesofauna predadora de suelos Argiudoles de Luján") %>%kable_classic(full_width = F, html_font = "Cambria")
 ```
+
+
 Entre los ácaros mesostigmata el taxón de mayor peso corporal fué la familia Ichtyostomatogasteridae aunque solo se observaron en el suelo del pastizal; la familia Ologamasidae tuvo la mayor abundancia en los suelos de la reserva pero el mayor peso corporal y biomasa media se observó en el suelo agrícola; los Parasitidae fueron más grandes en el suelo agrícola pero más abundantes y con mayor biomasa en el pastizal; los mesostigmatas Dermanisoidea en el sistema agrícola tienen la mayor biomasa y peso corporal; la superfamilia Rhodacaroidea son mesostigmatas **euedáficos**, son predadores de pequeño tamaño, muestran la mayor densidad y biomasa en el pastizal pero el mayor peso corporal promedio en el sistema agrícola.
 
 Entre los ácaros prostigmatas destaca Cunaxidae con el mayor peso corporal que solo fué registrado en el sistema agrícola; los Bdelloidea en el sistema del pastizal muestran los mayores vaores de peso, densidad y biomasa; los Eupodoidea mostraron pesos corporales similares en los tres sistemas; los pentalidos de la reserva fueron los más pesados y los rhagididos del pastizal fueron los más pesados; los tydeidos en el suelo de la reserva fueron los de mayor peso y biomasa.
 
 En los suelos de Chivilcoy y Navarro los microartrópodos tienen un espectro de tamaños corporales de 8 órdenes de magnitud, con pesos corporales desde $e^{-3} = 0.05 \mu g$ hasta $e^{4} \approx 60 \mu g$.
+
+
 ```{r plot_mesoRO_ridg,echo=FALSE,warning=FALSE,message=FALSE}
 meso1<-meso
 meso1$Sistema<-factor(meso1$system,labels= c("Agrícola intensivo","Agrícola-ganadero","Pastizal naturalizado"))
@@ -530,6 +558,7 @@ meso1$Gremio<-factor(meso1$guild,labels=c("Detritivoro","Microfitofago","Omnivor
 
 meso1%>%ggplot(aes(x=log(biomass), y=Taxón, fill=Gremio)) + geom_density_ridges(rel_min_height = 0.0000005) +scale_x_continuous(breaks = seq(from=-4, to=5, by=2))+  scale_fill_viridis_d(alpha = 0.8)+facet_grid(.~Sistema)+labs(title='Peso corporal individual para los taxones de microartrópodos', x= 'Peso corporal en ln ug/m^2',y=NULL)
 ```
+
 
 Los microartrópodos preadores muestran distribuciones de tamaños con más de una moda. También se observa este fenómeno en algunos taxones de detritívoros y microfitófagos.
 
@@ -1268,7 +1297,8 @@ correspondiéndose con los nemátodos.
 Al nivel de las interacciones el intercepto de los predadores de los sistemas R y P en comparación 
 con los microfitófagos del sistema A difirió significativamente ($>|\;t\;| : p_{value}<0.05$¹) 
 además el intercepto de los predadores del sistema A difirió de los microfitófagos de R y P, entre ambos 
-gremios tróficos y en cada sitio, los interceptos difieren en 1,1 ordenes de magnitud aproximadamente.
+gremios tróficos y en cada sitio, los interceptos difieren en 1,1 ordenes de magnitud aproximadamente
+.
 
 Entre gremios tróficos los interceptos fueron diferentes para detritívoros en comparación con 
 los predadores ($dif:-1.41768$) y omnívoros ($dif:-2.18830$); para los microfitófagos hubo diferencias 
@@ -1376,8 +1406,8 @@ mas grandes o de mayor tamaño, se encuentran en baja abundancia o no se encontr
 estudiados.
 
 La regresión sobre los sistemas de uso del suelo sin considerar los gremios tróficos muestran 
-valores del interceptos diferentes entre cada uno, además, con respecto a la pendiente, el 
-valor para el sistema mixto no muestra ser diferente de cero.
+valores del interceptos diferentes entre entre sí ($8.06 \;(A) > 8.02 \;(G) > 7.98 \;(N)$), además, 
+con respecto a la pendiente, el valor para el sistema mixto no mostró ser diferente de cero.
 
 
 
@@ -1387,7 +1417,7 @@ valor para el sistema mixto no muestra ser diferente de cero.
 
 
 
-# ref
+# Referencias
 
 Edwards 1973 Relationships between weights, volumes and numbers of soil animals. in Progress in soil zoology
 

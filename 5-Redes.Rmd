@@ -1,5 +1,5 @@
 ---
-title: "soil_food_web_unlu"
+title: "5-Redes"
 author: "Velazco"
 date: "`r Sys.Date()`"
 output: html_document
@@ -10,6 +10,8 @@ editor_options:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+loadNamespace('printr')
+set.seed(167)
 ```
 
 En los ecosistemas las especies presentes se relacionan entre sí de
@@ -186,15 +188,85 @@ manejo [@bedano2007; @socarras2013].
 # Metodología
 
 ## Construccion de la red
-Se construyo una matriz de interacciones tróficas cutos nodos son todas los taxones hallados 
-en las comunidades de la fauna de suelo ("Gamma"). A partir de ella se seleccionan los actores que 
-corresponden a cada comunidad en particular ("Alpha"). 
+Se construyo una matriz de interacciones tróficas cuyos nodos son todos los taxones
+hallados en ambas comunidades de la fauna de suelo ($gamma\; [\gamma]$). 
+A partir de la matriz de interacciones global se seleccionan los actores que 
+corresponden a cada comunidad en particular definiendo de 
+esta manera matrices de interacciones para cada sistema de uso del 
+suelo ($alpha \;[\alpha]$). 
 
-Se tomaron los pesos corporales medios. 
-Se tomaron las biomasas medias
-Se tomaron las densidades medias. 
-Se asumieron ciertos parámetros con respecto a los recursos bases, los cuales debida a su complejidad 
-son dificiles de cuantificar, pero se pueden relacionar con variables calculadas por bibliografía
+Se utilizaron como **atributos de nodos**, esto es, valores numéricos, nominales o 
+categóricos que describen una característica del nodo en particular se corresponde 
+con los taaxones hallados en los diferentes sistemas de uso del suelo, los valores 
+de pesos corporales, las biomasas medias y las densidades medias; productos todos 
+desarrollados en las secciones anteriores (Ver tablas 4.x al x).
+
+Se asumieron algunos parámetros para nodos que se corresponden a recursos tróficos
+base basados en evidencia bibliográfica, estos nodos, o no han sido medidos 
+como por ejemplo en los datos de comunidades edáficas de los suelos argiudoles 
+de Chivilcoy y Navarro, o, debido a su complejidad son dificiles de cuantificar.
+
+Para el recurso trófico "humus" se considera que la materia orgánica particulada 
+es el proxi de la cantidad del recurso que se corresponde con el nodo "Hummus" y 
+en general esta se corresponde con el 50% de la materia orgánica del suelo
+para suelos de la pampa ondulada (Álvarez 2006 (cap3);Biological indicator of Soil Healt 
+pp 70 - 71), para calcular su biomasa
+esta se refiere a la superficie en metros cuadrados, utilizando la densidad
+aparente de suelos y referidas hasta los 10 centímetros de profundidad, zona en 
+la cuál se encuentra la mayor proporción del contenido en materia orgánica; Digel 
+(.-@.Digel.2014), quien evaluó las características topológicas 
+de decenas de redes de diferentes ecosistemas y las comparó con redes tróficas 
+de los suelos de bosques de la región Paleártica en el material suplementario 
+indica que el peso promedio de las bacterias del suelo es $9,5\, x \,10^{-16} g$, 
+indica también el peso promedio de cada uno de los principales grupos de protozoos 
+del suelo,tardígrados, rotíferos y otra microfauna que en conjunto que resultó en 
+$1,1121 \,x\,10^{-10} g$ <!--3.3363e-1-->; el peso promedio de los hongos son 
+relevados por metro lineal 
+de las hifas como sugiere Pilar et al. (2016) y que resulta en un valor de 
+$2,3 \,x\,7\,^{-10} g\,m^{-2}$.
+
+Las biomasas medias de bacterias, hongos y microfauna no nemátoda, son aproximadas
+mediante la biomasa media calculada a partir de la respiración de los heterótrofos
+(capítulo 3 comunidad, imagen o tabla,ecuación),
+de esta biomasa media se considera que el 
+50% es el recurso efectivamente disponible para la red trófica, entonces, 
+para ambos suelos argiudoles se consideró que el 2 % de la biomasa corresponde 
+a la microfauna no nemátoda (.@.cita_energetical.significance?),
+para suelos los suelos de Luján se 
+utilizó la relación de hongos y bacterias para calcular la biomasa de estos actores
+sobre el 48% restantes de la biomasa media de los heterótrofos, en los suelos de 
+Chivilcoy y Navarro se consideró el 45% de la respiración
+para calcular las biomasas de bacterias
+y hongos dado que el 3% será utilizado para estimar la biomasa de nemátodos,
+en sistemas agrícolas intensivos se asumió 35% de bacterias, en el 
+sistema mixto agrícola ganadero se asumió 30% de bacterias y para el pastizal 
+naturalizado se asumió una contribución de bacterias del 25% (.@.buscar cita sobre 
+relación entre hongos y bacterias en sistemas del suelo)
+
+Para el caso de los nemátodos de vida libre del suelo para el conjunto de datos de los 
+suelos argiudoles de Luján se utilizaron los valores de abundancia y peso medio 
+a partir de la evidencia empírica recabada. En cambio, para 
+los argiudoles de Chivilcoy y Navarro se utilizaron las relaciones de proporción
+promedio de nemátodos observados en los sistemas del suelo Argiudol de Luján,
+por lo tanto, nemátodos fungívoros, bacteríofagos, fitófagos, omnívoros y predadores, 
+fueron referidos al 40,30,14,8 y 8 % respectivamente, a la vez se consideró que los 
+nemátodos en relación a la biomasa heterotrófica se corresponden con el 3% (.@.agregar 
+cita).
+
+Teniendo la relación entre las biomasas y los pesos corporales medios de los actores 
+se calculan las densidades de aquellos nodos que no tuvieron una determinación directa.
+
+De los recursos tróficos base, en algunos casos pudo estimarse su biomasa, a saber,
+el recurso hojarasca fué calculado para suelos de Luján pero no 
+en Chivilcoy y Navarro, el humus como dicho más arriba fué calculado 
+para ambas localidades, la carroña fue estimada a partir del peso de todos los 
+invertebrados presente en los diferentes sistemas de uso y que pueden dejar carroña, 
+considerando un 5% de carroña sobre la biomasa de invertebrados pausibles de
+dejar carroña una vez sucedida su decesión, finalmente el tejido vegetal que incluye 
+raices y exudados (Cap 2.1. Recursos tróficos) no pudo ser determinado.
+
+Para los recursos bases se asume que su densidad y su peso son iguales a 1 
+a los fines de realizar cálculos de fuerzas de interacción (.@.pawar?; .@.alesina; .@.fluxweb)
 
 ## Métricas y estadísticas
 Se calcularon los índices topológicos
@@ -479,11 +551,11 @@ mRO_rec[mRO_rec$specie=="microfauna","bio.ind"]<-3.3363e-1 # este sale de promed
 
 #para los nemátodos utilizo el promedio GLOBAL de peso de los encontrados en suelos de Luján
 
-#fitófago, luján 1.02ug, digel
-#fungivoro, luján 5,184 ug, digel
-#bacterivoro, luján 1,854, digel
-#omnivoro, luján 16,89 ug, digel
-#predador, luján 4,58 ug, digel
+#fitófago, luján 1.02ug, 
+#fungivoro, luján 5,184 ug, 
+#bacterivoro, luján 1,854, 
+#omnivoro, luján 16,89 ug, 
+#predador, luján 4,58 ug, 
 mRO_rec[mRO_rec$specie=="nem_b","bio.ind"]<-1.854
 mRO_rec[mRO_rec$specie=="nem_f","bio.ind"]<-5.184
 mRO_rec[mRO_rec$specie=="nem_phy","bio.ind"]<-1.02
@@ -576,24 +648,7 @@ bm_A<-c(A$biomass,
 #######
 
 ```
-<!-- # Biomasas
-# Hojarasca, Dato tomado de biomasas y abundancias de la red unlu
-# Esto es el peso de la hojarasca encontrada en los 25*25 cm
-# 0.3 es el coeficiente de peso seco
-# L= 77,0321g/0.0625m2*0.3 P= 58.63g/0.0625m2*0.3 R= 55.753g/0.065m2*0.3
-# asumir 40% de la MOS es POM
-# %MO L=2.73% R=3.52% P= 3.09%
-# dap aprox. 1.2
-# Datos tomados de fyq_unlu, determinación de la materia orgánica.
-# Tej_veg sin datos, seria conocer el peso de las raices y/o sus metabolitos liberados
-# Como proxy, decimos que es una vez y media el contenido de materia orgánica
-# Carroña, puede ser el 5% de la biomasa promedio total de los invertebrados
-# L = 6980566 *0.01, R= 9231538*0.01, P=7122637*0.01
-# Fórmula: mean(P[P$taxa!="fungi"&P$taxa!="bac"&P$taxa!="proto",]$biomass)
-#Lavelle: Root biomass may be extremely high in soils and often constitutes the major resource for soil organisms. 
-#raices 2mg por cm en figure III.19 soil organims. root. pp 237
-#####
--->
+
 
 
 ```{r Gamma_matrix, include=FALSE}
@@ -1625,6 +1680,127 @@ stoichiometric profiles of resources relative to consumers
 are known to affect rates of resource consumption ENERGY USE AND ANIMAL ABUNDANCE
 IN LITTER AND SOIL COMMUNITIES
 TIMOTHY D. MEEHAN 2006
+
+<!--
+mutate(bacteria=case_when(system=="A"~bm*0.35,system=="G"~bm*0.3,system=="N"~bm*0.25),
+         hongo=((bm-(0.05*bm))-bacteria),
+         microfauna=(0.05*bm*0.25),
+         nem_f=(0.05*bm*0.75*0.4),nem_b=(0.05*bm*0.75*0.3),nem_phy=(0.05*bm*0.75*0.14),
+         nem_pr=(0.05*bm*0.75*0.08),nem_om=(0.05*bm*0.75*0.08))%>%distinct(site,.keep_all=TRUE)
+
+#los recursos disponibles para consumo del total, serán el 50% de la biomasa microbiana
+# de ello se proporciona para bacterias y hongos según la relación hongo bacterias
+
+# acá utilio la relacion hongos bacterias
+# 1-(relaciónHB/(1+relacionHB)) = bacterias
+# (relaciónHB/(1+relacionHB)) = hongos
+# de la "biomasa total" el 50% disponible, de los cuales 5% es protozoos y 45% seran hongos y bacterias.
+# se multiplican el 45 que es disponible por la proporcion HB previamente calculada.
+
+
+Microfauna calculada como 6,57 x10 \^-5 g, es el promedio de protozoos y
+nemátodos sería 0.066 µg peso
+
+2.3e-1, #si considero el promedio entre ambos sería 5.560547e-05, 
+                      #pero se coloca -999 cuando no hay info. #nueva info 4/4/24
+                      # Andres Pilar et al 2016. soilfoodweb prairie
+<!-- # Biomasas
+# Hojarasca, Dato tomado de biomasas y abundancias de la red unlu
+# Esto es el peso de la hojarasca encontrada en los 25*25 cm
+# 0.3 es el coeficiente de peso seco
+# L= 77,0321g/0.0625m2*0.3 P= 58.63g/0.0625m2*0.3 R= 55.753g/0.065m2*0.3
+# asumir 40% de la MOS es POM
+# %MO L=2.73% R=3.52% P= 3.09%
+# dap aprox. 1.2
+# Datos tomados de fyq_unlu, determinación de la materia orgánica.
+# Tej_veg sin datos, seria conocer el peso de las raices y/o sus metabolitos liberados
+# Como proxy, decimos que es una vez y media el contenido de materia orgánica
+# Carroña, puede ser el 5% de la biomasa promedio total de los invertebrados
+# L = 6980566 *0.01, R= 9231538*0.01, P=7122637*0.01
+# Fórmula: mean(P[P$taxa!="fungi"&P$taxa!="bac"&P$taxa!="proto",]$biomass)
+#Lavelle: Root biomass may be extremely high in soils and often constitutes the major resource for soil organisms. 
+#raices 2mg por cm en figure III.19 soil organims. root. pp 237
+#####
+
+
+
+Se realizan varias suposiciones:
+
+Sobre el humus, se considera que lo utilizable como recurso es el 30% de
+la %MO en los primeros 10 cm La relación H:B será por el momento
+N25-G30-A35 de bacterias:hongos en los sistemas N G A respectivamente.
+Además protozoos y otra microfauna representará el 5% e la respiración
+
+Según Digel
+
+\|Taxón \| Peso corporal \|
+
+\|Bacteria \|9,5 x 10\^-16 g\|
+
+\|Ameba \|2,8 10\^-8 g\|
+
+\|Ciliados \|2,63 10\^-9 g\|
+
+\|Flegelados \|3,03 10\^-7 g\|
+
+\|------------\|-----------\|
+
+\|bacterívoros \|8,5 x 10\^-7\|
+
+\|omnivoros \|6,02 x 10\^-5\|
+
+\|predadores \|3,56 x 10\^-6\|
+
+\|fungivoros \|5,35 x 10\^-7\|
+
+\|fitófagos root feeding \|2,35 x 10\^-7\|
+
+Peso promedio de los protozoos en 1,1121 x10\^-4 µg
+
+Nematodos son 10⁵ ind/m2 biomasa tomada de potapov y digel. En este caso
+la proporción de fungivoros 40 % y bacterivoros sera igual en todos 30%
+predadores 8% omnivoros 8% 14% fitofagos.
+
+Nemátodos 15 x 10⁵ ind/m² un poco por debajo de lo que encontró Mondino
+en su tesis doctoral, unque el rango varío ampliamente de 2,67 a 18,58
+Asumiendo como 15 x10⁵ ind nemátodos / m² y los porcentajes de gremios
+más arriba, entonces tendríamos una biomasa de:
+
+bacterívoros 8,5 x 10\^-7; ==\> x450 x10³ ind/m² ==\> 382, 5 µg/m²
+omnivoros 6,02 x 10\^-5; ==\> x120 x10³ind/m² ==\> 7224 µg/m² predadores
+3,56 x 10\^-6; ==\> x120 x10³ind/m² ==\> 427 µg/m² fungivoros 5,35 x
+10\^-7; ==\> x600 x10³ ind/m² ==\> 321 µg/m² fitófagos root feeding 2,35
+x 10\^-7; ==\> x210 x10³ ind/m² ==\> 49,35 µg/m²
+
+Serían 8404 µg nemátodos/m²
+
+Número de protozoos por gramo de suelo Ameba 123x10³ =\> x 2,8 10\^-8
+=\>3,4 10\^-3 g/g suelo =\> 274,19 g/m2 Flagelados 27.3x10³ =\> x 3,03
+10\^-7 =\> 8,2719 10\^-3 g/g suelo =\> 667,08 g/m2 Ciliados 12.1 x 10³
+=\> x 2,63 10\^-7 =\> 3,1823 x10\^-3 g/g suelo =\> 256,63 g/m2
+
+Protozoos en un gramo de suelo según Vargas y Hattori 1990 Microbiology
+Ecology 74 (1990) 73-78
+
+5480 protozoos por gramo de suelo activos según Griffiths and Ritz soil
+Biol. Biochem. Vol. 20. No. 2.pp163-173 (1998)
+
+Tardígrados número por 10 cm³ suelo entre 250 individuos según Bingemer
+et al. 2020 Zoological Journal of the Linnean Society 188. 887-899
+
+Potapov en el Bosque tropical de indonesia calculó de hojarasca 11kg/ha
+en Miramar hemos encontrado 700 g/m2
+
+Microfauna calculada como 6,57 x10 \^-5 g, es el promedio de protozoos y
+nemátodos sería 0.066 µg peso
+
+La materia orgánica particulada es el proxi a la cantidad de recurso que
+se corresponde con el Humus y esta es una fracción del %de MO
+(Biological indicator of Soil Healt pp 70 - 71)
+
+El 0.25% de lo que corresponde a microfauna sera no nematodo.
+
+-->
 
 ```{=html}
 <!-- Achiorno, C.L., de Villalobos, C., Ferrari, L., 2008. Toxicity of the herbicide glyphosate
