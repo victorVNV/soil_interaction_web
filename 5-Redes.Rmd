@@ -188,6 +188,7 @@ manejo [@bedano2007; @socarras2013].
 # Metodología
 
 ## Construccion de la red
+
 Se construyo una matriz de interacciones tróficas cuyos nodos son todos los taxones
 hallados en ambas comunidades de la fauna de suelo ($gamma\; [\gamma]$). 
 A partir de la matriz de interacciones global se seleccionan los actores que 
@@ -202,7 +203,8 @@ de pesos corporales, las biomasas medias y las densidades medias; productos todo
 desarrollados en las secciones anteriores (Ver tablas 4.x al x).
 
 Se asumieron algunos parámetros para nodos que se corresponden a recursos tróficos
-base basados en evidencia bibliográfica, estos nodos, o no han sido medidos 
+base (.@.velazco,.@.potapov_multichanel) basados en evidencia bibliográfica, 
+estos nodos, o no han sido medidos 
 como por ejemplo en los datos de comunidades edáficas de los suelos argiudoles 
 de Chivilcoy y Navarro, o, debido a su complejidad son dificiles de cuantificar.
 
@@ -269,14 +271,72 @@ Para los recursos bases se asume que su densidad y su peso son iguales a 1
 a los fines de realizar cálculos de fuerzas de interacción (.@.pawar?; .@.alesina; .@.fluxweb)
 
 ## Métricas y estadísticas
-Se calcularon los índices topológicos
-Se calcularon los valores de estabilidad de quasi-signo utilizando el valor de máximo autovalor como proxi 
-de resiliencia una de las definiciones intuitivamente más relacionada al concepto de estabilidad.
-Se calculó la fuerza de interacciones entre los actores mediante el uso del peso corporal promedio del taxón 
-y la densidad numérica promedio siguiendo el método de (paper_ interaction strength_ con busqueda dimensional)
 
-Se utilizó el pequete "multiweb" <enlace_github> para calcular las métricas de topología y estabilidad de las redes. 
-con el apoyo de paquetes complementarios para manejo de datos todos ellos implementados en R.
+A partir de la matriz de interacciones, para cada red trófica, se calcularon los
+índices topológicos, es decir, aquellas medidas calculadas a partir de la 
+arquitectura de la red que la describen matemáticamente y ecológicamente, estas medidas
+son calculadas como caracterísiticas relativas a la red como un todo o como
+características relativas a los nodos de la red. 
+El **tamaño de la red** que indica el número de, nodos y especies tróficas a la vez;
+el <u>número</u> y la <u>densidad</u> de **enlaces** que implica a la
+vez, el número total en la red de interacciones tróficas y la densidad de 
+interacciones tróficas que refleja la proporción de interacciones por nodo 
+referidas al total; el **largo de caminos** es el valor promedio de conexiones o 
+"caminos" que se recorre a lo largo de los nodos de un grafo (en este caso, red trófica);
+la **conectancia** es la proporción de enlaces efectivamente realizados en la red
+trófica en relación al total de conecciones potenciales del grafo con el mismo tamaño;
+el **agrupamiento o clustering** mide un coeficiente que indica la magnitud en los 
+cuales existe pequeños agrupamientos, denominados también como "camarillas", entre nodos
+en la red.
+
+El **nivel trófico** es el número que define la posición en la
+cuál se encuentra una especie trófica, aquí se indican el **nivel trófico medio** de la 
+red y el **nivel trófico máximo** de la red; 
+se identifican por su posición en la red 
+el número de especies **basales** aquellas que no consumen a otras especies
+tróficas y el número de especies **tope** quienes no tienen predadores que los consuman;
+el número de especies **canibales** aquellas especies que consumen a individuos 
+de la misma especie trófica; la **omnivoría** que mide la proporción de especies
+omnívoras, es decir, la proporción de especies tróficas que se alimentan 
+(o se enlazan) de más de un nivel trófico, y el **nivel de omnivoría** que indica 
+el valor promedio, en términos de nivel trófico, sobre los cuales se alimentan los 
+omnívoros; desde el punto de vista de la especie trófica se miden la **vulnerabilidad**
+y la **generalidad**, que implican el número promedio de predadores que tiene un 
+nodo trófico y el número medio de presas que consumen un nodo trófico, respectivamente,
+además se calcula el desvío estandar de ambas.
+
+Se calcularon las fuerzas de interacciones entre los actores (e.i. especies tróficas)
+utilizando la teoría metabólica y la dimensionalidad de las interacciones, método descrito por Pawar (2012\-\@pawar2012), que precisa del peso
+corporal promedio y las densidades de los taxones que conforman las especies tróficas,
+y de la dimensionalidad de las interacciones, que en redes detritívoras del suelo 
+corresponden a la dimensionalidad del tipo "2D". El valor de la fuerza de interacción
+cuantifica el efecto que tienen los depredadores/consumidores sobre la 
+biomasa de las presas/recursos y lo expresa como el efecto por unidad de biomasa 
+del predador/consumidor. 
+
+Como valor de estabilidad se utilizará el valor de estabilidad de quasi-signo (\@alesina).
+Para hallar este valor se toma la estructura de signos de la matriz de adyacencia original
+que describe a la red trófica en cuestión, y, realiza aleatorizaciones de las fuerzas de
+interacción entre los nodos manteniendo la estructura de los signos, luego calcula
+los autovalores de la matriz Jacobiana, matriz que representa el efecto neto de la interacción
+entre pares de nodos(\@Delmasetal2019), para cada una de las aleatorizaciones; una red trófica 
+localmente estable tendrá todos sus autovalores negativos y su valor de estabilidad es aquel 
+autovalor con el máximo valor (i.e. más cercano a cero), por otra parte, el máximo autovalor 
+en matrices con autovalores mayores a cero es también una medida de estabilidad dando la noción 
+de distancia (*autoregulación*), a la cual se encuentra la red evaluada para lograr 
+la estabilidad local. 
+
+Para realizar comparaciones entre redes tróficas se utilizó la comparación de distribuciones
+del método de Anderson-Darling / Kolmogorov-Smirnoff para identificar diferencias 
+estadísticamente significativas, 
+mediante el algoritmo de Curveball se establecen redes de interacciones que mantienen la conectividad,
+el numero de enlaces y la cantidad de especies basales y tope, para evaluar las características
+topológicas de las redes tróficas del sistema detritívoro edáfico.
+
+Se utilizó el pequete "multiweb" <enlace_github> para calcular las métricas de topología,
+las fuerzas de interacciones y la estabilidad de las redes tróficas, con el apoyo de paquetes
+complementarios para manejo de datos y la comparación
+estadística de los parámetros calculados, todos ellos implementados en R.
 
 <!-- TASA de INGRESO: Indica que en suelos de la Pampa Ondulada y en la region de la provincia en la cual nos 
 ubicamos, la incorporacion de materia orgánica anual es de 6 tn de C/ha * año con una
@@ -908,6 +968,17 @@ mG["ptilidae",c("hummus","fungi","carrion","bac","proto","nem_fitofago",
 
 # Interacciones que perjudican entonces, mG*-1
 
+#diagonal de la matriz 0, y dejar solo las interacciones canibalistas "reales"
+
+diag(mG)<-0
+
+mG["proto","proto"]<-1
+mG["geophylomorpha","geophylomorpha"]<-1
+mG["nem_predador","nem_predador"]<-1
+
+ 
+
+
 ```
 
 
@@ -1051,15 +1122,15 @@ v_ig<-data.frame(nombre=c(R$taxa,"litter","carrion","tej_veg","hummus"),peso=bod
 #cuando no el consumidor no deppende del peso del recurso
 #asignandos pesos
 v_ig[v_ig$nombre=="litter","peso"]<-1
-v_ig[v_ig$nombre=="carrion","peso"]<-1 #tomo el mínimo y lo llevo a unidad
-v_ig[v_ig$nombre=="tej_veg","peso"]<-1 #peso de las raices por centímero
-v_ig[v_ig$nombre=="hummus","peso"]<-1 #la mitad de la carroña, a dedo, es un componente amorfo y no tiene una unidad en concreto lo mismo las demás recursos.
+v_ig[v_ig$nombre=="carrion","peso"]<-1 
+v_ig[v_ig$nombre=="tej_veg","peso"]<-1 
+v_ig[v_ig$nombre=="hummus","peso"]<-1 
 #asignando densidades a los recursos
 v_ig[v_ig$nombre=="litter","densidad"]<-1
-v_ig[v_ig$nombre=="carrion","densidad"]<-1 #tomo el mínimo y lo llevo a unidad
-v_ig[v_ig$nombre=="tej_veg","densidad"]<-1 #peso de las raices por centímero
+v_ig[v_ig$nombre=="carrion","densidad"]<-1 
+v_ig[v_ig$nombre=="tej_veg","densidad"]<-1 
 v_ig[v_ig$nombre=="hummus","densidad"]<-1
-# con bucle busco asignar a cada eje su correspondiente peso corporal y densidad
+
 
 
 # con bucle busco asignar a cada eje su correspondiente peso corporal y densidad
@@ -1431,6 +1502,8 @@ QSS_IS_N<-calc_QSS(IS_N_net, istrength=TRUE, returnRaw = TRUE, nsim=1000)
 QSS_IS_G<-calc_QSS(IS_G_net, istrength=TRUE, returnRaw = TRUE, nsim=1000)
 QSS_IS_A<-calc_QSS(IS_A_net, istrength=TRUE, returnRaw = TRUE, nsim=1000)
 
+#observacion con modificacion de los efectos negativos-positivos se hace pequeño el autovalor, pero no "estable localmente"
+
 ```
 
 **Gráficos de cajas e histogramas del valor de estabilidad en escala 
@@ -1462,84 +1535,51 @@ hist(log(QSS_IS_A$maxre), main= "agricola intensivo", sub= "logQSS_IS", xlab = N
 #QSS_unlu_seq<-calc_QSS_extinctions_seq(QSS_IS_UNLu, seq = V(QSS_IS_UNLu)$name[20:25], nsim = 100, ncores = 4, istrength = TRUE)
 ```
 
+```{r AD-test-QSS, include=FALSE}
+Q_R<-data_frame(sitio=rep("R",length(QSS_IS_R)),qss=QSS_IS_R$maxre)
+Q_P<-data_frame(sitio=rep("P",length(QSS_IS_P)),qss=QSS_IS_P$maxre)
+Q_L<-data_frame(sitio=rep("A",length(QSS_IS_L)),qss=QSS_IS_L$maxre)
+Q_T<-rbind(Q_R,Q_P,Q_L)
+names(Q_T)<-c("sitio","qss")
+require(kSamples)
 
-```{r flux, echo=FALSE}
-library(fluxweb)
-#pasar todo a gramos con *1e-6
-#además los recursos se colocan como uno, de manera similar a lo que dice Pawar
-#litter carrion tej_veg hummus
-body_L<-c(L$body*1e-6,1.00,1.0,1.0,1.0)
-body_R<-c(R$body*1e-6,1.00,1.0,1.0,1.0)
-body_P<-c(P$body*1e-6,1.00,1.0,1.0,1.0)
-# Biomasas
-# Hojarasca, Dato tomado de biomasas y abundancias de la red unlu
-# Esto es el peso de la hojarasca encontrada en los 25*25 cm
-# 0.3 es el coeficiente de peso seco
-# L= 77,0321g/0.0625m2*0.3 P= 58.63g/0.0625m2*0.3 R= 55.753g/0.065m2*0.3
-# asumir 40% de la MOS es POM
-# %MO L=2.73% R=3.52% P= 3.09%
-# dap aprox. 1.2
-# Datos tomados de fyq_unlu, determinación de la materia orgánica.
-# Tej_veg sin datos, seria conocer el peso de las raices y/o sus metabolitos liberados
-# Como proxy, decimos que es una vez y media el contenido de materia orgánica
-# Carroña, puede ser el 5% de la biomasa promedio total de los invertebrados
-# L = 6980566 *0.01, R= 9231538*0.01, P=7122637*0.01
-# Fórmula: mean(P[P$taxa!="fungi"&P$taxa!="bac"&P$taxa!="proto",]$biomass)
-#Lavelle: Root biomass may be extremely high in soils and often constitutes the major resource for soil organisms. 
-#raices 2mg por cm en figure III.19 soil organims. root. pp 237
-#####
-bm_L<-c(L$biomass,
-       (77.0321/0.0625)*0.3*1e6, #Hojarasca
-      mean(R[R$taxa!="fungi"&R$taxa!="bac"&R$taxa!="proto",]$biomass)*0.05, #Carroña
-        2.25*0.0273*1.2*50000*1e6,#Tej_veg
-       0.4*0.0273*1.2*50000*1e6)*1e-6#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
-bm_R<-c(R$biomass,
-       55.753/0.065*0.3*1e6, #Hojarasca
-      mean(R[R$taxa!="fungi"&R$taxa!="bac"&R$taxa!="proto",]$biomass)*0.05, #carroña
-     2.25*0.0352*1.2*50000*1e6, #tej_veg
-      0.4*0.0352*1.2*50000*1e6)*1e-6 #"humus" = POM = 0.4MO
-bm_P<-c(P$biomass,
-      (58.63/0.0625)*0.3*1e6, #Hojarasca
-        mean(P[P$taxa!="fungi"&P$taxa!="bac"&P$taxa!="proto",]$biomass)*0.05, #carroña
-        2.25*0.0352*1.2*50000*1e6, #Tej_veg
-              0.4*0.0309*1.2*50000*1e6)*1e-6 #Humus
-#######
-#tasas metabolicas, 
-# usamos la para "invertebrados" de flux web package
-#
-# 17.17 W^ -0.29
+AD_qss<-kSamples::ad.test(as.numeric(qss) ~ sitio,data=Q_T, method = "simulated", dist = FALSE, Nsim = 1000)
 
-t_metL<- 17.17*body_L^(-0.29)
-t_metL[is.na(t_metL)|t_metL==Inf]<-0
-t_metR<- 17.17*body_R^(-0.29)
-t_metR[is.na(t_metR)|t_metR==Inf]<-0
-t_metP<- 17.17*body_P^(-0.29)
-t_metP[is.na(t_metP)|t_metP==Inf]<-0
+#AD_ indica que existen diferencias significativas entre los sistemas
 
-#Para las eficiencias, generar una columna, con eficiencias por tipo de consumidor
+#En luján/UNLu
 
-ef_L<- c(L$ef,0.03,0.03,0.03,0.03)
-ef_R<- c(R$ef,0.03,0.03,0.03,0.03)
-ef_P<- c(P$ef,0.03,0.03,0.03,0.03)
+ks.test(QSS_IS_R$maxre,QSS_IS_L$maxre)
+ks.test(QSS_IS_R$maxre,QSS_IS_P$maxre)
+ks.test(QSS_IS_L$maxre,QSS_IS_P$maxre)
+# L: 0.414; R: 0.348; P: 0.371, ¿En que difieren a lo largo de la distribución?
+#Diferencias con el pastizal que obtuvo el menor valor de autovalor
 
-flux_L<-fluxing(t(mG[c(L$taxa,"litter","carrion","tej_veg","hummus"),c(L$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_L, losses =  t_metL, efficiencies =  ef_L,ef.level = "pred")
+#En Chivilcoy y Navarro/Rosana
 
-#ef.level	
-#Set to "prey" if efficiencies are defined by prey, "pred" if they are a property of the predator.
-flux_R<-fluxing(t(mG[c(R$taxa,"litter","carrion","tej_veg","hummus"),c(R$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_R, losses =  t_metR, efficiencies =  ef_R,ef.level = "pred")
+ks.test(QSS_IS_N$maxre,QSS_IS_A$maxre)
+ks.test(QSS_IS_N$maxre,QSS_IS_G$maxre)
+ks.test(QSS_IS_G$maxre,QSS_IS_A$maxre)
 
-flux_P<-fluxing(t(mG[c(P$taxa,"litter","carrion","tej_veg","hummus"),c(P$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_P, losses =  t_metP, efficiencies =  ef_P,ef.level = "pred")
+#todos los grupos difieren entre sí; A: 0.396; G: 0.403; N: 0.445;
 
-# growth rates of basal sppecies
-growth.rates = rep(NA, dim(flux_R)[1])
-growth.rates[colSums(flux_R) == 0] = c(2,10,365,0.3)
 
-####### 
-
-valor_stabR<-stability.value(flux_R , biomasses = bm_R, losses=t_metR, efficiencies=ef_R, 
-                            growth.rate=growth.rates,bioms.prefs = TRUE,bioms.losses = TRUE,
-                            ef.level = "pred" ); valor_stabR
 ```
+
+```{r cBall, include=FALSE}
+cB_R<-curve_ball(IS_R_net, istrength=TRUE)
+cB_P<-curve_ball(IS_P_net, istrength=TRUE)
+cB_L<-curve_ball(IS_L_net, istrength=TRUE)
+
+cB_N<-curve_ball(IS_N_net, istrength=TRUE)
+cB_G<-curve_ball(IS_G_net, istrength=TRUE)
+cB_A<-curve_ball(IS_A_net, istrength=TRUE)
+```
+
+```{r cb_qss,include=FALSE}
+#cb_qss_R<-calc_QSS(cB_R,istrength=TRUE,nsim=100)
+```
+
 
 ```{=html}
 <!--Flux web paper say:  Here we use resilience as a definition of
