@@ -42,12 +42,6 @@ la respuesta de la estructura de las redes ante los distintos tipos de
 disturbios y su relación con el funcionamiento del ecosistema del suelo
 (Sabatté, 2011; Kardol et al., 2016).
 
-```{=html}
-<!--Las redes tróficas permiten el análisis de las interacciones de
-alimentación y ha sido el enfoque más utilizado pero se ha demostrado
-que incluir todos los tipos de interacciones es fundamental para
-entender el funcionamiento de los ecosistemas (Kéfi et al. 2012).-->
-```
 Las redes tróficas permiten el análisis de las interacciones de
 alimentación y es el enfoque más utilizado en ecología para describir
 los canales por los cuales se mueve la materia y la energía (\@.citar)
@@ -94,8 +88,6 @@ se puede mantener la estructura, el funcionamiento y los mecanismos de
 autorregulación del ecosistema (Martín-Lopez 2007) pero la desaparición
 de especies muy conectadas puede producir extinciones secundarias y
 fragmentaciones de la red (Montoya et al. 2001)
-
-<!--Los componentes de los sistemas ecológicos no funcionan aislados sino a través de interacciones de complejidad variable y su organización se encuentra enmarcada por factores evolutivos, dinámicos y energéticos (Saravia 2018). La modelación matemática resulta en una herramienta clave para la comprensión del funcionamiento de los sistemas biológicos porque cuenta con la propiedad de síntesis de variables con efectos dominantes (Polo 2013).-->
 
 Los estudios de redes de interacciones proporcionan información acerca
 de la estructura autoorganizada de los ecosistemas (Momo 2018); en las
@@ -264,8 +256,9 @@ en Chivilcoy y Navarro, el humus como dicho más arriba fué calculado
 para ambas localidades, la carroña fue estimada a partir del peso de todos los 
 invertebrados presente en los diferentes sistemas de uso y que pueden dejar carroña, 
 considerando un 5% de carroña sobre la biomasa de invertebrados pausibles de
-dejar carroña una vez sucedida su decesión, finalmente el tejido vegetal que incluye 
-raices y exudados (Cap 2.1. Recursos tróficos) no pudo ser determinado.
+dejar carroña una vez sucedida su decesión, finalmente el tejido vegetal 
+que incluye 
+raices y exudados (Cap 2.1. Recursos tróficos) no fué determinado.
 
 Para los recursos bases se asume que su densidad y su peso son iguales a 1 
 a los fines de realizar cálculos de fuerzas de interacción (.@.pawar?; .@.alesina; .@.fluxweb)
@@ -286,8 +279,8 @@ referidas al total; el **largo de caminos** es el valor promedio de conexiones o
 la **conectancia** es la proporción de enlaces efectivamente realizados en la red
 trófica en relación al total de conecciones potenciales del grafo con el mismo tamaño;
 el **agrupamiento o clustering** mide un coeficiente que indica la magnitud en los 
-cuales existe pequeños agrupamientos, denominados también como "camarillas", entre nodos
-en la red.
+cuales existe pequeños agrupamientos, denominados también como "camarillas", 
+entre nodos en la red.
 
 El **nivel trófico** es el número que define la posición en la
 cuál se encuentra una especie trófica, aquí se indican el **nivel trófico medio** de la 
@@ -338,16 +331,6 @@ las fuerzas de interacciones y la estabilidad de las redes tróficas, con el apo
 complementarios para manejo de datos y la comparación
 estadística de los parámetros calculados, todos ellos implementados en R.
 
-<!-- TASA de INGRESO: Indica que en suelos de la Pampa Ondulada y en la region de la provincia en la cual nos 
-ubicamos, la incorporacion de materia orgánica anual es de 6 tn de C/ha * año con una
-relacion del C del 40% de la vegetación. Roberto Alvarez, MATERIA ORGANICA, valor agronomico y dinamica en suelos pampeanos. pp.34 
-
-pp.56 indica que la perdida de C-CO2 es 7,9 tn/haaño descomposición y mineralizacion
-pp. 57 usando C14 se establece el coef de humificacion del C, que es del 0.5 in situ
-coeficiente de mineralizaión media del humus del 5,7% anual
-En la figura 5.3 el aporte del carbono es de 4,3 tn/ha/año del rastrojo y 1,9 tn/ha/año para las raices 
-los residuos pierden a la atmosfera 3,1 y 3,1 va al humus-->
-
 # Resultados
 
 ```{r lib, include=FALSE}
@@ -355,7 +338,7 @@ los residuos pierden a la atmosfera 3,1 y 3,1 va al humus-->
 {library(tidyverse);library(statnet);library(network);
   library(igraph);library(intergraph);library(multiweb)}
 set.seed(167)
-
+options("digits"=3)
 ```
 
 ```{r dtb,include=FALSE}
@@ -477,12 +460,16 @@ web0<-web%>%
 #Microbivoros y geófagos 0.6
 #predadores 0.75
 
-micf<-c("alycidae", "bac","diplura",
+#Adaptado de COLEMAN y Energetic Fluxweb
+
+mf<-c("bac","fungi")
+micf<-c("alycidae", "diplura","brachychthonioidea","crotonioidea",
+        "oribatido","limnozetidae",
   "Aporrectodea caliginosa","Aporrectodea rosea","Bimastos parvus",
   "Aporrectodea trapezoides","Bimastos beddardi sophiae",
    "ceratozetoidea","cryptophagidae","enchytraeida","entomobridae",
-  "epilhomanioidea","eremobelbidae","Eukerria halophila","fungi","galumnidae",
-   "Glossoscolex sp.","isotomidae","juvenil","macropilina","Microscolex phosphoreus",
+  "epilhomanioidea","eremobelbidae","Eukerria halophila","galumnidae",
+   "Glossoscolex sp.","isotomidae","juvenil","macropilina","Microscolex phosphoreus","Octalasion lacteum","Microscolex dubius","Eukerria stagnalis",
   "nem_bacterivoro", "nem_fitofago","nem_fungivoro","Octalasion cyaneum",
   "Octolasion tyrtaeum","onichiuridae","oppioidea","oribatulidae",
   "oripodidae","protura","scheloribatidae","symphyla","symphypleona"
@@ -494,7 +481,7 @@ pred<-c("ameroseidae","anystidae","arctacaridae","bdelloidea","carabidae",
   "rhagidiidae","rhodacarioidea","staphiliniidae","tarsonemidae","teneriffidae",
   "trombidiidae","tydeioidea", "uropodoidea","veigaioidea") 
 det<-c("anthribidae","blattodea","gasteropoda","diplopoda","elateriforme",
-  "embrioptera","eupthiracaroidea","larva_coleoptero",
+  "embrioptera","eupthiracaroidea","larva_coleoptero","isoptera",
  "larva_diptera","larva_elateridae","larva_scarabidae","larva_sciaridae",
   "larva_tenebrionidae","limnozetidae","oniscidea","ptilidae","pupa_diptera",
  "tenebrionidae","terebrantia","trogossitidae")
@@ -503,12 +490,15 @@ herb<-c("aphidoidea","cicadidae","coleoptera_suctor","hemiptero","larva_curculio
 omn<-c("astigmata","formicidae","hipogastruridae","nem_omnivor","tardigrado"  )
 
 no_a<-c("nematomorpha")  
+#A vector or an array of conversion efficiencies of species in the adjacency matrix. #These values describe the proportion of consumed energy that is converted to #biomass of the consumer.-->
+
 web0$ef<-NA
-web0$ef[web0$taxa%in%micf]<-0.6
-web0$ef[web0$taxa%in%pred]<-0.75
-web0$ef[web0$taxa%in%det]<-0.25
+web0$ef[web0$taxa%in%mf]<-0.3
+web0$ef[web0$taxa%in%micf]<-0.35
+web0$ef[web0$taxa%in%pred]<-0.4
+web0$ef[web0$taxa%in%det]<-0.3
 web0$ef[web0$taxa%in%herb]<-0.125
-web0$ef[web0$taxa%in%omn]<-0.4
+web0$ef[web0$taxa%in%omn]<-0.35
 web0$ef[web0$taxa%in%no_a]<-0.075
 
 ######## 
@@ -672,35 +662,61 @@ webRO<-mRO%>%
             biomass=mean(BT,na.rm=TRUE))%>%
   distinct(specie,.keep_all=TRUE)
 
+
+#Pesos corporales
+body_N<-c(N$body,1,1,1)
+body_G<-c(G$body,1,1,1)
+body_A<-c(A$body,1,1,1)
+
+#eficiencias
+
+webRO$ef<-NA
+webRO$ef[webRO$specie%in%mf]<-0.3
+webRO$ef[webRO$specie%in%micf]<-0.35
+webRO$ef[webRO$specie%in%pred]<-0.4
+webRO$ef[webRO$specie%in%det]<-0.3
+webRO$ef[webRO$specie%in%omn]<-0.35
+webRO$ef[webRO$specie=="humus"]<-1
+
 N<-webRO%>%filter(system=="N")
 G<-webRO%>%filter(system=="G")
 A<-webRO%>%filter(system=="A")
 
-#Pesos corporales
-body_N<-c(N$body,0,0,0)
-body_G<-c(G$body,0,0,0)
-body_A<-c(A$body,0,0,0)
+#humus, se corrige entre los vectores
 
+ef_N<-c(N$ef,1,1,1)
+ef_N[is.na(ef_N)]<-1
+ef_G<-c(G$ef,1,1,1)
+ef_G[is.na(ef_G)]<-1
+ef_A<-c(A$ef,1,1,1)
+ef_A[is.na(ef_A)]<-1
+
+t_metN<- 17.17*body_N^(-0.29)
+t_metN[is.na(t_metN)|t_metN==Inf]<-0
+t_metG<- 17.17*body_G^(-0.29)
+t_metG[is.na(t_metG)|t_metG==Inf]<-0
+t_metA<- 17.17*body_A^(-0.29)
+t_metA[is.na(t_metA)|t_metA==Inf]<-0
 
 #biomasas
 #el hummus ya se calculó
 #la carroña se calcula igual que en el anterior
 #no informacion sobre los demás
 bm_N<-c(N$biomass,
-        NA, #Hojarasca
+        1, #Hojarasca
         mean(N[N$specie!="fungi"&N$specie!="bac"&N$specie!="proto",]$biomass)*0.05, #Carroña
-        NA#Tej_veg
+        1#Tej_veg
         )#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
 bm_G<-c(G$biomass,
-        NA, #Hojarasca
+        1, #Hojarasca
         mean(G[G$specie!="fungi"&G$specie!="bac"&N$specie!="proto",]$biomass)*0.05, #Carroña
-        NA#Tej_veg
+        1#Tej_veg
         #G$biomass[G$specie=="hummus"]
         ) #humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
 bm_A<-c(A$biomass,
-        NA, #Hojarasca
+        1, #Hojarasca
         mean(A[A$specie!="fungi"&A$specie!="bac"&A$specie!="proto",]$biomass)*0.05, #Carroña
-        NA#Tej_veg
+        1#Tej_veg
 )
         #G$biomass[G$specie=="hummus"]
 
@@ -709,6 +725,7 @@ bm_A<-c(A$biomass,
 
 ```
 
+<!-- However, this level of precision will only very rarely be available, so here we focus on assigning assimilation efficiencies on a more coarse level. It is possible to assign assimilation efficiencies based on a combination of traits, such as resource type and ambient temperature, and for every single species–species interaction in a fully resolved food web. https://doi.org/10.1002/ece3.8060-->
 
 
 ```{r Gamma_matrix, include=FALSE}
@@ -1576,8 +1593,92 @@ cB_G<-curve_ball(IS_G_net, istrength=TRUE)
 cB_A<-curve_ball(IS_A_net, istrength=TRUE)
 ```
 
-```{r cb_qss,include=FALSE}
-#cb_qss_R<-calc_QSS(cB_R,istrength=TRUE,nsim=100)
+```{r flux, include=FALSE}
+library(fluxweb)
+#pasar todo a gramos con *1e-6
+#además los recursos se colocan como uno, de manera similar a lo que dice Pawar
+#litter carrion tej_veg hummus
+body_L<-c(L$body*1e-6,1.00,1.0,1.0,1.0)
+body_R<-c(R$body*1e-6,1.00,1.0,1.0,1.0)
+body_P<-c(P$body*1e-6,1.00,1.0,1.0,1.0)
+# Biomasas
+# Hojarasca, Dato tomado de biomasas y abundancias de la red unlu
+# Esto es el peso de la hojarasca encontrada en los 25*25 cm
+# 0.3 es el coeficiente de peso seco
+# L= 77,0321g/0.0625m2*0.3 P= 58.63g/0.0625m2*0.3 R= 55.753g/0.065m2*0.3
+# asumir 40% de la MOS es POM
+# %MO L=2.73% R=3.52% P= 3.09%
+# dap aprox. 1.2
+# Datos tomados de fyq_unlu, determinación de la materia orgánica.
+# Tej_veg sin datos, seria conocer el peso de las raices y/o sus metabolitos liberados
+# Como proxy, decimos que es una vez y media el contenido de materia orgánica
+# Carroña, puede ser el 5% de la biomasa promedio total de los invertebrados
+# L = 6980566 *0.01, R= 9231538*0.01, P=7122637*0.01
+# Fórmula: mean(P[P$taxa!="fungi"&P$taxa!="bac"&P$taxa!="proto",]$biomass)
+#Lavelle: Root biomass may be extremely high in soils and often constitutes the major resource for soil organisms. 
+#raices 2mg por cm en figure III.19 soil organims. root. pp 237
+#####
+bm_L<-c(L$biomass,
+       (77.0321/0.0625)*0.3*1e6, #Hojarasca
+      mean(R[R$taxa!="fungi"&R$taxa!="bac"&R$taxa!="proto",]$biomass)*0.05, #Carroña
+        2.25*0.0273*1.2*50000*1e6,#Tej_veg
+       0.4*0.0273*1.2*50000*1e6)*1e-6#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
+bm_R<-c(R$biomass,
+       55.753/0.065*0.3*1e6, #Hojarasca
+      mean(R[R$taxa!="fungi"&R$taxa!="bac"&R$taxa!="proto",]$biomass)*0.05, #carroña
+     2.25*0.0352*1.2*50000*1e6, #tej_veg
+      0.4*0.0352*1.2*50000*1e6)*1e-6 #"humus" = POM = 0.4MO
+bm_P<-c(P$biomass,
+      (58.63/0.0625)*0.3*1e6, #Hojarasca
+        mean(P[P$taxa!="fungi"&P$taxa!="bac"&P$taxa!="proto",]$biomass)*0.05, #carroña
+        2.25*0.0352*1.2*50000*1e6, #Tej_veg
+              0.4*0.0309*1.2*50000*1e6)*1e-6 #Humus
+#######
+#tasas metabolicas, 
+# usamos la para "invertebrados" de flux web package
+#
+# 17.17 W^ -0.29
+
+t_metL<- 17.17*body_L^(-0.29)
+t_metL[is.na(t_metL)|t_metL==Inf]<-0
+t_metR<- 17.17*body_R^(-0.29)
+t_metR[is.na(t_metR)|t_metR==Inf]<-0
+t_metP<- 17.17*body_P^(-0.29)
+t_metP[is.na(t_metP)|t_metP==Inf]<-0
+
+#Para las eficiencias, generar una columna, con eficiencias por tipo de consumidor
+
+ef_L<- c(L$ef,1,1,1,1)
+ef_R<- c(R$ef,1,1,1,1)
+ef_P<- c(P$ef,1,1,1,1)
+
+
+
+flux_L<-fluxing(t(mG[c(L$taxa,"litter","carrion","tej_veg","hummus"),c(L$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_L, losses =  t_metL, efficiencies =  ef_L,ef.level = "pred")
+
+#ef.level	
+#Set to "prey" if efficiencies are defined by prey, "pred" if they are a property of the predator.
+flux_R<-fluxing(t(mG[c(R$taxa,"litter","carrion","tej_veg","hummus"),c(R$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_R, losses =  t_metR, efficiencies =  ef_R,ef.level = "pred")
+
+flux_P<-fluxing(t(mG[c(P$taxa,"litter","carrion","tej_veg","hummus"),c(P$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_P, losses =  t_metP, efficiencies =  ef_P,ef.level = "pred")
+
+### flujo Ro
+flux_N<-fluxing(t(mG[c(N$specie,"litter","carrion","tej_veg"),
+                     c(N$specie,"litter","carrion","tej_veg")]),
+                biomasses = bm_N, losses =  t_metN, 
+                efficiencies =  ef_N,ef.level = "prey")
+flux_G<-fluxing(t(mG[c(G$specie,"litter","carrion","tej_veg"),
+                     c(G$specie,"litter","carrion","tej_veg")]),
+                biomasses = bm_G, losses =  t_metG, 
+                efficiencies =  ef_G,ef.level = "prey")
+flux_A<-fluxing(t(mG[c(A$specie,"litter","carrion","tej_veg"),
+                     c(A$specie,"litter","carrion","tej_veg")]),
+                biomasses = bm_A, losses =  t_metA, 
+                efficiencies =  ef_A,ef.level = "prey")
+
+#ef.level	
+#Set to "prey" if efficiencies are defined by prey, "pred" if they are a property of the predator.
+
 ```
 
 

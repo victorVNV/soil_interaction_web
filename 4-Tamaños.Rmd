@@ -10,6 +10,7 @@ bibliography: size_spectra.bib
 knitr::opts_chunk$set(echo = TRUE)
 loadNamespace('printr')
 set.seed(167)
+options("digits"=3)
 ```
 
 ```{r lib, include=FALSE}
