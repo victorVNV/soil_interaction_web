@@ -169,10 +169,10 @@ la red (.\@.potapov2023, .\@.barnes_etal_2017) y calcular la resiliencia
 y estabilidad de los sistemas bajo estudio (.\@.mooreandderutier_2018,
 .\@.gauzen_etal_2018, .\@.allisina_etal_2008).
 
-Entonces a partir de un suelo natural definido como referencia donde se
-encuentran las características de un suelo no disturbado, se podrían
-comparar parámetros estructurales y funcionales de la comunidad de
-microartrópodos edáficos que permitan evaluar la estabilidad de la red
+Entonces a partir de un suelo definido como referencia donde se
+consideran que se encuentran características de un suelo no disturbado, 
+se podrían comparar parámetros estructurales y funcionales de la comunidad de
+la fauna edáficas que permitan evaluar la estabilidad de la red
 de interacciones como indicadora del estado de conservación del suelo y
 determinar a través de su estudio la sustentabilidad de los sistemas de
 manejo [@bedano2007; @socarras2013].
@@ -474,12 +474,12 @@ micf<-c("alycidae", "diplura","brachychthonioidea","crotonioidea",
   "Octolasion tyrtaeum","onichiuridae","oppioidea","oribatulidae",
   "oripodidae","protura","scheloribatidae","symphyla","symphypleona"
   )
-pred<-c("ameroseidae","anystidae","arctacaridae","bdelloidea","carabidae",
-  "coccinelidae","cunaxide","dermanisoidea","eupodoidea","eviphididae",
+pred<-c("ameroseidae","arctacaridae","bdelloidea","carabidae",
+  "coccinelidae","cunaxide","dermanisoidea","eviphididae",
   "geophylomorpha","grillopalpidae","ichtyostomatogasteridae", "laelapidae", "larva_carabidae","linyphiidae","lycosidae","nem_predador","mesostigmata",
-  "ologamasidae","parasitidae",  "penthalidae","proto","pseudoscorpionida",
-  "rhagidiidae","rhodacarioidea","staphiliniidae","tarsonemidae","teneriffidae",
-  "trombidiidae","tydeioidea", "uropodoidea","veigaioidea") 
+  "ologamasidae","parasitidae",  "pseudoscorpionida",
+  "rhagidiidae","rhodacarioidea","staphiliniidae","teneriffidae",
+  "trombidiidae", "uropodoidea","veigaioidea") 
 det<-c("anthribidae","blattodea","gasteropoda","diplopoda","elateriforme",
   "embrioptera","eupthiracaroidea","larva_coleoptero","isoptera",
  "larva_diptera","larva_elateridae","larva_scarabidae","larva_sciaridae",
@@ -487,19 +487,20 @@ det<-c("anthribidae","blattodea","gasteropoda","diplopoda","elateriforme",
  "tenebrionidae","terebrantia","trogossitidae")
 herb<-c("aphidoidea","cicadidae","coleoptera_suctor","hemiptero","larva_curculionidae",
    "ortoptero","thysanoptera")
-omn<-c("astigmata","formicidae","hipogastruridae","nem_omnivor","tardigrado"  )
+omn<-c("astigmata","formicidae","hipogastruridae","nem_omnivor","tardigrado",
+       "anystidae","eupodoidea","penthalidae","tarsonemidae","tydeioidea","proto")
 
 no_a<-c("nematomorpha")  
 #A vector or an array of conversion efficiencies of species in the adjacency matrix. #These values describe the proportion of consumed energy that is converted to #biomass of the consumer.-->
 
 web0$ef<-NA
-web0$ef[web0$taxa%in%mf]<-0.3
-web0$ef[web0$taxa%in%micf]<-0.35
-web0$ef[web0$taxa%in%pred]<-0.4
-web0$ef[web0$taxa%in%det]<-0.3
+web0$ef[web0$taxa%in%mf]<-0.7
+web0$ef[web0$taxa%in%micf]<-0.65
+web0$ef[web0$taxa%in%pred]<-0.85
+web0$ef[web0$taxa%in%det]<-0.35
 web0$ef[web0$taxa%in%herb]<-0.125
-web0$ef[web0$taxa%in%omn]<-0.35
-web0$ef[web0$taxa%in%no_a]<-0.075
+web0$ef[web0$taxa%in%omn]<-0.4
+web0$ef[web0$taxa%in%no_a]<-0.80
 
 ######## 
 L<-web0%>%filter(sitio=="L")
@@ -529,9 +530,9 @@ bm_P<-c(P$biomass,
 
 
 #Pesos corporales
-body_L<-c(L$body,0,0,0,0)
-body_R<-c(R$body,0,0,0,0)
-body_P<-c(P$body,0,0,0,0)
+body_L<-c(L$body,1,1,1,1)
+body_R<-c(R$body,1,1,1,1)
+body_P<-c(P$body,1,1,1,1)
 
 
 
@@ -1595,63 +1596,6 @@ cB_A<-curve_ball(IS_A_net, istrength=TRUE)
 
 ```{r flux, include=FALSE}
 library(fluxweb)
-#pasar todo a gramos con *1e-6
-#además los recursos se colocan como uno, de manera similar a lo que dice Pawar
-#litter carrion tej_veg hummus
-body_L<-c(L$body*1e-6,1.00,1.0,1.0,1.0)
-body_R<-c(R$body*1e-6,1.00,1.0,1.0,1.0)
-body_P<-c(P$body*1e-6,1.00,1.0,1.0,1.0)
-# Biomasas
-# Hojarasca, Dato tomado de biomasas y abundancias de la red unlu
-# Esto es el peso de la hojarasca encontrada en los 25*25 cm
-# 0.3 es el coeficiente de peso seco
-# L= 77,0321g/0.0625m2*0.3 P= 58.63g/0.0625m2*0.3 R= 55.753g/0.065m2*0.3
-# asumir 40% de la MOS es POM
-# %MO L=2.73% R=3.52% P= 3.09%
-# dap aprox. 1.2
-# Datos tomados de fyq_unlu, determinación de la materia orgánica.
-# Tej_veg sin datos, seria conocer el peso de las raices y/o sus metabolitos liberados
-# Como proxy, decimos que es una vez y media el contenido de materia orgánica
-# Carroña, puede ser el 5% de la biomasa promedio total de los invertebrados
-# L = 6980566 *0.01, R= 9231538*0.01, P=7122637*0.01
-# Fórmula: mean(P[P$taxa!="fungi"&P$taxa!="bac"&P$taxa!="proto",]$biomass)
-#Lavelle: Root biomass may be extremely high in soils and often constitutes the major resource for soil organisms. 
-#raices 2mg por cm en figure III.19 soil organims. root. pp 237
-#####
-bm_L<-c(L$biomass,
-       (77.0321/0.0625)*0.3*1e6, #Hojarasca
-      mean(R[R$taxa!="fungi"&R$taxa!="bac"&R$taxa!="proto",]$biomass)*0.05, #Carroña
-        2.25*0.0273*1.2*50000*1e6,#Tej_veg
-       0.4*0.0273*1.2*50000*1e6)*1e-6#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
-bm_R<-c(R$biomass,
-       55.753/0.065*0.3*1e6, #Hojarasca
-      mean(R[R$taxa!="fungi"&R$taxa!="bac"&R$taxa!="proto",]$biomass)*0.05, #carroña
-     2.25*0.0352*1.2*50000*1e6, #tej_veg
-      0.4*0.0352*1.2*50000*1e6)*1e-6 #"humus" = POM = 0.4MO
-bm_P<-c(P$biomass,
-      (58.63/0.0625)*0.3*1e6, #Hojarasca
-        mean(P[P$taxa!="fungi"&P$taxa!="bac"&P$taxa!="proto",]$biomass)*0.05, #carroña
-        2.25*0.0352*1.2*50000*1e6, #Tej_veg
-              0.4*0.0309*1.2*50000*1e6)*1e-6 #Humus
-#######
-#tasas metabolicas, 
-# usamos la para "invertebrados" de flux web package
-#
-# 17.17 W^ -0.29
-
-t_metL<- 17.17*body_L^(-0.29)
-t_metL[is.na(t_metL)|t_metL==Inf]<-0
-t_metR<- 17.17*body_R^(-0.29)
-t_metR[is.na(t_metR)|t_metR==Inf]<-0
-t_metP<- 17.17*body_P^(-0.29)
-t_metP[is.na(t_metP)|t_metP==Inf]<-0
-
-#Para las eficiencias, generar una columna, con eficiencias por tipo de consumidor
-
-ef_L<- c(L$ef,1,1,1,1)
-ef_R<- c(R$ef,1,1,1,1)
-ef_P<- c(P$ef,1,1,1,1)
-
 
 
 flux_L<-fluxing(t(mG[c(L$taxa,"litter","carrion","tej_veg","hummus"),c(L$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_L, losses =  t_metL, efficiencies =  ef_L,ef.level = "pred")
@@ -1666,19 +1610,89 @@ flux_P<-fluxing(t(mG[c(P$taxa,"litter","carrion","tej_veg","hummus"),c(P$taxa,"l
 flux_N<-fluxing(t(mG[c(N$specie,"litter","carrion","tej_veg"),
                      c(N$specie,"litter","carrion","tej_veg")]),
                 biomasses = bm_N, losses =  t_metN, 
-                efficiencies =  ef_N,ef.level = "prey")
+                efficiencies =  ef_N,ef.level = "pred")
 flux_G<-fluxing(t(mG[c(G$specie,"litter","carrion","tej_veg"),
                      c(G$specie,"litter","carrion","tej_veg")]),
                 biomasses = bm_G, losses =  t_metG, 
-                efficiencies =  ef_G,ef.level = "prey")
+                efficiencies =  ef_G,ef.level = "pred")
 flux_A<-fluxing(t(mG[c(A$specie,"litter","carrion","tej_veg"),
                      c(A$specie,"litter","carrion","tej_veg")]),
                 biomasses = bm_A, losses =  t_metA, 
-                efficiencies =  ef_A,ef.level = "prey")
+                efficiencies =  ef_A,ef.level = "pred")
 
 #ef.level	
 #Set to "prey" if efficiencies are defined by prey, "pred" if they are a property of the predator.
 
+```
+
+<!-- los flujos de energía a través de los canales son flujos que segun
+barnes y gauzen dice flujos out que sale del recurso ... -->
+
+```{r flujos_multicanal, echo=FALSE, message=FALSE,warning=FALSE}
+#sumar las filas !, ya que las columanas son los predadores y el flujo 
+#tiene que ver con la salida de la presa hacia el predador
+
+#sum(rowSums(mat.fluxes[plants,]
+
+#sum(flux_N[c("litter","carrion"),])
+#herbivros########
+#flujo através de los hervíboros
+
+F_herb_R<-sum(flux_R["tej_veg",])
+F_herb_P<-sum(flux_P["tej_veg",])
+F_herb_L<-sum(flux_L["tej_veg",])
+
+F_herb_N<-sum(flux_N["tej_veg",])
+F_herb_G<-sum(flux_G["tej_veg",])
+F_herb_A<-sum(flux_A["tej_veg",])
+#detritivoros##########
+#flujo através de los detritívoros
+
+F_det_R<-sum(flux_R[c("litter","carrion"),!colnames(flux_R) %in% omn])
+F_det_P<-sum(flux_P[c("litter","carrion"),!colnames(flux_P) %in% omn])
+F_det_L<-sum(flux_L[c("litter","carrion"),!colnames(flux_L) %in% omn])
+
+F_det_N<-sum(flux_N[c("litter","carrion"),!colnames(flux_N) %in% omn])
+F_det_G<-sum(flux_G[c("litter","carrion"),!colnames(flux_G) %in% omn])
+F_det_A<-sum(flux_A[c("litter","carrion"),!colnames(flux_A) %in% omn])
+#microfitfagos###########
+#flujo através de los microvíboros
+
+F_mic<-sum(flux_R[c("bac","fungi"),colnames(flux_R) %in% omn])
+F_mic_P<-sum(flux_P[c("bac","fungi"),colnames(flux_P) %in% omn])
+F_mic_L<-sum(flux_L[c("bac","fungi"),colnames(flux_L) %in% omn])
+
+F_mic_N<-sum(flux_N[c("bac","fungi"),colnames(flux_N) %in% omn])
+F_mic_G<-sum(flux_G[c("bac","fungi"),colnames(flux_G) %in% omn])
+F_mic_A<-sum(flux_A[c("bac","fungi"),colnames(flux_A) %in% omn])
+#predadores####
+#flujo através de los predadores
+
+#Rbases<-c("tej_veg", "fungi","bac","litter","carrion")
+#!colnames(flux_R) %in% Rbases
+F_pred_R<-sum(flux_R[,colnames(flux_R) %in% pred])
+F_pred_P<-sum(flux_P[,colnames(flux_P) %in% pred])
+F_pred_L<-sum(flux_L[,colnames(flux_L) %in% pred])
+
+F_pred_N<-sum(flux_N[,colnames(flux_N) %in% pred])
+F_pred_G<-sum(flux_G[,colnames(flux_G) %in% pred])
+F_pred_A<-sum(flux_A[,colnames(flux_A) %in% pred])
+
+
+
+#omnivoros####
+#flujo através de los omnivoros
+
+F_pred_R<-sum(flux_R[,colnames(flux_R) %in% omn])
+F_pred_P<-sum(flux_P[,colnames(flux_P) %in% omn])
+F_pred_L<-sum(flux_L[,colnames(flux_L) %in% omn])
+
+F_pred_N<-sum(flux_N[,colnames(flux_N) %in% omn])
+F_pred_G<-sum(flux_G[,colnames(flux_G) %in% omn])
+F_pred_A<-sum(flux_A[,colnames(flux_A) %in% omn])
+
+data_frame(Sistema=c("R","P","L","N","G","A"),
+           detritivoría)
 ```
 
 

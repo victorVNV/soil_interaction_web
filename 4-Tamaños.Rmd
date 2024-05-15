@@ -174,16 +174,16 @@ body_unlu$taxa[body_unlu$taxa=="terebrantia"]<-"trip"
 body_unlu$gremio<-NA
 #predadores
 body_unlu$gremio<-ifelse(
-  body_unlu$taxa%in%c("alycidae","amerosidae","arannae","arctacaridae","coccinelidae",
-                      "bdelloidea","carabidae","cunaxide","dermanisoidea","eupodoidea",
+  body_unlu$taxa%in%c("amerosidae","arannae","arctacaridae","coccinelidae",
+                      "bdelloidea","carabidae","cunaxide","dermanisoidea",
                       "eviphididae","formicidae","geophylomorpha","grillopalpidae",
                       "ichtyostomatogasteridae","japygiidae","laelapidae","larva_carabidae",
                       "larva_staphylinidae","linyphiidae","lycosidae","mesostigmata",
                       "nematomorpha",
                       "ologamasidae","parajapygidae","parasitidae","parholaspidae",
-                      "penthalidae","predador","pseudoscorpionida","rhagidiidae",
-                      "rhodacaroidea","staphylinidae","tarsonemidae","tenerifidae",
-                      "trogossitidae","tydeoidea","uropodidae"),"predador",
+                      "predador","pseudoscorpionida","rhagidiidae",
+                      "rhodacaroidea","staphylinidae","tenerifidae",
+                      "trogossitidae","uropodidae"),"predador",
   ifelse(
     body_unlu$taxa%in%c("anthribidae","Aporrectodea_caliginosa","Aporrectodea_rosea",
                         "coleoptera",
@@ -200,7 +200,7 @@ body_unlu$gremio<-ifelse(
                         "pythidae","scheloribates","symphypleona","tenebrionidae"
                         ),"detritivoro",
     ifelse(
-    body_unlu$taxa%in%c("bacterivoro","cryptophagidae","entomobryoidea",
+    body_unlu$taxa%in%c("alycidae","bacterivoro","cryptophagidae","entomobryoidea",
                         "eremobelbidae","fungivoro","galumnidae","gasteropoda",
                         "larva_elateridae","larva_sciaridae","limnozetidae","lohmanidae",
                         "macropilina","onichiuridae","oppioidea","oribatulidae",
@@ -210,9 +210,9 @@ body_unlu$gremio<-ifelse(
       body_unlu$taxa%in%c("afido","cicadidae","fitofago",
                           "hemiptera","ortoptero","trip","terebrantia"),"herbivoro",
       ifelse(
-        body_unlu$taxa%in%c("astigmata","hipogastruridae",
-                            "larva_elateridae","omnivoro","tardigrado"
-                            ),"omnivoro",body_unlu$gremio
+        body_unlu$taxa%in%c("eupodoidea","astigmata","hipogastruridae",
+                            "larva_elateridae","omnivoro","penthalidae","tardigrado"
+                            ,"tarsonemidae","tydeoidea"),"omnivoro",body_unlu$gremio
       )))))
 
 #datos$food <- ifelse(datos$taxa %in% especies_predadoras, "predadora",
@@ -277,8 +277,9 @@ superficie <- pi*2.5^2/10000
 
 #sin macrofauna
 #Datos brutos, biomasa individual de microartropodos
-meso <- filter(completo,class!="macrofauna"&specie!="oribátido"&specie!="mesostigmata")%>%mutate( season=fct_relevel(season, c("O","I","P","V")),habitat=fct_relevel(habitat, c("epiedaphic","hemiedaphic","euedaphic")))
-
+meso <- filter(completo,class!="macrofauna"&specie!="oribátido"&specie!="mesostigmata")
+meso[meso$specie%in%c("anystidae","eupodoidea",
+                      "penthalidae","tarsonemidae","tydeoidea"),"guild"]<-"omnivore"
 #Base con biomasas promedios por especie
 #sample, son submuestras, por lo que no sirve para dividir sino para promediar la muestra
 base <-meso %>% group_by(system,site,year,month,sample,season,class,order,specie,guild,habitat) %>%  summarise(abundance=(n()/superficie), bio.ind=mean(biomass),Tbiomass=(bio.ind*abundance))

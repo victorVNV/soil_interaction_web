@@ -219,16 +219,6 @@ Finally, it is necessary to call attention to the need for more studies on the t
 
 It is clear that big gaps in the available information must be filled to advance our knowledge on the structure and functioning of soil food webs. Not only are there several microarthropods groups hardly explored, but also the geographical coverage is still quite narrow. Almost 52 percent of the published studies about the trophic resources of Acari and Collembola were developed in European countries. Further deepening on the knowledge of functional and trophic relationships of the soil the fauna would allow for a better and more precise evaluation of the functioning of the edaphic ecosystem, the protection of the ecosystem services that the soil microarthropods provide, and the sustainable use of the soil.
 
-## Acknowledgements
-
-The authors wish to thank the help of Dr. Fernando Momo for his useful comments to previous versions of this work. To Dr. Mark Breidenbaugh for his help in reviewing the English language usage and grammar.
-
-## Declarations
-
-This work was partially funded by a scholarship to Victor N. Velazco from Consejo Nacional de Ciencia y Tecnología (CONICET). This research did not receive any other specific grant from funding agencies in the public, commercial, or not-for-profit sectors. The authors declare no conflicts of interest. All the data for this work not shown here are available as Electronic Supplementary Material and referred to in the text when appropriate.
-
-**Conflict of Interest:** The authors declare they have no conflict of interest.
-
 ## Bibliography
 
 ::: {#refs}
