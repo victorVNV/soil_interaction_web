@@ -9,7 +9,7 @@ editor_options:
   markdown:
     wrap: 90
 ---
-
+<!--modificar, eliminar la parte de Rosana a niveles comparativos-->
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 loadNamespace('printr')
@@ -29,8 +29,7 @@ set.seed(167)
 
 ## Introducción
 
-La Pampa argentina es una amplia llanura con una extensión de más de 120 millones de
-hectáreas, de las cuales se estima que la Pampa Ondulada ocupa 44 mil km^2^, esta ocupa la
+La Pampa argentina es una amplia llanura con una extensión de más de 450 mil km^2^, de las cuales se estima que la Pampa Ondulada ocupa 4,4 millones de hectáreas, esta ocupa la
 parte centro-oriental de la provincia de Córdoba, el norte de Buenos Aires y el suroeste
 de Santa Fé (.\@.morello_etal_2000).
 
@@ -55,7 +54,7 @@ especies invernales de manera que al año pueden realizarse hasta tres cosechas
 (.\@.morello_etal_2000).
 
 Urricariet y Lavado en 1999 ya mencionaban que la Pampa Ondulada estaba siendo sometida a
-la pérdida de fertilidad debidas a las prácticas intensivas de manejo. ellos basaban sus
+la pérdida de fertilidad debidas a las prácticas intensivas de manejo, ellos basaban sus
 conjeturas en estudios regionales realizados en la Pampa Ondulada y mencionan que la
 erosión de los suelos y los efectos de las prácticas agrícolas intensivas sobre estos,
 alteran la fertilidad física y estructural del suelo, la fertilidad química principalmente
@@ -91,7 +90,7 @@ citas).
 Por ello es que Socarras (2013) menciona que conocer el número de los diferentes taxones,
 su abundancia y el balance entre estos permite evaluar y predecir el impacto de los
 diferentes métodos de producción ocurridos en sistemas con condiciones edáficas y
-climáticas particulares; tambíen Cruz et al. (2009) mencionan en su síntesis sobre los
+climáticas particulares; tambíen Cruz y colaboradores (2009) mencionan en su síntesis sobre los
 indicadores que dan cuenta sobre la calidad del suelo, entendida como *"la utilidad del
 suelo para un propósito específico en una escala amplia de tiempo"*, que los indicadores
 biológicos integran a la gran cantidad de factores que podrían estar afectando al suelo y
@@ -102,7 +101,7 @@ mantenimiento de la fertilidad, la estabilidad física y biológica y con la pro
 ecológica (productividad primaria) y económica (rendimiento de los cultivos y producción
 de proteina animal) de los suelos.
 
-El objetivo de esta sección es describir las comunidades.
+El esta sección se pretende describir las comunidades edáficas halladas en suelos argiudoles en dos localidades de la Pampa Ondulada con diferentes sistemas de uso, caracterizar las condiciones fisico químicas de los suelos, conocer la diversidad de las comunidades y las relaciones de similitud entre estos.
 
 ## Materiales y métodos.
 
