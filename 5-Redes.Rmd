@@ -8,7 +8,7 @@ editor_options:
     wrap: 72
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, message=FALSE,warning=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 loadNamespace('printr')
 
@@ -17,7 +17,8 @@ loadNamespace('printr')
 ```{r lib, include=FALSE,message=FALSE, warning=FALSE}
 
 {library(tidyverse);library(statnet);library(network);
-  library(igraph);library(intergraph);library(multiweb);library(fluxweb)}
+  library(igraph);library(intergraph);library(multiweb);library(fluxweb);
+  library(kSamples)}
 set.seed(167)
 options("digits"=3)
 ```
@@ -180,170 +181,186 @@ y estabilidad de los sistemas bajo estudio (.\@.mooreandderutier_2018,
 .\@.gauzen_etal_2018, .\@.allisina_etal_2008).
 
 Entonces a partir de un suelo definido como referencia donde se
-consideran que se encuentran características de un suelo no disturbado, 
-se podrían comparar parámetros estructurales y funcionales de la comunidad de
-la fauna edáficas que permitan evaluar la estabilidad de la red
-de interacciones como indicadora del estado de conservación del suelo y
-determinar a través de su estudio la sustentabilidad de los sistemas de
-manejo [@bedano2007; @socarras2013].
+consideran que se encuentran características de un suelo no disturbado,
+se podrían comparar parámetros estructurales y funcionales de la
+comunidad de la fauna edáficas que permitan evaluar la estabilidad de la
+red de interacciones como indicadora del estado de conservación del
+suelo y determinar a través de su estudio la sustentabilidad de los
+sistemas de manejo [@bedano2007; @socarras2013].
 
 # Metodología
 
 ## Construccion de la red
 
-Se construyo una matriz de interacciones tróficas cuyos nodos son todos los taxones
-hallados en ambas comunidades de la fauna de suelo ($gamma\; [\gamma]$). 
-A partir de la matriz de interacciones global se seleccionan los actores que 
-corresponden a cada comunidad en particular definiendo de 
-esta manera matrices de interacciones para cada sistema de uso del 
-suelo ($alpha \;[\alpha]$). 
+Se construyo una matriz de interacciones tróficas cuyos nodos son todos
+los taxones hallados en ambas comunidades de la fauna de suelo
+($gamma\; [\gamma]$). A partir de la matriz de interacciones global se
+seleccionan los actores que corresponden a cada comunidad en particular
+definiendo de esta manera matrices de interacciones para cada sistema de
+uso del suelo ($alpha \;[\alpha]$).
 
-Se utilizaron como **atributos de nodos**, esto es, valores numéricos, nominales o 
-categóricos que describen una característica del nodo en particular se corresponde 
-con los taaxones hallados en los diferentes sistemas de uso del suelo, los valores 
-de pesos corporales, las biomasas medias y las densidades medias; productos todos 
-desarrollados en las secciones anteriores (Ver tablas 4.x al x).
+Se utilizaron como **atributos de nodos**, esto es, valores numéricos,
+nominales o categóricos que describen una característica del nodo en
+particular se corresponde con los taaxones hallados en los diferentes
+sistemas de uso del suelo, los valores de pesos corporales, las biomasas
+medias y las densidades medias; productos todos desarrollados en las
+secciones anteriores (Ver tablas 4.x al x).
 
-Se asumieron algunos parámetros para nodos que se corresponden a recursos tróficos
-base (.@.velazco,.@.potapov_multichanel) basados en evidencia bibliográfica, 
-estos nodos, o no han sido medidos 
-como por ejemplo en los datos de comunidades edáficas de los suelos argiudoles 
-de Chivilcoy y Navarro, o, debido a su complejidad son dificiles de cuantificar.
+Se asumieron algunos parámetros para nodos que se corresponden a
+recursos tróficos base (.\@.velazco,.\@.potapov_multichanel) basados en
+evidencia bibliográfica, estos nodos, o no han sido medidos como por
+ejemplo en los datos de comunidades edáficas de los suelos argiudoles de
+Chivilcoy y Navarro, o, debido a su complejidad son dificiles de
+cuantificar.
 
-Para el recurso trófico "humus" se considera que la materia orgánica particulada 
-es el proxi de la cantidad del recurso que se corresponde con el nodo "Hummus" y 
-en general esta se corresponde con el 50% de la materia orgánica del suelo
-para suelos de la pampa ondulada (Álvarez 2006 (cap3);Biological indicator of Soil Healt 
-pp 70 - 71), para calcular su biomasa
-esta se refiere a la superficie en metros cuadrados, utilizando la densidad
-aparente de suelos y referidas hasta los 10 centímetros de profundidad, zona en 
-la cuál se encuentra la mayor proporción del contenido en materia orgánica; Digel 
-(.-@.Digel.2014), quien evaluó las características topológicas 
-de decenas de redes de diferentes ecosistemas y las comparó con redes tróficas 
-de los suelos de bosques de la región Paleártica en el material suplementario 
-indica que el peso promedio de las bacterias del suelo es $9,5\, x \,10^{-16} g$, 
-indica también el peso promedio de cada uno de los principales grupos de protozoos 
-del suelo,tardígrados, rotíferos y otra microfauna que en conjunto que resultó en 
-$1,1121 \,x\,10^{-10} g$ <!--3.3363e-1-->; el peso promedio de los hongos son 
-relevados por metro lineal 
-de las hifas como sugiere Pilar et al. (2016) y que resulta en un valor de 
+Para el recurso trófico "humus" se considera que la materia orgánica
+particulada es el proxi de la cantidad del recurso que se corresponde
+con el nodo "Hummus" y en general esta se corresponde con el 50% de la
+materia orgánica del suelo para suelos de la pampa ondulada (Álvarez
+2006 (cap3);Biological indicator of Soil Healt pp 70 - 71), para
+calcular su biomasa esta se refiere a la superficie en metros cuadrados,
+utilizando la densidad aparente de suelos y referidas hasta los 10
+centímetros de profundidad, zona en la cuál se encuentra la mayor
+proporción del contenido en materia orgánica; Digel (.-\@.Digel.2014),
+quien evaluó las características topológicas de decenas de redes de
+diferentes ecosistemas y las comparó con redes tróficas de los suelos de
+bosques de la región Paleártica en el material suplementario indica que
+el peso promedio de las bacterias del suelo es $9,5\, x \,10^{-16} g$,
+indica también el peso promedio de cada uno de los principales grupos de
+protozoos del suelo,tardígrados, rotíferos y otra microfauna que en
+conjunto que resultó en $1,1121 \,x\,10^{-10} g$ <!--3.3363e-1-->; el
+peso promedio de los hongos son relevados por metro lineal de las hifas
+como sugiere Pilar et al. (2016) y que resulta en un valor de
 $2,3 \,x\,7\,^{-10} g\,m^{-2}$.
 
-Las biomasas medias de bacterias, hongos y microfauna no nemátoda, son aproximadas
-mediante la biomasa media calculada a partir de la respiración de los heterótrofos
-(capítulo 3 comunidad, imagen o tabla,ecuación),
-de esta biomasa media se considera que el 
-50% es el recurso efectivamente disponible para la red trófica, entonces, 
-para ambos suelos argiudoles se consideró que el 2 % de la biomasa corresponde 
-a la microfauna no nemátoda (.@.cita_energetical.significance?),
-para suelos los suelos de Luján se 
-utilizó la relación de hongos y bacterias para calcular la biomasa de estos actores
-sobre el 48% restantes de la biomasa media de los heterótrofos, en los suelos de 
-Chivilcoy y Navarro se consideró el 45% de la respiración
-para calcular las biomasas de bacterias
-y hongos dado que el 3% será utilizado para estimar la biomasa de nemátodos,
-en sistemas agrícolas intensivos se asumió 35% de bacterias, en el 
-sistema mixto agrícola ganadero se asumió 30% de bacterias y para el pastizal 
-naturalizado se asumió una contribución de bacterias del 25% (.@.buscar cita sobre 
-relación entre hongos y bacterias en sistemas del suelo)
+Las biomasas medias de bacterias, hongos y microfauna no nemátoda, son
+aproximadas mediante la biomasa media calculada a partir de la
+respiración de los heterótrofos (capítulo 3 comunidad, imagen o
+tabla,ecuación), de esta biomasa media se considera que el 50% es el
+recurso efectivamente disponible para la red trófica, entonces, para
+ambos suelos argiudoles se consideró que el 2 % de la biomasa
+corresponde a la microfauna no nemátoda
+(.\@.cita_energetical.significance?), para suelos los suelos de Luján se
+utilizó la relación de hongos y bacterias para calcular la biomasa de
+estos actores sobre el 48% restantes de la biomasa media de los
+heterótrofos, en los suelos de Chivilcoy y Navarro se consideró el 45%
+de la respiración para calcular las biomasas de bacterias y hongos dado
+que el 3% será utilizado para estimar la biomasa de nemátodos, en
+sistemas agrícolas intensivos se asumió 35% de bacterias, en el sistema
+mixto agrícola ganadero se asumió 30% de bacterias y para el pastizal
+naturalizado se asumió una contribución de bacterias del 25% (.\@.buscar
+cita sobre relación entre hongos y bacterias en sistemas del suelo)
 
-Para el caso de los nemátodos de vida libre del suelo para el conjunto de datos de los 
-suelos argiudoles de Luján se utilizaron los valores de abundancia y peso medio 
-a partir de la evidencia empírica recabada. En cambio, para 
-los argiudoles de Chivilcoy y Navarro se utilizaron las relaciones de proporción
-promedio de nemátodos observados en los sistemas del suelo Argiudol de Luján,
-por lo tanto, nemátodos fungívoros, bacteríofagos, fitófagos, omnívoros y predadores, 
-fueron referidos al 40,30,14,8 y 8 % respectivamente, a la vez se consideró que los 
-nemátodos en relación a la biomasa heterotrófica se corresponden con el 3% (.@.agregar 
-cita).
+Para el caso de los nemátodos de vida libre del suelo para el conjunto
+de datos de los suelos argiudoles de Luján se utilizaron los valores de
+abundancia y peso medio a partir de la evidencia empírica recabada. En
+cambio, para los argiudoles de Chivilcoy y Navarro se utilizaron las
+relaciones de proporción promedio de nemátodos observados en los
+sistemas del suelo Argiudol de Luján, por lo tanto, nemátodos
+fungívoros, bacteríofagos, fitófagos, omnívoros y predadores, fueron
+referidos al 40,30,14,8 y 8 % respectivamente, a la vez se consideró que
+los nemátodos en relación a la biomasa heterotrófica se corresponden con
+el 3% (.\@.agregar cita).
 
-Teniendo la relación entre las biomasas y los pesos corporales medios de los actores 
-se calculan las densidades de aquellos nodos que no tuvieron una determinación directa.
+Teniendo la relación entre las biomasas y los pesos corporales medios de
+los actores se calculan las densidades de aquellos nodos que no tuvieron
+una determinación directa.
 
-De los recursos tróficos base, en algunos casos pudo estimarse su biomasa, a saber,
-el recurso hojarasca fué calculado para suelos de Luján pero no 
-en Chivilcoy y Navarro, el humus como dicho más arriba fué calculado 
-para ambas localidades, la carroña fue estimada a partir del peso de todos los 
-invertebrados presente en los diferentes sistemas de uso y que pueden dejar carroña, 
-considerando un 5% de carroña sobre la biomasa de invertebrados pausibles de
-dejar carroña una vez sucedida su decesión, finalmente el tejido vegetal 
-que incluye 
-raices y exudados (Cap 2.1. Recursos tróficos) no fué determinado.
+De los recursos tróficos base, en algunos casos pudo estimarse su
+biomasa, a saber, el recurso hojarasca fué calculado para suelos de
+Luján pero no en Chivilcoy y Navarro, el humus como dicho más arriba fué
+calculado para ambas localidades, la carroña fue estimada a partir del
+peso de todos los invertebrados presente en los diferentes sistemas de
+uso y que pueden dejar carroña, considerando un 5% de carroña sobre la
+biomasa de invertebrados pausibles de dejar carroña una vez sucedida su
+decesión, finalmente el tejido vegetal que incluye raices y exudados
+(Cap 2.1. Recursos tróficos) no fué determinado.
 
-Para los recursos bases se asume que su densidad y su peso son iguales a 1 
-a los fines de realizar cálculos de fuerzas de interacción (.@.pawar?; .@.alesina; .@.fluxweb)
+Para los recursos bases se asume que su densidad y su peso son iguales a
+1 a los fines de realizar cálculos de fuerzas de interacción
+(.\@.pawar?; .\@.alesina; .\@.fluxweb)
 
 ## Métricas y estadísticas
 
-A partir de la matriz de interacciones, para cada red trófica, se calcularon los
-índices topológicos, es decir, aquellas medidas calculadas a partir de la 
-arquitectura de la red que la describen matemáticamente y ecológicamente, estas medidas
-son calculadas como caracterísiticas relativas a la red como un todo o como
-características relativas a los nodos de la red. 
-El **tamaño de la red** que indica el número de, nodos y especies tróficas a la vez;
-el <u>número</u> y la <u>densidad</u> de **enlaces** que implica a la
-vez, el número total en la red de interacciones tróficas y la densidad de 
-interacciones tróficas que refleja la proporción de interacciones por nodo 
-referidas al total; el **largo de caminos** es el valor promedio de conexiones o 
-"caminos" que se recorre a lo largo de los nodos de un grafo (en este caso, red trófica);
-la **conectancia** es la proporción de enlaces efectivamente realizados en la red
-trófica en relación al total de conecciones potenciales del grafo con el mismo tamaño;
-el **agrupamiento o clustering** mide un coeficiente que indica la magnitud en los 
-cuales existe pequeños agrupamientos, denominados también como "camarillas", 
+A partir de la matriz de interacciones, para cada red trófica, se
+calcularon los índices topológicos, es decir, aquellas medidas
+calculadas a partir de la arquitectura de la red que la describen
+matemáticamente y ecológicamente, estas medidas son calculadas como
+caracterísiticas relativas a la red como un todo o como características
+relativas a los nodos de la red. El **tamaño de la red** que indica el
+número de, nodos y especies tróficas a la vez; el <u>número</u> y la
+<u>densidad</u> de **enlaces** que implica a la vez, el número total en
+la red de interacciones tróficas y la densidad de interacciones tróficas
+que refleja la proporción de interacciones por nodo referidas al total;
+el **largo de caminos** es el valor promedio de conexiones o "caminos"
+que se recorre a lo largo de los nodos de un grafo (en este caso, red
+trófica); la **conectancia** es la proporción de enlaces efectivamente
+realizados en la red trófica en relación al total de conecciones
+potenciales del grafo con el mismo tamaño; el **agrupamiento o
+clustering** mide un coeficiente que indica la magnitud en los cuales
+existe pequeños agrupamientos, denominados también como "camarillas",
 entre nodos en la red.
 
-El **nivel trófico** es el número que define la posición en la
-cuál se encuentra una especie trófica, aquí se indican el **nivel trófico medio** de la 
-red y el **nivel trófico máximo** de la red; 
-se identifican por su posición en la red 
-el número de especies **basales** aquellas que no consumen a otras especies
-tróficas y el número de especies **tope** quienes no tienen predadores que los consuman;
-el número de especies **canibales** aquellas especies que consumen a individuos 
-de la misma especie trófica; la **omnivoría** que mide la proporción de especies
-omnívoras, es decir, la proporción de especies tróficas que se alimentan 
-(o se enlazan) de más de un nivel trófico, y el **nivel de omnivoría** que indica 
-el valor promedio, en términos de nivel trófico, sobre los cuales se alimentan los 
-omnívoros; desde el punto de vista de la especie trófica se miden la **vulnerabilidad**
-y la **generalidad**, que implican el número promedio de predadores que tiene un 
-nodo trófico y el número medio de presas que consumen un nodo trófico, respectivamente,
-además se calcula el desvío estandar de ambas.
+El **nivel trófico** es el número que define la posición en la cuál se
+encuentra una especie trófica, aquí se indican el **nivel trófico
+medio** de la red y el **nivel trófico máximo** de la red; se
+identifican por su posición en la red el número de especies **basales**
+aquellas que no consumen a otras especies tróficas y el número de
+especies **tope** quienes no tienen predadores que los consuman; el
+número de especies **canibales** aquellas especies que consumen a
+individuos de la misma especie trófica; la **omnivoría** que mide la
+proporción de especies omnívoras, es decir, la proporción de especies
+tróficas que se alimentan (o se enlazan) de más de un nivel trófico, y
+el **nivel de omnivoría** que indica el valor promedio, en términos de
+nivel trófico, sobre los cuales se alimentan los omnívoros; desde el
+punto de vista de la especie trófica se miden la **vulnerabilidad** y la
+**generalidad**, que implican el número promedio de predadores que tiene
+un nodo trófico y el número medio de presas que consumen un nodo
+trófico, respectivamente, además se calcula el desvío estandar de ambas.
 
-Se calcularon las fuerzas de interacciones entre los actores (e.i. especies tróficas)
-utilizando la teoría metabólica y la dimensionalidad de las interacciones, método descrito por Pawar (2012\-\@pawar2012), que precisa del peso
-corporal promedio y las densidades de los taxones que conforman las especies tróficas,
-y de la dimensionalidad de las interacciones, que en redes detritívoras del suelo 
-corresponden a la dimensionalidad del tipo "2D". El valor de la fuerza de interacción
-cuantifica el efecto que tienen los depredadores/consumidores sobre la 
-biomasa de las presas/recursos y lo expresa como el efecto por unidad de biomasa 
-del predador/consumidor. 
+Se calcularon las fuerzas de interacciones entre los actores (e.i.
+especies tróficas) utilizando la teoría metabólica y la dimensionalidad
+de las interacciones, método descrito por Pawar (2012-\@pawar2012), que
+precisa del peso corporal promedio y las densidades de los taxones que
+conforman las especies tróficas, y de la dimensionalidad de las
+interacciones, que en redes detritívoras del suelo corresponden a la
+dimensionalidad del tipo "2D". El valor de la fuerza de interacción
+cuantifica el efecto que tienen los depredadores/consumidores sobre la
+biomasa de las presas/recursos y lo expresa como el efecto por unidad de
+biomasa del predador/consumidor.
 
-Como valor de estabilidad se utilizará el valor de estabilidad de quasi-signo (\@alesina et al.201x).
-Para hallar este valor se toma la estructura de signos de la matriz de adyacencia original
-que describe a la red trófica en cuestión, y, realiza aleatorizaciones de las fuerzas de
-interacción entre los nodos manteniendo la estructura de los signos, luego calcula
-los autovalores de la matriz Jacobiana, matriz que representa el efecto neto de la interacción
-entre pares de nodos(\@Delmasetal2019), para cada una de las aleatorizaciones; una red trófica 
-localmente estable tendrá todos sus autovalores negativos y su valor de estabilidad es aquel 
-autovalor con el máximo valor (i.e. más cercano a cero), por otra parte, el máximo autovalor 
-en matrices con autovalores mayores a cero es también una medida de estabilidad dando la noción 
-de distancia (*autoregulación*), a la cual se encuentra la red evaluada para lograr 
-la estabilidad local. 
+Como valor de estabilidad se utilizará el valor de estabilidad de
+quasi-signo (\@alesina et al.201x). Para hallar este valor se toma la
+estructura de signos de la matriz de adyacencia original que describe a
+la red trófica en cuestión, y, realiza aleatorizaciones de las fuerzas
+de interacción entre los nodos manteniendo la estructura de los signos,
+luego calcula los autovalores de la matriz Jacobiana, matriz que
+representa el efecto neto de la interacción entre pares de
+nodos(\@Delmasetal2019), para cada una de las aleatorizaciones; una red
+trófica localmente estable tendrá todos sus autovalores negativos y su
+valor de estabilidad es aquel autovalor con el máximo valor (i.e. más
+cercano a cero), por otra parte, el máximo autovalor en matrices con
+autovalores mayores a cero es también una medida de estabilidad dando la
+noción de distancia (*autoregulación*), a la cual se encuentra la red
+evaluada para lograr la estabilidad local.
 
-Para realizar comparaciones entre redes tróficas se utilizó la comparación de distribuciones
-del método de Anderson-Darling / Kolmogorov-Smirnoff para identificar diferencias 
-estadísticamente significativas, 
-mediante el algoritmo de Curveball se establecen redes de interacciones que mantienen la conectividad,
-el numero de enlaces y la cantidad de especies basales y tope, para evaluar las características
+Para realizar comparaciones entre redes tróficas se utilizó la
+comparación de distribuciones del método de Anderson-Darling /
+Kolmogorov-Smirnoff para identificar diferencias estadísticamente
+significativas, mediante el algoritmo de Curveball se establecen redes
+de interacciones que mantienen la conectividad, el numero de enlaces y
+la cantidad de especies basales y tope, para evaluar las características
 topológicas de las redes tróficas del sistema detritívoro edáfico.
 
 <!--Falta agregar flujos de energia y comparaciones-->
 
-Se utilizó el pequete ["multiweb"](https://github.com/lsaravia/multiweb) para calcular 
-las métricas de topología, las fuerzas de interacciones y la estabilidad de las redes 
-tróficas, además se utilizó el paquete ["fluxweb"](https://bit.ly/2OC0uKF) para calcular 
-los flujos de energía y también se utilizaron paquetes
-complementarios para manejo de datos y la comparación
-estadística de los parámetros calculados, todos ellos implementados en R.
+Se utilizó el pequete ["multiweb"](https://github.com/lsaravia/multiweb)
+para calcular las métricas de topología, las fuerzas de interacciones y
+la estabilidad de las redes tróficas, además se utilizó el paquete
+["fluxweb"](https://bit.ly/2OC0uKF) para calcular los flujos de energía
+y también se utilizaron paquetes complementarios para manejo de datos y
+la comparación estadística de los parámetros calculados, todos ellos
+implementados en R.
 
 ```{r dtb,include=FALSE,message=FALSE, warning=FALSE}
 #Carga datos, comunidad completa, abundancia, pesos corporales medios, de suelos UNLu
@@ -738,7 +755,6 @@ bm_A<-c(A$biomass,
 
 ```
 
-
 ```{r Gamma_matrix, include=FALSE,message=FALSE, warning=FALSE}
 # agregados: crotonioidea; Octalasion lacteum; Microscolex dubius;
 # Eukerria stagnalis; brachychthonioidea
@@ -1017,7 +1033,7 @@ meso.reduc<-c("juvenil","Aporrectodea caliginosa",
      "Aporrectodea rosea","Aporrectodea trapezoides",
      "Bimastos beddardi sophiae","Bimastos parvus",
      "Eukerria halophila","Glossoscolex sp.","Octalasion lacteum", "Microscolex dubius",
-     "Eukerria stagnalis","Microscolex phosphoreus","Octalasion cyaneum","Octolasion tyrtaeum","bac","fungi","alycidae", "diplura","brachychthonioidea","crotonioidea",
+     "Eukerria stagnalis","Microscolex phosphoreus","Octalasion cyaneum","Octolasion tyrtaeum","bac","fungi","alycidae", "brachychthonioidea","crotonioidea",
         "oribatido","limnozetidae",
    "ceratozetoidea","entomobridae",
   "epilhomanioidea","eremobelbidae","galumnidae",
@@ -1035,7 +1051,6 @@ meso.reduc<-c("juvenil","Aporrectodea caliginosa",
 #vector con 67 taxas
 
 ```
-
 
 ```{r redes.global, include=FALSE, message=FALSE, warning=FALSE}
 #red global "diveridad gamma"
@@ -1101,10 +1116,11 @@ paleta_color<-RColorBrewer::brewer.pal(9, "Set1")
 fact_guild<-as.factor(get.vertex.attribute(Gl_net,"guild"))
 fact_size<-as.factor(get.vertex.attribute(Gl_net,"size_class"))
 
-plot(asNetwork(Gl_net),coord=coordenadas,vertex.col=paleta_color[fact_guild],vertex.cex=as.numeric(fact_size)/3,suppress.axes = FALSE)
+#plot(asNetwork(Gl_net),coord=coordenadas,vertex.col=paleta_color[fact_guild],vertex.cex=as.numeric(fact_size)/3,suppress.axes = FALSE)
+
+#plot_troph_level(Gl_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE,sub="Agrícola",edge.color="grey",edge.wigth=0.5)
 
 ```
-
 
 ```{r redes, include=FALSE, message=FALSE, warning=FALSE}
 
@@ -1136,19 +1152,33 @@ P_reduc.net <-graph_from_adjacency_matrix(t(mG[c(P.r,"litter","carrion","tej_veg
 
 ```
 
-
 # Resultados
-Las redes de interacciones de los suelos Argiudoles tienen 4 recursos tróficos 
-denominados también como especies base, estos son, el tejido vegetal que engloba a las 
-raices y sus exudados, la hojarasca, el humus y la carroña que en conjunto son denominados
-como detritos.
-El tamaño de las red trófica en suelos de Luján fué mayor en el sistema del pastizal 
-con un mayor número y densidad de enlaces (Tabla 5.x), seguidos por la Reserva.
-A pesar del mayor número de especies tróficas en el pastizal, el número de especies tope fue el menor como así también el porcentaje de omnivoría, para ambos parámetros el mayor
-valor se observa en la Reserva.
 
-El nivel trófico promedio de las redes en suelos argiudoles de Luján ente los tres sistemas de uso fué de aproximadamente 2,95 y con respecto al máximo nivel trófico 
-este fué mayor en el pastizal seguido por el sistema agrícola intensivo, el nivel de omnivoría sigue un patron similar Pastizal\>Sistema agrícola\>Reserva.
+Las redes de interacciones de los suelos Argiudoles tienen 4 recursos
+tróficos denominados también como especies base, estos son, el tejido
+vegetal que engloba a las raices y sus exudados, la hojarasca, el humus
+y la carroña que en conjunto son denominados como detritos.
+
+El tamaño de las red trófica en suelos de Luján fué mayor en el sistema
+del pastizal con un mayor número y densidad de enlaces (Tabla 5.x),
+seguidos por la Reserva. A pesar del mayor número de especies tróficas
+en el pastizal, el número de especies tope fue el menor como así también
+el porcentaje de omnivoría, para ambos parámetros el mayor valor se
+observa en la Reserva.
+
+```{r plot_redes, echo=FALSE, warning=FALSE,message=FALSE}
+par(mfrow=c(1,3))
+plot_troph_level(R_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE,sub="Reserva")
+plot_troph_level(P_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE,sub="Pastizal")
+plot_troph_level(L_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE,sub="Agrícola")
+par(mfrow=c(1,1))
+```
+
+El nivel trófico promedio de las redes en suelos argiudoles de Luján
+ente los tres sistemas de uso fué de aproximadamente 2,95 y con respecto
+al máximo nivel trófico este fué mayor en el pastizal seguido por el
+sistema agrícola intensivo, el nivel de omnivoría sigue un patron
+similar Pastizal\>Sistema agrícola\>Reserva.
 
 ```{r topolog, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -1177,7 +1207,7 @@ colnames(topolog)<-c("Sistema","Tamaño","nº enlaces","Tope","% Omnivoría","Ni
                         "Nivel trófico","Nivel trófico promedio","Conectancia","Densidad de enlaces",
                         "Clustering","Vulnerabilidad","Generalidad"	)
 
-topological1$Sistema<-c("Pastizal naturalizado", "Mixto agrícola ganadero", "Agrìcola intensivo","Reserva","Pastizal","Agrícola intensivo")
+topological1$Sistema<-c("Pastizal naturalizado", "Mixto agrícola ganadero", "Agrícola intensivo","Reserva","Pastizal","Agrícola intensivo")
 topolog1<-topological1[,c("Sistema","Size","Links","Top","Omnivory","LOmnivory",
                         "TLmax","TLmean","Connectance","LD",
                         "Clustering","Vulnerability","Generality"	)]
@@ -1189,36 +1219,50 @@ kableExtra::kable(topolog)
 
 ```
 
-La densidad de enlaces, la conectancia y el clusterin fueron mayores en el pastizal
-naturalizado seguido por el sistema agrícola, mismo comportamiento se observa con los 
-valores de Generalidad y Vulnerabilidad.
+La densidad de enlaces, la conectancia y el clusterin fueron mayores en
+el pastizal naturalizado seguido por el sistema agrícola, mismo
+comportamiento se observa con los valores de Generalidad y
+Vulnerabilidad.
 
-Comparando las redes de los suelos argiudoles de Luján con los suelos argiudoles de Chivilcoy y Navarro, puede observarse un tamaño de la red más grande en la localidad de Chivilcoy y Navarro y aunque un menor número de especies tope. 
+El tamaño de la red en suelos de Chivilcoy y Navarro fué similar en los
+tres sistemas de uso, con una especie trófica menos en la pastizal
+naturalizado, de manera similar el número de especies tope fué similar
+entre los sistemas de uso con una especie menos en el sistema Agrícola
+intensivo.
+
+Tanto el máximo nivel trófico como el nivel trófico medio fué mayor en
+el sistema agrícola intensivo y menor en el pastizal naturalizado.
 
 ```{r topolog_reduc,echo=FALSE,message=FALSE,warning=FALSE}
 kableExtra::kable(topolog1)
 ```
 
+Hubo un mayor número de interacciones en el sistema agrícola intensivo
+al igual que en otros parámetros como la densidad de enlaces, la
+conectancia, el clusterin, la vulnerabilidad y la generalidad. El
+sistema mixto agrícola ganadero y el pastizal naturalizado tuvieron
+valores similares en conectancia y clustering. En el sistema mixto en
+comparación con el pastizal naturalizado se observaron un mayor número y
+densidad de enlaces, mayores valores de vulnerabilidad y generalidad y
+un mayor nivel trófico medio.
+
+Comparando las redes de los suelos argiudoles de Luján con los suelos
+argiudoles de Chivilcoy y Navarro, puede observarse que en general los
+parámetros tienen mayores valores en los suelos de Luján y esto puede
+relacionarse con tamaños de la red con más actores y una mayor cantidad
+de interacciones entre estos, la excepción ocurre con las especies topes
+cuyo número fue mayor en los suelos de Chivilcoy y Navarro.
 
 ```{r plot_redes, echo=FALSE, warning=FALSE,message=FALSE}
 par(mfrow=c(1,3))
-plot_troph_level(R_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE)
-plot_troph_level(P_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE)
-plot_troph_level(L_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE)
 
-plot_troph_level(N_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE)
-plot_troph_level(G_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE)
-plot_troph_level(A_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE)
+plot_troph_level(N_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE,sub="Pastizal")
+plot_troph_level(G_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE,sub="Mixto")
+plot_troph_level(A_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE,sub="Agrícola")
 
 
 par(mfrow=c(1,1))
 ```
-
-<!-- Re(lM,1), is a measure of stability, as it
-expresses the amount of self-regulation we would need to stabilize
-the equilibrium2 Modularity and stability in ecological communities
-Jacopo Grilli1, Tim Rogers2 & Stefano Allesina1,3,4-->
-
 
 ```{r interaction_strenght, include=FALSE}
 
@@ -1536,7 +1580,7 @@ edge_A_net$dimension<-"2D"
 
 #el peso debe ser utilizado como en kilogramos,
 #como esto está en microgramos será 1e-9
-
+#fuerza interacción UNLu#####
 IS_R1<-calc_interaction_intensity(da=edge_R_net,
                          res_mm =peso_recurso,res_den = densidad_recurso,
                         con_mm = peso_consumidor, int_dim =dimension )
@@ -1547,6 +1591,7 @@ IS_L1<-calc_interaction_intensity(da=edge_L_net,
                          res_mm =peso_recurso,res_den = densidad_recurso,
                         con_mm = peso_consumidor, int_dim =dimension )
 
+#fuerza interaccion Chivilcoy####
 IS_N1<-calc_interaction_intensity(da=edge_N_net,
                          res_mm =peso_recurso,res_den = densidad_recurso,
                         con_mm = peso_consumidor, int_dim =dimension )
@@ -1556,29 +1601,29 @@ IS_G1<-calc_interaction_intensity(da=edge_G_net,
 IS_A1<-calc_interaction_intensity(da=edge_A_net,
                          res_mm =peso_recurso,res_den = densidad_recurso,
                         con_mm = peso_consumidor, int_dim =dimension )
+#fuerza interaccion unlu reducido####
+red.edge_R_net<-edge_R_net[edge_R_net$consumidor%in%meso.reduc&
+                             edge_R_net$recurso%in%meso.reduc,]
+red.edge_P_net<-edge_P_net[edge_P_net$consumidor%in%meso.reduc&
+                             edge_P_net$recurso%in%meso.reduc,]
+red.edge_L_net<-edge_L_net[edge_L_net$consumidor%in%meso.reduc&
+                             edge_L_net$recurso%in%meso.reduc,]
+#calculo ISS
+IS_R.r<-calc_interaction_intensity(da=red.edge_R_net,
+                         res_mm =peso_recurso,res_den = densidad_recurso,
+                        con_mm = peso_consumidor, int_dim =dimension )
+IS_P.r<-calc_interaction_intensity(da=red.edge_P_net,
+                         res_mm =peso_recurso,res_den = densidad_recurso,
+                        con_mm = peso_consumidor, int_dim =dimension )
+IS_L.r<-calc_interaction_intensity(da=red.edge_L_net,
+                         res_mm =peso_recurso,res_den = densidad_recurso,
+                        con_mm = peso_consumidor, int_dim =dimension )
+
 ```
-
-**Histogramas de la fuerza de interacción per cápita**
-
-```{r hist_IS, echo=FALSE}
-par(mfrow=c(2,3))
-
-hist(log(IS_R1$qRC),main = "reserva UNLu", sub= "log nat del IS", xlab = NULL)
-hist(log(IS_P1$qRC), main = "pastizal UNLu", sub= "log nat del IS", xlab = NULL)
-hist(log(IS_L1$qRC), main = "lote agricola UNLu", sub= "log nat del IS", xlab = NULL)
-hist(log(IS_N1$qRC), main= "pastizal nat", sub= "log nat del IS", xlab = NULL)
-hist(log(IS_G1$qRC), main = "mixto", sub= "log nat del IS", xlab = NULL)
-hist(log(IS_A1$qRC), main= "agricola intensivo", sub= "log nat del IS", xlab = NULL)
-
-par(mfrow=c(1,1))
-
-```
-
-
-La forma de los histogramas es similar entre los dos conjunto de datos. En la UNLu los histogramas son unimodales, en Rosana son bi modales. Las fuerzas de interacciones entre estos deberán ser puesta a prueba para ver si hay diferencias
 
 ```{r QSS_IS, echo=FALSE}
 #multiplicar qRC por la densidad el consumidor para que de la fuerza de interaccion total, sino es por unidad de peso del consumidor
+
 #Reserva
 IS_R<-IS_R1[,c(1,2,11)]
 names(IS_R)<-c("recurso","consumidor","weight")
@@ -1592,18 +1637,31 @@ IS_L<-IS_L1[,c(1,2,11)]
 names(IS_L)<-c("recurso","consumidor","weight")
 IS_L_net<-graph_from_data_frame(IS_L,directed = TRUE, vertices =NULL)
 
-#Reserva
+#Pastizal naturalizado
 IS_N<-IS_N1[,c(1,2,11)]
 names(IS_N)<-c("recurso","consumidor","weight")
 IS_N_net<-graph_from_data_frame(IS_N,directed = TRUE, vertices =NULL)
-#Pastizal
+#Mixto Agrícola Ganadero
 IS_G<-IS_G1[,c(1,2,11)]
 names(IS_G)<-c("recurso","consumidor","weight")
 IS_G_net<-graph_from_data_frame(IS_G,directed = TRUE, vertices =NULL)
-#Lote unlu
+#Agrícola Intensivo
 IS_A<-IS_A1[,c(1,2,11)]
 names(IS_A)<-c("recurso","consumidor","weight")
 IS_A_net<-graph_from_data_frame(IS_A,directed = TRUE, vertices =NULL)
+#unlu reducido
+#Reserva
+IS_R.r1<-IS_R.r[,c(1,2,11)]
+names(IS_R.r1)<-c("recurso","consumidor","weight")
+IS_R_net.r<-graph_from_data_frame(IS_R.r1,directed = TRUE, vertices =NULL)
+#Pastizal
+IS_P.r1<-IS_P.r[,c(1,2,11)]
+names(IS_P.r1)<-c("recurso","consumidor","weight")
+IS_P_net.r<-graph_from_data_frame(IS_P.r1,directed = TRUE, vertices =NULL)
+#Lote unlu
+IS_L.r1<-IS_L.r[,c(1,2,11)]
+names(IS_L.r1)<-c("recurso","consumidor","weight")
+IS_L_net.r<-graph_from_data_frame(IS_L.r1,directed = TRUE, vertices =NULL)
 
 ####
 QSS_IS_R<-calc_QSS(IS_R_net, istrength=TRUE, returnRaw = TRUE, nsim=1000)
@@ -1615,37 +1673,88 @@ QSS_IS_N<-calc_QSS(IS_N_net, istrength=TRUE, returnRaw = TRUE, nsim=1000)
 QSS_IS_G<-calc_QSS(IS_G_net, istrength=TRUE, returnRaw = TRUE, nsim=1000)
 QSS_IS_A<-calc_QSS(IS_A_net, istrength=TRUE, returnRaw = TRUE, nsim=1000)
 
+QSS_IS_R.r<-calc_QSS(IS_R_net.r, istrength=TRUE, returnRaw = TRUE, nsim=1000)
+QSS_IS_P.r<-calc_QSS(IS_P_net.r, istrength=TRUE, returnRaw = TRUE, nsim=1000)
+QSS_IS_L.r<-calc_QSS(IS_L_net.r, istrength=TRUE, returnRaw = TRUE, nsim=1000)
+
 #observacion con modificacion de los efectos negativos-positivos se hace pequeño el autovalor, pero no "estable localmente"
 
 ```
 
-**Histogramas del valor de estabilidad en escala 
-logaritmica calculado a partir de la intensidad de interacciones**
+**Histogramas del valor de estabilidad en escala logaritmica calculado a
+partir de la intensidad de interacciones**
 
 ```{r plot_QSS_IS, echo=FALSE}
-par(mfrow=c(2,3))
+par(mfrow=c(1,3))
 hist(log(QSS_IS_R$maxre),main = "reserva UNLu", sub= "logQSS_IS", xlab = NULL)
 hist(log(QSS_IS_P$maxre), main = "pastizal UNLu", sub= "logQSS_IS", xlab = NULL)
 hist(log(QSS_IS_L$maxre), main = "lote agricola UNLu", sub= "logQSS_IS", xlab = NULL)
 
+par(mfrow=c(2,3))
 hist(log(QSS_IS_N$maxre), main= "pastizal nat", sub= "logQSS_IS", xlab = NULL)
 hist(log(QSS_IS_G$maxre), main = "mixto", sub= "logQSS_IS", xlab = NULL)
 hist(log(QSS_IS_A$maxre), main= "agricola intensivo", sub= "logQSS_IS", xlab = NULL)
+
+hist(log(QSS_IS_R.r$maxre), main= "Reserva", sub= "logQSS_IS", xlab = NULL)
+hist(log(QSS_IS_P.r$maxre), main = "Pastizal", sub= "logQSS_IS", xlab = NULL)
+hist(log(QSS_IS_L.r$maxre), main= "Agricola intensivo", sub= "logQSS_IS", xlab = NULL)
+
 par(mfrow=c(1,1))
 
 ```
 
-```{r AD-test-QSS, include=FALSE}
-Q_R<-data_frame(sitio=rep("R",length(QSS_IS_R)),qss=QSS_IS_R$maxre)
-Q_P<-data_frame(sitio=rep("P",length(QSS_IS_P)),qss=QSS_IS_P$maxre)
-Q_L<-data_frame(sitio=rep("A",length(QSS_IS_L)),qss=QSS_IS_L$maxre)
-Q_T<-rbind(Q_R,Q_P,Q_L)
-names(Q_T)<-c("sitio","qss")
-require(kSamples)
+```{r AD-test-QSS, echo=FALSE}
+#Luján
+Q_T_unlu<-rbind(data_frame(sitio=rep("R",length(QSS_IS_R)),qss=QSS_IS_R$maxre),
+                data_frame(sitio=rep("P",length(QSS_IS_P)),qss=QSS_IS_P$maxre),
+                data_frame(sitio=rep("A",length(QSS_IS_L)),qss=QSS_IS_L$maxre))
+names(Q_T_unlu)<-c("sitio","qss")
 
-AD_qss<-kSamples::ad.test(as.numeric(qss) ~ sitio,data=Q_T, method = "simulated", dist = FALSE, Nsim = 1000)
 
-#AD_ indica que existen diferencias significativas entre los sistemas
+AD_qss_RP<-kSamples::ad.test(as.numeric(qss) ~ sitio,data=Q_T_unlu[Q_T_unlu$sitio %in% c("R", "P"), ], method = "simulated", dist = FALSE, Nsim = 1000)
+AD_qss_RA<-kSamples::ad.test(as.numeric(qss) ~ sitio,data=Q_T_unlu[Q_T_unlu$sitio %in% c("R", "A"), ], method = "simulated", dist = FALSE, Nsim = 1000)
+AD_qss_AP<-kSamples::ad.test(as.numeric(qss) ~ sitio,data=Q_T_unlu[Q_T_unlu$sitio %in% c("A", "P"), ], method = "simulated", dist = FALSE, Nsim = 1000)
+
+# Recopilar los p-valores en un vector
+p_values_luj <- c(AD_qss_RP$ad[2, 3], AD_qss_RA$ad[2, 3], AD_qss_AP$ad[2, 3])
+
+# Ajustar los p-valores usando el método de Benjamini-Hochberg (FDR)
+adjusted_p_val_luj <- p.adjust(p_values_luj, method = "BH")
+
+#chivilcoy y navarro
+Q_T_ro<-rbind(data_frame(sitio=rep("N",length(QSS_IS_N)),qss=QSS_IS_N$maxre),
+                data_frame(sitio=rep("G",length(QSS_IS_G)),qss=QSS_IS_G$maxre),
+                data_frame(sitio=rep("A",length(QSS_IS_A)),qss=QSS_IS_A$maxre))
+names(Q_T_ro)<-c("sitio","qss")
+
+
+AD_qss_NG<-kSamples::ad.test(as.numeric(qss) ~ sitio,data=Q_T_ro[Q_T_ro$sitio %in% c("N", "G"), ], method = "simulated", dist = FALSE, Nsim = 1000)
+AD_qss_NA<-kSamples::ad.test(as.numeric(qss) ~ sitio,data=Q_T_ro[Q_T_ro$sitio %in% c("N", "A"), ], method = "simulated", dist = FALSE, Nsim = 1000)
+AD_qss_AG<-kSamples::ad.test(as.numeric(qss) ~ sitio,data=Q_T_ro[Q_T_ro$sitio %in% c("A", "G"), ], method = "simulated", dist = FALSE, Nsim = 1000)
+
+# Recopilar los p-valores en un vector
+p_values_ro <- c(AD_qss_NG$ad[2, 3], AD_qss_NA$ad[2, 3], AD_qss_AG$ad[2, 3])
+
+# Ajustar los p-valores usando el método de Benjamini-Hochberg (FDR)
+adjusted_p_val_ro <- p.adjust(p_values_ro, method = "BH")
+
+#Luján reducido
+Q_T_lu.r<-rbind(data_frame(sitio=rep("R",length(QSS_IS_R.r)),qss=QSS_IS_R.r$maxre),
+                data_frame(sitio=rep("P",length(QSS_IS_P.r)),qss=QSS_IS_P.r$maxre),
+                data_frame(sitio=rep("A",length(QSS_IS_L.r)),qss=QSS_IS_L.r$maxre))
+names(Q_T_lu.r)<-c("sitio","qss")
+
+
+AD_qss_RP.r<-kSamples::ad.test(as.numeric(qss) ~ sitio,data=Q_T_lu.r[Q_T_lu.r$sitio %in% c("R", "P"), ], method = "simulated", dist = FALSE, Nsim = 1000)
+AD_qss_RA.r<-kSamples::ad.test(as.numeric(qss) ~ sitio,data=Q_T_lu.r[Q_T_lu.r$sitio %in% c("R", "A"), ], method = "simulated", dist = FALSE, Nsim = 1000)
+AD_qss_AP.r<-kSamples::ad.test(as.numeric(qss) ~ sitio,data=Q_T_lu.r[Q_T_lu.r$sitio %in% c("A", "P"), ], method = "simulated", dist = FALSE, Nsim = 1000)
+
+# Recopilar los p-valores en un vector
+p_values_lu.r <- c(AD_qss_RP.r$ad[2, 3], AD_qss_RA.r$ad[2, 3], AD_qss_AP.r$ad[2, 3])
+
+# Ajustar los p-valores usando el método de Benjamini-Hochberg (FDR)
+adjusted_p_val_lu.r <- p.adjust(p_values_lu.r, method = "BH")
+
 
 #En luján/UNLu
 
@@ -1663,18 +1772,19 @@ ks.test(QSS_IS_G$maxre,QSS_IS_A$maxre)
 
 #todos los grupos difieren entre sí; A: 0.396; G: 0.403; N: 0.445;
 
+#En luján/UNLu reducido
 
+ks.test(QSS_IS_R.r$maxre,QSS_IS_L.r$maxre)
+ks.test(QSS_IS_R.r$maxre,QSS_IS_P.r$maxre)
+ks.test(QSS_IS_L.r$maxre,QSS_IS_P.r$maxre)
+# L: 0.414; R: 0.348; P: 0.371, ¿En que difieren a lo largo de la distribución?
+#Diferencias con el pastizal que obtuvo el menor valor de autovalor
+
+print(adjusted_p_val_luj,adjusted_p_val_ro,adjusted_p_val_ro)
 ```
 
-```{r cBall, include=FALSE}
-cB_R<-curve_ball(IS_R_net, istrength=TRUE)
-cB_P<-curve_ball(IS_P_net, istrength=TRUE)
-cB_L<-curve_ball(IS_L_net, istrength=TRUE)
 
-cB_N<-curve_ball(IS_N_net, istrength=TRUE)
-cB_G<-curve_ball(IS_G_net, istrength=TRUE)
-cB_A<-curve_ball(IS_A_net, istrength=TRUE)
-```
+
 
 ```{r flux, include=FALSE}
 
@@ -1698,13 +1808,12 @@ flux_A<-fluxing(t(mG[c(A$specie,"litter","carrion","tej_veg"),
                 biomasses = bm_A, losses =  t_metA, 
                 efficiencies =  ef_A,ef.level = "pred")
 
-#ef.level	
-#Set to "prey" if efficiencies are defined by prey, "pred" if they are a property of the predator.
-
+#Reducción de redes####
+#a acaros colembolos
+L.r<-as_vector(L[L$taxa%in%meso.reduc,"taxa"][[1]])
+L_reduc.net <-graph_from_adjacency_matrix(t(mG[c(L.r,"litter","carrion","tej_veg","hummus"),c(L.r,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+flux_L<-fluxing(t(mG[c(L$taxa,"litter","carrion","tej_veg","hummus"),c(L$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_L, losses =  t_metL, efficiencies =  ef_L,ef.level = "pred")
 ```
-
-<!-- los flujos de energía a través de los canales son flujos que segun
-barnes y gauzen dice flujos out que sale del recurso ... -->
 
 ```{r flujos_multicanal, echo=FALSE, message=FALSE,warning=FALSE}
 #sumar las filas !, ya que las columanas son los predadores y el flujo 
@@ -1790,34 +1899,27 @@ F_pred_A<-sum(flux_A[,colnames(flux_A) %in% omn])
 discu](https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/soil-food-web)
 -->
 
-
 # ref
-Achiorno, C.L., de Villalobos, C., Ferrari, L., 2008. Toxicity of the herbicide glyphosate
-to Chordodes nobilii (Gordiida, Nematomorpha). Chemosphere 71 (10): 1816–
-1822. Los nematomorfas adultos son de via libre, los parásitos son sus larvas
 
-El autor trabaja sobre la abundancia de individuos del suelo 
-a escala global, y encontró patrones, entre la temp, la masa, y al transferencia a traves de niveles troficos
-siendo estos similares a los que se hallan o se sabían eran patrones generales en los ecosistemas
-For example, though
-abundance and body masses of litter and soil animals
-can be estimated fairly simply (Coleman et al. 1999), it
-can be extremely difficult to accurately estimate resource
-availability and average body temperature in the soil
-environment. Meanwhile, energetic resources available to
-soil invertebrates at a given locale can vary at the scale
-of centimeters (Coleman et al. 2004).  important physical and
-biological factors. These factors could include physical
-conditions of the litter and soil environment, such as pH,
-nutrient content, and moisture availability, which are
-known to affect soil invertebrate community structure
-(Coleman et al. 2004, Reich et al. 2005). Also, the
-stoichiometric profiles of resources relative to consumers
-are known to affect rates of resource consumption ENERGY USE AND ANIMAL ABUNDANCE
-IN LITTER AND SOIL COMMUNITIES
-TIMOTHY D. MEEHAN 2006
+Achiorno, C.L., de Villalobos, C., Ferrari, L., 2008. Toxicity of the
+herbicide glyphosate to Chordodes nobilii (Gordiida, Nematomorpha).
+Chemosphere 71 (10): 1816– 1822. Los nematomorfas adultos son de via
+libre, los parásitos son sus larvas
 
-
-
-
-
+El autor trabaja sobre la abundancia de individuos del suelo a escala
+global, y encontró patrones, entre la temp, la masa, y al transferencia
+a traves de niveles troficos siendo estos similares a los que se hallan
+o se sabían eran patrones generales en los ecosistemas For example,
+though abundance and body masses of litter and soil animals can be
+estimated fairly simply (Coleman et al. 1999), it can be extremely
+difficult to accurately estimate resource availability and average body
+temperature in the soil environment. Meanwhile, energetic resources
+available to soil invertebrates at a given locale can vary at the scale
+of centimeters (Coleman et al. 2004). important physical and biological
+factors. These factors could include physical conditions of the litter
+and soil environment, such as pH, nutrient content, and moisture
+availability, which are known to affect soil invertebrate community
+structure (Coleman et al. 2004, Reich et al. 2005). Also, the
+stoichiometric profiles of resources relative to consumers are known to
+affect rates of resource consumption ENERGY USE AND ANIMAL ABUNDANCE IN
+LITTER AND SOIL COMMUNITIES TIMOTHY D. MEEHAN 2006
