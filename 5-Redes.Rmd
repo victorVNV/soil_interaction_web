@@ -287,7 +287,9 @@ calcularon los índices topológicos, es decir, aquellas medidas
 calculadas a partir de la arquitectura de la red que la describen
 matemáticamente y ecológicamente, estas medidas son calculadas como
 caracterísiticas relativas a la red como un todo o como características
-relativas a los nodos de la red. El **tamaño de la red** que indica el
+relativas a los nodos de la red. 
+
+El **tamaño de la red** que indica el
 número de, nodos y especies tróficas a la vez; el <u>número</u> y la
 <u>densidad</u> de **enlaces** que implica a la vez, el número total en
 la red de interacciones tróficas y la densidad de interacciones tróficas
@@ -296,14 +298,14 @@ el **largo de caminos** es el valor promedio de conexiones o "caminos"
 que se recorre a lo largo de los nodos de un grafo (en este caso, red
 trófica); la **conectancia** es la proporción de enlaces efectivamente
 realizados en la red trófica en relación al total de conecciones
-potenciales del grafo con el mismo tamaño; el **agrupamiento o
-clustering** mide un coeficiente que indica la magnitud en los cuales
+potenciales del grafo con el mismo tamaño; el **agrupamiento o clustering** 
+mide un coeficiente que indica la magnitud en los cuales
 existe pequeños agrupamientos, denominados también como "camarillas",
 entre nodos en la red.
 
 El **nivel trófico** es el número que define la posición en la cuál se
-encuentra una especie trófica, aquí se indican el **nivel trófico
-medio** de la red y el **nivel trófico máximo** de la red; se
+encuentra una especie trófica, aquí se indican el **nivel trófico medio** 
+de la red y el **nivel trófico máximo** de la red; se
 identifican por su posición en la red el número de especies **basales**
 aquellas que no consumen a otras especies tróficas y el número de
 especies **tope** quienes no tienen predadores que los consuman; el
@@ -316,7 +318,7 @@ nivel trófico, sobre los cuales se alimentan los omnívoros; desde el
 punto de vista de la especie trófica se miden la **vulnerabilidad** y la
 **generalidad**, que implican el número promedio de predadores que tiene
 un nodo trófico y el número medio de presas que consumen un nodo
-trófico, respectivamente, además se calcula el desvío estandar de ambas.
+trófico, respectivamente.
 
 Se calcularon las fuerzas de interacciones entre los actores (e.i.
 especies tróficas) utilizando la teoría metabólica y la dimensionalidad
@@ -344,6 +346,13 @@ autovalores mayores a cero es también una medida de estabilidad dando la
 noción de distancia (*autoregulación*), a la cual se encuentra la red
 evaluada para lograr la estabilidad local.
 
+Se calculó también los flujos de energía entre los nodos de la red asumiendo un estado
+estable, en el que las pérdidas energéticas son compensadas con las ganancias energéticas.
+Para ello es necesario conocer los pesos corporales medios de los nodos tróficos,
+la tasa metabólica estimada mediante $tasa metabólica = 17.17\; peso^{-0.29}$ y la biomasa de 
+los mismos nodos. Con los flujos de energía se pueden caracterizar procesos ecológicos relacionados
+con la clasificación funcional de las especies tróficas.
+
 Para realizar comparaciones entre redes tróficas se utilizó la
 comparación de distribuciones del método de Anderson-Darling /
 Kolmogorov-Smirnoff para identificar diferencias estadísticamente
@@ -351,8 +360,6 @@ significativas, mediante el algoritmo de Curveball se establecen redes
 de interacciones que mantienen la conectividad, el numero de enlaces y
 la cantidad de especies basales y tope, para evaluar las características
 topológicas de las redes tróficas del sistema detritívoro edáfico.
-
-<!--Falta agregar flujos de energia y comparaciones-->
 
 Se utilizó el pequete ["multiweb"](https://github.com/lsaravia/multiweb)
 para calcular las métricas de topología, las fuerzas de interacciones y
@@ -571,6 +578,72 @@ t_metP[is.na(t_metP)|t_metP==Inf]<-0
 t_metL<- 17.17*body_L^(-0.29)
 t_metL[is.na(t_metL)|t_metL==Inf]<-0
 
+#reducido Lujan####
+
+meso.reduc<-c("juvenil","Aporrectodea caliginosa",
+     "Aporrectodea rosea","Aporrectodea trapezoides",
+     "Bimastos beddardi sophiae","Bimastos parvus",
+     "Eukerria halophila","Glossoscolex sp.","Octalasion lacteum", "Microscolex dubius",
+     "Eukerria stagnalis","Microscolex phosphoreus","Octalasion cyaneum","Octolasion tyrtaeum","bac","fungi","alycidae", "brachychthonioidea","crotonioidea",
+        "oribatido","limnozetidae",
+   "ceratozetoidea","entomobridae",
+  "epilhomanioidea","eremobelbidae","galumnidae",
+   "isotomidae","macropilina",
+  "nem_bacterivoro", "nem_fitofago","nem_fungivoro","onichiuridae","oppioidea",
+  "oribatulidae",
+  "oripodidae","scheloribatidae","symphypleona",
+  "ameroseidae","arctacaridae","bdelloidea","cunaxide","dermanisoidea","eviphididae",
+  "ichtyostomatogasteridae", "laelapidae", "nem_predador","mesostigmata",
+  "ologamasidae","parasitidae","rhagidiidae","rhodacarioidea",
+  "teneriffidae",
+  "trombidiidae", "uropodoidea","veigaioidea","eupthiracaroidea","limnozetidae",
+  "astigmata","hipogastruridae","nem_omnivor","anystidae","eupodoidea","penthalidae",
+  "tarsonemidae","tydeioidea","proto")
+rm
+
+Rf.r<-R[R$taxa%in%meso.reduc,]
+Pf.r<-P[P$taxa%in%meso.reduc,]
+Lf.r<-L[L$taxa%in%meso.reduc,]
+
+#biomasas####
+#en microgramos pasados a gramos
+#tejido vegetal se asume 125% (1+125/100) mas que la materia orgánica aunque puede ser 225% más
+#finalmente no se asume la biomasa del tejido vegetal, será 1.
+#carroña será el 5% de la biomasa total de los invertebrados
+#hojarasca llevada a peso seco, factor de 0.32 P ; 0.37 R ; 0.28 L
+bm_Lf.r<-c(Lf.r$biomass,
+        (77.0321/0.0625)*0.28*1e6, #Hojarasca
+        mean(Lf.r[Lf.r$taxa!="fungi"&Lf.r$taxa!="bac"&Lf.r$taxa!="proto",]$biomass)*0.05, #Carroña
+        1,#2.25*0.0273*1.2*50000*1e6,#Tej_veg
+        0.4*0.0273*1.2*50000*1e6)/1e6#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
+bm_Rf.r<-c(Rf.r$biomass,
+        55.753/0.065*0.37*1e6, #Hojarasca
+        mean(Rf.r[Rf.r$taxa!="fungi"&Rf.r$taxa!="bac"&Rf.r$taxa!="proto",]$biomass)*0.05, #carroña
+        1,#2.25*0.0352*1.2*50000*1e6, #tej_veg
+        0.4*0.0352*1.2*50000*1e6)/1e6 #"humus" = POM = 0.4MO
+bm_Pf.r<-c(Pf.r$biomass,
+        (58.63/0.0625)*0.32*1e6, #Hojarasca
+        mean(Pf.r[Pf.r$taxa!="fungi"&Pf.r$taxa!="bac"&Pf.r$taxa!="proto",]$biomass)*0.05, #carroña
+        1,#2.25*0.0352*1.2*50000*1e6, #Tej_veg
+        0.4*0.0309*1.2*50000*1e6)/1e6 #Humus
+
+#Pesos corporales####
+body_Lf.r<-c(Lf.r$body,1,1,1,1)/1e6
+body_Rf.r<-c(Rf.r$body,1,1,1,1)/1e6
+body_Pf.r<-c(Pf.r$body,1,1,1,1)/1e6
+
+
+ef_Lf.r<-c(Lf.r$ef,1,1,1,1)
+ef_Pf.r<-c(Pf.r$ef,1,1,1,1)
+ef_Rf.r<-c(Rf.r$ef,1,1,1,1)
+
+
+t_metRf.r<- 17.17*body_Rf.r^(-0.29)
+t_metRf.r[is.na(t_metRf.r)|t_metRf.r==Inf]<-0
+t_metPf.r<- 17.17*body_Pf.r^(-0.29)
+t_metPf.r[is.na(t_metPf.r)|t_metPf.r==Inf]<-0
+t_metLf.r<- 17.17*body_Lf.r^(-0.29)
+t_metLf.r[is.na(t_metLf.r)|t_metLf.r==Inf]<-0
 
 ```
 
@@ -1029,25 +1102,6 @@ mG["nem_predador","nem_predador"]<-1
 
 #Vector para reducir la red a mesofauna, 
 #se incluyen las bacterias, hongos, protozoos y nematodos, que son a la vez recursos
-meso.reduc<-c("juvenil","Aporrectodea caliginosa",
-     "Aporrectodea rosea","Aporrectodea trapezoides",
-     "Bimastos beddardi sophiae","Bimastos parvus",
-     "Eukerria halophila","Glossoscolex sp.","Octalasion lacteum", "Microscolex dubius",
-     "Eukerria stagnalis","Microscolex phosphoreus","Octalasion cyaneum","Octolasion tyrtaeum","bac","fungi","alycidae", "brachychthonioidea","crotonioidea",
-        "oribatido","limnozetidae",
-   "ceratozetoidea","entomobridae",
-  "epilhomanioidea","eremobelbidae","galumnidae",
-   "isotomidae","macropilina",
-  "nem_bacterivoro", "nem_fitofago","nem_fungivoro","onichiuridae","oppioidea",
-  "oribatulidae",
-  "oripodidae","scheloribatidae","symphypleona",
-  "ameroseidae","arctacaridae","bdelloidea","cunaxide","dermanisoidea","eviphididae",
-  "ichtyostomatogasteridae", "laelapidae", "nem_predador","mesostigmata",
-  "ologamasidae","parasitidae","rhagidiidae","rhodacarioidea",
-  "teneriffidae",
-  "trombidiidae", "uropodoidea","veigaioidea","eupthiracaroidea","limnozetidae",
-  "astigmata","hipogastruridae","nem_omnivor","anystidae","eupodoidea","penthalidae",
-  "tarsonemidae","tydeioidea","proto")
 #vector con 67 taxas
 
 ```
@@ -1681,14 +1735,54 @@ QSS_IS_L.r<-calc_QSS(IS_L_net.r, istrength=TRUE, returnRaw = TRUE, nsim=1000)
 
 ```
 
-**Histogramas del valor de estabilidad en escala logaritmica calculado a
-partir de la intensidad de interacciones**
+**Valor de estabilidad de cuasi-signo en suelos de Luján**
+En los suelos argiudoles de Luján las redes de interacciones tróficas muestra 
+diferencias significativas entre los tres sistemas de uso según la prueba de 
+Anderson-Darling $AD: p_{\;valor} > 0.05$. 
 
-```{r plot_QSS_IS, echo=FALSE}
+Los tres sistemas de uso se diferencian entre sí siendo mayor en promedio la parte real 
+del autovalor de la matriz Jacobiana en los suelos de la comunidad de la Reserva y 
+menor en las comunidades de los suelos bajo uso agrícola convencional. 
+
+```{r plot_QSS_IS, echo=FALSE,,message=FALSE,warning=FALSE}
 par(mfrow=c(1,3))
-hist(log(QSS_IS_R$maxre),main = "reserva UNLu", sub= "logQSS_IS", xlab = NULL)
-hist(log(QSS_IS_P$maxre), main = "pastizal UNLu", sub= "logQSS_IS", xlab = NULL)
-hist(log(QSS_IS_L$maxre), main = "lote agricola UNLu", sub= "logQSS_IS", xlab = NULL)
+hist(log(QSS_IS_R$maxre),border =  "blue4",col=NULL,breaks=40,freq = FALSE,main = "Reserva", sub= "Estabilidad de cuasi-signo", xlab = "ln qss",ylab=NULL)
+axis(1, at = seq(-6, 3, by = 1))
+abline(v=mean(log(QSS_IS_R$maxre)),col="blue",lty=1,lwd=3)
+abline(v=median(log(QSS_IS_R$maxre)),col="red",lty=1,lwd=2.5)
+abline(v=c(quantile(log(QSS_IS_R$maxre),probs = 0.25),quantile(log(QSS_IS_R$maxre),probs = 0.75)),col="purple",lty=3,lwd=1.5)
+hist(log(QSS_IS_P$maxre), border =  "green4",col=NULL,breaks=40,freq = FALSE,main = "Pastizal", sub= "Estabilidad de cuasi-signo", xlab = "ln qss",ylab=NULL)
+axis(1, at = seq(-6, 3, by = 1)) 
+abline(v=mean(log(QSS_IS_P$maxre)),col="blue",lty=1,lwd=3)
+abline(v=median(log(QSS_IS_P$maxre)),col="red",lty=1,lwd=2.5)
+abline(v=c(quantile(log(QSS_IS_P$maxre),probs = 0.25),quantile(log(QSS_IS_P$maxre),probs = 0.75)),col="purple",lty=3,lwd=1.5)
+hist(log(QSS_IS_L$maxre), border =  "orange3",col=NULL,breaks=40,freq = FALSE,main = "Agrícola", sub= "Estabilidad de cuasi-signo", xlab = "ln qss",ylab=NULL)
+axis(1, at = seq(-6, 3, by = 1)) 
+abline(v=mean(log(QSS_IS_L$maxre)),col="blue",lty=1,lwd=3)
+abline(v=median(log(QSS_IS_L$maxre)),col="red",lty=1,lwd=2.5)
+abline(v=c(quantile(log(QSS_IS_L$maxre),probs = 0.25),quantile(log(QSS_IS_L$maxre),probs = 0.75)),col="purple",lty=3,lwd=1.5)
+
+par(mfrow=c(1,1))
+#plot(hist(log(QSS_IS_R$maxre),plot=FALSE)
+#            );plot(hist(log(QSS_IS_P$maxre), 
+#plot=FALSE),add=TRUE);plot(hist(log(QSS_IS_L$maxre),plot=FALSE),add=TRUE)
+```
+
+La distribución de la parte real del máximo autovalor de las matrices de cuasi-signo
+en estos sistemas se movió en un rango con 7 ordenes de magnitud. 
+En el sistema Agrícola y en la Reserva se observan distribuciones bimodales que coinciden con
+las lineas que representan a los cuartiles (Fig 5.x) a diferencias del pastizal que
+muestra su distribución como unimodal al rededor de los valores de tendencia central.
+En la Reserva la moda de la distribución fué más alta al rededor del primer cuartil lo que implica 
+un valor de cuasi-signo cercano a cero con mayor probabilidad de ocurrencia, en el sistema agrícola 
+la moda más grande se relaciona con el tercer cuartil de su distribución y en el pastizal la moda está
+relacionada con los valores de centralidad de las distribuciones.
+Considerando la forma de las distribuciónes, entonces, la Reserva seguidos por el Pastizal y el suelo
+Agrícola tienen valores tienen valores de estabilidad decrecientes. 
+
+
+
+```{r plot_QSS_IS_ro_lu, echo=FALSE,message=FALSE,warning=FALSE}
 
 par(mfrow=c(2,3))
 hist(log(QSS_IS_N$maxre), main= "pastizal nat", sub= "logQSS_IS", xlab = NULL)
@@ -1703,7 +1797,8 @@ par(mfrow=c(1,1))
 
 ```
 
-```{r AD-test-QSS, echo=FALSE}
+
+```{r AD-test-QSS, include=FALSE, warning=FALSE, message=FALSE}
 #Luján
 Q_T_unlu<-rbind(data_frame(sitio=rep("R",length(QSS_IS_R)),qss=QSS_IS_R$maxre),
                 data_frame(sitio=rep("P",length(QSS_IS_P)),qss=QSS_IS_P$maxre),
@@ -1758,29 +1853,41 @@ adjusted_p_val_lu.r <- p.adjust(p_values_lu.r, method = "BH")
 
 #En luján/UNLu
 
-ks.test(QSS_IS_R$maxre,QSS_IS_L$maxre)
-ks.test(QSS_IS_R$maxre,QSS_IS_P$maxre)
-ks.test(QSS_IS_L$maxre,QSS_IS_P$maxre)
+ks_RL_qss<-ks.test(QSS_IS_R$maxre,QSS_IS_L$maxre)
+ks_RP_qss<-ks.test(QSS_IS_R$maxre,QSS_IS_P$maxre)
+ks_LP_qss<-ks.test(QSS_IS_L$maxre,QSS_IS_P$maxre)
 # L: 0.414; R: 0.348; P: 0.371, ¿En que difieren a lo largo de la distribución?
 #Diferencias con el pastizal que obtuvo el menor valor de autovalor
 
 #En Chivilcoy y Navarro/Rosana
 
-ks.test(QSS_IS_N$maxre,QSS_IS_A$maxre)
-ks.test(QSS_IS_N$maxre,QSS_IS_G$maxre)
-ks.test(QSS_IS_G$maxre,QSS_IS_A$maxre)
+ks_NA_qss<-ks.test(QSS_IS_N$maxre,QSS_IS_A$maxre)
+ks_NG_qss<-ks.test(QSS_IS_N$maxre,QSS_IS_G$maxre)
+ks_GA_qss<-ks.test(QSS_IS_G$maxre,QSS_IS_A$maxre)
 
 #todos los grupos difieren entre sí; A: 0.396; G: 0.403; N: 0.445;
 
 #En luján/UNLu reducido
 
-ks.test(QSS_IS_R.r$maxre,QSS_IS_L.r$maxre)
-ks.test(QSS_IS_R.r$maxre,QSS_IS_P.r$maxre)
-ks.test(QSS_IS_L.r$maxre,QSS_IS_P.r$maxre)
+ks_RL.r_qss<-ks.test(QSS_IS_R.r$maxre,QSS_IS_L.r$maxre)
+ks_RP.r_qss<-ks.test(QSS_IS_R.r$maxre,QSS_IS_P.r$maxre)
+ks_LP.r_qss<-ks.test(QSS_IS_L.r$maxre,QSS_IS_P.r$maxre)
 # L: 0.414; R: 0.348; P: 0.371, ¿En que difieren a lo largo de la distribución?
 #Diferencias con el pastizal que obtuvo el menor valor de autovalor
 
-print(adjusted_p_val_luj,adjusted_p_val_ro,adjusted_p_val_ro)
+# Recopilar los p-valores en un vector
+p_values_ks.lu<- c(ks_RL_qss$p.value[1], ks_RP_qss$p.value[1],ks_LP_qss$p.value[1])
+p_values_ks.ro<- c(ks_NA_qss$p.value[1], ks_NG_qss$p.value[1],ks_GA_qss$p.value[1])
+p_values_ks.lu.r<- c(ks_RL.r_qss$p.value[1], ks_RP.r_qss$p.value[1],ks_LP.r_qss$p.value[1])
+
+# Ajustar los p-valores usando el método de Benjamini-Hochberg (FDR)
+adj_ks_p_val_lu <- p.adjust(p_values_ks.lu, method = "BH")
+adj_ks_p_val_ro <- p.adjust(p_values_ks.ro, method = "BH")
+adj_ks_p_val_lu.r <- p.adjust(p_values_ks.lu.r, method = "BH")
+
+
+print(c(adjusted_p_val_luj,adjusted_p_val_ro,adjusted_p_val_ro))
+print(c(adj_ks_p_val_lu,adj_ks_p_val_ro,adj_ks_p_val_lu.r))
 ```
 
 
@@ -1810,10 +1917,17 @@ flux_A<-fluxing(t(mG[c(A$specie,"litter","carrion","tej_veg"),
 
 #Reducción de redes####
 #a acaros colembolos
-L.r<-as_vector(L[L$taxa%in%meso.reduc,"taxa"][[1]])
-L_reduc.net <-graph_from_adjacency_matrix(t(mG[c(L.r,"litter","carrion","tej_veg","hummus"),c(L.r,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
-flux_L<-fluxing(t(mG[c(L$taxa,"litter","carrion","tej_veg","hummus"),c(L$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_L, losses =  t_metL, efficiencies =  ef_L,ef.level = "pred")
+flux_R.r<-fluxing(t(mG[c(Rf.r$taxa,"litter","carrion","tej_veg","hummus"),c(Rf.r$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_Rf.r, losses =  t_metRf.r, efficiencies =  ef_Rf.r,ef.level = "pred")
+
+flux_P.r<-fluxing(t(mG[c(Pf.r$taxa,"litter","carrion","tej_veg","hummus"),c(Pf.r$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_Pf.r, losses =  t_metPf.r, efficiencies =  ef_Pf.r,ef.level = "pred")
+
+flux_L.r<-fluxing(t(mG[c(Lf.r$taxa,"litter","carrion","tej_veg","hummus"),c(Lf.r$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_Lf.r, losses =  t_metLf.r, efficiencies =  ef_Lf.r,ef.level = "pred")
 ```
+
+```{r}
+Fplot<-graph_from_adjacency_matrix(flux_R,mode=c("directed") )
+```
+
 
 ```{r flujos_multicanal, echo=FALSE, message=FALSE,warning=FALSE}
 #sumar las filas !, ya que las columanas son los predadores y el flujo 
@@ -1832,26 +1946,52 @@ F_herb_L<-sum(flux_L["tej_veg",])
 F_herb_N<-sum(flux_N["tej_veg",])
 F_herb_G<-sum(flux_G["tej_veg",])
 F_herb_A<-sum(flux_A["tej_veg",])
+
+
+F_herb_R.r<-sum(flux_R.r["tej_veg",])
+F_herb_P.r<-sum(flux_P.r["tej_veg",])
+F_herb_L.r<-sum(flux_L.r["tej_veg",])
+
+#humifagos/geófagos####
+
+F_herb_R<-sum(flux_R["hummus",])
+F_herb_P<-sum(flux_P["hummus",])
+F_herb_L<-sum(flux_L["hummus",])
+
+F_herb_N<-sum(flux_N["hummus",])
+F_herb_G<-sum(flux_G["hummus",])
+F_herb_A<-sum(flux_A["hummus",])
+
+
+F_herb_R.r<-sum(flux_R.r["hummus",])
+F_herb_P.r<-sum(flux_P.r["hummus",])
+F_herb_L.r<-sum(flux_L.r["hummus",])
+
+
 #detritivoros##########
 #flujo através de los detritívoros
 
-F_det_R<-sum(flux_R[c("litter","carrion"),!colnames(flux_R) %in% omn])
-F_det_P<-sum(flux_P[c("litter","carrion"),!colnames(flux_P) %in% omn])
-F_det_L<-sum(flux_L[c("litter","carrion"),!colnames(flux_L) %in% omn])
+F_det_R<-sum(flux_R[c("litter","carrion"),!colnames(flux_R) %in% det])
+F_det_P<-sum(flux_P[c("litter","carrion"),!colnames(flux_P) %in% det])
+F_det_L<-sum(flux_L[c("litter","carrion"),!colnames(flux_L) %in% det])
 
-F_det_N<-sum(flux_N[c("litter","carrion"),!colnames(flux_N) %in% omn])
-F_det_G<-sum(flux_G[c("litter","carrion"),!colnames(flux_G) %in% omn])
-F_det_A<-sum(flux_A[c("litter","carrion"),!colnames(flux_A) %in% omn])
+F_det_N<-sum(flux_N[c("litter","carrion"),!colnames(flux_N) %in% det])
+F_det_G<-sum(flux_G[c("litter","carrion"),!colnames(flux_G) %in% det])
+F_det_A<-sum(flux_A[c("litter","carrion"),!colnames(flux_A) %in% det])
+
+F_det_R.r<-sum(flux_R.r[c("litter","carrion"),!colnames(flux_R.r) %in% det])
+F_det_P.r<-sum(flux_P.r[c("litter","carrion"),!colnames(flux_P.r) %in% det])
+F_det_L.r<-sum(flux_L.r[c("litter","carrion"),!colnames(flux_L.r) %in% det])
 #microfitfagos###########
 #flujo através de los microvíboros
 
-F_mic_R<-sum(flux_R[c("bac","fungi"),colnames(flux_R) %in% omn])
-F_mic_P<-sum(flux_P[c("bac","fungi"),colnames(flux_P) %in% omn])
-F_mic_L<-sum(flux_L[c("bac","fungi"),colnames(flux_L) %in% omn])
+F_mic_R<-sum(flux_R[c("bac","fungi"),colnames(flux_R) %in% micf])
+F_mic_P<-sum(flux_P[c("bac","fungi"),colnames(flux_P) %in% micf])
+F_mic_L<-sum(flux_L[c("bac","fungi"),colnames(flux_L) %in% micf])
 
-F_mic_N<-sum(flux_N[c("bac","fungi"),colnames(flux_N) %in% omn])
-F_mic_G<-sum(flux_G[c("bac","fungi"),colnames(flux_G) %in% omn])
-F_mic_A<-sum(flux_A[c("bac","fungi"),colnames(flux_A) %in% omn])
+F_mic_N<-sum(flux_N[c("bac","fungi"),colnames(flux_N) %in% micf])
+F_mic_G<-sum(flux_G[c("bac","fungi"),colnames(flux_G) %in% micf])
+F_mic_A<-sum(flux_A[c("bac","fungi"),colnames(flux_A) %in% micf])
 #predadores####
 #flujo através de los predadores
 
@@ -1865,6 +2005,11 @@ F_pred_N<-sum(flux_N[,colnames(flux_N) %in% pred])
 F_pred_G<-sum(flux_G[,colnames(flux_G) %in% pred])
 F_pred_A<-sum(flux_A[,colnames(flux_A) %in% pred])
 
+F_pred_R.r<-sum(flux_R[,colnames(flux_R.r) %in% pred])
+F_pred_P.r<-sum(flux_P[,colnames(flux_P.r) %in% pred])
+F_pred_L.r<-sum(flux_L[,colnames(flux_L.r) %in% pred])
+
+
 
 
 #omnivoros####
@@ -1877,6 +2022,10 @@ F_pred_L<-sum(flux_L[,colnames(flux_L) %in% omn])
 F_pred_N<-sum(flux_N[,colnames(flux_N) %in% omn])
 F_pred_G<-sum(flux_G[,colnames(flux_G) %in% omn])
 F_pred_A<-sum(flux_A[,colnames(flux_A) %in% omn])
+
+F_pred_R.r<-sum(flux_R[,colnames(flux_R.r) %in% omn])
+F_pred_P.r<-sum(flux_P[,colnames(flux_P.r) %in% omn])
+F_pred_L.r<-sum(flux_L[,colnames(flux_L.r) %in% omn])
 
 #data_frame(Sistema=c("R","P","L","N","G","A"),
  #          detritivoría)
