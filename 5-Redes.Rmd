@@ -1771,32 +1771,90 @@ par(mfrow=c(1,1))
 La distribución de la parte real del máximo autovalor de las matrices de cuasi-signo
 en estos sistemas se movió en un rango con 7 ordenes de magnitud. 
 En el sistema Agrícola y en la Reserva se observan distribuciones bimodales que coinciden con
-las lineas que representan a los cuartiles (Fig 5.x) a diferencias del pastizal que
+las lineas que representan a los cuartiles (Fig 5.x) a diferencias del Pastizal que
 muestra su distribución como unimodal al rededor de los valores de tendencia central.
-En la Reserva la moda de la distribución fué más alta al rededor del primer cuartil lo que implica 
+
+En la Reserva la moda de la distribución fué más alta alrededor del primer cuartil lo que implica 
 un valor de cuasi-signo cercano a cero con mayor probabilidad de ocurrencia, en el sistema agrícola 
-la moda más grande se relaciona con el tercer cuartil de su distribución y en el pastizal la moda está
+la moda más grande de su distribución se ubica cercana al tercer cuartil  y en el pastizal la moda está
 relacionada con los valores de centralidad de las distribuciones.
+
 Considerando la forma de las distribuciónes, entonces, la Reserva seguidos por el Pastizal y el suelo
 Agrícola tienen valores tienen valores de estabilidad decrecientes. 
-
 
 
 ```{r plot_QSS_IS_ro_lu, echo=FALSE,message=FALSE,warning=FALSE}
 
 par(mfrow=c(2,3))
-hist(log(QSS_IS_N$maxre), main= "pastizal nat", sub= "logQSS_IS", xlab = NULL)
-hist(log(QSS_IS_G$maxre), main = "mixto", sub= "logQSS_IS", xlab = NULL)
-hist(log(QSS_IS_A$maxre), main= "agricola intensivo", sub= "logQSS_IS", xlab = NULL)
+hist(log(QSS_IS_N$maxre), border =  "blue4",col=NULL,breaks=50,freq = FALSE,main = "Pastizal naturalizado", sub= "Estabilidad de cuasi-signo", xlab = "ln qss",ylab=NULL)
+axis(1, at = seq(-10, 2, by = 1))
+abline(v=mean(log(QSS_IS_N$maxre)),col="blue",lty=1,lwd=3)
+abline(v=median(log(QSS_IS_R$maxre)),col="red",lty=1,lwd=2.5)
+abline(v=c(quantile(log(QSS_IS_N$maxre),probs = 0.25),quantile(log(QSS_IS_N$maxre),probs = 0.75)),col="purple",lty=3,lwd=1.5)
+hist(log(QSS_IS_G$maxre), border =  "green4",col=NULL,breaks=50,freq = FALSE,main = "Mixto", sub= "Estabilidad de cuasi-signo", xlab = "ln qss",ylab=NULL)
+axis(1, at = seq(-10, 2, by = 1))
+abline(v=mean(log(QSS_IS_G$maxre)),col="blue",lty=1,lwd=3)
+abline(v=median(log(QSS_IS_G$maxre)),col="red",lty=1,lwd=2.5)
+abline(v=c(quantile(log(QSS_IS_G$maxre),probs = 0.25),quantile(log(QSS_IS_G$maxre),probs = 0.75)),col="purple",lty=3,lwd=1.5)
+hist(log(QSS_IS_A$maxre), border =  "orange3",col=NULL,breaks=50,freq = FALSE,main = "Agrícola intensivo", sub= "Estabilidad de cuasi-signo", xlab = "ln qss",ylab=NULL)
+axis(1, at = seq(-10, 2, by = 1))
+abline(v=mean(log(QSS_IS_A$maxre)),col="blue",lty=1,lwd=3)
+abline(v=median(log(QSS_IS_A$maxre)),col="red",lty=1,lwd=2.5)
+abline(v=c(quantile(log(QSS_IS_A$maxre),probs = 0.25),quantile(log(QSS_IS_A$maxre),probs = 0.75)),col="purple",lty=3,lwd=1.5)
 
-hist(log(QSS_IS_R.r$maxre), main= "Reserva", sub= "logQSS_IS", xlab = NULL)
-hist(log(QSS_IS_P.r$maxre), main = "Pastizal", sub= "logQSS_IS", xlab = NULL)
-hist(log(QSS_IS_L.r$maxre), main= "Agricola intensivo", sub= "logQSS_IS", xlab = NULL)
+hist(log(QSS_IS_R.r$maxre), border =  "blue4",col=NULL,breaks=40,freq = FALSE,main = "Reserva", sub= "Estabilidad de cuasi-signo", xlab = "ln qss",ylab=NULL)
+axis(1, at = seq(-7, -3, by = 1))
+abline(v=mean(log(QSS_IS_R.r$maxre)),col="blue",lty=1,lwd=3)
+abline(v=median(log(QSS_IS_R.r$maxre)),col="red",lty=1,lwd=2.5)
+abline(v=c(quantile(log(QSS_IS_R.r$maxre),probs = 0.25),quantile(log(QSS_IS_R.r$maxre),probs = 0.75)),col="purple",lty=3,lwd=1.5)
+hist(log(QSS_IS_P.r$maxre), border =  "green4",col=NULL,breaks=40,freq = FALSE,main = "Pastizal", sub= "Estabilidad de cuasi-signo", xlab = "ln qss",ylab=NULL)
+axis(1, at = seq(-7, -3, by = 1))
+abline(v=mean(log(QSS_IS_P.r$maxre)),col="blue",lty=1,lwd=3)
+abline(v=median(log(QSS_IS_P.r$maxre)),col="red",lty=1,lwd=2.5)
+abline(v=c(quantile(log(QSS_IS_P.r$maxre),probs = 0.25),quantile(log(QSS_IS_P.r$maxre),probs = 0.75)),col="purple",lty=3,lwd=1.5)
+hist(log(QSS_IS_L.r$maxre), border =  "orange3",col=NULL,breaks=40,freq = FALSE,main = "Agrícola", sub= "Estabilidad de cuasi-signo", xlab = "ln qss",ylab=NULL)
+axis(1, at = seq(-7, -3, by = 1))
+abline(v=mean(log(QSS_IS_L.r$maxre)),col="blue",lty=1,lwd=3)
+abline(v=median(log(QSS_IS_L.r$maxre)),col="red",lty=1,lwd=2.5)
+abline(v=c(quantile(log(QSS_IS_L.r$maxre),probs = 0.25),quantile(log(QSS_IS_L.r$maxre),probs = 0.75)),col="purple",lty=3,lwd=1.5)
 
 par(mfrow=c(1,1))
 
-```
+qss_moda_N<-mlv(log(QSS_IS_N$maxre), method = "Parzen")
+qss_moda_G<-mlv(log(QSS_IS_G$maxre), method = "Parzen")
+qss_moda_A<-mlv(log(QSS_IS_A$maxre), method = "Parzen")
 
+qss_moda_R.r<-mlv(log(QSS_IS_R.r$maxre), method = "Parzen")
+qss_moda_P.r<-mlv(log(QSS_IS_P.r$maxre), method = "Parzen")
+qss_moda_L.r<-mlv(log(QSS_IS_L.r$maxre), method = "Parzen")
+
+```
+<!--mezcla de dos distribuciones, procesos competitivos o ruptura de simetría https://fastercapital.com/es/contenido/Un-misterio--investigar-distribuciones-bimodales.html-->
+
+En suelos de Chivilcoy y Navarro las distribuciones del máximo autovalor de la matriz de cuasi-signo 
+muestra una distribución bimodal marcada, en comparación en suelos de Luján la distribución resulta unimodal
+y sesgafa hacia la izquierda. 
+El rango de distribución del valor de QSS en suelos de Chivilcoy y Navarro se movió en 12 órdenes de magnitud, en comparación en suelos de Luján este se movió 6 órdenes de magnitud.
+
+En el pastizal naturalizado ambas modas de la distribución tienen importancias similares siendo 
+levemente mayor aquella moda más ligada al primer cuartil, en los sistemas mixto y agrícola intensivo la
+moda relacionada con el primer cuartil es la de mayor frecuencia y la importancia de la segunda moda es menor.
+En cuanto al valor de estabilidad las modas de las distribuciones en los tres sistemas de uso se encuentras cercanas
+entre sí con un autovalor próximo a $\lambda_{\;max} \approx e^{-7,7}\approx0,00045$, sin embrago, el sistema mixto 
+está más alejado (`r exp(qss_moda_G)`) de cero, seguidos por el pastizal naturalizado (`r exp(qss_moda_N)`)
+y el más cercano, el sistema agrícola intensivo (`r exp(qss_moda_A)`).
+
+Los autovalores en los sistemas de uso de suelo en Luján fueron mayores, alejándose del cero,
+en comparación con los suelos de Chivilcoy y Navarro. Las modas de las distribuciones muestran 
+ligeros sesgos hacia a la izquierda con valores cercanos a 
+$\lambda_{\;max} \approx e^{-6,1}\approx0,00225$. Las modas con los menores autovalores se observan en orden decreciente en la Reserva `r exp(qss_moda_R.r)`, en donde además se observa una 
+relación con el valor de tendencia central, en el Pastizal y en el Agrícola con valores 
+modales muy próximos entre sí `r exp(qss_moda_P.r)` y  `r exp(qss_moda_L.r)` respectivamente.
+
+En ambas localidades los menores valores del autovalor de la matriz de quasi-signo se observó
+en el sistema Agrícola, aunque su valor se separó más en los suelos de Luján de aquel de la 
+Reserva y su valor se mantuvo próximo en suelos de Chivilcoy y Navarro con respecto al pastizal 
+naturalizado10v   .
 
 ```{r AD-test-QSS, include=FALSE, warning=FALSE, message=FALSE}
 #Luján
