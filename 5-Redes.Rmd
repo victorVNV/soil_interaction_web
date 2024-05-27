@@ -18,7 +18,7 @@ loadNamespace('printr')
 
 {library(tidyverse);library(statnet);library(network);
   library(igraph);library(intergraph);library(multiweb);library(fluxweb);
-  library(kSamples)}
+  library(kSamples);library(modeest)}
 set.seed(167)
 options("digits"=3)
 ```
@@ -351,11 +351,11 @@ estable, en el que las pérdidas energéticas son compensadas con las ganancias 
 Para ello es necesario conocer los pesos corporales medios de los nodos tróficos,
 la tasa metabólica estimada mediante $tasa metabólica = 17.17\; peso^{-0.29}$ y la biomasa de 
 los mismos nodos. Con los flujos de energía se pueden caracterizar procesos ecológicos relacionados
-con la clasificación funcional de las especies tróficas.
+con la clasificación funcional de las especies tróficas, estos flujos de energía son expresados para cada interacción en Joules/año.
 
 Para realizar comparaciones entre redes tróficas se utilizó la
-comparación de distribuciones del método de Anderson-Darling /
-Kolmogorov-Smirnoff para identificar diferencias estadísticamente
+comparación de distribuciones del método de Anderson-Darling 
+para identificar diferencias estadísticamente
 significativas, mediante el algoritmo de Curveball se establecen redes
 de interacciones que mantienen la conectividad, el numero de enlaces y
 la cantidad de especies basales y tope, para evaluar las características
@@ -561,9 +561,9 @@ bm_P<-c(P$biomass,
         0.4*0.0309*1.2*50000*1e6)/1e6 #Humus
 
 #Pesos corporales####
-body_L<-c(L$body,1,1,1,1)/1e6
-body_R<-c(R$body,1,1,1,1)/1e6
-body_P<-c(P$body,1,1,1,1)/1e6
+body_L<-c(L$body/1e6,1,1,1,1)
+body_R<-c(R$body/1e6,1,1,1,1)
+body_P<-c(P$body/1e6,1,1,1,1)
 
 
 ef_L<-c(L$ef,1,1,1,1)
@@ -605,32 +605,28 @@ Rf.r<-R[R$taxa%in%meso.reduc,]
 Pf.r<-P[P$taxa%in%meso.reduc,]
 Lf.r<-L[L$taxa%in%meso.reduc,]
 
-#biomasas####
-#en microgramos pasados a gramos
-#tejido vegetal se asume 125% (1+125/100) mas que la materia orgánica aunque puede ser 225% más
-#finalmente no se asume la biomasa del tejido vegetal, será 1.
-#carroña será el 5% de la biomasa total de los invertebrados
-#hojarasca llevada a peso seco, factor de 0.32 P ; 0.37 R ; 0.28 L
+#biomasas red####
+#todos excepto carroña y humus igual a uno, para fines de comparacion entre sistemas y localidads
 bm_Lf.r<-c(Lf.r$biomass,
-        (77.0321/0.0625)*0.28*1e6, #Hojarasca
+        1, #Hojarasca
         mean(Lf.r[Lf.r$taxa!="fungi"&Lf.r$taxa!="bac"&Lf.r$taxa!="proto",]$biomass)*0.05, #Carroña
-        1,#2.25*0.0273*1.2*50000*1e6,#Tej_veg
+        1,#2.25*0.0273*1.2*50000*1e6,#Tej_ve
         0.4*0.0273*1.2*50000*1e6)/1e6#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
 bm_Rf.r<-c(Rf.r$biomass,
-        55.753/0.065*0.37*1e6, #Hojarasca
+        1, #Hojarasca
         mean(Rf.r[Rf.r$taxa!="fungi"&Rf.r$taxa!="bac"&Rf.r$taxa!="proto",]$biomass)*0.05, #carroña
         1,#2.25*0.0352*1.2*50000*1e6, #tej_veg
         0.4*0.0352*1.2*50000*1e6)/1e6 #"humus" = POM = 0.4MO
 bm_Pf.r<-c(Pf.r$biomass,
-        (58.63/0.0625)*0.32*1e6, #Hojarasca
+        1, #Hojarasca
         mean(Pf.r[Pf.r$taxa!="fungi"&Pf.r$taxa!="bac"&Pf.r$taxa!="proto",]$biomass)*0.05, #carroña
         1,#2.25*0.0352*1.2*50000*1e6, #Tej_veg
         0.4*0.0309*1.2*50000*1e6)/1e6 #Humus
 
 #Pesos corporales####
-body_Lf.r<-c(Lf.r$body,1,1,1,1)/1e6
-body_Rf.r<-c(Rf.r$body,1,1,1,1)/1e6
-body_Pf.r<-c(Pf.r$body,1,1,1,1)/1e6
+body_Lf.r<-c(Lf.r$body/1e6,1,1,1,1)
+body_Rf.r<-c(Rf.r$body/1e6,1,1,1,1)
+body_Pf.r<-c(Pf.r$body/1e6,1,1,1,1)
 
 
 ef_Lf.r<-c(Lf.r$ef,1,1,1,1)
@@ -1307,7 +1303,7 @@ relacionarse con tamaños de la red con más actores y una mayor cantidad
 de interacciones entre estos, la excepción ocurre con las especies topes
 cuyo número fue mayor en los suelos de Chivilcoy y Navarro.
 
-```{r plot_redes, echo=FALSE, warning=FALSE,message=FALSE}
+```{r plot_redes2, echo=FALSE, warning=FALSE,message=FALSE}
 par(mfrow=c(1,3))
 
 plot_troph_level(N_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE,sub="Pastizal")
@@ -1854,7 +1850,7 @@ modales muy próximos entre sí `r exp(qss_moda_P.r)` y  `r exp(qss_moda_L.r)` r
 En ambas localidades los menores valores del autovalor de la matriz de quasi-signo se observó
 en el sistema Agrícola, aunque su valor se separó más en los suelos de Luján de aquel de la 
 Reserva y su valor se mantuvo próximo en suelos de Chivilcoy y Navarro con respecto al pastizal 
-naturalizado10v   .
+naturalizado.
 
 ```{r AD-test-QSS, include=FALSE, warning=FALSE, message=FALSE}
 #Luján
@@ -1949,8 +1945,6 @@ print(c(adj_ks_p_val_lu,adj_ks_p_val_ro,adj_ks_p_val_lu.r))
 ```
 
 
-
-
 ```{r flux, include=FALSE}
 
 flux_L<-fluxing(t(mG[c(L$taxa,"litter","carrion","tej_veg","hummus"),c(L$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_L, losses =  t_metL, efficiencies =  ef_L,ef.level = "pred")
@@ -1982,18 +1976,7 @@ flux_P.r<-fluxing(t(mG[c(Pf.r$taxa,"litter","carrion","tej_veg","hummus"),c(Pf.r
 flux_L.r<-fluxing(t(mG[c(Lf.r$taxa,"litter","carrion","tej_veg","hummus"),c(Lf.r$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_Lf.r, losses =  t_metLf.r, efficiencies =  ef_Lf.r,ef.level = "pred")
 ```
 
-```{r}
-Fplot<-graph_from_adjacency_matrix(flux_R,mode=c("directed") )
-```
-
-
 ```{r flujos_multicanal, echo=FALSE, message=FALSE,warning=FALSE}
-#sumar las filas !, ya que las columanas son los predadores y el flujo 
-#tiene que ver con la salida de la presa hacia el predador
-
-#sum(rowSums(mat.fluxes[plants,]
-
-#sum(flux_N[c("litter","carrion"),])
 #herbivros########
 #flujo através de los hervíboros
 
@@ -2005,51 +1988,55 @@ F_herb_N<-sum(flux_N["tej_veg",])
 F_herb_G<-sum(flux_G["tej_veg",])
 F_herb_A<-sum(flux_A["tej_veg",])
 
-
 F_herb_R.r<-sum(flux_R.r["tej_veg",])
 F_herb_P.r<-sum(flux_P.r["tej_veg",])
 F_herb_L.r<-sum(flux_L.r["tej_veg",])
 
 #humifagos/geófagos####
 
-F_herb_R<-sum(flux_R["hummus",])
-F_herb_P<-sum(flux_P["hummus",])
-F_herb_L<-sum(flux_L["hummus",])
+F_mo_R<-sum(flux_R["hummus",])
+F_mo_P<-sum(flux_P["hummus",])
+F_mo_L<-sum(flux_L["hummus",])
 
-F_herb_N<-sum(flux_N["hummus",])
-F_herb_G<-sum(flux_G["hummus",])
-F_herb_A<-sum(flux_A["hummus",])
+F_mo_N<-sum(flux_N["hummus",])
+F_mo_G<-sum(flux_G["hummus",])
+F_mo_A<-sum(flux_A["hummus",])
 
-
-F_herb_R.r<-sum(flux_R.r["hummus",])
-F_herb_P.r<-sum(flux_P.r["hummus",])
-F_herb_L.r<-sum(flux_L.r["hummus",])
+F_mo_R.r<-sum(flux_R.r["hummus",])
+F_mo_P.r<-sum(flux_P.r["hummus",])
+F_mo_L.r<-sum(flux_L.r["hummus",])
 
 
 #detritivoros##########
 #flujo através de los detritívoros
 
-F_det_R<-sum(flux_R[c("litter","carrion"),!colnames(flux_R) %in% det])
-F_det_P<-sum(flux_P[c("litter","carrion"),!colnames(flux_P) %in% det])
-F_det_L<-sum(flux_L[c("litter","carrion"),!colnames(flux_L) %in% det])
+F_det_R<-sum(flux_R[c("litter","carrion"),])
+F_det_P<-sum(flux_P[c("litter","carrion"),])
+F_det_L<-sum(flux_L[c("litter","carrion"),])
 
-F_det_N<-sum(flux_N[c("litter","carrion"),!colnames(flux_N) %in% det])
-F_det_G<-sum(flux_G[c("litter","carrion"),!colnames(flux_G) %in% det])
-F_det_A<-sum(flux_A[c("litter","carrion"),!colnames(flux_A) %in% det])
+F_det_N<-sum(flux_N[c("litter","carrion"),])
+F_det_G<-sum(flux_G[c("litter","carrion"),])
+F_det_A<-sum(flux_A[c("litter","carrion"),])
 
-F_det_R.r<-sum(flux_R.r[c("litter","carrion"),!colnames(flux_R.r) %in% det])
-F_det_P.r<-sum(flux_P.r[c("litter","carrion"),!colnames(flux_P.r) %in% det])
-F_det_L.r<-sum(flux_L.r[c("litter","carrion"),!colnames(flux_L.r) %in% det])
+F_det_R.r<-sum(flux_R.r[c("litter","carrion"),])
+F_det_P.r<-sum(flux_P.r[c("litter","carrion"),])
+F_det_L.r<-sum(flux_L.r[c("litter","carrion"),])
+#colnames(flux_L.r) %in% det
 #microfitfagos###########
 #flujo através de los microvíboros
 
-F_mic_R<-sum(flux_R[c("bac","fungi"),colnames(flux_R) %in% micf])
-F_mic_P<-sum(flux_P[c("bac","fungi"),colnames(flux_P) %in% micf])
-F_mic_L<-sum(flux_L[c("bac","fungi"),colnames(flux_L) %in% micf])
+F_mic_R<-sum(flux_R[c("bac","fungi"),])
+F_mic_P<-sum(flux_P[c("bac","fungi"),])
+F_mic_L<-sum(flux_L[c("bac","fungi"),])
 
-F_mic_N<-sum(flux_N[c("bac","fungi"),colnames(flux_N) %in% micf])
-F_mic_G<-sum(flux_G[c("bac","fungi"),colnames(flux_G) %in% micf])
-F_mic_A<-sum(flux_A[c("bac","fungi"),colnames(flux_A) %in% micf])
+F_mic_N<-sum(flux_N[c("bac","fungi"),])
+F_mic_G<-sum(flux_G[c("bac","fungi"),])
+F_mic_A<-sum(flux_A[c("bac","fungi"),])
+
+F_mic_R.r<-sum(flux_R.r[c("bac","fungi"),])
+F_mic_P.r<-sum(flux_P.r[c("bac","fungi"),])
+F_mic_L.r<-sum(flux_L.r[c("bac","fungi"),])
+
 #predadores####
 #flujo através de los predadores
 
@@ -2063,32 +2050,96 @@ F_pred_N<-sum(flux_N[,colnames(flux_N) %in% pred])
 F_pred_G<-sum(flux_G[,colnames(flux_G) %in% pred])
 F_pred_A<-sum(flux_A[,colnames(flux_A) %in% pred])
 
-F_pred_R.r<-sum(flux_R[,colnames(flux_R.r) %in% pred])
-F_pred_P.r<-sum(flux_P[,colnames(flux_P.r) %in% pred])
-F_pred_L.r<-sum(flux_L[,colnames(flux_L.r) %in% pred])
-
-
-
+F_pred_R.r<-sum(flux_R.r[,colnames(flux_R.r) %in% pred])
+F_pred_P.r<-sum(flux_P.r[,colnames(flux_P.r) %in% pred])
+F_pred_L.r<-sum(flux_L.r[,colnames(flux_L.r) %in% pred])
 
 #omnivoros####
 #flujo através de los omnivoros
 
-F_pred_R<-sum(flux_R[,colnames(flux_R) %in% omn])
-F_pred_P<-sum(flux_P[,colnames(flux_P) %in% omn])
-F_pred_L<-sum(flux_L[,colnames(flux_L) %in% omn])
+F_omn_R<-sum(flux_R[,colnames(flux_R) %in% omn])
+F_omn_P<-sum(flux_P[,colnames(flux_P) %in% omn])
+F_omn_L<-sum(flux_L[,colnames(flux_L) %in% omn])
 
-F_pred_N<-sum(flux_N[,colnames(flux_N) %in% omn])
-F_pred_G<-sum(flux_G[,colnames(flux_G) %in% omn])
-F_pred_A<-sum(flux_A[,colnames(flux_A) %in% omn])
+F_omn_N<-sum(flux_N[,colnames(flux_N) %in% omn])
+F_omn_G<-sum(flux_G[,colnames(flux_G) %in% omn])
+F_omn_A<-sum(flux_A[,colnames(flux_A) %in% omn])
 
-F_pred_R.r<-sum(flux_R[,colnames(flux_R.r) %in% omn])
-F_pred_P.r<-sum(flux_P[,colnames(flux_P.r) %in% omn])
-F_pred_L.r<-sum(flux_L[,colnames(flux_L.r) %in% omn])
+F_omn_R.r<-sum(flux_R.r[,colnames(flux_R.r) %in% omn])
+F_omn_P.r<-sum(flux_P.r[,colnames(flux_P.r) %in% omn])
+F_omn_L.r<-sum(flux_L.r[,colnames(flux_L.r) %in% omn])
 
-#data_frame(Sistema=c("R","P","L","N","G","A"),
- #          detritivoría)
-#V(g)[name %in% c('a', 'b', 'c')]
 ```
+El flujo de energía (Table 5.x) de la comunidad de la fauna edáfica en suelos de Luján fué mayor en la comunidad del Pastizal, seguida por la comunidad en la Reserva y el sistema agrícola intensivo con un flujo menor de energía de 364 kJ.año^-1^ y 614 kJ.año^-1^ respectivamente con respecto al pastizal.
+
+La cantidad de energía ligada a consumo del humus en suelos de Luján,
+es decir la materia orgánica del suelo,
+se relaciona con la <u>biotransformación</u> del suelo, la cantidad de energía en estos enlaces 
+es muy importante, llegando a ser del 75% en el pastizal, del 70% en la reserva, y del 65% en el sistema agrícola. 
+
+```{r flujos_multicanal_print, echo=FALSE, message=FALSE,warning=FALSE}
+F_mc_lu<-data.frame(sitio=c("Reserva","Pastizal","Agrícola"),total=c(sum(flux_R),sum(flux_P),sum(flux_L))/1e3,
+           biotransformación=c(F_mo_R/sum(flux_R),F_mo_P/sum(flux_P),F_mo_L/sum(flux_L)
+                               )*100,
+           detritivoria=c(F_det_R/sum(flux_R),F_det_P/sum(flux_P),F_det_L/sum(flux_L)
+                               )*100,
+           microfitofagia=c(F_mic_R/sum(flux_R),F_mic_P/sum(flux_P),F_mic_L/sum(flux_L))*100,
+           predación=c(F_pred_R/sum(flux_R),F_pred_P/sum(flux_P),F_pred_L/sum(flux_L))*100,
+           omnivoría=c(F_omn_R/sum(flux_R),F_omn_P/sum(flux_P),F_omn_L/sum(flux_L))*100,
+           row.names = NULL)
+
+F_mc_lu
+```
+
+La detritivoría fué mayor en términos relativos en el sistema de la agrícola 
+y menor en el pastizal.
+En todos los sistemas el consumo de bacterias y hongos, <u>microfitofagia o microviboría</u>,
+conyevan flujos de energía menores al 3,3%
+del flujo total de energía que atraviesa estos suelos, en los suelos de la Reserva la microviboría fué ligeramente mayor, seguidas por el sistema agrícola y 1 punto porcentual por debajo el 
+sistema del Pastizal.
+La omnivoría es el tercer canal de energía en importancia a través de estos actores llega hasta el 35% del flujo energético anual, en el pastizal su importancia fue ligeramente mayor.
+La cantidad de energía que llega a los depredadores es el de menor importancia relativa por debajo del 1% del flujo total, en los suelos de la reserva la cantidad de energía en este canal fué mas bajo, seguido por el sistema agrícola y el pastizal.
+
+```{r flujos_multicanal_print1, echo=FALSE, message=FALSE,warning=FALSE}
+F_mc_total<-data.frame(sitio=c("Naturalizado","Mixto","Agrícola","Reserva","Pastizal","Agrícola"),total=c(                                                        sum(flux_N),sum(flux_G),sum(flux_A),
+                        sum(flux_R.r),sum(flux_P.r),sum(flux_L.r))/1e3,
+           biotransformación=c(
+                               F_mo_N/sum(flux_N),F_mo_G/sum(flux_G),F_mo_A/sum(flux_A),
+                                                             F_mo_R.r/sum(flux_R.r),F_mo_P.r/sum(flux_P.r),F_mo_L.r/sum(flux_L.r))*100,
+           detritivoria=c(
+                               F_det_N/sum(flux_N),F_det_G/sum(flux_G),F_det_A/sum(flux_A),
+                        F_det_R.r/sum(flux_R.r),F_det_P.r/sum(flux_P.r),F_det_L.r/sum(flux_L.r))*100,
+           microfitofagia=c(
+                               F_mic_N/sum(flux_N),F_mic_G/sum(flux_G),F_mic_A/sum(flux_A),
+                               F_mic_R.r/sum(flux_R.r),F_mic_P.r/sum(flux_P.r),F_mic_L.r/sum(flux_L.r))*100,
+           predación=c(
+                               F_pred_N/sum(flux_N),F_pred_G/sum(flux_G),F_pred_A/sum(flux_A),
+                               F_pred_R.r/sum(flux_R.r),F_pred_P.r/sum(flux_P.r),F_pred_L.r/sum(flux_L.r))*100,
+           omnivoría=c(
+                               F_omn_N/sum(flux_N),F_omn_G/sum(flux_G),F_omn_A/sum(flux_A),
+                               F_omn_R.r/sum(flux_R.r),F_omn_P.r/sum(flux_P.r),F_omn_L.r/sum(flux_L.r))*100,
+           row.names = NULL)
+
+F_mc_total
+
+```
+
+En los suelos de Chivilcoy y Navarro, (Tabla 5.x) los flujos de energía alcanzan un máximo de 18
+kJ.año^-1^ en los suelos con pastizal naturalizado, en comparación, en suelos de Luján el
+flujo de energía fué hasta 70 veces mayor.
+
+El canal que mueve el humus del suelo fue el de mayor importancia, este fué mayor en el sistema 
+del pastizal naturalizado y menor en el sistema mixto agrícola ganadero; en suelos de Luján
+tuvo importancias similares en la Reserva y el Pastizal y menor importancia en el 
+sistema Agrícola. 
+
+La detritivoría fue de poca importancia en el pastizal naturalizado a la vez que fué mayor en el sistema agrícola intensivo; por su parte en suelos de Luján el sistema agrícola tuvo la mayor participación de detritívoros. La microfitofagia fue mayor en el sistema mixto y en el sistema agrícola intensivo y menor en el pastizal naturalizado; en suelos de Luján esta fue mayor en la Reserva y menor en el pastizal. 
+
+La omnivoría en el pastizal naturalizado contabilizó solo el 4,5% del flujo total de energía, en el sistema mixto agrícola ganadero tuvo una mayor participación; en suelos de Luján la omnivoría fue de importancia similar en los tres sistemas de uso siendo mayor en la Reserva.
+
+La predación no supero el 2% del flujo total de energía en general. En los suelos de Chivilcoy y Navarro 
+fue mayor en el sistema Agrícola intensivo y menor en el pastizal naturalizado; en suelos de Luján la predación fué más importante en el pastizal seguido del sistema agrícola.
+
 
 ```{r QSS_taxon, include=FALSE}
 
@@ -2099,12 +2150,6 @@ F_pred_L.r<-sum(flux_L[,colnames(flux_L.r) %in% omn])
 
 #QSS_unlu_seq<-calc_QSS_extinctions_seq(IS_P_net, seq = #V(IS_P_net)$name[V(IS_P_net)$name%in%, nsim = 100, ncores = 4, istrength = TRUE)
 ```
-
-<!--
-
-[elseiver para
-discu](https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/soil-food-web)
--->
 
 # ref
 
