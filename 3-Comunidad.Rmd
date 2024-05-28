@@ -9,7 +9,9 @@ editor_options:
   markdown:
     wrap: 90
 ---
+
 <!--modificar, eliminar la parte de Rosana a niveles comparativos-->
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 loadNamespace('printr')
@@ -29,7 +31,8 @@ set.seed(167)
 
 ## Introducción
 
-La Pampa argentina es una amplia llanura con una extensión de más de 450 mil km^2^, de las cuales se estima que la Pampa Ondulada ocupa 4,4 millones de hectáreas, esta ocupa la
+La Pampa argentina es una amplia llanura con una extensión de más de 450 mil km^2^, de las
+cuales se estima que la Pampa Ondulada ocupa 4,4 millones de hectáreas, esta ocupa la
 parte centro-oriental de la provincia de Córdoba, el norte de Buenos Aires y el suroeste
 de Santa Fé (.\@.morello_etal_2000).
 
@@ -90,18 +93,21 @@ citas).
 Por ello es que Socarras (2013) menciona que conocer el número de los diferentes taxones,
 su abundancia y el balance entre estos permite evaluar y predecir el impacto de los
 diferentes métodos de producción ocurridos en sistemas con condiciones edáficas y
-climáticas particulares; tambíen Cruz y colaboradores (2009) mencionan en su síntesis sobre los
-indicadores que dan cuenta sobre la calidad del suelo, entendida como *"la utilidad del
-suelo para un propósito específico en una escala amplia de tiempo"*, que los indicadores
-biológicos integran a la gran cantidad de factores que podrían estar afectando al suelo y
-su "calidad". Dado que el suelo es el hábitat de estos organismos y la fauna edáfica es
-rectora sobre los procesos biológicos que afectan al funcionamiento del ecosistema
-edáfico, la diversidad biológica en los suelos se vincula estrechamente con el
+climáticas particulares; tambíen Cruz y colaboradores (2009) mencionan en su síntesis
+sobre los indicadores que dan cuenta sobre la calidad del suelo, entendida como *"la
+utilidad del suelo para un propósito específico en una escala amplia de tiempo"*, que los
+indicadores biológicos integran a la gran cantidad de factores que podrían estar afectando
+al suelo y su "calidad". Dado que el suelo es el hábitat de estos organismos y la fauna
+edáfica es rectora sobre los procesos biológicos que afectan al funcionamiento del
+ecosistema edáfico, la diversidad biológica en los suelos se vincula estrechamente con el
 mantenimiento de la fertilidad, la estabilidad física y biológica y con la productividad
 ecológica (productividad primaria) y económica (rendimiento de los cultivos y producción
 de proteina animal) de los suelos.
 
-El esta sección se pretende describir las comunidades edáficas halladas en suelos argiudoles en dos localidades de la Pampa Ondulada con diferentes sistemas de uso, caracterizar las condiciones fisico químicas de los suelos, conocer la diversidad de las comunidades y las relaciones de similitud entre estos.
+El esta sección se pretende describir las comunidades edáficas halladas en suelos
+argiudoles en dos localidades de la Pampa Ondulada con diferentes sistemas de uso,
+caracterizar las condiciones fisico químicas de los suelos, conocer la diversidad de las
+comunidades y las relaciones de similitud entre estos.
 
 ## Materiales y métodos.
 
@@ -128,9 +134,21 @@ químicas. Además la organismos de la fauna mesofauna edáfica de estos lotes f
 preservados en el laboratorio de Ecología: programa de Ecología Terrestre (INEDES-UNLu) lo
 que permitió al autor la medición de rasgos corporales.
 
-\*\* Tabla 3.1. Ubicación georreferenciada de los sitios de muestreo \*\* \|Uso del
-suelo\|Sitio de muestreo\| Coordenadas \| \|---\|---\|---\| \| R \| L \|S E \| \| PN\| C y
-N\|S E \| \| P \| L\| \|S E \| G \| C y N\|S E \| \| A \| L \|S E \| \| A \| C y N\|S E \|
+**Tabla 3.1. Ubicación de los puntos de muestreo en los sitios con diferentes intensidades
+de uso en suelos argiudoles de Luján. Coordenadas geográficas en el sistema de referencia
+WGS84 expresadas en grados, minutos y segundos.**
+
+| Sitio    | Latitud    | Longitud   |
+|----------|------------|------------|
+| Reserva  | 34°35'34"S | 59°04'16"W |
+|          | 34°35'35"S | 59°04'18"W |
+|          | 34°35'36"S | 59°04'20"W |
+| Pastizal | 34°35'38"S | 59°04'22"W |
+|          | 34°35'38"S | 59°04'23"W |
+|          | 34°35'38"S | 59°04'25"W |
+| Agrícola | 34°35'22"S | 59°04'05"W |
+|          | 34°35'22"S | 59°04'09"W |
+|          | 34°35'22"S | 59°04'12"W |
 
 ### Diseño de muestreo
 
@@ -159,8 +177,8 @@ Los sitios elegidos fueron: a) un lote agrícola (A) sobre el cuál se practica 
 agricultura convencional con labranza para la producción forrajera de alfalfa *Medicago
 sativa* para pastoreo de bovinos en producción lechera; b) un área de pastizal natural (P)
 con dominancia de Sorgo de Alepo *Sorghum halepense* y Cardo mariano *Silybum marianum*,
-áreas que reciben presión de pastoreo por los bovinos lecheros con descanso entre
-pastoreos, y; c) un área clausurada por más de 30 años (R) considerada como reserva cuya
+áreas que reciben baja presión de pastoreo por los bovinos lecheros con descanso entre
+pastoreos, y; c) un área clausurada por más de 30 años (R) considerada como Reserva cuya
 vegetación característica es de tipo arbórea dominada por Ligustro *Ligustrum lucidum* y
 Acacia *Acacia melanoxylon*.
 
@@ -183,7 +201,7 @@ suelo decante, la solución se deja pasar a través de tamices con diferente di�
 apertura de malla y los nemátodos se colectan en las mallas con diámetro de apertura de
 170 y 53 micrones; seguidamente se colecta los nemátodos atrapados por las mallas y se
 conservan en formalina 4% (\@.moreira_etal_2012) o alcohol 96º (\@.potapov_etal_2022)
-hasta su posterior conteo y extracción bajo lupa binocular, e identificación en grupos
+hasta su posterior extracción y conteo bajo lupa binocular, e identificación en grupos
 tróficos según la morfología de su aparato bucal (\@.yeates; \@.mondino \@.momo-falco)
 proceso que se realiza con montajes temporales y observación bajo microscopio óptico con
 aumentos de hasta 400 veces.
@@ -208,7 +226,7 @@ proceso que llevo aproximadamente una semana (Fig 3.2).
 Cada muestra de suelo fue desagregada minusiosamente, sobre fondo blanco, prestando
 atención al movimiento de los animales de la macrofauna con la ayuda de lupa de mesa y luz
 blanca, lo que permite capturar más animales que los que permite la exploración a campo
-donde solo se factible observar aquellos animales ágiles o de gran tamaño, tales como,
+donde solo es factible observar aquellos animales ágiles o de gran tamaño, tales como,
 lombrices de tierra, arañas lobo, bichos bolita, milpies, cienpies, entre otros.
 (\@.potapov_etal_2022; \@.moreira_etal_2012)
 
@@ -225,25 +243,10 @@ correspondientes a las muestras tomadas para capturar la macrofauna, de ellos se
 la hojarasca y el suelo hasta la profundidad de 10 cm.
 
 Se tomó toda la hojarasca que se encontraba sobre la superficie que cubría el monolito de
-625 cm^2^, luego fue tamizada con malla de 2 mm separando así, de manera arbitraria, la
-hojarasca "fresca" que es la que queda sobre el tamiz de 2mm de la hojarasca "fermentada"
-y el suelo orgánico-mineral ("humus") que corresponden a la fracción que pasa el tamiz. La
-fracción que pasaba el tamiz fué considerado como hojarasca con un gran avance en términos
-de descomposición (hojarasca fermentada según a bibliografía clásica (.\@.citas), esta
-fracción luego fue separada por un tamiz de 500 $\mu m$ separando, también de manera
-arbitraria, el "humus" que incluye el suelo orgánico mineral más porciones de tejidos
-vegetal "amorfo" de la "hojarasca fragmentada" que es la que queda sobre el tamiz de 500
-$\mu m$.
-
-El suelo del monolito de los primeros 10 centímetros de profundidad fue desagregado,
+625 cm^2^, para luego extraer la mesofauna, además el suelo del monolito de los primeros 10 centímetros de profundidad fue desagregado,
 mezclado y homogeneizado para tomar tres submuestras de suelo con un volumen de 100 cm³,
-previo a la toma de muestras el suelo fue disminuido en volumen mediante la técnica de
+previo a la toma de muestras el suelo fue disminuido en volumen mediante la técnica del
 cuarteo, lo que asegura la representatividad de las fracciones submuestreadas.
-
-Este procedimiento de estratificación se llevó adelante con la intención de conocer la
-diversidad de organismos de la mesofauna edáfica según el estrato de suelo considerando
-este procedimiento como proxi del hábitat más probable. Luego las submuestras fueron
-congeladas hasta el momento de la extracción de la mesofauna.
 
 Las submuestras de la mesofauna edáfica fueron sometidas al método de flotación y tamizado
 (.\@.palacios-vargas). Estas se desagregan en agua en relación 1:4 de suelo:agua, se agita
@@ -258,6 +261,10 @@ identificación de los taxones en diferentes rangos taxonómicos hasta familias 
 claves taxonómicas que pueden consultarse en: Burges and Raw 1967, Balogh and Balogh 1972,
 Evans and Till 1979, Balogh and Balogh 1988, Dindal 1990, Krantz and Walter 2009, Momo and
 Falco 2009, Claps et al. 2020, Janssens 2023.
+
+Este procedimiento de estratificación se llevó adelante con la intención de conocer la
+diversidad de organismos de la mesofauna edáfica según el estrato de suelo considerando
+este procedimiento como proxi del hábitat más probable. 
 
 La metodología utilizada para extraer la fauna edáfica de los suelos de Chivilcoy y
 Navarro según describe Sandler (2019) implicó, el uso de la técnica de flotación y
@@ -308,20 +315,6 @@ Luego para la determinación de las proporciones de los grupos involucrados en l
 respiración se consideran las diferencias observadas entre los grupos tratados con
 antibioticos en relación con la respiración total (\@.zabala_2010).
 
-```{=html}
-<!--La respiración del suelo es un indicador de la actividad metabólica global del suelo
-(Frioni, 1999). Mide la actividad microbiológica y de la microfauna del suelo. Es uno de
-los parámetros más sensibles frente al impacto o disturbio del sistema. Para ello se
-midió la respiración del suelo (expresada en μg de C-CO2 g -1 de suelo día -1) por
-emisión y captación en solución de Na OH de CO2 de muestras de 20 g de suelo con
-el contenido de humedad original. Se colocaron en recipientes de 350 ml, los cuales
-contenían en su interior un recipiente menor en el centro del frasco con 20 ml de
-NaOH 0,2 N. El sistema se cierra herméticamente y se incuba a 28 C durante 10 días.
-El CO2 liberado por la respiración biológica se recupera en el recipiente con el Na OH.
-Como controles de la reacción se utilizaron frascos sin suelo y con la trampa de álcali.
-La producción de CO2 se determina por titulación con ácido HCl 0,2 N y fenolftaleína
-como indicador (Frioni, 1999)-->
-```
 De manera complementaria se obtuvieron, a través del servicio del Laboratorio del Campo de
 la Universidad Nacional de Luján, los valores para el porcentaje de materia orgánica, el
 porcentaje de carbono, el carbono orgánico total, el porcentaje de nitrógeno, la cantidad
@@ -332,58 +325,44 @@ escala de pH y la conductividad eléctrica en milisiemens por centímetro.
 
 Para describir las variables físicas, químicas y biológicas se realizó un análisis
 descripivo, para ello se calcularon las medidas de tendencia central y de dispersión para
-cada sitio y estrato. Se compararon las posibles diferencias entre las medianas de estas
-variables utilizando el análisis de varianza no paramétrico de Kruskal-Wallis (.\@.zar).
-Luego se procede al análisis multivariado mediante el uso de componentes principales (PCA)
+cada sitio y estrato. Luego se procede al análisis multivariado mediante el uso de componentes principales (PCA)
 para identificar las posibles relaciones entre las variables ambientales
 (.\@.numerical_ecology).
 
-Para describir la estructura de las comunidades edáficas se realizó el análisis de la
-diversidad alfa utilizando tanto el valor de la riqueza de unidades taxonómica como el
-índice de diversidad de Shanon-Wiener (**H'**). Además mediante análisis de similitudes
-multivariado (ANOSIM) se determinan las posibles diferencias entre las comunidades, a la
-vez para conocer cuáles son las comunidades similares entre sí, se calculó el dendograma
-basado en el agrupamiento jerárquico con el método de enlace promedio. En ambos análisis
-se utilizó el coeficiente de distancia de Bray-Curtis (.\@.Koleff et al 2003paper_Vegan;
-.\@.numerical_ecology).
+Para describir la estructura de las comunidades edáficas se realizó el análisis de la diversidad alfa utilizando el índice de diversidad de Shanon-Wiener (**H'**). 
 
 $$
 H' = -\sum_{i=1}^{S} p_i \ln(p_i)
 $$
 
-Donde: - $H'$ es el índice de Shannon-Wiener. - $S$ es el número total de especies en la
-comunidad. - $p_i$ es la proporción de la $i$-ésima especie en la comunidad.
+- $H'$ es el índice de Shannon-Wiener. 
+- $S$ es el número total de especies en la comunidad. 
+- $p_i$ es la proporción de la $i$-ésima especie en la comunidad.
+
+
+Además, mediante análisis de similitudes
+multivariado (ANOSIM), se determinan las posibles diferencias entre las comunidades, a la
+vez para conocer cuáles son las comunidades similares entre sí, se calculó el dendograma
+basado en el agrupamiento jerárquico con el método de enlace promedio. En ambos análisis
+se utilizó el coeficiente de distancia de Bray-Curtis (.\@.Koleff et al 2003paper_Vegan;
+.\@.numerical_ecology).
+
 
 $$ BC = \frac{\sum |x_i - y_i|}{\sum (x_i + y_i)} $$
 
-Donde: - $BC$ es el coeficiente de distancia de Bray-Curtis. - $x_i$ y $y_i$ son los
-valores de las muestras en los sitios $i$.
+- $BC$ es el coeficiente de distancia de Bray-Curtis. 
+- $x_i$ y $y_i$ son los valores de las muestras en los sitios $i$.
 
 Para describir las relación entre los taxones y los sitios de muestreo se realizó el
-análisis de los componentes principales de las comunidades en modo R con los valores de la
+análisis de los componentes principales (PCA) de las comunidades en modo R con los valores de la
 abundancia de los taxones previamente transformados con $\log_b(x) + 1$
-(\@.numerical_ecology) de esta manera, podemos observar en el gráfico biplot a los sitios
+(\@.numerical_ecology) de esta manera podemos observar en el gráfico biplot a los sitios
 como vectores y a los taxones como puntos en el espacio euclidiano de las coordenadas
 principales.
 
-<!-- indice de Wilson y Schmida 1984 en Measuring beta diversity for presence–absence data Koleff et al 2003  y numerical ecology con R libro-->
-
-<!--La prueba de los rangos con signo de Wilcoxon es una prueba no paramétrica para comparar el rango medio de dos muestras relacionadas y determinar si existen diferencias entre ellas. Se utiliza como alternativa a la prueba t de Student cuando no se puede suponer la normalidad de dichas muestras. Esta prueba es útil para comparar dos mediciones relacionadas y determinar si la diferencia entre ellas se debe al azar o no.-->
-
-```{=html}
-<!--La identificación taxonómica se realizó al máximo nivel de resolución posible mediante
-el uso de claves. Los grupos analizados fueron: Macrofauna: Lumbricina, Formicidae,
-Isoptera, Isopoda, Coleoptera (total y por familias), Araneae, Diplopoda, Chilopoda,
-Enchytraidae, Hymenoptera, Gastropoda, Symphyla, Nematomorpha, Gryllidae,
-Blattide, Gryllotalpidae, Homoptera, Hemiptera y Thysanuridae. Mesofauna: Acari
-(Oribatida, Mesostigmata, Prostigmata y Astigmata) y Collembola.
-Se determinó el aporte porcentual de cada uno de los taxones a la fauna total
-recolectada en los años de estudio, discriminando de acuerdo a la época de muestreo
-y al tratamiento.
--->
 
 <!--Imágenes ![texto_alternativo](ubicacion_de_la_imagen){width=width height=height}-->
-```
+
 ## Resultados
 
 ```{r carga_variablesFQB, include=FALSE, warning=FALSE}
@@ -528,11 +507,188 @@ names(RO_db_full)<-c("nombre","system","site",name.RO_db_full[-c(1:3)])
 
 ### Descriptivas
 
+```{r fq.tab,echo=FALSE,message=FALSE,warning=FALSE}
+#tabla fq######
+
+fq.tab<-data.frame(Sitio=c("R","P","A","N","G","A"),
+                   pH=c(
+                     paste(sep=" ",
+                        round(mean(fyq.box[fyq.box$sitio=="R","pH"],na.rm=TRUE),1),
+                        "±",
+                        round(sd(fyq.box[fyq.box$sitio=="R","pH"],na.rm=TRUE),2)),
+                     paste(sep=" ",
+                        round(mean(fyq.box[fyq.box$sitio=="P","pH"],na.rm=TRUE),1),
+                        "±",
+                        round(sd(fyq.box[fyq.box$sitio=="P","pH"],na.rm=TRUE),2)),
+                     paste(sep=" ",
+                        round(mean(fyq.box[fyq.box$sitio=="A","pH"],na.rm=TRUE),1),
+                        "±",
+                        round(sd(fyq.box[fyq.box$sitio=="A","pH"],na.rm=TRUE),2)),
+                     paste(sep=" ",
+                       round(mean(RO_db_full[RO_db_full$system=="N","pH"],na.rm=TRUE),1),
+                        "±",
+                        round(sd(RO_db_full[RO_db_full$system=="N","pH"],na.rm=TRUE),2),"a"),
+                     paste(sep=" ",
+                       round(mean(RO_db_full[RO_db_full$system=="G","pH"],na.rm=TRUE),1),
+                        "±",
+                        round(sd(RO_db_full[RO_db_full$system=="G","pH"],na.rm=TRUE),2),"b"),
+                     paste(sep=" ",
+                       round(mean(RO_db_full[RO_db_full$system=="A","pH"],na.rm=TRUE),1),
+                        "±",
+                        round(sd(RO_db_full[RO_db_full$system=="A","pH"],na.rm=TRUE),2),"b")
+                     ),
+                     
+                     MO=c(
+                     paste(sep=" ",
+                        round(mean(fyq.box[fyq.box$sitio=="R","MO"],na.rm=TRUE),1),
+                        "±",
+                        round(sd(fyq.box[fyq.box$sitio=="R","MO"],na.rm=TRUE),2)),
+                     paste(sep=" ",
+                        round(mean(fyq.box[fyq.box$sitio=="P","MO"],na.rm=TRUE),1),
+                        "±",
+                        round(sd(fyq.box[fyq.box$sitio=="P","MO"],na.rm=TRUE),2)),
+                     paste(sep=" ",
+                        round(mean(fyq.box[fyq.box$sitio=="A","MO"],na.rm=TRUE),1),
+                        "±",
+                        round(sd(fyq.box[fyq.box$sitio=="A","MO"],na.rm=TRUE),2)),
+                     paste(sep=" ",
+                       round(mean(RO_db_full[RO_db_full$system=="N","MO"],na.rm=TRUE),1),
+                        "±",
+                        round(sd(RO_db_full[RO_db_full$system=="N","MO"],na.rm=TRUE),2)),
+                     paste(sep=" ",
+                       round(mean(RO_db_full[RO_db_full$system=="G","MO"],na.rm=TRUE),1),
+                        "±",
+                        round(sd(RO_db_full[RO_db_full$system=="G","MO"],na.rm=TRUE),2)),
+                     paste(sep=" ",
+                       round(mean(RO_db_full[RO_db_full$system=="A","MO"],na.rm=TRUE),1),
+                        "±",
+                        round(sd(RO_db_full[RO_db_full$system=="A","MO"],na.rm=TRUE),2))
+),
+                N=c(
+                     paste(sep=" ",
+                        round(mean(fyq.box[fyq.box$sitio=="R","N"],na.rm=TRUE),1),
+                        "±",
+                        round(sd(fyq.box[fyq.box$sitio=="R","N"],na.rm=TRUE),2)),
+                     paste(sep=" ",
+                        round(mean(fyq.box[fyq.box$sitio=="P","N"],na.rm=TRUE),1),
+                        "±",
+                        round(sd(fyq.box[fyq.box$sitio=="P","N"],na.rm=TRUE),2)),
+                     paste(sep=" ",
+                        round(mean(fyq.box[fyq.box$sitio=="A","N"],na.rm=TRUE),1),
+                        "±",
+                        round(sd(fyq.box[fyq.box$sitio=="A","N"],na.rm=TRUE),2)),
+                     paste(sep=" ",
+                       round(mean(RO_db_full[RO_db_full$system=="N","N"],na.rm=TRUE),1),
+                        "±",
+                        round(sd(RO_db_full[RO_db_full$system=="N","N"],na.rm=TRUE),2),"a"),
+                     paste(sep=" ",
+                       round(mean(RO_db_full[RO_db_full$system=="G","N"],na.rm=TRUE),1),
+                        "±",
+                        round(sd(RO_db_full[RO_db_full$system=="G","N"],na.rm=TRUE),2),"b"),
+                     paste(sep=" ",
+                       round(mean(RO_db_full[RO_db_full$system=="A","N"],na.rm=TRUE),1),
+                        "±",
+                        round(sd(RO_db_full[RO_db_full$system=="A","N"],na.rm=TRUE),2),"a")
+),
+                                   P=c(
+                     paste(sep=" ",
+                        round(mean(fyq.box[fyq.box$sitio=="R","P"],na.rm=TRUE),1),
+                        "±",
+                        round(sd(fyq.box[fyq.box$sitio=="R","P"],na.rm=TRUE),2),"b"),
+                     paste(sep=" ",
+                        round(mean(fyq.box[fyq.box$sitio=="P","P"],na.rm=TRUE),1),
+                        "±",
+                        round(sd(fyq.box[fyq.box$sitio=="P","P"],na.rm=TRUE),2),"b"),
+                     paste(sep=" ",
+                        round(mean(fyq.box[fyq.box$sitio=="A","P"],na.rm=TRUE),1),
+                        "±",
+                        round(sd(fyq.box[fyq.box$sitio=="A","P"],na.rm=TRUE),2),"a"),
+                     paste(sep=" ",
+                       round(mean(RO_db_full[RO_db_full$system=="N","P"],na.rm=TRUE),1),
+                        "±",
+                        round(sd(RO_db_full[RO_db_full$system=="N","P"],na.rm=TRUE),2)),
+                     paste(sep=" ",
+                       round(mean(RO_db_full[RO_db_full$system=="G","P"],na.rm=TRUE),1),
+                        "±",
+                        round(sd(RO_db_full[RO_db_full$system=="G","P"],na.rm=TRUE),2)),
+                     paste(sep=" ",
+                       round(mean(RO_db_full[RO_db_full$system=="A","P"],na.rm=TRUE),1),
+                        "±",
+                        round(sd(RO_db_full[RO_db_full$system=="A","P"],na.rm=TRUE),2))
+)
+)
+
+#lista KW####
+kw_fq<-list(kruskal.test(pH ~ sitio, data = fyq.box),
+            pairwise.wilcox.test(fyq.box$pH, fyq.box$system,data=fyq.box,
+                                          p.adjust.method = "BH",exact=FALSE),
+kruskal.test(pH ~ system, data = RO_db_full),
+pairwise.wilcox.test(RO_db_full$pH, RO_db_full$system,data=RO_db_full,
+                                          p.adjust.method = "BH",exact=FALSE),
+kruskal.test(MO ~ sitio, data = fyq.box),
+pairwise.wilcox.test(fyq.box$MO, fyq.box$sitio,data=fyq.box,
+                     p.adjust.method = "BH",exact=FALSE),
+kruskal.test(MO ~ system, data = RO_db_full),
+pairwise.wilcox.test(RO_db_full$MO, RO_db_full$system,data=RO_db_full,
+                                          p.adjust.method = "BH",exact=FALSE),
+kruskal.test(N ~ sitio, data = fyq.box),
+pairwise.wilcox.test(fyq.box$N, fyq.box$sitio,data=fyq.box,
+                     p.adjust.method = "BH",exact=FALSE),
+kruskal.test(N ~ system, data = RO_db_full),
+pairwise.wilcox.test(RO_db_full$N, RO_db_full$system,data=RO_db_full,
+                                          p.adjust.method = "BH",exact=FALSE),
+kruskal.test(P ~ sitio, data = fyq.box),
+pairwise.wilcox.test(fyq.box$P, fyq.box$sitio,data=fyq.box,
+                     p.adjust.method = "BH",exact=FALSE),
+kruskal.test(P ~ system, data = RO_db_full),
+pairwise.wilcox.test(RO_db_full$P, RO_db_full$system,data=RO_db_full,
+                                          p.adjust.method = "BH",exact=FALSE)
+)
+#mostrar tab####
+fq.tab
+
+```
+
+
+Los valores del pH, en los suelos argiudoles de Luján, no mostraron diferencias
+significativas (K-W p:H\<0.1) entre los sitios. En los suelos de Chivilcoy y Navarro
+existió diferencias significativas entre grupos (K-W p:H\<0.01) en los cuáles, es el
+pastizal naturalizado con un mayor pH quién se diferencia de los demás sistemas de usos, 
+siendo los sistemas mixto y agrícola intensivo similares en valores de pH.
+
+El patrón general muestra que en sistemas agrícolas los valores de pH son más bajos y
+menos variables fenómeno que podríamos relacionar con la aplicación de insumos inorgánicos
+que podrían disminuir el pH y a la vez por su forma de aplicación homogénea a lo ancho del
+lote "homogeneizar" el valor de este en la superficie agrícola.
+
+En los suelos argiudoles el porcentaje de materia orgánica no resulto
+diferente significativamente (K-W H:p\<0.1), dentro de las localidades,
+pero se observan valores diferentes del
+porcentaje de materia orgánica en las diferentes localidades, en los suelos de 
+Chivilcoy y Navarro la materia orgánica fué aproximadamente el doble de aquelos observados en 
+los Argiudoles de Luján.
+
+En los suelos Argiudoles de Luján con relación al porcentaje de Nitrógeno en el suelo la
+prueba de Kruskal-Wallis no indica diferencias significativas. 
+En los suelos de Chivilcoy y Navarro el porcentaje de nitrógeno de los suelos fué
+diferente significativamente (K-W H:p\<0.1), es el sistema mixto agrícola-ganadero que 
+se diferencia de los demás sistemas. 
+
+En los suelos argiudoles de Luján con respecto al fósforo, las diferencias fueron
+significativas estadísticamente(K-W H: p\<0.1). Puede relacionarse la amplitud en el 
+valor del fósforo en el suelo agrícola con el efecto de la fertilización
+sobre el suelo, ya que este nutriente es poco móvil lugares con mayores cantidades de 
+fósforo reflejan puntos de fertilización con el nutriente. En los demás sitios los valores de la
+concentración de fósforo fueron similares tanto para la reserva como para el pastizal
+natural. Por su parte, en los suelos argiudoles de Chivilcoy y Navarro, la variación del fósforo entre los
+sistemas de uso del suelo no mostraron diferencias significativas (K-W H:p\>0.05).
+
+
 **Conductividad Eléctrica**
 
 La conductividad eléctrica medida en milisiemens por centímetro (milisiemens por
-centímetro $\frac{mS}{cm}$), para los suelos argiudoles de Luján, fue determinada para el
-estrato de 10 a 20 cm. En cada sitio se observan claras diferencias y esto se convalida
+centímetro $\frac{mS}{cm}$), para los suelos argiudoles de Luján, 
+fue determinada para el estrato de 10 a 20 cm. En cada sitio se observan claras diferencias y esto se convalida
 con el test de K-W p:H\<0.01, en el gráfico de cajas y bigotes se observa el mayor valor
 de CE se da en el pastizal natural.
 
@@ -747,6 +903,7 @@ pairwise.wilcox.test(RO_db_full$pH, RO_db_full$system,data=RO_db_full,
 
 ```{r pH_boxplot, echo=FALSE}
 par(mfrow=c(1,2))
+
 boxplot(pH ~ sitio+estrato, data = fyq.box1, sub = "potencial Hidrógeno",
         main= "Argiudoles Luján", names=c("A","P","R"))
 
@@ -2611,21 +2768,21 @@ r_RO_anosim<-Den_anosim[["statistic"]]
 
 ```
 
-El análisis de similitudes nos indica que existen disimilaridades estadísticamente 
-significativas entre las comunidades ($R: p_{valor}<0.05$),
-tanto en los suelos de Luján como en los suelos de Chivilcoy y Navarro.
+El análisis de similitudes nos indica que existen disimilaridades estadísticamente
+significativas entre las comunidades ($R: p_{valor}<0.05$), tanto en los suelos de Luján
+como en los suelos de Chivilcoy y Navarro.
 
-Respectivamente, `r r_unlu_anosim` (Luján) y `r r_RO_anosim` (Chivilcoy y Navarro),
-son los los valores del estadístico que indican la proporción de disimilitud entre los grupos,
-esto es, la separación de los sistemas de uso
-del suelo en cada zona de estudio, por lo tanto, en los suelos de Luján las comunidades
-resultaron en comunidades más separads entre sistemas de uso de suelo.
+Respectivamente, `r r_unlu_anosim` (Luján) y `r r_RO_anosim` (Chivilcoy y Navarro), son
+los los valores del estadístico que indican la proporción de disimilitud entre los grupos,
+esto es, la separación de los sistemas de uso del suelo en cada zona de estudio, por lo
+tanto, en los suelos de Luján las comunidades resultaron en comunidades más separads entre
+sistemas de uso de suelo.
 
-La diferencia en el grado del estadístico R del análisis de similitudes entre las
-zonas de estudio puede deberse a los diferentes grupos estudiados en cada zona de estudio 
-dado que las comunidades en ambos sitios de estudios muestran diferencias significativas
-que indican que los sistemas de uso de suelo en términos de composición de la 
-comunidad son diferentes.
+La diferencia en el grado del estadístico R del análisis de similitudes entre las zonas de
+estudio puede deberse a los diferentes grupos estudiados en cada zona de estudio dado que
+las comunidades en ambos sitios de estudios muestran diferencias significativas que
+indican que los sistemas de uso de suelo en términos de composición de la comunidad son
+diferentes.
 
 ```{r Beta_div, include=FALSE, warning=FALSE}
 
@@ -2697,34 +2854,34 @@ plot(div.beta,cex=0.6,main="Argiudoles de Chivilcoy y Navarro",
 par(mfrow=c(1,1))
 ```
 
-Los dendrogramas muestran la similitud de Bray Curtis considerando un agruamiento jerárquico de
-tipo promedio, se observa que: a) en los suelos de Luján existe un claro agrupamiento entre los sitio 
-que corresponden al sistema de uso Agrícola, a la vez, se forman dos grupos separados entre
-sistem del pastizal y el sistema de la reserva y una situación intermedia entre los sistemas 
-pastizal y reserva; b) en los suelos de Chivilcoy y Navarro no 
-existen asociaciones vinculadas con los sistemas 
-de uso el suelo, esto es lo que se observa también en el bajo valor del estadístico R del 
-análisis de similitudes (`r r_RO_anosim`), un cierto grado de similitud se dá entre dos 
-de los sitios del sistemas de uso del pastial naturalizado, por otra parte en 
-grado de similitud, el sistema agrícola intensivo 
-muestra menores valores del índice de Bray-Curtis y aunque estos no se agrupen 
+Los dendrogramas muestran la similitud de Bray Curtis considerando un agruamiento
+jerárquico de tipo promedio, se observa que: a) en los suelos de Luján existe un claro
+agrupamiento entre los sitio que corresponden al sistema de uso Agrícola, a la vez, se
+forman dos grupos separados entre sistem del pastizal y el sistema de la reserva y una
+situación intermedia entre los sistemas pastizal y reserva; b) en los suelos de Chivilcoy
+y Navarro no existen asociaciones vinculadas con los sistemas de uso el suelo, esto es lo
+que se observa también en el bajo valor del estadístico R del análisis de similitudes
+(`r r_RO_anosim`), un cierto grado de similitud se dá entre dos de los sitios del sistemas
+de uso del pastial naturalizado, por otra parte en grado de similitud, el sistema agrícola
+intensivo muestra menores valores del índice de Bray-Curtis y aunque estos no se agrupen
 jerárquicamente resultan más similes que el sistema mixto agrícola ganadero.
 
+```{=html}
 <!--Living communities are spatially structured at many scales, and these structures are the
 result of several classes of processes. On the other hand, beta diversity is the spatial
 variation in community composition; so, a study of the factors that can explain the
 spatial variation of community composition is in every respect an analysis of beta
 diversity. (Numerical Ecology con R pp 228)-->
-
-El ordenamiento de las variables nos muestran a través de las coordenadas principales 
-que las primeras dos dimensiones explican el 75 y el 77 porciento de la variabilidad
-para los suelos de Luján y los suelos de Chivilcoy y Navarro, respectivamente.
+```
+El ordenamiento de las variables nos muestran a través de las coordenadas principales que
+las primeras dos dimensiones explican el 75 y el 77 porciento de la variabilidad para los
+suelos de Luján y los suelos de Chivilcoy y Navarro, respectivamente.
 
 En ambos casos a lo largo del primer eje se resume la diversidad de taxones que se hallan
 en las comunidades edáfica estudiadas e intuitivamente podemos decir que este eje también
 acomoda la abundancia de los organismos a lo largo del eje y a través del segundo eje de
-las coordenadas se explican la variabilidad en términos de la 
-composición de la comunidad hallada entre los sistemas de uso del suelo.
+las coordenadas se explican la variabilidad en términos de la composición de la comunidad
+hallada entre los sistemas de uso del suelo.
 
 ```{r pca_tb, include=FALSE,warning=FALSE}
 #hellinger
@@ -2823,36 +2980,33 @@ fviz_pca_biplot(tb_U_D_pca, axes = c(1,2), col.var = "black", #as.factor(sit),
 
 ```
 
+En los suelos de Luján la separación del sistema agrícola de los demás sistemas de uso del
+suelo es clara dirigiéndose hacia el lado negativo del segundo eje de cooredenadas. El
+sistema de la reserva se posiciona en el nivel superior de del segundo eje y el sistema
+del pastizal se encuentra en una situación intermedia. Por lo que podría interpretarse una
+situación de gradiente con respecto a la composición de as comunidades del suelo.
 
-En los suelos de Luján la separación del sistema agrícola de los demás sistemas de 
-uso del suelo es clara dirigiéndose hacia el lado negativo del segundo eje de cooredenadas.
-El sistema de la reserva se posiciona en el nivel superior de del segundo eje y el 
-sistema del pastizal se encuentra en una situación intermedia. 
-Por lo que podría interpretarse una situación de gradiente con respecto a la composición
-de as comunidades del suelo. 
-
-Si observamos los principales grupos taxonómicos, se forma un agrupamiento entre los nemátodos
-los enquitreidos y los astigmatas en el extremo positivo de la primera dimensión de las 
-coordenadas principales. En el extremo opuesto, se agrupan organismos que corresponden 
-principalmente a la macrofauna, de mayor a menor serían las lombrices de tierra, herbívoros,
-detritívoros, predadores, fungívoros y otra mesofauna. 
-Entre los grupos escritos anteriormente se dan situaciones particulares, los ácaros
-prostigmatas se ubican sobre el brazo negativo del segundo eje corelacionandose con los 
-sistemas de uso de suelo agrícola. Los ácaros mesostigmatas, ácaros predadores del suelo, 
-se encuentran en una situación cercana al centro de coordenadas (0,0) por lo que su 
-variabilidad no se encuentra bien representada por estas dimensiones. De cerca se encuentran
-los ácaros oribátidos con una leve relación con los vectores de los sitios que corresponden
-al suelo de la Reserva, en esta situación también se hallan los macroartrópodos omnívoros
-con una relación más fuerte con los sistemas de uso de la Reserva, los tardígrados se hallan 
-fuertemente relacionados con el sistema de la Reserva. 
-Los colémbolos se relacionan con los argiudoles del sistema del pastizal.
+Si observamos los principales grupos taxonómicos, se forma un agrupamiento entre los
+nemátodos los enquitreidos y los astigmatas en el extremo positivo de la primera dimensión
+de las coordenadas principales. En el extremo opuesto, se agrupan organismos que
+corresponden principalmente a la macrofauna, de mayor a menor serían las lombrices de
+tierra, herbívoros, detritívoros, predadores, fungívoros y otra mesofauna. Entre los
+grupos escritos anteriormente se dan situaciones particulares, los ácaros prostigmatas se
+ubican sobre el brazo negativo del segundo eje corelacionandose con los sistemas de uso de
+suelo agrícola. Los ácaros mesostigmatas, ácaros predadores del suelo, se encuentran en
+una situación cercana al centro de coordenadas (0,0) por lo que su variabilidad no se
+encuentra bien representada por estas dimensiones. De cerca se encuentran los ácaros
+oribátidos con una leve relación con los vectores de los sitios que corresponden al suelo
+de la Reserva, en esta situación también se hallan los macroartrópodos omnívoros con una
+relación más fuerte con los sistemas de uso de la Reserva, los tardígrados se hallan
+fuertemente relacionados con el sistema de la Reserva. Los colémbolos se relacionan con
+los argiudoles del sistema del pastizal.
 
 En los suelos argiudoles de Chivilcoy y Navarro se observa una clara separación del
-sistema de uso del suelo mixto agrícola ganadero ubicándose en el nivel superior de la mitad
-derecha del plano de componentes principales, en el nivel inferior se ubica al sistema 
-del pastizal naturalizado y el sistema agrícola relacionandose con el pastizal naturalizado
-en una situación intermedia. 
-
+sistema de uso del suelo mixto agrícola ganadero ubicándose en el nivel superior de la
+mitad derecha del plano de componentes principales, en el nivel inferior se ubica al
+sistema del pastizal naturalizado y el sistema agrícola relacionandose con el pastizal
+naturalizado en una situación intermedia.
 
 ```{r plot_pca_Ro, echo=FALSE, warning=FALSE}
 
@@ -2864,17 +3018,14 @@ fviz_pca_biplot(std_ab_pca, axes = c(1,2) , col.ind=col.sp,
 ```
 
 Observando los centroides de los taxones estudiados en los suelos de Chivilcoy y Navarro
-de menor a mayor a lo largo de la primera dimensión observamos a las lombrices
-de tierra, luego a los ácaros predadores del suelo (Mesostigmatas), en un valor similar de 
-este eje se encuentran los ácaros prostigmatas y los ácaros oribátidos relacionandose 
-con el los sitios del sistema agrícola intensivo y con el sistema mixo agrícola ganadero, 
+de menor a mayor a lo largo de la primera dimensión observamos a las lombrices de tierra,
+luego a los ácaros predadores del suelo (Mesostigmatas), en un valor similar de este eje
+se encuentran los ácaros prostigmatas y los ácaros oribátidos relacionandose con el los
+sitios del sistema agrícola intensivo y con el sistema mixo agrícola ganadero,
 respectivamente, y más alejados se ubica el centroide que corresponde a los colémbelos
 relacionados también con el sistema agrícola intensivo.
 
 # Conclusión
-
-
-
 
 # ref
 
