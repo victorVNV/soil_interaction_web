@@ -30,8 +30,7 @@ Para avanzar en la compresión de las comunidades crípticas del suelo han toman
 
 Todos los organismos responden a las presiones ambientales, estas respuestas pueden observarse como cambios en los rasgos morfológicos, fisiológicos, fenológicos o de comportamiento. Las presiones que modifican las características del medio también se reflejan como cambios en la estructura poblacional de los diferentes taxones en la comunida [@sechi2017; @mittelbach2019]. Por lo tanto, el efecto de las interacciones de los organismos con su ambiente queda reflejado en las variaciones poblacionales y en las variaciones de los rasgos individuales, que pueden ser utilizados como indicadores de procesos ecológicos a nivel de la comunidad [@brussaard2012; @petchey2010].
 
-La fauna edáfica es sensible a las perturbaciones que ocurren sobre el suelo, las actividades de manejo pueden alterar el hábitat y la fuente de los recursos que estos organismos utilizan [@lavelle2006]. Por ejemplo, las perturbaciones pueden alterar los ingresos y salidas de materia orgánica y nutrientes debido a los pulsos derivados de la aplicación de fertilizantes y pesticidas[.\@.citas_sobre_alteracion_ciclo_N], o pueden alterarse las condiciones del microclima poroso cuando se expone el suelo a factores ambientales en periodos de barbecho (p.e. cuando el cultivo no se encuentra presente), o, en sistemas ganaderos, el efecto de la compactación 
-por el pisoteo sobre la estructura física del suelo que afecta la distribución y el tamaño de los poros.
+La fauna edáfica es sensible a las perturbaciones que ocurren sobre el suelo, las actividades de manejo pueden alterar el hábitat y la fuente de los recursos que estos organismos utilizan [@lavelle2006]. Por ejemplo, las perturbaciones pueden alterar los ingresos y salidas de materia orgánica y nutrientes debido a los pulsos derivados de la aplicación de fertilizantes y pesticidas[.\@.citas_sobre_alteracion_ciclo_N], o pueden alterarse las condiciones del microclima poroso cuando se expone el suelo a factores ambientales en periodos de barbecho (p.e. cuando el cultivo no se encuentra presente), o, en sistemas ganaderos, el efecto de la compactación por el pisoteo sobre la estructura física del suelo que afecta la distribución y el tamaño de los poros.
 
 La estimación del tamaño corporal de los organismos edáficos, medida a partir del peso corporal, permite relacionar parámetros fisiológicos como el metabolismo y el uso de los recursos, con parámetros ecológicos tales como las interacciones tróficas y las adaptaciones de estos organismos ante cambios en el ambiente [@pey2014; @white2007; @turnbull2014].
 
@@ -55,9 +54,9 @@ A partir de los pesos corporales ( $\mu g_ {\;p.s.}$ ) de cada individuo se calc
 
 **Tabla 4.1. Ecuaciones morfométricas que relacionana el largo y el ancho corporal para estimar el peso corporal de los taxones de la fauna edáfica según su forma característica** <!-- controlar y corregir -->
 
-| Autor | Taxón | Ecuación | Coeficiente de peso seco | Observaciones|
-|------------|------------|------------|------------|---------------|------------|
-| Tanaka 1970 | Hipogastruridae | b= 2,78 ± 0,24 ; a= 0,71 ± 0,025                                          | expressed as dry biomass          | log Y (weigth in ug) = b \* log X (length in mm) + a                                              |
+| Autor                          | Taxón                                         | Ecuación                                                                  | Coeficiente de peso seco          | Observaciones                                                                                     |
+|------------|------------|------------|----------------|--------------------|
+| Tanaka 1970                    | Hipogastruridae                               | b= 2,78 ± 0,24 ; a= 0,71 ± 0,025                                          | expressed as dry biomass          | log Y (weigth in ug) = b \* log X (length in mm) + a                                              |
 | Tanaka 1970                    | Isotomidae                                    | b= 2,55 ± 0,93 ; a= 0,99 ± 0,088                                          | expressed as dry biomass          | log Y (weigth in ug) = b \* log X (length in mm) + a                                              |
 | Tanaka 1970                    | Onychiuridae                                  | b= 2,75 ± 0,34 ; a= 0,63 ± 0,037                                          | expressed as dry biomass          | log Y (weigth in ug) = b \* log X (length in mm) + a                                              |
 | Tanaka 1970                    | Entomobriidae                                 | b= 2,5 ± 0,38 ; a= 1,07 ± 0,04                                            | expressed as dry biomass          | log Y (weigth in ug) = b \* log X (length in mm) + a                                              |
@@ -89,12 +88,13 @@ A partir de los pesos corporales ( $\mu g_ {\;p.s.}$ ) de cada individuo se calc
 
 Se resumen las valores medio de densidad, biomasa y pesos corporales de los taxones en cada sistema de manejo, para observar posibles diferencias estructurales dentro de la fauna edáfica relacionadas con el impacto del uso del suelo en los diferentes sistemas de manejo.
 
+```{=html}
 <!--La curva de acumulación empírica inversa permite comparar la distribución de los datos observados con la distribuciones teóricas.
 
 Los datos observados son los puntos que se acumulan en la fig. 4.x y estos se corresponden con cada una de los pesos corporales de la fauna edáfica compilada, estas observaciones se contrastan con las distribuciones teóricas exponencial, potencial exponencial, potencial exponencial truncada y logarítmica normal.
 
 Re redactar para darle sentido a los resultados y que no parezca repetición de -->
-
+```
 Para cada comunidad se analizó la respuesta de la biomasa media de cada gremio trófico vinculado con el efecto de los sistemas de manejo, a la vez se abordaron las posibles relaciones causales que podrían afectar la respuesta de la biomasa media ya sea por el efecto de las estaciones del año o por los estratos en el cuál habitan los taxas y las interacciones entre estos.
 
 El análisis se realizó utilizando un modelo lineal multifactorial y pruebas post-hoc de Tukey HSD para evaluar diferencias de medias de manera simultánea.
@@ -409,14 +409,12 @@ body_unlu$Gremio<-factor(body_unlu$gremio,labels=c("Detritivoro","Herbivoro","Mi
 
 ```
 
+## Densidades y pesos corporales por grupo taxonómico
 
-## Densidades y pesos corporales por grupo taxonómicos
+Los nemátodos de vida libre del suelo, hallados en los suelos Argiudoles de Luján,
+mostraron un rango de pesos corporales (Fig 4.x) de 9 órdenes de magnitud, estos van desde pesos mínimos de $e^{-3}\,= 5\;\,10^{-2}\mu g$ hasta pesos máximos de $e^{5,7}\,= 299\,\mu g$.
 
-Los nemátodos de vida libre del suelo mostraron un rango de pesos corporales (Fig 4.x) de 9 órdenes de magnitud,
-estos van desde pesos mínimos de $e^{-3}\,= 5\;\,10^{-2}\mu g$ hasta pesos máximos de $e^{5,7}\,= 299\,\mu g$.
-
-
-```{r plot_nem_ridg,echo=FALSE,warning=FALSE,message=FALSE}
+```{r plot_nem_ridg,echo=FALSE,warning=FALSE,message=FALSE,fig.align = "center"}
 body_unlu%>%filter(clase_tam=="micro")%>%
   ggplot(aes(x=log(body_mass), y=Taxón, fill=Gremio)) + 
   geom_density_ridges(rel_min_height = 0.001,scale=1.5,show.legend=FALSE)+ 
@@ -427,14 +425,7 @@ body_unlu%>%filter(clase_tam=="micro")%>%
 
 ```
 
-
-Los nemátodos omnívoros y los nemátodos predadores muestran modas del pesos corporal mayores que en las 
-demás categorías tróficas, siguen de cerca a los predadores las modas de los nemátodos fungívoros, luego 
-los bacterívoros y los nemátodos fitófagos que en general son más pequeños debido a sus hábitos de vida.
-Se observan distribuciones bimodales en los nemátodos omnívoros de la reserva y el pastizal, lo que implica 
-dos grupos de tamaños en la misma categoría trófica.
-La distribución de tamaños de los predadores está menos dispersa que la distribuciones de los 
-demás gremios tróficos.
+Los nemátodos omnívoros y los nemátodos predadores muestran modas del pesos corporal mayores que en las demás categorías tróficas, siguen de cerca a los predadores las modas de los nemátodos fungívoros, luego los bacterívoros y los nemátodos fitófagos que en general son más pequeños debido a sus hábitos de vida. Se observan distribuciones bimodales en los nemátodos omnívoros de la reserva y el pastizal, lo que implica dos grupos de tamaños en la misma categoría trófica. La distribución de tamaños de los predadores está menos dispersa que la distribuciones de los demás gremios tróficos.
 
 ```{r tab_nem_ridg,echo=FALSE,warning=FALSE,message=FALSE}
 Dp_U_m%>% kbl(caption = "Tabla 4.x. Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) para las categorías tróficas de nematodos de vida libre de suelos Argiudoles de Luján") %>%kable_classic(full_width = F, html_font = "Cambria")
@@ -452,24 +443,21 @@ grid.arrange(tableGrob(Dp_U_m,rows=NULL), body_unlu%>%filter(clase_tam=="micro")
 #aca intento juntar tablas y gráficos para que queden uno al lado del otro.
 ```
 
+Los nemátodos omnívoros de la Reserva muestran el mayor valor de peso corporal promedio y la mayor biomasa media, con relación a todas las categorías tróficas de nemátodos. La mayor abundancia de nemátodos omnívoros se observó en el sistema del pastizal. 
 
-Los nemátodos omnívoros de la Reserva muestran el mayor valor de peso corporal promedio y 
-la mayor biomasa media, la mayor abundancia se observó en el sistema del pastizal. 
-En la Reserva también se observan los nemátodos predadores más pesados y la mayor biomasa media, la mayor 
-abundancia se observa en el sistema del pastizal.
-Los nemátodos fungívoros fueron de bajo peso en promedio en el sistema del pastizal distanciandose
-del mayor peso promedio observado en el sistema agrícola en 5,2 microgramos. La mayor densidad y la mayor biomasa
-se registraron en el sistema de la Reserva.
-Los nemátodos baterívoros muestran valores medios máximos para cada parámetro en el sistema de la Reserva de
-manera similar se observan valores máximos de cada parámetro para los nemátodos fitófagos en el 
-sistema de la Reserva.
+En la Reserva se observan los nemátodos predadores más pesados y con la mayor biomasa media, la mayor abundancia de estos se observa en el sistema del pastizal. 
 
-La mesofauna del suelo no predadora de los suelos argiudoles de Luján se distribuyeron entre los 
-$0,4\mu g$ hasta los $4 \;mg$ de peso corporal.
+Los nemátodos fungívoros fueron de bajo peso en promedio en el sistema del pastizal distanciandose del mayor peso promedio observado en el sistema agrícola en 5,2 microgramos, la mayor densidad y la mayor biomasa se registraron en el sistema de la Reserva. 
 
-Entre los detritivoros, por la distribución de pesos corporales, destacan los enquitreidos por ser los de mayor
-tamaño con un rando de distribución entre los 350 y los 4400 $\mu g$ de peso corporal.
-```{r plot_mesodet_ridg,echo=FALSE,warning=FALSE,message=FALSE}
+Los nemátodos bacterívoros muestran valores medios máximos para cada parámetro en el sistema de la Reserva de manera similar se observan valores máximos de cada parámetro para los nemátodos fitófagos en el sistema de la Reserva.
+
+La mesofauna del suelo no predadora de los suelos argiudoles de Luján se distribuyeron entre los $0,4\mu g$ hasta los $4 \;mg$ de peso corporal.
+
+La distribución de pesos corporales (Fig 4.x) de la mayoría de los taxones son unimodales y con una forma en general de tipo campana.
+
+Entre los detritivoros, por la distribución de pesos corporales, destacan los enquitreidos por ser los de mayor tamaño con un rando de distribución entre los 350 y los 4400 $\mu g$ de peso corporal.
+
+```{r plot_mesodet_ridg,echo=FALSE,warning=FALSE,message=FALSE,fig.align = "center"}
 
 body_unlu%>%filter(clase_tam=="meso"&body_unlu$taxa%in%c("alycidae",
                         "astigmata","ceratozetoidea",
@@ -492,31 +480,15 @@ body_unlu%>%filter(clase_tam=="meso"&body_unlu$taxa%in%c("alycidae",
 
 
 ```
-
-
-La distribución de pesos corporales de la mayoría de los taxones son unimodales y con una forma en general
-de tipo campana.
+Los enquitreidos, animales con función ecológica similar a la de las lombrices de tierra pero debida a su tamaño corporal con su efecto operando a menor escala, muestra el mayor peso corporales medio, la mayor densidad y la mayor biomasa media en el suelo agrícola.
 
 ```{r tab_mesodet_ridg,echo=FALSE,warning=FALSE,message=FALSE}
 Dp_U_me_D%>% kbl(caption = "Tabla 4.x. Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) para la mesofauna no predadora de suelos Argiudoles de Luján") %>%kable_classic(full_width = F, html_font = "Cambria")
 ```
 
-
-Los enquitreidos, animales con función ecológica similar a la de las lombrices de tierra pero con su efecto operando a menor escala debida a su tamaño corporal, muestran el mayor peso corporales medio, la mayor densiad y la mayor biomasa media en el suelo agrícola.
-
 Los ácaros Astigmatas tuvieron el mayor peso corporal medio, la mayor densidad y biomasa en el suelo con uso agrícola, estos ácaros se consideran, por sus estrategias de vida y modos de alimentación, ser ácaros oportunistas que ocurren en ambientes perturbados con disponibilidad de recursos.
 
-Entre los ácaros oribátidos detritívoros, aquellos con una preferencia por recursos como la hojarasca y tallos con un mayor contenido de compuestos estructurales, los oripodidae fueron más pesado, más abundantes y con mayor biomasa en el pastizal; los ceratozetoidea tuvieron la mayor biomas en el suelo de la reserva pero en promedio el mayor peso corporal ocurre en el suelo agrícola; la familia scheloribates registra el mayor peso en la Reserva, la mayor abundancia y biomasa en el pastizal; Eupthiracaroidea y Epilomannioidea se observaron el pastizal y la reserva, ambos hacen uso de los haces vasculares para su alimentación para ambos taxas los mayores pesos medios, densidad y biomasa se observaron en los suelos de la Reserva.
-
-Los ácaros oribátidos microfitófagos, aquellos que consumen hifas de hongos y microbiota, los oppioidea son la familia con la estructura corporal más equeña, en los tres sistemas de uso su peso fue de aprox. 12 $\mu g$ y la mayor biomasa se dio en el suelo de la Reserva; la familia oribatulidae muestra el mayor peso corporal y la mayo biomasa en los suelos agrícolas; 
-la familia Galumnidae posee una estructura corporal en relación a los demás oribátidos de mayor tamaño, estos fueron más pesados en el suelo de pastizal pero más abundantes en el suelo de la reserva; la familia Eremobelbidae no se observó en el sistema agrícola, su peso corporal promedio fué mayor en la reserva donde también muestra la mayor biomasa media.
-
-Entre los colémbolos destaca la (super-?)familia Hipogastruridae por consumir nemátodos y carroña de invertebrados a demás de la microflora por lo que són omnívoros, para esta familia se observó el mayor peso en promedio en el sistema agrícola done también ocurre la mayor biomasa; los colémbolos Isotomidae fueron más pesados en el suelo de la reserva y muestran también la mayor biomasa, aunque en el suelo agrícola fueron más abundantes; los Symphypleona no se observaron en el sistema del pastizal, fueron más abundantes en el sistema agrícola done registra la mayor biomasa pero fueron más grandes términos de peso corporal en la Reserva, estos dos últimos taxones de colémbolos se consideran de hábitos alimenticios detritívoros; los entomóbridos y los onichiuridos son taxones microfitófagos, la superfamilia Entomobryoidea son colémbolos de gran tamaño, en los suelos de la reserva estos fueron más pesados y abundantes, los onychiuridae son colémbolos **euedáficos** y de pequeño tamaño, en el suelo del pastizal se observó el mayor peso corporal promedio y la mayor biomasa aunque en los suelos de la reserva estos fueron más abundantes. 
-
-
-La mesofauna predadora muestra un rango e pesos corporales entre 0.7 $\mu g$ a 250 $\mu g$.
-
-La mesofauna predadora de los suelos argiudoles se conforma de ácaros mesostigmatas, ácaros prostigmatas, de dipluros y tardígrados. Estos animales con excepción de los tardígrados son poco abundantes en comparación con la mesofauna "no-predadora", por ello la distribución de sus pesos corporales se observa en muchos casos multimodal, esto podría deberse a la ocurrencia de individuos en diferentes etapas de vida, es decir, ninfas y adultos. 
+Entre los ácaros oribátidos detritívoros, aquellos con una preferencia por recursos como la hojarasca y tallos con un mayor contenido de compuestos estructurales, los <u>Oripodidae</u> fueron más pesados, más abundantes y con mayor biomasa en el sistema del pastizal; los <u>Ceratozetoidea</u> tuvieron la mayor biomasa en el suelo de la reserva pero en promedio el mayor peso corporal ocurre en el suelo agrícola; la familia <u>Scheloribates</u> registra el mayor peso en la Reserva, la mayor abundancia y biomasa en el pastizal; <u>Eupthiracaroidea y Epilomannioidea</u> se encontrados en suelos del pastizal y la reserva, ambos se alimentan dentro de los haces vasculares, los mayores pesos medios, densidad y biomasa se observaron en los suelos de la Reserva.
 
 ```{r plot_mesopred_ridg,echo=FALSE,warning=FALSE,message=FALSE}
 body_unlu%>%filter(clase_tam=="meso"
@@ -538,18 +510,43 @@ body_unlu%>%filter(clase_tam=="meso"
 
 ```
 
+Dentro de los ácaros oribátidos microfitófagos, aquellos que consumen hifas de hongos, bacterias y otra microbiota, los <u>Oppioidea</u> son la familia con la estructura corporal más pequeña, en los tres sistemas de uso su peso fue de aprox. 12 $\mu g$ y la mayor biomasa se dio en el suelo de la Reserva; la familia <u>Oribatulidae</u> muestra el mayor peso corporal y la mayor biomasa en los suelos agrícolas; la familia <u>Galumnidae</u> posee una estructura corporal en compración con los demás oribátidos de mayor tamaño, estos fueron más pesados en el suelo de pastizal pero más abundantes en el suelo de la reserva; la familia <u>Eremobelbidae</u> no se observó en el sistema agrícola, su peso corporal promedio fué mayor en la reserva donde también muestra la mayor biomasa media.
+
+Entre los colémbolos destaca la familia <u>Hipogastruridae</u> por consumir nemátodos y carroña de invertebrados a demás de la microflora por lo que són omnívoros, para esta familia se observó el mayor peso en promedio en el sistema agrícola donde también ocurre la mayor biomasa; los colémbolos <u>Isotomidae</u> fueron más pesados en el suelo de la reserva y muestran también la mayor biomasa, aunque en el suelo agrícola fueron más abundantes; los <u>Symphypleona</u> no se observaron en el sistema del pastizal, fueron más abundantes en el sistema agrícola donde registra la mayor biomasa pero fueron más grandes en términos de peso corporal en la Reserva, estos dos últimos taxones de colémbolos se consideran de hábitos alimenticios detritívoros; los </u>entomóbridos y los oniquiüridos</u> son taxones microfitófagos, la superfamilia </u>Entomobryoidea</u> son colémbolos de gran tamaño, en los suelos de la reserva estos fueron más pesados y abundantes, los </u>Onychiuridae</u> son colémbolos **euedáficos** y de pequeño tamaño, en el suelo del pastizal se observó el mayor peso corporal promedio y la mayor biomasa aunque en los suelos de la reserva estos fueron más abundantes.
+
+```{r plot_mesopred_ridg,echo=FALSE,warning=FALSE,message=FALSE}
+body_unlu%>%filter(clase_tam=="meso"
+                   &body_unlu$taxa%in%c("amerosidae","arctacaridae",
+                        "bdelloidea","cunaxide",
+                        "dermanisoidea","eupodoidea",
+                        "eviphididae","ichtyostomatogasteridae",
+                        "laelapidae",
+                        "mesostigmata","ologamasidae",
+                        "parasitidae","parholaspidae","penthalidae",
+                    "rhagidiidae","rhodacaroidea","tardigrado","parajapygidae","japygiidae","tarsonemidae","tenerifidae", 
+                        "tydeoidea","uropodidae"))%>%
+  ggplot(aes(x=log(body_mass), y=Taxón, fill=Gremio)) + 
+  geom_density_ridges(rel_min_height = 0.001,scale = 1.5,show.legend=FALSE)+ 
+  scale_fill_viridis_d(alpha = 0.8)+
+  facet_grid(.~Sistema)+
+  labs(title='Peso corporal individual para los taxones de microartrópodos', 
+       x= 'Peso corporal en ln ug/m^2',y=NULL)
+
+```
+
+La mesofauna predadora muestra un rango e pesos corporales entre 0.7 $\mu g$ a 250 $\mu g$.
+La mesofauna predadora de los suelos argiudoles se conforma de ácaros mesostigmatas, ácaros prostigmatas, de dipluros y tardígrados. Estos animales con excepción de los tardígrados son poco abundantes en comparación con la mesofauna "no-predadora", por ello la distribución de sus pesos corporales se observa en muchos casos multimodal (Fig. 4.x), esto podría deberse a la ocurrencia de individuos en diferentes etapas de vida, es decir, ninfas y adultos, a las diferencias en tamaños de especies que ocurren dentro de la jerarquía taxonómica considerada aquí, es decir, el nivel taxonómico de "Familias".
+
 
 ```{r tab_msopred_ridg,echo=FALSE,warning=FALSE,message=FALSE}
 Dp_U_me_P%>% kbl(caption="Tabla 4.x. Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) para la mesofauna predadora de suelos Argiudoles de Luján") %>%kable_classic(full_width = F, html_font = "Cambria")
 ```
 
+Entre los ácaros mesostigmata (Tabla 4.x) el taxón de mayor peso corporal fué la familia <u>Ichtyostomatogasteridae</u> aunque solo se observaron en el suelo del pastizal; la familia <u>Ologamasidae</u> tuvo la mayor abundancia en los suelos de la reserva pero el mayor peso corporal y biomasa media se observó en el suelo agrícola; los <u>Parasitidae</u> fueron más grandes en el suelo agrícola pero más abundantes y con mayor biomasa en el pastizal; los mesostigmatas <u>Dermanisoidea</u> en el sistema agrícola tienen la mayor biomasa y peso corporal; la superfamilia <u>Rhodacaroidea</u> son mesostigmatas **euedáficos**, son predadores de pequeño tamaño, muestran la mayor densidad y biomasa en el pastizal pero el mayor peso corporal promedio en el sistema agrícola.
 
-Entre los ácaros mesostigmata el taxón de mayor peso corporal fué la familia Ichtyostomatogasteridae aunque solo se observaron en el suelo del pastizal; la familia Ologamasidae tuvo la mayor abundancia en los suelos de la reserva pero el mayor peso corporal y biomasa media se observó en el suelo agrícola; los Parasitidae fueron más grandes en el suelo agrícola pero más abundantes y con mayor biomasa en el pastizal; los mesostigmatas Dermanisoidea en el sistema agrícola tienen la mayor biomasa y peso corporal; la superfamilia Rhodacaroidea son mesostigmatas **euedáficos**, son predadores de pequeño tamaño, muestran la mayor densidad y biomasa en el pastizal pero el mayor peso corporal promedio en el sistema agrícola.
+Entre los ácaros prostigmatas destaca <u>Cunaxidae</u> con el mayor peso corporal que solo fué registrado en el sistema agrícola; los <u>Bdelloidea</u> en el sistema del pastizal muestran los mayores vaores de peso, densidad y biomasa; los <u>Eupodoidea</u> mostraron pesos corporales similares en los tres sistemas; los <u>pentalidos</u> de la reserva fueron los más pesados y los <u>rhagididos</u> del pastizal fueron los más pesados; los <u>tydeidos</u> en el suelo de la reserva fueron los de mayor peso y biomasa.
 
-Entre los ácaros prostigmatas destaca Cunaxidae con el mayor peso corporal que solo fué registrado en el sistema agrícola; los Bdelloidea en el sistema del pastizal muestran los mayores vaores de peso, densidad y biomasa; los Eupodoidea mostraron pesos corporales similares en los tres sistemas; los pentalidos de la reserva fueron los más pesados y los rhagididos del pastizal fueron los más pesados; los tydeidos en el suelo de la reserva fueron los de mayor peso y biomasa.
-
-En los suelos de Chivilcoy y Navarro los microartrópodos tienen un espectro de tamaños corporales de 8 órdenes de magnitud, con pesos corporales desde $e^{-3} = 0.05 \mu g$ hasta $e^{4} \approx 60 \mu g$.
-
+En los suelos de Chivilcoy y Navarro (Fig 4.x) los microartrópodos tienen un espectro de tamaños corporales de 8 órdenes de magnitud, con pesos corporales desde $e^{-3} = 0.05 \mu g$ hasta $e^{4} \approx 60 \mu g$.
 
 ```{r plot_mesoRO_ridg,echo=FALSE,warning=FALSE,message=FALSE}
 meso1<-meso
@@ -561,27 +558,28 @@ meso1$Gremio<-factor(meso1$guild,labels=c("Detritivoro","Microfitofago","Omnivor
 meso1%>%ggplot(aes(x=log(biomass), y=Taxón, fill=Gremio)) + geom_density_ridges(rel_min_height = 0.0000005) +scale_x_continuous(breaks = seq(from=-4, to=5, by=2))+  scale_fill_viridis_d(alpha = 0.8)+facet_grid(.~Sistema)+labs(title='Peso corporal individual para los taxones de microartrópodos', x= 'Peso corporal en ln ug/m^2',y=NULL)
 ```
 
-
 Los microartrópodos preadores muestran distribuciones de tamaños con más de una moda. También se observa este fenómeno en algunos taxones de detritívoros y microfitófagos.
+
+Los ácaros astigmatas (Tabla 4.x) de la familia Acaroidea no se observaron en el sistema del pastizal naturalizado, esta familia muestra la mayor biomasa en el sistema mixto agrícola ganadero.
+
+Entre los ácaros oribátidos detritívoros la superfamilia <u>Euphtiracaroidea</u> fué más abundante en el sistema agrícola donde participan con la mayor biomasa aunque el mayor peso en promedio se observa en el sistema mixto; los <u>Epilohmannioidea</u> tienen la mayor biomasa en el sistema agrícola ganadero, en los tres sistemas de uso su peso corporal fué de $\approx 2 \;\mu g$; los <u>ceratozétidos</u> fueron más pesados y más abundantes en el sistema mixto; la superfamilia <u>Oripodoidea</u> en el pastizal naturalizado fueron más grandes pero poco abundantes por lo que la mayor biomasa se observa en el sistema agrícola intensivo.
+
 
 ```{r tab_mesoRO_ridg,echo=FALSE,warning=FALSE,message=FALSE}
 B2%>% kbl(caption="Tabla 4.x. Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) para los microartrópodos de suelos Argiudoles de Chivilcoy y Navarro") %>%kable_classic(full_width = F, html_font = "Cambria")
 ```
 
-Los ácaros astigmatas de la famili Acaroidea no se observaron en el sistema del pastizal naturalado, esta familia muestra la mayor biomasa en el sistema mixto agrícola ganadero.
 
-Entre los ácaros oribátidos detritívoros la superfamilia Euphtiracaroidea fué más abundante en el sistema agrícola donde participan con la mayor biomasa aunque el mayor peso en promedio se observa en el sistema misto; los Epilohmannioidea tienen la mayor biomasa en el sistema agrícola ganadero, en los tres sistemas de uso su peso corporal fué de $\approx 2 \;\mu g$; los ceratozétidos fueron más pesados y más abundantes en el sistema mixto; la superfamilia oripodoidea en el pastizal naturalizado fueron más grandes pero peco abundantes por lo que la mayor biomasa se observa en el sistema agrícola intensivo.
+De los ácaros oribátidos microfitófagos los <u>galumnidos</u> por su estructura corporal son los de mayor tamaño, estos pesaron $\approx 31 \;\mu g$ tanto en el pastizal naturalizado como en el suelo agrícola ganadero; la superfamilia <u>Crotonioidea</u> en el sistema agrícola intensivo tiene la mayor biomasa; los oribátidos <u>oppididos</u> son oribátidos **euedáficos** con una estructura corporal pequeña, estos fueron más pesados en el pastizal naturalizado pero más abundantes en el sistema agrícola intensivo donde se observa además la mayor biomasa.
 
-De los ácaros oribátidos microfitófagos los galumnidos por su estructura corporal son los de mayor tamaño, estos pesaron $\approx 31 \;\mu g$ tanto en el pastizal naturalizado como en el suelo agrícola ganadero; la superfamilia Crotonioidea en el sistema agrícola intensivo tiene la mayor biomasa; los oribátidos oppididos son oribátidos **euedáficos** con una estructura corporal pequeña, estos fueron más pesados en el pastizal naturalizado pero más abundantes en el sistema agrícola intensivo donde se observa además la mayor biomasa.
+Los colémbolos omnívoros <u>Hipogastruridae</u> en los sistemas con uso antrópico del suelo muestran los mayores valores de biomasa; Los <u>Symphypleona</u> fueron muy abundantes en el sistema agrícola pero con los menores pesos corporales en promedio; En el sistema mixto los colémbolos detritívoros de la familia <u>Isotomidae</u> muestran la mayor biomasa media en el sistema mixto; los colémbolos de la superfamilia <u>Entomobroidea</u> son colémbolos microfitófagos de gran tamaño su mayor biomasa se observa en el sistema mixto agrícola ganadero aunque el mayor peso corporal en promedio se presentó en el sistma del pastizal naturalizado; los <u>Onychiuridae</u> son colémbolos **euedáficos** microfitófagos y por su estructura corporal son de menor tamaño, estos colémbolos en el sistema agrícola intensivo muestran el mayor tamaño y biomasa.
 
-Los colémbolos omnívoros Hipogastruridae en los sistemas con uso antrópico del suelo muestran los mayores valores de biomasa; Los symphypleona fueron muy abundantes en el sistema agrícola pero con los menores pesos corporales en promedio; En el sistema mixto los colémbolos detritívoros de la familia Isotomidae muestran la mayor biomasa media en el sistema mixto; los colémbolos de la superfamilia Entomobroidea son colémbolos microfitófagos de gran tamaño su mayor biomasa se observa en el sistema mixto agrícola ganadero aunque el mayor peso corporal en promedio se presentó en el sistma del pastizal naturalizado; los Onychiuridae son colémbolos **euedáficos** microfitófagos y por su estructura corporal son de menor tamaño, estos colémbolos en el sistema agrícola intensivo muestran el mayor tamaño y biomasa.
+La superfamilia de ácaros mesostigmata <u>Dermanyssoidea</u> en el sistema agrícola intensivo tiene el mayor tamaño y biomasa; la superfamilia <u>Parasitoidea</u> no se observó en el pastizal naturalizado, en los demás sistemas es poco abundante y destaca en peso y biomasa en el sistema mixto; los mesostigmata <u>rhodacaridos</u>, son **euedáficos** en general de pequeño tamaño, fueron más pesados en el sistema agrícola intensivo y más importantes numéricamente en el pastizal naturalizado; los <u>uropodidos y vegaioideos</u> son importantes en términos de biomasa en el sistema agrícola intensivo.
 
-La superfamilia de ácaros mesostigmata Dermanyssoidea en el sistema agrícola intensivo tiene el mayor tamaño y biomasa; la superfamilia Parasitoidea no se observó en el pastizal naturalizado, en los demás sistemas es poco abundante y destaca en peso y biomasa en el sistema mixto; los mesostigmata rhodacaridos, son **euedáficos** en general de pequeño tamaño, fueron más pesados en el sistema agrícola intensivo y más importantes numéricamente en el pastizal naturalizado; los uropodidos y vegaioideos son importantes en términos de biomasa en el sistema agrícola intensivo.
+Los ácaros prostigmatas <u>Bdelloidea</u> fueron más pesados en el sistema mixto; los prostigmatas <u>Eupodoideas</u> son más pesados en el sistema mixto, más abundantes en el pastizal naturalizado y con la mayor biomasa en el sistema agrícola intensivo; los prostigmatas <u>trombidioidea</u> en el sistema agrícola intensivo registran la mayor biomasa y los prostigmatas <u>tydeidos</u> con pesos corporales de $\approx 1 \;\mu g$ son más abundantes en el sistema agrícola intensivo.
 
-Los ácaros prostigmatas Bdelloidea fueron más pesados en el sistema mixto; los prostigmatas Eupodoideas son más esados en el sistema mixto, más abundantes en el pastizal naturalizado y con la mayor biomasa en el sistema agrícola intensivo; los prostigmatas trombidioidea en el sistema agrícola intensivo registran la mayor biomasa y los prostigmatas tydeidos con pesos corporales de $\approx 1 \;\mu g$  son más abundantes en el sistema agrícola intensivo.
+La macrofauna edáfica en suelos argiuoles de Luján tiene una distribución de tamaños de 10 órdenes de magnitud con pesos corporales en un rango entre los $12 \mu g$ y los $270 \;mg$, la forma en la cuál se distribuyen los diferentes pesos corporales en general no son unimodales y esto puede relacionarse con la baja abundancia de la mayoría de los taxones observados.
 
-La macrofauna edáfica en suelos argiuoles de Luján tiene una distribución de tamaños de 10 órdenes de magnitud con pesos corporales en un rango entre los $12 \mu g$
-y los $270 \;mg$, la forma en la cuál se distribuyen los diferentes pesos corporales en general no son unimodales y esto puede relacionarse con la baja abundancia de la mayoría de los taxones observados.
 ```{r plot_macro_ridg,echo=FALSE,warning=FALSE,message=FALSE}
 body_unlu%>%filter(clase_tam=="macro")%>%
   ggplot(aes(x=log(body_mass), y=Taxón, fill=Gremio)) + 
@@ -592,312 +590,28 @@ body_unlu%>%filter(clase_tam=="macro")%>%
        x= 'Peso corporal en ln ug/m^2',y=NULL)
 ```
 
+
+Las lombrices de tierra del género Aporrectodea tienen pesos corporales medios en un rango de 22,5 mg hasta los 119 mg, A. trapezoides fué la de mayor peso corporal en el sistema agrícola, la mayor biomasa ocurre en el sistema agrícola con la especie A. caliginosa, la especie más abundante en este género se observa en la Reserva y corresponde a A. trapezoides. El género Bimastus sp. solo se observó en la reserva; Eukerria sp., Microscolex sp. y Octolasion tyrtaeum solo se observaron en el pastizal; Octolasion cyaneum solo estuvo presente en el sistema agrícola. Fué importante la contribución numérica de las las lombrices juveniles en los tres sistemas de uso del suelo, la mayor densidad de estas se observó en la reserva donde también se observó la mayor biomasa pero con el menor peso corporal en promedio.
+
+
+
 ```{r tab_macro_ridg,echo=FALSE,warning=FALSE,message=FALSE}
 Dp_U_Ma%>% kbl(caption="Tabla 4.x. Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) de la macrofauna de suelos Argiudoles de Luján") %>%kable_classic(full_width = F, html_font = "Cambria")
 ```
 
-Las lombrices de tierra del género Aporrectodea tienen pesos corporales medios en un rango de 22,5 mg hasta los 119 mg, A. trapezoides fué la de mayor peso corporal en el sistema agrícola, la mayor biomasa ocurre en el sistema agrícola con la especie A. caliginosa, la especie más abundante en este género se observa en la Reserva y corresponde a A. trapezoides. El género Bimastus sp. solo se observó en la reserva; Eukerria sp., Microscolex sp. y Octolasion tyrtaeum solo se observaron en el pastizal; Octolasion cyaneum solo estuvo presente en el sistema agrícola. Fué importante la contribución numérica de las las lombrices juveniles en los tres sistemas de uso del suelo, la mayor densidad de estas se observó en la reserva donde también se observó la mayor biomasa pero con el menor peso corporal en promedio.
+
 
 Los detritívoros Blattodeos fueron más pequeños en el sistema agrícola; los detritívoros Diplópodos ("milpies") fueron impotantes en términos de biomasa en el sistema agrícola aunque los animales más pesados se observaron en el pastizal naturalizado; las larvas de los dípteros son importantes detritívoros en el suelo estos animales ocurren con mayor densidad en el sistema agrícola donde tambien se observaron las larvas más pesadas; las larvas de scarabeidos ("gusanos blancos") son también importantes detritívoros, los animales de mayor tamaño se observaron en el sistema agrícola donde pesaron 490 mg; los Oniscoidea ("Bichos bolita") tienen la mayor biomasa en la Reserva; las larvas de los dípteros sciaridae forman parte de la macrofauna microfitófaga estos ocurrieron en los tres sistemas de uso del suelo y su biomasa fue mayor en la reserva donde el peso corporal promedio fué el más alto.
-
 
 Los carábidos, son coleópteros predadores, su biomasa fue similar en la reserva y en el pastizal y en promedio los carábidos más pesados ocurrieron en la reserva; los staphylinidos, son coleópteros predadores, tuvieron una mayor biomasa y un mayor peso corporal en el pastizal; los miriapodos Geophilomorpha ("cienpies") fueron importantes en biomasa y peso corporal en los suelos de la reserva. Entre las arañas se observaron Lycosidae con mayores biomasas en el sistema agrícola y Linyphiidae con la mayor biomasa en el suelo del pastizal. Los formicidos, en los suelos actúan como predadores generalistas, estos en la reserva tuvieron la mayor biomasa y el mayor peso corporal en promedio.
 
 En los suelos también se observaron macrofauna con hábitos alimenticios hervíboros, entre estos: los áfidos importantes en términos de biomasa en el sistema agrícola, los trips con los pesos corporales y la biomasa más altos en el pastizal y los caracoles *geófilos* que solo se observaron en la reserva.
 
+<!-- Se quitó el analisis KW para abundancias y pesos y biomasa y se los dejo en un ecrip por las dudas-->
 
+## Distribución de los pesos corporales de la Fauna Edáfica
 
-```{r KW,include=FALSE,warning=FALSE}
-#KW peso#####
-
-forbody_unlu<-body_unlu
-names(forbody_unlu)<-c("sitio","replica","estrato","microhabitat",
-                       "taxa","bio.ind","gremio",
-                       "clase_tam","Sistema","Taxón","Gremio")
-# Crear una lista de taxones únicos en los datos
-taxones <- unique(forbody_unlu$taxa)
-
-# Inicializar listas para almacenar los resultados
-resultados_kruskal <- list()
-resultados_wilcoxon <- list()
-
-# Recorrer cada taxón
-for (taxon in taxones) {
-  # Filtrar los datos para el taxón actual
-  datos_taxon <- forbody_unlu %>% filter(taxa == taxon)
-  
-  # Calcular el rango de los datos
-  rango <- diff(range(datos_taxon$bio.ind))
-  
-  # Verificar si hay suficiente variación en los datos para realizar el test
-  if (length(unique(datos_taxon$bio.ind)) > 5 && length(unique(datos_taxon$sitio)) > 1) {
-  # Realizar el test de Kruskal-Wallis
-  resultado_kruskal <- kruskal.test(bio.ind ~ sitio, data = datos_taxon)
-  
-  # Almacenar el resultado en la lista
-  resultados_kruskal[[taxon]] <- resultado_kruskal
-  
-  # Realizar comparaciones a pares con el test de Wilcoxon
-  pairwise_test <- pairwise.wilcox.test(datos_taxon$bio.ind, datos_taxon$sitio, p.adjust.method = "BH",exact=FALSE)
-  
-  # Almacenar el resultado en la lista
-  resultados_wilcoxon[[taxon]] <- pairwise_test
-} else {
-  cat("No hay suficientes datos distintos en los sitios para el taxón:", taxon, "\n")
-}
-}
-
-
-
-## Rosana
-formeso<-meso
-# Inicializar listas para almacenar los resultados
-resultados_kruskalRO <- list()
-resultados_wilcoxonRO <- list()
-
-# Crear una lista de taxones únicos en los datos
-taxones <- unique(formeso$specie)
-
-# Recorrer cada taxón
-for (taxon in taxones) {
-  # Filtrar los datos para el taxón actual
-  datos_taxon <- formeso %>% filter(specie == taxon)
-  
-  # Calcular el rango de los datos
-  rango <- diff(range(datos_taxon$biomass))
-  
-  # Verificar si hay suficiente variación en los datos para realizar el test
-  if (length(unique(datos_taxon$biomass)) > 5 && length(unique(datos_taxon$system)) > 1) {
-  # Realizar el test de Kruskal-Wallis
-  resultado_kruskal <- kruskal.test(biomass ~ system, data = datos_taxon)
-  
-  # Almacenar el resultado en la lista
-  resultados_kruskalRO[[taxon]] <- resultado_kruskal
-  
-  # Realizar comparaciones a pares con el test de Wilcoxon
-  pairwise_test <- pairwise.wilcox.test(datos_taxon$biomass, datos_taxon$system, p.adjust.method = "BH",exact=FALSE)
-  
-  # Almacenar el resultado en la lista
-  resultados_wilcoxonRO[[taxon]] <- pairwise_test
-} else {
-  cat("No hay suficientes datos distintos en los sitios para el taxón:", taxon, "\n")
-}
-}
-
-#KW abundancia####
-{
-{
-# Crear una lista de taxones únicos en los datos
-taxones <- unique(baseU$taxa)
-
-# Inicializar listas para almacenar los resultados
-resultados_kruskal_ab <- list()
-resultados_wilcoxon_ab <- list()
-
-# Recorrer cada taxón
-for (taxon in taxones) {
-  # Filtrar los datos para el taxón actual
-  datos_taxon <- baseU %>% filter(taxa == taxon)
-  
-  # Verificar si hay suficiente variación en los datos para realizar el test
-  if (length(unique(datos_taxon$D)) > 1 && length(unique(datos_taxon$sitio)) > 1) {
-  # Realizar el test de Kruskal-Wallis
-  resultado_kruskal <- kruskal.test(D ~ sitio, data = datos_taxon)
-  
-  # Almacenar el resultado en la lista
-  resultados_kruskal_ab[[taxon]] <- resultado_kruskal
-  
-  # Realizar comparaciones a pares con el test de Wilcoxon
-  pairwise_test <- pairwise.wilcox.test(datos_taxon$D, datos_taxon$sitio, p.adjust.method = "BH",exact=FALSE)
-  
-  # Almacenar el resultado en la lista
-  resultados_wilcoxon_ab[[taxon]] <- pairwise_test
-} else {
-  cat("No hay suficientes datos distintos en los sitios para el taxón:", taxon, "\n")
-}
-}
-}
-
-
-
-## Rosana
-
-# Inicializar listas para almacenar los resultados
-resultados_kruskalRO_ab <- list()
-resultados_wilcoxonRO_ab <- list()
-
-# Crear una lista de taxones únicos en los datos
-taxones <- unique(base$specie)
-
-# Recorrer cada taxón
-for (taxon in taxones) {
-  # Filtrar los datos para el taxón actual
-  datos_taxon <- base %>% filter(specie == taxon)
-  
-  # Verificar si hay suficiente variación en los datos para realizar el test
-  if (length(unique(datos_taxon$abundance)) > 1 && length(unique(datos_taxon$system)) > 1) {
-  # Realizar el test de Kruskal-Wallis
-  resultado_kruskal <- kruskal.test(abundance ~ system, data = datos_taxon)
-  
-  # Almacenar el resultado en la lista
-  resultados_kruskalRO_ab[[taxon]] <- resultado_kruskal
-  
-  # Realizar comparaciones a pares con el test de Wilcoxon
-  pairwise_test <- pairwise.wilcox.test(datos_taxon$abundance, datos_taxon$system, p.adjust.method = "BH",exact=FALSE)
-  
-  # Almacenar el resultado en la lista
-  resultados_wilcoxonRO_ab[[taxon]] <- pairwise_test
-} else {
-  cat("No hay suficientes datos distintos en los sitios para el taxón:", taxon, "\n")
-}
-}
-}
-
-#KW Biomasa####
-
-{
-{
-# Crear una lista de taxones únicos en los datos
-taxones <- unique(baseU$taxa)
-baseU$B<-baseU$D*baseU$bio.ind
-# Inicializar listas para almacenar los resultados
-resultados_kruskal_B <- list()
-resultados_wilcoxon_B <- list()
-
-# Recorrer cada taxón
-for (taxon in taxones) {
-  # Filtrar los datos para el taxón actual
-  datos_taxon <- baseU %>% filter(taxa == taxon)
-  
-  # Verificar si hay suficiente variación en los datos para realizar el test
-  if (length(unique(datos_taxon$B)) > 1 && length(unique(datos_taxon$sitio)) > 1) {
-  # Realizar el test de Kruskal-Wallis
-  resultado_kruskal <- kruskal.test(B ~ sitio, data = datos_taxon)
-  
-  # Almacenar el resultado en la lista
-  resultados_kruskal_B[[taxon]] <- resultado_kruskal
-  
-  # Realizar comparaciones a pares con el test de Wilcoxon
-  pairwise_test <- pairwise.wilcox.test(datos_taxon$B, datos_taxon$sitio, p.adjust.method = "BH",exact=FALSE)
-  
-  # Almacenar el resultado en la lista
-  resultados_wilcoxon_B[[taxon]] <- pairwise_test
-} else {
-  cat("No hay suficientes datos distintos en los sitios para el taxón:", taxon, "\n")
-}
-}
-}
-
-
-
-## Rosana
-
-# Inicializar listas para almacenar los resultados
-resultados_kruskalRO_B <- list()
-resultados_wilcoxonRO_B <- list()
-
-# Crear una lista de taxones únicos en los datos
-taxones <- unique(base$specie)
-
-# Recorrer cada taxón
-for (taxon in taxones) {
-  # Filtrar los datos para el taxón actual
-  datos_taxon <- base %>% filter(specie == taxon)
-  
-  # Verificar si hay suficiente variación en los datos para realizar el test
-  if (length(unique(datos_taxon$Tbiomass)) > 1 && length(unique(datos_taxon$system)) > 1) {
-  # Realizar el test de Kruskal-Wallis
-  resultado_kruskal <- kruskal.test(Tbiomass ~ system, data = datos_taxon)
-  
-  # Almacenar el resultado en la lista
-  resultados_kruskalRO_B[[taxon]] <- resultado_kruskal
-  
-  # Realizar comparaciones a pares con el test de Wilcoxon
-  pairwise_test <- pairwise.wilcox.test(datos_taxon$Tbiomass, datos_taxon$system, p.adjust.method = "BH",exact=FALSE)
-  
-  # Almacenar el resultado en la lista
-  resultados_wilcoxonRO_B[[taxon]] <- pairwise_test
-} else {
-  cat("No hay suficientes datos distintos en los sitios para el taxón:", taxon, "\n")
-}
-}
-}
-
-#Resultados KW#######
-
-#UNLu
-
-print(resultados_kruskal)
-print(resultados_wilcoxon)
-
-
-print(resultados_kruskal_ab)
-print(resultados_wilcoxon_ab)
-
-
-print(resultados_kruskal_B)
-print(resultados_wilcoxon_B)
-
-
-#Rosana
-
-print(resultados_kruskalRO)
-print(resultados_wilcoxonRO)
-
-
-print(resultados_kruskalRO_ab)
-print(resultados_wilcoxonRO_ab)
-
-
-print(resultados_kruskalRO_B)
-print(resultados_wilcoxonRO_B)
-
-#Nemátodos U#####
-print(c(resultados_kruskal$omnivoro$p.value,
-      resultados_kruskal$predador$p.value,
-      resultados_kruskal$bacterivoro$p.value,
-      resultados_kruskal$fungivoro$p.value,
-      resultados_kruskal$fitofago$p.value))
-print(c(resultados_wilcoxon$omnivoro,
-      resultados_wilcoxon$predador,
-      resultados_wilcoxon$bacterivoro,
-      resultados_wilcoxon$fungivoro,
-      resultados_wilcoxon$fitofago))
-print(c(resultados_kruskal_ab$omnivoro$p.value,
-      resultados_kruskal_ab$predador$p.value,
-      resultados_kruskal_ab$bacterivoro$p.value,
-      resultados_kruskal_ab$fungivoro$p.value,
-      resultados_kruskal_ab$fitofago$p.value))
-print(c(resultados_wilcoxon_ab$omnivoro,
-      resultados_wilcoxon_ab$predador,
-      resultados_wilcoxon_ab$bacterivoro,
-      resultados_wilcoxon_ab$fungivoro,
-      resultados_wilcoxon_ab$fitofago))
-print(c(resultados_kruskal_B$omnivoro$p.value,
-      resultados_kruskal_B$predador$p.value,
-      resultados_kruskal_B$bacterivoro$p.value,
-      resultados_kruskal_B$fungivoro$p.value,
-      resultados_kruskal_B$fitofago$p.value))
-
-# Abrir un archivo de texto para escribir
-#sink("output.txt")
-
-# Imprimir los resultados
-#print(c("Pesos individuales",resultados_kruskal, resultados_wilcoxon, "Abundancias",resultados_kruskal_ab, resultados_wilcoxon_ab, "Biomasas",resultados_kruskal_B, resultados_wilcoxon_B, "Pesos corporales",resultados_kruskalRO, resultados_wilcoxonRO, "Abundancias",resultados_kruskalRO_ab, resultados_wilcoxonRO_ab,"Biomasas", resultados_kruskalRO_B, resultados_wilcoxonRO_B))
-
-# Cerrar el archivo de texto
-#sink()
-
-
-```
-
-
-
-
-## Distribución del peso corporal
-
-La curva de acumulación empírica inversa permite comparar la distribución de los datos observados con 
-la distribuciones teóricas. 
+La curva de acumulación empírica inversa permite comparar la distribución de los datos observados con la distribuciones teóricas.
 
 Los datos observados son los puntos que se acumulan en la fig. 4.x y estos se corresponden con cada una de los pesos corporales de la fauna edáfica compilada, estas observaciones se contrastan con las distribuciones teóricas exponencial, potencial exponencial, potencial exponencial truncada y logarítmica normal.
 
@@ -996,8 +710,7 @@ pgU
 pg
 ```
 
-En ambas localidades los pesos corporales de todo el conjunto de datos ajustan a la distribución logarítmica-normal conocida también como log-normal, esto tiene sentido si, se considera que cada especie tiene una distribución aproximadamente normal de sus pesos corporales pero cuyos valores no pueden ser menores o iguales que cero y también si, se considera la contribución multiplicativa de cada especie en el total de la comunidad. (.@.log en biologia; .@.potapov, sus bichos estaban distribuidos log normal.) 
-
+En ambas localidades los pesos corporales de todo el conjunto de datos ajustan a la distribución logarítmica-normal conocida también como log-normal, esto tiene sentido si, se considera que cada especie tiene una distribución aproximadamente normal de sus pesos corporales pero cuyos valores no pueden ser menores o iguales que cero y también si, se considera la contribución multiplicativa de cada especie en el total de la comunidad. (.\@.log en biologia; .\@.potapov, sus bichos estaban distribuidos log normal.)
 
 ```{r tab_lg, echo=FALSE,warning=FALSE,message=FALSE}
 
@@ -1011,19 +724,21 @@ t<-as.data.frame(tbl_pln[,c("sitio","type","AICc","moda","rate","expo","xmin")])
 t
 ```
 
-
 Esta distribución logarítmica normal ajusta a los datos de distribución empírica en todos los sistemas de uso del suelo (Tabla 4.x).
-
 
 ## Análisis de la Biomasa Media
 
-En los suelos de Luján las diferencias entre la biomasa media de las comunidades edáficas se explicaron por el efecto de los gremios tróficos sobre el intercepto, por lo que no existieron diferencias de biomasas entre sistemas de uso del suelo.
+En los suelos de Luján las diferencias en la biomasa media con respecto al intercepto 
+se explican como diferencias que ocurren en las biomasas medias entre los 
+diferentes gremios tróficos, no se explican diferencias en las biomasas medias por
+posibles diferencias relacionadas a los diferentes sistemas de uso del suelo.
 
-$$B_i = \mu +  \text{G}_i + \epsilon_i$$
+$$B_i = \mu_0 +  \text{G}_i + \epsilon_i$$
 
 Donde:
 
 -   $B$ representa el logaritmo natural de la Biomasa total media.
+-   $\mu_0$ representa el promedio de Biomasa total media.
 -   $\text{G}$ captura el efecto del i-esimo gremio trófico en la biomasa.
 -   $\epsilon$ error aleatorio.
 
@@ -1073,12 +788,8 @@ TukeyHSD(mR.aov, "guild")
 #TukeyHSD(mR_p.aov, "season")
 
 
-
-
-```
-
-```{r plotbtU, include=FALSE, warning=FALSE,message=FALSE}
-
+#gráficos####
+#grafico unlu
 baseU %>%  ggplot( aes(log(Tbiomass),sitio, fill=sitio)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +stat_summary(fun = "mean",geom = "point",color = "white")+ scale_fill_viridis_d(guide="none") +  geom_jitter(alpha=0.4) +labs(subtitle="A)",y=NULL, x=expression(paste("Biomasa","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))
 
 #guild
@@ -1086,11 +797,7 @@ baseU %>%  ggplot( aes(log(Tbiomass),gremio, fill=gremio)) + geom_violin(alpha=0
 
 baseU %>%  ggplot( aes(log(Tbiomass),estrato, fill=estrato)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +stat_summary(fun = "mean",geom = "point",color = "white")+ scale_fill_viridis_d(guide="none") +  geom_jitter(alpha=0.4) +labs(subtitle="A)",y=NULL, x=expression(paste("Biomasa","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))
 
-```
-
-
-```{r B_ROplot, include=FALSE,warning=FALSE,message=FALSE}
-
+#grafico rosana
 # Sistema
 
 base %>% ggplot( aes(log(Tbiomass),system, fill=system)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +stat_summary(fun = "mean",geom = "point",color = "white")+scale_fill_viridis_d(guide="none")  +scale_x_continuous(breaks =seq(from=3, to=14, by=1))+  geom_jitter(alpha=0.4)+labs(subtitle="IV.a. Biomasa media de la comunidad de microartrópodos en los sistemas de uso",y=NULL, x=expression(paste("Biomasa total","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))
@@ -1108,7 +815,7 @@ meso %>% mutate(guild=factor(guild,labels=c("Detritívoros","Microfitófagos","O
 meso %>% mutate(season=factor(season,labels=c("Otoño","Invierno","Primavera","Verano"))) %>% group_by(system,site,year,month,sample,season,class,order,specie,guild,habitat) %>%  summarise(abundance=(n()/superficie), bio.ind=mean(biomass),Tbiomass=(bio.ind*abundance)) %>% ggplot( aes(y=log(Tbiomass), x=system,fill=system)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +stat_summary(fun = "mean",geom = "point",color = "white")+ scale_y_continuous(breaks = seq(from=3, to=15, by=1))+scale_fill_viridis_d(guide="none") +  geom_jitter(alpha=0.4) + facet_grid(.~season) +labs(subtitle="IV.d. Biomasa media de la comunidad de microartrópodos en cada estación y en cada sistema de manejo",x='Sistemas de manejo', y=expression(paste("Biomasa total","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))
 ```
 
-```{r B_plot_U,echo=FALSE,warning=FALSE,message=FALSE}
+```{r B_plot_U,echo=FALSE,warning=FALSE,message=FALSE,fig.align = "center"}
 
 baseU$Gremio <- factor(baseU$gremio,labels=c("Detritívoros","Herbivoros","Microfitófagos","Omnívoros","Predadores"))
 baseU$Sitio <- factor(baseU$sitio,labels=c("A","P","R"))
@@ -1116,49 +823,47 @@ baseU$Sitio <- factor(baseU$sitio,labels=c("A","P","R"))
 
 
 #guild
-baseU %>%  ggplot( aes(y=log(Tbiomass),x=Gremio, fill=Gremio)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +  geom_jitter(alpha=0.4)  +stat_summary(fun = "mean",geom = "point",color = "white")+ scale_fill_viridis_d(guide="none")+labs(subtitle="A)",y=expression(paste("Biomasa","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2), x=NULL))
+baseU %>%  ggplot( aes(y=log(Tbiomass),x=Gremio, col=Gremio, fill=NA)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +  geom_jitter(alpha=0.4, col=as.numeric(baseU$Sitio))  +stat_summary(fun = "mean",geom = "point",color = "yellow", size=3)+scale_color_manual(values = scales::hue_pal()(length(unique(baseU$Gremio))), guide = "none")+
+  labs(subtitle="A)",y=expression(paste("Biomasa","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2), x=NULL))+ scale_fill_viridis_d(guide="none")+theme_classic()
 
 
 
 ```
 
-Los gremios tróficos fueron diferentes significativamente entre sí ($q :p_{valor}<0.05$) con excepción de los gremios de omnívoros y microfitófagos. 
-Los detritívoros son el gremio con la biomasa más alta en promedio, luego los microfitófagos y omnívoros, siguen a estos los predadores y por último los herbívoros.
+Los gremios tróficos fueron diferentes significativamente entre sí ($q :p_{valor}<0.05$) con excepción de los gremios de omnívoros y microfitófagos que comparten valores de biomasas medias similares.
+Los detritívoros son el gremio con la mayor biomasa media, luego los microfitófagos y omnívoros, siguen a estos los predadores y por último los herbívoros.
 
-En los suelos argiudoles de Chivilcoy y Navarro la biomasa media de los microartrópodos edáficos se explicaron por los efectos del sistema de uso del suelo, los gremios tróficos y por interacciones entre sistemas de uso con los gremios tróficos.
+En los suelos argiudoles de Chivilcoy y Navarro la biomasa media de los microartrópodos edáficos se explicaron por los efectos del sistema de uso del suelo, los gremios tróficos y por interacciones entre los gremios tróficos y los sistemas de uso.
 
 $$B_{ij} = \mu_0 + \text{S}_i + \text{G}_j + \text{S x G}_{ij} + \epsilon_i$$
 
 Donde:
 
--   $B$ representa el logaritmo natural de la Biomasa total media.
+-   $B_{ij}$ representa el logaritmo natural de la Biomasa total media.
 -   $\text{S}$ representa el efecto del i-esimo sistema de uso del suelo.
 -   $\text{G}$ captura el efecto del j-esimo gremio trófico en la biomasa.
 -   $\text{S x G}$ representan las interacciones entre sistema de uso y gremios tróficos.
 -   $\epsilon$ error aleatorio.
 
 <!--q es el estadístico de Studentized range statistic -->
-Al nivel de las interacciones, no se observaron diferencias significativas ($q: p_{valor}<0.05$) en la biomasa media de un mismo gremio trófico en comparación con cada sistema de uso del suelo, si existen diferencias significativas entre varias de las comparaciones entre diferentes sistemas y gremios. 
 
-Las biomasas de los gremios tróficos son similares entre los detritívoros y omnívoros y entre los predadores y los microfitófagos, dado que entre estos grupos no se observaron diferencias significativas, las demás combinaciones son diferentes significativamente. Los detritívoros y omnívoros expresan la mayor biomasa media, los microfitófagos y predadores siguen en órden de biomasas respectivamente.
+Al nivel de las interacciones, no se observaron diferencias significativas <u>dentro</u> de los gremios tróficos comparados entre los diferentes sistemas de uso del suelo, si existen diferencias significativas ($q :p_{valor}<0.05$) <u>entre</u> diferentes gremios tróficos y diferentes sistemas de uso del suelo.
 
-```{r B_plot_Ro,echo=FALSE,warning=FALSE,message=FALSE}
+Las biomasas de los gremios tróficos son similares entre los detritívoros y omnívoros y entre los predadores y los microfitófagos. Los detritívoros y omnívoros expresan la mayor biomasa media, los microfitófagos y predadores siguen en órden de biomasas respectivamente.
+
+```{r B_plot_Ro,echo=FALSE,warning=FALSE,message=FALSE,fig.align = "center"}
 
 # System : guild
 
-meso %>% mutate(guild=factor(guild,labels=c("Detritívoros","Microfitófagos","Omnívoros","Predadores"))) %>% group_by(system,site,year,month,sample,season,class,order,specie,guild,habitat) %>%  summarise(abundance=(n()/superficie), bio.ind=mean(biomass),Tbiomass=(bio.ind*abundance)) %>% ggplot( aes(y=log(Tbiomass),x= system,fill=system)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5)+geom_jitter(alpha=0.4)  +stat_summary(fun = "mean",geom = "point",color = "white")+ scale_y_continuous(breaks = seq(from=3, to=15, by=1))+scale_fill_viridis_d(guide="none") + facet_grid(.~guild) +labs(subtitle="B)",x='Sistemas de manejo', y=expression(paste("Biomasa","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))
+meso %>% mutate(guild=factor(guild,labels=c("Detritívoros","Microfitófagos","Omnívoros","Predadores"))) %>% group_by(system,site,year,month,sample,season,class,order,specie,guild,habitat) %>%  summarise(abundance=(n()/superficie), bio.ind=mean(biomass),Tbiomass=(bio.ind*abundance)) %>% ggplot( aes(y=log(Tbiomass),x= system,fill=NA,color=system)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5)+geom_jitter(alpha=0.3,col="grey",fill=NA)  +stat_summary(fun = "mean",geom = "point",color = "yellow", size=3)+ scale_color_manual(values = scales::hue_pal()(length(unique(meso$system))), guide = "none")+
+  scale_y_continuous(breaks = seq(from=3, to=15, by=1))+scale_fill_viridis_d(guide="none") + facet_grid(.~guild) +labs(subtitle="B)",x='Sistemas de manejo', y=expression(paste("Biomasa","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))+theme_classic()
 
 
 ```
 
+Entre los sistemas de uso del suelo, existen diferencias significativas en los valores de biomasa media ($q: p_{valor}<0.05$) entre el sistema mixto agrícola ganadero con el mayor valor de biomasa total en promedio y el sistema del pastizal naturalizado con el menor valor de biomasa total en promedio, el sistema agrícola intensivo muestra biomasa media total en una situación intermedia.
 
-
-Entre los sistemas de uso del suelo, existen diferencias significativas
-en los valores de biomasa ($q: p_{valor}<0.05$) entre el sistema mixto agrícola ganadero con un mayor valor de biomasa en promedio y el sistema del pastizal naturalizado, el sistema agrícola intensivo se encuentra en una situación intermedia.
-
-## Relación entre el espectro de tamaños y la densidad.
-
-
+## Relación entre el espectro de pesos corporales promedio y la densidad de los taxones.
 
 ```{r qq_unlu, include=FALSE, warning=FALSE, message=FALSE}
 #modelo full UNLu
@@ -1179,22 +884,18 @@ rqRO<-rq(log(abundance) ~ (system+guild+log(bio.ind))^2, tau = .75, data = base)
 
 ```
 
+```{=html}
 <!--Modelo base, pendiente e intercepto de la UNLu. y = 12.24320 + -0.77434x 
 Ro: y = 8.04341 -0.25991x
 -->
+```
+El modelo de regresión de cuartiles busca la relacion entre el peso corporal promedio de los taxones de cada sitio con la densidad de los mismos y la relación con los efectos del gremio trófico y los sistemas de uso del suelo en cada localidad. 
 
-El modelo de regresión de cuartiles busca la relacion entre el peso corporal
-promedio de los taxones de cada sitio con la abundancia de los mismos y 
-la relación con los efectos del gremio trófico y los sistemas de uso del 
-suelo en cada localidad.
-En los suelos argiudoles de Luján el modelo indica que existen efectos de los 
-gremios tróficos sobre la variación de las pendientes. Los sistemas de uso del suelo 
-no tuvieron efecto sobre cambios en la pendiente. 
+En los suelos argiudoles de Luján el modelo indica que existen efectos de los gremios tróficos sobre la variación de las pendientes. Los sistemas de uso del suelo no tuvieron efecto sobre cambios en la pendiente.
 
 $$ D_{ijk}^{\;\;\tau} = \beta_0^{\;\;\tau} + \beta_i^{\;\;\tau} + \beta_iG_j^{\;\;\tau} + S_k^{\;\;\tau} + G_j^{\;\;\tau} + (SxG)_{jk}^{\;\;\tau} + \epsilon^{\;\;\tau} $$
 
-La interacción entre el sistema de uso del suelo y los gremios tróficos marcan un 
-efecto sobre el intercepto del modelo. 
+La interacción entre el sistema de uso del suelo y los gremios tróficos marcan un efecto sobre el intercepto del modelo.
 
 ```{r rQQ_iteration,include=FALSE,warning=FALSE,message=FALSE}
 
@@ -1268,9 +969,13 @@ for (i in seq_along(niveles_sitioR)) {
 
 resultadosR[["sitio1_gremio1"]] 
 
+#readRDS("other_scripts/iteracion_QQregresion_rosana.rds")
+
 ```
 
-```{r qqplotU+h,echo=FALSE,warning=FALSE,message=FALSE}
+```{r qqplotU+h, fig.align = "center", echo=FALSE,warning=FALSE,message=FALSE}
+
+baseU[baseU$taxa=="tarsonemidae"&baseU$sitio=="P"&baseU$replica==1,"bio.ind"]<-80
 baseU%>%mutate( gremio = factor(gremio, levels = c("detritivoro","microfitofago",
                                                       "predador","omnivoro","herbivoro")
                                    ))%>%ggplot(aes(x=log(bio.ind),y=log(D),color=sitio))+
@@ -1286,65 +991,23 @@ baseU%>%mutate( gremio = factor(gremio, levels = c("detritivoro","microfitofago"
 
 ```
 
+En la figura 4.x se observa los diferentes gremios tróficos con las regresiones sobre cada sistema de uso del suelo. Se observan diferentes rangos de distribución de los pesos corporales promedios, los omnívoros son la categoría trófica con el menor rango de distribución en tamaños. Los taxones de mayor peso ocurrieron en la categoría de los detritívoros en el que se encuentran las lombrices de tierra y los coleópteros scarabeidos, las categorías tróficas con los taxones de menor peso son aquellos microfitófagos y herbívoros que incluyen a los nemátodos.
 
-En la figura 4.x se observa los diferentes gremios tróficos con las regresiones sobre 
-cada sistema de uso del suelo. 
-Se observan diferentes rangos de distribución de los pesos corporales promedios, 
-los omnívoros son la categoría trófica con el menor rango de distribución en tamaños.
-Los taxones de mayor peso ocurrieron en la catergoría de los detritívoros en el que 
-se encuentran las lombrices de tierra y los coleópteros scarabeidos, las categorías
-tróficas con los taxones de menor peso son aquellos microfitófagos y herbívoros
-correspondiéndose con los nemátodos.
+Al nivel de las interacciones el intercepto de los predadores de los sistemas R y P en comparación con los microfitófagos del sistema A difirió significativamente ($>|\;t\;| : p_{value}<0.05$¹) además el intercepto de los predadores del sistema A difirió de los microfitófagos de R y P, entre ambos gremios tróficos y en cada sitio, los interceptos difieren en 1,1 ordenes de magnitud aproximadamente .
 
-Al nivel de las interacciones el intercepto de los predadores de los sistemas R y P en comparación 
-con los microfitófagos del sistema A difirió significativamente ($>|\;t\;| : p_{value}<0.05$¹) 
-además el intercepto de los predadores del sistema A difirió de los microfitófagos de R y P, entre ambos 
-gremios tróficos y en cada sitio, los interceptos difieren en 1,1 ordenes de magnitud aproximadamente
-.
+Entre gremios tróficos los interceptos fueron diferentes para detritívoros en comparación con los predadores ($dif:-1.41768$) y omnívoros ($dif:-2.18830$); para los microfitófagos hubo diferencias también con los omnívoros ($dif: -1.80813$) y con los predadores ($dif: -1.03751$), los hervívoros no tuvieron diferencias con los demás gremios en términos del intercepto.
 
-Entre gremios tróficos los interceptos fueron diferentes para detritívoros en comparación con 
-los predadores ($dif:-1.41768$) y omnívoros ($dif:-2.18830$); para los microfitófagos hubo diferencias 
-también con los omnívoros ($dif: -1.80813$) y con los predadores ($dif: -1.03751$), los hervívoros no 
-tuvieron diferencias con los demás gremios en términos del intercepto.
+Las pendientes de los gremios tróficos en general tienen valores negativos, correspondiéndose con el hecho de que los organismos más abundantes son aquellos de menor peso promedio por taxón, con excepción de la categoría del gremio de los omnívoros, cuyos valores de pendientes no fueron significativamente diferentes de cero ($>|\;t\;| : p_{value}<0.05$) esto implica que los omnívoros con diferentes tamaños corporales tienen abunancias similares en estos suelos, aunque la extensión en peso corporal se encuentra por debajo de $e^5 \approx 150 \mu g$. Además, la pendiente de los herbívoros difirió de la pendiente de todos los gremios tróficos ($>|\;t\;| : p_{value}<0.1$) en general siendo la pendiente de los herbívoros diferente de las demás en $dif: \;\;\approx 0,5$.
 
-Las pendientes de los gremios tróficos en general tienen valores negativos, 
-correspondiéndose con el hecho de que los organismos más abundantes son aquellos de 
-menor peso promedio por taxón, con excepción
-de la categoría del gremio de los omnívoros, cuyos valores de pendientes no fueron significativamente 
-diferentes de cero ($>|\;t\;| : p_{value}<0.05$) esto implica que los omnívoros con diferentes tamaños 
-corporales tienen abunancias similares en estos suelos, aunque la extensión 
-en peso corporal se encuentra por debajo de $e^5 \approx 150 \mu g$. 
-Además, la pendiente de los herbívoros difirió de la prendiente de todos los gremios tróficos 
-($>|\;t\;| : p_{value}<0.1$) en general siendo la pendiente de los herbívoros diferente de las demás 
-en $dif: \;\;\approx 0,5$. 
-
-Se observa que tanto 
-los nemátodos omnívoros como los microartrópodos omnívoros tienen relaciones de abundancias 
-y pesos corporales solapados con los nemátodos siendo estos los más abundantes.
-El gremio de los detritívoros no tiene taxones de nemátodos en su categoría 
-debido a los hábitos alimenticios de estos y a sus estructuras bucales, se observa que 
-las abundancias de la mesofauna y de la macrofauna se separan indicando mayores
-abundancias para la mesofauna, aunque en términos de pesos corporales promedios
-se observan pesos superpuestos entre la mesofauna más pesada y la macrofauna más pequeña.
-Los predadores de la fauna del suelo tienen un rango de tamaños similar al de 
-los microfitófagos, se observaron entre los predadores de menor tamaño animales de la
-mesofauna con pesos corporales menores al de los nemátodos (microfauna), esto puede ser
-debido a formas juveniles de la mesofauna predadora o a que los nemátodos predadores 
-son animales "pesados". 
+Se observa que tanto los nemátodos omnívoros como los microartrópodos omnívoros tienen relaciones de abundancias y pesos corporales solapados con los nemátodos siendo estos los más abundantes. El gremio de los detritívoros no tiene taxones de nemátodos en su categoría debido a los hábitos alimenticios de estos y a sus estructuras bucales, se observa que las abundancias de la mesofauna y de la macrofauna se separan indicando mayores abundancias para la mesofauna, aunque en términos de pesos corporales promedios se observan pesos superpuestos entre la mesofauna más pesada y la macrofauna más pequeña. Los predadores de la fauna del suelo tienen un rango de tamaños similar al de los microfitófagos, se observaron entre los predadores de menor tamaño animales de la mesofauna con pesos corporales menores al de los nemátodos (microfauna), esto puede ser debido a formas juveniles de la mesofauna predadora o a que los nemátodos predadores son animales "pesados".
 
 
+En los argiudoles de Chivilcoy y Navarro, la regresión de quantiles evaluada entre la densidad y el peso promedio de los taxones de microartrópodos edáficos muestra un efecto de los sistemas de uso del suelo sobre los cambios en las pendientes, también un efecto del gremio trófico sobre las pendientes y el efecto de la interacción entre el sistema de uso y los gremios tróficos sobre el intercepto.
 
 $$ D_{ijk}^{\;\;\tau} = \beta_0^{\;\;\tau} + \beta_i^{\;\;\tau} + \beta_iG_j^{\;\;\tau} + \beta_iS_k^{\;\;\tau} + S_k^{\;\;\tau} + G_j^{\;\;\tau} + (SxG)_{jk}^{\;\;\tau} + \epsilon^{\;\;\tau} $$
 
 
-En los argiudoles de Chivilcoy y Navarro, la regresión de quantiles evaluada entre
-la densidad y el peso promedio de los taxones de microartrópodos edáficos muestra 
-un efecto de los sistemas de uso del suelo 
-sobre los cambios en las pendientes, también un efecto del gremio trófico sobre 
-las pendientes y el efecto de la interacción entre el sistema de uso y los gremios tróficos
-sobre el intercepto.
-
-```{r qrplot_RO,echo=FALSE,warning=FALSE,message=FALSE}
+```{r qrplot_RO, fig.align = "center", echo=FALSE,warning=FALSE,message=FALSE}
 
 
 base%>%ggplot(aes(x=log(bio.ind),y=log(abundance),color=system))+
@@ -1358,66 +1021,21 @@ base%>%ggplot(aes(x=log(bio.ind),y=log(abundance),color=system))+
 
 ```
 
-Las pendientes de los gremios tróficos de microartrópodos edáficos muestran valores 
-negativos con excepción del gremio de los omnívoros (Fig. 4.x), 
-esto implica que los omnivoros más pesados son más abundantes, hay que considerar también 
-que el rango de distribución de pesos promedios de los taxones de microartrópodos
-omnívoros es también acotado, estos artrópodos tienen 
-pesos inferiores a $e^3 \approx 20 \mu g$
+Las pendientes de los gremios tróficos de microartrópodos edáficos muestran valores negativos con excepción del gremio de los omnívoros (Fig. 4.x), esto implica que los omnivoros más pesados son más abundantes, hay que considerar también que el rango de distribución de pesos promedios de los taxones de microartrópodos omnívoros es también acotado, estos artrópodos tienen pesos inferiores a $e^3 \approx 20 \mu g$
 
-Los microartrópodos microfitófagos exiben el mayor rango de tamaños corporales,
-aproximadamente 6 órdenes de magnitud, y en esta categoría se observaron 
-en el sistema del pastizal naturalizado los taxones con el menor peso corporal promedio. 
-Los detritívoros y predadores tienen un rango de pesos corporales similares, pero 
-los predadores son una categoría poco abundante.
+Los microartrópodos microfitófagos exiben el mayor rango de tamaños corporales, aproximadamente 6 órdenes de magnitud, y en esta categoría se observaron en el sistema del pastizal naturalizado los taxones con el menor peso corporal promedio. Los detritívoros y predadores tienen un rango de pesos corporales similares, pero los predadores son una categoría poco abundante.
 
-En general para cada gremio trófico las lineas de regresión sobre el tercer cuartil
-que representan al pastizal naturalizado se observaron por debajo de las demás lineas 
-de regresión aunque esto se revierte para el caso de los microartrópodos predadores del 
-pastizal naturalizado indicando que existen más predadores entre los diferentes pesos
-corporales.
+En general para cada gremio trófico las lineas de regresión sobre el tercer cuartil que representan al pastizal naturalizado se observaron por debajo de las demás lineas de regresión aunque esto se revierte para el caso de los microartrópodos predadores del pastizal naturalizado indicando que existen más predadores entre los diferentes pesos corporales.
 
-Al nivel de las interacciones entre los gremios y sistemas de uso del suelo se reportan
-diferencias significativas ($>|\;t\;| : p_{value}<0.1$) en los interceptos
-entre: a) los detritívoros del sistema naturalizado
-en relación a los predadores del sistema mixto y agrícola y diferencias con los microfitófagos del 
-sistema agrícola; b) los microfitófagos en el pastizal naturalizado y los omnivoros del sistema agrícola 
-y los detritívoros del sistema mixto; c) los omnívoros del pastizal naturalizado en comparación con 
-los predadores y microfitófagos del sistema A; d) los predadores del pastizal naturalizado difieren de los detritívoros del sistema agrícola intensivo y agrícola mixto y también de los omnívoros de A; además 
-e) los detritívoros, microfitófagos y predadores del sistema agrícola difirieron de los omnívoros 
-en el sistema mixto; f) los omnívoros del sistema agrícola intensivo se diferenciaron de los predadores, 
-detritívoros y microfitófagos edel sistema mixto agrícola ganadero.
+Al nivel de las interacciones entre los gremios y sistemas de uso del suelo se reportan diferencias significativas ($>|\;t\;| : p_{value}<0.1$) en los interceptos entre: a) los detritívoros del sistema naturalizado en relación a los predadores del sistema mixto y agrícola y diferencias con los microfitófagos del sistema agrícola; b) los microfitófagos en el pastizal naturalizado y los omnivoros del sistema agrícola y los detritívoros del sistema mixto; c) los omnívoros del pastizal naturalizado en comparación con los predadores y microfitófagos del sistema A; d) los predadores del pastizal naturalizado difieren de los detritívoros del sistema agrícola intensivo y agrícola mixto y también de los omnívoros de A; además e) los detritívoros, microfitófagos y predadores del sistema agrícola difirieron de los omnívoros en el sistema mixto; f) los omnívoros del sistema agrícola intensivo se diferenciaron de los predadores, detritívoros y microfitófagos edel sistema mixto agrícola ganadero.
 
-Las diferencias en las interacciones observadas sobre el intercepto indican diferencias en los valores 
-de las 
-densidades de los diferentes gremios tróficos dentro de cada sistema de uso, los interceptos de los gremios 
-tróficos sin considerar sus interacciones en cada sistema de uso 
-indican que los predadores y omnívoros comparten interceptos similares y que tanto los 
-detritívoros como los microfitófagos se diferencian de los demás gremios tróficos.
+Las diferencias en las interacciones observadas sobre el intercepto indican diferencias en los valores de las densidades de los diferentes gremios tróficos dentro de cada sistema de uso, los interceptos de los gremios tróficos sin considerar sus interacciones en cada sistema de uso indican que los predadores y omnívoros comparten interceptos similares y que tanto los detritívoros como los microfitófagos se diferencian de los demás gremios tróficos.
 
-El efecto de los diferentes gremios sobre la pendiente de regresión de cuantiles muestra que los 
-omnívoros siempre fuéron diferentes significativamente, no hallándose otras diferencias significativas 
-en los demás gremios tróficos, esto puede deberse a que la pendientes positivas de los omnívoros en cada 
-sistema de uso enmascara las diferencias entre los demás gremios.
-En cambio, el efecto de los sistemas de uso del suelo sobre la pendiente mostró
-diferencias significativas entre el sistema del pastizal naturalizado y el sistema agrícola 
-intensivo siendo la pendiente en este sistema mayor ($dif: 0,23$), esta relación se establece 
-a través de cada gremio trófico inclusive a aquellos con pendientes positivas. Una pendiente más 
-pronunciada, es decir valores de pendientes más alejados de cero, indica que organismos más pesados, 
-mas grandes o de mayor tamaño, se encuentran en baja abundancia o no se encontraron en los sitios 
-estudiados.
+El efecto de los diferentes gremios sobre la pendiente de regresión de cuantiles muestra que los omnívoros siempre fuéron diferentes significativamente, no hallándose otras diferencias significativas en los demás gremios tróficos, esto puede deberse a que la pendientes positivas de los omnívoros en cada sistema de uso enmascara las diferencias entre los demás gremios. En cambio, el efecto de los sistemas de uso del suelo sobre la pendiente mostró diferencias significativas entre el sistema del pastizal naturalizado y el sistema agrícola intensivo siendo la pendiente en este sistema mayor ($dif: 0,23$), esta relación se establece a través de cada gremio trófico inclusive a aquellos con pendientes positivas. Una pendiente más pronunciada, es decir valores de pendientes más alejados de cero, indica que organismos más pesados, mas grandes o de mayor tamaño, se encuentran en baja abundancia o no se encontraron en los sitios estudiados.
 
-La regresión sobre los sistemas de uso del suelo sin considerar los gremios tróficos muestran 
-valores del interceptos diferentes entre entre sí ($8.06 \;(A) > 8.02 \;(G) > 7.98 \;(N)$), además, 
-con respecto a la pendiente, el valor para el sistema mixto no mostró ser diferente de cero.
+La regresión sobre los sistemas de uso del suelo sin considerar los gremios tróficos muestran valores del interceptos diferentes entre entre sí ($8.06 \;(A) > 8.02 \;(G) > 7.98 \;(N)$), además, con respecto a la pendiente, el valor para el sistema mixto no mostró ser diferente de cero.
 
-
-
-
-¹  <font size=1> coeficientes y términos de interacción en el apartado de resultados de R. 
-[enlace a archivo en Drive ?]</font>
-
-
+¹ <font size=1> coeficientes y términos de interacción en el apartado de resultados de R. [enlace a archivo en Drive ?]</font>
 
 # Referencias
 
