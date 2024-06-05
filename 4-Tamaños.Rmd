@@ -15,7 +15,7 @@ options("digits"=3)
 
 ```{r lib, include=FALSE}
 {require(tidyverse); require(kableExtra); require(quantreg);require(lubridate);
-  require(kSamples);require(ggridges);require(gridExtra)}
+  require(kSamples);require(ggridges);require(gridExtra);require(emmeans)}
 ```
 
 # Introducción
@@ -514,7 +514,7 @@ Dentro de los ácaros oribátidos microfitófagos, aquellos que consumen hifas d
 
 Entre los colémbolos destaca la familia <u>Hipogastruridae</u> por consumir nemátodos y carroña de invertebrados a demás de la microflora por lo que són omnívoros, para esta familia se observó el mayor peso en promedio en el sistema agrícola donde también ocurre la mayor biomasa; los colémbolos <u>Isotomidae</u> fueron más pesados en el suelo de la reserva y muestran también la mayor biomasa, aunque en el suelo agrícola fueron más abundantes; los <u>Symphypleona</u> no se observaron en el sistema del pastizal, fueron más abundantes en el sistema agrícola donde registra la mayor biomasa pero fueron más grandes en términos de peso corporal en la Reserva, estos dos últimos taxones de colémbolos se consideran de hábitos alimenticios detritívoros; los </u>entomóbridos y los oniquiüridos</u> son taxones microfitófagos, la superfamilia </u>Entomobryoidea</u> son colémbolos de gran tamaño, en los suelos de la reserva estos fueron más pesados y abundantes, los </u>Onychiuridae</u> son colémbolos **euedáficos** y de pequeño tamaño, en el suelo del pastizal se observó el mayor peso corporal promedio y la mayor biomasa aunque en los suelos de la reserva estos fueron más abundantes.
 
-```{r plot_mesopred_ridg,echo=FALSE,warning=FALSE,message=FALSE}
+```{r plot_mesopred_ridg_u,echo=FALSE,warning=FALSE,message=FALSE}
 body_unlu%>%filter(clase_tam=="meso"
                    &body_unlu$taxa%in%c("amerosidae","arctacaridae",
                         "bdelloidea","cunaxide",
@@ -637,65 +637,16 @@ step(mU)
 #modelo parsimonioso
 mU_p<-lm(formula = log(Tbiomass) ~ gremio, data = baseU)
 
-#plot_parametrico_UNLu######
-
-par(mfrow=c(2,2))
-plot(mU_p)
-par(mfrow=c(1,1))
-
-#Tukey_UNLu#####
-mU_p.aov<-aov(formula = log(Tbiomass) ~ gremio, data = baseU)
-TukeyHSD(mU_p.aov, "gremio")
-
 #B.Rosana######
 #modelo completo
-mR<-lm(log(Tbiomass) ~ system * season * guild, data = base)
+mR<-lm(log(Tbiomass) ~ system * guild, data = base)
 step(mR)
-#modelo parsimonioso
-mR_p<-lm(formula = log(Tbiomass) ~ system + season + guild + 
-           system:season + system:guild, data = base)
+mR_p<-lm(log(Tbiomass) ~ system * guild, data = base)
 #modelo causal
-mR_c<-lm(log(Tbiomass) ~ system * guild, data = base)
-
-#plot_parametrico_UNLu######
-par(mfrow=c(2,2))
-plot(mR_c)
-par(mfrow=c(1,1))
-
-#Tukey_Ro#####
-mR.aov<-aov(log(Tbiomass) ~ system * season * guild, data = base)
-TukeyHSD(mR.aov, "system:guild")
-#TukeyHSD(mR_p.aov, "system:season")
-TukeyHSD(mR.aov, "system")
-TukeyHSD(mR.aov, "guild")
-#TukeyHSD(mR_p.aov, "season")
-
-
-#gráficos####
-#grafico unlu
-baseU %>%  ggplot( aes(log(Tbiomass),sitio, fill=sitio)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +stat_summary(fun = "mean",geom = "point",color = "white")+ scale_fill_viridis_d(guide="none") +  geom_jitter(alpha=0.4) +labs(subtitle="A)",y=NULL, x=expression(paste("Biomasa","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))
-
-#guild
-baseU %>%  ggplot( aes(log(Tbiomass),gremio, fill=gremio)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +stat_summary(fun = "mean",geom = "point",color = "white")+ scale_fill_viridis_d(guide="none") +  geom_jitter(alpha=0.4) +labs(subtitle="A)",y=NULL, x=expression(paste("Biomasa","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))
-
-baseU %>%  ggplot( aes(log(Tbiomass),estrato, fill=estrato)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +stat_summary(fun = "mean",geom = "point",color = "white")+ scale_fill_viridis_d(guide="none") +  geom_jitter(alpha=0.4) +labs(subtitle="A)",y=NULL, x=expression(paste("Biomasa","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))
-
-#grafico rosana
-# Sistema
-
-base %>% ggplot( aes(log(Tbiomass),system, fill=system)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +stat_summary(fun = "mean",geom = "point",color = "white")+scale_fill_viridis_d(guide="none")  +scale_x_continuous(breaks =seq(from=3, to=14, by=1))+  geom_jitter(alpha=0.4)+labs(subtitle="IV.a. Biomasa media de la comunidad de microartrópodos en los sistemas de uso",y=NULL, x=expression(paste("Biomasa total","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))
-
-# Estación
-#
-meso %>% mutate(season=factor(season,labels=c("Otoño","Invierno","Primavera","Verano"))) %>% group_by(system,site,year,month,sample,season,class,order,specie,guild) %>%  summarise(abundance=(n()/superficie), bio.ind=mean(biomass),Tbiomass=(bio.ind*abundance))  %>% ggplot( aes(log(Tbiomass),season, fill=season)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +stat_summary(fun = "mean",geom = "point",color = "white")+  scale_fill_viridis_d(guide="none") +scale_x_continuous(breaks = seq(from=3, to=14, by=1))+  geom_jitter(alpha=0.4)+labs(subtitle="IV.b. Biomasa media de la comunidad de microartrópodos en las estaciones del año",y=NULL, x=expression(paste("Biomasa total","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))
-
-# Guild
-
-meso %>% mutate(guild=factor(guild,labels=c("Detritívoros","Microfitófagos","Omnívoros","Predadores"))) %>% group_by(system,site,year,month,sample,season,class,order,specie,guild,habitat) %>%  summarise(abundance=(n()/superficie), bio.ind=mean(biomass),Tbiomass=(bio.ind*abundance))  %>% ggplot( aes(log(Tbiomass),guild, fill=guild)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +stat_summary(fun = "mean",geom = "point",color = "white")+ scale_x_continuous(breaks = seq(from=3, to=14, by=1))+  scale_fill_viridis_d(guide="none") +  geom_jitter(alpha=0.4) +labs(subtitle="IV.c. Biomasa media de los gremios tróficos de microartrópodos",y=NULL, x=expression(paste("Biomasa total","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))
-
-# System : season
-
-meso %>% mutate(season=factor(season,labels=c("Otoño","Invierno","Primavera","Verano"))) %>% group_by(system,site,year,month,sample,season,class,order,specie,guild,habitat) %>%  summarise(abundance=(n()/superficie), bio.ind=mean(biomass),Tbiomass=(bio.ind*abundance)) %>% ggplot( aes(y=log(Tbiomass), x=system,fill=system)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +stat_summary(fun = "mean",geom = "point",color = "white")+ scale_y_continuous(breaks = seq(from=3, to=15, by=1))+scale_fill_viridis_d(guide="none") +  geom_jitter(alpha=0.4) + facet_grid(.~season) +labs(subtitle="IV.d. Biomasa media de la comunidad de microartrópodos en cada estación y en cada sistema de manejo",x='Sistemas de manejo', y=expression(paste("Biomasa total","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))
+mR_c<-lm(log(Tbiomass) ~ system * season * guild, data = base)
+#modelo parsimonioso
+mR_cp<-lm(formula = log(Tbiomass) ~ system + season + guild + 
+           system:season + system:guild, data = base)
 ```
 
 ```{r B_plot_U,echo=FALSE,warning=FALSE,message=FALSE,fig.align = "center"}
@@ -769,11 +720,6 @@ rqRO<-rq(log(abundance) ~ (system+guild+log(bio.ind))^2, tau = .75, data = base)
 
 ```
 
-```{=html}
-<!--Modelo base, pendiente e intercepto de la UNLu. y = 12.24320 + -0.77434x 
-Ro: y = 8.04341 -0.25991x
--->
-```
 El modelo de regresión de cuartiles modeló la relacion entre el peso corporal promedio de los taxones con la densidad de los mismos y estableció relaciones entre los gremios tróficos y los sistemas de uso del suelo.
 
 En los suelos argiudoles de Luján el modelo indica que existen efectos de los gremios tróficos sobre la variación de las pendientes, en cambio los sistemas de uso del suelo no tuvieron efecto sobre cambios en la pendiente.
@@ -788,94 +734,7 @@ En la figura 4.x se observa los diferentes gremios tróficos con las regresiones
 
 Se observa que tanto los nemátodos omnívoros como los microartrópodos omnívoros tienen relaciones de abundancias y pesos corporales solapadas entre sí.
 
-```{r rQQ_iteration,include=FALSE,warning=FALSE,message=FALSE}
 
-#UNLu
-# Definir los niveles deseados para sitio y gremio
-niveles_sitio <- list(c("R", "P", "A"), c("P", "A", "R"), c("A", "P", "R"))
-niveles_gremio <- list(c("herbivoro", "predador", "microfitofago", "detritivoro", "omnivoro"),
-                       c("predador", "microfitofago", "detritivoro", "omnivoro", "herbivoro"),
-                       c("microfitofago", "detritivoro", "omnivoro", "herbivoro", "predador"),
-                       c("detritivoro", "omnivoro", "herbivoro", "predador", "microfitofago"),
-                       c("omnivoro", "herbivoro", "predador", "microfitofago", "detritivoro"))
-
-# Crear una lista para almacenar los resultados
-resultados <- list()
-
-# Iterar sobre los niveles de sitio y gremio
-for (i in seq_along(niveles_sitio)) {
-    for (j in seq_along(niveles_gremio)) {
-        # Permutar los niveles de sitio y gremio
-        nivel_sitio <- niveles_sitio[[i]]
-        nivel_gremio <- niveles_gremio[[j]]
-        
-        # Aplicar la transformación y análisis de datos
-        resultado <- baseU %>% 
-            mutate(sitio = factor(sitio, levels = nivel_sitio),
-                   gremio = factor(gremio, levels = nivel_gremio)) %>%
-            rq(log(D) ~ sitio + gremio + log(bio.ind) + sitio:gremio + 
-    gremio:log(bio.ind),
-               tau = .75, data = .) %>%
-            summary(., se = "boot")
-        
-        # Agregar el resultado a la lista
-        resultados[[paste("sitio", i, "_gremio", j, sep = "")]] <- resultado
-    }
-}
-
-# Acceder a los resultados
-resultados[["sitio1_gremio1"]]  # Por ejemplo, para el primer nivel de sitio y gremio
-
-#########
-#Rosana
-
-niveles_sitioR <- list(c("N", "G", "A"), c("G", "A", "N"), c("A", "N", "G"))
-niveles_gremioR <- list(c("detritivore","microphytophages","omnivore","predator"),
-                        c("microphytophages","omnivore","predator","detritivore"),
-                        c("omnivore","predator","detritivore","microphytophages"),
-                        c("predator","detritivore","microphytophages","omnivore"))
-
-# Crear una lista para almacenar los resultados
-resultadosR <- list()
-
-# Iterar sobre los niveles de sitio y gremio
-for (i in seq_along(niveles_sitioR)) {
-    for (j in seq_along(niveles_gremioR)) {
-        # Permutar los niveles de sitio y gremio
-        nivel_sitio <- niveles_sitioR[[i]]
-        nivel_gremio <- niveles_gremioR[[j]]
-        
-        # Aplicar la transformación y análisis de datos
-        resultadoR <- base %>% 
-            mutate(system = factor(system, levels = nivel_sitio),
-                   guild = factor(guild, levels = nivel_gremio)) %>%
-            rq(log(abundance) ~ (system + guild + log(bio.ind))^2,
-               tau = .75, data = .) %>%
-            summary(., se = "boot")
-        
-        # Agregar el resultado a la lista
-        resultadosR[[paste("sitio", i, "_gremio", j, sep = "")]] <- resultadoR
-    }
-}
-
-resultadosR[["sitio1_gremio1"]] 
-
-#readRDS("other_scripts/iteracion_QQregresion_rosana.rds")
-
-
-# Obtener las Estimated Marginal Means (EMMs)
-emms_U <- emmeans::emmeans(rqU, ~ sitio:gremio)
-emms_RO <- emmeans::emmeans(rqRO, ~ system:log(bio.ind)+guild:log(bio.ind))
-
-# Realizar las comparaciones por pares
-pairwise_comparisons_U <- contrast(emms_U, method = "pairwise", adjust = "bonferroni")
-pairwise_comparisons_RO <- contrast(emms_RO, method = "pairwise", adjust = "bonferroni")
-
-# Mostrar los resultados
-summary(pairwise_comparisons_U)
-summary(pairwise_comparisons_RO)
-
-```
 
 ```{r qqplotU+h, fig.align = "center", echo=FALSE,warning=FALSE,message=FALSE}
 
@@ -890,8 +749,6 @@ baseU%>%mutate( gremio = factor(gremio, levels = c("detritivoro","microfitofago"
   facet_grid(gremio~.)+ 
   labs( x=expression(paste("Peso corporal","  ",paste(ln," ",mu,"g")[ps])),
         y=expression(paste("Densidad","  ",ln," ","n°"[ind]/m^{2})))
-
-#as.numeric(as.factor(baseU$taxa))
 
 ```
 
@@ -914,19 +771,13 @@ Todos los gremios difirieron significativamente entre sí sobre el efecto del gr
 Las pendientes <u>dentro</u> de los gremios tróficos en comparación con los diferentes sistemas de uso del suelo no difirieron en los gremios de omnínoros, detritívoros ni predadores. Si se encontraron diferencias en los microfitófagos y los herbívoros (apéndice 4.x), en el caso de los microfitófagos las pendientes de los sistemas Reserva y Pastizal no difirieron pero si hubo diferencias con la
 pendiente del sistema agrícola que resultó ser menor, para el caso de los herbívoros las pendientes del sistema agrícola y el pastizal fué similar, y si difirieron con aquella de la Reserva que resultó en un mayor valor.
 
-En los argiudoles de Chivilcoy y Navarro, la regresión de quantiles evaluada entre la densidad y el peso promedio de los taxones de microartrópodos edáficos muestra un efecto de los sistemas de uso del suelo sobre los cambios en las pendientes, también un efecto del gremio trófico sobre las pendientes y el efecto de la interacción entre el sistema de uso y los gremios tróficos sobre el intercepto.
+En los suelos argiudoles de Chivilcoy y Navarro, la regresión de quantiles evaluada entre la densidad y el peso medio de los taxones de microartrópodos edáficos indica que existen interacciones con efecto sobre la pendiente debidas al sistema de uso del suelo y a los gremios tróficos, además interacciones sobre el intercepto debidas a los sistemas de uso del suelo y a los gremios tróficos. 
 
-$$ D_{ijk}^{\;\;\tau} = \beta_0^{\;\;\tau} + \beta_i^{\;\;\tau} + \beta_iG_j^{\;\;\tau} + \beta_iS_k^{\;\;\tau} + S_k^{\;\;\tau} + G_j^{\;\;\tau} + (SxG)_{jk}^{\;\;\tau} + \epsilon^{\;\;\tau} $$
+$$ D_{ijk}^{\;\;\tau} = \beta_0^{\;\;\tau} + \beta_i^{\;\;\tau} + \beta_iS_k^{\;\;\tau} + \beta_iG_j^{\;\;\tau} + S_k^{\;\;\tau} + G_j^{\;\;\tau} + (SxG)_{jk}^{\;\;\tau} + (\beta_i\;x\,S\,x\,G_{ijk}^{\;\;\tau}) \epsilon^{\;\;\tau} $$
 
+Los microartrópodos microfitófagos (Fig 4.x) exiben el mayor rango de tamaños corporales (eje x), aproximadamente 6 órdenes de magnitud, y en esta categoría se observaron en el sistema del pastizal naturalizado los taxones con el menor peso corporal medio. Los detritívoros y predadores muestran un rango de pesos corporales similar. 
 
-Las pendientes de los gremios tróficos de microartrópodos edáficos muestran valores negativos con excepción del gremio de los omnívoros (Fig. 4.x), esto implica que los omnivoros más pesados son más abundantes, hay que considerar también que el rango de distribución de pesos promedios de los taxones de microartrópodos omnívoros es también acotado, estos artrópodos tienen pesos inferiores a $e^3 \approx 20 \mu g$
-
-Los microartrópodos microfitófagos exiben el mayor rango de tamaños corporales, aproximadamente 6 órdenes de magnitud, y en esta categoría se observaron en el sistema del pastizal naturalizado los taxones con el menor peso corporal promedio. Los detritívoros y predadores tienen un rango de pesos corporales similares, pero los predadores son una categoría poco abundante.
-
-En general para cada gremio trófico las lineas de regresión sobre el tercer cuartil que representan al pastizal naturalizado se observaron por debajo de las demás lineas de regresión aunque esto se revierte para el caso de los microartrópodos predadores del pastizal naturalizado indicando que existen más predadores entre los diferentes pesos corporales.
-
-Al nivel de las interacciones entre los gremios y sistemas de uso del suelo se reportan diferencias significativas ($>|\;t\;| : p_{value}<0.1$) en los interceptos entre: a) los detritívoros del sistema naturalizado en relación a los predadores del sistema mixto y agrícola y diferencias con los microfitófagos del sistema agrícola; b) los microfitófagos en el pastizal naturalizado y los omnivoros del sistema agrícola y los detritívoros del sistema mixto; c) los omnívoros del pastizal naturalizado en comparación con los predadores y microfitófagos del sistema A; d) los predadores del pastizal naturalizado difieren de los detritívoros del sistema agrícola intensivo y agrícola mixto y también de los omnívoros de A; además e) los detritívoros, microfitófagos y predadores del sistema agrícola difirieron de los omnívoros en el sistema mixto; f) los omnívoros del sistema agrícola intensivo se diferenciaron de los predadores, detritívoros y microfitófagos edel sistema mixto agrícola ganadero.
-
+Con excepción de los predadores cuya densidad (eje y) es baja en todos los sistemas de uso del suelo, la densidad de los demás gremios tróficos se movió alrededor de 6 órdenes de magnitud.
 
 ```{r qrplot_RO, fig.align = "center", echo=FALSE,warning=FALSE,message=FALSE}
 
@@ -941,15 +792,16 @@ base%>%ggplot(aes(x=log(bio.ind),y=log(abundance),color=system))+
 
 
 ```
-Las diferencias en las interacciones observadas sobre el intercepto indican diferencias en los valores de las densidades de los diferentes gremios tróficos dentro de cada sistema de uso, los interceptos de los gremios tróficos sin considerar sus interacciones en cada sistema de uso indican que los predadores y omnívoros comparten interceptos similares y que tanto los detritívoros como los microfitófagos se diferencian de los demás gremios tróficos.
+Al nivel de las interacciones sobre el intercepto solo se reportan (apéndice 4.x) diferencias estadísticamente significativas ($>|\;t\;| : p_{value}<0.1$) en el gremio de los detritívoros, los microartrópodos detritívoros del sistema agrícola y mixto comparten interceptos similares y se diferenciaron  del sistema del pastizal naturalizado cuyo intercepto resultó menor. 
 
-El efecto de los diferentes gremios sobre la pendiente de regresión de cuantiles muestra que los omnívoros siempre fuéron diferentes significativamente, no hallándose otras diferencias significativas en los demás gremios tróficos, esto puede deberse a que la pendientes positivas de los omnívoros en cada sistema de uso enmascara las diferencias entre los demás gremios. En cambio, el efecto de los sistemas de uso del suelo sobre la pendiente mostró diferencias significativas entre el sistema del pastizal naturalizado y el sistema agrícola intensivo siendo la pendiente en este sistema mayor ($dif: 0,23$), esta relación se establece a través de cada gremio trófico inclusive a aquellos con pendientes positivas. Una pendiente más pronunciada, es decir valores de pendientes más alejados de cero, indica que organismos más pesados, mas grandes o de mayor tamaño, se encuentran en baja abundancia o no se encontraron en los sitios estudiados.
-
-La regresión sobre los sistemas de uso del suelo sin considerar los gremios tróficos muestran valores del interceptos diferentes entre entre sí ($8.06 \;(A) > 8.02 \;(G) > 7.98 \;(N)$), además, con respecto a la pendiente, el valor para el sistema mixto no mostró ser diferente de cero.
+Las pendientes de los gremios tróficos (Fig 4.x) de microartrópodos edáficos: muestran valores negativos ($>|\;t\;| : p_{value}<0.05$) para el gremio de los detritívoros del sistema agrícola y mixto, que a la vez no se diferenciaron entre sí, por lo que comparten un valor similar de pendiente alrededor de ($m = -0.55$) y no se diferenció de la constante ($m=0$) para el sistema de la Reserva; para el gremio de los microfitófagos ($>|\;t\;| : p_{value}<0.05$) las pendientes fueron negativas en todos los sistemas de uso del suelo y entre los sistemas de uso del suelo estos no se diferenciaron significativamente (apendice 4.x) por lo que comparten un valor de pendiente similar alrededor de $m \approx-0.4$; en el caso de los omnívoros aquellos que se hallaron en el sistema mixto agrícola-ganadero muestran una pendiente positiva ($m = 0.65$), por lo que omnívoros de mayor peso son más abundante en el sistema mixto, para los demás sistemas de uso las pendientes no se diferencaron de la constante (Apéndice 4.x); los predadores en cada sistema de uso del suelo no expresaron pendientes diferentes significativamente de cero, lo que implica que las abundancias de los predadores es similar para cada peso corporal medio en cada sistema de uso del suelo.
 
 ¹ <font size=1> coeficientes y términos de interacción en el apartado de resultados de R. [enlace a archivo en Drive ?]</font>
 
 # Referencias
+
+::: {#refs}
+:::
 
 Edwards 1973 Relationships between weights, volumes and numbers of soil animals. in Progress in soil zoology
 
@@ -1075,13 +927,13 @@ tbl_pln<-rbind(dist_manejoU %>% filter(min(AICc)==AICc) %>% mutate(moda=exp(expo
 t<-as.data.frame(tbl_pln[,c("sitio","type","AICc","moda","rate","expo","xmin")])
 
 t
+
+
 ```
 
 Esta distribución logarítmica normal ajusta a los datos de distribución empírica en todos los sistemas de uso del suelo (Tabla 4.x).
 
 ## Reducción del modelo y Verificación paramétrica de los modelos parsimoniosos de las relaciones entre biomasas medias de los taxones de los gremios en cada sistema de uso del suelo
-
-
 
 ```{r B_plot_parametrica, echo=FALSE, warning=FALSE, message=FALSE}
 
@@ -1105,19 +957,19 @@ print("Comparación entre pares de medias marginales, Ajuste BH")
 emms_B_U1 <- emmeans::emmeans(mU_p, ~ gremio)
 pairwise_comparisons_B_U1 <- contrast(emms_B_U1, method = "pairwise", adjust = "BH")
 summary(pairwise_comparisons_B_U1)
-# Obtener las Estimated Marginal Means (EMMs) UNLU
+
 #B.Rosana######
 #modelo completo
-mR<-lm(log(Tbiomass) ~ system * season * guild, data = base)
+#mR<-lm(log(Tbiomass) ~ system * season * guild, data = base)
 
 print("Modelo Multifactorial: Suelos de Chivicoy y Navarro")
 
-step(mR)
+#step(mR)
 #modelo parsimonioso
-mR_p<-lm(formula = log(Tbiomass) ~ system + season + guild + 
-           system:season + system:guild, data = base)
+#mR_p<-lm(formula = log(Tbiomass) ~ system + season + guild + system:season + system:guild, data = base)
 #modelo causal
 mR_c<-lm(log(Tbiomass) ~ system * guild, data = base)
+step(mR_c)
 
 print("Gráfico paramétricos, Modelo Multifactorial: Suelos de Chivilcoy y Navarro")
 #plot_parametrico_UNLu######
@@ -1141,9 +993,6 @@ pairwise_comparisons_B_RO3 <- contrast(emms_B_RO3, method = "pairwise", adjust =
 summary(pairwise_comparisons_B_RO3)
 
 
-
-
-
 ```
 
 
@@ -1158,17 +1007,17 @@ print("Reducción paso a paso del modelo completo al modelo parsimonioso")
 print("Modelo de Regresión de Quartiles: Suelos de Luján")
 step(rq0)
 #modelo full Ro
+rqU<-rq(log(D) ~ (sitio + gremio + log(bio.ind)+ sitio:gremio + gremio:log(bio.ind)) ,tau = .75, data = baseU)
+summary(rqU, se="boot")
 
 print("Modelo de Regresión de Quartiles: Suelos de Chyvilcoy")
-rq1<-rq(log(abundance) ~ (system+guild+log(bio.ind))^2, tau = .75, data = base)
+rq1<-rq(log(abundance) ~ (system+guild+log(bio.ind))^3, tau = .75, data = base)
 step(rq1)
-
-
-rqU<-rq(log(D) ~ (sitio + gremio + log(bio.ind)+ sitio:gremio + gremio:log(bio.ind)) ,tau = .75, data = baseU)
 #modelo Ro
-rqRO<-rq(log(abundance) ~ (system+guild+log(bio.ind))^2, tau = .75, data = base)
+rqRO<-rq(log(abundance) ~ (system+guild+log(bio.ind))^3, tau = .75, data = base)
+summary(rqRO, se="boot")
 
-#UNLu
+#UNLu iteraciones####
 # Definir los niveles deseados para sitio y gremio
 niveles_sitio <- list(c("R", "P", "A"), c("P", "A", "R"), c("A", "P", "R"))
 niveles_gremio <- list(c("herbivoro", "predador", "microfitofago", "detritivoro", "omnivoro"),
@@ -1204,8 +1053,7 @@ for (i in seq_along(niveles_sitio)) {
 # Acceder a los resultados
 #resultados[["sitio1_gremio1"]]  # Por ejemplo, para el primer nivel de sitio y gremio
 
-#########
-#Rosana
+#Rosana iteraciones########
 
 niveles_sitioR <- list(c("N", "G", "A"), c("G", "A", "N"), c("A", "N", "G"))
 niveles_gremioR <- list(c("detritivore","microphytophages","omnivore","predator"),
@@ -1227,7 +1075,7 @@ for (i in seq_along(niveles_sitioR)) {
         resultadoR <- base %>% 
             mutate(system = factor(system, levels = nivel_sitio),
                    guild = factor(guild, levels = nivel_gremio)) %>%
-            rq(log(abundance) ~ (system + guild + log(bio.ind))^2,
+            rq(log(abundance) ~ (system + guild + log(bio.ind))^3,
                tau = .75, data = .) %>%
             summary(., se = "boot")
         
@@ -1241,6 +1089,7 @@ for (i in seq_along(niveles_sitioR)) {
 #readRDS("other_scripts/iteracion_QQregresion_rosana.rds")
 
 print("Comparación entre pares de medias marginales, Ajuste BH")
+print("Modelo LSDR Luján regresion-QQ tau: 0.75")
 # Obtener las Estimated Marginal Means (EMMs) UNLU
 emms_U1 <- emmeans::emmeans(rqU, ~ sitio)
 pairwise_comparisons_U1 <- contrast(emms_U1, method = "pairwise", adjust = "BH")
@@ -1262,6 +1111,9 @@ emms_U5 <- emmeans::emmeans(rqU, ~ sitio+gremio:log(bio.ind))
 pairwise_comparisons_U5 <- contrast(emms_U5, method = "pairwise", adjust = "BH")
 view(summary(pairwise_comparisons_U5))
 
+print("Comparación entre pares de medias marginales, Ajuste BH")
+print("Modelo LSDR Chivilcoy y Navarro regresion-QQ tau: 0.75")
+
 # Obtener las Estimated Marginal Means (EMMs) UNLU
 
 emms_RO1 <- emmeans::emmeans(rqRO, ~ system:log(bio.ind))
@@ -1271,10 +1123,6 @@ summary(pairwise_comparisons_RO1)
 emms_RO2 <- emmeans::emmeans(rqRO, ~ guild:log(bio.ind))
 pairwise_comparisons_RO2 <- contrast(emms_RO2, method = "pairwise", adjust = "BH")
 summary(pairwise_comparisons_RO2)
-
-emms_RO3 <- emmeans::emmeans(rqRO, ~ system + guild:log(bio.ind))
-pairwise_comparisons_RO3 <- contrast(emms_RO3, method = "pairwise", adjust = "BH")
-summary(pairwise_comparisons_RO4)
 
 emms_RO4 <- emmeans::emmeans(rqRO, ~ system:guild)
 pairwise_comparisons_RO4 <- contrast(emms_RO4, method = "pairwise", adjust = "BH")
@@ -1287,6 +1135,10 @@ summary(pairwise_comparisons_RO5)
 emms_RO6 <- emmeans::emmeans(rqRO, ~ guild)
 pairwise_comparisons_RO6 <- contrast(emms_RO6, method = "pairwise", adjust = "BH")
 summary(pairwise_comparisons_RO6)
+
+emms_RO7 <- emmeans::emmeans(rqRO, ~ system:guild:log(bio.ind))
+pairwise_comparisons_RO7 <- contrast(emms_RO7, method = "pairwise", adjust = "BH")
+summary(pairwise_comparisons_RO7)
 
 
 ```
