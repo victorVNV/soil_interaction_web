@@ -179,57 +179,71 @@ Sy \\ \addlinespace
 ```
 <!--En esta tabla (Tabla 2), al no haber especies nuevas queda igual, solo agregue la columna opilioacarida en la que corresponde a especies, para que quede similar a las demas -->
 
-### Use of trophic resources by soil microarthropods
+### Uso de los recursos trófico por parte de los microartrópodos del suelo
 
-It is interesting to note that at the family level, the most numerous records correspond to trophic resources such as springtail, mites, microfauna, larvae, invertebrate eggs, and enchytraeids, typical resources of predatory microarthropods (Table 2). Similarly, at the genus level, the typical resources of predators represent 54 percent of the records. At the species level, the main resource mentioned is saprophytic fungi.
+Es interesante observar que a nivel de familia, los registros más numerosos corresponden a recursos tróficos 
+como colémbolos, ácaros, microfauna, larvas, huevos de invertebrados y enquitreidos, recursos típicos de 
+microartrópodos depredadores (Tabla 2). Del mismo modo, a nivel de género, los recursos típicos de los 
+depredadores representan el 54% de los registros. A nivel de especie, el principal recurso mencionado son los
+hongos saprofitos.
 
-The use of trophic resources in the seven main orders mentioned in the literature (3 orders of Collembola and 4 orders of Acari) are divided into their families, genera, and species in a nested way (Table 2). For example, for the order Symphypleona (Sy), the empirical evidence studies 13 species included in 10 genera within 3 families. In this way, Table 2 shows also for Symphypleona (Sy), that 8 of the 13 species mentioned, within 7 of the 10 genera, within 2 of the 3 families in the available bibliography, are mentioned consuming Saprophytic fungi. For additional identity and information on families, genera and species see ESM II.
 
-In all the taxonomic hierarchies considered, the order Sarcoptiformes (Acari) consumes mainly saprophytic fungi, bacteria, litter, plant tissues, and Mycorrhizal fungi. The order Trombidiformes (Acari), are presented mainly as predators.
+El uso de los recursos tróficos en los siete órdenes principales mencionados en la bibliografía (3 órdenes de Collembola y 4 órdenes de Acari) se divide en sus familias, géneros y especies de forma anidada (Tabla 2). Por ejemplo, para el orden Symphypleona (Sy), la evidencia empírica estudia 13 especies incluidas en 10 géneros dentro de 3 familias. De esta forma, la Tabla 2 muestra también para Symphypleona (Sy), que 8 de las 13 especies mencionadas, dentro de 7 de los 10 géneros, dentro de 2 de las 3 familias en la bibliografía disponible, se mencionan consumiendo hongos Saprofitos. Para más identidad e información sobre familias, géneros y especies, véase ESM II.
 
-For Collembola, the diversity of species addressed by empirical evidence is grouped into only 13 families, 3 of which belong to Symphypleona and a family of Neelipleona.
 
-The empirical evidence that addresses the trophic study of Arthropleona (Collembola) is represented by 154 different species, these were mainly associated with saprophytic fungi (119 species), followed in importance by bacteria, litter and humus. The microfauna is mentioned as a resource for 39 species.
+En todas las jerarquías taxonómicas consideradas, el orden Sarcoptiformes (Acari) consume principalmente hongos saprofitos, bacterias, hojarasca, tejidos vegetales y hongos micorrícicos. El orden Trombidiformes (Acari), se presentan principalmente como depredadores.
 
-![Bipartite graph showing the use of trophic resources by the main orders of Acari and Collembola. Upper nodes: Acari and Collembola orders as in Table 2. Lower nodes: trophic resources. The thickness and intensity of the lines give an idea of the proportion of mentions in the available literature about their use of trophic resources. The resource abbreviations are: saprophytic fungi (sap. fun.), microfauna (m. fau), bacteria (bac), litter, springtail (coll), plant tissue (plant), mites, mycorrhizal fungi (myco), humus, invertebrate carrion (carrion), invertebrate eggs (eggs), enchytraeids (enchy), and larvae.](Figures/Bi_Orden_Recurso.png){width="5.4125in" height="3.6083333333333334in"}
+En cuanto a los Collembola, la diversidad de especies abordada por las pruebas empíricas se agrupa en sólo 13 familias, 3 de las cuales pertenecen a Symphypleona y una familia de Neelipleona.
 
-Figure 4 presents the proportion of resources used by the main 4 mite orders and 3 Collembola orders, as found in the literature. For instance, the resource of saprophytic fungi is the main constituent of the diet of the Arthropleona, being the bacteria, the litter, the humus, and the microfauna mentioned resources in lesser proportion. Trombidiformes have a diet based mainly on microarthropods and nematodes and to a lesser extent saprophytic fungi and bacteria.
+Las pruebas empíricas que abordan el estudio trófico de Arthropleona (Collembola) están representadas por 154 especies diferentes, éstas se asociaron principalmente a hongos saprofitos (119 especies), seguidas en importancia por bacterias, hojarasca y humus. La microfauna se menciona como recurso para 39 especies.
 
-## Discussion
+![Gráfico bipartito que muestra el uso de los recursos tróficos por los principales órdenes de Acari y Collembola. Nodos superiores: Órdenes Acari y Collembola como en la Tabla 2. Nodos inferiores: recursos tróficos. El grosor y la intensidad de las líneas dan una idea de la proporción de menciones en la literatura disponible sobre su uso de recursos tróficos. Las abreviaturas de los recursos son: hongos saprófitos (sap. fun.), microfauna (m. fau), bacterias (bac), hojarasca, colémbolos (coll), tejido vegetal (plant), ácaros (mite), hongos micorrícicos (myco), humus, carroña de invertebrados (carrion), huevos de invertebrados (eggs), enquitreidos (enchy) y larvas.](Figures/Bi_Orden_Recurso.png){width="5.4125in" height="3.6083333333333334in"}
 
-Until the 1960s, soil fauna was considered mainly earthworms, and terrestrial ecologists considered most of the soil fauna as a "black box" of decomposers and detritivores [@Briones2014]. The information gradually collected over the following decades regarding edaphic microarthropods has reached the point where there is a need to focus on integrative works [@Pautasso2013]. However, the available information is still scarce and mostly restricted to the most numerous or conspicuous groups of the soil microarthropods, and mainly from European soils.
+La figura 4 presenta la proporción de recursos utilizados por los 4 principales órdenes de ácaros y los 3 órdenes de Collembola, según se desprende de la bibliografía. Por ejemplo, el recurso de los hongos saprofitos es el principal constituyente de la dieta de los Arthropleona, siendo las bacterias, la hojarasca, el humus, y la microfauna mencionados recursos en menor proporción. Los Trombidiformes tienen una dieta basada principalmente en microartrópodos y nematodos y en menor medida en hongos saprofitos y bacterias.
 
-For soil microarthropods, the evidence provided by laboratory work results in the most straightforward traditional method to know how these animals use trophic resources, their feeding behavior, their food preferences, and their development and growth in controlled environments, but feeding links observed in the laboratory do not necessarily relevant for the field [@Nielsen2018; @Potapov2022]. The method used to relate the isotopic signature of organisms and their resources is a recently developed tool that is useful for detecting the importance and the changes in time or space of assumed trophic relationships, which means that we have to know in advance if the trophic relationship exists. The main drawback of the method is that if we erroneously assign a trophic relationship, the proportions of the diets could be greatly distorted from the real trophic relationships. On the other side, this method has several advantages: 1) it can analyze a large number of species and an important variety of resources [@Potapov2019], 2) it can provide field evidence of real interactions, 3) it can provide quantitative data, accounting for interaction strength, 4) it can provide information on assimilation and not only ingestion [@Nielsen2018].
+## Discusión
 
-The different methods have different sources of errors, so it will be desirable that trophic resources used by soil microarthropods can be determined in a complementary way with several methods [@Potapov2020; @Walter1991].
+Hasta la década de 1960, la fauna del suelo se consideraba principalmente lombrices de tierra, y los ecólogos terrestres consideraban la mayor parte de la fauna del suelo como una «caja negra» de descomponedores y detritívoros [@Briones2014]. La información sobre los microartrópodos edáficos que se ha ido recopilando en las últimas décadas ha llegado a un punto en el que es necesario centrarse en trabajos integradores [@Pautasso2013]. Sin embargo, la información disponible sigue siendo escasa y se limita sobre todo a los grupos más numerosos o conspicuos de los microartrópodos del suelo, y principalmente de suelos europeos.
 
-The most used resources are saprophytic fungi, microfauna, and bacteria. If we associate them with their nutritional characteristics, these trophic resources are rich in molecules with great nutritional value as determined in the dietary routes labelled by fatty acids, stable isotopes, or the enzymatic methods [@Nielsen1962; @Potapov2019; @Ruess2010].
+En el caso de los microartrópodos del suelo, las pruebas aportadas por el trabajo de laboratorio resultan el método tradicional más directo para conocer cómo utilizan estos animales los recursos tróficos, su comportamiento alimentario, sus preferencias alimentarias y su desarrollo y crecimiento en entornos controlados, pero los vínculos alimentarios observados en el laboratorio no son necesariamente relevantes para el campo [@Nielsen2018; @Potapov2022]. El método utilizado para relacionar la firma isotópica de los organismos y sus recursos es una herramienta desarrollada recientemente que resulta útil para detectar la importancia y los cambios en el tiempo o en el espacio de supuestas relaciones tróficas, lo que significa que tenemos que saber de antemano si la relación trófica existe. El principal inconveniente del método es que si asignamos erróneamente una relación trófica, las proporciones de las dietas podrían distorsionarse enormemente con respecto a las relaciones tróficas reales. Por otro lado, este método tiene varias ventajas: 1) puede analizar un gran número de especies y una importante variedad de recursos [@Potapov2019], 2) puede aportar pruebas de interacciones reales ocurridas en el "campo", 3) puede proporcionar datos cuantitativos, que podría ser considerado como fuerza de interacción, 4) puede proporcionar información sobre la asimilación y no sólo sobre la ingestión [@Nielsen2018].
 
-It is also to be noted that the information available for Acari and Collembola is strongly asymmetric, corresponding mainly to the order Sarcoptiformes in Acari and to Arthropleona in Collembola.
+Los diferentes métodos tienen distintas fuentes de error, por lo que es interesante la complementariedad de que los recursos tróficos utilizados por los microartrópodos del suelo puedan determinarse con varios métodos [@Potapov2020; @Walter1991].
 
-Despite the increasing amount of descriptive works and lists of taxonomic groups, the information available worldwide is still largely fragmentary and incomplete, and taxonomic resolution varies considerably between and within published works.
+Los recursos más utilizados son los hongos saprofitos, la microfauna y las bacterias. Si los asociamos a sus características nutricionales, estos recursos tróficos son ricos en moléculas de gran valor nutritivo según se determina en las rutas alimentarias etiquetadas por ácidos grasos, isótopos estables, o los métodos enzimáticos [@Nielsen1962; @Potapov2019; @Ruess2010].
 
-We found that a large proportion of the resources are defined as taxonomic categories of species, genera, and families, which would be important to estimate the diets of higher taxonomic groups. The available information for low taxonomic levels could be used as a reference to address the problem of what the use of soil resources will be alike by higher-level taxonomic groups [@Bedano2007; @Potapov2020].
+También hay que señalar que la información disponible para Acari y Collembola es fuertemente asimétrica, correspondiendo principalmente al orden Sarcoptiformes en Acari y a Arthropleona en Collembola.
 
-However, this information must be interpreted with caution, because within a taxonomic category, each species could apply different strategies when exploiting food resources [@Lavelle2001; @Moore1988]. Although the taxa treated here are considered generalist consumers, recently the term "choosy generalist" was suggested as the behavior that characterizes consumers that inhabit soils [@Potapov2022].
+A pesar de la creciente cantidad de obras descriptivas y listas de grupos taxonómicos, la información disponible en todo el mundo sigue siendo en gran medida fragmentaria e incompleta, y la resolución taxonómica varía considerablemente entre las obras publicadas y dentro de ellas.
 
-The results presented here provide valuable new information about the different feeding strategies of the main groups of the soil microarthropods, and also on the quality and usefulness of the different methods used to assign trophic resource use to different taxa. It also presents the current status of knowledge about soil microarthropods' trophic resources usage. Moreover, it highlights the still meagre information available in this regard.
+Encontramos que una gran proporción de los recursos se definen como categorías taxonómicas de especies, géneros y familias, lo que sería importante para estimar las dietas de grupos taxonómicos superiores. La información disponible para niveles taxonómicos bajos podría utilizarse como referencia para abordar el problema de cómo será el uso de los recursos del suelo por parte de grupos taxonómicos de nivel superior. [@Bedano2007; @Potapov2020].
 
-Finally, it is necessary to call attention to the need for more studies on the trophic relationships of the soil microarthropods. Out of a total of approximately 9000 described species of Collembola [@Bellinger2023], it was only possible to find trophic information for just 127 soil inhabitant species. In the case of Acari, with more than 58 thousand species described so far [@Schmidt2020], but so far only find references of trophic relationships for 307 soil species.
+Sin embargo, esta información debe interpretarse con cautela, ya que dentro de una misma categoría taxonómica, cada especie podría aplicar diferentes estrategias a la hora de explotar los recursos alimenticios [@Lavelle2001; @Moore1988]. Aunque los taxones aquí tratados se consideran consumidores generalistas, recientemente se ha sugerido el término «generalista selectivo» como el comportamiento que caracteriza a los consumidores que habitan en suelos [@Potapov2022].
 
-It is clear that big gaps in the available information must be filled to advance our knowledge on the structure and functioning of soil food webs. Not only are there several microarthropods groups hardly explored, but also the geographical coverage is still quite narrow. Almost 52 percent of the published studies about the trophic resources of Acari and Collembola were developed in European countries. Further deepening on the knowledge of functional and trophic relationships of the soil the fauna would allow for a better and more precise evaluation of the functioning of the edaphic ecosystem, the protection of the ecosystem services that the soil microarthropods provide, and the sustainable use of the soil.
+Los resultados que aquí se presentan aportan nueva y valiosa información sobre las diferentes estrategias de alimentación de los principales grupos de microartrópodos del suelo, y también sobre la calidad y utilidad de los distintos métodos utilizados para asignar el uso de recursos tróficos a los diferentes taxones. También presenta el estado actual de los conocimientos sobre el uso de los recursos tróficos por parte de los microartrópodos del suelo. Además, pone de relieve la todavía escasa información disponible al respecto.
 
-## Bibliography
+Por último, hay que llamar la atención sobre la necesidad de realizar más estudios sobre las relaciones tróficas de los microartrópodos del suelo. De un total aproximado de 9000 especies descritas de Collembola [@Bellinger2023], sólo fue posible encontrar información trófica para 127 especies de habitantes del suelo. En el caso de los Acari, con más de 58 mil especies descritas hasta el momento [@Schmidt2020], pero hasta ahora sólo se han encontrado referencias de relaciones tróficas para 307 especies del suelo.
+
+Está claro que deben colmarse grandes lagunas en la información disponible para avanzar en nuestros conocimientos sobre la estructura y el funcionamiento de las redes tróficas del suelo. No sólo hay varios grupos de microartrópodos apenas explorados, sino que además la cobertura geográfica sigue siendo bastante reducida. Casi el 52% de los estudios publicados sobre los recursos tróficos de Acari y Collembola se desarrollaron en países europeos. Una mayor profundización en el conocimiento de las relaciones funcionales y tróficas de la fauna del suelo permitiría una evaluación mejor y más precisa del funcionamiento del ecosistema edáfico, la protección de los servicios ecosistémicos que proporcionan los microartrópodos del suelo y el uso sostenible del suelo.
+
+## Bibliografía
 
 ::: {#refs}
 :::
 
 \newpage
 
-**[Supplementary Material Captions]**
+**Descripción sobre Material Suplementario**
 
-Electronic Supplementary Material I (ESM I): Complete list of bibliographic sources that relate specific taxa to a particular trophic resource.
+Material suplementario electrónico I ([ESM I]()): Lista completa de las fuentes bibligráficas que relaciona los taxones de microartrópodos edáficos con uno o más recursos tróficos.
 
-Electronic Supplementary Material II (ESM II): Complete list of 2717 taxa for which a particular trophic resource has been assigned.
+Material suplementario electrónico II ([ESM II]()): Lista completa con 2717 taxones y los recursos tróficos asignados a ellos.
 
-Electronic Supplementary Material III (ESM III): Flowchart showing the criteria used in the bibliographic search and selection.
+Material suplementario electrónico III (ESM III[ESM III]()): Diagrama de flujo que muestra los criterios utilizados en la búsqueda y selección bibliográfica.
+
+https://zenodo.org/records/8086711
+https://github.com/EcoComplex/TrophicResources.git
+
+doi: https://doi.org/10.1101/2021.02.06.430061
+Now published in Heliyon doi: 10.1016/j.heliyon.2023.e20439
+https://doi.org/10.1016/j.heliyon.2023.e20439
+Conicet http://hdl.handle.net/11336/229316

@@ -1203,7 +1203,7 @@ P_reduc.net <-graph_from_adjacency_matrix(t(mG[c(P.r,"litter","carrion","tej_veg
 ```
 
 # Resultados
-
+## Parámetros estructurales de las redes tróficas de suelos Argiudoles
 Las redes de interacciones de los suelos Argiudoles tienen 4 recursos
 tróficos denominados también como especies base, estos son, el tejido
 vegetal que engloba a las raices y sus exudados, la hojarasca, el humus
@@ -1949,6 +1949,9 @@ F_omn_P.r<-sum(flux_P.r[,colnames(flux_P.r) %in% omn])
 F_omn_L.r<-sum(flux_L.r[,colnames(flux_L.r) %in% omn])
 
 ```
+
+## Flujos de energía a través de las redes tróficas en suelos Argiudoles
+
 El flujo de energía (Table 5.x) de la comunidad de la fauna edáfica en suelos de Luján fué mayor en la comunidad del Pastizal, seguida por la comunidad en la Reserva y el sistema agrícola intensivo con un flujo menor de energía de 364 kJ.año^-1^ y 614 kJ.año^-1^ respectivamente con respecto al pastizal.
 
 La cantidad de energía ligada a consumo del humus en suelos de Luján,
@@ -1957,14 +1960,14 @@ se relaciona con la <u>biotransformación</u> del suelo, la cantidad de energía
 es muy importante, llegando a ser del 75% en el pastizal, del 70% en la reserva, y del 65% en el sistema agrícola. 
 
 ```{r flujos_multicanal_print, echo=FALSE, message=FALSE,warning=FALSE}
-F_mc_lu<-data.frame(sitio=c("Reserva","Pastizal","Agrícola"),total=c(sum(flux_R),sum(flux_P),sum(flux_L))/1e3,
-           biotransformación=c(F_mo_R/sum(flux_R),F_mo_P/sum(flux_P),F_mo_L/sum(flux_L)
-                               )*100,
-           detritivoria=c(F_det_R/sum(flux_R),F_det_P/sum(flux_P),F_det_L/sum(flux_L)
-                               )*100,
-           microfitofagia=c(F_mic_R/sum(flux_R),F_mic_P/sum(flux_P),F_mic_L/sum(flux_L))*100,
-           predación=c(F_pred_R/sum(flux_R),F_pred_P/sum(flux_P),F_pred_L/sum(flux_L))*100,
-           omnivoría=c(F_omn_R/sum(flux_R),F_omn_P/sum(flux_P),F_omn_L/sum(flux_L))*100,
+F_mc_lu<-data.frame(sitio=c("Reserva","Pastizal","Agrícola"),
+           biotransformación=c(F_mo_R,F_mo_P,F_mo_L
+                               ),
+           detritivoria=c(F_det_R,F_det_P,F_det_L
+                               ),
+           microfitofagia=c(F_mic_R,F_mic_P,F_mic_L),
+           predación=c(F_pred_R,F_pred_P,F_pred_L),
+           omnivoría=c(F_omn_R,F_omn_P,F_omn_L),
            row.names = NULL)
 
 F_mc_lu
@@ -1980,23 +1983,22 @@ La omnivoría es el tercer canal de energía en importancia a través de estos a
 La cantidad de energía que llega a los depredadores es el de menor importancia relativa por debajo del 1% del flujo total, en los suelos de la reserva la cantidad de energía en este canal fué mas bajo, seguido por el sistema agrícola y el pastizal.
 
 ```{r flujos_multicanal_print1, echo=FALSE, message=FALSE,warning=FALSE}
-F_mc_total<-data.frame(sitio=c("Naturalizado","Mixto","Agrícola","Reserva","Pastizal","Agrícola"),total=c(                                                        sum(flux_N),sum(flux_G),sum(flux_A),
-                        sum(flux_R.r),sum(flux_P.r),sum(flux_L.r))/1e3,
+F_mc_total<-data.frame(sitio=c("Naturalizado","Mixto","Agrícola","Reserva","Pastizal","Agrícola"),
            biotransformación=c(
-                               F_mo_N/sum(flux_N),F_mo_G/sum(flux_G),F_mo_A/sum(flux_A),
-                                                             F_mo_R.r/sum(flux_R.r),F_mo_P.r/sum(flux_P.r),F_mo_L.r/sum(flux_L.r))*100,
+                               F_mo_N,F_mo_G,F_mo_A,
+                                                             F_mo_R.r,F_mo_P.r,F_mo_L.r)*100,
            detritivoria=c(
-                               F_det_N/sum(flux_N),F_det_G/sum(flux_G),F_det_A/sum(flux_A),
-                        F_det_R.r/sum(flux_R.r),F_det_P.r/sum(flux_P.r),F_det_L.r/sum(flux_L.r))*100,
+                               F_det_N,F_det_G,F_det_A,
+                        F_det_R.r,F_det_P.r,F_det_L.r),
            microfitofagia=c(
-                               F_mic_N/sum(flux_N),F_mic_G/sum(flux_G),F_mic_A/sum(flux_A),
-                               F_mic_R.r/sum(flux_R.r),F_mic_P.r/sum(flux_P.r),F_mic_L.r/sum(flux_L.r))*100,
+                               F_mic_N,F_mic_G,F_mic_A,
+                               F_mic_R.r,F_mic_P.r,F_mic_L.r),
            predación=c(
-                               F_pred_N/sum(flux_N),F_pred_G/sum(flux_G),F_pred_A/sum(flux_A),
-                               F_pred_R.r/sum(flux_R.r),F_pred_P.r/sum(flux_P.r),F_pred_L.r/sum(flux_L.r))*100,
+                               F_pred_N,F_pred_G,F_pred_A,
+                               F_pred_R.r,F_pred_P.r,F_pred_L.r),
            omnivoría=c(
-                               F_omn_N/sum(flux_N),F_omn_G/sum(flux_G),F_omn_A/sum(flux_A),
-                               F_omn_R.r/sum(flux_R.r),F_omn_P.r/sum(flux_P.r),F_omn_L.r/sum(flux_L.r))*100,
+                               F_omn_N,F_omn_G,F_omn_A,
+                               F_omn_R.r,F_omn_P.r,F_omn_L.r),
            row.names = NULL)
 
 F_mc_total
@@ -2019,13 +2021,14 @@ La omnivoría en el pastizal naturalizado contabilizó solo el 4,5% del flujo to
 La predación no supero el 2% del flujo total de energía en general. En los suelos de Chivilcoy y Navarro 
 fue mayor en el sistema Agrícola intensivo y menor en el pastizal naturalizado; en suelos de Luján la predación fué más importante en el pastizal seguido del sistema agrícola.
 
+## Estabilidad de las redes tróficas de suelos Argiudoles
 
 **Valor de estabilidad de cuasi-signo en suelos de Luján**
 
 
 En los suelos argiudoles de Luján las redes de interacciones tróficas muestra 
 diferencias significativas entre los tres sistemas de uso según la prueba de 
-Anderson-Darling $AD: p_{\;valor} > 0.05$. 
+Anderson-Darling $AD: p_{\,valor} < 0.05$. 
 
 Los tres sistemas de uso se diferencian entre sí siendo mayor en promedio la parte real 
 del autovalor de la matriz Jacobiana en los suelos de la comunidad de la Reserva y 

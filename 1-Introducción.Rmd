@@ -17,8 +17,9 @@ knitr::opts_chunk$set(echo = TRUE)
 Los bienes y servicios que la humanidad aprovecha de los ecosistemas
 terrestres dependen de los procesos naturales que ocurren en el ecosistema edáfico,
 estos procesos son el resultado de complejas interacciones entre la
-fracción biológica y la matriz física y química que componen los suelos. Las
-diferentes actividades antrópicas ejercen un efecto sobre el suelo
+fracción biológica y la matriz física y química que componen los suelos. 
+
+Las diferentes actividades antrópicas ejercen un efecto sobre el suelo
 modificando la estructura física, química y biológica del mismo, que
 dependiendo del impacto sobre los diferentes componentes producen
 cambios en la dinámica del ciclo de los nutrientes y de la materia
@@ -33,7 +34,7 @@ químicos del suelo que permiten una clasificación y caracterización
 clara de los diferentes suelos del mundo, pero sobre el componente
 biológico aún se está desarrollando el cuerpo de conocimiento
 (.\@.barrios2007). El suelo es el hábitat de una amplia diversidad de
-organismos, y sobre los cuáles recaen importantes procesos ecosistémicos,
+organismos sobre los cuáles recaen importantes procesos ecosistémicos,
 se estima que al rededor del 59% de la biodiversidad global
 se adapta a la vida en los suelos y que de esta biodiversidad se conoce
 en la actualidad tan solo una pequeña fracción (\@mark2023etal), por lo
@@ -44,17 +45,17 @@ componente biológico de los suelos (.\@.culliney2013
 De la biodiversidad edáfica dependen diversos procesos que influyen
 sobre el funcionamiento de los suelos sean estos naturales o manejados por
 el hombre (.\@.Thaku_etal_2019;.\@.bardgett2002 .\@.creamer2022).
-Estos procesos ocurren debias a las interacciones entre los organismos y 
+Estos procesos (Fig 1.x) ocurren debidas a las interacciones entre los organismos y 
 el medio ambiente edáfico que intervienen en la formación, la estructura, el mantenimiento y el
 funcionamiento de los suelos y cuyos efectos suceden a diferentes escalas
 espaciales y temporales con una determinada jerarquía (.\@.barrios2007 .\@.lavelle_etal_2006).
-Entender la complejidad de estos sistemas ecológicos son una cuestión 
+Entender la complejidad de estos sistemas ecológicos es una cuestión 
 clave para mantener características que aseguren y aumenten los beneficios
 ecosistémicos provistos por el suelo, por ej, el mantenimiento de la
 fertilidad, el aumento de la captura de carbono, la reducción de insumos
 externos para la producción de alimentos, la protección de la biodiversidad
 que podría resultar clave en la obtención de nuevos compuestos de
-interés medicinal e industrial o en procedimientos de remediación, entre otros.
+interés medicinal e industrial o en procedimientos de remediación ambiental, entre otros (\@fao,contaminacion suelos).
 
 En el suelo existe una intrincada red de poros e intersiticios que se
 forman entre la matriz organo-mineral del suelo y la hojarasca que se
@@ -66,7 +67,7 @@ especies que allí habitan (.\@.anderson1978;.\@.lavelle_spain2003,
 La red de poros del suelo es un entorno anfibio, compacto, discontinuo,
 de diámetro variable cuyas características físicas y químicas
 heterogéneas a pequeñas escalas permite el desarrollo y mantenimiento de
-una gran cantidad de microclimas y soporta una compleja y diversa
+una gran cantidad de microclimas que soporta una compleja y diversa
 comunidad biológica (.\@.lavelle_spain2003 .\@.barrios2007
 .\@.bardgett2002). Por su parte, los habitantes del suelo mediante
 diferentes estrategias en la historias de vida y estrategias de
@@ -75,7 +76,7 @@ diferencialmente a las variaciones ambientales y a la disponibilidad de
 recursos tróficos alimenticios (.\@.bardgett2002,
 .\@.lavelle_spain2003).
 
-<!-- agregar la imagen de las diferentes escalas en la que operan los organismos-->
+<--Fig 1.x agregar la imagen de las diferentes escalas en la que operan los organismos-->
 
 Los organismos que viven en el suelo son clasificados tradicionalmente
 en función del ancho corporal (.\@.swift199x): los organismos \<100
@@ -101,13 +102,15 @@ los organismos su capacidad de afectar el ambiente edáfico varía en
 diferentes escalas espacio temporales y áreas de influencia
 (.\@.lavelle2012, .\@.briones2014)
 
+[Fig 1.x agregatosfera drilidrosfera etc]
+
 Sin embargo, el estudio de las comunidades del suelo hasta niveles especie
 específicos se dificulta tanto porque el suelo es un hábitat críptico,
 como porque el tamaño de los organismos es pequeño lo que dificulta las
 caracterizaciones anotomicas - morfológicas, y además, por el bajo
 desarrollo a nivel global del conocimiento taxonómico
 (.\@.wurts_et_al2012). Por ello es que, considerando los diferentes
-procesos que ocurren en el suelo, se conoce que muchas especies cumplen
+procesos que ocurren en el suelo, se entiende que muchas especies cumplen
 papeles similares desde el punto de vista funcional por lo que una
 clasificación funcional se ha desarrollado para conectar la diversidad
 biológica con el funcionamiento del ecosistema del suelo (.\@.briones2014,
@@ -194,7 +197,11 @@ diversidad de rasgos y la diversidad funcional</u> con los aspectos
 relacionados con la <u>dinámica, estabilidad y la resiliencia</u> de estos
 sistemas.
 
-En este contexto, el presente trabajo busca comparar la estabilidad
+En este contexto, el presente trabajo busca através de la construcción y el modelado 
+de la red de interacciones tróficas, describir las relaciones de alimentación, 
+caracterizar la diversidad, 
+analizar las variaciones del espectro de tamaños, 
+calcular los flujos de energía y comparar la estabilidad
 estructural de las redes tróficas de la fauna edáfica de comunidades que
 habitan los suelos Argiudoles típicos de la Pampa Ondulada entre
 ambientes con distintas estrategias en el **uso del suelo** como
@@ -217,7 +224,8 @@ información sobre el peso corporal de los taxas involucrados
 (.\@.laigle_etal_2018) que facilita *IV)* modelar las fuerzas de interacciones
 (.\@.deRuiter_etal_1995) y los flujos de energía entre los nodos de la
 red (.\@.potapov2023, .\@.barnes_etal_2017), para *V)* finalmente calcular 
-la resiliencia y la estabilidad de los sistemas bajo estudio
+la resiliencia y la estabilidad estructural de las redes de interacciones tróficas
+que ocurren en los sistemas bajo estudio
 (.\@.mooreandderutier_2018, .\@.gauzen_etal_2018,
 .\@.allisina_etal_2008).
 
