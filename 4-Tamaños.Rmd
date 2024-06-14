@@ -50,12 +50,7 @@ Mediante el análisis de la biomasa y del espectro de tamaños de la fauna edáf
 
 ## Estimación del peso corporal individual de los organismos de la fauna edáfica
 
-El peso corporal de los organismos de la fauna edáfica se estimó a partir de la fauna edáfica 
-extraida de suelos argiudoles de Luján en el mes de mayo del año 2022
-estos incluyen los organismos de la microfauna, mesofauna y de la macrofauna.
-También se cuantificó el peso corporal 
-de los microartrópodos edáficos ocurridos en suelos de Chivilcoy y Navarro, refrigerados y almacenados en alcohol 70,
-cuyo diseño de muestreo contempló cada estación del año durante dos años (Sizespectrapaper;Sandler2019).
+El peso corporal de los organismos de la fauna edáfica se estimó a partir de la fauna edáfica extraida de suelos argiudoles de Luján en el mes de mayo del año 2022 estos incluyen los organismos de la microfauna, mesofauna y de la macrofauna. También se cuantificó el peso corporal de los microartrópodos edáficos ocurridos en suelos de Chivilcoy y Navarro, refrigerados y almacenados en alcohol 70, cuyo diseño de muestreo contempló cada estación del año durante dos años (Sizespectrapaper;Sandler2019).
 
 La macrofauna edáfica con tamaños mayores a 1 cm de longitud, previamente identificada, fue llevada a estufa a 60ºC hasta pesada constante para estimar el peso seco mediante balanza analítica con precisión de 1 mg.
 
@@ -66,29 +61,29 @@ Mediante el software ImageJ se tomaron las longitudes del largo y ancho corporal
 **Tabla 4.1. Ecuaciones morfométricas que relacionan el largo y el ancho corporal para estimar el peso corporal de los taxones de la fauna edáfica según su forma característica. Se aclaran las unidades de medidas de peso, largo y ancho para cada caso en particular, se deja en claro el coeficiente de peso seco utilizado.** <!-- controlar y corregir -->
 
 +-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
-| Autor| Taxón| Ecuación| Coeficiente de peso seco| Observaciones|
+| Autor                   | Taxón                                 | Ecuación                                           | Coeficiente de peso seco                | Observaciones                                                               |
 +=========================+=======================================+====================================================+=========================================+=============================================================================+
-| Tanaka (1970)| Hipogastruridae| log P = 2,78 \* log L + 0,71| expresado en peso seco                  | P (peso en ug) = 10 ^log\ P^                                                |
+| Tanaka (1970)           | Hipogastruridae                       | log P = 2,78 \* log L + 0,71                       | expresado en peso seco                  | P (peso en ug) = 10 ^log P^                                                 |
 |                         |                                       |                                                    |                                         |                                                                             |
 |                         |                                       |                                                    |                                         | L (largo en mm)                                                             |
 +-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
-| Tanaka (1970)           | Isotomidae                            | log P = 2,55 \* log L  + 0,99                      | expresado en peso seco                  | P (peso en ug) = 10 ^log\ P^                                                |
+| Tanaka (1970)           | Isotomidae                            | log P = 2,55 \* log L + 0,99                       | expresado en peso seco                  | P (peso en ug) = 10 ^log P^                                                 |
 |                         |                                       |                                                    |                                         |                                                                             |
 |                         |                                       |                                                    |                                         | L (largo en mm)                                                             |
 +-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
-| Tanaka (1970)           | Onychiuridae                          | log P = 2,75 \* log L + 0,63                       | expresado en peso seco                  | P (peso en ug) = 10 ^log\ P^                                                |
+| Tanaka (1970)           | Onychiuridae                          | log P = 2,75 \* log L + 0,63                       | expresado en peso seco                  | P (peso en ug) = 10 ^log P^                                                 |
 |                         |                                       |                                                    |                                         |                                                                             |
 |                         |                                       |                                                    |                                         | L (largo en mm)                                                             |
 +-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
-| Tanaka (1970)           | Entomobriidae                         | log P = 2,5 \* log L + 1,07                        | expressed as dry biomass                | P (peso en ug) = 10 ^log\ P^                                                |
+| Tanaka (1970)           | Entomobriidae                         | log P = 2,5 \* log L + 1,07                        | expressed as dry biomass                | P (peso en ug) = 10 ^log P^                                                 |
 |                         |                                       |                                                    |                                         |                                                                             |
 |                         |                                       |                                                    |                                         | L (largo en mm)                                                             |
 +-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
-| Petersen (1975)         | Symphypleona                          | log P = log 39,6278 + 0,83 \* log L                | expressed as dry biomass                | P (peso en ug) = 10 ^log\ P^                                                |
+| Petersen (1975)         | Symphypleona                          | log P = log 39,6278 + 0,83 \* log L                | expressed as dry biomass                | P (peso en ug) = 10 ^log P^                                                 |
 |                         |                                       |                                                    |                                         |                                                                             |
 |                         |                                       |                                                    |                                         | L (largo en mm)                                                             |
 +-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
-| Lebrum Philippe (1971)  | Achipteriforme                        | log P = 2,09 log L + 0,93 log l – 6,67             | 0,4                                     | P (peso en ug) = 10 ^log\ P^                                                |
+| Lebrum Philippe (1971)  | Achipteriforme                        | log P = 2,09 log L + 0,93 log l – 6,67             | 0,4                                     | P (peso en ug) = 10 ^log P^                                                 |
 |                         |                                       |                                                    |                                         |                                                                             |
 |                         |                                       |                                                    |                                         | L (largo en um)                                                             |
 |                         |                                       |                                                    |                                         |                                                                             |
@@ -96,7 +91,7 @@ Mediante el software ImageJ se tomaron las longitudes del largo y ancho corporal
 |                         |                                       |                                                    |                                         |                                                                             |
 |                         |                                       |                                                    |                                         | \*coef según Persson and Lohm, (1977); Fórmulas Oribátidos según Morfología |
 +-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
-| Lebrum Philippe (1971)  | Nothriforme                           | log P = 2,09 log L + 0,84 log l – 6,44             | 0,4                                     | P (peso en ug) = 10 ^log\ P^                                                |
+| Lebrum Philippe (1971)  | Nothriforme                           | log P = 2,09 log L + 0,84 log l – 6,44             | 0,4                                     | P (peso en ug) = 10 ^log P^                                                 |
 |                         |                                       |                                                    |                                         |                                                                             |
 |                         |                                       |                                                    |                                         | L (largo en um)                                                             |
 |                         |                                       |                                                    |                                         |                                                                             |
@@ -104,7 +99,7 @@ Mediante el software ImageJ se tomaron las longitudes del largo y ancho corporal
 |                         |                                       |                                                    |                                         |                                                                             |
 |                         |                                       |                                                    |                                         | \*coef según Persson and Lohm, (1977); Fórmulas Oribátidos según Morfología |
 +-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
-| Lebrum Philippe (1971)  | Carabodiforme                         | log P = 1,62 log L + 1,40 log l – 6,56             | 0,4                                     | P (peso en ug) = 10 ^log\ P^                                                |
+| Lebrum Philippe (1971)  | Carabodiforme                         | log P = 1,62 log L + 1,40 log l – 6,56             | 0,4                                     | P (peso en ug) = 10 ^log P^                                                 |
 |                         |                                       |                                                    |                                         |                                                                             |
 |                         |                                       |                                                    |                                         | L (largo en um)                                                             |
 |                         |                                       |                                                    |                                         |                                                                             |
@@ -112,7 +107,7 @@ Mediante el software ImageJ se tomaron las longitudes del largo y ancho corporal
 |                         |                                       |                                                    |                                         |                                                                             |
 |                         |                                       |                                                    |                                         | \*coef según Persson and Lohm, (1977); Fórmulas Oribátidos según Morfología |
 +-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
-| Lebrum Philippe (1971)  | Forma general utilizada en la tabla 9 | Log P = 1,53 log L + 1,53 log l – 6,67             | 0,4                                     | P (peso en ug) = 10 ^log\ P^                                                |
+| Lebrum Philippe (1971)  | Forma general utilizada en la tabla 9 | Log P = 1,53 log L + 1,53 log l – 6,67             | 0,4                                     | P (peso en ug) = 10 ^log P^                                                 |
 |                         |                                       |                                                    |                                         |                                                                             |
 |                         |                                       |                                                    |                                         | L (largo en um)                                                             |
 |                         |                                       |                                                    |                                         |                                                                             |
@@ -136,23 +131,23 @@ Mediante el software ImageJ se tomaron las longitudes del largo y ancho corporal
 |                         |                                       |                                                    |                                         |                                                                             |
 |                         |                                       |                                                    |                                         | \* coef según Persson and Lohm, (1977)                                      |
 +-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
-| Ganihar (1997)          | Aracnida                              | ln P = -3,2105 + 2,4681 \* L                       | expresado en peso seco                  | P (peso en mg) = e ^ln\ P^                                                  |
+| Ganihar (1997)          | Aracnida                              | ln P = -3,2105 + 2,4681 \* L                       | expresado en peso seco                  | P (peso en mg) = e ^ln P^                                                   |
 |                         |                                       |                                                    |                                         |                                                                             |
 |                         |                                       |                                                    |                                         | L (Largo en mm)                                                             |
 +-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
-| Ganihar (1997)          | Coleoptera adulto                     | ln P = -3,2689 + 2,4625 \* L                       | expresado en peso seco                  | P (peso en mg) = e ^ln\ P^                                                  |
+| Ganihar (1997)          | Coleoptera adulto                     | ln P = -3,2689 + 2,4625 \* L                       | expresado en peso seco                  | P (peso en mg) = e ^ln P^                                                   |
 |                         |                                       |                                                    |                                         |                                                                             |
 |                         |                                       |                                                    |                                         | L (Largo en mm)                                                             |
 +-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
-| Ganihar (1997)          | Coleoptera larva                      | ln P = -7,1392 + 0,8095 \* L                       | expresado en peso seco                  | P (peso en mg) = e ^ln\ P^                                                  |
+| Ganihar (1997)          | Coleoptera larva                      | ln P = -7,1392 + 0,8095 \* L                       | expresado en peso seco                  | P (peso en mg) = e ^ln P^                                                   |
 |                         |                                       |                                                    |                                         |                                                                             |
 |                         |                                       |                                                    |                                         | L (Largo en mm)                                                             |
 +-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
-| Ganihar (1997)          | Díptera                               | ln P = -3,4294 + 2,5943 \* L                       | expresado en peso seco                  | P (peso en mg) = e ^ln\ P^                                                  |
+| Ganihar (1997)          | Díptera                               | ln P = -3,4294 + 2,5943 \* L                       | expresado en peso seco                  | P (peso en mg) = e ^ln P^                                                   |
 |                         |                                       |                                                    |                                         |                                                                             |
 |                         |                                       |                                                    |                                         | L (Largo en mm)                                                             |
 +-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
-| Ganihar (1997)          | Formicidae                            | ln P = -3,1415 + 2,3441 \* L                       | expresado en peso seco                  | P (peso en mg) = e ^ln\ P^                                                  |
+| Ganihar (1997)          | Formicidae                            | ln P = -3,1415 + 2,3441 \* L                       | expresado en peso seco                  | P (peso en mg) = e ^ln P^                                                   |
 |                         |                                       |                                                    |                                         |                                                                             |
 |                         |                                       |                                                    |                                         | L (Largo en mm)                                                             |
 +-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
@@ -160,21 +155,21 @@ Mediante el software ImageJ se tomaron las longitudes del largo y ancho corporal
 |                         |                                       |                                                    |                                         |                                                                             |
 |                         |                                       |                                                    |                                         | L (largo en mm)                                                             |
 +-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
-| Ganihar (1997)          | Isopoda                               | ln P = -1,1167 + 0,4762\*L                         | expresado en peso seco                  | P (peso en mg) = e ^ln\ P^                                                  |
+| Ganihar (1997)          | Isopoda                               | ln P = -1,1167 + 0,4762\*L                         | expresado en peso seco                  | P (peso en mg) = e ^ln P^                                                   |
 |                         |                                       |                                                    |                                         |                                                                             |
 |                         |                                       |                                                    |                                         | L (Largo en mm)                                                             |
 +-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
-| Coulis & Joly (2017)    | Diplopoda Miriapoda                   | ln P = 2,38\* ln(L)-2,77                           | 0,45                                    | P (peso en mg) = e ^ln\ P^                                                  |
+| Coulis & Joly (2017)    | Diplopoda Miriapoda                   | ln P = 2,38\* ln(L)-2,77                           | 0,45                                    | P (peso en mg) = e ^ln P^                                                   |
 |                         |                                       |                                                    |                                         |                                                                             |
 |                         |                                       |                                                    |                                         | L (Largo en mm)                                                             |
 |                         |                                       |                                                    |                                         |                                                                             |
 |                         |                                       |                                                    |                                         | \*Según Edwards 1967 en Lebrum Philippe. (1971)                             |
 +-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
-| Ganihar (1997)          | Pauropoda                             | ln P = -1,8749 + 2,3002 \* L                       | expresado en peso seco                  | P (peso en mg) = e ^ln\ P^                                                  |
+| Ganihar (1997)          | Pauropoda                             | ln P = -1,8749 + 2,3002 \* L                       | expresado en peso seco                  | P (peso en mg) = e ^ln P^                                                   |
 |                         |                                       |                                                    |                                         |                                                                             |
 |                         |                                       |                                                    |                                         | L (Largo en mm)                                                             |
 +-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
-| Ganihar (1997)          | Chilopoda                             | ln P = -6,7041 + 2,8420 \* L                       | expresado en peso seco                  | P (peso en mg) = e ^ln\ P^                                                  |
+| Ganihar (1997)          | Chilopoda                             | ln P = -6,7041 + 2,8420 \* L                       | expresado en peso seco                  | P (peso en mg) = e ^ln P^                                                   |
 |                         |                                       |                                                    |                                         |                                                                             |
 |                         |                                       |                                                    |                                         | L (Largo en mm)                                                             |
 +-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
@@ -182,7 +177,7 @@ Mediante el software ImageJ se tomaron las longitudes del largo y ancho corporal
 |                         |                                       |                                                    |                                         |                                                                             |
 |                         |                                       |                                                    |                                         | L (Largo en um)                                                             |
 +-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
-| Ganihar (1997)          | Ortóptera                             | ln P = -3,5338 + 2,4619 \* L                       | expresado en peso seco                  | P (peso en mg) = e ^ln\ P^                                                  |
+| Ganihar (1997)          | Ortóptera                             | ln P = -3,5338 + 2,4619 \* L                       | expresado en peso seco                  | P (peso en mg) = e ^ln P^                                                   |
 |                         |                                       |                                                    |                                         |                                                                             |
 |                         |                                       |                                                    |                                         | L (Largo en mm)                                                             |
 +-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
@@ -207,7 +202,6 @@ Mediante el software ImageJ se tomaron las longitudes del largo y ancho corporal
 
 A partir de los pesos corporales, expresados en $\mu g_ {\;p.s.}$ , de cada individuo se calculó el valor del peso corporal medio para el taxón ( $\mu g_{\;p.s.}$ ), también se calcularon los valores de densidad por taxón ( $no. ind/m^{-2}$ ) extrapolando a partir de los valores de abundancias y en función del marco de muestreo a partir de ambas variables se obtuvo la biomasa total promedio ( $\mu g_{p.s.} * m^{-2}$ ). Además a cada taxón se asigno una categoría de gremio trófico en función del uso que hacen de los recursos tróficos [.\@.velazco2023; @simberloff2022a] estos son gremios de: **detritívoros** (consumen tejido vegetal en descomposición), **microfitófagos** (consumen microflora), **predadores** (consumen animales, son "zoofagos"), **omnívoros** (consumen animales, microflora, materia orgánica, etc.) ó **herbívoros** (consumen tejido vegetal vivo).
 
-
 ## Análisis estadístico
 
 Se resumen los valores medio de densidad, biomasa y pesos corporales de cada taxon en cada sistema de manejo, para conocer las posibles diferencias estructurales dentro de la fauna edáfica relacionadas con el impacto del uso del suelo en los diferentes sistemas de manejo.
@@ -218,9 +212,7 @@ Para cada comunidad se analizó la respuesta de la **biomasa media** de cada gre
 
 Las relaciones entre los pesos corporales medios y las abundancias se abordó mediante el uso de la **regresión sobre el tercer cuartil** [@white2007], que permite, obtener una relacion de regresión sin realizar supuestos sobre la distribución de las variables, por otra parte la regresión sobre el tercer cuartil ($\tau = 0,75$) disminuye el efecto de las especies raras y permite centrarse en los valores más probables del peso adulto de los invertebrados edáficos [@cade2003; @turnbull2014].
 
-Mediante la regresión sobre el tercer cuartil se realizaron <u>comparaciones entre los interceptos y las pendientes</u>
-para evaluar la existencia de diferencias, las relaciones de estas con las características ecológicas y el impacto de las 
-actividades antrópicas sobre las comunidades de los microartrópodos edáficos [@cade2003]; para ello se hizo uso del paquete ["quantreg"](https://cran.r-project.org/package=quantreg) [.\@.buscarcitadelpaquete] que permite realizar modelos de regresión de cuartiles y utilizar técnicas de remuestreo (en inglés:_"bootstraping"_) no paramétricas para evaluar las diferencias, además, se contrastaron las interacciones relevantes, mediante pruebas de a pares corregidas por <u>Benjamini-Hochberg</u> para determinar el nivel de significancia de las interacciones considerando p~valor~ menores a 0.1
+Mediante la regresión sobre el tercer cuartil se realizaron <u>comparaciones entre los interceptos y las pendientes</u> para evaluar la existencia de diferencias, las relaciones de estas con las características ecológicas y el impacto de las actividades antrópicas sobre las comunidades de los microartrópodos edáficos [@cade2003]; para ello se hizo uso del paquete ["quantreg"](https://cran.r-project.org/package=quantreg) [.\@.buscarcitadelpaquete] que permite realizar modelos de regresión de cuartiles y utilizar técnicas de remuestreo (en inglés:*"bootstraping"*) no paramétricas para evaluar las diferencias, además, se contrastaron las interacciones relevantes, mediante pruebas de a pares corregidas por <u>Benjamini-Hochberg</u> para determinar el nivel de significancia de las interacciones considerando p~valor~ menores a 0.1
 
 Se relacionó el peso corporal medio (eje x) versus la densidad (eje y) bajo el efecto de dos factores: los gremios tróficos y los sistemas de uso del suelo; este enfoque es conocido en inglés como *"Local Size-Density Relationships (**LSDR**)"* , es decir, las relaciones entre la densidad y el peso corporal a nivel local.
 
@@ -551,8 +543,7 @@ body_unlu%>%filter(clase_tam=="micro")%>%
 
 Los nemátodos omnívoros y los nemátodos predadores muestran modas del peso corporal mayores que en las demás categorías tróficas, siguen de cerca a los predadores las modas de los nemátodos fungívoros, luego los bacterívoros y los nemátodos fitófagos que en general son más pequeños debido a sus hábitos de vida. Se observan distribuciones bimodales en los nemátodos omnívoros de la reserva y el pastizal, lo que implica dos grupos de tamaños en la misma categoría trófica. La distribución de tamaños de los predadores está menos dispersa (curva leptocúrtica) que la distribuciones de los demás gremios tróficos.
 
-**Tabla 4.x. Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) para las categorías tróficas de nematodos edáficos de vida libre hallados en suelos Argiudoles de Luján**
-
+**Tabla 4.x. Valores de peso corporal promedio (**$ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) para las categorías tróficas de nematodos edáficos de vida libre hallados en suelos Argiudoles de Luján
 
 ```{r tab_nem_ridg,echo=FALSE,warning=FALSE,message=FALSE}
 Dp_U_m%>% kbl() %>%kable_classic(full_width = F, html_font = "Cambria")
@@ -560,9 +551,9 @@ Dp_U_m%>% kbl() %>%kable_classic(full_width = F, html_font = "Cambria")
 
 Los nemátodos omnívoros de la Reserva (Tabla 4.x) muestran el mayor valor de peso corporal promedio y la mayor biomasa media, con relación a todas las categorías tróficas de nemátodos. La mayor abundancia de nemátodos omnívoros se observó en el sistema del pastizal.
 
-En la Reserva se observan los nemátodos predadores (Tabla 4.x)  más pesados y con la mayor biomasa media, la mayor abundancia de estos se observa en el sistema del pastizal.
+En la Reserva se observan los nemátodos predadores (Tabla 4.x) más pesados y con la mayor biomasa media, la mayor abundancia de estos se observa en el sistema del pastizal.
 
-Los nemátodos fungívoros (Tabla 4.x)  fueron de bajo peso en promedio en el sistema del pastizal distanciandose del mayor peso promedio observado en el sistema agrícola en 5,2 microgramos, la mayor densidad y la mayor biomasa se registraron en el sistema de la Reserva.
+Los nemátodos fungívoros (Tabla 4.x) fueron de bajo peso en promedio en el sistema del pastizal distanciandose del mayor peso promedio observado en el sistema agrícola en 5,2 microgramos, la mayor densidad y la mayor biomasa se registraron en el sistema de la Reserva.
 
 Los nemátodos bacterívoros (Tabla 4.x) muestran valores medios máximos para cada parámetro en el sistema de la Reserva de manera similar se observan valores máximos de cada parámetro para los nemátodos fitófagos en el sistema de la Reserva.
 
@@ -602,8 +593,7 @@ body_unlu%>%filter(clase_tam=="meso"&body_unlu$taxa%in%c("alycidae",
 
 Los enquitreidos, animales con función ecológica similar a la de las lombrices de tierra pero debido a su tamaño corporal con su efecto operando a menor escala, muestra (Tabla 4.x) el mayor peso corporal medio, la mayor densidad y la mayor biomasa media en el suelo agrícola.
 
-**Tabla 4.x. Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) para la mesofauna no depredadora de suelos Argiudoles de Luján**
-
+**Tabla 4.x. Valores de peso corporal promedio (**$ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) para la mesofauna no depredadora de suelos Argiudoles de Luján
 
 ```{r tab_mesodet_ridg,echo=FALSE,warning=FALSE,message=FALSE}
 Dp_U_me_D%>% kbl() %>%kable_classic(full_width = F, html_font = "Cambria")
@@ -618,8 +608,6 @@ Dentro de los ácaros oribátidos microfitófagos (Tabla 4.x), aquellos que cons
 Entre los colémbolos (Tabla 4.x) destaca la familia <u>Hipogastruridae</u> por consumir nemátodos y carroña de invertebrados a demás de la microflora por lo que són omnívoros, para esta familia se observó el mayor peso en promedio en el sistema agrícola donde también ocurre la mayor biomasa; los colémbolos <u>Isotomidae</u> fueron más pesados en el suelo de la reserva y muestran también la mayor biomasa, aunque en el suelo agrícola fueron más abundantes; los <u>Symphypleona</u> no se observaron en el sistema del pastizal, fueron más abundantes en el sistema agrícola donde registra la mayor biomasa pero fueron más grandes en términos de peso corporal en la Reserva, estos dos últimos taxones de colémbolos se consideran de hábitos alimenticios detritívoros; los </u>entomóbridos y los oniquiüridos</u> son taxones microfitófagos, la superfamilia </u>Entomobryoidea</u> son colémbolos de gran tamaño, en los suelos de la reserva estos fueron más pesados y abundantes, los </u>Onychiuridae</u> son colémbolos **euedáficos** y de pequeño tamaño, en el suelo del pastizal se observó el mayor peso corporal promedio y la mayor biomasa aunque en los suelos de la reserva estos fueron más abundantes.
 
 **Mesofauna edáfica depredadora de suelos Argiudoles de Luján**
-
-
 
 ```{r plot_mesopred_ridg,echo=FALSE,warning=FALSE,message=FALSE}
 body_unlu%>%filter(clase_tam=="meso"
@@ -641,24 +629,17 @@ body_unlu%>%filter(clase_tam=="meso"
 
 ```
 
-
 **Figura 4.x. Distribución de los pesos corporales de los predadores de la mesofauna edáfica ocurridos en suelos Argiudoles de Luján. Se muestra sobre el eje horizontal la escala en logaritmo natural del peso corporal en microgramos de peso seco. Sobre el eje vertical se indica el taxón**
 
-
-La mesofauna predadora (Fig 4.x) muestra un rango de pesos corporales entre 0.7 $\mu g$ a 250 $\mu g$. La mesofauna predadora de los suelos argiudoles de Luján se conforma de ácaros mesostigmatas, ácaros prostigmatas, de dipluros y tardígrados. 
+La mesofauna predadora (Fig 4.x) muestra un rango de pesos corporales entre 0.7 $\mu g$ a 250 $\mu g$. La mesofauna predadora de los suelos argiudoles de Luján se conforma de ácaros mesostigmatas, ácaros prostigmatas, de dipluros y tardígrados.
 
 Estos animales con excepción de los tardígrados son poco abundantes en comparación con la mesofauna "no-predadora", por ello la distribución de sus pesos corporales se observa en muchos casos multimodal (Fig. 4.x), esto podría deberse a la ocurrencia de individuos en diferentes etapas de vida, es decir, ninfas y adultos, a las diferencias en tamaños de especies que ocurren dentro de la jerarquía taxonómica considerada aquí, es decir, el nivel taxonómico de "Familias".
 
-
-**Tabla 4.x. Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) para la mesofauna predadora de suelos Argiudoles de Luján**
-
-
+**Tabla 4.x. Valores de peso corporal promedio (**$ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) para la mesofauna predadora de suelos Argiudoles de Luján
 
 ```{r tab_msopred_ridg,echo=FALSE,warning=FALSE,message=FALSE}
 Dp_U_me_P%>% kbl() %>%kable_classic(full_width = F, html_font = "Cambria")
 ```
-
-
 
 Entre los ácaros mesostigmata (Tabla 4.x) el taxón de mayor peso corporal fué la familia <u>Ichtyostomatogasteridae</u> aunque solo se observaron en el suelo del pastizal; la familia <u>Ologamasidae</u> tuvo la mayor abundancia en los suelos de la reserva pero el mayor peso corporal y biomasa media se observó en el suelo agrícola; los <u>Parasitidae</u> fueron más grandes en el suelo agrícola pero más abundantes y con mayor biomasa en el pastizal; los mesostigmatas <u>Dermanisoidea</u> en el sistema agrícola tienen la mayor biomasa y peso corporal; la superfamilia <u>Rhodacaroidea</u> son mesostigmatas **euedáficos**, son predadores de pequeño tamaño, muestran la mayor densidad y biomasa en el pastizal pero el mayor peso corporal promedio en el sistema agrícola.
 
@@ -667,7 +648,6 @@ Entre los ácaros prostigmatas (Tabla 4.x) destaca <u>Cunaxidae</u> con el mayor
 **Microartrópodos edáficos de suelos Argiudoles de Chivilcoy y Navarro**
 
 En los suelos de Chivilcoy y Navarro (Fig 4.x) los microartrópodos tienen un espectro de tamaños corporales de 8 órdenes de magnitud, con pesos corporales desde $e^{-3} = 0.05 \mu g$ hasta $e^{4} \approx 60 \mu g$.
-
 
 ```{r plot_mesoRO_ridg,echo=FALSE,warning=FALSE,message=FALSE}
 meso1<-meso
@@ -679,9 +659,7 @@ meso1$Gremio<-factor(meso1$guild,labels=c("Detritivoro","Microfitofago","Omnivor
 meso1%>%ggplot(aes(x=log(biomass), y=Taxón, fill=Gremio)) + geom_density_ridges(rel_min_height = 0.0000005) +scale_x_continuous(breaks = seq(from=-4, to=5, by=2))+  scale_fill_viridis_d(alpha = 0.8)+facet_grid(.~Sistema)+labs(title='Peso corporal individual para los taxones de microartrópodos', x= 'Peso corporal en ln ug/m^2',y=NULL)
 ```
 
-
 **Figura 4.x. Distribución de los pesos corporales de los microartrópodos edáficos ocurridos en suelos Argiudoles de Chyvilcoy y Navarro. Se muestra sobre el eje horizontal la escala en logaritmo natural del peso corporal en microgramos de peso seco. Sobre el eje vertical se indica el taxón. Los colores representan al gremio trófico al cual pertenece el taxón**
-
 
 Los microartrópodos preadores (Fig 4.x) muestran distribuciones de tamaños con más de una moda. También se observa este fenómeno en algunos taxones de detritívoros y microfitófagos.
 
@@ -689,14 +667,11 @@ Los ácaros astigmatas (Tabla 4.x) de la familia <u>Acaroidea</u> no se observar
 
 Entre los ácaros oribátidos detritívoros (Tabla 4.x) la superfamilia <u>Euphtiracaroidea</u> fué más abundante en el sistema agrícola donde participan con la mayor biomasa aunque el mayor peso en promedio se observa en el sistema mixto; los <u>Epilohmannioidea</u> tienen la mayor biomasa en el sistema agrícola ganadero, en los tres sistemas de uso su peso corporal fué de $\approx 2 \;\mu g$; los <u>ceratozétidos</u> fueron más pesados y más abundantes en el sistema mixto; la superfamilia <u>Oripodoidea</u> en el pastizal naturalizado fueron más grandes pero poco abundantes por lo que la mayor biomasa se observa en el sistema agrícola intensivo.
 
-
-**Tabla 4.x. Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) para los microartrópodos de suelos Argiudoles de Chivilcoy y Navarro**
-
+**Tabla 4.x. Valores de peso corporal promedio (**$ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) para los microartrópodos de suelos Argiudoles de Chivilcoy y Navarro
 
 ```{r tab_mesoRO_ridg,echo=FALSE,warning=FALSE,message=FALSE}
 B2%>% kbl() %>%kable_classic(full_width = F, html_font = "Cambria")
 ```
-
 
 De los ácaros oribátidos microfitófagos (Tabla 4.x) los <u>galumnidos</u> por su estructura corporal son los de mayor tamaño, estos pesaron $\approx 31 \;\mu g$ tanto en el pastizal naturalizado como en el suelo agrícola ganadero; la superfamilia <u>Crotonioidea</u> en el sistema agrícola intensivo tiene la mayor biomasa; los oribátidos <u>oppididos</u> son oribátidos **euedáficos** con una estructura corporal pequeña, estos fueron más pesados en el pastizal naturalizado pero más abundantes en el sistema agrícola intensivo donde se observa además la mayor biomasa.
 
@@ -708,10 +683,7 @@ Los ácaros prostigmatas (Tabla 4.x) <u>Bdelloidea</u> fueron más pesados en el
 
 **Macrofauna edáfica de suelos Argiudoles de Luján**
 
-La macrofauna edáfica (Fig 4.x) en suelos argiuoles de Luján tiene una distribución de tamaños de 10 órdenes de magnitud 
-con pesos corporales en un rango entre los $12 \mu g$ y los $270 \;mg$, la forma en la cuál se distribuyen los diferentes 
-pesos corporales en general no son unimodales y esto puede relacionarse con la baja abundancia de la mayoría de los taxones
-observados.
+La macrofauna edáfica (Fig 4.x) en suelos argiuoles de Luján tiene una distribución de tamaños de 10 órdenes de magnitud con pesos corporales en un rango entre los $12 \mu g$ y los $270 \;mg$, la forma en la cuál se distribuyen los diferentes pesos corporales en general no son unimodales y esto puede relacionarse con la baja abundancia de la mayoría de los taxones observados.
 
 ```{r plot_macro_ridg,echo=FALSE,warning=FALSE,message=FALSE}
 body_unlu%>%filter(clase_tam=="macro")%>%
@@ -725,12 +697,11 @@ body_unlu%>%filter(clase_tam=="macro")%>%
 
 **Figura 4.x. Distribución de los pesos corporales de la macrofauna edáfica ocurridos en suelos Argiudoles de Luján. Se muestra sobre el eje horizontal la escala en logaritmo natural del peso corporal en microgramos de peso seco. Sobre el eje vertical se indica el taxón. Los colores representan al gremio trófico al cual pertenece el taxón**
 
-
-Las lombrices de tierra del género <u>Aporrectodea</u> tienen pesos corporales medios (Tabla 4.x) en un rango de 22,5 mg hasta los 119 mg, _A. trapezoides_ fué la de mayor peso corporal en el sistema agrícola, la mayor biomasa ocurre en el sistema agrícola con la especie _A. caliginosa_, la especie más abundante en este género se observa en la Reserva y corresponde a _A. trapezoides_. El género _Bimastus sp_. solo se observó en la reserva; _Eukerria sp._, _Microscolex sp._ y _Octolasion tyrtaeum_ solo se observaron en el pastizal; _Octolasion cyaneum_ solo estuvo presente en el sistema agrícola. 
+Las lombrices de tierra del género <u>Aporrectodea</u> tienen pesos corporales medios (Tabla 4.x) en un rango de 22,5 mg hasta los 119 mg, *A. trapezoides* fué la de mayor peso corporal en el sistema agrícola, la mayor biomasa ocurre en el sistema agrícola con la especie *A. caliginosa*, la especie más abundante en este género se observa en la Reserva y corresponde a *A. trapezoides*. El género *Bimastus sp*. solo se observó en la reserva; *Eukerria sp.*, *Microscolex sp.* y *Octolasion tyrtaeum* solo se observaron en el pastizal; *Octolasion cyaneum* solo estuvo presente en el sistema agrícola.
 
 Fué importante la contribución numérica de las las lombrices juveniles en los tres sistemas de uso del suelo, la mayor densidad de estas se observó en la reserva donde también se observó la mayor biomasa pero con el menor peso corporal en promedio.
 
-**Tabla 4.x. Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) de la macrofauna de suelos Argiudoles de Luján**
+**Tabla 4.x. Valores de peso corporal promedio (**$ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) de la macrofauna de suelos Argiudoles de Luján
 
 ```{r tab_macro_ridg,echo=FALSE,warning=FALSE,message=FALSE}
 Dp_U_Ma%>% kbl() %>%kable_classic(full_width = F, html_font = "Cambria")
@@ -790,19 +761,13 @@ baseU %>%  ggplot( aes(y=log(Tbiomass),x=Gremio, col=Gremio, fill=NA)) + geom_vi
 
 ```
 
-
-
-**Fig 4.x. Diagrama de violines que refleja la distribución de la biomasa media de los gremios tróficos de la fauna edáfica hallados en suelos Argiudoles típicos de Luján. El eje vertical expresa el valor de biomasa media en logaritmo natural del peso seco en microgramos. Sobre los violines se dibuja la mediana como una linea y el promedio como un punto amarillo. Los puntos pequeños representan tanto diferentes taxones como diferentes muestras y su valor puntual de biomasa media, los colores de los puntos indican los sistemas de uso del suelo, la distribución de los puntos es aleatoria (tipo ruido blanco, en inglés: _"jitter"_) no indica frecuencia y su valor solo expresa la biomasa media ubicada sobre el eje vertical**
-
-
+**Fig 4.x. Diagrama de violines que refleja la distribución de la biomasa media de los gremios tróficos de la fauna edáfica hallados en suelos Argiudoles típicos de Luján. El eje vertical expresa el valor de biomasa media en logaritmo natural del peso seco en microgramos. Sobre los violines se dibuja la mediana como una linea y el promedio como un punto amarillo. Los puntos pequeños representan tanto diferentes taxones como diferentes muestras y su valor puntual de biomasa media, los colores de los puntos indican los sistemas de uso del suelo, la distribución de los puntos es aleatoria (tipo ruido blanco, en inglés: *"jitter"*) no indica frecuencia y su valor solo expresa la biomasa media ubicada sobre el eje vertical**
 
 Los gremios tróficos (Fig 4.x) fueron diferentes significativamente entre sí ($q :p_{valor}<0.05$) con excepción de los gremios de omnívoros que no se diferencian de los microfitófagos ni de los predadores por lo que comparten valores de biomasas medias similares (Apéndice 4.x) en todos los sistemas de uso. Los detritívoros son el gremio con la mayor biomasa media, luego los microfitófagos, omnívoros y predadores con su valor de biomasa similar entre sí, y por último los herbívoros con el menor valor de biomasa media.
-
 
 En los suelos argiudoles de Chivilcoy y Navarro la biomasa media de los microartrópodos edáficos se explicaron por los efectos del sistema de uso del suelo, los gremios tróficos y por interacciones entre los gremios tróficos y los sistemas de uso.
 
 $$B_{ij} = \mu_0 + \text{S}_i + \text{G}_j + \text({S x G})_{ij} + \epsilon_i$$
-
 
 Donde:
 
@@ -812,13 +777,11 @@ Donde:
 -   $\text{S x G}$ representan las interacciones entre sistema de uso y gremios tróficos.
 -   $\epsilon$ error aleatorio.
 
+Al nivel de las interacciones (Fig 4.x), analizando las diferencias <u>dentro</u> de un mismo gremio trófico en comparación con diferentes sistemas de uso del suelo (apendice 4.x), se observa que la biomasa media de los detritívoros de los sistemas agrícola intensivo y mixto agrícola ganadero no se diferenciaron entre sí, se observaron diferencias significativas ($q :p_{valor}<0.1$) de estos dos grupos en comparación con los detritivoros del sistema del pastizal naturalizado siendo los detritívoros del pastizal naturalizado aquellos con una menor biomasa media.
 
-Al nivel de las interacciones (Fig 4.x), analizando las diferencias <u>dentro</u> de un mismo gremio trófico en comparación con diferentes sistemas de uso del suelo (apendice 4.x), se observa que la biomasa media de los detritívoros de los sistemas agrícola intensivo y mixto agrícola ganadero no se diferenciaron entre sí, se observaron diferencias significativas ($q :p_{valor}<0.1$) de estos dos grupos en comparación con los detritivoros del sistema del pastizal naturalizado siendo los detritívoros del pastizal naturalizado aquellos con una menor biomasa media. 
-
-Los omnívoros fueron similares en los sistemas del pastizal naturalizado y el sistema agrícola y difirieron significativamente ($q :p_{valor}<0.05$) de la biomasa media de los omnívoros que fué mayor en el sistema mixto agrícola ganadero. 
+Los omnívoros fueron similares en los sistemas del pastizal naturalizado y el sistema agrícola y difirieron significativamente ($q :p_{valor}<0.05$) de la biomasa media de los omnívoros que fué mayor en el sistema mixto agrícola ganadero.
 
 El gremio de los microfitófagos fué similar en todos los sistemas de uso del suelo al igual que lo fué la biomasa media del gremio de los predadores. Además, existen diferencias significativas ($q :p_{valor}<0.1$) en otras combinaciones dadas <u>entre</u> diferentes gremios tróficos y diferentes sistemas de uso del suelo.
-
 
 ```{r B_plot_Ro,echo=FALSE,warning=FALSE,message=FALSE,fig.align = "center"}
 
@@ -830,15 +793,11 @@ meso %>% mutate(guild=factor(guild,labels=c("Detritívoros","Microfitófagos","O
 
 ```
 
-
-**Fig 4.x. Diagrama de violines que refleja la distribución de la biomasa media de los gremios tróficos de la fauna edáfica hallados en los diferentes sistemas de uso del suelo en los suelos Argiudoles típicos de Chyvilcoy y Navarro. El eje vertical expresa el valor de biomasa media en logaritmo natural del peso seco en microgramos. Sobre los violines se dibuja la mediana como una linea y el promedio como un punto amarillo. Los puntos pequeños representan tanto diferentes taxones como diferentes muestras y su valor puntual de biomasa media, la distribución de los puntos es aleatoria (tipo ruido blanco, en inglés: _"jitter"_) no indica frecuencia y su valor solo expresa la biomasa media ubicada sobre el eje vertical**
-
+**Fig 4.x. Diagrama de violines que refleja la distribución de la biomasa media de los gremios tróficos de la fauna edáfica hallados en los diferentes sistemas de uso del suelo en los suelos Argiudoles típicos de Chyvilcoy y Navarro. El eje vertical expresa el valor de biomasa media en logaritmo natural del peso seco en microgramos. Sobre los violines se dibuja la mediana como una linea y el promedio como un punto amarillo. Los puntos pequeños representan tanto diferentes taxones como diferentes muestras y su valor puntual de biomasa media, la distribución de los puntos es aleatoria (tipo ruido blanco, en inglés: *"jitter"*) no indica frecuencia y su valor solo expresa la biomasa media ubicada sobre el eje vertical**
 
 Al nivel del efecto global las biomasas medias de los gremios tróficos fueron similares entre los microfitófagos, predadores y omnívoros, estos difirieron de la biomasa media de los detritivoros cuyo valor es mayor. El efecto global debido a los sistemas de uso del suelo sobre la biomasa media de la comunidad de microartrópodos edáficos no mostró diferencias significativas, es decir, los sistemas de uso del suelo comparten valores medios de Biomasa similares entre sí.
 
-
-
-## Relaciones locales entre el espectro de pesos corporales medio y la densidad de los taxones de los gremios tróficos de las comunidades edáficas que habitan suelos con diferentes intensidades de uso en suelos Argiudoles típicos de la Pampa Ondulada
+## Relaciones locales entre los pesos corporales medio y la densidad de los taxones de los gremios tróficos de las comunidades edáficas que habitan suelos con diferentes intensidades de uso en suelos Argiudoles típicos de la Pampa Ondulada
 
 ```{r qq_unlu, include=FALSE, warning=FALSE, message=FALSE}
 #modelo full UNLu
@@ -859,32 +818,31 @@ rqRO<-rq(log(abundance) ~ (system+guild+log(bio.ind))^2, tau = .75, data = base)
 
 El modelo de regresión de cuartiles modeló (Apéndice 4.x) la relacion entre el peso corporal promedio de los taxones con la densidad de los mismos y estableció relaciones entre los gremios tróficos y los sistemas de uso del suelo.
 
-En los suelos Argiudoles de Luján el modelo indica que existen efectos entre los gremios tróficos y el sistema de uso del suelo sobre el intercepto del modelo, también indicaque existe efecto de los gremios tróficos sobre la variación de las pendientes, en cambio los sistemas de uso del suelo no tuvieron efecto sobre cambios en la pendiente.
+En los suelos Argiudoles de Luján el modelo indica que existen efectos entre los gremios tróficos y el sistema de uso del suelo sobre el intercepto del modelo, también indica que existe efecto de los gremios tróficos sobre la variación de las pendientes, en cambio los sistemas de uso del suelo no tuvieron efecto sobre cambios en la pendiente.
 
 $$ D_{ijk}^{\;\;\tau} = \beta_0^{\;\;\tau} + \beta_i^{\;\;\tau} + \beta_0S_j^{\;\;\tau} + \beta_0G_k^{\;\;\tau} + \beta_0\text(SxG)_{jk}^{\;\;\tau}  + \beta_iG_j^{\;\;\tau} + \epsilon^{\;\;\tau} $$
 
 Donde:
 
-  * $\tau$: refiere al quartil ($\tau \; = 0.75$) sobre el cual se realiza la regresión lineal no paramétrica.
+-   $\tau$: refiere al quartil ($\tau \; = 0.75$) sobre el cual se realiza la regresión lineal no paramétrica.
 
-  * $D_{ijk}$: Es la densidad del taxón del gremio j-esimo en el sistema k-esimo de uso del suelo.
-  
-  *$\beta_0^{\;\;\tau}$: Intercepto sobre el tercer cuartil del modelo.
-  
-  *$\beta_i^{\;\;\tau}$: Pendiente de regresión del modelo.
-  
-  *$\beta_0S_j^{\;\;\tau}$: Efecto del j-ésimo sistema de uso del suelo sobre el intercepto del modelo.
-  
-  *$\beta_0G_k^{\;\;\tau}$: Efecto del k-ésimo gremio trófico sobre el intercepto del modelo.
-  
-  *$\beta_0\text(SxG)_{jk}^{\;\;\tau}$: Efecto de las interacciones entre el j-ésimo sistema de uso del suelo y del k-ésimo gremio sobre el intercepto del modelo.
-  
-  *$\beta_iG_j^{\;\;\tau}$: Efecto del k-ésimo gremio trófico sobre la pendiente de regresión del modelo.
-  
-  *$\epsilon^{\;\;\tau}$: error aleatorio del modelo de regresión de cuartiles.
+-   $D_{ijk}$: Es la densidad del taxón del gremio j-esimo en el sistema k-esimo de uso del suelo.
 
+-   $\beta_0^{\;\;\tau}$: Intercepto sobre el tercer cuartil del modelo.
 
-En la figura 4.x se observa los diferentes gremios tróficos con las regresiones sobre cada sistema de uso del suelo. 
+-   $\beta_i^{\;\;\tau}$: Pendiente de regresión del modelo.
+
+-   $\beta_0S_j^{\;\;\tau}$: Efecto del j-ésimo sistema de uso del suelo sobre el intercepto del modelo.
+
+-   $\beta_0G_k^{\;\;\tau}$: Efecto del k-ésimo gremio trófico sobre el intercepto del modelo.
+
+-   $\beta_0\text(SxG)_{jk}^{\;\;\tau}$: Efecto de las interacciones entre el j-ésimo sistema de uso del suelo y del k-ésimo gremio sobre el intercepto del modelo.
+
+-   $\beta_iG_j^{\;\;\tau}$: Efecto del k-ésimo gremio trófico sobre la pendiente de regresión del modelo.
+
+-   $\epsilon^{\;\;\tau}$: error aleatorio del modelo de regresión de cuartiles.
+
+En la figura 4.x se observa los diferentes gremios tróficos con las regresiones sobre cada sistema de uso del suelo.
 
 Se observan diferentes rangos de distribución de los pesos corporales promedios (<u>eje x</u>), los omnívoros son la categoría trófica con el menor rango de distribución en tamaños corporales. Los taxones de mayor peso ocurrieron en la categoría de los detritívoros en el que se encuentran las lombrices de tierra y los coleópteros scarabeidos, las categorías tróficas con los taxones de menor peso son microfitófagos y herbívoros ya que aquellos incluyen a los nemátodos (microfauna).
 
@@ -907,8 +865,7 @@ baseU%>%mutate( gremio = factor(gremio, levels = c("detritivoro","microfitofago"
 
 ```
 
-**Figura 4.x Regresión de cuartiles ($\tau = 0,75$) entre el pes corporal y la densidad de los taxones de gremios tróficos ocurridos en diferentes sistemas de uso en suelos Argiudoles de Luján. Los ejes de coordenadas expresan los valores de peso corporal (ug~peso seco~) y de la densidad (nº individuos/m^2^) en logaritmo natural. Se dibuja un plano de coordenadas (cada fila del gráfico) por cada gremio trófico. Se dibuja una linea de regresión por cada sistema de uso del suelo. La forma de los puntos indica la categoría de tamaños al que pertenece el taxón: cruces= microfauna, triángulos= mesofauna, círculos = macrofauna. Los colores de los puntos indican un taxa en particular**
-
+**Figura 4.x Regresión de cuartiles ($\tau = 0,75$) entre el pes corporal y la densidad de los taxones de gremios tróficos ocurridos en diferentes sistemas de uso en suelos Argiudoles de Luján. Los ejes de coordenadas expresan los valores de peso corporal (ug\~peso seco\~) y de la densidad (nº individuos/m^2^) en logaritmo natural. Se dibuja un plano de coordenadas (cada fila del gráfico) por cada gremio trófico. Se dibuja una linea de regresión por cada sistema de uso del suelo. La forma de los puntos indica la categoría de tamaños al que pertenece el taxón: cruces= microfauna, triángulos= mesofauna, círculos = macrofauna. Los colores de los puntos indican un taxa en particular**
 
 El gremio de los detritívoros (Fig 4.x) no tiene taxones de nemátodos debido a sus hábitos alimenticios, se observa que las abundancias de la mesofauna y de la macrofauna se separan a lo largo del <u>eje y</u> indicando mayores abundancias para la categoría de la mesofauna, aunque en términos de pesos corporales promedios (<u>eje x</u>) se observan pesos superpuestos entre organismos de la mesofauna más pesada y la macrofauna más pequeña.
 
@@ -918,7 +875,7 @@ Los predadores de la fauna del suelo tienen un rango de tamaños similar al de l
 
 Con respecto a los herbívoros, se hallaron integrantes en la microfauna y en la macrofauna pero no de la mesofauna, por lo que los grupos así constituidos se separan claramente (Fig 4.x).
 
-La interacción entre el sistema de uso del suelo y los gremios tróficos ( $ C_2^{5} = 105 $ combinaciones) marcan un efecto sobre el intercepto del modelo (Apéndice 4.x). Los herbívoros fueron similares entre el sistema agrícola y el pastizal naturalizado y difirieron significativamente ($>|\;t\;| : p_{value}<0.1$) de aquellos hallados en la Reserva que tuvo un mayor valor sobre el intercepto. Con respecto a los microfitófagos aquellos ubicados en la Reserva y el Pastizal tuvieron valores de interceptos similares, si difieren significativamente ($>|\;t\;| : p_{value}<0.1$) del sistema Agrícola que posee un menor valor sobre el intercepto. Por otra parte, ni los detritívoros, ni los predadores, ni los omnívoros, difirieron en su efecto sobre el intercepto entre diferentes sistemas de uso del suelo.
+La interacción entre el sistema de uso del suelo y los gremios tróficos ($C_2^5=105$ combinaciones) marcan un efecto sobre el intercepto del modelo (Apéndice 4.x). Los herbívoros fueron similares entre el sistema agrícola y el pastizal naturalizado y difirieron significativamente ($>|\;t\;| : p_{value}<0.1$) de aquellos hallados en la Reserva que tuvo un mayor valor sobre el intercepto. Con respecto a los microfitófagos aquellos ubicados en la Reserva y el Pastizal tuvieron valores de interceptos similares, si difieren significativamente ($>|\;t\;| : p_{value}<0.1$) del sistema Agrícola que posee un menor valor sobre el intercepto. Por otra parte, ni los detritívoros, ni los predadores, ni los omnívoros, difirieron en su efecto sobre el intercepto entre diferentes sistemas de uso del suelo.
 
 Las pendientes de los gremios tróficos en general tuvieron valores negativos (Apéndice 4.x), correspondiéndose con el hecho de que los organismos más abundantes son aquellos taxones con el menor peso corporal medio. La categoría del gremio de los omnívoros presentaron valores de pendientes positivos ($>|\;t\;| : p_{value}<0.05$) esto implica que los omnívoros con diferentes tamaños corporales tienen mayores abundancias a mayor peso, aunque la extensión en peso corporal se encuentra truncada por debajo de $e^5 \approx 150 \mu g$.
 
@@ -930,18 +887,17 @@ En los suelos argiudoles de Chivilcoy y Navarro, la regresión de quantiles eval
 
 $$ D_{jk}^{\;\;\tau} = \beta_0^{\;\;\tau} + \beta_i^{\;\;\tau} + \beta_iS_j^{\;\;\tau} + \beta_iG_k^{\;\;\tau} + \beta_0S_j^{\;\;\tau} + \beta_0G_k^{\;\;\tau} + \beta_0(S\,x\,G)_{jk}^{\;\;\tau} + \beta_i(S\,x\,G)_{jk}^{\;\;\tau} +  \epsilon^{\;\;\tau} $$
 
-  * $\tau$: refiere al quartil ($\tau \; = 0.75$) sobre el cual se realiza la regresión lineal no paramétrica.
-  * $D_{jk}^{\;\;\tau}$: Densidad del taxón del j-ésimo sistema de uso del suelo en el k-ésimo gremio trófico.
-  * $\beta_0^{\;\;\tau}$: Intercepto sobre el tercer cuartil del modelo.
-  * $\beta_i^{\;\;\tau}$: Pendiente de regresión del modelo.
-  * $\beta_iS_j^{\;\;\tau}$: Efecto del j-ésimo sistema de uso del suelo sobre la pendiente de regresión.
-  * $\beta_iG_k^{\;\;\tau}$: Efecto del k-ésimo gremio trófico sobre la pendiente de regresión.
-  * $\beta_0S_j^{\;\;\tau}$: Efecto del j-ésimo sistema de uso del suelo sobre el intercepto del modelo.
-  * $\beta_0G_k^{\;\;\tau}$: Efecto del k-ésimo gremio trófico sobre el intercepto del modelo.
-  * $\beta_0(S\,x\,G)_{jk}^{\;\;\tau}$: Efecto del j-ésimo sistema de uso del suelo y del k-ésimo gremio trófico sobre el intercepto del modelo.
-  * $\beta_i(S\,x\,G)_{jk}^{\;\;\tau}$: Efecto del j-ésimo sistema de uso del suelo y del k-ésimo gremio trófico sobre la pendiente de regresión.
-  * $\epsilon^{\;\;\tau}$: error aleatorio del modelo de regresión de cuartiles.
-  
+-   $\tau$: refiere al quartil ($\tau \; = 0.75$) sobre el cual se realiza la regresión lineal no paramétrica.
+-   $D_{jk}^{\;\;\tau}$: Densidad del taxón del j-ésimo sistema de uso del suelo en el k-ésimo gremio trófico.
+-   $\beta_0^{\;\;\tau}$: Intercepto sobre el tercer cuartil del modelo.
+-   $\beta_i^{\;\;\tau}$: Pendiente de regresión del modelo.
+-   $\beta_iS_j^{\;\;\tau}$: Efecto del j-ésimo sistema de uso del suelo sobre la pendiente de regresión.
+-   $\beta_iG_k^{\;\;\tau}$: Efecto del k-ésimo gremio trófico sobre la pendiente de regresión.
+-   $\beta_0S_j^{\;\;\tau}$: Efecto del j-ésimo sistema de uso del suelo sobre el intercepto del modelo.
+-   $\beta_0G_k^{\;\;\tau}$: Efecto del k-ésimo gremio trófico sobre el intercepto del modelo.
+-   $\beta_0(S\,x\,G)_{jk}^{\;\;\tau}$: Efecto del j-ésimo sistema de uso del suelo y del k-ésimo gremio trófico sobre el intercepto del modelo.
+-   $\beta_i(S\,x\,G)_{jk}^{\;\;\tau}$: Efecto del j-ésimo sistema de uso del suelo y del k-ésimo gremio trófico sobre la pendiente de regresión.
+-   $\epsilon^{\;\;\tau}$: error aleatorio del modelo de regresión de cuartiles.
 
 Los microartrópodos microfitófagos (Fig 4.x) exiben el mayor rango de tamaños corporales (eje x) de al menos 6 órdenes de magnitud, en esta categoría se observaron en el sistema del pastizal naturalizado los taxones con el menor peso corporal medio. Los detritívoros y predadores muestran un rango de pesos corporales similar entre $e^{-2}\approx0,15\,\mu g$ y $e^{3,5}\approx35\,\mu g$. Con excepción de los predadores cuya densidad es baja ($y<e^{\,9}\,\approx8100\,ind/m^2$) en todos los sistemas de uso del suelo la densidad de los gremios tróficos se movió alrededor de 6 órdenes de magnitud entre $e^{6}\approx405\,ind/m^2$ y $e^{12}\approx163000\,ind/m^2$.
 
@@ -960,6 +916,8 @@ base%>%ggplot(aes(x=log(bio.ind),y=log(abundance),color=system))+
 ```
 
 
+**Figura 4.x Regresión de cuartiles ($\tau = 0,75$) entre el peso corporal y la densidad de los taxones de gremios tróficos de microartrópodos ocurridos en diferentes sistemas de uso en suelos Argiudoles de Chivilcoy y Navarro. Los ejes de coordenadas expresan los valores de peso corporal (ug~peso seco~) y de la densidad (nº individuos/m^2^) en logaritmo natural. Se dibuja un plano de coordenadas (cada fila del gráfico) por cada gremio trófico. Se dibuja una linea de regresión por cada sistema de uso del suelo. Los colores de los puntos indican un taxa en particular**
+
 
 La variación de cada gremio trófico sobre el intercepto (Apéndice 4.x) fué diferente significativamente ($>|\;t\;| : p_{value}<0.1$), los detritívoros y omnívoros comparten valores de interceptos similares y con el mayor valor, siguen a estos los microfitófagos y los predadores. La variación de los sistemas de uso del suelo sobre el intercepto no resultó diferente significativamente.
 
@@ -970,6 +928,75 @@ Entre los sistemas de uso del suelo no se observan efectos significativos sobre 
 Al nivel de las interacciones ( $C_2^{12} = 66$ ) y observando (Apéndice 4.x) solo aquellas que ocurren <u>dentro</u> de los gremios tróficos de microartrópodos edáficos entre los diferentes sistemas de uso del suelo: muestran valores negativos ($>|\;t\;| : p_{value}<0.05$) para el gremio de los detritívoros del sistema agrícola y mixto, que a la vez no se diferenciaron entre sí, por lo que comparten un valor similar de pendiente alrededor de ($m = -0.55$) y el valor de la pendiente de los detritívoros ubicados en la Reserva no se diferenció de la constante ($m=0$); para el gremio de los microfitófagos ($>|\;t\;| : p_{value}<0.05$) las pendientes fueron negativas en todos los sistemas de uso del suelo y entre los sistemas de uso del suelo estos no se diferenciaron significativamente (Apéndice 4.x) por lo que comparten un valor de pendiente similar alrededor de $m \approx-0.4$; en el caso de los omnívoros aquellos que se hallaron en el sistema mixto agrícola-ganadero (Fig. 4.x) muestran una pendiente positiva ($m = 0.65$), por lo que omnívoros de mayor peso son más abundante en el sistema mixto, para los demás sistemas de uso las pendientes no se diferencaron de la constante (Apéndice 4.x); los predadores en cada sistema de uso del suelo no expresaron pendientes diferentes significativamente de cero, lo que implica que las abundancias de los predadores es similar para cada peso corporal medio en cada sistema de uso del suelo.
 
 # Conclusiones
+
+La fauna edáfica es muy diversa y abundante, aunque debido a sus rango de pesos corporales representan una pequeña fracción del metabolismo total edáfico [@hale1971], que recae principalmente sobre los organimos de la microbiota edáfica, sin embargo, l a fauna edáfica debido a sus mecanismos de alimentación y al modo y uso que hacen de los recursos en el ecosistema edáfico, cumplen un papel crucial en en la estimulación de la actividad microbiana, en el control de las poblaciones de la microflora y fauna edáfica y en las modificaciones en la estructura física y química del medio edáfico [@butcher1971], por lo que la magnitud de los cambios en la comunidad de la fauna edáfica podría derivar en cambios con impacto significativos en los procesos ecológicos y biogeoquímicos en el suelo.
+
+El espectro de pesos corporales de la comunidad edáfica abarca desde pequeños organismos como los 
+nemátodos fitófagos hasta las grandes larvas de coleópteros scarabeidos por lo que el rango del 
+espectro alcanza aproximadamente 13 ordenes de magnitud.
+
+Las distribuciones del peso corporal en general son unimodales para 
+aquellos taxones más abundantes lo que implica tamaños similares para diferentes especies dentro
+de una categoría taxonómica de mayor jerarquía (p.e. Familias). 
+Para los diferentes taxones, los valores promedios del peso corporal, sus densidades y sus biomasas,
+nos permiten ver la gran complejidad y heterogeneidad de estos parámetros al ser comparados 
+puntualmente entre sistemas de uso del suelo, por otra parte,
+los taxones entre los diferentes sistemas de uso del suelo
+reflejan mecanismos de respuestas ya sea mediante cambios en el número de individuos, 
+mediante disminuciones en los pesos corporales, o mediante pesos corporales más altos en los
+diferentes sistemas. Sistemas edáficos con condiciones más favorables, con una mayor 
+disponibilidad de recursos implican taxones con pesos corporales más altos. 
+
+La diversidad de taxones en las comunidades y las funciones biológicas vinculadas con ellos, permite
+relacionar la biomasa por unidad de superficie directamente con la cantidad de materia acumulada e 
+indirectamente con la energía que circula a través de la red de interacciones del sistema 
+detritívoro del suelo. Esto refleja de manera integral la respuesta de la red trófica edáfica a los 
+disturbios [@jonsson2005], constituye un indicador integrador de los procesos a nivel de la 
+comunidad [@turnbull2014] y permite relacionar las asimetrías en los flujos de energía con la forma 
+en como se modulan la resistencia y resiliencia ante las perturbaciones [@zhou2022].
+
+La biomasa media de los gremios tróficos de la fauna edáfica sigue una regularidad tal como una 
+pirámide de biomasa en la cuál los organismos detritívoros forman la base con los mayores valores de
+biomasa, siguen los microfitófagos, omnívoros y predadores, y finalmente los herbívoros 
+con la menor biomasa, esta regularidad está en línea con el sistema detritívoro del ecosistema 
+edáfico [@lavelle2006] en el cuál los recursos trófico de mayor abundancia se constituyen de la materia orgánica en descomposición y de la microbiota saprótrofa.   
+
+La manera en como se utiliza el suelo en los diferentes sistemas evaluados 
+no se refleja como un impacto directo sobre la biomasa media de la comunidad de la fauna edáfica,
+aunque algunos microartrópodos de los gremios omnívoro y detritivoro dan indicios de aumentos en la 
+biomasa en sistemas antropizados, tal vez, como respuestas al enriquecimiento debidas al aumento de 
+nutrientes, ya sean estos por la fertilización, la mineralización de la materia orgánica del suelo o
+la disponibiliad de nutrientes solubles provenientes de las excretas del ganado, ya que el
+enriquecimiento se relacionado con el aumento del flujo de energía a través del canal de los 
+bacterívoros en la red trófica edáfica [@kardol2016; @potapov2019; @zhou2022]
+
+Potapov et al. [-@potapov2021] deduce que en las redes detritívoras del suelo, las relaciones entre 
+los niveles tróficos y la biomasa no siguen las relaciones predador - presa clásicas, en las cuales 
+los depredadores son más grandes que las presas, sino que los 
+depredadores dentro de su propia clase de tamaño buscarán presas de menor tamaño, por ej. los 
+mesostigmatas buscarán capturar nemátodos, colémbolos pequeños, etc. También explica que existe compartimentalización de los canales de energía que atraviesan las redes tróficas del 
+suelo 
+en el cuál destacan los consumidores primarios (detritívoros y microfitófagos) por sobre los 
+predadores, tal como se observa en las biomasas medias de las comunidades edáficas en los suelos argiudoles típicos.
+
+Las relaciones entre la densidad y los pesos corporales permiten visualizar a los diferentes grupos taxonómicos y las relaciones funcionales entre ellos, su medio ambiente y el efecto de las perturbaciones debida a los cambios que ocurren en los ecosistemas bajo estudio [@potapov2022; @zhou2022]. Por esto Antunes y colaboradores [-@antunes2023] explican que las fluctuaciones en la composición taxonómica, en los pesos corporales y en la densidad de las especies que conforman las comunidades del suelo afectarán al flujo de energía que atraviesa cada nivel trófico y la multiplicidad de funciones asociada con ellos, explica también que, estas variaciones se dan a nivel local reflejándose en fuertes variaciones de las pendientes que relacionan la densidad y el peso finalmente afectando la estabilidad y el funcionamiento del ecosistema.
+
+Turnbull [-@turnbull2014] indica que el análisis de curvas de regresión pueden servir como puntos de referencia para comparar comunidades o para entender los efectos vinculados con disturbios sobre el hábitat. En este punto se observó una regularidad en el efecto del gremio trófico sobre 
+la pendiente de regresión, la pediente de los omnívoros tiende a ser positiva, los demás gremios tienen pendientes negativas que de mayor a menor se ubican los detritívoros, los microfitófagos, los predadores y los herbívoros. Por otra parte, se presenta una disyuntiva, en suelos de Chivilcoy y Navarro los detritívoros tienen una pendiente más cercana a cero en los sistemas antropizados esto implica que los animales detritívoros más pesados pueden sobre vivir en estos ambientes en comparación con el pastial naturalizado, en cambio en suelos de Luján los gremios microfitófagos y hervívoros tuvieron valores de pendientes más alejados de cero en el sistema agrícola lo 
+que implica la mayor abundancia de animales de menor peso corporal y la menor chance de encontrar animales de gran peso en estos gremios. Considerando los valores de pendientes 
+solo bajo el efecto de los sistemas de uso de suelo resultó en valores similares por lo que no 
+existe indicios de un efecto directo de las diferentes prácticas agropecuarias sobre las relaciones 
+densidad-peso corporal de la comunidad edáfica como un todo sino solo a través de algún gremio 
+trófico.
+
+Estos hallazgos sugieren que la relación entre el espectro de tamaños de la fauna edáfica y el uso que se hace de los suelos Argiudoles de la Pampa Ondulada no sigue una respuesta que vincule efectos fuertes debido a perturbaciones en detrimento de la comunidad [@potapov2019; @zhou2022; @sechi2017], sino que las prácticas de manejo a nivel local reflejan que el suelo mantuvo cercanos entre sí los atributos estudiados en la comunidad de la fauna edáfica,
+por lo que resulta interesante continuar con investigaciones para comprender mejor estas relaciónes de modo que retroalimente las buenas prácticas agropecuarias con objetivos de lograr el equilibrio entre el uso del suelo, su estabilidad y la conservación del mismo.
+
+<!-- Esto es para cambiar tamaño de letra color, tipo etc -->
+
+<!-- <font face = "Microsoft Yahei"> Ingrese el texto aquí </font> -->
+
+<!--  <font size = 5> Ingrese el texto aquí </font> -->
 
 # Referencias
 
