@@ -26,10 +26,10 @@ options("digits"=3)
 # Introducción
 
 En los ecosistemas las especies presentes se relacionan entre sí de
-maneras diferentes y estas relaciones establecen complejas redes de
+multiple maneras y estas relaciones configuran complejas redes de
 interacciones (Montoya et al. 2001). Las redes de interacciones nos
 muestran todas las posibles tramas en las que las especies pueden
-interactuar (Delmas et al. 2019; Kéfi et al. 2012). Las redes pueden
+interactuar (Delmas et al. 2019; Kéfi et al. 2012) esta pueden
 caracterizarse en función del tipo de interacción que representan
 describiendo así redes tróficas, redes de competidores, redes
 mutualistas, entre otras (Labrador 2008; Montoya et al. 2001).
@@ -40,7 +40,7 @@ redundancia funcional, el papel de las especies claves y la
 multiplicidad de canales de materia y energia que ocurren en los
 ecosistemas es estudio de la red de interacciones (.\@.barrios2007,
 .\@.briones2014, .\@.potapov2023) que permite simplificar la complejidad
-de interacciones y conetarlos con diferentes parámetros que emergen el
+de interacciones y conectar con diferentes parámetros que emergen el
 estudio de los ecosistemas (.\@.Hooperetal2005;.\@.delmas_etal2019)
 
 En los suelos las redes de interacciones están influenciadas por
@@ -48,7 +48,8 @@ En los suelos las redes de interacciones están influenciadas por
 edáficas regionales y locales, la disponibilidad de recursos para los
 organismos que en el habitan, las influencias biogeográficas sobre las
 comunidades y por **factores de corto plazo** como las perturbaciones
-antrópicas (Kardol et al. 2016) por lo que resulta de particular interés
+antrópicas (Kardol et al. 2016) que ocurren debidas al manejo del suelo con fines agropecuarios,
+por lo que resulta de particular interés
 la respuesta de la estructura de las redes ante los distintos tipos de
 disturbios y su relación con el funcionamiento del ecosistema del suelo
 (Sabatté, 2011; Kardol et al., 2016).
@@ -81,7 +82,7 @@ Como la estructura de las redes ecológicas condiciona el funcionamiento
 intrínseco de un ecosistema (Labrador, 2008; Martín López et al., 2007)
 la complejidad del entramado de la red trófica edáfica es un factor
 clave en la estabilidad de los procesos del suelo (Sabatté, 2011;
-Wardle, 1995), y por lo tanto en el estado de conservación del mismo que
+Wardle, 1995) y por lo tanto en el estado de conservación del mismo que
 será mayor cuanto mayor sea la estabilidad de la red de interacciones.
 
 En las redes ecológicas las conexiones características son aquellas en
@@ -138,17 +139,17 @@ ya que une los aspetos relacionados con la diversidad específica, la
 diversidad de rasgos, la diversidad funcional y los aspectos que se
 relacionan con la estabilidad y resiliencia de estos sistemas.
 
-Por otra parte, a las redes de interacciones, pueden relacionarse rasgos
-como el peso corporal con los nodos de la red y atributos poblacionales
-como la abundancia de los taxones, lo que permite relacionar tanto
+Por otra parte, en las redes de interacciones, pueden relacionarse rasgos
+como el peso corporal y atributos poblacionales
+como la abundancia de los taxones con los nodos de la red, lo que permite relacionar 
 parámetros fisiológicos como el metabolismo y el uso de los recursos,
-como parámetros ecológicos tales como las interacciones tróficas y las
+con parámetros ecológicos tales como las interacciones tróficas y las
 adaptaciones de estos organismos ante cambios en el ambiente
 [.\@.pey2014; .\@.white2007; .\@.turnbull2014].
 
-En este contexto, pretendemos comparar las métricas estruturales, los
-flujos de energía vinculados a las redes tróficas, las fuerzas de
-interacciones y la estabilidad estructural de las redes tróficas de la
+Pretendemos comparar las métricas estruturales, los
+flujos de energía vinculados a las redes tróficas y la estabilidad estructural 
+de las redes tróficas de la
 fauna del suelo entre ambientes con distintas intensidades en el tiempo
 de uso del suelo.
 
@@ -167,13 +168,10 @@ uso alta.
 <!--, una sin uso de suelo correspondiente a un pastizal naturalizado que servirá como sistema de referencia y un sistema de alta perturbación que se corresponde con un sistema agrícola intensivo con más de 50 años de actividad ininterrumpida.-->
 
 Para la construcción y el modelado de la red de interacciones tróficas
-de la fauna del suelo es necesario conocer a) tanto las comunidades que
-habitan los diferentes ambientes como las características físicas y
-químicas de los ambientes, b) además es necesario recopilar información
-sobre los recursos tróficos que estos animales utilizan para poder
-modelar la matriz de interacciones tróficas (.\@.delmas_etal_2019), c)
-de manera complementaria tener información sobre rasgos funcionales
-específicamente sobre el peso corporal de los taxas involucrados
+de la fauna del suelo es necesario conocer las comunidades que
+habitan los diferentes ambientes, los recursos tróficos que estos animales utilizan 
+para poder modelar la matriz de interacciones tróficas (.\@.delmas_etal_2019), 
+el peso  corporal y la densidad de los taxas involucrados
 (.\@.laigle_etal_2018) que permite conocer las fuerzas de
 interacciones(.\@.deRuiter_etal_1995), los flujos de energía através de
 la red (.\@.potapov2023, .\@.barnes_etal_2017) y calcular la resiliencia
@@ -193,18 +191,18 @@ sistemas de manejo [@bedano2007; @socarras2013].
 ## Construccion de la red
 
 Se construyo una matriz de interacciones tróficas cuyos nodos son todos
-los taxones hallados en ambas comunidades de la fauna de suelo
-($gamma\; [\gamma]$). A partir de la matriz de interacciones global se
+los taxones hallados en ambas comunidades de la fauna de suelo y sus interacciones
+se establecen a partir de la evidencia empírica ($gamma\; [\gamma]$). 
+A partir de la matriz de interacciones global se
 seleccionan los actores que corresponden a cada comunidad en particular
 definiendo de esta manera matrices de interacciones para cada sistema de
 uso del suelo ($alpha \;[\alpha]$).
 
 Se utilizaron como **atributos de nodos**, esto es, valores numéricos,
 nominales o categóricos que describen una característica del nodo en
-particular se corresponde con los taaxones hallados en los diferentes
+particular, atributos que se correspondan con los taxones hallados en los diferentes
 sistemas de uso del suelo, los valores de pesos corporales, las biomasas
-medias y las densidades medias; productos todos desarrollados en las
-secciones anteriores (Ver tablas 4.x al x).
+medias y las densidades medias. (Ver tablas 4.x al x).
 
 Se asumieron algunos parámetros para nodos que se corresponden a
 recursos tróficos base (.\@.velazco,.\@.potapov_multichanel) basados en
@@ -214,14 +212,15 @@ Chivilcoy y Navarro, o, debido a su complejidad son dificiles de
 cuantificar.
 
 Para el recurso trófico "humus" se considera que la materia orgánica
-particulada es el proxi de la cantidad del recurso que se corresponde
+es el proxi de la cantidad del recurso que se corresponde
 con el nodo "Hummus" y en general esta se corresponde con el 50% de la
 materia orgánica del suelo para suelos de la pampa ondulada (Álvarez
 2006 (cap3);Biological indicator of Soil Healt pp 70 - 71), para
 calcular su biomasa esta se refiere a la superficie en metros cuadrados,
 utilizando la densidad aparente de suelos y referidas hasta los 10
 centímetros de profundidad, zona en la cuál se encuentra la mayor
-proporción del contenido en materia orgánica; Digel (.-\@.Digel.2014),
+proporción del contenido en materia orgánica; 
+Para los organismos de la microflora y la microfauna Digel (.-\@.Digel.2014),
 quien evaluó las características topológicas de decenas de redes de
 diferentes ecosistemas y las comparó con redes tróficas de los suelos de
 bosques de la región Paleártica en el material suplementario indica que
@@ -236,8 +235,8 @@ $2,3 \,x\,7\,^{-10} g\,m^{-2}$.
 Las biomasas medias de bacterias, hongos y microfauna no nemátoda, son
 aproximadas mediante la biomasa media calculada a partir de la
 respiración de los heterótrofos (capítulo 3 comunidad, imagen o
-tabla,ecuación), de esta biomasa media se considera que el 50% es el
-recurso efectivamente disponible para la red trófica, entonces, para
+tabla, ecuación), de esta biomasa media se considera que el 50% es el
+recurso efectivamente disponible para los consumidores , entonces, para
 ambos suelos argiudoles se consideró que el 2 % de la biomasa
 corresponde a la microfauna no nemátoda
 (.\@.cita_energetical.significance?), para suelos los suelos de Luján se
@@ -349,14 +348,20 @@ evaluada para lograr la estabilidad local.
 Se calculó también los flujos de energía entre los nodos de la red asumiendo un estado
 estable, en el que las pérdidas energéticas son compensadas con las ganancias energéticas.
 Para ello es necesario conocer los pesos corporales medios de los nodos tróficos,
-la tasa metabólica estimada mediante $tasa metabólica = 17.17\; peso^{-0.29}$ y la biomasa de 
+la tasa metabólica estimada mediante $tasa metabólica = 17.17\; peso^{-0.29}$ y la biomasa media de 
 los mismos nodos. Con los flujos de energía se pueden caracterizar procesos ecológicos relacionados
-con la clasificación funcional de las especies tróficas, estos flujos de energía son expresados para cada interacción en Joules/año.
+con la clasificación funcional de las especies tróficas, estos flujos de energía son expresados para cada
+interacción en Joules/año.
 
 Para realizar comparaciones entre redes tróficas se utilizó la
-comparación de distribuciones del método de Anderson-Darling 
-para identificar diferencias estadísticamente
-significativas, mediante el algoritmo de Curveball se establecen redes
+comparación de las distribuciones del máximo autovalor del algoritmo de quasisigno 
+mediante la prueba de Anderson-Darling que permite identificar diferencias estadísticamente
+significativas
+
+Para realizar comparaciones entre redes tróficas se utilizó la comparación de distribuciones
+del máximo autovalor de quasisigno para identificar diferencias 
+estadísticamente significativas.
+, mediante el algoritmo de Curveball se establecen redes
 de interacciones que mantienen la conectividad, el numero de enlaces y
 la cantidad de especies basales y tope, para evaluar las características
 topológicas de las redes tróficas del sistema detritívoro edáfico.
@@ -371,9 +376,7 @@ implementados en R.
 
 ```{r dtb,include=FALSE,message=FALSE, warning=FALSE}
 #Carga datos, comunidad completa, abundancia, pesos corporales medios, de suelos UNLu
-SFW_unlu <- read.delim(
-  "database/unlu_ab_mass_mean_web.txt"
-  )
+SFW_unlu <- read.delim("database/unlu_ab_mass_mean_web.txt")
 #carga datos, suelos ROSANA, Chivilcoy y Navarro
 completo <- readxl::read_excel("database/soil_networks.xlsx", sheet = "Ro_web")
 ```
@@ -547,17 +550,17 @@ R<-web0%>%filter(sitio=="R")
 bm_L<-c(L$biomass,
         (77.0321/0.0625)*0.28*1e6, #Hojarasca
         mean(L[L$taxa!="fungi"&L$taxa!="bac"&L$taxa!="proto",]$biomass)*0.05, #Carroña
-        1,#2.25*0.0273*1.2*50000*1e6,#Tej_veg
+        1*1e6,#2.25*0.0273*1.2*50000*1e6,#Tej_veg
         0.4*0.0273*1.2*50000*1e6)/1e6#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
 bm_R<-c(R$biomass,
         55.753/0.065*0.37*1e6, #Hojarasca
         mean(R[R$taxa!="fungi"&R$taxa!="bac"&R$taxa!="proto",]$biomass)*0.05, #carroña
-        1,#2.25*0.0352*1.2*50000*1e6, #tej_veg
+        1*1e6,#2.25*0.0352*1.2*50000*1e6, #tej_veg
         0.4*0.0352*1.2*50000*1e6)/1e6 #"humus" = POM = 0.4MO
 bm_P<-c(P$biomass,
         (58.63/0.0625)*0.32*1e6, #Hojarasca
         mean(P[P$taxa!="fungi"&P$taxa!="bac"&P$taxa!="proto",]$biomass)*0.05, #carroña
-        1,#2.25*0.0352*1.2*50000*1e6, #Tej_veg
+        1*1e6,#2.25*0.0352*1.2*50000*1e6, #Tej_veg
         0.4*0.0309*1.2*50000*1e6)/1e6 #Humus
 
 #Pesos corporales####
@@ -608,19 +611,19 @@ Lf.r<-L[L$taxa%in%meso.reduc,]
 #biomasas red####
 #todos excepto carroña y humus igual a uno, para fines de comparacion entre sistemas y localidads
 bm_Lf.r<-c(Lf.r$biomass,
-        1, #Hojarasca
+        1*1e6, #Hojarasca
         mean(Lf.r[Lf.r$taxa!="fungi"&Lf.r$taxa!="bac"&Lf.r$taxa!="proto",]$biomass)*0.05, #Carroña
-        1,#2.25*0.0273*1.2*50000*1e6,#Tej_ve
+        1*1e6,#2.25*0.0273*1.2*50000*1e6,#Tej_ve
         0.4*0.0273*1.2*50000*1e6)/1e6#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
 bm_Rf.r<-c(Rf.r$biomass,
-        1, #Hojarasca
+        1*1e6, #Hojarasca
         mean(Rf.r[Rf.r$taxa!="fungi"&Rf.r$taxa!="bac"&Rf.r$taxa!="proto",]$biomass)*0.05, #carroña
-        1,#2.25*0.0352*1.2*50000*1e6, #tej_veg
+        1*1e6,#2.25*0.0352*1.2*50000*1e6, #tej_veg
         0.4*0.0352*1.2*50000*1e6)/1e6 #"humus" = POM = 0.4MO
 bm_Pf.r<-c(Pf.r$biomass,
-        1, #Hojarasca
+        1*1e6, #Hojarasca
         mean(Pf.r[Pf.r$taxa!="fungi"&Pf.r$taxa!="bac"&Pf.r$taxa!="proto",]$biomass)*0.05, #carroña
-        1,#2.25*0.0352*1.2*50000*1e6, #Tej_veg
+        1*1e6,#2.25*0.0352*1.2*50000*1e6, #Tej_veg
         0.4*0.0309*1.2*50000*1e6)/1e6 #Humus
 
 #Pesos corporales####
@@ -647,7 +650,11 @@ t_metLf.r[is.na(t_metLf.r)|t_metLf.r==Inf]<-0
 
 #representan 166 registros macrofauna / 8662 registros totales
 #lombrices 1454 / 8662 totales, pero correctamente muestreados
+#densidad suelo 1,2g/cm2, volumen 1e5 cm3, peso suelo, 120 000 g suelo
+#(resp*100)/24; resp*4,167; 1200 suelo/100g suelo; 20600 ug/100g suelo;
+#resp*4.167*1200*20600= resp*103008240
 
+completo$biomasaheterotrofa<-completo$RESP*103008240
 base<-completo%>%filter(class!="macrofauna")
 #Es el factor de conversión para llevar las abundancias a densidad
 
@@ -662,8 +669,8 @@ sup.monolito <- 1/(0.25*0.25)
 #A partir de aqui determina las abundancias
 base.sitio<-base%>%group_by(system,site,class,order,specie) %>%
   summarise(abundance=n(), bio.ind=mean(biomass),
-            bm=(mean(bm)),POM=mean(POM))%>%distinct(specie,.keep_all=TRUE)
-
+            bm=(max(biomasaheterotrofa)),POM=mean(POM))%>%distinct(specie,.keep_all=TRUE)
+#bm=(mean(bm))
 #densidad y biomasa
 ab.sitio<-base.sitio%>%
   mutate(D=case_when(order=="crassiclitellata"~sup.monolito*abundance,
@@ -780,9 +787,9 @@ G<-webRO%>%filter(system=="G")
 A<-webRO%>%filter(system=="A")
 
 #Pesos corporales
-body_N<-c(N$body,1,1,1)/1e6
-body_G<-c(G$body,1,1,1)/1e6
-body_A<-c(A$body,1,1,1)/1e6
+body_N<-c(N$body/1e6,1,1,1)
+body_G<-c(G$body/1e6,1,1,1)
+body_A<-c(A$body/1e6,1,1,1)
 
 #eficiencias
 
@@ -805,21 +812,21 @@ t_metA[is.na(t_metA)|t_metA==Inf]<-0
 #la carroña se calcula igual que en el anterior
 #no informacion sobre los demás
 bm_N<-c(N$biomass,
-        1, #Hojarasca
+        1*1e6, #Hojarasca
         mean(N[N$specie!="fungi"&N$specie!="bac"&N$specie!="proto",]$biomass)*0.05, #Carroña
-        1#Tej_veg
+        1*1e6#Tej_veg
         )/1e6#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
 
 bm_G<-c(G$biomass,
-        1, #Hojarasca
+        1*1e6, #Hojarasca
         mean(G[!G$specie%in%c("fungi","bac","proto"),]$biomass)*0.05, #Carroña
-        1#Tej_veg
+        1*1e6#Tej_veg
         #G$biomass[G$specie=="hummus"]
         )/1e6 #humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
 bm_A<-c(A$biomass,
-        1, #Hojarasca
+        1*1e6, #Hojarasca
         mean(A[A$specie!="fungi"&A$specie!="bac"&A$specie!="proto",]$biomass)*0.05, #Carroña
-        1#Tej_veg
+        1*1e6#Tej_veg
 )/1e6
 
 ```
@@ -1102,75 +1109,6 @@ mG["nem_predador","nem_predador"]<-1
 
 ```
 
-```{r redes.global, include=FALSE, message=FALSE, warning=FALSE}
-#red global "diveridad gamma"
-Gl_net <- graph_from_adjacency_matrix(t(mG),mode=c("directed"))
-#aca colocar la tabla 
-gamma_matrix <- as.data.frame(as.matrix(Gl_net, "edgelist"))
-names(gamma_matrix)<-c("Recurso","Consumidor")
-#kableExtra::kable(gamma_matrix)
-
-#para graficar por ej.
-#atributos globales de nodos####
-V(Gl_net)$size_class[V(Gl_net)$name%in%c("litter","hummus","carrion","tej_veg")]<-"B"
-V(Gl_net)$size_class[V(Gl_net)$name%in%c("fungi","bac")]<-"F"
-V(Gl_net)$size_class[V(Gl_net)$name%in%c("proto","nem_predador","nem_bacterivoro", "nem_fitofago","nem_fungivoro","nem_omnivor")]<-"m"
-me<-c("alycidae", "diplura","brachychthonioidea","crotonioidea",
-        "oribatido","limnozetidae",
-  "ameroseidae","arctacaridae","bdelloidea",
-   "ceratozetoidea","cryptophagidae","enchytraeida","entomobridae",
-  "epilhomanioidea","eremobelbidae","galumnidae",
-  "isotomidae","macropilina","cunaxide","dermanisoidea","eviphididae",
-  "onichiuridae","oppioidea","oribatulidae",
-  "oripodidae","protura","scheloribatidae","symphyla","symphypleona",
-  "ichtyostomatogasteridae", "laelapidae","ologamasidae","parasitidae",
-  "rhagidiidae","rhodacarioidea","trombidiidae", "uropodoidea","veigaioidea",
-  "teneriffidae","eupthiracaroidea","limnozetidae","astigmata","hipogastruridae","tardigrado",
-       "anystidae","eupodoidea","penthalidae","tarsonemidae","tydeioidea","mesostigmata")
-V(Gl_net)$size_class[V(Gl_net)$name%in%me]<-"me"
-Lb<-c("Microscolex phosphoreus","Octalasion lacteum","Microscolex dubius","Eukerria stagnalis",
-"Aporrectodea caliginosa","Aporrectodea rosea","Bimastos parvus","juvenil",
-  "Aporrectodea trapezoides","Bimastos beddardi sophiae","Eukerria halophila", "Glossoscolex sp.",
-"Octalasion cyaneum",
-  "Octolasion tyrtaeum")
-V(Gl_net)$size_class[V(Gl_net)$name%in%Lb]<-"L"
-MA<-c("carabidae","coccinelidae","geophylomorpha","grillopalpidae","larva_carabidae",
-      "linyphiidae","lycosidae","pseudoscorpionida","staphiliniidae","anthribidae",
-      "blattodea","gasteropoda","diplopoda","elateriforme",
-  "embrioptera","larva_coleoptero","isoptera",
- "larva_diptera","larva_elateridae","larva_scarabidae","larva_sciaridae",
-  "larva_tenebrionidae","oniscidea","ptilidae","pupa_diptera",
- "tenebrionidae","terebrantia","trogossitidae","aphidoidea","cicadidae",
- "coleoptera_suctor","hemiptero","larva_curculionidae",
-   "ortoptero","thysanoptera","formicidae","nematomorpha")
-V(Gl_net)$size_class[V(Gl_net)$name%in%MA]<-"MA"
-
-#categoría trófica
-
-V(Gl_net)$guild[V(Gl_net)$name%in%c("litter","hummus","carrion","tej_veg")]<-"Base"
-V(Gl_net)$guild[V(Gl_net)$name%in%mf]<-"descomponedor"
-V(Gl_net)$guild[V(Gl_net)$name%in%micf]<-"microfitofago"
-V(Gl_net)$guild[V(Gl_net)$name%in%pred]<-"predador"
-V(Gl_net)$guild[V(Gl_net)$name%in%det]<-"detritívoro"
-V(Gl_net)$guild[V(Gl_net)$name%in%herb]<-"herbívoro"
-V(Gl_net)$guild[V(Gl_net)$name%in%omn]<-"omnívoro"
-V(Gl_net)$guild[V(Gl_net)$name%in%no_a]<-"predador"
-#para conocer atributos
-#vertex_attr_names(Gl_net)
-#edge_attr_names(Gl_net)
-#glred<-plot_troph_level(Gl_net,modules=FALSE,vertexLabel = FALSE, tk = TRUE)
-coordenadas <- read.csv("database/coordenadas.txt", sep="")
-colnames(coordenadas)<-c("x","y")
-#Para que los nodos me quedasen en un formato color amigable.
-paleta_color<-RColorBrewer::brewer.pal(9, "Set1")
-fact_guild<-as.factor(get.vertex.attribute(Gl_net,"guild"))
-fact_size<-as.factor(get.vertex.attribute(Gl_net,"size_class"))
-
-#plot(asNetwork(Gl_net),coord=coordenadas,vertex.col=paleta_color[fact_guild],vertex.cex=as.numeric(fact_size)/3,suppress.axes = FALSE)
-
-#plot_troph_level(Gl_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE,sub="Agrícola",edge.color="grey",edge.wigth=0.5)
-
-```
 
 ```{r redes, include=FALSE, message=FALSE, warning=FALSE}
 
@@ -1218,9 +1156,9 @@ observa en la Reserva.
 
 ```{r plot_redes, echo=FALSE, warning=FALSE,message=FALSE}
 par(mfrow=c(1,3))
-plot_troph_level(R_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE,sub="Reserva")
-plot_troph_level(P_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE,sub="Pastizal")
-plot_troph_level(L_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE,sub="Agrícola")
+plot_troph_level(R_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE,main="Reserva")
+plot_troph_level(P_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE,main="Pastizal")
+plot_troph_level(L_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE,main="Agrícola")
 par(mfrow=c(1,1))
 ```
 
@@ -1306,10 +1244,9 @@ cuyo número fue mayor en los suelos de Chivilcoy y Navarro.
 ```{r plot_redes2, echo=FALSE, warning=FALSE,message=FALSE}
 par(mfrow=c(1,3))
 
-plot_troph_level(N_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE,sub="Pastizal")
-plot_troph_level(G_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE,sub="Mixto")
-plot_troph_level(A_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE,sub="Agrícola")
-
+plot_troph_level(N_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE,main="Pastizal")
+plot_troph_level(G_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE,main="Mixto")
+plot_troph_level(A_net,modules=TRUE,vertexLabel = FALSE, tk = FALSE,main="Agrícola")
 
 par(mfrow=c(1,1))
 ```

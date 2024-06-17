@@ -534,7 +534,7 @@ body_unlu%>%filter(clase_tam=="micro")%>%
   geom_density_ridges(rel_min_height = 0.001,scale=1.5,show.legend=FALSE)+ 
   scale_fill_viridis_d(alpha = 0.8)+  
   facet_grid(.~Sistema)+
-  labs(title='Nemátodos de vida libre de suelos Argiudoles de Luján', 
+  labs(title='Nemátodos de vida libre', 
        x= 'Peso corporal en ln ug',y=NULL)
 
 ```
@@ -583,7 +583,7 @@ body_unlu%>%filter(clase_tam=="meso"&body_unlu$taxa%in%c("alycidae",
   geom_density_ridges(rel_min_height = 0.001,scale = 2.5)+ 
   scale_fill_viridis_d(alpha = 0.8)+
   facet_grid(.~Sistema)+
-  labs(title='Peso corporal individual para los taxones de microartrópodos', 
+  labs(title='Mesofauna no depredadora', 
        x= 'Peso corporal en ln ug/m^2',y=NULL)
 
 
@@ -624,7 +624,7 @@ body_unlu%>%filter(clase_tam=="meso"
   geom_density_ridges(rel_min_height = 0.001,scale = 1.5,show.legend=FALSE)+ 
   scale_fill_viridis_d(alpha = 0.8)+
   facet_grid(.~Sistema)+
-  labs(title='Peso corporal individual para los taxones de microartrópodos', 
+  labs(title='Mesofauna depredadora', 
        x= 'Peso corporal en ln ug',y=NULL)
 
 ```
@@ -656,7 +656,7 @@ meso1$Taxón<-factor(meso1$specie,labels=c("Acaroidea","Bdelloidea","Brachychtho
 
 meso1$Gremio<-factor(meso1$guild,labels=c("Detritivoro","Microfitofago","Omnivoro","Predador"))
 
-meso1%>%ggplot(aes(x=log(biomass), y=Taxón, fill=Gremio)) + geom_density_ridges(rel_min_height = 0.0000005) +scale_x_continuous(breaks = seq(from=-4, to=5, by=2))+  scale_fill_viridis_d(alpha = 0.8)+facet_grid(.~Sistema)+labs(title='Peso corporal individual para los taxones de microartrópodos', x= 'Peso corporal en ln ug/m^2',y=NULL)
+meso1%>%ggplot(aes(x=log(biomass), y=Taxón, fill=Gremio)) + geom_density_ridges(rel_min_height = 0.0000005) +scale_x_continuous(breaks = seq(from=-4, to=5, by=2))+  scale_fill_viridis_d(alpha = 0.8)+facet_grid(.~Sistema)+labs(title='Microartrópodos edáficos', x= 'Peso corporal en ln ug/m^2',y=NULL)
 ```
 
 **Figura 4.x. Distribución de los pesos corporales de los microartrópodos edáficos ocurridos en suelos Argiudoles de Chyvilcoy y Navarro. Se muestra sobre el eje horizontal la escala en logaritmo natural del peso corporal en microgramos de peso seco. Sobre el eje vertical se indica el taxón. Los colores representan al gremio trófico al cual pertenece el taxón**
@@ -691,7 +691,7 @@ body_unlu%>%filter(clase_tam=="macro")%>%
   geom_density_ridges(rel_min_height = 0.001,scale = 2.5)+ 
   scale_fill_viridis_d(alpha = 0.8)+
   facet_grid(.~sitio)+
-  labs(title='Peso corporal individual para los taxones de microartrópodos', 
+  labs(title='Macrofauna edáfica', 
        x= 'Peso corporal en ln ug/m^2',y=NULL)
 ```
 
@@ -1015,9 +1015,11 @@ Ritz K, van der Putten W (2012) The living soil and ecosystem services: Introduc
 
 ## Distribución de los pesos corporales de la Fauna Edáfica
 
-La curva de acumulación empírica inversa permite comparar la distribución de los datos observados con la distribuciones teóricas.
+La **curva de acumulación empírica inversa** permite comparar la distribución de los datos observados con distribuciones teóricas.
 
-Los datos observados son los puntos que se acumulan en la fig. 4.x y estos se corresponden con cada una de los pesos corporales de la fauna edáfica compilada, estas observaciones se contrastan con las distribuciones teóricas exponencial, potencial exponencial, potencial exponencial truncada y logarítmica normal.
+Los datos observados, que se corresponden con cada uno de los pesos corporales, son los puntos que se acumulan desde  mayor a menor en función de la frecuencia acumulada, como puede verse en la figura 4.x.
+
+La distribución acumulada inversa se contrastaron con las distribuciones teóricas exponencial, potencial exponencial, potencial exponencial truncada y logarítmica normal.
 
 ```{r pwrU, include=FALSE}
 
@@ -1114,7 +1116,7 @@ pgU
 pg
 ```
 
-En ambas localidades los pesos corporales de todo el conjunto de datos ajustan a la distribución logarítmica-normal conocida también como log-normal, esto tiene sentido si, se considera que cada especie tiene una distribución aproximadamente normal de sus pesos corporales pero cuyos valores no pueden ser menores o iguales que cero y también si, se considera la contribución multiplicativa de cada especie en el total de la comunidad. (.\@.log en biologia; .\@.potapov, sus bichos estaban distribuidos log normal.)
+En ambas localidades y entre los diferentes sistemas de uso los pesos corporales de todo el conjunto de datos ajustan a la distribución logarítmica normal conocida también como log-normal, esto tiene sentido si, se considera que cada especie tiene una distribución aproximadamente normal de sus pesos corporales pero cuyos valores no pueden ser menores o iguales que cero y también si, se considera la contribución multiplicativa de cada especie en el total de la comunidad. (.\@.log en biologia; .\@.potapov, sus bichos estaban distribuidos log normal.)
 
 ```{r tab_lg, echo=FALSE,warning=FALSE,message=FALSE}
 
@@ -1130,97 +1132,126 @@ t
 
 ```
 
-Esta distribución logarítmica normal ajusta a los datos de distribución empírica en todos los sistemas de uso del suelo (Tabla 4.x).
+Esta distribución logarítmica normal ajusta a los datos de distribución empírica en todos los sistemas de uso del suelo.
 
-## Reducción del modelo y Verificación paramétrica de los modelos parsimoniosos de las relaciones entre biomasas medias de los taxones de los gremios en cada sistema de uso del suelo
+## Reducción del modelo y verificación paramétrica de los modelos parsimoniosos de las relaciones entre biomasas medias de los taxones de los gremios en cada sistema de uso del suelo
 
-```{r B_plot_parametrica, echo=FALSE, warning=FALSE, message=FALSE}
+**Algoritmo "step"**
+
+El algoritmo "step" consiste en quitar secuencialmente el término más complejo del modelo completo,
+aquél que contiene todas las interacciones, y comparar su valor de Akaike (AIC) con el del modelo original,
+este procedimiento se realiza quitando los términos complejos uno a la vez y el procedimiento se detiene cuando el modelo ya no baja en su valor de AIC. 
+De esta manera se tienen 3 situaciones, quedarse con el modelo completo (incluye todas las interacciones), llegar al modelo nulo (solo se queda con el intercepto y las pendientes) o quedarse con un modelo intermedio (con algunos términos ya sean interaciones, efectos o covarianzas).
+Se considera que el modelo parsimonioso es aquel que tiene el menor valor de AIC, y este corresponde a un modelo con la mayor capacidad predictiva y a la vez con el menor número de parámetros.
+
+**Modelo multifactorial, algoritmo "step": Biomasa media de la comunidad edáfica de suelos argiudoles de Luján**
+
+```{r step_luján, echo=FALSE, warning=FALSE, message=FALSE}
 
 #B.UNLU######
 baseU<-baseU%>%mutate(Tbiomass=D*bio.ind)
 #modelo completo
-mU<-lm(log(Tbiomass) ~ sitio * gremio ,data = baseU)
-print("Modelo Multifactorial: Suelos de Luján")
-step(mU)
-#modelo parsimonioso
-mU_p<-lm(formula = log(Tbiomass) ~ gremio, data = baseU)
+mU_p<-lm(log(Tbiomass) ~ sitio * gremio ,data = baseU)
 
-#plot_parametrico_UNLu######
-print("Gráfico paramétricos, Modelo Multifactorial: Suelos de Luján")
+step(lm(log(Tbiomass) ~ sitio * gremio ,data = baseU))
+
+
+
+```
+
+**Modelo multifactorial, gráficos de verificación paramétrica: Biomasa media de la comunidad edáfica de suelos argiudoles de Luján**
+
+```{r plot_luján, echo=FALSE, warning=FALSE, message=FALSE, fig.align='center'}
 par(mfrow=c(2,2))
-plot(mU_p)
+plot(lm(log(Tbiomass) ~ sitio * gremio ,data = baseU))
 par(mfrow=c(1,1))
+```
 
-#B.Rosana######
-#modelo completo
-#mR<-lm(log(Tbiomass) ~ system * season * guild, data = base)
 
-print("Modelo Multifactorial: Suelos de Chivicoy y Navarro")
+**Modelo multifactorial, algoritmo "step": Biomasa media de la comunidad de microartrópodos edáficos de suelos argiudoles de Chivilcoy y Navarro**
 
-#step(mR)
-#modelo parsimonioso
-#mR_p<-lm(formula = log(Tbiomass) ~ system + season + guild + system:season + system:guild, data = base)
-#modelo causal
+```{r step_chivilcoy, echo=FALSE, warning=FALSE, message=FALSE}
+step(lm(log(Tbiomass) ~ system * guild, data = base))
 mR_c<-lm(log(Tbiomass) ~ system * guild, data = base)
-step(mR_c)
+```
 
-print("Gráfico paramétricos, Modelo Multifactorial: Suelos de Chivilcoy y Navarro")
-#plot_parametrico_UNLu######
+**Modelo multifactorial, gráficos de verificación paramétrica: Biomasa media de la comunidad de microartrópodos edáficos de suelos argiudoles de Chivilcoy y Navarro**
+
+
+```{r plot_chivilcoy,echo=FALSE, warning=FALSE, message=FALSE, fig.align='center'}
 par(mfrow=c(2,2))
-plot(mR_c)
+plot(lm(log(Tbiomass) ~ system * guild, data = base))
 par(mfrow=c(1,1))
 
 ```
 
-```{r B_margin_pairs, echo=FALSE, warning=FALSE, message=FALSE}
+**Comparación entre pares**
 
+Para las interacciones y los factores en los diferentes modelos se procedió a la comparacion 
+entre pares, "diferencia de medias", se consideraron las medias marginales y 
+los valores de probabilidad fueron corregidos
+por Benjamini-Hochberg para evitar considerar comparaciones con error tipo I.
 
-print("Comparación entre pares de medias marginales, LUJAN, Ajuste BH")
+**Diferencias de medias, gremios tróficos de la comunidad edáfica en suelos de Luján**
 
-
-# Obtener las Estimated Marginal Means (EMMs) UNLU
+```{r pair_gremio_L,echo=FALSE, warning=FALSE, message=FALSE}
 emms_B_U1 <- emmeans::emmeans(mU_p, ~ gremio)
 pairwise_comparisons_B_U1 <- contrast(emms_B_U1, method = "pairwise", adjust = "BH")
 summary(pairwise_comparisons_B_U1)
+```
 
+**Diferencias de medias, sistemas de uso de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
 
-print("Comparación entre pares de medias marginales, CHYVILCOY y NAVARRO, Ajuste BH")
-
-emms_B_RO1 <- emmeans::emmeans(mR_c, ~ system:guild)
-pairwise_comparisons_B_RO1 <- contrast(emms_B_RO1, method = "pairwise", adjust = "BH")
-summary(pairwise_comparisons_B_RO1)
+```{r pair_sistema_CN,echo=FALSE, warning=FALSE, message=FALSE}
 
 emms_B_RO2 <- emmeans::emmeans(mR_c, ~ system)
 pairwise_comparisons_B_RO2 <- contrast(emms_B_RO2, method = "pairwise", adjust = "BH")
 summary(pairwise_comparisons_B_RO2)
+```
+
+**Diferencias de medias, gremios tróficos de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
+
+```{r pair_gremio_CN,echo=FALSE, warning=FALSE, message=FALSE}
 
 emms_B_RO3 <- emmeans::emmeans(mR_c, ~ guild)
 pairwise_comparisons_B_RO3 <- contrast(emms_B_RO3, method = "pairwise", adjust = "BH")
 summary(pairwise_comparisons_B_RO3)
 
-
 ```
 
-## Reducción del modelo de regresión de quartiles y pruebas de pares entre factores
 
-```{r qq_apendice, echo=FALSE, warning=FALSE, message=FALSE}
-#modelo full UNLu
+**Diferencias de medias, interacción sistemas de uso - gremios tróficos de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
+
+
+```{r pair_gremio:sistema_CN,echo=FALSE, warning=FALSE, message=FALSE}
+
+emms_B_RO1 <- emmeans::emmeans(mR_c, ~ system:guild)
+pairwise_comparisons_B_RO1 <- contrast(emms_B_RO1, method = "pairwise", adjust = "BH")
+summary(pairwise_comparisons_B_RO1)
+```
+
+
+## Reducción del modelo de regresión de quartiles ($\tau=0.75$) que relaciona la densidad media y el peso corporal medio de los gremios tróficos de la comunidad edáfica en diferentes sistemas de uso en suelos argiudoles de la Pampa Ondulada.
+
+**Reducción del modelo de regresión de cuartiles, algoritmo "step", de la comunidad edáfica del suelo de Luján**
+
+```{r qq_red_luj, echo=FALSE, warning=FALSE, message=FALSE}
 rq0<-rq(log(D) ~ (sitio+gremio+log(bio.ind))^3, tau = .75, data = baseU)
-#summary(rq0,se="boot")
-print("Reducción paso a paso del modelo completo al modelo parsimonioso")
-
-print("Modelo de Regresión de Quartiles: Suelos de Luján")
 step(rq0)
 #modelo full Ro
 rqU<-rq(log(D) ~ (sitio + gremio + log(bio.ind)+ sitio:gremio + gremio:log(bio.ind)) ,tau = .75, data = baseU)
-summary(rqU, se="boot")
+#summary(rqU, se="boot")
+```
 
-print("Modelo de Regresión de Quartiles: Suelos de Chyvilcoy")
+
+**Reducción del modelo de regresión de cuartiles, algoritmo "step", de la comunidad de microartópodos edáficos de suelos de Chivilcoy y Navarro**
+
+```{r qq_apendice, echo=FALSE, warning=FALSE, message=FALSE}
 rq1<-rq(log(abundance) ~ (system+guild+log(bio.ind))^3, tau = .75, data = base)
 step(rq1)
 #modelo Ro
 rqRO<-rq(log(abundance) ~ (system+guild+log(bio.ind))^3, tau = .75, data = base)
-summary(rqRO, se="boot")
+#summary(rqRO, se="boot")
 
 #UNLu iteraciones####
 # Definir los niveles deseados para sitio y gremio
@@ -1292,58 +1323,118 @@ for (i in seq_along(niveles_sitioR)) {
 #resultadosR[["sitio1_gremio1"]] 
 
 #readRDS("other_scripts/iteracion_QQregresion_rosana.rds")
+```
 
-print("Comparación entre pares de medias marginales, Ajuste BH")
-print("Modelo LSDR Luján regresion-QQ tau: 0.75")
-# Obtener las Estimated Marginal Means (EMMs) UNLU
+## Prueba de a pares entre factores del modelo de regresión de quartiles ($\tau=0.75$) que relaciona la densidad media y el peso corporal medio de los gremios tróficos de la comunidad edáfica en diferentes sistemas de uso en suelos argiudoles de la Pampa Ondulada.
+
+**Diferencias del 3er quantil, sobre el intercepto, entre sistemas de uso de la comunidad de fauna eáfica en suelos de Luján**
+
+```{r L_qq1, echo=FALSE, warning=FALSE, message=FALSE}
 emms_U1 <- emmeans::emmeans(rqU, ~ sitio)
 pairwise_comparisons_U1 <- contrast(emms_U1, method = "pairwise", adjust = "BH")
 summary(pairwise_comparisons_U1)
+
+```
+
+**Diferencias del 3er quantil, sobre el intercepto, entre gremios de la comunidad de fauna eáfica en suelos de Luján**
+
+```{r L_qq2, echo=FALSE, warning=FALSE, message=FALSE}
 
 emms_U2 <- emmeans::emmeans(rqU, ~ gremio)
 pairwise_comparisons_U2 <- contrast(emms_U2, method = "pairwise", adjust = "BH")
 summary(pairwise_comparisons_U2)
 
+
+```
+
+**Diferencias del 3er quantil, sobre el intercepto, entre sistemas de uso y gremios de la comunidad de fauna eáfica en suelos de Luján**
+
+```{r L_qq3, echo=FALSE, warning=FALSE, message=FALSE}
+
 emms_U3 <- emmeans::emmeans(rqU, ~ sitio:gremio)
 pairwise_comparisons_U3 <- contrast(emms_U3, method = "pairwise", adjust = "BH")
 summary(pairwise_comparisons_U3)
+
+```
+
+
+**Diferencias del 3er quantil, sobre la pendiente, entre gremios de la comunidad de fauna eáfica en suelos de Luján**
+
+```{r L_qq4, echo=FALSE, warning=FALSE, message=FALSE}
 
 emms_U4 <- emmeans::emmeans(rqU, ~ gremio:log(bio.ind))
 pairwise_comparisons_U4 <- contrast(emms_U4, method = "pairwise", adjust = "BH")
 summary(pairwise_comparisons_U4)
 
+```
+
+
+**Diferencias del 3er quantil, sobre la pendiente, entre gremios de la comunidad observados entre sistemas de uso de fauna edáfica en suelos de Luján**
+
+```{r L_qq5, echo=FALSE, warning=FALSE, message=FALSE}
+
+
 emms_U5 <- emmeans::emmeans(rqU, ~ sitio+gremio:log(bio.ind))
 pairwise_comparisons_U5 <- contrast(emms_U5, method = "pairwise", adjust = "BH")
 summary(pairwise_comparisons_U5)
 
-print("Comparación entre pares de medias marginales, Ajuste BH")
-print("Modelo LSDR Chivilcoy y Navarro regresion-QQ tau: 0.75")
+```
 
-# Obtener las Estimated Marginal Means (EMMs) UNLU
+**Diferencias del 3er quantil, sobre el intercepto, entre sistemas de uso de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
 
-emms_RO1 <- emmeans::emmeans(rqRO, ~ system:log(bio.ind))
-pairwise_comparisons_RO1 <- contrast(emms_RO1, method = "pairwise", adjust = "BH")
-summary(pairwise_comparisons_RO1)
 
-emms_RO2 <- emmeans::emmeans(rqRO, ~ guild:log(bio.ind))
-pairwise_comparisons_RO2 <- contrast(emms_RO2, method = "pairwise", adjust = "BH")
-summary(pairwise_comparisons_RO2)
-
-emms_RO4 <- emmeans::emmeans(rqRO, ~ system:guild)
-pairwise_comparisons_RO4 <- contrast(emms_RO4, method = "pairwise", adjust = "BH")
-summary(pairwise_comparisons_RO4)
+```{r R_qq1, echo=FALSE, warning=FALSE, message=FALSE}
 
 emms_RO5 <- emmeans::emmeans(rqRO, ~ system)
 pairwise_comparisons_RO5 <- contrast(emms_RO5, method = "pairwise", adjust = "BH")
 summary(pairwise_comparisons_RO5)
 
+```
+
+**Diferencias del 3er quantil, sobre el intercepto, entre gremios tróficos de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
+
+```{r R_qq2, echo=FALSE, warning=FALSE, message=FALSE}
+
 emms_RO6 <- emmeans::emmeans(rqRO, ~ guild)
 pairwise_comparisons_RO6 <- contrast(emms_RO6, method = "pairwise", adjust = "BH")
 summary(pairwise_comparisons_RO6)
 
-emms_RO7 <- emmeans::emmeans(rqRO, ~ system:guild:log(bio.ind))
-pairwise_comparisons_RO7 <- contrast(emms_RO7, method = "pairwise", adjust = "BH")
-summary(pairwise_comparisons_RO7)
+```
+
+**Diferencias del 3er quantil, sobre el intercepto, entre sistemas de uso y gremios tróficos de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
+
+```{r R_qq3, echo=FALSE, warning=FALSE, message=FALSE}
+emms_RO4 <- emmeans::emmeans(rqRO, ~ system:guild)
+pairwise_comparisons_RO4 <- contrast(emms_RO4, method = "pairwise", adjust = "BH")
+summary(pairwise_comparisons_RO4)
+```
+
+**Diferencias del 3er quantil, sobre la pendiente, entre gremios de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
+
+```{r R_qq4, echo=FALSE, warning=FALSE, message=FALSE}
+
+emms_RO1 <- emmeans::emmeans(rqRO, ~ system:log(bio.ind))
+pairwise_comparisons_RO1 <- contrast(emms_RO1, method = "pairwise", adjust = "BH")
+summary(pairwise_comparisons_RO1)
+
+```
+
+**Diferencias del 3er quantil, sobre la pendiente, entre sistemas de uso de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
+
+```{r R_qq5, echo=FALSE, warning=FALSE, message=FALSE}
+
+emms_RO2 <- emmeans::emmeans(rqRO, ~ guild:log(bio.ind))
+pairwise_comparisons_RO2 <- contrast(emms_RO2, method = "pairwise", adjust = "BH")
+summary(pairwise_comparisons_RO2)
 
 
 ```
+
+**Diferencias del 3er quantil, sobre la pendiente, entre sistemas de uso y gremios de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
+
+```{r R_qq6, echo=FALSE, warning=FALSE, message=FALSE}
+emms_RO7 <- emmeans::emmeans(rqRO, ~ system:guild:log(bio.ind))
+pairwise_comparisons_RO7 <- contrast(emms_RO7, method = "pairwise", adjust = "BH")
+summary(pairwise_comparisons_RO7)
+```
+
