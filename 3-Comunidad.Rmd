@@ -399,7 +399,6 @@ resp.b<-c( 0.131588785046729,0.14803738317757,0.14803738317757, #Pastizal
            0.066236559139785,0.0851612903225806,0.0946236559139785) #Agrícola
 
 
-
 # Relación de hongos : bacterias
 
 #pasar las relaciones decimales a fracción
