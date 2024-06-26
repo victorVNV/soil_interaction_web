@@ -65,8 +65,8 @@ ecológicas del suelo (\@.citar).
 
 Las redes tróficas se apoya en la teoría de grafos en la que los nodos
 (especies tróficas) y sus bordes (interacciones) determinan métricas
-asociados con las redes empíricas tales como la conectividad, el grado
-de correlación, la longitud de un camino trófico, etc., al mismo tiempo también determinan 
+asociadas con las redes empíricas tales como la conectividad, el grado
+de correlación, la longitud de un camino, etc., al mismo tiempo también determinan 
 metricas ecológicas de una comunidad en el que se incluyen por ejemplo la
 riqueza, la diversidad, el máximo nivel trófico, la fracción de
 omnívoros, la vulnerabilidad, la generalidad, etc. (Digel et. al.
@@ -209,11 +209,11 @@ Chivilcoy y Navarro, o, debido a su complejidad son dificiles de
 cuantificar.
 
 Para el recurso trófico "Hummus" se considera que el 50% de la materia orgánica
-es el proxi de la biomasa de este nodo para suelos Argiudoles de la pampa ondulada (Álvarez
+es el proxi de la biomasa de este nodo para suelos Argiudoles de la Pampa Ondulada (Álvarez
 2006 (cap3);Biological indicator of Soil Healt pp 70 - 71), para
-calcular su biomasa esta se refiere a la superficie en metros cuadrados,
-la densidad aparente media de los suelos ($\text {DAP} = 1,2 \;\frac{g}{cm^2} $)
-y referidas hasta los 10 centímetros de profundidad, 
+calcular su biomasa esta se refiere a la superficie en metros cuadrados con una 
+densidad aparente promedio de los suelos ($\text {DAP} = 1,2 \;\frac{g}{cm^2} $)
+y hasta los 10 centímetros de profundidad, 
 zona en la cuál se encuentra la mayor proporción del contenido en materia orgánica
 y la mayor actividad biológica.
 
@@ -247,8 +247,8 @@ que el 3% será utilizado para estimar la biomasa de nemátodos y el 2% para mic
 no nemátoda, en
 sistemas agrícolas intensivos se asumió 35% de bacterias, en el sistema
 mixto agrícola ganadero se asumió 30% de bacterias y para el pastizal
-naturalizado se asumió una contribución de bacterias del 25% (.\@.buscar
-cita sobre relación entre hongos y bacterias en sistemas del suelo)
+naturalizado se asumió una contribución de bacterias del 25% <!--(.\@.buscar
+cita sobre relación entre hongos y bacterias en sistemas del suelo)-->
 
 Para el caso de los nemátodos de vida libre del suelo para el conjunto
 de datos de los suelos argiudoles de Luján se utilizaron los valores de
@@ -259,7 +259,7 @@ suelos de Luján, por lo tanto, nemátodos
 fungívoros, bacteríofagos, fitófagos, omnívoros y predadores, fueron
 referidos al 40,30,14,8 y 8 % respectivamente, a la vez se consideró el peso medio
 de los nemátodos de cada categoría trófica a partir del peso medio general
-de los nemátodos de cada categoría trófica en suelos de Luján, por lo tanto, nemátodos
+obtenidos en suelos de Luján, por lo tanto, nemátodos
 fungívoros, bacteríofagos, fitófagos, omnívoros y predadores, pesaron
 3,2 - 1,8 - 1,02 - 8 - 6 microgramos respectivamente.
 
@@ -315,7 +315,7 @@ Se calcularon los flujos de energía entre los nodos de la red asumiendo
 que las pérdidas energéticas son compensadas con las ganancias energéticas,
 para el cálculo es necesario conocer los pesos corporales medios y las biomasas medias
 de los nodos tróficos,
-la tasa metabólica estimada mediante $\text{tasa metabólica} = 17.17\; peso^{-0.29}$, 
+la tasa metabólica estimada mediante, tasa metabólica = 17.17 peso^-0.29^, 
 y los coeficientes de asimilación (\@energeticalfoodweb, colleman), para la microflora, 
 detritívoros, microfitófago, predadores, omnívoros y herbívoros, 0,35-0,25-0,4-0,7-0,25-0,125, 
 respectivamente.
@@ -342,11 +342,9 @@ la red trófica en cuestión, entonces realiza aleatorizaciones de las fuerzas
 de interacción entre los nodos manteniendo la estructura de los signos,
 luego calcula los autovalores de la matriz Jacobiana, matriz que
 representa el efecto neto de la interacción entre pares de
-nodos (\@Delmasetal2019), para cada aleatorizacion producto del algoritmo; una red
-trófica localmente estable tendrá todos sus autovalores negativos y su
-valor de estabilidad es aquel autovalor con el máximo valor (i.e. más
-cercano a cero), por otra parte, el máximo autovalor en matrices con
-autovalores mayores a cero es también una medida de estabilidad dando la
+nodos (\@Delmasetal2019), para cada aleatorizacion producto del algoritmo; para una red
+trófica el valor de estabilidad de quasisigno es el valor del máximo autovalor (i.e. más
+cercano a cero) este es una medida de estabilidad dando la
 noción de distancia (*autoregulación*), a la cual se encuentra la red
 evaluada para lograr la estabilidad local.
 
@@ -355,7 +353,7 @@ la distribucion del máximo autovalor del algoritmo de quasi-signo
 mediante la prueba de Anderson-Darling que permite identificar diferencias estadísticamente
 significativas.
 
-Se utilizó el pequete ["multiweb"](https://github.com/lsaravia/multiweb)
+Se utilizó el paquete ["multiweb"](https://github.com/lsaravia/multiweb)
 para calcular las métricas de topología, las fuerzas de interacciones y
 la estabilidad de las redes tróficas, además se utilizó el paquete
 ["fluxweb"](https://bit.ly/2OC0uKF) para calcular los flujos de energía
@@ -650,18 +648,28 @@ Lf.r[Lf.r$taxa=="nem_predador","biomass"]<-2.26e8*0.02*0.08
 bm_Lf.r<-c(Lf.r$biomass,
         1*1e6, #Hojarasca
         mean(Lf.r[Lf.r$taxa!="fungi"&Lf.r$taxa!="bac"&Lf.r$taxa!="proto",]$biomass)*0.05, #Carroña
+        #1*1e6,#carroña
         1*1e6,#2.25*0.0273*1.2*50000*1e6,#Tej_ve
+        #1*1e6 #hummus)
         0.4*0.0273*1.2*50000*1e6)/1e6#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
+      
+
 bm_Rf.r<-c(Rf.r$biomass,
         1*1e6, #Hojarasca
-        mean(Rf.r[Rf.r$taxa!="fungi"&Rf.r$taxa!="bac"&Rf.r$taxa!="proto",]$biomass)*0.05, #carroña
-        1*1e6,#2.25*0.0352*1.2*50000*1e6, #tej_veg
-        0.4*0.0352*1.2*50000*1e6)/1e6 #"humus" = POM = 0.4MO
+        mean(Rf.r[Rf.r$taxa!="fungi"&Rf.r$taxa!="bac"&Rf.r$taxa!="proto",]$biomass)*0.05, #carroña1*1e6,
+        #1*1e6,
+        1*1e6, #2.25*0.0352*1.2*50000*1e6, #tej_veg
+       # mean(Rf.r[Rf.r$taxa!="fungi"&Rf.r$taxa!="bac"&Rf.r$taxa!="proto",]$biomass)*0.05, #carroña
+       0.4*0.0352*1.2*50000*1e6)/1e6 #"humus" = POM = 0.4MO
+
+
 bm_Pf.r<-c(Pf.r$biomass,
         1*1e6, #Hojarasca
         mean(Pf.r[Pf.r$taxa!="fungi"&Pf.r$taxa!="bac"&Pf.r$taxa!="proto",]$biomass)*0.05, #carroña
         1*1e6,#2.25*0.0352*1.2*50000*1e6, #Tej_veg
-        0.4*0.0309*1.2*50000*1e6)/1e6 #Humus
+       #1*1e6,
+       0.4*0.0309*1.2*50000*1e6)/1e6 #Humus
+
 
 #Pesos corporales####
 body_Lf.r<-c(Lf.r$body/1e6,1,1,1,1)
@@ -742,7 +750,7 @@ mRO_rec<-base1%>%
 #en microgramos
 {mRO_rec$bio.ind<-NA
 mRO_rec[mRO_rec$specie=="humus","bio.ind"]<-1*1e6
-mRO_rec[mRO_rec$specie=="humus","BT"]<-1*1e6
+#mRO_rec[mRO_rec$specie=="humus","BT"]<-1*1e6 #aca iria el calculo con la MO%*0.5
 mRO_rec[mRO_rec$specie=="bacteria","bio.ind"]<-9.5e-4
 mRO_rec[mRO_rec$specie=="hongo","bio.ind"]<-2.3e-1
 mRO_rec[mRO_rec$specie=="microfauna","bio.ind"]<-1.1121e-3 #3.3363e-1 # este sale de promediar, 
@@ -853,20 +861,23 @@ t_metA[is.na(t_metA)|t_metA==Inf]<-0
 #no informacion sobre los demás
 bm_N<-c(N$biomass,
         1*1e6, #Hojarasca
-        mean(N[N$specie!="fungi"&N$specie!="bac"&N$specie!="proto",]$biomass)*0.05, #Carroña
-        1*1e6#Tej_veg
+       mean(N[N$specie!="fungi"&N$specie!="bac"&N$specie!="proto",]$biomass)*0.05, #Carroña
+       #1*1e6, #carroña 
+       1*1e6#Tej_veg
         )/1e6
 
 bm_G<-c(G$biomass,
         1*1e6, #Hojarasca
-        mean(G[!G$specie%in%c("fungi","bac","proto"),]$biomass)*0.05, #Carroña
-        1*1e6#Tej_veg
+       mean(G[!G$specie%in%c("fungi","bac","proto"),]$biomass)*0.05, #Carroña
+       #1*1e6, #carroña  
+       1*1e6#Tej_veg
         #G$biomass[G$specie=="hummus"]
         )/1e6 
 bm_A<-c(A$biomass,
         1*1e6, #Hojarasca
-        mean(A[A$specie!="fungi"&A$specie!="bac"&A$specie!="proto",]$biomass)*0.05, #Carroña
-        1*1e6#Tej_veg
+      mean(A[A$specie!="fungi"&A$specie!="bac"&A$specie!="proto",]$biomass)*0.05, #Carroña
+      #1*1e6, #carroña  
+       1*1e6#Tej_veg
 )/1e6
 
 ```
@@ -1188,7 +1199,8 @@ P_reduc.net <-graph_from_adjacency_matrix(t(mG[c(P.r,"litter","carrion","tej_veg
 
 Las redes de interacciones de los suelos Argiudoles tienen 4 recursos
 tróficos denominados también como especies base, estos son, el tejido
-vegetal que engloba a las raices y sus exudados, la hojarasca el tejido vegetal en proceso de fragmentación y descomposición, el humus materia orgánica en avanzado estado de descomposición y que conforma enlaces con la fracción mineral de los coloides de la arcilla del suelo
+vegetal que engloba a las raices y sus exudados, la hojarasca el tejido vegetal en proceso de fragmentación y descomposición, el humus materia orgánica en avanzado estado de descomposición y que forma enlaces 
+con la fracción mineral de los coloides de la arcilla del suelo
 y la carroña proveniente de la fauna edáfica, 
 todas estas diferentes fuentes son denominados en conjunto como detritos.
 
@@ -1216,7 +1228,7 @@ al máximo nivel trófico este fué mayor en el pastizal seguido por el
 sistema agrícola intensivo, el nivel de omnivoría sigue un patron
 similar Pastizal\>Sistema agrícola\>Reserva.
 
-```{r topolog, echo=FALSE, message=FALSE, warning=FALSE}
+```{r topolog, include=FALSE, message=FALSE, warning=FALSE}
 
 #topologico####
 # índices topológicos
@@ -1227,6 +1239,11 @@ calc_topological_indices(P_net),
 calc_topological_indices(L_net),colnames=NULL)
 
 topological1<-rbind(
+calc_topological_indices(N_net),
+calc_topological_indices(G_net),
+calc_topological_indices(A_net),colnames=NULL)
+
+topological2<-rbind(
 calc_topological_indices(N_net),
 calc_topological_indices(G_net),
 calc_topological_indices(A_net),
@@ -1243,20 +1260,25 @@ colnames(topolog)<-c("Sistema","Tamaño","nº enlaces","Tope","% Omnivoría","Ni
                         "Nivel trófico","Nivel trófico promedio","Conectancia","Densidad de enlaces",
                         "Clustering","Vulnerabilidad","Generalidad"	)
 
-topological1$Sistema<-c("Pastizal naturalizado", "Mixto agrícola ganadero", "Agrícola intensivo","Reserva","Pastizal","Agrícola intensivo")
+topological1$Sistema<-c("Pastizal naturalizado", "Mixto agrícola ganadero", "Agrícola intensivo")
+topological2$Sistema<-c("Pastizal naturalizado", "Mixto agrícola ganadero", "Agrícola intensivo","Reserva","Pastizal","Agrícola intensivo")
 topolog1<-topological1[,c("Sistema","Size","Links","Top","Omnivory","LOmnivory",
                         "TLmax","TLmean","Connectance","LD",
                         "Clustering","Vulnerability","Generality"	)]
 colnames(topolog1)<-c("Sistema","Tamaño","nº enlaces","Tope","% Omnivoría","Nivel de Omnivoría",
                         "Nivel trófico","Nivel trófico promedio","Conectancia","Densidad de enlaces",
                         "Clustering","Vulnerabilidad","Generalidad"	)
-kableExtra::kable(topolog)
+
 
 
 ```
 
-La densidad de enlaces, la conectancia y el clusterin fueron mayores en
-el pastizal naturalizado seguido por el sistema agrícola, mismo
+```{r topolog_showtab, echo=FALSE, message=FALSE, warning=FALSE}
+kableExtra::kable(topolog)
+```
+
+La densidad de enlaces, la conectancia y el coeficiente de clustering fueron mayores en
+el pastizal seguido por el sistema agrícola, mismo
 comportamiento se observa con los valores de Generalidad y
 Vulnerabilidad.
 
@@ -1281,13 +1303,6 @@ valores similares en conectancia y clustering. En el sistema mixto en
 comparación con el pastizal naturalizado se observaron un mayor número y
 densidad de enlaces, mayores valores de vulnerabilidad y generalidad y
 un mayor nivel trófico medio.
-
-Comparando las redes de los suelos argiudoles de Luján con los suelos
-argiudoles de Chivilcoy y Navarro, puede observarse que en general los
-parámetros tienen mayores valores en los suelos de Luján y esto puede
-relacionarse con tamaños de la red con más actores y una mayor cantidad
-de interacciones entre estos, la excepción ocurre con las especies topes
-cuyo número fue mayor en los suelos de Chivilcoy y Navarro.
 
 \newpage
 
@@ -1457,158 +1472,6 @@ for (dr in 1:length(v_ig$nombre)) {edge_L_net[edge_L_net$recurso==as.character(v
 edge_L_net$dimension<-"2D"
 }
 
-
-#N = PASTIZAL NATURALIZADO ####
-{#genero el edge list
-edge_N_net <- as.data.frame(as.matrix(N_net, "edgelist"))
-names(edge_N_net)<-c("recurso","consumidor")
-
-#a cada nodo agrego el peso corporal y la densidad 
-v_ig<-data.frame(nombre=c(N$specie,"litter","carrion","tej_veg"),peso=body_N*1e-3,densidad=bm_N/body_N)
-
-###########
-#se asume que la relacion densidad de recurso y peso es 1
-#cuando no el consumidor no deppende del peso del recurso
-#asignandos pesos
-v_ig[v_ig$nombre=="litter","peso"]<-1
-v_ig[v_ig$nombre=="carrion","peso"]<-1 #tomo el mínimo y lo llevo a unidad
-v_ig[v_ig$nombre=="tej_veg","peso"]<-1 #peso de las raices por centímero
-v_ig[v_ig$nombre=="hummus","peso"]<-1 #la mitad de la carroña, a dedo, es un componente amorfo y no tiene una unidad en concreto lo mismo las demás recursos.
-#asignando densidades a los recursos
-v_ig[v_ig$nombre=="litter","densidad"]<-1
-v_ig[v_ig$nombre=="carrion","densidad"]<-1 #tomo el mínimo y lo llevo a unidad
-v_ig[v_ig$nombre=="tej_veg","densidad"]<-1 #peso de las raices por centímero
-v_ig[v_ig$nombre=="hummus","densidad"]<-1
-# con bucle busco asignar a cada eje su correspondiente peso corporal y densidad
-
-
-# con bucle busco asignar a cada eje su correspondiente peso corporal y densidad
-###########
-
-edge_N_net$peso_consumidor<-NA
-# columna peso del consumidor
-for (pc in 1:length(v_ig$nombre)) {edge_N_net[edge_N_net$consumidor==as.character(v_ig$nombre[pc]),"peso_consumidor"]<-v_ig$peso[pc]
-}
-
-#columna peso del recurso
-edge_N_net$peso_recurso<-NA
-for (pr in 1:length(v_ig$nombre)) {edge_N_net[edge_N_net$recurso==as.character(v_ig$nombre[pr]),"peso_recurso"]<-v_ig$peso[pr]
-}
-
-#columna densidad del consumidor
-edge_N_net$densidad_consumidor<-NA
-for (dc in 1:length(v_ig$nombre)) {edge_N_net[edge_N_net$consumidor==as.character(v_ig$nombre[dc]),"densidad_consumidor"]<-v_ig$densidad[dc]
-}
-#columna densidad del recurso
-edge_N_net$densidad_recurso<-NA
-for (dr in 1:length(v_ig$nombre)) {edge_N_net[edge_N_net$recurso==as.character(v_ig$nombre[dr]),"densidad_recurso"]<-v_ig$densidad[dr]
-}
-
-edge_N_net$dimension<-"2D"
-}
-
-
-#G: Ganadero mixto ####
-{#genero el edge list
-edge_G_net <- as.data.frame(as.matrix(G_net, "edgelist"))
-names(edge_G_net)<-c("recurso","consumidor")
-
-#a cada nodo agrego el peso corporal y la densidad 
-v_ig<-data.frame(nombre=c(G$specie,"litter","carrion","tej_veg"),peso=body_G*1e-3,densidad=bm_G/body_G)
-
-###########
-#se asume que la relacion densidad de recurso y peso es 1
-#cuando no el consumidor no deppende del peso del recurso
-#asignandos pesos
-v_ig[v_ig$nombre=="litter","peso"]<-1
-v_ig[v_ig$nombre=="carrion","peso"]<-1 #tomo el mínimo y lo llevo a unidad
-v_ig[v_ig$nombre=="tej_veg","peso"]<-1 #peso de las raices por centímero
-v_ig[v_ig$nombre=="hummus","peso"]<-1 #la mitad de la carroña, a dedo, es un componente amorfo y no tiene una unidad en concreto lo mismo las demás recursos.
-#asignando densidades a los recursos
-v_ig[v_ig$nombre=="litter","densidad"]<-1
-v_ig[v_ig$nombre=="carrion","densidad"]<-1 #tomo el mínimo y lo llevo a unidad
-v_ig[v_ig$nombre=="tej_veg","densidad"]<-1 #peso de las raices por centímero
-v_ig[v_ig$nombre=="hummus","densidad"]<-1
-# con bucle busco asignar a cada eje su correspondiente peso corporal y densidad
-
-
-# con bucle busco asignar a cada eje su correspondiente peso corporal y densidad
-###########
-
-edge_G_net$peso_consumidor<-NA
-# columna peso del consumidor
-for (pc in 1:length(v_ig$nombre)) {edge_G_net[edge_G_net$consumidor==as.character(v_ig$nombre[pc]),"peso_consumidor"]<-v_ig$peso[pc]
-}
-
-#columna peso del recurso
-edge_G_net$peso_recurso<-NA
-for (pr in 1:length(v_ig$nombre)) {edge_G_net[edge_G_net$recurso==as.character(v_ig$nombre[pr]),"peso_recurso"]<-v_ig$peso[pr]
-}
-
-#columna densidad del consumidor
-edge_G_net$densidad_consumidor<-NA
-for (dc in 1:length(v_ig$nombre)) {edge_G_net[edge_G_net$consumidor==as.character(v_ig$nombre[dc]),"densidad_consumidor"]<-v_ig$densidad[dc]
-}
-#columna densidad del recurso
-edge_G_net$densidad_recurso<-NA
-for (dr in 1:length(v_ig$nombre)) {edge_G_net[edge_G_net$recurso==as.character(v_ig$nombre[dr]),"densidad_recurso"]<-v_ig$densidad[dr]
-}
-
-edge_G_net$dimension<-"2D"
-}
-
-
-#A: Agricola intensivo ####
-{#genero el edge list
-edge_A_net <- as.data.frame(as.matrix(A_net, "edgelist"))
-names(edge_A_net)<-c("recurso","consumidor")
-
-#a cada nodo agrego el peso corporal y la densidad 
-v_ig<-data.frame(nombre=c(A$specie,"litter","carrion","tej_veg"),peso=body_A*1e-3,densidad=bm_A/body_A)
-
-###########
-#se asume que la relacion densidad de recurso y peso es 1
-#cuando no el consumidor no deppende del peso del recurso
-#asignandos pesos
-v_ig[v_ig$nombre=="litter","peso"]<-1
-v_ig[v_ig$nombre=="carrion","peso"]<-1 #tomo el mínimo y lo llevo a unidad
-v_ig[v_ig$nombre=="tej_veg","peso"]<-1 #peso de las raices por centímero
-v_ig[v_ig$nombre=="hummus","peso"]<-1 #la mitad de la carroña, a dedo, es un componente amorfo y no tiene una unidad en concreto lo mismo las demás recursos.
-#asignando densidades a los recursos
-v_ig[v_ig$nombre=="litter","densidad"]<-1
-v_ig[v_ig$nombre=="carrion","densidad"]<-1 #tomo el mínimo y lo llevo a unidad
-v_ig[v_ig$nombre=="tej_veg","densidad"]<-1 #peso de las raices por centímero
-v_ig[v_ig$nombre=="hummus","densidad"]<-1
-# con bucle busco asignar a cada eje su correspondiente peso corporal y densidad
-
-
-# con bucle busco asignar a cada eje su correspondiente peso corporal y densidad
-###########
-
-edge_A_net$peso_consumidor<-NA
-# columna peso del consumidor
-for (pc in 1:length(v_ig$nombre)) {edge_A_net[edge_A_net$consumidor==as.character(v_ig$nombre[pc]),"peso_consumidor"]<-v_ig$peso[pc]
-}
-
-#columna peso del recurso
-edge_A_net$peso_recurso<-NA
-for (pr in 1:length(v_ig$nombre)) {edge_A_net[edge_A_net$recurso==as.character(v_ig$nombre[pr]),"peso_recurso"]<-v_ig$peso[pr]
-}
-
-#columna densidad del consumidor
-edge_A_net$densidad_consumidor<-NA
-for (dc in 1:length(v_ig$nombre)) {edge_A_net[edge_A_net$consumidor==as.character(v_ig$nombre[dc]),"densidad_consumidor"]<-v_ig$densidad[dc]
-}
-#columna densidad del recurso
-edge_A_net$densidad_recurso<-NA
-for (dr in 1:length(v_ig$nombre)) {edge_A_net[edge_A_net$recurso==as.character(v_ig$nombre[dr]),"densidad_recurso"]<-v_ig$densidad[dr]
-}
-
-edge_A_net$dimension<-"2D"
-}
-
-
-
 ```
 
 ```{r IS, echo=FALSE}
@@ -1626,34 +1489,6 @@ IS_P1<-calc_interaction_intensity(da=edge_P_net,
                          res_mm =peso_recurso,res_den = densidad_recurso,
                         con_mm = peso_consumidor, int_dim =dimension )
 IS_L1<-calc_interaction_intensity(da=edge_L_net,
-                         res_mm =peso_recurso,res_den = densidad_recurso,
-                        con_mm = peso_consumidor, int_dim =dimension )
-
-#fuerza interaccion Chivilcoy####
-IS_N1<-calc_interaction_intensity(da=edge_N_net,
-                         res_mm =peso_recurso,res_den = densidad_recurso,
-                        con_mm = peso_consumidor, int_dim =dimension )
-IS_G1<-calc_interaction_intensity(da=edge_G_net,
-                         res_mm =peso_recurso,res_den = densidad_recurso,
-                        con_mm = peso_consumidor, int_dim =dimension )
-IS_A1<-calc_interaction_intensity(da=edge_A_net,
-                         res_mm =peso_recurso,res_den = densidad_recurso,
-                        con_mm = peso_consumidor, int_dim =dimension )
-#fuerza interaccion unlu reducido####
-red.edge_R_net<-edge_R_net[edge_R_net$consumidor%in%meso.reduc&
-                             edge_R_net$recurso%in%meso.reduc,]
-red.edge_P_net<-edge_P_net[edge_P_net$consumidor%in%meso.reduc&
-                             edge_P_net$recurso%in%meso.reduc,]
-red.edge_L_net<-edge_L_net[edge_L_net$consumidor%in%meso.reduc&
-                             edge_L_net$recurso%in%meso.reduc,]
-#calculo ISS
-IS_R.r<-calc_interaction_intensity(da=red.edge_R_net,
-                         res_mm =peso_recurso,res_den = densidad_recurso,
-                        con_mm = peso_consumidor, int_dim =dimension )
-IS_P.r<-calc_interaction_intensity(da=red.edge_P_net,
-                         res_mm =peso_recurso,res_den = densidad_recurso,
-                        con_mm = peso_consumidor, int_dim =dimension )
-IS_L.r<-calc_interaction_intensity(da=red.edge_L_net,
                          res_mm =peso_recurso,res_den = densidad_recurso,
                         con_mm = peso_consumidor, int_dim =dimension )
 
@@ -1675,47 +1510,11 @@ IS_L<-IS_L1[,c(1,2,11)]
 names(IS_L)<-c("recurso","consumidor","weight")
 IS_L_net<-graph_from_data_frame(IS_L,directed = TRUE, vertices =NULL)
 
-#Pastizal naturalizado
-IS_N<-IS_N1[,c(1,2,11)]
-names(IS_N)<-c("recurso","consumidor","weight")
-IS_N_net<-graph_from_data_frame(IS_N,directed = TRUE, vertices =NULL)
-#Mixto Agrícola Ganadero
-IS_G<-IS_G1[,c(1,2,11)]
-names(IS_G)<-c("recurso","consumidor","weight")
-IS_G_net<-graph_from_data_frame(IS_G,directed = TRUE, vertices =NULL)
-#Agrícola Intensivo
-IS_A<-IS_A1[,c(1,2,11)]
-names(IS_A)<-c("recurso","consumidor","weight")
-IS_A_net<-graph_from_data_frame(IS_A,directed = TRUE, vertices =NULL)
-#unlu reducido
-#Reserva
-IS_R.r1<-IS_R.r[,c(1,2,11)]
-names(IS_R.r1)<-c("recurso","consumidor","weight")
-IS_R_net.r<-graph_from_data_frame(IS_R.r1,directed = TRUE, vertices =NULL)
-#Pastizal
-IS_P.r1<-IS_P.r[,c(1,2,11)]
-names(IS_P.r1)<-c("recurso","consumidor","weight")
-IS_P_net.r<-graph_from_data_frame(IS_P.r1,directed = TRUE, vertices =NULL)
-#Lote unlu
-IS_L.r1<-IS_L.r[,c(1,2,11)]
-names(IS_L.r1)<-c("recurso","consumidor","weight")
-IS_L_net.r<-graph_from_data_frame(IS_L.r1,directed = TRUE, vertices =NULL)
-
 ####
 QSS_IS_R<-calc_QSS(IS_R_net, istrength=TRUE, returnRaw = TRUE, nsim=1000)
 QSS_IS_P<-calc_QSS(IS_P_net, istrength=TRUE, returnRaw = TRUE, nsim=1000)
 QSS_IS_L<-calc_QSS(IS_L_net, istrength=TRUE, returnRaw = TRUE, nsim=1000)
 
-
-QSS_IS_N<-calc_QSS(IS_N_net, istrength=TRUE, returnRaw = TRUE, nsim=1000)
-QSS_IS_G<-calc_QSS(IS_G_net, istrength=TRUE, returnRaw = TRUE, nsim=1000)
-QSS_IS_A<-calc_QSS(IS_A_net, istrength=TRUE, returnRaw = TRUE, nsim=1000)
-
-QSS_IS_R.r<-calc_QSS(IS_R_net.r, istrength=TRUE, returnRaw = TRUE, nsim=1000)
-QSS_IS_P.r<-calc_QSS(IS_P_net.r, istrength=TRUE, returnRaw = TRUE, nsim=1000)
-QSS_IS_L.r<-calc_QSS(IS_L_net.r, istrength=TRUE, returnRaw = TRUE, nsim=1000)
-
-#observacion con modificacion de los efectos negativos-positivos se hace pequeño el autovalor, pero no "estable localmente"
 
 ```
 
@@ -1737,40 +1536,6 @@ p_values_luj <- c(AD_qss_RP$ad[2, 3], AD_qss_RA$ad[2, 3], AD_qss_AP$ad[2, 3])
 # Ajustar los p-valores usando el método de Benjamini-Hochberg (FDR)
 adjusted_p_val_luj <- p.adjust(p_values_luj, method = "BH")
 
-#chivilcoy y navarro
-Q_T_ro<-rbind(data_frame(sitio=rep("N",length(QSS_IS_N)),qss=QSS_IS_N$maxre),
-                data_frame(sitio=rep("G",length(QSS_IS_G)),qss=QSS_IS_G$maxre),
-                data_frame(sitio=rep("A",length(QSS_IS_A)),qss=QSS_IS_A$maxre))
-names(Q_T_ro)<-c("sitio","qss")
-
-
-AD_qss_NG<-kSamples::ad.test(as.numeric(qss) ~ sitio,data=Q_T_ro[Q_T_ro$sitio %in% c("N", "G"), ], method = "simulated", dist = FALSE, Nsim = 1000)
-AD_qss_NA<-kSamples::ad.test(as.numeric(qss) ~ sitio,data=Q_T_ro[Q_T_ro$sitio %in% c("N", "A"), ], method = "simulated", dist = FALSE, Nsim = 1000)
-AD_qss_AG<-kSamples::ad.test(as.numeric(qss) ~ sitio,data=Q_T_ro[Q_T_ro$sitio %in% c("A", "G"), ], method = "simulated", dist = FALSE, Nsim = 1000)
-
-# Recopilar los p-valores en un vector
-p_values_ro <- c(AD_qss_NG$ad[2, 3], AD_qss_NA$ad[2, 3], AD_qss_AG$ad[2, 3])
-
-# Ajustar los p-valores usando el método de Benjamini-Hochberg (FDR)
-adjusted_p_val_ro <- p.adjust(p_values_ro, method = "BH")
-
-#Luján reducido
-Q_T_lu.r<-rbind(data_frame(sitio=rep("R",length(QSS_IS_R.r)),qss=QSS_IS_R.r$maxre),
-                data_frame(sitio=rep("P",length(QSS_IS_P.r)),qss=QSS_IS_P.r$maxre),
-                data_frame(sitio=rep("A",length(QSS_IS_L.r)),qss=QSS_IS_L.r$maxre))
-names(Q_T_lu.r)<-c("sitio","qss")
-
-
-AD_qss_RP.r<-kSamples::ad.test(as.numeric(qss) ~ sitio,data=Q_T_lu.r[Q_T_lu.r$sitio %in% c("R", "P"), ], method = "simulated", dist = FALSE, Nsim = 1000)
-AD_qss_RA.r<-kSamples::ad.test(as.numeric(qss) ~ sitio,data=Q_T_lu.r[Q_T_lu.r$sitio %in% c("R", "A"), ], method = "simulated", dist = FALSE, Nsim = 1000)
-AD_qss_AP.r<-kSamples::ad.test(as.numeric(qss) ~ sitio,data=Q_T_lu.r[Q_T_lu.r$sitio %in% c("A", "P"), ], method = "simulated", dist = FALSE, Nsim = 1000)
-
-# Recopilar los p-valores en un vector
-p_values_lu.r <- c(AD_qss_RP.r$ad[2, 3], AD_qss_RA.r$ad[2, 3], AD_qss_AP.r$ad[2, 3])
-
-# Ajustar los p-valores usando el método de Benjamini-Hochberg (FDR)
-adjusted_p_val_lu.r <- p.adjust(p_values_lu.r, method = "BH")
-
 
 #En luján/UNLu
 
@@ -1779,36 +1544,14 @@ ks_RP_qss<-ks.test(QSS_IS_R$maxre,QSS_IS_P$maxre)
 ks_LP_qss<-ks.test(QSS_IS_L$maxre,QSS_IS_P$maxre)
 # L: 0.414; R: 0.348; P: 0.371, ¿En que difieren a lo largo de la distribución?
 #Diferencias con el pastizal que obtuvo el menor valor de autovalor
-
-#En Chivilcoy y Navarro/Rosana
-
-ks_NA_qss<-ks.test(QSS_IS_N$maxre,QSS_IS_A$maxre)
-ks_NG_qss<-ks.test(QSS_IS_N$maxre,QSS_IS_G$maxre)
-ks_GA_qss<-ks.test(QSS_IS_G$maxre,QSS_IS_A$maxre)
-
-#todos los grupos difieren entre sí; A: 0.396; G: 0.403; N: 0.445;
-
-#En luján/UNLu reducido
-
-ks_RL.r_qss<-ks.test(QSS_IS_R.r$maxre,QSS_IS_L.r$maxre)
-ks_RP.r_qss<-ks.test(QSS_IS_R.r$maxre,QSS_IS_P.r$maxre)
-ks_LP.r_qss<-ks.test(QSS_IS_L.r$maxre,QSS_IS_P.r$maxre)
-# L: 0.414; R: 0.348; P: 0.371, ¿En que difieren a lo largo de la distribución?
-#Diferencias con el pastizal que obtuvo el menor valor de autovalor
-
 # Recopilar los p-valores en un vector
 p_values_ks.lu<- c(ks_RL_qss$p.value[1], ks_RP_qss$p.value[1],ks_LP_qss$p.value[1])
-p_values_ks.ro<- c(ks_NA_qss$p.value[1], ks_NG_qss$p.value[1],ks_GA_qss$p.value[1])
-p_values_ks.lu.r<- c(ks_RL.r_qss$p.value[1], ks_RP.r_qss$p.value[1],ks_LP.r_qss$p.value[1])
+
 
 # Ajustar los p-valores usando el método de Benjamini-Hochberg (FDR)
 adj_ks_p_val_lu <- p.adjust(p_values_ks.lu, method = "BH")
-adj_ks_p_val_ro <- p.adjust(p_values_ks.ro, method = "BH")
-adj_ks_p_val_lu.r <- p.adjust(p_values_ks.lu.r, method = "BH")
 
 
-print(c(adjusted_p_val_luj,adjusted_p_val_ro,adjusted_p_val_ro))
-print(c(adj_ks_p_val_lu,adj_ks_p_val_ro,adj_ks_p_val_lu.r))
 ```
 
 
@@ -1941,12 +1684,18 @@ F_omn_L.r<-sum(flux_L.r[!rownames(flux_L.r) %in%(c("bac","fungi","litter","hummu
 
 ## Flujos de energía a través de las redes tróficas en suelos Argiudoles
 
-El flujo de energía (Table 5.x) de la comunidad de la fauna edáfica en suelos de Luján fué mayor en la comunidad del Pastizal, seguida por la comunidad en la Reserva y el sistema agrícola intensivo con un flujo menor de energía de 364 kJ.año^-1^ y 614 kJ.año^-1^ respectivamente con respecto al pastizal.
+El flujo de energía total, que atraviesa las redes tróficas de la comunidad de la fauna edáfica en suelos 
+argiudoles de Luján fué mayor en la comunidad de
+la Reserva, seguida por la comunidad en el Pastizal y el sistema agrícola intensivo con un flujo menor de energía, siendo estos de 2,32 - 2 - 1,26 MJ.año^-1^ respectivamente.
 
-La cantidad de energía ligada a consumo del humus en suelos de Luján,
-es decir la materia orgánica del suelo,
-se relaciona con la <u>biotransformación</u> del suelo, la cantidad de energía en estos enlaces 
-es muy importante, llegando a ser del 75% en el pastizal, del 70% en la reserva, y del 65% en el sistema agrícola. 
+La cantidad de energía ligada a la <u>biotransformación</u> del suelo (Table 5.x),
+es decir, el canal de energía relacionado con el consumo de la materia orgánica del suelo,
+es de gran importancia en el sistema edáfico del suelo, pudiendo alcanzar hasta un 73% con respecto a 
+la cantidad total de energía que atraviesa el sistema.
+
+En la Reserva se observá el mayor valor de energía ligada con el uso de la materia orgánica del suelo
+(1,6 MJ.año^-1^) y con respecto al sistema de la reserva el sistema agrícola se aleja con una diferencia 
+de 0,85 MJ.año^-1^. 
 
 ```{r flujos_multicanal_print, echo=FALSE, message=FALSE,warning=FALSE}
 F_mc_lu<-data.frame(sitio=c("Reserva","Pastizal","Agrícola"),
@@ -1962,72 +1711,115 @@ F_mc_lu<-data.frame(sitio=c("Reserva","Pastizal","Agrícola"),
 
 F_mc_lu
 ```
-
-La detritivoría fué mayor en términos relativos en el sistema de la agrícola 
+La detritivoría, la microfitofagia fueron mayores en valor absoluto en la Reserva.
+En términos relativos la detritivoría fué mayor en el sistema agrícola ( ≈ 30%)
 y menor en el pastizal.
 En todos los sistemas el consumo de bacterias y hongos, <u>microfitofagia o microviboría</u>,
 conyevan flujos de energía menores al 3,3%
 del flujo total de energía que atraviesa estos suelos, en los suelos de la Reserva la microviboría fué ligeramente mayor, seguidas por el sistema agrícola y 1 punto porcentual por debajo el 
 sistema del Pastizal.
-La omnivoría es el tercer canal de energía en importancia a través de estos actores llega hasta el 35% del flujo energético anual, en el pastizal su importancia fue ligeramente mayor.
-La cantidad de energía que llega a los depredadores es el de menor importancia relativa por debajo del 1% del flujo total, en los suelos de la reserva la cantidad de energía en este canal fué mas bajo, seguido por el sistema agrícola y el pastizal.
 
-```{r flujos_multicanal_print1, echo=FALSE, message=FALSE,warning=FALSE}
+La el consumo de la fauna <u>zoofagia</u> se estima como la suma de la 
+energía que pasa por los depredadores "verdaderos" y por la cantidad de energía ligada al consumo de 
+fauna del que se alimentan los omnívoros, la contribución de los omnívoros a otros canales de energía como
+por ejemplo el canal de la microfitofagía se halla contabilizada en el canal en cuestión.
+La zoofagia, en términos absolutos, fué mayor en el pastizal (≈12 kJ.año~-1~) y 
+menor en el sistema agrícola(≈7 kJ.año~-1~), con relación al total la importancia de la zoofagia fué cercana entre el pastizal y el sistema agrícola al rededor del 0,58% y menor en la Reserva con una importancia del 0,37%.
+
+La zoofagia por parte de los omnivoros es el tercer canal de energía en importancia a través de estos actores 
+llega hasta el ≈ 30% del flujo energético anual, en el pastizal su importancia fue ligeramente mayor.
+La cantidad de energía que llega a los depredadores es el de menor importancia relativa por debajo del 1% del 
+flujo total, en los suelos de la reserva la cantidad de energía en este canal fué mas bajo, seguido por el 
+sistema agrícola y el pastizal.
+
+```{r flujos_multicanal_print1, include=FALSE, message=FALSE,warning=FALSE}
 F_mc_total<-data.frame(sitio=c("Naturalizado","Mixto","Agrícola","Reserva","Pastizal","Agrícola"),
-           biotransformación=c(
-                               F_mo_N,F_mo_G,F_mo_A,
-                               F_mo_R.r,F_mo_P.r,F_mo_L.r),
-           detritivoria=c(
-                               F_det_N,F_det_G,F_det_A,
-                        F_det_R.r,F_det_P.r,F_det_L.r),
-           microfitofagia=c(
-                               F_mic_N,F_mic_G,F_mic_A,
-                               F_mic_R.r,F_mic_P.r,F_mic_L.r),
-           predación=c(
-                               F_pred_N,F_pred_G,F_pred_A,
-                               F_pred_R.r,F_pred_P.r,F_pred_L.r),
-           omnivoría=c(
-                               F_omn_N,F_omn_G,F_omn_A,
-                               F_omn_R.r,F_omn_P.r,F_omn_L.r),
-           row.names = NULL)
+           biotransformación=c(paste(sep="",round((F_mo_N/1000),2)," ","(",round((F_mo_N/sum(flux_N))*100,2),")"),
+                               paste(sep="",round((F_mo_G/1000),2)," ","(",round((F_mo_G/sum(flux_G))*100,2),")"),
+                               paste(sep="",round((F_mo_A/1000),2)," ","(",round((F_mo_A/sum(flux_A))*100,2),")"),
+                               paste(sep="",round((F_mo_R.r/1000),2)," ","(",round((F_mo_R.r/sum(flux_R.r))*100,2),")"),
+                               paste(sep="",round((F_mo_P.r/1000),2)," ","(",round((F_mo_P.r/sum(flux_P.r))*100,2),")"),
+                               paste(sep="",round((F_mo_L.r/1000),2)," ","(",round((F_mo_L.r/sum(flux_L.r))*100,2),")")
+                               ),
+           detritivoria=c(paste(sep="",round((F_det_N/1000),2)," ","(",round((F_det_N/sum(flux_N))*100,2),")"),
+                               paste(sep="",round((F_det_G/1000),2)," ","(",round((F_det_G/sum(flux_G))*100,2),")"),
+                               paste(sep="",round((F_det_A/1000),2)," ","(",round((F_det_A/sum(flux_A))*100,2),")"),
+                               paste(sep="",round((F_det_R.r/1000),2)," ","(",round((F_det_R.r/sum(flux_R.r))*100,2),")"),
+                               paste(sep="",round((F_det_P.r/1000),2)," ","(",round((F_det_P.r/sum(flux_P.r))*100,2),")"),
+                               paste(sep="",round((F_det_L.r/1000),2)," ","(",round((F_det_L.r/sum(flux_L.r))*100,2),")")
+                               )
+            ,
+           microfitofagia=c(paste(sep="",round((F_mic_N/1000),2)," ","(",round((F_mic_N/sum(flux_N))*100,2),")"),
+                               paste(sep="",round((F_mic_G/1000),2)," ","(",round((F_mic_G/sum(flux_G))*100,2),")"),
+                               paste(sep="",round((F_mic_A/1000),2)," ","(",round((F_mic_A/sum(flux_A))*100,2),")"),
+                               paste(sep="",round((F_mic_R.r/1000),2)," ","(",round((F_mic_R.r/sum(flux_R.r))*100,2),")"),
+                               paste(sep="",round((F_mic_P.r/1000),2)," ","(",round((F_mic_P.r/sum(flux_P.r))*100,2),")"),
+                               paste(sep="",round((F_mic_L.r/1000),2)," ","(",round((F_mic_L.r/sum(flux_L.r))*100,2),")")
+                               ),
+           predación=c(paste(sep="",round((F_pred_N/1000),2)," ","(",round((F_pred_N/sum(flux_N))*100,2),")"),
+                               paste(sep="",round((F_pred_G/1000),2)," ","(",round((F_pred_G/sum(flux_G))*100,2),")"),
+                               paste(sep="",round((F_pred_A/1000),2)," ","(",round((F_pred_A/sum(flux_A))*100,2),")"),
+                               paste(sep="",round((F_pred_R.r/1000),2)," ","(",round((F_pred_R.r/sum(flux_R.r))*100,2),")"),
+                               paste(sep="",round((F_pred_P.r/1000),2)," ","(",round((F_pred_P.r/sum(flux_P.r))*100,2),")"),
+                               paste(sep="",round((F_pred_L.r/1000),2)," ","(",round((F_pred_L.r/sum(flux_L.r))*100,2),")")
+                               ),
+           omnivoría=c(paste(sep="",round((F_omn_N/1000),2)," ","(",round((F_omn_N/sum(flux_N))*100,2),")"),
+                               paste(sep="",round((F_omn_G/1000),2)," ","(",round((F_omn_G/sum(flux_G))*100,2),")"),
+                               paste(sep="",round((F_omn_A/1000),2)," ","(",round((F_omn_A/sum(flux_A))*100,2),")"),
+                               paste(sep="",round((F_omn_R.r/1000),2)," ","(",round((F_omn_R.r/sum(flux_R.r))*100,2),")"),
+                               paste(sep="",round((F_omn_P.r/1000),2)," ","(",round((F_omn_P.r/sum(flux_P.r))*100,2),")"),
+                               paste(sep="",round((F_omn_L.r/1000),2)," ","(",round((F_omn_L.r/sum(flux_L.r))*100,2),")")
+                               ),
+             row.names = NULL)
 
-F_mc_total
+
 
 ```
 
-<!--en chivilcoy hay 7 predadores y en luján 13
+```{r flujos_multicanal_show, echo=FALSE, message=FALSE,warning=FALSE}
+F_mc_total
+```
 
-En los suelos de Chivilcoy y Navarro, (Tabla 5.x) los flujos de energía alcanzan un máximo de 18
-kJ.año^-1^ en los suelos con pastizal naturalizado, en comparación, en suelos de Luján el
-flujo de energía fué hasta 70 veces mayor.
 
-El canal que mueve el humus del suelo fue el de mayor importancia, este fué mayor en el sistema 
-del pastizal naturalizado y menor en el sistema mixto agrícola ganadero; en suelos de Luján
+<!--en chivilcoy hay 7 predadores y en luján 13 N98,52 G95.63 A97,12-->
+
+En los suelos de Chivilcoy y Navarro, (Tabla 5.x) los flujos de energía alcanzan un máximo de 81,2
+kJ.año^-1^ en los suelos con actividad agrícola ganadera, seguidos por el pastizal naturalizado con 78,7 
+kJ.año^-1^ y el sistema agrícola intensivo que suma 78,1 kJ.año^-1^. 
+
+En la red trofica con actores similares a los que ocurren en Chivilcoy y Navarro pero en los suelos 
+argiudoles de Luján en promedio el flujo total de energía fué de 1,65 MJ.año^-1^, es decir, que 
+através de la red trofica de Luján se estima un flujo de energía 21 veces mayor.
+
+El canal que mueve el humus del suelo fue el de mayor importancia, superando el 95% de la 
+contribución al flujo 
+total de energía en suelos argiudoles de Chivilcoy y Navarro, este fué mayor en términos relativos
+en el sistema del pastizal naturalizado y menor en el sistema mixto agrícola ganadero; en suelos de Luján
 tuvo importancias similares en la Reserva y el Pastizal y menor importancia en el 
-sistema Agrícola. 
+sistema Agrícola, aquí también la contribución de este canal fué mayor al 95%. 
 
-La detritivoría fue de poca importancia en el pastizal naturalizado a la vez que fué mayor en el sistema agrícola intensivo; por su parte en suelos de Luján el sistema agrícola tuvo la mayor participación de detritívoros. La microfitofagia fue mayor en el sistema mixto y en el sistema agrícola intensivo y menor en el pastizal naturalizado; en suelos de Luján esta fue mayor en la Reserva y menor en el pastizal. 
+La detritivoría (Tabla 5.x) fue de poca importancia en el pastizal naturalizado a la vez que fué mayor en el sistema mixto agrícola ganadero; por su parte en suelos de Luján en el sistema de la reserva se
+observó la mayor participación de detritívoros con relación al total. La microfitofagia en el pastizal naturalizado fué de menor importancia separandose casi dos puntos porcentuales de aquel que ocurre en el sistema mixto; en suelos de Luján esta fue mayor en el sistema Agrícola y menor en la Reserva. 
 
-La omnivoría en el pastizal naturalizado contabilizó solo el 4,5% del flujo total de energía, en el sistema mixto agrícola ganadero tuvo una mayor participación; en suelos de Luján la omnivoría fue de importancia similar en los tres sistemas de uso siendo mayor en la Reserva.
-
-La predación no supero el 2% del flujo total de energía en general. En los suelos de Chivilcoy y Navarro 
-fue mayor en el sistema Agrícola intensivo y menor en el pastizal naturalizado; en suelos de Luján la predación fué más importante en el pastizal seguido del sistema agrícola.
+La zoofagia, en suelos de Chivilcoy y Navarro, contabiliza la mayor contribución en los suelos con actividad agrícola ganadera en este la importancia del flujo a traveś de los predadores verdaderos fué similar a la que ocurre en el pastizal naturalizado pero es la zoofagia de los omnívoros la que contribuyen con un mayor flujo de energía. La predación fué mayor en suelos con sistema agrícola. En suelos de Luján la predación en el pastizal y en el sistema agrícola fué mayor, la zoofagia por omnívoros fue mayor en la reserva y en el sistema agrícola, en total, la zoofagia fue mayor en el pastizal.
 
 ## Estabilidad de las redes tróficas de suelos Argiudoles
+```{r include=FALSE}
+Q_med_L<-mean(log(QSS_IS_L$maxre))
+Q_med_R<-mean(log(QSS_IS_R$maxre))
+Q_med_P<-mean(log(QSS_IS_P$maxre))
+```
 
 **Valor de estabilidad de cuasi-signo en suelos de Luján**
 
+En los suelos argiudoles de Luján  
+la distribución de la parte real del máximo autovalor (λ) de las matrices de cuasi-signo (Fig. 5.x)
+de las redes de interacciones tróficas se movió en un rango de ≈ 7 ordenes de magnitud.
 
-En los suelos argiudoles de Luján las redes de interacciones tróficas muestra 
-diferencias significativas entre los tres sistemas de uso según la prueba de 
-Anderson-Darling $AD: p_{\,valor} < 0.05$. 
-
-La distribución de la parte real del máximo autovalor de las matrices de cuasi-signo
-en estos sistemas se movió en un rango con 7 ordenes de magnitud.
-
-Los tres sistemas de uso se diferencian entre sí siendo mayor en promedio la parte real 
-del autovalor de la matriz Jacobiana en los suelos de la comunidad de la Reserva y 
-menor en las comunidades de los suelos bajo uso agrícola convencional. 
+Considerando la distribución de los valores de estabilidad de cuasi-signo (QSS)
+que resultan de las iteraciones hechas sobre las matrices Jacobianas de las redes tróficas de detritívoros 
+edáficos que ocurren en los diferentes sistemas de uso del suelo, se hallaron diferencias significativas entre 
+los tres sistemas de uso según la prueba de Anderson-Darling $AD: p_{\,valor} < 0.05$. 
 
 ```{r plot_QSS_IS, echo=FALSE,,message=FALSE,warning=FALSE}
 par(mfrow=c(1,3))
@@ -2053,13 +1845,18 @@ par(mfrow=c(1,1))
 Q_moda_L<-mlv(log(QSS_IS_L$maxre), method = "naive",bw=0.01)
 Q_moda_R<-mlv(log(QSS_IS_R$maxre), method = "naive",bw=0.01)
 Q_moda_P<-mlv(log(QSS_IS_P$maxre), method = "naive",bw=0.01)
-
+Q_median_R<-median(log(QSS_IS_R$maxre))
 ```
 
-**Figura 5.x Histogramas del valor de estabilidad. En el eje horizontal, se expresa el valor del máximo autovalor de la matriz Jacobiana obtenidas a partir del algoritmo de quasi-signo (@alesina) expresado en logaritmo natural, se muestran mil iteraciones. Eje vertical valor de frecuencia del intervalo. Como lineas verticales se dibujan, el promedio en color azul, la mediana en color rojo, y los cuartiles primero y tercero como lineas más finas.**
+**Figura 5.x Histogramas del valor de estabilidad. En el eje horizontal, se expresa el valor del máximo autovalor de la matriz Jacobiana obtenidas a partir del algoritmo de quasi-signo (@alesina) expresado en logaritmo natural, se muestran mil iteraciones. Eje vertical valor de frecuencia del intervalo. Como lineas verticales se dibujan, el promedio en color amarillo, la mediana en color rojo, y los cuartiles primero y tercero como lineas más finas.**
 
+Los tres sistemas de uso se diferencian entre sí, en promedio la parte real 
+del autovalor de la matriz Jacobiana en los suelos de la comunidad de la Reserva, Pastizal y Agrícola fué
+de `r exp(Q_med_R)` - `r exp(Q_med_P)` - `r exp(Q_med_A)`, respectivamente.
 
-
+La distribución de los valores del λ del QSS se observan (Fig 5.x) con forma similar a los de una campana, pero con excepción de la reserva, el valor más probables, es decir, la moda de la distribución, se halla separada de sus
+valores de tendencia centrales. En la Reserva la moda coincide con la mediana siendo esta `r exp(Q_median_R)`, en el pastizal la moda fué `r exp(-0.6)`, en el sistema agrícola la moda fué `r exp(-0.62)`, los valores de estas modas ocurrieron con 56 - 51 - 41 tanto por cien 
+en valores de frecuencia respectivamente para cada sistema de uso del suelo. 
 ```{r QSS_taxon, include=FALSE}
 
 #acá colocar los gremios tróficos
