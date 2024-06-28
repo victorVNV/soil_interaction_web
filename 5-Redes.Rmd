@@ -212,7 +212,7 @@ Para el recurso trófico "Hummus" se considera que el 50% de la materia orgánic
 es el proxi de la biomasa de este nodo para suelos Argiudoles de la Pampa Ondulada (Álvarez
 2006 (cap3);Biological indicator of Soil Healt pp 70 - 71), para
 calcular su biomasa esta se refiere a la superficie en metros cuadrados con una 
-densidad aparente promedio de los suelos ($\text {DAP} = 1,2 \;\frac{g}{cm^2} $)
+densidad aparente promedio de los suelos ($ \text{DAP} = 1,2 \; \frac{g}{cm^2} $)
 y hasta los 10 centímetros de profundidad, 
 zona en la cuál se encuentra la mayor proporción del contenido en materia orgánica
 y la mayor actividad biológica.
@@ -257,7 +257,7 @@ cambio, para los argiudoles de Chivilcoy y Navarro se utilizaron las
 relaciones de proporción promedio de nemátodos observados en los
 suelos de Luján, por lo tanto, nemátodos
 fungívoros, bacteríofagos, fitófagos, omnívoros y predadores, fueron
-referidos al 40,30,14,8 y 8 % respectivamente, a la vez se consideró el peso medio
+referidos al 40 - 30 - 14 - 8 y 8 % respectivamente, a la vez se consideró el peso medio
 de los nemátodos de cada categoría trófica a partir del peso medio general
 obtenidos en suelos de Luján, por lo tanto, nemátodos
 fungívoros, bacteríofagos, fitófagos, omnívoros y predadores, pesaron
@@ -700,7 +700,10 @@ t_metLf.r[is.na(t_metLf.r)|t_metLf.r==Inf]<-0
 #resp*4.167*1200*20600= resp*103008240
 
 completo$biomasaheterotrofa<-completo$RESP*103008240
-base<-completo%>%filter(class!="macrofauna")
+#sin filtrar por estacion
+#base<-completo%>%filter(class!="macrofauna")
+#por estacion otoño, para comparar
+base<-completo%>%filter(class!="macrofauna",season=="O")
 #Es el factor de conversión para llevar las abundancias a densidad
 
 #Densidad de los demás es 2.5²*3.14 = n()/0,00471 
@@ -1213,6 +1216,8 @@ observa en la Reserva.
 
 \newpage
 
+**Figura 5.x Representación de las redes tróficas de la comunidad detritívora de la fauna edáfica de suelos argiudoles típicos de Luján para cada sistema de uso del suelo. El tamaño de los nodos representa al grado del nodo, los colores forman un gradiente desde el verde hacia el rojo para indicar especies base hacia especies tope respectivamente. La distribución de los nodos a lo largo del eje horizontal sigue un patron semi-aleatorio ("jitter") por lo tanto no se vincula a caracteristicas del nodo en particular. Sobre el eje vertical se indica el nivel trófico.**
+
 ```{r plot_redes, echo=FALSE, warning=FALSE,message=FALSE}
 
 plot_troph_level(R_net,modules=FALSE,vertexLabel = FALSE, tk = FALSE,main="Reserva")
@@ -1226,7 +1231,7 @@ El nivel trófico promedio de las redes en suelos argiudoles de Luján
 ente los tres sistemas de uso fué de aproximadamente 2,95 y con respecto
 al máximo nivel trófico este fué mayor en el pastizal seguido por el
 sistema agrícola intensivo, el nivel de omnivoría sigue un patron
-similar Pastizal\>Sistema agrícola\>Reserva.
+similar Pastizal \> Sistema agrícola \> Reserva.
 
 ```{r topolog, include=FALSE, message=FALSE, warning=FALSE}
 
@@ -1306,6 +1311,8 @@ un mayor nivel trófico medio.
 
 \newpage
 
+**Figura 5.x Representación de las redes tróficas de suelos argiudoles típicos de Chivilcoy y Navarro para cada sistema de uso del suelo cuya comunidad se conforma de microartrópodos edáficos y lombrices de tierra. El tamaño de los nodos representa al grado del nodo, los colores forman un gradiente desde el verde hacia el rojo para indicar especies base hacia especies tope respectivamente. La distribución de los nodos a lo largo del eje horizontal sigue un patron semi-aleatorio ("jitter") por lo tanto no se vincula a caracteristicas del nodo en particular. Sobre el eje vertical se indica el nivel trófico.**
+
 ```{r plot_redes2, echo=FALSE, warning=FALSE,message=FALSE}
 
 
@@ -1318,7 +1325,7 @@ plot_troph_level(A_net,modules=FALSE,vertexLabel = FALSE, tk = FALSE,main="Agrí
 \newpage
 
 ```{r interaction_strenght, include=FALSE}
-
+set.seed(167)
 #Los pesos ya se configuran con 1e-3 para convertir los gramos a kilogramos. Pawar así lo calcula
 #RESERVA
 {#genero el edge list
@@ -1697,7 +1704,7 @@ En la Reserva se observá el mayor valor de energía ligada con el uso de la mat
 (1,6 MJ.año^-1^) y con respecto al sistema de la reserva el sistema agrícola se aleja con una diferencia 
 de 0,85 MJ.año^-1^. 
 
-```{r flujos_multicanal_print, echo=FALSE, message=FALSE,warning=FALSE}
+```{r flujos_multicanal_print, include=FALSE, message=FALSE,warning=FALSE}
 F_mc_lu<-data.frame(sitio=c("Reserva","Pastizal","Agrícola"),
            biotransformación=c(F_mo_R,F_mo_P,F_mo_L
                                ),
@@ -1709,22 +1716,29 @@ F_mc_lu<-data.frame(sitio=c("Reserva","Pastizal","Agrícola"),
            herbivoría=c(F_herb_R,F_herb_P,F_herb_L),
            row.names = NULL)
 
+
+```
+
+**Tabla 5.x Flujos de energía en Joule/año que atraviesan los diferentes canales de energía vinculados a funciones biológicas que ocurren en las redes tróficas de la comunidades de suelos Argiudoles de Luján**
+
+```{r flujos_multicnl_print, echo=FALSE, message=FALSE,warning=FALSE}
 F_mc_lu
 ```
-La detritivoría, la microfitofagia fueron mayores en valor absoluto en la Reserva.
+
+La detritivoría y la microfitofagia fueron mayores en valor absoluto en la Reserva.
 En términos relativos la detritivoría fué mayor en el sistema agrícola ( ≈ 30%)
-y menor en el pastizal.
+y menor en el pastizal ( ≈ 20%).
 En todos los sistemas el consumo de bacterias y hongos, <u>microfitofagia o microviboría</u>,
 conyevan flujos de energía menores al 3,3%
 del flujo total de energía que atraviesa estos suelos, en los suelos de la Reserva la microviboría fué ligeramente mayor, seguidas por el sistema agrícola y 1 punto porcentual por debajo el 
 sistema del Pastizal.
 
-La el consumo de la fauna <u>zoofagia</u> se estima como la suma de la 
+El consumo de la fauna, la <u>zoofagia</u>, se estima como la suma de la 
 energía que pasa por los depredadores "verdaderos" y por la cantidad de energía ligada al consumo de 
 fauna del que se alimentan los omnívoros, la contribución de los omnívoros a otros canales de energía como
 por ejemplo el canal de la microfitofagía se halla contabilizada en el canal en cuestión.
-La zoofagia, en términos absolutos, fué mayor en el pastizal (≈12 kJ.año~-1~) y 
-menor en el sistema agrícola(≈7 kJ.año~-1~), con relación al total la importancia de la zoofagia fué cercana entre el pastizal y el sistema agrícola al rededor del 0,58% y menor en la Reserva con una importancia del 0,37%.
+La zoofagia, en términos absolutos, fué mayor en el pastizal (≈12 kJ.año^-1^) y 
+menor en el sistema agrícola(≈7 kJ.año^-1^), con relación al total la importancia de la zoofagia fué cercana entre el pastizal y el sistema agrícola al rededor del 0,58% y menor en la Reserva con una importancia del 0,37%.
 
 La zoofagia por parte de los omnivoros es el tercer canal de energía en importancia a través de estos actores 
 llega hasta el ≈ 30% del flujo energético anual, en el pastizal su importancia fue ligeramente mayor.
@@ -1776,6 +1790,9 @@ F_mc_total<-data.frame(sitio=c("Naturalizado","Mixto","Agrícola","Reserva","Pas
 
 ```
 
+**Tabla 5.x Flujos de energía en Joule/año y en entre paréntesis el porcentaje con respecto al flujo total que atraviesan los diferentes canales de energía vinculados a funciones biológicas que ocurren en las redes tróficas de las comunidades de microartrópodos edáficos y lombrices de tierra de suelos Argiudoles de Chivilcoy y Navarro y suelos argiudoles de Luján**
+
+
 ```{r flujos_multicanal_show, echo=FALSE, message=FALSE,warning=FALSE}
 F_mc_total
 ```
@@ -1805,16 +1822,26 @@ La zoofagia, en suelos de Chivilcoy y Navarro, contabiliza la mayor contribució
 
 ## Estabilidad de las redes tróficas de suelos Argiudoles
 ```{r include=FALSE}
-Q_med_L<-mean(log(QSS_IS_L$maxre))
-Q_med_R<-mean(log(QSS_IS_R$maxre))
-Q_med_P<-mean(log(QSS_IS_P$maxre))
+QSS.final <- read.csv("database/QSS.txt", sep="")
+#promedi
+Q_med_L<-mean(log(QSS.final$maxreL))
+Q_med_R<-mean(log(QSS.final$maxreR))
+Q_med_P<-mean(log(QSS.final$maxreP))
+#moda
+Q_moda_L<-mlv(log(QSS.final$maxreL), method = "naive",bw=0.09)
+Q_moda_R<-mlv(log(QSS.final$maxreR), method = "naive",bw=0.09)
+Q_moda_P<-mlv(log(QSS.final$maxreP), method = "naive",bw=0.09)
+#mediana
+Q_median_R<-median(log(QSS.final$maxreR))
+Q_median_P<-median(log(QSS.final$maxreP))
+Q_median_L<-median(log(QSS.final$maxreL))
+
 ```
 
-**Valor de estabilidad de cuasi-signo en suelos de Luján**
 
 En los suelos argiudoles de Luján  
-la distribución de la parte real del máximo autovalor (λ) de las matrices de cuasi-signo (Fig. 5.x)
-de las redes de interacciones tróficas se movió en un rango de ≈ 7 ordenes de magnitud.
+la distribución de la parte real del máximo autovalor (λ) de las matrices de cuasi-signo (QSS)
+de las redes de interacciones tróficas (Fig. 5.x) se movió en un rango de ≈ 7 ordenes de magnitud.
 
 Considerando la distribución de los valores de estabilidad de cuasi-signo (QSS)
 que resultan de las iteraciones hechas sobre las matrices Jacobianas de las redes tróficas de detritívoros 
@@ -1823,52 +1850,89 @@ los tres sistemas de uso según la prueba de Anderson-Darling $AD: p_{\,valor} <
 
 ```{r plot_QSS_IS, echo=FALSE,,message=FALSE,warning=FALSE}
 par(mfrow=c(1,3))
-hist(log(QSS_IS_R$maxre),border =  "blue4",col=NULL,breaks=60,freq = FALSE,main = "Reserva", sub= "Estabilidad de cuasi-signo", xlab = "ln qss",ylab=NULL)
+hist(log(QSS.final$maxreR),border =  "blue4",col=NULL,breaks=40,freq = FALSE,main = "Reserva", sub= "Estabilidad de cuasi-signo", xlab = "ln qss",ylab=NULL)
 axis(1, at = seq(-6, 3, by = 1))
-abline(v=mean(log(QSS_IS_R$maxre)),col="yellow",lty=3,lwd=3)
-abline(v=median(log(QSS_IS_R$maxre)),col="red",lty=3,lwd=2.5)
-abline(v=c(quantile(log(QSS_IS_R$maxre),probs = 0.25),quantile(log(QSS_IS_R$maxre),probs = 0.75)),col="skyblue",lty=3,lwd=1.5)
-hist(log(QSS_IS_P$maxre), border =  "green4",col=NULL,breaks=60,freq = FALSE,main = "Pastizal", sub= "Estabilidad de cuasi-signo", xlab = "ln qss",ylab=NULL)
+abline(v=mean(log(QSS.final$maxreR)),col="yellow",lty=3,lwd=3)
+abline(v=median(log(QSS.final$maxreR)),col="red",lty=3,lwd=2.5)
+abline(v=c(quantile(log(QSS.final$maxreR),probs = 0.25),quantile(log(QSS.final$maxreR),probs = 0.75)),col="skyblue",lty=3,lwd=1.5)
+
+hist(log(QSS.final$maxreP), border =  "green4",col=NULL,breaks=40,freq = FALSE,main = "Pastizal", sub= "Estabilidad de cuasi-signo", xlab = "ln qss",ylab=NULL)
 axis(1, at = seq(-6, 3, by = 1)) 
-abline(v=mean(log(QSS_IS_P$maxre)),col="yellow",lty=3,lwd=3)
-abline(v=median(log(QSS_IS_P$maxre)),col="red",lty=3,lwd=2.5)
-abline(v=c(quantile(log(QSS_IS_P$maxre),probs = 0.25),quantile(log(QSS_IS_P$maxre),probs = 0.75)),col="skyblue",lty=3,lwd=1.5)
-hist(log(QSS_IS_L$maxre), border =  "orange3",col=NULL,breaks=60,freq = FALSE,main = "Agrícola", sub= "Estabilidad de cuasi-signo", xlab = "ln qss",ylab=NULL)
+abline(v=mean(log(QSS.final$maxreP)),col="yellow",lty=3,lwd=3)
+abline(v=median(log(QSS.final$maxreP)),col="red",lty=3,lwd=2.5)
+abline(v=c(quantile(log(QSS.final$maxreP),probs = 0.25),quantile(log(QSS.final$maxreP),probs = 0.75)),col="skyblue",lty=3,lwd=1.5)
+
+hist(log(QSS.final$maxreL), border =  "orange3",col=NULL,breaks=40,freq = FALSE,main = "Agrícola", sub= "Estabilidad de cuasi-signo", xlab = "ln qss",ylab=NULL)
 axis(1, at = seq(-6, 3, by = 1)) 
-abline(v=mean(log(QSS_IS_L$maxre)),col="yellow",lty=3,lwd=3)
+abline(v=mean(log(QSS.final$maxreL)),col="yellow",lty=3,lwd=3)
 abline(v=median(log(QSS_IS_L$maxre)),col="red",lty=3,lwd=2.5)
-abline(v=c(quantile(log(QSS_IS_L$maxre),probs = 0.25),quantile(log(QSS_IS_L$maxre),probs = 0.75)),col="skyblue",lty=3,lwd=1.5)
+abline(v=c(quantile(log(QSS.final$maxreL),probs = 0.25),quantile(log(QSS.final$maxreL),probs = 0.75)),col="skyblue",lty=3,lwd=1.5)
 
 par(mfrow=c(1,1))
-#calcular la moda
-#mlv(log(QSS_IS_N$maxre), method = "Parzen")
-Q_moda_L<-mlv(log(QSS_IS_L$maxre), method = "naive",bw=0.01)
-Q_moda_R<-mlv(log(QSS_IS_R$maxre), method = "naive",bw=0.01)
-Q_moda_P<-mlv(log(QSS_IS_P$maxre), method = "naive",bw=0.01)
-Q_median_R<-median(log(QSS_IS_R$maxre))
+
+
 ```
 
-**Figura 5.x Histogramas del valor de estabilidad. En el eje horizontal, se expresa el valor del máximo autovalor de la matriz Jacobiana obtenidas a partir del algoritmo de quasi-signo (@alesina) expresado en logaritmo natural, se muestran mil iteraciones. Eje vertical valor de frecuencia del intervalo. Como lineas verticales se dibujan, el promedio en color amarillo, la mediana en color rojo, y los cuartiles primero y tercero como lineas más finas.**
+**Figura 5.x Histogramas del valor de estabilidad. En el eje horizontal, se expresa el valor del máximo autovalor de la matriz Jacobiana obtenidas a partir del algoritmo de quasi-signo (Alesina et al 2015) expresado en logaritmo natural, se muestran mil iteraciones. Eje vertical valor de frecuencia del intervalo. Como lineas verticales se dibujan, el promedio en color amarillo, la mediana en color rojo, y los cuartiles primero y tercero como lineas más finas.**
 
-Los tres sistemas de uso se diferencian entre sí, en promedio la parte real 
-del autovalor de la matriz Jacobiana en los suelos de la comunidad de la Reserva, Pastizal y Agrícola fué
-de `r exp(Q_med_R)` - `r exp(Q_med_P)` - `r exp(Q_med_A)`, respectivamente.
+Los tres sistemas de uso se diferencian entre sí, el promedio y la mediana de la parte real 
+del autovalor de la matriz Jacobiana en los suelos de la comunidad de la Reserva, el Pastizal y el Agrícola fué
+de `r exp(Q_med_R)`; `r exp(Q_median_R)`- `r exp(Q_med_P)`; `r exp(Q_median_P)`- `r exp(Q_med_L)`;`r exp(Q_median_L)`, respectivamente.
 
-La distribución de los valores del λ del QSS se observan (Fig 5.x) con forma similar a los de una campana, pero con excepción de la reserva, el valor más probables, es decir, la moda de la distribución, se halla separada de sus
-valores de tendencia centrales. En la Reserva la moda coincide con la mediana siendo esta `r exp(Q_median_R)`, en el pastizal la moda fué `r exp(-0.6)`, en el sistema agrícola la moda fué `r exp(-0.62)`, los valores de estas modas ocurrieron con 56 - 51 - 41 tanto por cien 
-en valores de frecuencia respectivamente para cada sistema de uso del suelo. 
-```{r QSS_taxon, include=FALSE}
+La distribución de los valores λ del QSS se asemejan (Fig 5.x) a los de una campana simétrica, el valor más probable, es decir, la moda de la distribución, se halla cercana a los valores de tendencia centrales en los diferentes sistemas de uso del suelo. En la Reserva la moda la moda fué `r exp(Q_moda_R)`, en el pastizal la moda fué `r exp(Q_moda_P)`, en el sistema agrícola la moda fué `r exp(Q_moda_L)`, los valores de estas modas ocurrieron con una frecuencia mayor a 40 tanto por cien 
+en los diferentes sistemas de uso del suelo. 
 
-#acá colocar los gremios tróficos
-# o los taxas
-#usar en su lugar calc_QSS_extinction_dif_grp
-#QSS_unlu_seq<-calc_QSS_extinctions_seq(QSS_IS_UNLu, seq = V(QSS_IS_UNLu)$name[20:25], nsim = 100, ncores = 4, istrength = TRUE)
-
-#QSS_unlu_seq<-calc_QSS_extinctions_seq(IS_P_net, seq = #V(IS_P_net)$name[V(IS_P_net)$name%in%, nsim = 100, ncores = 4, istrength = TRUE)
-```
+Estos datos nos muestran que en sistemas antropizados se obtienen valores del λ del cuasi-signo más cercanos a cero.
 
 # Conclusiones
+
+Las redes tróficas de los suelos argiudoles de la Pampa Ondulada muestran un entramado de relaciones tróficas bastante densa
+en estas redes prevalece la omnivoría dado que los taxones se alimentan de más de un nivel trófico 
+como lo han descrito Digel et al (2014) quienes catalogan a la fauna edáfica como consumidores oportunistas
+con un escaso nivel de especialización dietaria.
+
+Estas redes tróficas tienen 4 niveles tróficos como los encontrados en redes tróficas de otros sistemas ecológicos (Pimm et al 
+1931), esta red trófica edáfica podria estructurarse como los recursos bases que son consumidos 
+principalmente por las bacterias y hongos
+quienes poseen el aparato enzimatico especializado para descomponer la materia orgánica, estos son los descomponedores 
+primarios, luego la fauna que se corresponde con los descomponedores secundarios que hacen
+uso de la microflora como principal recurso el cual posee una la mayor calidad nutritiva en comparación con los detritos. 
+Para los demás niveles tróficos la separación es difusa debido al importante porcentaje de omnivoría lo que 
+explica el valor del nivel trófico medio, alrededor de tres.
+
+El importante porcentaje de omnivoria (>70%) es característica en estas redes detritívoras y está ligada a 
+la alimentación oportunista y a la redundancia funcional, por ejemplo, los omnívoros zoofagos se alimentarán 
+tanto de la microfauna como de los descomponedores secundarios como de la microflora; por otra parte, los predadores "verdaderos"
+por su alimentacion generalista también consumen en más de un nivel trófico, por ej. aquellos miríapodos con adaptaciones para 
+recorrer poros del suelo predarán sobre nemátodos de gran tamaño como sobre la mesofauna y la macrofauna de pequeño tamaño.
+
+La conectancia de estas redes aunque ligeramente mayor que la observada en redes tróficas de ecosistemas que ocurren sobre 
+el suelo o en sistemas acuáticos se encuentra dentro de los valores de conectancia hallados en suelos de bosques templados (Digel 
+et al 2014) por lo que su valor se encuentra en los valores que corresponden a las redes tróficas ecológicas.
+El coeficiente de agupamiento "clustering", que implica la probabilidad de que diferentes especies tróficas 
+esten cercanamente interconectadas debido al solapamiento de predadores o de sus dietas, fué 
+moderado en las redes tróficas de suelo argiudoles típicos (C.C. > 0,4), según Digel et al (2014) en los suelos 
+las redes tróficas de detritívoros muestran un valor del coeficiente de agrupamiento más alto que el de 
+las demás redes ecológicas abordadas por estos autores (ecosistemas terrestres basado en plantas y ecosistemas de acuaticos) 
+aunque el valor calculado para los suelos locales de la Pampa Ondulada fueron de más del doble que el valor estimado por aquellos 
+autores. 
+
+Tanto los valores de vulnerabilidad como los de generalidad fueron similares dentro 
+de las redes tróficas en un mismo sistema de uso del suelo como entre sistemas de uso del suelo esto implica que las diferentes 
+especies tróficas consumen y son consumidos aproximadamente con un mismo número, es decir, si una especie trófica consume 4 especies
+tróficas entonces la misma será consumida por otras 4 especies tróficas, esto refleja la redundancia de especies tróficas que existe
+en las redes tróficas del sistema detritívoro edáfico.
+
+En general los valores de los parámetros topológicos entre los diferentes sistemas de uso del suelo fueron próximos entre sí,
+y esto se observa tanto en redes tróficas edáficas parciales como aquellas abordadas para suelos de Chivilcoy y Navarro conformadas
+por taxones de ácaros, colémbolos y lombrices que dominan las comunidades del suelo 
+como en redes tróficas más abarcativas con los taxones de 
+la micro-, meso- y macro- fauna en el cual existen tanto taxones raros como taxones dominantes tal como los enquitreidos 
+que son poco estudiados en los suelos argentinos. Si existen configuraciones que varían entre los sistemas de uso del suelo 
+debidas la riqueza de especies tróficas como al número de interacciones con el que participan lo que determina
+la variabilidad entre parámetros.
 
 
 # ref
 
+Pim Lawton Cohen 1931 Food web Paterns and consecuences

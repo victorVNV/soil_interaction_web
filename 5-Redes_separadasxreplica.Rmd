@@ -1,0 +1,1946 @@
+---
+title: "5-Redes"
+author: "Velazco"
+date: "`r Sys.Date()`"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE, message=FALSE,warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+loadNamespace('printr')
+
+```
+
+```{r lib, include=FALSE,message=FALSE, warning=FALSE}
+
+{library(tidyverse);library(statnet);library(network);
+  library(igraph);library(intergraph);library(multiweb);library(fluxweb);
+  library(kSamples);library(modeest)}
+set.seed(167)
+options("digits"=3)
+```
+
+
+```{r dtb,include=FALSE,message=FALSE, warning=FALSE}
+#Carga datos, comunidad completa, abundancia, pesos corporales medios, de suelos UNLu
+SFW_unlu <- read.delim("database/unlu_ab_mass_mean_web.txt")
+#carga datos, suelos ROSANA, Chivilcoy y Navarro
+completo <- readxl::read_excel("database/soil_networks.xlsx", sheet = "Ro_web")
+```
+
+```{r densidad_unlu,include=FALSE,message=FALSE, warning=FALSE}
+#microfauna (se contaron los nemátodos de 4 sacabocados)
+sup.bocado.micro <- (1/(pi*2.5^2/10000))*4
+#mesofauna (se contaron y extrajeron de 3 frasquitos homojeneizados del monolito)
+sup.bocado.meso <- (1/(pi*2.5^2/10000))*3
+#macrofauna (superficie estandar 25 x 25)
+sup.monolito <- 1/(0.25*0.25)
+# calculo la densidad en n7m2 y la biomasa en ug/m2
+
+unlu_D<-SFW_unlu%>%
+  mutate(nombre=paste(sitio,replica))%>%
+           mutate(
+             D=floor(case_when(
+  size_class=="macro"~ sup.monolito*abundance,
+  size_class=="meso"~ sup.bocado.meso*abundance,
+  size_class=="micro"~ sup.bocado.micro*abundance)
+  ),
+  biomass=body_mass*D
+  )
+#previo a la red, todas las modificaciones sobre este
+web<-unlu_D%>%
+  group_by(nombre,sitio,replica,taxa)%>%
+  summarise(body=mean(body_mass,na.rm=TRUE),
+            biomass=mean(biomass,na.rm=TRUE))%>%
+  distinct(taxa,.keep_all=TRUE)
+
+```
+
+```{r recurso_base_unlu,include=FALSE,message=FALSE, warning=FALSE}
+#agrega recursos####
+#se utilizaron la biomasa estimada por m2 hasta los 10 cm
+#esto se puede justificar con el gráfico de libros donde la biomasa disminuye con la profundidad
+
+#recursos base, hongo, bacteria, protozoa
+sitio<-c("L","L","L","P","P","P","R","R","R",
+         "L","L","L","P","P","P","R","R","R",
+         "L","L","L","P","P","P","R","R","R")
+replica<-c(1,2,3,1,2,3,1,2,3,
+           1,2,3,1,2,3,1,2,3,
+           1,2,3,1,2,3,1,2,3)
+taxa<-c("bac","bac","bac","bac","bac","bac","bac","bac","bac",
+        "fungi","fungi","fungi","fungi","fungi","fungi","fungi","fungi","fungi",
+        "proto","proto","proto","proto","proto","proto","proto","proto","proto")
+
+#los recursos disponibles para consumo del total, serán el 50% de la biomasa microbiana
+# de ello se proporciona para bacterias y hongos según la relación hongo bacterias
+
+# acá utilio la relacion hongos bacterias
+# 1-(relaciónHB/(1+relacionHB)) = bacterias
+# (relaciónHB/(1+relacionHB)) = hongos
+# de la "biomasa total" el 50% disponible, de los cuales 5% es protozoos y 45% seran hongos y bacterias.
+# se multiplican el 45 que es disponible por la proporcion HB previamente calculada, o lo que es
+
+#esto fué previamente mostrado en cap 3
+#relacion H/B####
+ratio.hb<-c( 3.25, 14/3, 5/6, #Agrícola #promedio H = 0.745
+             11/8, 11/6, 7/6, #Pastizal H = 0.593
+            2.429, 11/6, 3.5 #Reserva H=0.721
+                       ) 
+
+#densidad suelo 1,2g/cm2, volumen 1e5 cm3 a 10cm, peso suelo = 120 000 g suelo
+#los datos estan en mgCmicrbiana/100g suelo
+#peso del suelo 120000g/100g=1200 pasar mg a ug son 1000, total 1200000 factor
+#(resp*100)/24; resp*4,167; 1200 suelo/100g suelo; 20600 ug/100g suelo;
+
+
+
+biomass<-c(216366451.612903*0.40*(1-(3.25/(1+3.25))),#bacterias
+           257300645.16129*0.40*(1-(14/3/(1+14/3))),
+           204670967.741936*0.40*(1-(5/6/(1+5/6))),
+          315122242.990654*0.40*(1-(11/8/(1+11/8))),
+          416774579.439252*0.40*(1-(11/6/(1+11/6))),
+           284626542.056075*0.40*(1-(7/6/(1+7/6))),
+           454123014.256619*0.40*(1-(2.429/(1+2.429))),
+           420894501.01833*0.40*(1-(11/6/(1+11/6))),
+           465199185.336049*0.40*(1-(3.5/(1+3.5))),
+           
+          216366451.612903*0.4*((3.25/(1+3.25))), #hongos
+          257300645.16129*0.4*((14/3/(1+14/3))), 
+          204670967.741936*0.4*((5/6/(1+5/6))),
+          315122242.990654*0.4*((11/8/(1+11/8))),
+          416774579.439252*0.4*((11/6/(1+11/6))),
+          284626542.056075*0.4*((7/6/(1+7/6))),
+          454123014.256619*0.4*((2.429/(1+2.429))),
+          420894501.01833*0.4*((11/6/(1+11/6))),
+          465199185.336049*0.4*((3.5/(1+3.5))),
+          
+          216366451.612903*0.03,257300645.16129*0.03,204670967.741936*0.03, #protozoos
+          315122242.990654*0.03,416774579.439252*0.03,284626542.056075*0.03,
+          454123014.256619*0.03,420894501.01833*0.03,465199185.336049*0.03)
+
+
+rec_base<-data.frame(sitio,replica,taxa,biomass)
+rec_base<-rec_base%>%
+             mutate(
+             body=case_when(
+  taxa=="bac"~ 9.5e-4, #peso medio bacteria, segun digel, en ug
+  taxa=="fungi"~ 2.3e-1, # Andres Pilar et al 2016. soilfoodweb prairie
+  taxa=="proto"~ 1.1121e-3)#peso medio, segun digel y en microgramos
+  )
+  
+rec_base<-rec_base%>%
+  mutate(nombre=paste(sitio,replica))
+
+rec_base<-rec_base[,c("nombre","sitio","replica","taxa","body","biomass")]
+
+web<-rbind(rec_base, web)
+
+#subred sin recursos############
+
+web0<-web%>%
+  group_by(sitio,replica,taxa)%>%
+  summarise(body=mean(body,na.rm=TRUE),
+            biomass=mean(biomass,na.rm=TRUE))
+#######
+
+#eficiencias############
+
+#Adaptado de COLEMAN y Energetic Fluxweb, como eficiencias de producción
+# bacteria hongo 30%
+#nemátodos 
+
+mf<-c("bac","fungi")
+micf<-c("alycidae", "diplura","brachychthonioidea","crotonioidea",
+        "oribatido","limnozetidae",
+  "Aporrectodea caliginosa","Aporrectodea rosea","Bimastos parvus",
+  "Aporrectodea trapezoides","Bimastos beddardi sophiae",
+   "ceratozetoidea","cryptophagidae","enchytraeida","entomobridae",
+  "epilhomanioidea","eremobelbidae","Eukerria halophila","galumnidae",
+   "Glossoscolex sp.","isotomidae","juvenil","macropilina","Microscolex phosphoreus","Octalasion lacteum","Microscolex dubius","Eukerria stagnalis",
+  "nem_bacterivoro", "nem_fitofago","nem_fungivoro","Octalasion cyaneum",
+  "Octolasion tyrtaeum","onichiuridae","oppioidea","oribatulidae",
+  "oripodidae","protura","scheloribatidae","symphyla","symphypleona"
+  )
+pred<-c("ameroseidae","arctacaridae","bdelloidea","carabidae",
+  "coccinelidae","cunaxide","dermanisoidea","eviphididae",
+  "geophylomorpha","grillopalpidae","ichtyostomatogasteridae", "laelapidae", "larva_carabidae","linyphiidae","lycosidae","nem_predador","mesostigmata",
+  "ologamasidae","parasitidae",  "pseudoscorpionida",
+  "rhagidiidae","rhodacarioidea","staphiliniidae","teneriffidae",
+  "trombidiidae", "uropodoidea","veigaioidea") 
+det<-c("anthribidae","blattodea","gasteropoda","diplopoda","elateriforme",
+  "embrioptera","eupthiracaroidea","larva_coleoptero","isoptera",
+ "larva_diptera","larva_elateridae","larva_scarabidae","larva_sciaridae",
+  "larva_tenebrionidae","limnozetidae","oniscidea","ptilidae","pupa_diptera",
+ "tenebrionidae","terebrantia","trogossitidae")
+herb<-c("aphidoidea","cicadidae","coleoptera_suctor","hemiptero","larva_curculionidae",
+   "ortoptero","thysanoptera")
+omn<-c("astigmata","formicidae","hipogastruridae","nem_omnivor","tardigrado",
+       "anystidae","eupodoidea","penthalidae","tarsonemidae","tydeioidea","proto")
+
+no_a<-c("nematomorpha") 
+
+
+#A vector or an array of conversion efficiencies of species in the adjacency matrix. #These values describe the proportion of consumed energy that is converted to #biomass of the consumer.-->
+
+web0$ef<-NA
+web0$ef[web0$taxa%in%mf]<-0.35
+web0$ef[web0$taxa%in%micf]<-0.4
+web0$ef[web0$taxa%in%pred]<-0.7
+web0$ef[web0$taxa%in%det]<-0.25
+web0$ef[web0$taxa%in%herb]<-0.125
+web0$ef[web0$taxa%in%omn]<-0.25
+web0$ef[web0$taxa%in%no_a]<-0.1
+
+#sistemas####### 
+L1<-web0%>%filter(sitio=="L",replica==1)
+L2<-web0%>%filter(sitio=="L",replica==2)
+L3<-web0%>%filter(sitio=="L",replica==3)
+
+P1<-web0%>%filter(sitio=="P",replica==1)
+P2<-web0%>%filter(sitio=="P",replica==2)
+P3<-web0%>%filter(sitio=="P",replica==3)
+
+R1<-web0%>%filter(sitio=="R",replica==1)
+R2<-web0%>%filter(sitio=="R",replica==2)
+R3<-web0%>%filter(sitio=="R",replica==3)
+
+#biomasas####
+#en microgramos pasados a gramos
+#tejido vegetal se asume 125% (1+125/100) mas que la materia orgánica aunque puede ser 225% más
+#finalmente no se asume la biomasa del tejido vegetal, será 1.
+#carroña será el 5% de la biomasa total de los invertebrados
+#hojarasca llevada a peso seco, factor de 0.32 P ; 0.37 R ; 0.28 L
+bm_L1<-c(L1$biomass,
+        (77.0321/0.0625)*0.28*1e6, #Hojarasca
+        mean(L1[L1$taxa!="fungi"&L1$taxa!="bac"&L1$taxa!="proto",]$biomass)*0.05, #Carroña
+        1*1e6,#2.25*0.0273*1.2*50000*1e6,#Tej_veg
+        0.4*0.0273*1.2*50000*1e6)/1e6#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
+bm_R1<-c(R1$biomass,
+        55.753/0.065*0.37*1e6, #Hojarasca
+        mean(R1[R1$taxa!="fungi"&R1$taxa!="bac"&R1$taxa!="proto",]$biomass)*0.05, #carroña
+        1*1e6,#2.25*0.0352*1.2*50000*1e6, #tej_veg
+        0.4*0.0352*1.2*50000*1e6)/1e6 #"humus" = POM = 0.4MO
+bm_P1<-c(P1$biomass,
+        (58.63/0.0625)*0.32*1e6, #Hojarasca
+        mean(P1[P1$taxa!="fungi"&P1$taxa!="bac"&P1$taxa!="proto",]$biomass)*0.05, #carroña
+        1*1e6,#2.25*0.0352*1.2*50000*1e6, #Tej_veg
+        0.4*0.0309*1.2*50000*1e6)/1e6 #Humus
+
+bm_L2<-c(L2$biomass,
+        (77.0321/0.0625)*0.28*1e6, #Hojarasca
+        mean(L2[L2$taxa!="fungi"&L2$taxa!="bac"&L2$taxa!="proto",]$biomass)*0.05, #Carroña
+        1*1e6,#2.25*0.0273*1.2*50000*1e6,#Tej_veg
+        0.4*0.0273*1.2*50000*1e6)/1e6#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
+bm_R2<-c(R2$biomass,
+        55.753/0.065*0.37*1e6, #Hojarasca
+        mean(R2[R2$taxa!="fungi"&R2$taxa!="bac"&R2$taxa!="proto",]$biomass)*0.05, #carroña
+        1*1e6,#2.25*0.0352*1.2*50000*1e6, #tej_veg
+        0.4*0.0352*1.2*50000*1e6)/1e6 #"humus" = POM = 0.4MO
+bm_P2<-c(P2$biomass,
+        (58.63/0.0625)*0.32*1e6, #Hojarasca
+        mean(P2[P2$taxa!="fungi"&P2$taxa!="bac"&P2$taxa!="proto",]$biomass)*0.05, #carroña
+        1*1e6,#2.25*0.0352*1.2*50000*1e6, #Tej_veg
+        0.4*0.0309*1.2*50000*1e6)/1e6 #Humus
+
+bm_L3<-c(L3$biomass,
+        (77.0321/0.0625)*0.28*1e6, #Hojarasca
+        mean(L3[L3$taxa!="fungi"&L3$taxa!="bac"&L3$taxa!="proto",]$biomass)*0.05, #Carroña
+        1*1e6,#2.25*0.0273*1.2*50000*1e6,#Tej_veg
+        0.4*0.0273*1.2*50000*1e6)/1e6#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
+bm_R3<-c(R3$biomass,
+        55.753/0.065*0.37*1e6, #Hojarasca
+        mean(R3[R3$taxa!="fungi"&R3$taxa!="bac"&R3$taxa!="proto",]$biomass)*0.05, #carroña
+        1*1e6,#2.25*0.0352*1.2*50000*1e6, #tej_veg
+        0.4*0.0352*1.2*50000*1e6)/1e6 #"humus" = POM = 0.4MO
+bm_P3<-c(P3$biomass,
+        (58.63/0.0625)*0.32*1e6, #Hojarasca
+        mean(P3[P3$taxa!="fungi"&P3$taxa!="bac"&P3$taxa!="proto",]$biomass)*0.05, #carroña
+        1*1e6,#2.25*0.0352*1.2*50000*1e6, #Tej_veg
+        0.4*0.0309*1.2*50000*1e6)/1e6 #Humus
+
+#Pesos corporales####
+body_L1<-c(L1$body/1e6,1,1,1,1)
+body_R1<-c(R1$body/1e6,1,1,1,1)
+body_P1<-c(P1$body/1e6,1,1,1,1)
+
+
+ef_L1<-c(L1$ef,1,1,1,1)
+ef_P1<-c(P1$ef,1,1,1,1)
+ef_R1<-c(R1$ef,1,1,1,1)
+
+
+t_metR1<- 17.17*body_R1^(-0.29)
+t_metR1[is.na(t_metR1)|t_metR1==Inf]<-0
+t_metP1<- 17.17*body_P1^(-0.29)
+t_metP1[is.na(t_metP1)|t_metP1==Inf]<-0
+t_metL1<- 17.17*body_L1^(-0.29)
+t_metL1[is.na(t_metL1)|t_metL1==Inf]<-0
+
+body_L2<-c(L2$body/1e6,1,1,1,1)
+body_R2<-c(R2$body/1e6,1,1,1,1)
+body_P2<-c(P2$body/1e6,1,1,1,1)
+
+
+ef_L2<-c(L2$ef,1,1,1,1)
+ef_P2<-c(P2$ef,1,1,1,1)
+ef_R2<-c(R2$ef,1,1,1,1)
+
+
+t_metR2<- 17.17*body_R2^(-0.29)
+t_metR2[is.na(t_metR2)|t_metR2==Inf]<-0
+t_metP2<- 17.17*body_P2^(-0.29)
+t_metP2[is.na(t_metP2)|t_metP2==Inf]<-0
+t_metL2<- 17.17*body_L2^(-0.29)
+t_metL2[is.na(t_metL2)|t_metL2==Inf]<-0
+
+body_L3<-c(L3$body/1e6,1,1,1,1)
+body_R3<-c(R3$body/1e6,1,1,1,1)
+body_P3<-c(P3$body/1e6,1,1,1,1)
+
+
+ef_L3<-c(L3$ef,1,1,1,1)
+ef_P3<-c(P3$ef,1,1,1,1)
+ef_R3<-c(R3$ef,1,1,1,1)
+
+
+t_metR3<- 17.17*body_R3^(-0.29)
+t_metR3[is.na(t_metR3)|t_metR3==Inf]<-0
+t_metP3<- 17.17*body_P3^(-0.29)
+t_metP3[is.na(t_metP3)|t_metP3==Inf]<-0
+t_metL3<- 17.17*body_L3^(-0.29)
+t_metL3[is.na(t_metL3)|t_metL3==Inf]<-0
+
+#reducido Lujan####
+
+meso.reduc<-c("juvenil","Aporrectodea caliginosa",
+     "Aporrectodea rosea","Aporrectodea trapezoides",
+     "Bimastos beddardi sophiae","Bimastos parvus",
+     "Eukerria halophila","Glossoscolex sp.","Octalasion lacteum", "Microscolex dubius",
+     "Eukerria stagnalis","Microscolex phosphoreus","Octalasion cyaneum","Octolasion tyrtaeum","bac","fungi","alycidae", "brachychthonioidea","crotonioidea",
+        "oribatido","limnozetidae",
+   "ceratozetoidea","entomobridae",
+  "epilhomanioidea","eremobelbidae","galumnidae",
+   "isotomidae","macropilina",
+  "nem_bacterivoro", "nem_fitofago","nem_fungivoro","onichiuridae","oppioidea",
+  "oribatulidae",
+  "oripodidae","scheloribatidae","symphypleona",
+  "ameroseidae","arctacaridae","bdelloidea","cunaxide","dermanisoidea","eviphididae",
+  "ichtyostomatogasteridae", "laelapidae", "nem_predador","mesostigmata",
+  "ologamasidae","parasitidae","rhagidiidae","rhodacarioidea",
+  "teneriffidae",
+  "trombidiidae", "uropodoidea","veigaioidea","eupthiracaroidea","limnozetidae",
+  "astigmata","hipogastruridae","nem_omnivor","anystidae","eupodoidea","penthalidae",
+  "tarsonemidae","tydeioidea","proto")
+
+
+Rf.r1<-R1[R1$taxa%in%meso.reduc,]
+Pf.r1<-P1[P1$taxa%in%meso.reduc,]
+Lf.r1<-L1[L1$taxa%in%meso.reduc,]
+
+Rf.r1[Rf.r1$taxa=="nem_bacterivoro","body"]<-1.854
+Rf.r1[Rf.r1$taxa=="nem_fungivoro","body"]<-5.184
+Rf.r1[Rf.r1$taxa=="nem_fitofago","body"]<-1.02
+Rf.r1[Rf.r1$taxa=="nem_omnivor","body"]<-16.89
+Rf.r1[Rf.r1$taxa=="nem_predador","body"]<-4.58
+
+Pf.r1[Pf.r1$taxa=="nem_bacterivoro","body"]<-1.854
+Pf.r1[Pf.r1$taxa=="nem_fungivoro","body"]<-5.184
+Pf.r1[Pf.r1$taxa=="nem_fitofago","body"]<-1.02
+Pf.r1[Pf.r1$taxa=="nem_omnivor","body"]<-16.89
+Pf.r1[Pf.r1$taxa=="nem_predador","body"]<-4.58
+
+Lf.r1[Lf.r1$taxa=="nem_bacterivoro","body"]<-1.854
+Lf.r1[Lf.r1$taxa=="nem_fungivoro","body"]<-5.184
+Lf.r1[Lf.r1$taxa=="nem_fitofago","body"]<-1.02
+Lf.r1[Lf.r1$taxa=="nem_omnivor","body"]<-16.89
+Lf.r1[Lf.r1$taxa=="nem_predador","body"]<-4.58
+
+Rf.r1[Rf.r1$taxa=="nem_bacterivoro","biomass"]<-4.47e8*0.02*0.3
+Rf.r1[Rf.r1$taxa=="nem_fungivoro","biomass"]<-4.47e8*0.02*0.4
+Rf.r1[Rf.r1$taxa=="nem_fitofago","biomass"]<-4.47e8*0.02*0.14
+Rf.r1[Rf.r1$taxa=="nem_omnivor","biomass"]<-4.47e8*0.02*0.08
+Rf.r1[Rf.r1$taxa=="nem_predador","biomass"]<-4.47e8*0.02*0.08
+
+Pf.r1[Pf.r1$taxa=="nem_bacterivoro","biomass"]<-3.39e8*0.02*0.3
+Pf.r1[Pf.r1$taxa=="nem_fungivoro","biomass"]<-3.39e8*0.02*0.4
+Pf.r1[Pf.r1$taxa=="nem_fitofago","biomass"]<-3.39e8*0.02*0.14
+Pf.r1[Pf.r1$taxa=="nem_omnivor","biomass"]<-3.39e8*0.02*0.08
+Pf.r1[Pf.r1$taxa=="nem_predador","biomass"]<-3.39e8*0.02*0.08
+
+Lf.r1[Lf.r1$taxa=="nem_bacterivoro","biomass"]<-2.26e8*0.02*0.3
+Lf.r1[Lf.r1$taxa=="nem_fungivoro","biomass"]<-2.26e8*0.02*0.4
+Lf.r1[Lf.r1$taxa=="nem_fitofago","biomass"]<-2.26e8*0.02*0.14
+Lf.r1[Lf.r1$taxa=="nem_omnivor","biomass"]<-2.26e8*0.02*0.08
+Lf.r1[Lf.r1$taxa=="nem_predador","biomass"]<-2.26e8*0.02*0.08
+
+#Biomasa hetero 2.26e+08 Lote; 3.39e+08 pastizal; 4.47e+08 reserva
+
+#biomasas red####
+#todos excepto carroña y humus igual a uno, para fines de comparacion entre sistemas y localidads
+bm_Lf.r1<-c(Lf.r1$biomass,
+        1*1e6, #Hojarasca
+        mean(Lf.r1[Lf.r1$taxa!="fungi"&Lf.r1$taxa!="bac"&Lf.r1$taxa!="proto",]$biomass)*0.05, #Carroña
+        #1*1e6,#carroña
+        1*1e6,#2.25*0.0273*1.2*50000*1e6,#Tej_ve
+        #1*1e6 #hummus)
+        0.4*0.0273*1.2*50000*1e6)/1e6#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
+      
+
+bm_Rf.r1<-c(Rf.r1$biomass,
+        1*1e6, #Hojarasca
+        mean(Rf.r1[Rf.r1$taxa!="fungi"&Rf.r1$taxa!="bac"&Rf.r1$taxa!="proto",]$biomass)*0.05, #carroña1*1e6,
+        #1*1e6,
+        1*1e6, #2.25*0.0352*1.2*50000*1e6, #tej_veg
+       # mean(Rf.r[Rf.r$taxa!="fungi"&Rf.r$taxa!="bac"&Rf.r$taxa!="proto",]$biomass)*0.05, #carroña
+       0.4*0.0352*1.2*50000*1e6)/1e6 #"humus" = POM = 0.4MO
+
+
+bm_Pf.r1<-c(Pf.r1$biomass,
+        1*1e6, #Hojarasca
+        mean(Pf.r1[Pf.r1$taxa!="fungi"&Pf.r1$taxa!="bac"&Pf.r1$taxa!="proto",]$biomass)*0.05, #carroña
+        1*1e6,#2.25*0.0352*1.2*50000*1e6, #Tej_veg
+       #1*1e6,
+       0.4*0.0309*1.2*50000*1e6)/1e6 #Humus
+
+
+#Pesos corporales####
+body_Lf.r1<-c(Lf.r1$body/1e6,1,1,1,1)
+body_Rf.r1<-c(Rf.r1$body/1e6,1,1,1,1)
+body_Pf.r1<-c(Pf.r1$body/1e6,1,1,1,1)
+
+
+ef_Lf.r1<-c(Lf.r1$ef,1,1,1,1)
+ef_Pf.r1<-c(Pf.r1$ef,1,1,1,1)
+ef_Rf.r1<-c(Rf.r1$ef,1,1,1,1)
+
+
+t_metRf.r1<- 17.17*body_Rf.r1^(-0.29)
+t_metRf.r1[is.na(t_metRf.r1)|t_metRf.r1==Inf]<-0
+t_metPf.r1<- 17.17*body_Pf.r1^(-0.29)
+t_metPf.r1[is.na(t_metPf.r1)|t_metPf.r1==Inf]<-0
+t_metLf.r1<- 17.17*body_Lf.r1^(-0.29)
+t_metLf.r1[is.na(t_metLf.r1)|t_metLf.r1==Inf]<-0
+
+
+#2
+Rf.r2<-R2[R2$taxa%in%meso.reduc,]
+Pf.r2<-P2[P2$taxa%in%meso.reduc,]
+Lf.r2<-L2[L2$taxa%in%meso.reduc,]
+
+Rf.r2[Rf.r2$taxa=="nem_bacterivoro","body"]<-1.854
+Rf.r2[Rf.r2$taxa=="nem_fungivoro","body"]<-5.184
+Rf.r2[Rf.r2$taxa=="nem_fitofago","body"]<-1.02
+Rf.r2[Rf.r2$taxa=="nem_omnivor","body"]<-16.89
+Rf.r2[Rf.r2$taxa=="nem_predador","body"]<-4.58
+
+Pf.r2[Pf.r2$taxa=="nem_bacterivoro","body"]<-1.854
+Pf.r2[Pf.r2$taxa=="nem_fungivoro","body"]<-5.184
+Pf.r2[Pf.r2$taxa=="nem_fitofago","body"]<-1.02
+Pf.r2[Pf.r2$taxa=="nem_omnivor","body"]<-16.89
+Pf.r2[Pf.r2$taxa=="nem_predador","body"]<-4.58
+
+Lf.r2[Lf.r2$taxa=="nem_bacterivoro","body"]<-1.854
+Lf.r2[Lf.r2$taxa=="nem_fungivoro","body"]<-5.184
+Lf.r2[Lf.r2$taxa=="nem_fitofago","body"]<-1.02
+Lf.r2[Lf.r2$taxa=="nem_omnivor","body"]<-16.89
+Lf.r2[Lf.r2$taxa=="nem_predador","body"]<-4.58
+
+Rf.r2[Rf.r2$taxa=="nem_bacterivoro","biomass"]<-4.47e8*0.02*0.3
+Rf.r2[Rf.r2$taxa=="nem_fungivoro","biomass"]<-4.47e8*0.02*0.4
+Rf.r2[Rf.r2$taxa=="nem_fitofago","biomass"]<-4.47e8*0.02*0.14
+Rf.r2[Rf.r2$taxa=="nem_omnivor","biomass"]<-4.47e8*0.02*0.08
+Rf.r2[Rf.r2$taxa=="nem_predador","biomass"]<-4.47e8*0.02*0.08
+
+Pf.r2[Pf.r2$taxa=="nem_bacterivoro","biomass"]<-3.39e8*0.02*0.3
+Pf.r2[Pf.r2$taxa=="nem_fungivoro","biomass"]<-3.39e8*0.02*0.4
+Pf.r2[Pf.r2$taxa=="nem_fitofago","biomass"]<-3.39e8*0.02*0.14
+Pf.r2[Pf.r2$taxa=="nem_omnivor","biomass"]<-3.39e8*0.02*0.08
+Pf.r2[Pf.r2$taxa=="nem_predador","biomass"]<-3.39e8*0.02*0.08
+
+Lf.r2[Lf.r2$taxa=="nem_bacterivoro","biomass"]<-2.26e8*0.02*0.3
+Lf.r2[Lf.r2$taxa=="nem_fungivoro","biomass"]<-2.26e8*0.02*0.4
+Lf.r2[Lf.r2$taxa=="nem_fitofago","biomass"]<-2.26e8*0.02*0.14
+Lf.r2[Lf.r2$taxa=="nem_omnivor","biomass"]<-2.26e8*0.02*0.08
+Lf.r2[Lf.r2$taxa=="nem_predador","biomass"]<-2.26e8*0.02*0.08
+
+#Biomasa hetero 2.26e+08 Lote; 3.39e+08 pastizal; 4.47e+08 reserva
+
+#biomasas red####
+#todos excepto carroña y humus igual a uno, para fines de comparacion entre sistemas y localidads
+bm_Lf.r2<-c(Lf.r2$biomass,
+        1*1e6, #Hojarasca
+        mean(Lf.r2[Lf.r2$taxa!="fungi"&Lf.r2$taxa!="bac"&Lf.r2$taxa!="proto",]$biomass)*0.05, #Carroña
+        #1*1e6,#carroña
+        1*1e6,#2.25*0.0273*1.2*50000*1e6,#Tej_ve
+        #1*1e6 #hummus)
+        0.4*0.0273*1.2*50000*1e6)/1e6#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
+      
+
+bm_Rf.r2<-c(Rf.r2$biomass,
+        1*1e6, #Hojarasca
+        mean(Rf.r2[Rf.r2$taxa!="fungi"&Rf.r2$taxa!="bac"&Rf.r2$taxa!="proto",]$biomass)*0.05, #carroña1*1e6,
+        #1*1e6,
+        1*1e6, #2.25*0.0352*1.2*50000*1e6, #tej_veg
+       # mean(Rf.r[Rf.r$taxa!="fungi"&Rf.r$taxa!="bac"&Rf.r$taxa!="proto",]$biomass)*0.05, #carroña
+       0.4*0.0352*1.2*50000*1e6)/1e6 #"humus" = POM = 0.4MO
+
+
+bm_Pf.r2<-c(Pf.r2$biomass,
+        1*1e6, #Hojarasca
+        mean(Pf.r2[Pf.r2$taxa!="fungi"&Pf.r2$taxa!="bac"&Pf.r2$taxa!="proto",]$biomass)*0.05, #carroña
+        1*1e6,#2.25*0.0352*1.2*50000*1e6, #Tej_veg
+       #1*1e6,
+       0.4*0.0309*1.2*50000*1e6)/1e6 #Humus
+
+
+#Pesos corporales####
+body_Lf.r2<-c(Lf.r2$body/1e6,1,1,1,1)
+body_Rf.r2<-c(Rf.r2$body/1e6,1,1,1,1)
+body_Pf.r2<-c(Pf.r2$body/1e6,1,1,1,1)
+
+
+ef_Lf.r2<-c(Lf.r2$ef,1,1,1,1)
+ef_Pf.r2<-c(Pf.r2$ef,1,1,1,1)
+ef_Rf.r2<-c(Rf.r2$ef,1,1,1,1)
+
+
+t_metRf.r2<- 17.17*body_Rf.r2^(-0.29)
+t_metRf.r2[is.na(t_metRf.r2)|t_metRf.r2==Inf]<-0
+t_metPf.r2<- 17.17*body_Pf.r2^(-0.29)
+t_metPf.r2[is.na(t_metPf.r2)|t_metPf.r2==Inf]<-0
+t_metLf.r2<- 17.17*body_Lf.r2^(-0.29)
+t_metLf.r2[is.na(t_metLf.r2)|t_metLf.r2==Inf]<-0
+
+
+#3
+Rf.r3<-R3[R3$taxa%in%meso.reduc,]
+Pf.r3<-P3[P3$taxa%in%meso.reduc,]
+Lf.r3<-L3[L3$taxa%in%meso.reduc,]
+
+Rf.r3[Rf.r3$taxa=="nem_bacterivoro","body"]<-1.854
+Rf.r3[Rf.r3$taxa=="nem_fungivoro","body"]<-5.184
+Rf.r3[Rf.r3$taxa=="nem_fitofago","body"]<-1.02
+Rf.r3[Rf.r3$taxa=="nem_omnivor","body"]<-16.89
+Rf.r3[Rf.r3$taxa=="nem_predador","body"]<-4.58
+
+Pf.r3[Pf.r3$taxa=="nem_bacterivoro","body"]<-1.854
+Pf.r3[Pf.r3$taxa=="nem_fungivoro","body"]<-5.184
+Pf.r3[Pf.r3$taxa=="nem_fitofago","body"]<-1.02
+Pf.r3[Pf.r3$taxa=="nem_omnivor","body"]<-16.89
+Pf.r3[Pf.r3$taxa=="nem_predador","body"]<-4.58
+
+Lf.r3[Lf.r3$taxa=="nem_bacterivoro","body"]<-1.854
+Lf.r3[Lf.r3$taxa=="nem_fungivoro","body"]<-5.184
+Lf.r3[Lf.r3$taxa=="nem_fitofago","body"]<-1.02
+Lf.r3[Lf.r3$taxa=="nem_omnivor","body"]<-16.89
+Lf.r3[Lf.r3$taxa=="nem_predador","body"]<-4.58
+
+Rf.r3[Rf.r3$taxa=="nem_bacterivoro","biomass"]<-4.47e8*0.02*0.3
+Rf.r3[Rf.r3$taxa=="nem_fungivoro","biomass"]<-4.47e8*0.02*0.4
+Rf.r3[Rf.r3$taxa=="nem_fitofago","biomass"]<-4.47e8*0.02*0.14
+Rf.r3[Rf.r3$taxa=="nem_omnivor","biomass"]<-4.47e8*0.02*0.08
+Rf.r3[Rf.r3$taxa=="nem_predador","biomass"]<-4.47e8*0.02*0.08
+
+Pf.r3[Pf.r3$taxa=="nem_bacterivoro","biomass"]<-3.39e8*0.02*0.3
+Pf.r3[Pf.r3$taxa=="nem_fungivoro","biomass"]<-3.39e8*0.02*0.4
+Pf.r3[Pf.r3$taxa=="nem_fitofago","biomass"]<-3.39e8*0.02*0.14
+Pf.r3[Pf.r3$taxa=="nem_omnivor","biomass"]<-3.39e8*0.02*0.08
+Pf.r3[Pf.r3$taxa=="nem_predador","biomass"]<-3.39e8*0.02*0.08
+
+Lf.r3[Lf.r3$taxa=="nem_bacterivoro","biomass"]<-2.26e8*0.02*0.3
+Lf.r3[Lf.r3$taxa=="nem_fungivoro","biomass"]<-2.26e8*0.02*0.4
+Lf.r3[Lf.r3$taxa=="nem_fitofago","biomass"]<-2.26e8*0.02*0.14
+Lf.r3[Lf.r3$taxa=="nem_omnivor","biomass"]<-2.26e8*0.02*0.08
+Lf.r3[Lf.r3$taxa=="nem_predador","biomass"]<-2.26e8*0.02*0.08
+
+#Biomasa hetero 2.26e+08 Lote; 3.39e+08 pastizal; 4.47e+08 reserva
+
+#biomasas red####
+#todos excepto carroña y humus igual a uno, para fines de comparacion entre sistemas y localidads
+bm_Lf.r3<-c(Lf.r3$biomass,
+        1*1e6, #Hojarasca
+        mean(Lf.r3[Lf.r3$taxa!="fungi"&Lf.r3$taxa!="bac"&Lf.r3$taxa!="proto",]$biomass)*0.05, #Carroña
+        #1*1e6,#carroña
+        1*1e6,#2.25*0.0273*1.2*50000*1e6,#Tej_ve
+        #1*1e6 #hummus)
+        0.4*0.0273*1.2*50000*1e6)/1e6#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
+      
+
+bm_Rf.r3<-c(Rf.r3$biomass,
+        1*1e6, #Hojarasca
+        mean(Rf.r3[Rf.r3$taxa!="fungi"&Rf.r3$taxa!="bac"&Rf.r3$taxa!="proto",]$biomass)*0.05, #carroña1*1e6,
+        #1*1e6,
+        1*1e6, #2.25*0.0352*1.2*50000*1e6, #tej_veg
+       # mean(Rf.r[Rf.r$taxa!="fungi"&Rf.r$taxa!="bac"&Rf.r$taxa!="proto",]$biomass)*0.05, #carroña
+       0.4*0.0352*1.2*50000*1e6)/1e6 #"humus" = POM = 0.4MO
+
+
+bm_Pf.r3<-c(Pf.r3$biomass,
+        1*1e6, #Hojarasca
+        mean(Pf.r3[Pf.r3$taxa!="fungi"&Pf.r3$taxa!="bac"&Pf.r3$taxa!="proto",]$biomass)*0.05, #carroña
+        1*1e6,#2.25*0.0352*1.2*50000*1e6, #Tej_veg
+       #1*1e6,
+       0.4*0.0309*1.2*50000*1e6)/1e6 #Humus
+
+
+#Pesos corporales####
+body_Lf.r3<-c(Lf.r3$body/1e6,1,1,1,1)
+body_Rf.r3<-c(Rf.r3$body/1e6,1,1,1,1)
+body_Pf.r3<-c(Pf.r3$body/1e6,1,1,1,1)
+
+
+ef_Lf.r3<-c(Lf.r3$ef,1,1,1,1)
+ef_Pf.r3<-c(Pf.r3$ef,1,1,1,1)
+ef_Rf.r3<-c(Rf.r3$ef,1,1,1,1)
+
+
+t_metRf.r3<- 17.17*body_Rf.r3^(-0.29)
+t_metRf.r3[is.na(t_metRf.r3)|t_metRf.r3==Inf]<-0
+t_metPf.r3<- 17.17*body_Pf.r3^(-0.29)
+t_metPf.r3[is.na(t_metPf.r3)|t_metPf.r3==Inf]<-0
+t_metLf.r3<- 17.17*body_Lf.r3^(-0.29)
+t_metLf.r3[is.na(t_metLf.r3)|t_metLf.r3==Inf]<-0
+
+```
+
+```{r datosRO, include=FALSE,message=FALSE, warning=FALSE}
+
+#representan 166 registros macrofauna / 8662 registros totales
+#lombrices 1454 / 8662 totales, pero correctamente muestreados
+#densidad suelo 1,2g/cm2, volumen 1e5 cm3, peso suelo, 120 000 g suelo
+#(resp*100)/24; resp*4,167; 1200 suelo/100g suelo; 20600 ug/100g suelo;
+#resp*4.167*1200*20600= resp*103008240
+
+completo$biomasaheterotrofa<-completo$RESP*103008240
+#sin filtrar por estacion
+#base<-completo%>%filter(class!="macrofauna")
+#por estacion otoño, para comparar
+base<-completo%>%filter(class!="macrofauna",season=="O")
+#Es el factor de conversión para llevar las abundancias a densidad
+
+#Densidad de los demás es 2.5²*3.14 = n()/0,00471 
+sup.bocado <- 1/(pi*2.5^2/10000)
+#Densidad de lombrice en 25*25 = a n()/0.0625
+sup.monolito <- 1/(0.25*0.25)
+
+
+#ro por sitio###### 
+
+#A partir de aqui determina las abundancias
+base.sitio<-base%>%group_by(system,site,class,order,specie) %>%
+  summarise(abundance=n(), bio.ind=mean(biomass),
+            bm=(max(biomasaheterotrofa)),POM=mean(POM))%>%distinct(specie,.keep_all=TRUE)
+#bm=(mean(bm))
+#densidad y biomasa
+ab.sitio<-base.sitio%>%
+  mutate(D=case_when(order=="crassiclitellata"~sup.monolito*abundance,
+                     order!="crassiclitellata"~sup.bocado*abundance),
+         BT=case_when(order=="crassiclitellata"~sup.monolito*abundance*bio.ind,
+                      order!="crassiclitellata"~sup.bocado*abundance*bio.ind))
+
+#acá agrego biomasa microbiana total, como bmt, pero la biomasa disponible la dejo en 50% como bm, 
+#ya que es el criterio anteriormente dado. 
+#entonces hongos y bacterias trabajan sobre el 45% y microfauna sobre el 5%
+#buscar las citas con estas relaciones
+base1 <-ab.sitio %>% group_by(system,site) %>%  
+  summarise(humus=mean(POM),bmt=(mean(bm)))%>% 
+  mutate(bacteria=case_when(system=="A"~bmt*0.45*0.35,
+                            system=="G"~bmt*0.45*0.3,system=="N"~bmt*0.45*0.25),
+         hongo=(bmt*0.45)-bacteria,
+         microfauna=(0.03*bmt), #3% microfauna, 2% nemátodos
+         nem_f=(0.02*bmt*0.4),nem_b=(0.02*bmt*0.3),nem_phy=(0.02*bmt*0.14),
+         nem_pr=(0.02*bmt*0.08),nem_om=(0.02*bmt*0.08))%>%distinct(site,.keep_all=TRUE)
+
+# matriz red
+mRO<-ab.sitio[,c("system","site","specie","bio.ind","D","BT")]
+mRO_rec<-base1%>% 
+  pivot_longer(cols = c("humus","bacteria","hongo","microfauna","nem_f",
+                        "nem_b","nem_phy","nem_pr","nem_om"),
+              names_to = "specie",
+              values_to = "BT"
+              )
+#en pivot longer no usar, distinct(site,.keep_all=TRUE), porque elimina las observaciones con las
+#mismas filas y columnas
+
+#en microgramos
+{mRO_rec$bio.ind<-NA
+mRO_rec[mRO_rec$specie=="humus","bio.ind"]<-1*1e6
+#mRO_rec[mRO_rec$specie=="humus","BT"]<-1*1e6 #aca iria el calculo con la MO%*0.5
+mRO_rec[mRO_rec$specie=="bacteria","bio.ind"]<-9.5e-4
+mRO_rec[mRO_rec$specie=="hongo","bio.ind"]<-2.3e-1
+mRO_rec[mRO_rec$specie=="microfauna","bio.ind"]<-1.1121e-3 #3.3363e-1 # este sale de promediar, 
+                                          #lo que los protozoos "pesan"
+
+#para los nemátodos utilizo el promedio GLOBAL de peso de los encontrados en suelos de Luján
+
+#fitófago, luján 1.02ug, 
+#fungivoro, luján 5,184 ug, 
+#bacterivoro, luján 1,854, 
+#omnivoro, luján 16,89 ug, 
+#predador, luján 4,58 ug, 
+mRO_rec[mRO_rec$specie=="nem_b","bio.ind"]<-1.854
+mRO_rec[mRO_rec$specie=="nem_f","bio.ind"]<-5.184
+mRO_rec[mRO_rec$specie=="nem_phy","bio.ind"]<-1.02
+mRO_rec[mRO_rec$specie=="nem_om","bio.ind"]<-16.89
+mRO_rec[mRO_rec$specie=="nem_pr","bio.ind"]<-4.58
+
+#elijo solo los recursos y le asigno nombre
+
+mRO_rec$D<-mRO_rec$BT/mRO_rec$bio.ind}
+mRO_rec<-mRO_rec[c("system","site","specie","bio.ind","D","BT")]
+
+#matriz Rosana. Completo con recursos
+mRO<-rbind(mRO,mRO_rec)
+#corregir nombres de taxas para que sean simlares
+{
+mRO$specie[mRO$specie=="acaroidea"]<-"astigmata"
+mRO$specie[mRO$specie=="Apo_cal"]<-"Aporrectodea caliginosa"
+mRO$specie[mRO$specie=="Apo_ros"]<-"Aporrectodea rosea"
+mRO$specie[mRO$specie=="Apo_tra"]<-"Aporrectodea trapezoides"
+mRO$specie[mRO$specie=="hongo"]<-"fungi"
+mRO$specie[mRO$specie=="bacteria"]<-"bac"
+mRO$specie[mRO$specie=="dermanyssoidea"]<-"dermanisoidea"
+mRO$specie[mRO$specie=="entomobroidea"]<-"entomobridae"
+mRO$specie[mRO$specie=="epilohmannioidea"]<-"epilhomanioidea"
+mRO$specie[mRO$specie=="euker"]<-"Eukerria stagnalis" #agregar
+mRO$specie[mRO$specie=="euphthiracaroidea"]<-"eupthiracaroidea"
+mRO$specie[mRO$specie=="galumnioidea"]<-"galumnidae"
+mRO$specie[mRO$specie=="humus"]<-"hummus"
+mRO$specie[mRO$specie=="hypogastruridae"]<-"hipogastruridae"
+mRO$specie[mRO$specie=="lom_juv"]<-"juvenil"
+mRO$specie[mRO$specie=="Mic_pho"]<-"Microscolex phosphoreus"
+mRO$specie[mRO$specie=="Mic_dub"]<-"Microscolex dubius" #agregar
+mRO$specie[mRO$specie=="microfauna"]<-"proto"
+mRO$specie[mRO$specie=="nem_b"]<-"nem_bacterivoro"
+mRO$specie[mRO$specie=="nem_f"]<-"nem_fungivoro"
+mRO$specie[mRO$specie=="nem_phy"]<-"nem_fitofago"
+mRO$specie[mRO$specie=="nem_om"]<-"nem_omnivor"
+mRO$specie[mRO$specie=="nem_pr"]<-"nem_predador"
+mRO$specie[mRO$specie=="octacy"]<-"Octalasion cyaneum"
+mRO$specie[mRO$specie=="octala"]<-"Octalasion lacteum" #agregar
+mRO$specie[mRO$specie=="onychiuridae"]<-"onichiuridae"
+#oribatido agregar
+mRO$specie[mRO$specie=="oripodoidea"]<-"oripodidae"
+mRO$specie[mRO$specie=="parasitoidea"]<-"parasitidae"
+mRO$specie[mRO$specie=="rhodacaroidea"]<-"rhodacarioidea"
+mRO$specie[mRO$specie=="trombidioidea"]<-"trombidiidae"
+mRO$specie[mRO$specie=="tydeoidea"]<-"tydeioidea"
+
+}
+
+webRO<-mRO%>%
+  group_by(system,site,specie)%>%
+  summarise(body=mean(bio.ind,na.rm=TRUE),
+            d=mean(D,na.rm=TRUE),
+            biomass=mean(BT,na.rm=TRUE))
+#reemplazo nombre hummus por humus
+
+webRO$ef<-NA
+webRO$ef[webRO$specie%in%mf]<-0.35
+webRO$ef[webRO$specie%in%micf]<-0.4
+webRO$ef[webRO$specie%in%pred]<-0.7
+webRO$ef[webRO$specie%in%det]<-0.25
+webRO$ef[webRO$specie%in%omn]<-0.25
+webRO$ef[webRO$specie=="hummus"]<-1
+
+
+N1<-webRO%>%filter(system=="N",site=="festuca")
+G1<-webRO%>%filter(system=="G",site=="L24")
+A1<-webRO%>%filter(system=="A",site=="casuarina")
+
+N2<-webRO%>%filter(system=="N",site=="romina")
+G2<-webRO%>%filter(system=="G",site=="L27")
+A2<-webRO%>%filter(system=="A",site=="manga")
+
+N3<-webRO%>%filter(system=="N",site=="triangulo")
+G3<-webRO%>%filter(system=="G",site=="L25")
+A3<-webRO%>%filter(system=="A",site=="molino")
+
+#Pesos corporales
+body_N1<-c(N1$body/1e6,1,1,1)
+body_G1<-c(G1$body/1e6,1,1,1)
+body_A1<-c(A1$body/1e6,1,1,1)
+
+#eficiencias
+
+ef_N1<-c(N1$ef,1,1,1)
+ef_N1[is.na(ef_N1)]<-1
+ef_G1<-c(G1$ef,1,1,1)
+ef_G1[is.na(ef_G1)]<-1
+ef_A1<-c(A1$ef,1,1,1)
+ef_A1[is.na(ef_A1)]<-1
+
+t_metN1<- 17.17*body_N1^(-0.29)
+t_metN1[is.na(t_metN1)|t_metN1==Inf]<-0
+t_metG1<- 17.17*body_G1^(-0.29)
+t_metG1[is.na(t_metG1)|t_metG1==Inf]<-0
+t_metA1<- 17.17*body_A1^(-0.29)
+t_metA1[is.na(t_metA1)|t_metA1==Inf]<-0
+
+#biomasas
+#el hummus ya se calculó
+#la carroña se calcula igual que en el anterior
+#no informacion sobre los demás
+bm_N1<-c(N1$biomass,
+        1*1e6, #Hojarasca
+       mean(N1[N1$specie!="fungi"&N1$specie!="bac"&N1$specie!="proto",]$biomass)*0.05, #Carroña
+       #1*1e6, #carroña 
+       1*1e6#Tej_veg
+        )/1e6
+
+bm_G1<-c(G1$biomass,
+        1*1e6, #Hojarasca
+        mean(G1[G1$specie!="fungi"&G1$specie!="bac"&G1$specie!="proto",]$biomass)*0.05, #Carroña
+       #mean(G1[!G1$specie%in%c("fungi","bac","proto"),]$biomass)*0.05, #Carroña
+       #1*1e6, #carroña  
+       1*1e6#Tej_veg
+        #G$biomass[G$specie=="hummus"]
+        )/1e6 
+bm_A1<-c(A1$biomass,
+        1*1e6, #Hojarasca
+      mean(A1[A1$specie!="fungi"&A1$specie!="bac"&A1$specie!="proto",]$biomass)*0.05, #Carroña
+      #1*1e6, #carroña  
+       1*1e6#Tej_veg
+)/1e6
+
+
+# 2
+
+
+
+#Pesos corporales
+body_N2<-c(N2$body/1e6,1,1,1)
+body_G2<-c(G2$body/1e6,1,1,1)
+body_A2<-c(A2$body/1e6,1,1,1)
+
+#eficiencias
+
+ef_N2<-c(N2$ef,1,1,1)
+ef_N2[is.na(ef_N2)]<-1
+ef_G2<-c(G2$ef,1,1,1)
+ef_G2[is.na(ef_G2)]<-1
+ef_A2<-c(A2$ef,1,1,1)
+ef_A2[is.na(ef_A2)]<-1
+
+t_metN2<- 17.17*body_N2^(-0.29)
+t_metN2[is.na(t_metN2)|t_metN2==Inf]<-0
+t_metG2<- 17.17*body_G2^(-0.29)
+t_metG2[is.na(t_metG2)|t_metG2==Inf]<-0
+t_metA2<- 17.17*body_A2^(-0.29)
+t_metA2[is.na(t_metA2)|t_metA2==Inf]<-0
+
+#biomasas
+#el hummus ya se calculó
+#la carroña se calcula igual que en el anterior
+#no informacion sobre los demás
+bm_N2<-c(N2$biomass,
+        1*1e6, #Hojarasca
+       mean(N2[N2$specie!="fungi"&N2$specie!="bac"&N2$specie!="proto",]$biomass)*0.05, #Carroña
+       #1*1e6, #carroña 
+       1*1e6#Tej_veg
+        )/1e6
+
+bm_G2<-c(G2$biomass,
+        1*1e6, #Hojarasca
+        mean(G2[G2$specie!="fungi"&G2$specie!="bac"&G2$specie!="proto",]$biomass)*0.05, #Carroña
+       #mean(G2[!G2$specie%in%c("fungi","bac","proto"),]$biomass)*0.05, #Carroña
+       #1*1e6, #carroña  
+       1*1e6#Tej_veg
+        #G$biomass[G$specie=="hummus"]
+        )/1e6 
+bm_A2<-c(A2$biomass,
+        1*1e6, #Hojarasca
+      mean(A2[A2$specie!="fungi"&A2$specie!="bac"&A2$specie!="proto",]$biomass)*0.05, #Carroña
+      #1*1e6, #carroña  
+       1*1e6#Tej_veg
+)/1e6
+
+#3    
+
+
+#Pesos corporales
+body_N3<-c(N3$body/1e6,1,1,1)
+body_G3<-c(G3$body/1e6,1,1,1)
+body_A3<-c(A3$body/1e6,1,1,1)
+
+#eficiencias
+
+ef_N3<-c(N3$ef,1,1,1)
+ef_N3[is.na(ef_N3)]<-1
+ef_G3<-c(G3$ef,1,1,1)
+ef_G3[is.na(ef_G3)]<-1
+ef_A3<-c(A3$ef,1,1,1)
+ef_A3[is.na(ef_A3)]<-1
+
+t_metN3<- 17.17*body_N3^(-0.29)
+t_metN3[is.na(t_metN3)|t_metN3==Inf]<-0
+t_metG3<- 17.17*body_G3^(-0.29)
+t_metG3[is.na(t_metG3)|t_metG3==Inf]<-0
+t_metA3<- 17.17*body_A3^(-0.29)
+t_metA3[is.na(t_metA3)|t_metA3==Inf]<-0
+
+#biomasas
+#el hummus ya se calculó
+#la carroña se calcula igual que en el anterior
+#no informacion sobre los demás
+bm_N3<-c(N3$biomass,
+        1*1e6, #Hojarasca
+       mean(N3[N3$specie!="fungi"&N3$specie!="bac"&N3$specie!="proto",]$biomass)*0.05, #Carroña
+       #1*1e6, #carroña 
+       1*1e6#Tej_veg
+        )/1e6
+
+bm_G3<-c(G3$biomass,
+        1*1e6, #Hojarasca
+        mean(G3[G3$specie!="fungi"&G3$specie!="bac"&G3$specie!="proto",]$biomass)*0.05, #Carroña
+       #mean(G2[!G2$specie%in%c("fungi","bac","proto"),]$biomass)*0.05, #Carroña
+       #1*1e6, #carroña  
+       1*1e6#Tej_veg
+        #G$biomass[G$specie=="hummus"]
+        )/1e6 
+bm_A3<-c(A3$biomass,
+        1*1e6, #Hojarasca
+      mean(A3[A3$specie!="fungi"&A3$specie!="bac"&A3$specie!="proto",]$biomass)*0.05, #Carroña
+      #1*1e6, #carroña  
+       1*1e6#Tej_veg
+)/1e6
+
+
+```
+
+```{r Gamma_matrix, include=FALSE,message=FALSE, warning=FALSE}
+# agregados: crotonioidea; Octalasion lacteum; Microscolex dubius;
+# Eukerria stagnalis; brachychthonioidea
+# provenientes de la comunidad Rosana
+
+webG<-web%>%
+  group_by(taxa)%>%
+  distinct(taxa,.keep_all=TRUE)
+
+#vector de nodos
+sp_G<-c("litter","carrion","tej_veg","hummus",
+        "isoptera","crotonioidea","Octalasion lacteum",
+        "Microscolex dubius","Eukerria stagnalis",
+        "brachychthonioidea","oribatido",levels(as.factor(webG$taxa)))
+
+mG<-matrix(nrow = length(sp_G),ncol = length(sp_G),
+           dimnames = list(sp_G,sp_G))
+#reemplazar NA por ceros
+
+mG[is.na(mG)] <- 0
+
+#matriz interacciones####
+#ponderado
+#alto 0.9
+#medio bajo 0.4 
+#medio alto 0.7
+#medio 0.5
+#bajo 0.25
+#muy bajo 0.1
+
+{
+#Microflora#####
+mG["bac",c("hummus","litter","carrion")]<-0.9
+mG["fungi",c("hummus","tej_veg","carrion","litter")]<-0.9
+#Microfauna
+mG["proto",c("bac","proto","tej_veg")]<-0.9
+mG["proto","hummus"]<-0.4
+mG[c("enchytraeida","tardigrado"),c("bac","hummus","proto","fungi")]<-0.9
+mG[c("enchytraeida","tardigrado"),c("hummus")]<-0.7
+mG[c("enchytraeida"),c("litter")]<-0.9
+mG["nem_predador",c("nem_fitofago",
+                    "nem_bacterivoro","nem_fungivoro","proto")]<-0.9
+mG["nem_predador",c("nem_predador","nem_omnivor","tardigrado")]<-0.7
+mG["nem_omnivor",c("nem_fitofago","nem_bacterivoro","nem_fungivoro","proto",
+                   "tardigrado")]<-0.7
+mG["nem_omnivor",c("bac","fungi","hummus")]<-0.4
+mG["nem_fitofago","tej_veg"]<-0.9
+mG["nem_fungivoro","fungi"]<-0.9
+mG["nem_bacterivoro","bac"]<-0.9
+
+
+#lombrices#####
+mG[c("juvenil","Aporrectodea caliginosa",
+     "Aporrectodea rosea","Aporrectodea trapezoides",
+     "Bimastos beddardi sophiae","Bimastos parvus",
+     "Eukerria halophila","Glossoscolex sp.","Octalasion lacteum", "Microscolex dubius",
+     "Eukerria stagnalis","Microscolex phosphoreus","Octalasion cyaneum","Octolasion tyrtaeum"),
+   c("litter","hummus")]<-0.9
+mG[c("juvenil","Aporrectodea caliginosa",
+     "Aporrectodea rosea","Aporrectodea trapezoides",
+     "Bimastos beddardi sophiae","Bimastos parvus",
+     "Eukerria halophila","Glossoscolex sp.","Octalasion lacteum", "Microscolex dubius",
+     "Eukerria stagnalis","Microscolex phosphoreus","Octalasion cyaneum","Octolasion tyrtaeum"),
+   c("bac","fungi","proto")]<-0.7
+#varios####
+mG["astigmata",c("bac","fungi","proto")]<-0.7
+mG["astigmata",c("nem_fitofago","nem_bacterivoro","nem_fungivoro")]<-0.4
+
+mG["coccinelidae",c("aphidoidea","thysanoptera","terebrantia","cicadidae")]<-0.25
+
+mG[c("aphidoidea","coleoptera_suctor","thysanoptera","hemiptero",
+     "cicadidae","ortoptero","terebrantia","embrioptera"),
+   c("tej_veg")]<-0.7 #este aparece, pero tal vez no se alimente¿?
+
+#grandes detritivoros#####
+mG[c("oniscidea","blattodea","diplopoda","gasteropoda",
+     "larva_coleoptero","larva_tenebrionidae","larva_curculionidae",
+     "larva_diptera",
+     "larva_elateridae","larva_scarabidae","larva_sciaridae",
+     "pupa_diptera","trogossitidae","cryptophagidae",
+     "ptilidae","elateriforme","tenebrionidae","anthribidae"),
+   c("fungi")]<-0.9
+mG[c("oniscidea","blattodea","diplopoda","gasteropoda",
+     "larva_coleoptero","larva_tenebrionidae","larva_curculionidae",
+     "larva_diptera",
+     "larva_elateridae","larva_scarabidae","larva_sciaridae",
+     "pupa_diptera","trogossitidae","cryptophagidae",
+     "ptilidae","elateriforme","tenebrionidae","anthribidae"),
+   c("litter","carrion")]<-0.7
+mG[c("oniscidea","blattodea","diplopoda","gasteropoda",
+     "larva_coleoptero","larva_tenebrionidae","larva_curculionidae",
+     "larva_diptera",
+     "larva_elateridae","larva_scarabidae","larva_sciaridae",
+     "pupa_diptera","trogossitidae","cryptophagidae",
+     "ptilidae","elateriforme","tenebrionidae","anthribidae"),
+   c("carrion")]<-0.25
+
+#Mesostigmatas predadores####
+
+#arctacaridae in the review not information of this group
+#Krantz say " it may represent the sister group of the gamasine subcohorrs 
+# Parasitiae and Dermanyssiae, 
+#eviphididae, laelapidae, ologamasidae, parasitidae, veigaioidea
+
+mG[c("arctacaridae","dermanisoidea","eviphididae", 
+     "ichtyostomatogasteridae","laelapidae","ologamasidae", 
+     "parasitidae", "veigaioidea","rhagidiidae","bdelloidea",
+     "cunaxide","teneriffidae","trombidiidae"),
+   c("nem_predador","nem_omnivor","nem_fitofago",
+     "nem_bacterivoro","nem_fungivoro","proto","tardigrado")]<-0.9
+mG[c("arctacaridae","dermanisoidea","eviphididae", 
+     "ichtyostomatogasteridae","laelapidae","ologamasidae", 
+     "parasitidae", "veigaioidea","rhagidiidae","bdelloidea",
+     "cunaxide","teneriffidae","trombidiidae"),
+   c("astigmata","diplura","entomobridae",
+     "hipogastruridae","isotomidae","onichiuridae","protura", "symphyla",
+     "symphypleona")]<-0.7
+
+mG[c("arctacaridae","dermanisoidea","eviphididae", 
+     "ichtyostomatogasteridae","laelapidae","ologamasidae", 
+     "parasitidae", "veigaioidea","rhagidiidae","bdelloidea",
+     "cunaxide","teneriffidae","trombidiidae"),
+   c("enchytraeida","teneriffidae",
+     "alycidae", "anystidae","ameroseidae",
+     "arctacaridae","dermanisoidea","eviphididae", 
+     "ichtyostomatogasteridae","laelapidae","ologamasidae", 
+     "parasitidae", "veigaioidea",
+     "bdelloidea","penthalidae","cunaxide","trombidiidae",
+     "eupodoidea","tydeioidea","alycidae","anystidae","tarsonemidae",
+     "rhodacarioidea","teneriffidae","rhagidiidae",
+     "uropodoidea")]<-0.5
+mG[c("arctacaridae","dermanisoidea","eviphididae", 
+     "ichtyostomatogasteridae","laelapidae","ologamasidae", 
+     "parasitidae", "veigaioidea","rhagidiidae","bdelloidea",
+     "cunaxide","teneriffidae","trombidiidae"),
+   c("limnozetidae","ceratozetoidea",
+     "epilhomanioidea","eremobelbidae","eupthiracaroidea",
+     "galumnidae","oppioidea","oribatulidae",
+     "oripodidae","scheloribatidae","macropilina")]<-0.4
+mG[c("arctacaridae","dermanisoidea","eviphididae", 
+     "ichtyostomatogasteridae","laelapidae","ologamasidae", 
+     "parasitidae", "veigaioidea","rhagidiidae","bdelloidea",
+     "cunaxide","teneriffidae","trombidiidae"),
+   c("larva_diptera",
+     "larva_sciaridae")]<-0.25
+
+#arctacaridae segun Krantz dieta similar a Parasitidae
+#dermanisoidea una amplia superfamilia, en ella estan los Laelapidae, Ascoidea, etc,
+#mesostigmtas nematófagos
+mG[c("uropodoidea","mesostigmata"),c("nem_predador","nem_omnivor","nem_fitofago",
+                   "nem_bacterivoro","nem_fungivoro","proto","tardigrado")]<-0.9
+
+#mesostigmatas pequeños
+mG[c("rhodacarioidea"),
+   c("nem_predador","nem_omnivor","nem_fitofago",
+     "nem_bacterivoro","nem_fungivoro","proto","tardigrado")]<-0.9 #se alimentan solo de colembolos, 
+                                        #evitando acaros
+mG[c("rhodacarioidea"),
+   c("onichiuridae","hipogastruridae","isotomidae","symphypleona",
+     "protura","diplura","symphyla",
+     "entomobridae","enchytraeida")]<-0.7
+#####
+#Prostigmatas omnivoro, excepto ameroseidae que es mesostigmata
+mG[c("eupodoidea","ameroseidae","penthalidae","tydeioidea",
+     "alycidae","anystidae","tarsonemidae"),
+   c("bac","fungi",
+     "nem_predador","nem_omnivor","nem_fitofago",
+     "nem_bacterivoro","nem_fungivoro","proto","tardigrado",
+     "hipogastruridae","isotomidae",
+     "entomobridae","symphyla","protura","diplura","astigmata")]<-0.7
+mG[c("eupodoidea","ameroseidae","penthalidae","tydeioidea",
+     "alycidae","anystidae","tarsonemidae"),
+   c("enchytraeida")]<-0.5
+mG[c("eupodoidea","ameroseidae","penthalidae","tydeioidea",
+     "alycidae","anystidae","tarsonemidae"),
+   c("carrion",
+     "onichiuridae","symphypleona")]<-0.4
+
+mG[c("ameroseidae"),
+   c("bac","carrion")]<-0
+
+#Macro predadores#####
+#
+# acaros, colembolos, otros microartrópodos
+mG[c("carabidae","staphiliniidae","pseudoscorpionida"),
+   c("astigmata","limnozetidae","ceratozetoidea","diplura",
+     "entomobridae","epilhomanioidea","eremobelbidae","eupthiracaroidea","eupodoidea",
+     "eviphididae","galumnidae","hipogastruridae","isotomidae",
+     "mesostigmata","laelapidae",
+     "ologamasidae","parasitidae","bdelloidea","onichiuridae","oppioidea",
+     "oribatulidae","oripodidae","protura", "scheloribatidae","symphyla",
+     "symphypleona", "teneriffidae","rhodacarioidea",
+     "rhagidiidae","tydeioidea","uropodoidea","veigaioidea","arctacaridae",
+     "bdelloidea","penthalidae","cunaxide","trombidiidae",
+     "ameroseidae","arctacaridae","dermanisoidea", 
+     "ichtyostomatogasteridae","macropilina","eupodoidea","tydeioidea","alycidae",
+     "anystidae","tarsonemidae","teneriffidae")]<-0.7
+
+mG[c("carabidae","staphiliniidae"),
+   c("enchytraeida","larva_diptera","larva_sciaridae")]<-0.4
+
+
+#japyjapidae
+mG[c("diplura"),c("protura","symphyla","onichiuridae","isotomidae","enchytraeida",
+                  "entomobridae","hipogastruridae","carrion","proto")]<-0.7
+#"bac","fungi", para los dipluras no carnívoros
+
+
+mG["larva_carabidae",c("enchytraeida","nem_predador","nem_omnivor","nem_fitofago",
+                   "nem_bacterivoro","nem_fungivoro","proto","diplura",
+                   "astigmata","protura","symphyla","onichiuridae","isotomidae","carrion",
+                  "entomobridae","hipogastruridae","tardigrado","larva_diptera","larva_sciaridae",
+                  "oppioidea","oripodidae","scheloribatidae","rhodacarioidea","eupodoidea")]<-0.7
+
+#come colembolos, larvas,pequeños acaros
+#cienpies: todo tipo de artrópodo conforman su presa
+
+mG["geophylomorpha",c("alycidae","anystidae","ameroseidae","bdelloidea","cunaxide",
+                      "arctacaridae","astigmata","limnozetidae",
+                      "ceratozetoidea", "diplura","entomobridae",
+                      "dermanisoidea","ichtyostomatogasteridae","macropilina",
+                   "epilhomanioidea","eremobelbidae","eupthiracaroidea","eupodoidea",
+                   "eviphididae","galumnidae","hipogastruridae","isotomidae",
+                 "mesostigmata","laelapidae",
+                 "ologamasidae","parasitidae",
+                 "onichiuridae","oppioidea","oribatulidae","penthalidae",
+                   "oripodidae","protura", "scheloribatidae","symphyla",
+                   "symphypleona", "teneriffidae","rhodacarioidea","tardigrado",
+                  "rhagidiidae","tydeioidea","uropodoidea","veigaioidea"
+                                 )]<-0.9
+mG["geophylomorpha",c("enchytraeida","larva_coleoptero","larva_curculionidae",
+                 "larva_diptera","larva_elateridae","larva_sciaridae",
+                 "juvenil")]<-0.4
+
+mG["geophylomorpha",c("blattodea","carabidae",
+                 "cicadidae","coleoptera_suctor","cryptophagidae",
+                 "diplopoda","elateriforme","hemiptero","larva_carabidae",
+                 "ptilidae","staphiliniidae","thysanoptera","trogossitidae"
+                  )]<-0.7
+
+#arácnidos 
+mG[c("linyphiidae","lycosidae"),
+   c("coccinelidae","aphidoidea","blattodea","carabidae","grillopalpidae",
+     "cicadidae","coleoptera_suctor","cryptophagidae",
+     "elateriforme","ortoptero",
+     "formicidae","geophylomorpha",
+     "hemiptero",
+     "ptilidae","staphiliniidae","thysanoptera","trogossitidae",
+     "anthribidae",
+     "embrioptera","terebrantia"
+     )]<-0.9
+mG[c("linyphiidae","lycosidae"),
+   c("arctacaridae","astigmata",
+     "limnozetidae",
+     "ceratozetoidea",
+     "cunaxide","diplura","entomobridae",
+     "eremobelbidae","eupodoidea","eviphididae","macropilina","galumnidae",
+     "penthalidae","hipogastruridae","isotomidae",
+     "laelapidae","mesostigmata","ologamasidae",
+     "oribatulidae","oripodidae","parasitidae",
+     "symphyla","dermanisoidea",
+     "symphypleona",
+     "tydeioidea","uropodoidea","veigaioidea","trombidiidae"
+     )]<-0.5
+
+#topogrillo
+mG["grillopalpidae",c("carrion","bac","fungi","tej_veg")]<-0.25
+mG["grillopalpidae",c("enchytraeida",
+                      "nem_predador","nem_omnivor","nem_fitofago",
+                   "nem_bacterivoro","nem_fungivoro","proto",
+                   "diplura","entomobridae","hipogastruridae","isotomidae",
+                  "onichiuridae","oppioidea","oripodidae","protura",
+                  "symphyla","symphypleona","rhodacarioidea","tardigrado"
+                  )]<-0.7
+#hormigas, predadores generalistas.
+#Atacan lombrices
+#"carrion","fungi","tej_veg",
+#se quitan los acaros y colembolos que escapan, por su capacidad de vivir en los poros y pequeño tamaño
+
+mG["formicidae",c("Aporrectodea caliginosa","Aporrectodea rosea",
+                  "Aporrectodea trapezoides","Bimastos beddardi sophiae",
+                  "Eukerria halophila","Glossoscolex sp.",
+                  "Bimastos parvus","arctacaridae","limnozetidae","embrioptera","grillopalpidae",
+                  "macropilina","Microscolex phosphoreus",
+                  "Octalasion cyaneum",
+                  "Octolasion tyrtaeum","ortoptero","penthalidae",
+                      "ceratozetoidea", "diplura","entomobridae",
+                   "epilhomanioidea","eremobelbidae","eupthiracaroidea",
+                   "eviphididae","galumnidae","hipogastruridae","isotomidae",
+                 "mesostigmata","laelapidae","larva_coleoptero","larva_curculionidae",
+                 "larva_diptera","larva_elateridae","larva_sciaridae",
+                 "ologamasidae","parasitidae","bdelloidea","blattodea","carabidae",
+                 "onichiuridae","oribatulidae","pupa_diptera",
+                   "protura","symphyla",
+                   "symphypleona", "teneriffidae",
+                  "rhagidiidae","tydeioidea","uropodoidea","veigaioidea",
+                 "aphidoidea","cicadidae","coleoptera_suctor","cryptophagidae",
+                 "diplopoda","juvenil","elateriforme","hemiptero","larva_carabidae",
+                 "ptilidae","staphiliniidae","thysanoptera","trogossitidae",
+                 "alycidae","ameroseidae","anthribidae","anystidae","coccinelidae",
+                 "tenebrionidae","terebrantia"
+                  )]<-0.4
+
+#parasito de grandes insectos
+mG["nematomorpha",c("aphidoidea","blattodea","carabidae",
+    "cicadidae","coleoptera_suctor","cryptophagidae",
+    "elateriforme","hemiptero","ptilidae","staphiliniidae","thysanoptera","trogossitidae")]<-0.7
+
+
+#microfitofagos
+mG[c("macropilina","limnozetidae","oribatido",
+     "scheloribatidae","oripodidae","oribatulidae",
+     "protura","eremobelbidae","oppioidea","brachychthonioidea"),
+   c("bac","fungi","hummus")]<-0.9
+mG[c("macropilina","limnozetidae","oribatido",
+     "scheloribatidae","oripodidae","oribatulidae",
+     "protura","eremobelbidae","oppioidea","brachychthonioidea"),
+   c("hummus")]<-0.7
+#macrofitofago
+mG[c("symphypleona","crotonioidea"),c("bac","fungi")]<-0.9
+mG[c("symphypleona","crotonioidea"),c("hummus","tej_veg","litter")]<-0.5
+mG[c("epilhomanioidea","eupthiracaroidea","isoptera"),c("litter")]<-0.7
+mG[c("isoptera"),c("hummus","fungi")]<-0.9
+#macrofitofago omnivoro
+mG[c("ceratozetoidea","onichiuridae","isotomidae",
+     "scheloribatidae","symphyla"),
+   c("bac","fungi","hummus","carrion","litter","tej_veg","nem_fungivoro",
+     "nem_bacterivoro")]<-0.7
+
+#omnivoro
+mG[c("entomobridae"),c("bac","fungi","nem_bacterivoro","nem_fungivoro")]<-0.9
+
+
+mG["galumnidae",c("nem_fitofago",
+                   "nem_bacterivoro","nem_fungivoro","proto","bac","fungi")]<-0.9
+mG["galumnidae",c("carrion","tardigrado")]<-0.5
+
+mG["hipogastruridae",c("bac","fungi")]<-0.7
+mG["hipogastruridae",c("carrion")]<-0.4
+mG["hipogastruridae",c("nem_predador","nem_omnivor","nem_fitofago",
+                   "nem_bacterivoro","nem_fungivoro","proto",
+                   "tardigrado")]<-0.5
+###
+
+mG[c("protura","symphyla"),c("bac","fungi","proto")]<-0.9
+mG[c("protura","symphyla"),c("carrion")]<-0.5
+
+mG["ptilidae",c("hummus","fungi","carrion","bac","proto")]<-0.9
+mG["ptilidae",c("nem_fitofago",
+                   "nem_bacterivoro","nem_fungivoro")]<-0.25
+
+#diagonal de la matriz 0, y dejar solo las interacciones canibalistas "reales"
+
+diag(mG)<-0
+
+mG["proto","proto"]<-0.5
+mG["geophylomorpha","geophylomorpha"]<-0.25
+mG["nem_predador","nem_predador"]<-0.4
+
+ }
+
+#Vector para reducir la red a mesofauna, 
+#se incluyen las bacterias, hongos, protozoos y nematodos, que son a la vez recursos
+#vector con 67 taxas
+
+```
+
+
+```{r redes, include=FALSE, message=FALSE, warning=FALSE}
+
+#1
+#Red Lote UNLu
+L_net1 <-graph_from_adjacency_matrix(t(mG[c(L1$taxa,"litter","carrion","tej_veg","hummus"),c(L1$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed"),weighted = TRUE )
+#Red Reserva UNLu
+R_net1 <-graph_from_adjacency_matrix(t(mG[c(R1$taxa,"litter","carrion","tej_veg","hummus"),c(R1$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed"))
+#Red Pastizal UNLu
+P_net1 <-graph_from_adjacency_matrix(t(mG[c(P1$taxa,"litter","carrion","tej_veg","hummus"),c(P1$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+
+#Datos de ácaros - colémbolos -lombrices - y respiración heterotrófica
+#Red Pastizal Naturalizado RO
+N_net1 <-graph_from_adjacency_matrix(t(mG[c(N1$specie,"litter","carrion","tej_veg"),c(N1$specie,"litter","carrion","tej_veg")]),mode=c("directed") )
+#Red mixto Agrícola Ganadero RO
+G_net1 <-graph_from_adjacency_matrix(t(mG[c(G1$specie,"litter","carrion","tej_veg"),c(G1$specie,"litter","carrion","tej_veg")]),mode=c("directed") )
+#Red agrícola intensivo RO
+A_net1 <-graph_from_adjacency_matrix(t(mG[c(A1$specie,"litter","carrion","tej_veg"),c(A1$specie,"litter","carrion","tej_veg")]),mode=c("directed") )
+#Reducción de redes####
+#a acaros colembolos
+L.r1<-as_vector(L1[L1$taxa%in%meso.reduc,"taxa"][[1]])
+L_reduc.net1 <-graph_from_adjacency_matrix(t(mG[c(L.r1,"litter","carrion","tej_veg","hummus"),c(L.r1,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+#Red Reserva UNLu
+R.r1<-as_vector(R1[R1$taxa%in%meso.reduc,"taxa"][[1]])
+R_reduc.net1 <-graph_from_adjacency_matrix(t(mG[c(R.r1,"litter","carrion","tej_veg","hummus"),c(R.r1,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+#Red Pastizal UNLu
+P.r1<-as_vector(P1[P1$taxa%in%meso.reduc,"taxa"][[1]])
+P_reduc.net1 <-graph_from_adjacency_matrix(t(mG[c(P.r1,"litter","carrion","tej_veg","hummus"),c(P.r1,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+
+#2
+#Red Lote UNLu
+L_net2 <-graph_from_adjacency_matrix(t(mG[c(L2$taxa,"litter","carrion","tej_veg","hummus"),c(L2$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+#Red Reserva UNLu
+R_net2 <-graph_from_adjacency_matrix(t(mG[c(R2$taxa,"litter","carrion","tej_veg","hummus"),c(R2$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+#Red Pastizal UNLu
+P_net2 <-graph_from_adjacency_matrix(t(mG[c(P2$taxa,"litter","carrion","tej_veg","hummus"),c(P2$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+
+#Datos de ácaros - colémbolos -lombrices - y respiración heterotrófica
+#Red Pastizal Naturalizado RO
+N_net2 <-graph_from_adjacency_matrix(t(mG[c(N2$specie,"litter","carrion","tej_veg"),c(N2$specie,"litter","carrion","tej_veg")]),mode=c("directed") )
+#Red mixto Agrícola Ganadero RO
+G_net2 <-graph_from_adjacency_matrix(t(mG[c(G2$specie,"litter","carrion","tej_veg"),c(G2$specie,"litter","carrion","tej_veg")]),mode=c("directed") )
+#Red agrícola intensivo RO
+A_net2 <-graph_from_adjacency_matrix(t(mG[c(A2$specie,"litter","carrion","tej_veg"),c(A2$specie,"litter","carrion","tej_veg")]),mode=c("directed") )
+#Reducción de redes####
+#a acaros colembolos
+L.r2<-as_vector(L2[L2$taxa%in%meso.reduc,"taxa"][[1]])
+L_reduc.net2 <-graph_from_adjacency_matrix(t(mG[c(L.r2,"litter","carrion","tej_veg","hummus"),c(L.r2,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+#Red Reserva UNLu
+R.r2<-as_vector(R2[R2$taxa%in%meso.reduc,"taxa"][[1]])
+R_reduc.net2 <-graph_from_adjacency_matrix(t(mG[c(R.r2,"litter","carrion","tej_veg","hummus"),c(R.r2,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+#Red Pastizal UNLu
+P.r2<-as_vector(P2[P2$taxa%in%meso.reduc,"taxa"][[1]])
+P_reduc.net2 <-graph_from_adjacency_matrix(t(mG[c(P.r2,"litter","carrion","tej_veg","hummus"),c(P.r2,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+
+#3
+
+#Red Lote UNLu
+L_net3 <-graph_from_adjacency_matrix(t(mG[c(L3$taxa,"litter","carrion","tej_veg","hummus"),c(L3$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+#Red Reserva UNLu
+R_net3 <-graph_from_adjacency_matrix(t(mG[c(R3$taxa,"litter","carrion","tej_veg","hummus"),c(R3$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+#Red Pastizal UNLu
+P_net3 <-graph_from_adjacency_matrix(t(mG[c(P3$taxa,"litter","carrion","tej_veg","hummus"),c(P3$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+
+#Datos de ácaros - colémbolos -lombrices - y respiración heterotrófica
+#Red Pastizal Naturalizado RO
+N_net3 <-graph_from_adjacency_matrix(t(mG[c(N3$specie,"litter","carrion","tej_veg"),c(N3$specie,"litter","carrion","tej_veg")]),mode=c("directed") )
+#Red mixto Agrícola Ganadero RO
+G_net3 <-graph_from_adjacency_matrix(t(mG[c(G3$specie,"litter","carrion","tej_veg"),c(G3$specie,"litter","carrion","tej_veg")]),mode=c("directed") )
+#Red agrícola intensivo RO
+A_net3 <-graph_from_adjacency_matrix(t(mG[c(A3$specie,"litter","carrion","tej_veg"),c(A3$specie,"litter","carrion","tej_veg")]),mode=c("directed") )
+#Reducción de redes####
+#a acaros colembolos
+L.r3<-as_vector(L3[L3$taxa%in%meso.reduc,"taxa"][[1]])
+L_reduc.net3 <-graph_from_adjacency_matrix(t(mG[c(L.r3,"litter","carrion","tej_veg","hummus"),c(L.r3,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+#Red Reserva UNLu
+R.r3<-as_vector(R3[R3$taxa%in%meso.reduc,"taxa"][[1]])
+R_reduc.net3 <-graph_from_adjacency_matrix(t(mG[c(R.r3,"litter","carrion","tej_veg","hummus"),c(R.r3,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+#Red Pastizal UNLu
+P.r3<-as_vector(P3[P3$taxa%in%meso.reduc,"taxa"][[1]])
+P_reduc.net3 <-graph_from_adjacency_matrix(t(mG[c(P.r3,"litter","carrion","tej_veg","hummus"),c(P.r3,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+
+
+
+
+
+
+```
+
+```{r topolog, include=FALSE, message=FALSE, warning=FALSE}
+
+#topologico####
+# índices topológicos
+#calc_topological_indices(Gl_net)
+topological<-rbind(
+calc_topological_indices(R_net1),calc_topological_indices(R_net2),calc_topological_indices(R_net3),
+
+calc_topological_indices(P_net1),calc_topological_indices(P_net2),calc_topological_indices(P_net3),
+
+calc_topological_indices(L_net1),calc_topological_indices(L_net2),calc_topological_indices(L_net3),
+
+calc_topological_indices(N_net1),calc_topological_indices(N_net2),calc_topological_indices(N_net3),
+calc_topological_indices(G_net1),calc_topological_indices(G_net2),calc_topological_indices(G_net3),
+calc_topological_indices(A_net1),calc_topological_indices(A_net2),calc_topological_indices(A_net3),colnames=NULL)
+topological$sitio<-c("R","R","R","P","P","P","L","L","L",
+                     "N","N","N","G","G","G","A","A","A")
+topological$replica<-c(1,2,3,1,2,3,1,2,3,
+                       1,2,3,1,2,3,1,2,3)
+topological$loc<-c(rep("Luj",9),rep("ChyN",9))
+```
+
+```{r topolog_showtab, echo=FALSE, message=FALSE, warning=FALSE}
+kableExtra::kable(topological)
+```
+
+```{r topolog_reduc,echo=FALSE,message=FALSE,warning=FALSE}
+topologicalL<-topological%>%filter(loc=="Luj")
+topologicalCN<-topological%>%filter(loc=="ChyN")
+
+#conectancia s/ diferecias
+kruskal.test(Connectance ~ sitio, data = topological, subset = topological$loc=="Luj" )
+kruskal.test(Connectance ~ sitio, data = topological, subset = topological$loc=="ChyN" )
+
+#clusering c/ diferencias
+kruskal.test(Clustering ~ sitio, data = topological, subset = topological$loc=="Luj" )
+kruskal.test(Clustering ~ sitio, data = topological, subset = topological$loc=="ChyN" )
+
+pairwise.wilcox.test(topologicalL$Clustering, topologicalL$sitio, data = topologicalL,
+                                          p.adjust.method = "BH",exact=FALSE) # R dif de PyL
+pairwise.wilcox.test(topologicalCN$Clustering, topologicalCN$sitio, data = topologicalCN,
+                                          p.adjust.method = "BH",exact=FALSE) # N dif de GyA
+
+median(topological[topological$sitio=="R","Clustering"])
+median(topological[topological$sitio=="P","Clustering"])
+median(topological[topological$sitio=="L","Clustering"])
+median(topological[topological$sitio=="N","Clustering"])
+median(topological[topological$sitio=="G","Clustering"])
+median(topological[topological$sitio=="A","Clustering"])
+
+kruskal.test(Omnivory ~ sitio, data = topological, subset = topological$loc=="Luj" )
+kruskal.test(Omnivory ~ sitio, data = topological, subset = topological$loc=="ChyN" )
+
+kruskal.test(TLmean ~ sitio, data = topological, subset = topological$loc=="Luj" )
+kruskal.test(TLmean ~ sitio, data = topological, subset = topological$loc=="ChyN" )
+pairwise.wilcox.test(topologicalCN$TLmean, topologicalCN$sitio, data = topologicalCN,
+                                          p.adjust.method = "BH",exact=FALSE) # N dif de GyA
+median(topological[topological$sitio=="N","TLmean"])
+median(topological[topological$sitio=="G","TLmean"])
+median(topological[topological$sitio=="A","TLmean"])
+
+kruskal.test(Vulnerability ~ sitio, data = topological, subset = topological$loc=="Luj" )
+kruskal.test(Vulnerability ~ sitio, data = topological, subset = topological$loc=="ChyN" )
+
+kruskal.test(Generality ~ sitio, data = topological, subset = topological$loc=="Luj" )
+kruskal.test(Generality ~ sitio, data = topological, subset = topological$loc=="ChyN" )
+pairwise.wilcox.test(topologicalCN$Generality, topologicalCN$sitio, data = topologicalCN,
+                                          p.adjust.method = "BH",exact=FALSE) # N dif de GyA
+median(topological[topological$sitio=="N","Generality"])
+median(topological[topological$sitio=="G","Generality"])
+median(topological[topological$sitio=="A","TLmean"])
+      
+```
+
+```{r flux, include=FALSE}
+#1
+flux_L1<-fluxing(t(mG[c(L1$taxa,"litter","carrion","tej_veg","hummus"),c(L1$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_L1, losses =  t_metL1, efficiencies =  ef_L1,ef.level = "pred")
+
+flux_R1<-fluxing(t(mG[c(R1$taxa,"litter","carrion","tej_veg","hummus"),c(R1$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_R1, losses =  t_metR1, efficiencies =  ef_R1,ef.level = "pred")
+
+flux_P1<-fluxing(t(mG[c(P1$taxa,"litter","carrion","tej_veg","hummus"),c(P1$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_P1, losses =  t_metP1, efficiencies =  ef_P1,ef.level = "pred")
+
+### flujo Ro
+flux_N1<-fluxing(t(mG[c(N1$specie,"litter","carrion","tej_veg"),
+                     c(N1$specie,"litter","carrion","tej_veg")]),
+                biomasses = bm_N1, losses =  t_metN1, 
+                efficiencies =  ef_N1,ef.level = "pred")
+flux_G1<-fluxing(t(mG[c(G1$specie,"litter","carrion","tej_veg"),
+                     c(G1$specie,"litter","carrion","tej_veg")]),
+                biomasses = bm_G1, losses =  t_metG1, 
+                efficiencies =  ef_G1,ef.level = "pred")
+flux_A1<-fluxing(t(mG[c(A1$specie,"litter","carrion","tej_veg"),
+                     c(A1$specie,"litter","carrion","tej_veg")]),
+                biomasses = bm_A1, losses =  t_metA1, 
+                efficiencies =  ef_A1,ef.level = "pred")
+
+#Reducción de redes####
+#a acaros colembolos
+flux_R.r1<-fluxing(t(mG[c(Rf.r1$taxa,"litter","carrion","tej_veg","hummus"),c(Rf.r1$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_Rf.r1, losses =  t_metRf.r1, efficiencies =  ef_Rf.r1,ef.level = "pred")
+
+flux_P.r1<-fluxing(t(mG[c(Pf.r1$taxa,"litter","carrion","tej_veg","hummus"),c(Pf.r1$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_Pf.r1, losses =  t_metPf.r1, efficiencies =  ef_Pf.r1,ef.level = "pred")
+
+flux_L.r1<-fluxing(t(mG[c(Lf.r1$taxa,"litter","carrion","tej_veg","hummus"),c(Lf.r1$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_Lf.r1, losses =  t_metLf.r1, efficiencies =  ef_Lf.r1,ef.level = "pred")
+
+#2
+flux_L2<-fluxing(t(mG[c(L2$taxa,"litter","carrion","tej_veg","hummus"),c(L2$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_L2, losses =  t_metL2, efficiencies =  ef_L2,ef.level = "pred")
+
+flux_R2<-fluxing(t(mG[c(R2$taxa,"litter","carrion","tej_veg","hummus"),c(R2$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_R2, losses =  t_metR2, efficiencies =  ef_R2,ef.level = "pred")
+
+flux_P2<-fluxing(t(mG[c(P2$taxa,"litter","carrion","tej_veg","hummus"),c(P2$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_P2, losses =  t_metP2, efficiencies =  ef_P2,ef.level = "pred")
+
+### flujo Ro
+flux_N2<-fluxing(t(mG[c(N2$specie,"litter","carrion","tej_veg"),
+                     c(N2$specie,"litter","carrion","tej_veg")]),
+                biomasses = bm_N2, losses =  t_metN2, 
+                efficiencies =  ef_N2,ef.level = "pred")
+flux_G2<-fluxing(t(mG[c(G2$specie,"litter","carrion","tej_veg"),
+                     c(G2$specie,"litter","carrion","tej_veg")]),
+                biomasses = bm_G2, losses =  t_metG2, 
+                efficiencies =  ef_G2,ef.level = "pred")
+flux_A2<-fluxing(t(mG[c(A2$specie,"litter","carrion","tej_veg"),
+                     c(A2$specie,"litter","carrion","tej_veg")]),
+                biomasses = bm_A2, losses =  t_metA2, 
+                efficiencies =  ef_A2,ef.level = "pred")
+
+#Reducción de redes####
+#a acaros colembolos
+flux_R.r2<-fluxing(t(mG[c(Rf.r2$taxa,"litter","carrion","tej_veg","hummus"),c(Rf.r2$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_Rf.r2, losses =  t_metRf.r2, efficiencies =  ef_Rf.r2,ef.level = "pred")
+
+flux_P.r2<-fluxing(t(mG[c(Pf.r2$taxa,"litter","carrion","tej_veg","hummus"),c(Pf.r2$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_Pf.r2, losses =  t_metPf.r2, efficiencies =  ef_Pf.r2,ef.level = "pred")
+
+flux_L.r2<-fluxing(t(mG[c(Lf.r2$taxa,"litter","carrion","tej_veg","hummus"),c(Lf.r2$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_Lf.r2, losses =  t_metLf.r2, efficiencies =  ef_Lf.r2,ef.level = "pred")
+
+#3
+
+flux_L3<-fluxing(t(mG[c(L3$taxa,"litter","carrion","tej_veg","hummus"),c(L3$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_L3, losses =  t_metL3, efficiencies =  ef_L3,ef.level = "pred")
+
+flux_R3<-fluxing(t(mG[c(R3$taxa,"litter","carrion","tej_veg","hummus"),c(R3$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_R3, losses =  t_metR3, efficiencies =  ef_R3,ef.level = "pred")
+
+flux_P3<-fluxing(t(mG[c(P3$taxa,"litter","carrion","tej_veg","hummus"),c(P3$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_P3, losses =  t_metP3, efficiencies =  ef_P3,ef.level = "pred")
+
+### flujo Ro
+flux_N3<-fluxing(t(mG[c(N3$specie,"litter","carrion","tej_veg"),
+                     c(N3$specie,"litter","carrion","tej_veg")]),
+                biomasses = bm_N3, losses =  t_metN3, 
+                efficiencies =  ef_N3,ef.level = "pred")
+flux_G3<-fluxing(t(mG[c(G3$specie,"litter","carrion","tej_veg"),
+                     c(G3$specie,"litter","carrion","tej_veg")]),
+                biomasses = bm_G3, losses =  t_metG3, 
+                efficiencies =  ef_G3,ef.level = "pred")
+flux_A3<-fluxing(t(mG[c(A3$specie,"litter","carrion","tej_veg"),
+                     c(A3$specie,"litter","carrion","tej_veg")]),
+                biomasses = bm_A3, losses =  t_metA3, 
+                efficiencies =  ef_A3,ef.level = "pred")
+
+#Reducción de redes####
+#a acaros colembolos
+flux_R.r3<-fluxing(t(mG[c(Rf.r3$taxa,"litter","carrion","tej_veg","hummus"),c(Rf.r3$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_Rf.r3, losses =  t_metRf.r3, efficiencies =  ef_Rf.r3,ef.level = "pred")
+
+flux_P.r3<-fluxing(t(mG[c(Pf.r3$taxa,"litter","carrion","tej_veg","hummus"),c(Pf.r3$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_Pf.r3, losses =  t_metPf.r3, efficiencies =  ef_Pf.r3,ef.level = "pred")
+
+flux_L.r3<-fluxing(t(mG[c(Lf.r3$taxa,"litter","carrion","tej_veg","hummus"),c(Lf.r3$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_Lf.r3, losses =  t_metLf.r3, efficiencies =  ef_Lf.r3,ef.level = "pred")
+```
+
+```{r flujos_multicanal, echo=FALSE, message=FALSE,warning=FALSE}
+#herbivros########
+#flujo através de los hervíboros
+
+F_herb_R1<-sum(flux_R1["tej_veg",])
+F_herb_P1<-sum(flux_P1["tej_veg",])
+F_herb_L1<-sum(flux_L1["tej_veg",])
+
+F_herb_N1<-sum(flux_N1["tej_veg",])
+F_herb_G1<-sum(flux_G1["tej_veg",])
+F_herb_A1<-sum(flux_A1["tej_veg",])
+
+F_herb_R.r1<-sum(flux_R.r1["tej_veg",])
+F_herb_P.r1<-sum(flux_P.r1["tej_veg",])
+F_herb_L.r1<-sum(flux_L.r1["tej_veg",])
+
+#humifagos/geófagos####
+
+F_mo_R1<-sum(flux_R1["hummus",])
+F_mo_P1<-sum(flux_P1["hummus",])
+F_mo_L1<-sum(flux_L1["hummus",])
+
+F_mo_N1<-sum(flux_N1["hummus",])
+F_mo_G1<-sum(flux_G1["hummus",])
+F_mo_A1<-sum(flux_A1["hummus",])
+
+F_mo_R.r1<-sum(flux_R.r1["hummus",])
+F_mo_P.r1<-sum(flux_P.r1["hummus",])
+F_mo_L.r1<-sum(flux_L.r1["hummus",])
+
+
+#detritivoros##########
+#flujo através de los detritívoros
+
+F_det_R1<-sum(flux_R1[c("litter","carrion"),])
+F_det_P1<-sum(flux_P1[c("litter","carrion"),])
+F_det_L1<-sum(flux_L1[c("litter","carrion"),])
+
+F_det_N1<-sum(flux_N1[c("litter","carrion"),])
+F_det_G1<-sum(flux_G1[c("litter","carrion"),])
+F_det_A1<-sum(flux_A1[c("litter","carrion"),])
+
+F_det_R.r1<-sum(flux_R.r1[c("litter","carrion"),])
+F_det_P.r1<-sum(flux_P.r1[c("litter","carrion"),])
+F_det_L.r1<-sum(flux_L.r1[c("litter","carrion"),])
+#colnames(flux_L.r) %in% det
+#microfitfagos###########
+#flujo através de los microvíboros
+
+F_mic_R1<-sum(flux_R1[c("bac","fungi"),])
+F_mic_P1<-sum(flux_P1[c("bac","fungi"),])
+F_mic_L1<-sum(flux_L1[c("bac","fungi"),])
+
+F_mic_N1<-sum(flux_N1[c("bac","fungi"),])
+F_mic_G1<-sum(flux_G1[c("bac","fungi"),])
+F_mic_A1<-sum(flux_A1[c("bac","fungi"),])
+
+F_mic_R.r1<-sum(flux_R.r1[c("bac","fungi"),])
+F_mic_P.r1<-sum(flux_P.r1[c("bac","fungi"),])
+F_mic_L.r1<-sum(flux_L.r1[c("bac","fungi"),])
+
+#predadores####
+#flujo através de los predadores
+# se incluyen lo que comen los omnívoros
+
+#Rbases<-c("tej_veg", "fungi","bac","litter","carrion")
+#!colnames(flux_R) %in% Rbases
+F_pred_R1<-sum(flux_R1[,colnames(flux_R1) %in% pred])
+F_pred_P1<-sum(flux_P1[,colnames(flux_P1) %in% pred])
+F_pred_L1<-sum(flux_L1[,colnames(flux_L1) %in% pred])
+
+F_pred_N1<-sum(flux_N1[,colnames(flux_N1) %in% pred])
+F_pred_G1<-sum(flux_G1[,colnames(flux_G1) %in% pred])
+F_pred_A1<-sum(flux_A1[,colnames(flux_A1) %in% pred])
+
+F_pred_R.r1<-sum(flux_R.r1[,colnames(flux_R.r1) %in% pred])
+F_pred_P.r1<-sum(flux_P.r1[,colnames(flux_P.r1) %in% pred])
+F_pred_L.r1<-sum(flux_L.r1[,colnames(flux_L.r1) %in% pred])
+
+#omnivoros####
+#flujo através de los omnivoros
+
+F_omn_R1<-sum(flux_R1[!rownames(flux_R1) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_R1) %in% omn])
+F_omn_P1<-sum(flux_P1[!rownames(flux_P1) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_P1) %in% omn])
+F_omn_L1<-sum(flux_L1[!rownames(flux_L1) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_L1) %in% omn])
+
+F_omn_N1<-sum(flux_N1[!rownames(flux_N1) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_N1) %in% omn])
+F_omn_G1<-sum(flux_G1[!rownames(flux_G1) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_G1) %in% omn])
+F_omn_A1<-sum(flux_A1[!rownames(flux_A1) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_A1) %in% omn])
+
+F_omn_R.r1<-sum(flux_R.r1[!rownames(flux_R.r1) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_R.r1) %in% omn])
+F_omn_P.r1<-sum(flux_P.r1[!rownames(flux_P.r1) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_P.r1) %in% omn])
+F_omn_L.r1<-sum(flux_L.r1[!rownames(flux_L.r1) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_L.r1) %in% omn])
+
+#2
+
+F_herb_R2<-sum(flux_R2["tej_veg",])
+F_herb_P2<-sum(flux_P2["tej_veg",])
+F_herb_L2<-sum(flux_L2["tej_veg",])
+
+F_herb_N2<-sum(flux_N2["tej_veg",])
+F_herb_G2<-sum(flux_G2["tej_veg",])
+F_herb_A2<-sum(flux_A2["tej_veg",])
+
+F_herb_R.r2<-sum(flux_R.r2["tej_veg",])
+F_herb_P.r2<-sum(flux_P.r2["tej_veg",])
+F_herb_L.r2<-sum(flux_L.r2["tej_veg",])
+
+#humifagos/geófagos####
+
+F_mo_R2<-sum(flux_R2["hummus",])
+F_mo_P2<-sum(flux_P2["hummus",])
+F_mo_L2<-sum(flux_L2["hummus",])
+
+F_mo_N2<-sum(flux_N2["hummus",])
+F_mo_G2<-sum(flux_G2["hummus",])
+F_mo_A2<-sum(flux_A2["hummus",])
+
+F_mo_R.r2<-sum(flux_R.r2["hummus",])
+F_mo_P.r2<-sum(flux_P.r2["hummus",])
+F_mo_L.r2<-sum(flux_L.r2["hummus",])
+
+
+#detritivoros##########
+#flujo através de los detritívoros
+
+F_det_R2<-sum(flux_R2[c("litter","carrion"),])
+F_det_P2<-sum(flux_P2[c("litter","carrion"),])
+F_det_L2<-sum(flux_L2[c("litter","carrion"),])
+
+F_det_N2<-sum(flux_N2[c("litter","carrion"),])
+F_det_G2<-sum(flux_G2[c("litter","carrion"),])
+F_det_A2<-sum(flux_A2[c("litter","carrion"),])
+
+F_det_R.r2<-sum(flux_R.r2[c("litter","carrion"),])
+F_det_P.r2<-sum(flux_P.r2[c("litter","carrion"),])
+F_det_L.r2<-sum(flux_L.r2[c("litter","carrion"),])
+#colnames(flux_L.r) %in% det
+#microfitfagos###########
+#flujo através de los microvíboros
+
+F_mic_R2<-sum(flux_R2[c("bac","fungi"),])
+F_mic_P2<-sum(flux_P2[c("bac","fungi"),])
+F_mic_L2<-sum(flux_L2[c("bac","fungi"),])
+
+F_mic_N2<-sum(flux_N2[c("bac","fungi"),])
+F_mic_G2<-sum(flux_G2[c("bac","fungi"),])
+F_mic_A2<-sum(flux_A2[c("bac","fungi"),])
+
+F_mic_R.r2<-sum(flux_R.r2[c("bac","fungi"),])
+F_mic_P.r2<-sum(flux_P.r2[c("bac","fungi"),])
+F_mic_L.r2<-sum(flux_L.r2[c("bac","fungi"),])
+
+#predadores####
+#flujo através de los predadores
+# se incluyen lo que comen los omnívoros
+
+#Rbases<-c("tej_veg", "fungi","bac","litter","carrion")
+#!colnames(flux_R) %in% Rbases
+F_pred_R2<-sum(flux_R2[,colnames(flux_R2) %in% pred])
+F_pred_P2<-sum(flux_P2[,colnames(flux_P2) %in% pred])
+F_pred_L2<-sum(flux_L2[,colnames(flux_L2) %in% pred])
+
+F_pred_N2<-sum(flux_N2[,colnames(flux_N2) %in% pred])
+F_pred_G2<-sum(flux_G2[,colnames(flux_G2) %in% pred])
+F_pred_A2<-sum(flux_A2[,colnames(flux_A2) %in% pred])
+
+F_pred_R.r2<-sum(flux_R.r2[,colnames(flux_R.r2) %in% pred])
+F_pred_P.r2<-sum(flux_P.r2[,colnames(flux_P.r2) %in% pred])
+F_pred_L.r2<-sum(flux_L.r2[,colnames(flux_L.r2) %in% pred])
+
+#omnivoros####
+#flujo através de los omnivoros
+
+F_omn_R2<-sum(flux_R2[!rownames(flux_R2) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_R2) %in% omn])
+F_omn_P2<-sum(flux_P2[!rownames(flux_P2) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_P2) %in% omn])
+F_omn_L2<-sum(flux_L2[!rownames(flux_L2) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_L2) %in% omn])
+
+F_omn_N2<-sum(flux_N2[!rownames(flux_N2) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_N2) %in% omn])
+F_omn_G2<-sum(flux_G2[!rownames(flux_G2) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_G2) %in% omn])
+F_omn_A2<-sum(flux_A2[!rownames(flux_A2) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_A2) %in% omn])
+
+F_omn_R.r2<-sum(flux_R.r2[!rownames(flux_R.r2) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_R.r2) %in% omn])
+F_omn_P.r2<-sum(flux_P.r2[!rownames(flux_P.r2) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_P.r2) %in% omn])
+F_omn_L.r2<-sum(flux_L.r2[!rownames(flux_L.r2) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_L.r2) %in% omn])
+
+#3
+
+
+F_herb_R3<-sum(flux_R3["tej_veg",])
+F_herb_P3<-sum(flux_P3["tej_veg",])
+F_herb_L3<-sum(flux_L3["tej_veg",])
+
+F_herb_N3<-sum(flux_N3["tej_veg",])
+F_herb_G3<-sum(flux_G3["tej_veg",])
+F_herb_A3<-sum(flux_A3["tej_veg",])
+
+F_herb_R.r3<-sum(flux_R.r3["tej_veg",])
+F_herb_P.r3<-sum(flux_P.r3["tej_veg",])
+F_herb_L.r3<-sum(flux_L.r3["tej_veg",])
+
+#humifagos/geófagos####
+
+F_mo_R3<-sum(flux_R3["hummus",])
+F_mo_P3<-sum(flux_P3["hummus",])
+F_mo_L3<-sum(flux_L3["hummus",])
+
+F_mo_N3<-sum(flux_N3["hummus",])
+F_mo_G3<-sum(flux_G3["hummus",])
+F_mo_A3<-sum(flux_A3["hummus",])
+
+F_mo_R.r3<-sum(flux_R.r3["hummus",])
+F_mo_P.r3<-sum(flux_P.r3["hummus",])
+F_mo_L.r3<-sum(flux_L.r3["hummus",])
+
+
+#detritivoros##########
+#flujo através de los detritívoros
+
+F_det_R3<-sum(flux_R3[c("litter","carrion"),])
+F_det_P3<-sum(flux_P3[c("litter","carrion"),])
+F_det_L3<-sum(flux_L3[c("litter","carrion"),])
+
+F_det_N3<-sum(flux_N3[c("litter","carrion"),])
+F_det_G3<-sum(flux_G3[c("litter","carrion"),])
+F_det_A3<-sum(flux_A3[c("litter","carrion"),])
+
+F_det_R.r3<-sum(flux_R.r3[c("litter","carrion"),])
+F_det_P.r3<-sum(flux_P.r3[c("litter","carrion"),])
+F_det_L.r3<-sum(flux_L.r3[c("litter","carrion"),])
+#colnames(flux_L.r) %in% det
+#microfitfagos###########
+#flujo através de los microvíboros
+
+F_mic_R3<-sum(flux_R3[c("bac","fungi"),])
+F_mic_P3<-sum(flux_P3[c("bac","fungi"),])
+F_mic_L3<-sum(flux_L3[c("bac","fungi"),])
+
+F_mic_N3<-sum(flux_N3[c("bac","fungi"),])
+F_mic_G3<-sum(flux_G3[c("bac","fungi"),])
+F_mic_A3<-sum(flux_A3[c("bac","fungi"),])
+
+F_mic_R.r3<-sum(flux_R.r3[c("bac","fungi"),])
+F_mic_P.r3<-sum(flux_P.r3[c("bac","fungi"),])
+F_mic_L.r3<-sum(flux_L.r3[c("bac","fungi"),])
+
+#predadores####
+#flujo através de los predadores
+# se incluyen lo que comen los omnívoros
+
+#Rbases<-c("tej_veg", "fungi","bac","litter","carrion")
+#!colnames(flux_R) %in% Rbases
+F_pred_R3<-sum(flux_R3[,colnames(flux_R3) %in% pred])
+F_pred_P3<-sum(flux_P3[,colnames(flux_P3) %in% pred])
+F_pred_L3<-sum(flux_L3[,colnames(flux_L3) %in% pred])
+
+F_pred_N3<-sum(flux_N3[,colnames(flux_N3) %in% pred])
+F_pred_G3<-sum(flux_G3[,colnames(flux_G3) %in% pred])
+F_pred_A3<-sum(flux_A3[,colnames(flux_A3) %in% pred])
+
+F_pred_R.r3<-sum(flux_R.r3[,colnames(flux_R.r3) %in% pred])
+F_pred_P.r3<-sum(flux_P.r3[,colnames(flux_P.r3) %in% pred])
+F_pred_L.r3<-sum(flux_L.r3[,colnames(flux_L.r3) %in% pred])
+
+#omnivoros####
+#flujo através de los omnivoros
+
+F_omn_R3<-sum(flux_R3[!rownames(flux_R3) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_R3) %in% omn])
+F_omn_P3<-sum(flux_P3[!rownames(flux_P3) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_P3) %in% omn])
+F_omn_L3<-sum(flux_L3[!rownames(flux_L3) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_L3) %in% omn])
+
+F_omn_N3<-sum(flux_N3[!rownames(flux_N3) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_N3) %in% omn])
+F_omn_G3<-sum(flux_G3[!rownames(flux_G3) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_G3) %in% omn])
+F_omn_A3<-sum(flux_A3[!rownames(flux_A3) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_A3) %in% omn])
+
+F_omn_R.r3<-sum(flux_R.r3[!rownames(flux_R.r3) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_R.r3) %in% omn])
+F_omn_P.r3<-sum(flux_P.r3[!rownames(flux_P.r3) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_P.r3) %in% omn])
+F_omn_L.r3<-sum(flux_L.r3[!rownames(flux_L.r3) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_L.r3) %in% omn])
+
+```
+
+
+```{r flujos_multicanal_print, include=FALSE, message=FALSE,warning=FALSE}
+
+
+F_mc_lu<-data.frame(sitio=c("Reserva","Reserva","Reserva",
+                            "Pastizal","Pastizal","Pastizal",
+                            "Agrícola","Agrícola","Agrícola"),
+                    replica=c(1,2,3,1,2,3,1,2,3),
+            total=c(sum(flux_R1),sum(flux_R2),sum(flux_R3),
+                               sum(flux_P1),sum(flux_P2),sum(flux_P3),
+                               sum(flux_L1),sum(flux_L2),sum(flux_L3)),
+           biotransformacion=c(F_mo_R1/sum(flux_R1),F_mo_R2/sum(flux_R2),F_mo_R3/sum(flux_R3),
+                               F_mo_P1/sum(flux_P1),F_mo_P2/sum(flux_P2),F_mo_P3/sum(flux_P3),
+                               F_mo_L1/sum(flux_L1),F_mo_L2/sum(flux_L2),F_mo_L3/sum(flux_L3)
+                               ),
+           detritivoria=c(F_det_R1/sum(flux_R1),F_det_R2/sum(flux_R2),F_det_R3/sum(flux_R3),
+                          F_det_P1/sum(flux_P1),F_det_P2/sum(flux_P2),F_det_P3/sum(flux_P3),
+                          F_det_L1/sum(flux_L1),F_det_L2/sum(flux_L2),F_det_L3/sum(flux_L3)
+                               ),
+           microfitofagia=c(F_mic_R1/sum(flux_R1),F_mic_R2/sum(flux_R2),F_mic_R3/sum(flux_R3),
+                            F_mic_P1/sum(flux_P1),F_mic_P2/sum(flux_P2),F_mic_P3/sum(flux_P3),
+                            F_mic_L1/sum(flux_L1),F_mic_L2/sum(flux_L2),F_mic_L3/sum(flux_L3)),
+           predacion=c(F_pred_R1/sum(flux_R1),F_pred_R2/sum(flux_R2),F_pred_R3/sum(flux_R3),
+                       F_pred_P1/sum(flux_P1),F_pred_P2/sum(flux_P2),F_pred_P3/sum(flux_P3),
+                       F_pred_L1/sum(flux_L1),F_pred_L2/sum(flux_L2),F_pred_L3/sum(flux_L3)),
+           omnivoria=c(F_omn_R1/sum(flux_R1),F_omn_R2/sum(flux_R2),F_omn_R3/sum(flux_R3),
+                       F_omn_P1/sum(flux_P1),F_omn_P2/sum(flux_P2),F_omn_P3/sum(flux_P3),
+                       F_omn_L1/sum(flux_L1),F_omn_L2/sum(flux_L2),F_omn_L3/sum(flux_L3)),
+           herbivoria=c(F_herb_R1/sum(flux_R1),F_herb_R2/sum(flux_R2),F_herb_R3/sum(flux_R3),
+                        F_herb_P1/sum(flux_P1),F_herb_P2/sum(flux_P2),F_herb_P3/sum(flux_P3),
+                        F_herb_L1/sum(flux_L1),F_herb_L2/sum(flux_L2),F_herb_L3/sum(flux_L3)),
+           row.names = NULL)
+
+
+F_mc_total<-data.frame(sitio=c(
+                            "Pastizal_nat","Pastizal_nat","Pastizal_nat",
+                            "Mixto","Mixto","Mixto",
+                            "Agri_Intensivo","Agri_Intensivo","Agri_Intensivo",
+                            "Reserva","Reserva","Reserva",
+                            "Pastizal","Pastizal","Pastizal",
+                            "Agrícola","Agrícola","Agrícola"),
+                       total=c(sum(flux_N1),sum(flux_N2),sum(flux_N3),
+                               sum(flux_G1),sum(flux_G2),sum(flux_G3),
+                               sum(flux_A1),sum(flux_A2),sum(flux_A3),
+                               sum(flux_R.r1),sum(flux_R.r2),sum(flux_R.r3),
+                               sum(flux_P.r1),sum(flux_P.r2),sum(flux_P.r3),
+                               sum(flux_L.r1),sum(flux_L.r2),sum(flux_L.r3)
+                               ),
+           biotransformacion=c(F_mo_N1/sum(flux_N1),F_mo_N2/sum(flux_N2),F_mo_N3/sum(flux_N3),
+                               F_mo_G1/sum(flux_G1),F_mo_G2/sum(flux_G2),F_mo_G3/sum(flux_G3),
+                               F_mo_A1/sum(flux_A1),F_mo_A2/sum(flux_A2),F_mo_A3/sum(flux_A3),
+                               F_mo_R.r1/sum(flux_R.r1),F_mo_R.r2/sum(flux_R.r2),F_mo_R.r3/sum(flux_R.r3),
+                               F_mo_P.r1/ sum(flux_P.r1),F_mo_P.r2/sum(flux_P.r2),F_mo_P.r3/sum(flux_P.r3),
+                               F_mo_L.r1/sum(flux_L.r1),F_mo_L.r2/sum(flux_L.r2),F_mo_L.r3/sum(flux_L.r3)),
+           detritivoria=c(F_det_N1/sum(flux_N1),F_det_N2/sum(flux_N2),F_det_N3/sum(flux_N3),
+                               F_det_G1/sum(flux_G1),F_det_G2/sum(flux_G2),F_det_G3/sum(flux_G3),
+                               F_det_A1/sum(flux_A1),F_det_A2/sum(flux_A2),F_det_A3/sum(flux_A3),
+                     F_det_R.r1/sum(flux_R.r1),F_det_R.r2/sum(flux_R.r2),F_det_R.r3/sum(flux_R.r3),
+                               F_det_P.r1/ sum(flux_P.r1),F_det_P.r2/ sum(flux_P.r2),F_det_P.r3/ sum(flux_P.r3),
+                               F_det_L.r1/sum(flux_L.r1),F_det_L.r2/sum(flux_L.r2),F_det_L.r3/sum(flux_L.r3)),
+           microfitofagia=c(F_mic_N1/sum(flux_N1),F_mic_N2/sum(flux_N2),F_mic_N3/sum(flux_N3),
+                               F_mic_G1/sum(flux_G1),F_mic_G2/sum(flux_G2),F_mic_G3/sum(flux_G3),
+                               F_mic_A1/sum(flux_A1),F_mic_A2/sum(flux_A2),F_mic_A3/sum(flux_A3),
+                               F_mic_R.r1/sum(flux_R.r1),F_mic_R.r2/sum(flux_R.r2),F_mic_R.r3/sum(flux_R.r3),
+                               F_mic_P.r1/sum(flux_P.r1),F_mic_P.r2/sum(flux_P.r2),F_mic_P.r3/sum(flux_P.r3),
+                               F_mic_L.r1/sum(flux_L.r1),F_mic_L.r2/sum(flux_L.r2),F_mic_L.r3/sum(flux_L.r3)),
+           predacion=c(F_pred_N1/sum(flux_N1),F_pred_N2/sum(flux_N2),F_pred_N3/sum(flux_N3),
+                               F_pred_G1/sum(flux_G1),F_pred_G2/sum(flux_G2),F_pred_G3/sum(flux_G3),
+                               F_pred_A1/sum(flux_A1),F_pred_A2/sum(flux_A2),F_pred_A3/sum(flux_A3),
+                               F_pred_R.r1/sum(flux_R.r1),F_pred_R.r2/sum(flux_R.r2),F_pred_R.r3/sum(flux_R.r3),
+                               F_pred_P.r1/sum(flux_P.r1),F_pred_P.r2/sum(flux_P.r2),F_pred_P.r3/sum(flux_P.r3),
+                               F_pred_L.r1/sum(flux_L.r1),F_pred_L.r2/sum(flux_L.r2),F_pred_L.r3/sum(flux_L.r3)),
+           omnivoria=c(F_omn_N1/sum(flux_N1),F_omn_N2/sum(flux_N2),F_omn_N3/sum(flux_N3),
+                               F_omn_G1/sum(flux_G1),F_omn_G2/sum(flux_G2),F_omn_G3/sum(flux_G3),
+                               F_omn_A1/sum(flux_A1),F_omn_A2/sum(flux_A2),F_omn_A3/sum(flux_A3),
+                               F_omn_R.r1/sum(flux_R.r1),F_omn_R.r2/sum(flux_R.r2),F_omn_R.r3/sum(flux_R.r3),
+                               F_omn_P.r1/sum(flux_P.r1),F_omn_P.r2/sum(flux_P.r2),F_omn_P.r3/sum(flux_P.r3),
+                               F_omn_L.r1/sum(flux_L.r1),F_omn_L.r2/sum(flux_L.r2),F_omn_L.r3/sum(flux_L.r3)),
+           replica=c(1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3),
+                       loc=c(rep("ChyN",9),rep("Luj",9)),
+             row.names = NULL)
+             
+```
+
+
+```{r flujos_multicanal_show, echo=FALSE, message=FALSE,warning=FALSE}
+
+F_mc_lu
+F_mc_total
+```
+
+```{r krus_flux, echo=FALSE, message=FALSE,warning=FALSE}
+kruskal.test(total ~ sitio, data = F_mc_lu )
+pairwise.wilcox.test(F_mc_lu$total, F_mc_lu$sitio, data = F_mc_lu,
+                                          p.adjust.method = "BH",exact=FALSE)
+kruskal.test(biotransformacion ~ sitio, data = F_mc_lu )
+
+kruskal.test(detritivoria ~ sitio, data = F_mc_lu )
+pairwise.wilcox.test(F_mc_lu$detritivoria, F_mc_lu$sitio, data = F_mc_lu,
+                                          p.adjust.method = "BH",exact=FALSE)
+kruskal.test(microfitofagia ~ sitio, data = F_mc_lu )
+kruskal.test(predacion ~ sitio, data = F_mc_lu )
+kruskal.test(omnivoria ~ sitio, data = F_mc_lu )
+kruskal.test(herbivoria ~ sitio, data = F_mc_lu )
+pairwise.wilcox.test(F_mc_lu$omnivoria, F_mc_lu$sitio, data = F_mc_lu,
+                                          p.adjust.method = "BH",exact=FALSE)
+
+F_mc_total_L<-F_mc_total%>%filter(loc=="Luj")
+F_mc_total_CN<-F_mc_total%>%filter(loc=="ChyN")
+
+kruskal.test(total ~ sitio, data = F_mc_total, subset =F_mc_total$loc=="ChyN"  )
+kruskal.test(biotransformacion ~ sitio, data = F_mc_total, subset =F_mc_total$loc=="ChyN"  )
+kruskal.test(detritivoria ~ sitio, data = F_mc_total, subset =F_mc_total$loc=="ChyN"  )
+kruskal.test(microfitofagia ~ sitio, data = F_mc_total, subset =F_mc_total$loc=="ChyN"   )
+kruskal.test(predacion ~ sitio, data = F_mc_total, subset =F_mc_total$loc=="ChyN"   )
+kruskal.test(omnivoria ~ sitio, data = F_mc_total, subset =F_mc_total$loc=="ChyN"  )
+
+kruskal.test(total ~ sitio, data = F_mc_total, subset =F_mc_total$loc=="Luj"  )
+pairwise.wilcox.test(F_mc_total_L$total, F_mc_total_L$sitio, data = F_mc_total_L,
+                                          p.adjust.method = "BH",exact=FALSE)
+
+kruskal.test(biotransformacion ~ sitio, data = F_mc_total, subset =F_mc_total$loc=="Luj"  )
+kruskal.test(detritivoria ~ sitio, data = F_mc_total, subset =F_mc_total$loc=="Luj"  )
+kruskal.test(microfitofagia ~ sitio, data = F_mc_total, subset =F_mc_total$loc=="Luj"   )
+kruskal.test(predacion ~ sitio, data = F_mc_total, subset =F_mc_total$loc=="Luj"   )
+kruskal.test(omnivoria ~ sitio, data = F_mc_total, subset =F_mc_total$loc=="Luj"  )
+
+
+```
+
+
