@@ -934,6 +934,263 @@ mG<-matrix(nrow = length(sp_G),ncol = length(sp_G),
 mG[is.na(mG)] <- 0
 
 #matriz interacciones####
+
+{
+#Microflora#####
+mG["bac",c("hummus","litter","carrion")]<-1
+mG["fungi",c("hummus","tej_veg","carrion","litter")]<-1
+#Microfauna
+mG["proto",c("bac","hummus","proto","tej_veg")]<-1
+mG[c("enchytraeida","tardigrado"),c("bac","hummus","proto","fungi")]<-1
+mG[c("enchytraeida"),c("litter")]<-1
+mG["nem_predador",c("nem_predador","nem_omnivor","nem_fitofago",
+                    "nem_bacterivoro","nem_fungivoro","proto","tardigrado")]<-1
+mG["nem_omnivor",c("nem_fitofago","nem_bacterivoro","nem_fungivoro","proto",
+                   "tardigrado","bac","fungi","hummus")]<-1
+mG["nem_fitofago","tej_veg"]<-1
+mG["nem_fungivoro","fungi"]<-1
+mG["nem_bacterivoro","bac"]<-1
+
+
+#lombrices#####
+mG[c("juvenil","Aporrectodea caliginosa",
+     "Aporrectodea rosea","Aporrectodea trapezoides",
+     "Bimastos beddardi sophiae","Bimastos parvus",
+     "Eukerria halophila","Glossoscolex sp.","Octalasion lacteum", "Microscolex dubius",
+     "Eukerria stagnalis","Microscolex phosphoreus","Octalasion cyaneum","Octolasion tyrtaeum"),
+   c("litter","bac","fungi","proto","hummus")]<-1
+#varios####
+mG["astigmata",c("bac","fungi","nem_fitofago",
+                    "nem_bacterivoro","nem_fungivoro","proto")]<-1
+
+mG["coccinelidae",c("aphidoidea","thysanoptera","terebrantia","cicadidae")]<-1
+
+mG[c("aphidoidea","coleoptera_suctor","thysanoptera","hemiptero",
+     "cicadidae","ortoptero","terebrantia","embrioptera"),
+   c("tej_veg")]<-1 #este aparece, pero tal vez no se alimente¿?
+
+#grandes detritivoros#####
+mG[c("oniscidea","blattodea","diplopoda","gasteropoda",
+     "larva_coleoptero","larva_tenebrionidae","larva_curculionidae",
+     "larva_diptera",
+     "larva_elateridae","larva_scarabidae","larva_sciaridae",
+     "pupa_diptera","trogossitidae","cryptophagidae",
+     "ptilidae","elateriforme","tenebrionidae","anthribidae"),
+   c("fungi","litter","carrion")]<-1
+
+#Mesostigmatas predadores####
+
+#arctacaridae in the review not information of this group
+#Krantz say " it may represent the sister group of the gamasine subcohorrs 
+# Parasitiae and Dermanyssiae, 
+#eviphididae, laelapidae, ologamasidae, parasitidae, veigaioidea
+
+mG[c("arctacaridae","dermanisoidea","eviphididae", 
+     "ichtyostomatogasteridae","laelapidae","ologamasidae", 
+     "parasitidae", "veigaioidea","rhagidiidae","bdelloidea",
+     "cunaxide","teneriffidae","trombidiidae"),
+   c("enchytraeida","nem_predador","nem_omnivor","nem_fitofago",
+     "nem_bacterivoro","nem_fungivoro","proto","astigmata",
+     "limnozetidae","ceratozetoidea","diplura","entomobridae",
+     "epilhomanioidea","eremobelbidae","eupthiracaroidea",
+     "galumnidae","hipogastruridae","isotomidae","larva_diptera",
+     "larva_sciaridae","onichiuridae","oppioidea","oribatulidae",
+     "oripodidae","protura", "scheloribatidae","symphyla",
+     "symphypleona", "teneriffidae","tardigrado",
+     "alycidae", "anystidae","macropilina","ameroseidae",
+     "arctacaridae","dermanisoidea","eviphididae", 
+     "ichtyostomatogasteridae","laelapidae","ologamasidae", 
+     "parasitidae", "veigaioidea",
+     "bdelloidea","penthalidae","cunaxide","trombidiidae",
+     "eupodoidea","tydeioidea","alycidae","anystidae","tarsonemidae",
+     "rhodacarioidea","teneriffidae","rhagidiidae",
+     "uropodoidea")]<-1
+#arctacaridae segun Krantz dieta similar a Parasitidae
+#dermanisoidea una amplia superfamilia, en ella estan los Laelapidae, Ascoidea, etc,
+#mesostigmtas nematófagos
+mG[c("uropodoidea","mesostigmata"),c("nem_predador","nem_omnivor","nem_fitofago",
+                   "nem_bacterivoro","nem_fungivoro","proto","tardigrado")]<-1
+
+#mesostigmatas pequeños
+mG[c("rhodacarioidea"),
+   c("nem_predador","nem_omnivor","nem_fitofago",
+     "nem_bacterivoro","nem_fungivoro","proto","tardigrado",
+     "onichiuridae","hipogastruridae","isotomidae","symphypleona",
+     "protura","diplura","symphyla",
+     "entomobridae","enchytraeida")]<-1 #se alimentan solo de colembolos, 
+                                        #evitando acaros
+#####
+#Prostigmatas omnivoro, excepto ameroseidae que es mesostigmata
+mG[c("eupodoidea","ameroseidae","penthalidae","tydeioidea",
+     "alycidae","anystidae","tarsonemidae"),
+   c("bac","fungi","carrion",
+     "nem_predador","nem_omnivor","nem_fitofago",
+     "nem_bacterivoro","nem_fungivoro","proto","tardigrado",
+     "onichiuridae","hipogastruridae","isotomidae","symphypleona",
+     "entomobridae","symphyla","protura","diplura","astigmata")]<-1
+
+mG[c("ameroseidae"),
+   c("bac","carrion")]<-0
+
+#Macro predadores#####
+#
+# acaros, colembolos, otros microartrópodos
+mG[c("carabidae","staphiliniidae","pseudoscorpionida"),
+   c("enchytraeida","astigmata","limnozetidae","ceratozetoidea","diplura",
+     "entomobridae","epilhomanioidea","eremobelbidae","eupthiracaroidea","eupodoidea",
+     "eviphididae","galumnidae","hipogastruridae","isotomidae",
+     "mesostigmata","laelapidae","larva_diptera","larva_sciaridae",
+     "ologamasidae","parasitidae","bdelloidea","onichiuridae","oppioidea",
+     "oribatulidae","oripodidae","protura", "scheloribatidae","symphyla",
+     "symphypleona", "teneriffidae","rhodacarioidea","tardigrado",
+     "rhagidiidae","tydeioidea","uropodoidea","veigaioidea","arctacaridae",
+     "bdelloidea","penthalidae","cunaxide","trombidiidae",
+     "ameroseidae","arctacaridae","dermanisoidea", 
+     "ichtyostomatogasteridae","macropilina","eupodoidea","tydeioidea","alycidae",
+     "anystidae","tarsonemidae","teneriffidae")]<-1
+
+#japyjapidae
+mG[c("diplura"),c("protura","symphyla","onichiuridae","isotomidae","enchytraeida",
+                  "entomobridae","hipogastruridae","carrion","proto")]<-1
+#"bac","fungi", para los dipluras no carnívoros
+
+
+mG["larva_carabidae",c("enchytraeida","nem_predador","nem_omnivor","nem_fitofago",
+                   "nem_bacterivoro","nem_fungivoro","proto","diplura",
+                   "astigmata","protura","symphyla","onichiuridae","isotomidae","carrion",
+                  "entomobridae","hipogastruridae","tardigrado","larva_diptera","larva_sciaridae",
+                  "oppioidea","oripodidae","scheloribatidae","rhodacarioidea","eupodoidea")]<-1
+#come colembolos, larvas,pequeños acaros
+#cienpies: todo tipo de artrópodo conforman su presa
+
+mG["geophylomorpha",c("alycidae","anystidae","ameroseidae","bdelloidea","cunaxide",
+                      "arctacaridae","enchytraeida","astigmata","limnozetidae",
+                      "ceratozetoidea", "diplura","entomobridae",
+                      "dermanisoidea","ichtyostomatogasteridae","macropilina",
+                   "epilhomanioidea","eremobelbidae","eupthiracaroidea","eupodoidea",
+                   "eviphididae","galumnidae","hipogastruridae","isotomidae",
+                 "mesostigmata","laelapidae","larva_coleoptero","larva_curculionidae",
+                 "larva_diptera","larva_elateridae","larva_sciaridae",
+                 "ologamasidae","parasitidae","blattodea","carabidae",
+                 "onichiuridae","oppioidea","oribatulidae","penthalidae",
+                   "oripodidae","protura", "scheloribatidae","symphyla",
+                   "symphypleona", "teneriffidae","rhodacarioidea","tardigrado",
+                  "rhagidiidae","tydeioidea","uropodoidea","veigaioidea",
+                 "aphidoidea","cicadidae","coleoptera_suctor","cryptophagidae",
+                 "diplopoda","juvenil","elateriforme","hemiptero","larva_carabidae",
+                 "ptilidae","staphiliniidae","thysanoptera","trogossitidae",
+                   "tarsonemidae","tenebrionidae","terebrantia","trombidiidae"
+                  )]<-1
+
+#arácnidos 
+mG[c("linyphiidae","lycosidae"),
+   c("coccinelidae","aphidoidea","arctacaridae","astigmata",
+     "limnozetidae","blattodea","carabidae","grillopalpidae",
+     "ceratozetoidea","cicadidae","coleoptera_suctor","cryptophagidae",
+     "cunaxide","diplura","elateriforme","entomobridae",
+     "eremobelbidae","eupodoidea","eviphididae","macropilina","ortoptero",
+     "formicidae","galumnidae","geophylomorpha","penthalidae","tenebrionidae",
+     "hemiptero","hipogastruridae","isotomidae",
+     "laelapidae","mesostigmata","ologamasidae",
+     "oribatulidae","oripodidae","parasitidae",
+     "ptilidae","staphiliniidae","symphyla","dermanisoidea",
+     "symphypleona","thysanoptera","trogossitidae",
+     "tydeioidea","uropodoidea","veigaioidea","anthribidae",
+     "embrioptera","terebrantia","trombidiidae"
+     )]<-1
+
+#topogrillo
+mG["grillopalpidae",c("carrion","bac","fungi","tej_veg","enchytraeida",
+                      "nem_predador","nem_omnivor","nem_fitofago",
+                   "nem_bacterivoro","nem_fungivoro","proto",
+                   "diplura","entomobridae","hipogastruridae","isotomidae",
+                  "onichiuridae","oppioidea","oripodidae","protura",
+                  "symphyla","symphypleona","rhodacarioidea","tardigrado"
+                  )]<-1
+#hormigas, predadores generalistas.
+#Atacan lombrices
+#"carrion","fungi","tej_veg",
+#se quitan los acaros y colembolos que escapan, por su capacidad de vivir en los poros y pequeño tamaño
+
+mG["formicidae",c("Aporrectodea caliginosa","Aporrectodea rosea",
+                  "Aporrectodea trapezoides","Bimastos beddardi sophiae",
+                  "Eukerria halophila","Glossoscolex sp.",
+                  "Bimastos parvus","arctacaridae","limnozetidae","embrioptera","grillopalpidae",
+                  "macropilina","Microscolex phosphoreus",
+                  "Octalasion cyaneum",
+                  "Octolasion tyrtaeum","ortoptero","penthalidae",
+                      "ceratozetoidea", "diplura","entomobridae",
+                   "epilhomanioidea","eremobelbidae","eupthiracaroidea",
+                   "eviphididae","galumnidae","hipogastruridae","isotomidae",
+                 "mesostigmata","laelapidae","larva_coleoptero","larva_curculionidae",
+                 "larva_diptera","larva_elateridae","larva_sciaridae",
+                 "ologamasidae","parasitidae","bdelloidea","blattodea","carabidae",
+                 "onichiuridae","oribatulidae","pupa_diptera",
+                   "protura","symphyla",
+                   "symphypleona", "teneriffidae",
+                  "rhagidiidae","tydeioidea","uropodoidea","veigaioidea",
+                 "aphidoidea","cicadidae","coleoptera_suctor","cryptophagidae",
+                 "diplopoda","juvenil","elateriforme","hemiptero","larva_carabidae",
+                 "ptilidae","staphiliniidae","thysanoptera","trogossitidae",
+                 "alycidae","ameroseidae","anthribidae","anystidae","coccinelidae",
+                 "tenebrionidae","terebrantia"
+                  )]<-1
+
+#parasito de grandes insectos
+mG["nematomorpha",c("aphidoidea","blattodea","carabidae",
+    "cicadidae","coleoptera_suctor","cryptophagidae",
+    "elateriforme","hemiptero","ptilidae","staphiliniidae","thysanoptera","trogossitidae")]<-1
+
+
+#microfitofagos
+mG[c("macropilina","limnozetidae","oribatido",
+     "scheloribatidae","oripodidae","oribatulidae",
+     "protura","eremobelbidae","oppioidea","brachychthonioidea"),
+   c("bac","fungi","hummus")]<-1
+#macrofitofago
+mG[c("symphypleona","crotonioidea"),c("bac","fungi","hummus","tej_veg","litter")]<-1
+mG[c("epilhomanioidea","eupthiracaroidea","isoptera"),c("litter")]<-1
+mG[c("isoptera"),c("hummus","fungi")]<-1
+#macrofitofago omnivoro
+mG[c("ceratozetoidea","onichiuridae","isotomidae",
+     "scheloribatidae","symphyla"),
+   c("bac","fungi","hummus","carrion","litter","tej_veg","nem_fungivoro",
+     "nem_bacterivoro")]<-1
+#omnivoro
+mG[c("entomobridae"),c("bac","fungi","nem_bacterivoro","nem_fungivoro")]<-1
+
+
+mG["galumnidae",c("carrion","nem_fitofago","tardigrado",
+                   "nem_bacterivoro","nem_fungivoro","proto","bac","fungi")]<-1
+
+mG["hipogastruridae",c("nem_predador","nem_omnivor","nem_fitofago",
+                   "nem_bacterivoro","nem_fungivoro","proto",
+                   "tardigrado","bac","fungi","carrion")]<-1
+###
+
+mG[c("protura","symphyla"),c("carrion","bac","fungi","proto")]<-1
+
+mG["ptilidae",c("hummus","fungi","carrion","bac","proto","nem_fitofago",
+                   "nem_bacterivoro","nem_fungivoro")]<-1
+
+
+#diagonal de la matriz 0, y dejar solo las interacciones canibalistas "reales"
+
+diag(mG)<-0
+
+mG["proto","proto"]<-1
+mG["geophylomorpha","geophylomorpha"]<-1
+mG["nem_predador","nem_predador"]<-1
+
+ }
+
+#Vector para reducir la red a mesofauna, 
+#se incluyen las bacterias, hongos, protozoos y nematodos, que son a la vez recursos
+#vector con 67 taxas
+
+
+
+#matriz interacciones####
 #ponderado
 #alto 0.9
 #medio bajo 0.4 
@@ -945,19 +1202,20 @@ mG[is.na(mG)] <- 0
 {
 #Microflora#####
 mG["bac",c("hummus","litter","carrion")]<-0.9
-mG["fungi",c("hummus","tej_veg","carrion","litter")]<-0.9
+mG["fungi",c("tej_veg","litter")]<-0.9
+mG["fungi",c("hummus","carrion")]<-0.7
 #Microfauna
 mG["proto",c("bac","proto","tej_veg")]<-0.9
 mG["proto","hummus"]<-0.4
-mG[c("enchytraeida","tardigrado"),c("bac","hummus","proto","fungi")]<-0.9
+mG[c("enchytraeida","tardigrado"),c("bac","proto","fungi")]<-0.9
 mG[c("enchytraeida","tardigrado"),c("hummus")]<-0.7
-mG[c("enchytraeida"),c("litter")]<-0.9
+mG[c("enchytraeida"),c("litter")]<-0.7
 mG["nem_predador",c("nem_fitofago",
                     "nem_bacterivoro","nem_fungivoro","proto")]<-0.9
 mG["nem_predador",c("nem_predador","nem_omnivor","tardigrado")]<-0.7
 mG["nem_omnivor",c("nem_fitofago","nem_bacterivoro","nem_fungivoro","proto",
                    "tardigrado")]<-0.7
-mG["nem_omnivor",c("bac","fungi","hummus")]<-0.4
+mG["nem_omnivor",c("bac","fungi","hummus")]<-0.5
 mG["nem_fitofago","tej_veg"]<-0.9
 mG["nem_fungivoro","fungi"]<-0.9
 mG["nem_bacterivoro","bac"]<-0.9
@@ -1000,7 +1258,7 @@ mG[c("oniscidea","blattodea","diplopoda","gasteropoda",
      "larva_elateridae","larva_scarabidae","larva_sciaridae",
      "pupa_diptera","trogossitidae","cryptophagidae",
      "ptilidae","elateriforme","tenebrionidae","anthribidae"),
-   c("litter","carrion")]<-0.7
+   c("litter")]<-0.7
 mG[c("oniscidea","blattodea","diplopoda","gasteropoda",
      "larva_coleoptero","larva_tenebrionidae","larva_curculionidae",
      "larva_diptera",
@@ -1056,7 +1314,7 @@ mG[c("arctacaridae","dermanisoidea","eviphididae",
      "parasitidae", "veigaioidea","rhagidiidae","bdelloidea",
      "cunaxide","teneriffidae","trombidiidae"),
    c("larva_diptera",
-     "larva_sciaridae")]<-0.25
+     "larva_sciaridae")]<-0.1
 
 #arctacaridae segun Krantz dieta similar a Parasitidae
 #dermanisoidea una amplia superfamilia, en ella estan los Laelapidae, Ascoidea, etc,
@@ -1089,6 +1347,9 @@ mG[c("eupodoidea","ameroseidae","penthalidae","tydeioidea",
      "alycidae","anystidae","tarsonemidae"),
    c("carrion",
      "onichiuridae","symphypleona")]<-0.4
+mG[c("eupodoidea","ameroseidae","penthalidae","tydeioidea",
+     "alycidae","anystidae","tarsonemidae"),
+   c("carrion")]<-0.25
 
 mG[c("ameroseidae"),
    c("bac","carrion")]<-0
@@ -1161,8 +1422,7 @@ mG[c("linyphiidae","lycosidae"),
      "hemiptero",
      "ptilidae","staphiliniidae","thysanoptera","trogossitidae",
      "anthribidae",
-     "embrioptera","terebrantia"
-     )]<-0.9
+     "embrioptera","terebrantia")]<-0.9
 mG[c("linyphiidae","lycosidae"),
    c("arctacaridae","astigmata",
      "limnozetidae",
@@ -1174,8 +1434,7 @@ mG[c("linyphiidae","lycosidae"),
      "oribatulidae","oripodidae","parasitidae",
      "symphyla","dermanisoidea",
      "symphypleona",
-     "tydeioidea","uropodoidea","veigaioidea","trombidiidae"
-     )]<-0.5
+     "tydeioidea","uropodoidea","veigaioidea","trombidiidae")]<-0.5
 
 #topogrillo
 mG["grillopalpidae",c("carrion","bac","fungi","tej_veg")]<-0.25
@@ -1184,8 +1443,7 @@ mG["grillopalpidae",c("enchytraeida",
                    "nem_bacterivoro","nem_fungivoro","proto",
                    "diplura","entomobridae","hipogastruridae","isotomidae",
                   "onichiuridae","oppioidea","oripodidae","protura",
-                  "symphyla","symphypleona","rhodacarioidea","tardigrado"
-                  )]<-0.7
+                  "symphyla","symphypleona","rhodacarioidea","tardigrado")]<-0.7
 #hormigas, predadores generalistas.
 #Atacan lombrices
 #"carrion","fungi","tej_veg",
@@ -1216,16 +1474,17 @@ mG["formicidae",c("Aporrectodea caliginosa","Aporrectodea rosea",
                   )]<-0.4
 
 #parasito de grandes insectos
-mG["nematomorpha",c("aphidoidea","blattodea","carabidae",
-    "cicadidae","coleoptera_suctor","cryptophagidae",
-    "elateriforme","hemiptero","ptilidae","staphiliniidae","thysanoptera","trogossitidae")]<-0.7
+mG["nematomorpha",c("carabidae","coleoptera_suctor","cryptophagidae",
+    "elateriforme","ptilidae","staphiliniidae","trogossitidae")]<-0.7
+mG["nematomorpha",c("aphidoidea","blattodea",
+    "cicadidae","hemiptero","thysanoptera")]<-0.4
 
 
 #microfitofagos
 mG[c("macropilina","limnozetidae","oribatido",
      "scheloribatidae","oripodidae","oribatulidae",
      "protura","eremobelbidae","oppioidea","brachychthonioidea"),
-   c("bac","fungi","hummus")]<-0.9
+   c("bac","fungi")]<-0.9
 mG[c("macropilina","limnozetidae","oribatido",
      "scheloribatidae","oripodidae","oribatulidae",
      "protura","eremobelbidae","oppioidea","brachychthonioidea"),
@@ -1234,12 +1493,15 @@ mG[c("macropilina","limnozetidae","oribatido",
 mG[c("symphypleona","crotonioidea"),c("bac","fungi")]<-0.9
 mG[c("symphypleona","crotonioidea"),c("hummus","tej_veg","litter")]<-0.5
 mG[c("epilhomanioidea","eupthiracaroidea","isoptera"),c("litter")]<-0.7
-mG[c("isoptera"),c("hummus","fungi")]<-0.9
+mG[c("isoptera"),c("fungi")]<-0.9
+mG[c("isoptera"),c("hummus")]<-0.4
 #macrofitofago omnivoro
 mG[c("ceratozetoidea","onichiuridae","isotomidae",
      "scheloribatidae","symphyla"),
-   c("bac","fungi","hummus","carrion","litter","tej_veg","nem_fungivoro",
-     "nem_bacterivoro")]<-0.7
+   c("bac","fungi","hummus","nem_fungivoro","nem_bacterivoro")]<-0.7
+mG[c("ceratozetoidea","onichiuridae","isotomidae",
+     "scheloribatidae","symphyla"),
+   c("carrion","litter","tej_veg")]<-0.4
 
 #omnivoro
 mG[c("entomobridae"),c("bac","fungi","nem_bacterivoro","nem_fungivoro")]<-0.9
@@ -1250,26 +1512,25 @@ mG["galumnidae",c("nem_fitofago",
 mG["galumnidae",c("carrion","tardigrado")]<-0.5
 
 mG["hipogastruridae",c("bac","fungi")]<-0.7
-mG["hipogastruridae",c("carrion")]<-0.4
+mG["hipogastruridae",c("carrion")]<-0.4 
 mG["hipogastruridae",c("nem_predador","nem_omnivor","nem_fitofago",
                    "nem_bacterivoro","nem_fungivoro","proto",
                    "tardigrado")]<-0.5
 ###
 
 mG[c("protura","symphyla"),c("bac","fungi","proto")]<-0.9
-mG[c("protura","symphyla"),c("carrion")]<-0.5
+mG[c("protura","symphyla"),c("carrion","litter")]<-0.25
 
-mG["ptilidae",c("hummus","fungi","carrion","bac","proto")]<-0.9
-mG["ptilidae",c("nem_fitofago",
-                   "nem_bacterivoro","nem_fungivoro")]<-0.25
+mG["ptilidae",c("hummus","fungi","bac","proto")]<-0.9
+mG["ptilidae",c("nem_fitofago","nem_bacterivoro","nem_fungivoro","carrion")]<-0.25
 
 #diagonal de la matriz 0, y dejar solo las interacciones canibalistas "reales"
 
 diag(mG)<-0
 
 mG["proto","proto"]<-0.5
-mG["geophylomorpha","geophylomorpha"]<-0.25
-mG["nem_predador","nem_predador"]<-0.4
+mG["geophylomorpha","geophylomorpha"]<-0.1
+mG["nem_predador","nem_predador"]<-0.25
 
  }
 
@@ -1286,80 +1547,80 @@ mG["nem_predador","nem_predador"]<-0.4
 #Red Lote UNLu
 L_net1 <-graph_from_adjacency_matrix(t(mG[c(L1$taxa,"litter","carrion","tej_veg","hummus"),c(L1$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed"),weighted = TRUE )
 #Red Reserva UNLu
-R_net1 <-graph_from_adjacency_matrix(t(mG[c(R1$taxa,"litter","carrion","tej_veg","hummus"),c(R1$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed"))
+R_net1 <-graph_from_adjacency_matrix(t(mG[c(R1$taxa,"litter","carrion","tej_veg","hummus"),c(R1$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed"),weighted = TRUE)
 #Red Pastizal UNLu
-P_net1 <-graph_from_adjacency_matrix(t(mG[c(P1$taxa,"litter","carrion","tej_veg","hummus"),c(P1$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+P_net1 <-graph_from_adjacency_matrix(t(mG[c(P1$taxa,"litter","carrion","tej_veg","hummus"),c(P1$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed"),weighted = TRUE )
 
 #Datos de ácaros - colémbolos -lombrices - y respiración heterotrófica
 #Red Pastizal Naturalizado RO
-N_net1 <-graph_from_adjacency_matrix(t(mG[c(N1$specie,"litter","carrion","tej_veg"),c(N1$specie,"litter","carrion","tej_veg")]),mode=c("directed") )
+N_net1 <-graph_from_adjacency_matrix(t(mG[c(N1$specie,"litter","carrion","tej_veg"),c(N1$specie,"litter","carrion","tej_veg")]),mode=c("directed"),weighted = TRUE )
 #Red mixto Agrícola Ganadero RO
-G_net1 <-graph_from_adjacency_matrix(t(mG[c(G1$specie,"litter","carrion","tej_veg"),c(G1$specie,"litter","carrion","tej_veg")]),mode=c("directed") )
+G_net1 <-graph_from_adjacency_matrix(t(mG[c(G1$specie,"litter","carrion","tej_veg"),c(G1$specie,"litter","carrion","tej_veg")]),mode=c("directed"),weighted = TRUE )
 #Red agrícola intensivo RO
-A_net1 <-graph_from_adjacency_matrix(t(mG[c(A1$specie,"litter","carrion","tej_veg"),c(A1$specie,"litter","carrion","tej_veg")]),mode=c("directed") )
+A_net1 <-graph_from_adjacency_matrix(t(mG[c(A1$specie,"litter","carrion","tej_veg"),c(A1$specie,"litter","carrion","tej_veg")]),mode=c("directed"),weighted = TRUE )
 #Reducción de redes####
 #a acaros colembolos
 L.r1<-as_vector(L1[L1$taxa%in%meso.reduc,"taxa"][[1]])
-L_reduc.net1 <-graph_from_adjacency_matrix(t(mG[c(L.r1,"litter","carrion","tej_veg","hummus"),c(L.r1,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+L_reduc.net1 <-graph_from_adjacency_matrix(t(mG[c(L.r1,"litter","carrion","tej_veg","hummus"),c(L.r1,"litter","carrion","tej_veg","hummus")]),mode=c("directed"),weighted = TRUE )
 #Red Reserva UNLu
 R.r1<-as_vector(R1[R1$taxa%in%meso.reduc,"taxa"][[1]])
-R_reduc.net1 <-graph_from_adjacency_matrix(t(mG[c(R.r1,"litter","carrion","tej_veg","hummus"),c(R.r1,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+R_reduc.net1 <-graph_from_adjacency_matrix(t(mG[c(R.r1,"litter","carrion","tej_veg","hummus"),c(R.r1,"litter","carrion","tej_veg","hummus")]),mode=c("directed"),weighted = TRUE )
 #Red Pastizal UNLu
 P.r1<-as_vector(P1[P1$taxa%in%meso.reduc,"taxa"][[1]])
-P_reduc.net1 <-graph_from_adjacency_matrix(t(mG[c(P.r1,"litter","carrion","tej_veg","hummus"),c(P.r1,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+P_reduc.net1 <-graph_from_adjacency_matrix(t(mG[c(P.r1,"litter","carrion","tej_veg","hummus"),c(P.r1,"litter","carrion","tej_veg","hummus")]),mode=c("directed"),weighted = TRUE )
 
 #2
 #Red Lote UNLu
-L_net2 <-graph_from_adjacency_matrix(t(mG[c(L2$taxa,"litter","carrion","tej_veg","hummus"),c(L2$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+L_net2 <-graph_from_adjacency_matrix(t(mG[c(L2$taxa,"litter","carrion","tej_veg","hummus"),c(L2$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed"),weighted = TRUE )
 #Red Reserva UNLu
-R_net2 <-graph_from_adjacency_matrix(t(mG[c(R2$taxa,"litter","carrion","tej_veg","hummus"),c(R2$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+R_net2 <-graph_from_adjacency_matrix(t(mG[c(R2$taxa,"litter","carrion","tej_veg","hummus"),c(R2$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed"),weighted = TRUE )
 #Red Pastizal UNLu
-P_net2 <-graph_from_adjacency_matrix(t(mG[c(P2$taxa,"litter","carrion","tej_veg","hummus"),c(P2$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+P_net2 <-graph_from_adjacency_matrix(t(mG[c(P2$taxa,"litter","carrion","tej_veg","hummus"),c(P2$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed"),weighted = TRUE )
 
 #Datos de ácaros - colémbolos -lombrices - y respiración heterotrófica
 #Red Pastizal Naturalizado RO
-N_net2 <-graph_from_adjacency_matrix(t(mG[c(N2$specie,"litter","carrion","tej_veg"),c(N2$specie,"litter","carrion","tej_veg")]),mode=c("directed") )
+N_net2 <-graph_from_adjacency_matrix(t(mG[c(N2$specie,"litter","carrion","tej_veg"),c(N2$specie,"litter","carrion","tej_veg")]),mode=c("directed"),weighted = TRUE )
 #Red mixto Agrícola Ganadero RO
-G_net2 <-graph_from_adjacency_matrix(t(mG[c(G2$specie,"litter","carrion","tej_veg"),c(G2$specie,"litter","carrion","tej_veg")]),mode=c("directed") )
+G_net2 <-graph_from_adjacency_matrix(t(mG[c(G2$specie,"litter","carrion","tej_veg"),c(G2$specie,"litter","carrion","tej_veg")]),mode=c("directed"),weighted = TRUE )
 #Red agrícola intensivo RO
-A_net2 <-graph_from_adjacency_matrix(t(mG[c(A2$specie,"litter","carrion","tej_veg"),c(A2$specie,"litter","carrion","tej_veg")]),mode=c("directed") )
+A_net2 <-graph_from_adjacency_matrix(t(mG[c(A2$specie,"litter","carrion","tej_veg"),c(A2$specie,"litter","carrion","tej_veg")]),mode=c("directed"),weighted = TRUE )
 #Reducción de redes####
 #a acaros colembolos
 L.r2<-as_vector(L2[L2$taxa%in%meso.reduc,"taxa"][[1]])
-L_reduc.net2 <-graph_from_adjacency_matrix(t(mG[c(L.r2,"litter","carrion","tej_veg","hummus"),c(L.r2,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+L_reduc.net2 <-graph_from_adjacency_matrix(t(mG[c(L.r2,"litter","carrion","tej_veg","hummus"),c(L.r2,"litter","carrion","tej_veg","hummus")]),mode=c("directed"),weighted = TRUE )
 #Red Reserva UNLu
 R.r2<-as_vector(R2[R2$taxa%in%meso.reduc,"taxa"][[1]])
-R_reduc.net2 <-graph_from_adjacency_matrix(t(mG[c(R.r2,"litter","carrion","tej_veg","hummus"),c(R.r2,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+R_reduc.net2 <-graph_from_adjacency_matrix(t(mG[c(R.r2,"litter","carrion","tej_veg","hummus"),c(R.r2,"litter","carrion","tej_veg","hummus")]),mode=c("directed"),weighted = TRUE )
 #Red Pastizal UNLu
 P.r2<-as_vector(P2[P2$taxa%in%meso.reduc,"taxa"][[1]])
-P_reduc.net2 <-graph_from_adjacency_matrix(t(mG[c(P.r2,"litter","carrion","tej_veg","hummus"),c(P.r2,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+P_reduc.net2 <-graph_from_adjacency_matrix(t(mG[c(P.r2,"litter","carrion","tej_veg","hummus"),c(P.r2,"litter","carrion","tej_veg","hummus")]),mode=c("directed"),weighted = TRUE )
 
 #3
 
 #Red Lote UNLu
-L_net3 <-graph_from_adjacency_matrix(t(mG[c(L3$taxa,"litter","carrion","tej_veg","hummus"),c(L3$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+L_net3 <-graph_from_adjacency_matrix(t(mG[c(L3$taxa,"litter","carrion","tej_veg","hummus"),c(L3$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed"),weighted = TRUE )
 #Red Reserva UNLu
-R_net3 <-graph_from_adjacency_matrix(t(mG[c(R3$taxa,"litter","carrion","tej_veg","hummus"),c(R3$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+R_net3 <-graph_from_adjacency_matrix(t(mG[c(R3$taxa,"litter","carrion","tej_veg","hummus"),c(R3$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed"),weighted = TRUE )
 #Red Pastizal UNLu
-P_net3 <-graph_from_adjacency_matrix(t(mG[c(P3$taxa,"litter","carrion","tej_veg","hummus"),c(P3$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+P_net3 <-graph_from_adjacency_matrix(t(mG[c(P3$taxa,"litter","carrion","tej_veg","hummus"),c(P3$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed"),weighted = TRUE )
 
 #Datos de ácaros - colémbolos -lombrices - y respiración heterotrófica
 #Red Pastizal Naturalizado RO
-N_net3 <-graph_from_adjacency_matrix(t(mG[c(N3$specie,"litter","carrion","tej_veg"),c(N3$specie,"litter","carrion","tej_veg")]),mode=c("directed") )
+N_net3 <-graph_from_adjacency_matrix(t(mG[c(N3$specie,"litter","carrion","tej_veg"),c(N3$specie,"litter","carrion","tej_veg")]),mode=c("directed") ,weighted = TRUE)
 #Red mixto Agrícola Ganadero RO
-G_net3 <-graph_from_adjacency_matrix(t(mG[c(G3$specie,"litter","carrion","tej_veg"),c(G3$specie,"litter","carrion","tej_veg")]),mode=c("directed") )
+G_net3 <-graph_from_adjacency_matrix(t(mG[c(G3$specie,"litter","carrion","tej_veg"),c(G3$specie,"litter","carrion","tej_veg")]),mode=c("directed") ,weighted = TRUE)
 #Red agrícola intensivo RO
-A_net3 <-graph_from_adjacency_matrix(t(mG[c(A3$specie,"litter","carrion","tej_veg"),c(A3$specie,"litter","carrion","tej_veg")]),mode=c("directed") )
+A_net3 <-graph_from_adjacency_matrix(t(mG[c(A3$specie,"litter","carrion","tej_veg"),c(A3$specie,"litter","carrion","tej_veg")]),mode=c("directed") ,weighted = TRUE)
 #Reducción de redes####
 #a acaros colembolos
 L.r3<-as_vector(L3[L3$taxa%in%meso.reduc,"taxa"][[1]])
-L_reduc.net3 <-graph_from_adjacency_matrix(t(mG[c(L.r3,"litter","carrion","tej_veg","hummus"),c(L.r3,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+L_reduc.net3 <-graph_from_adjacency_matrix(t(mG[c(L.r3,"litter","carrion","tej_veg","hummus"),c(L.r3,"litter","carrion","tej_veg","hummus")]),mode=c("directed"),weighted = TRUE )
 #Red Reserva UNLu
 R.r3<-as_vector(R3[R3$taxa%in%meso.reduc,"taxa"][[1]])
-R_reduc.net3 <-graph_from_adjacency_matrix(t(mG[c(R.r3,"litter","carrion","tej_veg","hummus"),c(R.r3,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+R_reduc.net3 <-graph_from_adjacency_matrix(t(mG[c(R.r3,"litter","carrion","tej_veg","hummus"),c(R.r3,"litter","carrion","tej_veg","hummus")]),mode=c("directed"),weighted = TRUE )
 #Red Pastizal UNLu
 P.r3<-as_vector(P3[P3$taxa%in%meso.reduc,"taxa"][[1]])
-P_reduc.net3 <-graph_from_adjacency_matrix(t(mG[c(P.r3,"litter","carrion","tej_veg","hummus"),c(P.r3,"litter","carrion","tej_veg","hummus")]),mode=c("directed") )
+P_reduc.net3 <-graph_from_adjacency_matrix(t(mG[c(P.r3,"litter","carrion","tej_veg","hummus"),c(P.r3,"litter","carrion","tej_veg","hummus")]),mode=c("directed"),weighted = TRUE )
 
 
 
@@ -1392,6 +1653,7 @@ topological$loc<-c(rep("Luj",9),rep("ChyN",9))
 
 ```{r topolog_showtab, echo=FALSE, message=FALSE, warning=FALSE}
 kableExtra::kable(topological)
+#write.table("database/topological.txt",topological)
 ```
 
 ```{r topolog_reduc,echo=FALSE,message=FALSE,warning=FALSE}
@@ -1418,8 +1680,12 @@ median(topological[topological$sitio=="N","Clustering"])
 median(topological[topological$sitio=="G","Clustering"])
 median(topological[topological$sitio=="A","Clustering"])
 
+#% omnivoria similar
 kruskal.test(Omnivory ~ sitio, data = topological, subset = topological$loc=="Luj" )
 kruskal.test(Omnivory ~ sitio, data = topological, subset = topological$loc=="ChyN" )
+
+kruskal.test(TLmax ~ sitio, data = topological, subset = topological$loc=="Luj" )
+kruskal.test(TLmax ~ sitio, data = topological, subset = topological$loc=="ChyN" )
 
 kruskal.test(TLmean ~ sitio, data = topological, subset = topological$loc=="Luj" )
 kruskal.test(TLmean ~ sitio, data = topological, subset = topological$loc=="ChyN" )
@@ -1438,7 +1704,9 @@ pairwise.wilcox.test(topologicalCN$Generality, topologicalCN$sitio, data = topol
                                           p.adjust.method = "BH",exact=FALSE) # N dif de GyA
 median(topological[topological$sitio=="N","Generality"])
 median(topological[topological$sitio=="G","Generality"])
-median(topological[topological$sitio=="A","TLmean"])
+median(topological[topological$sitio=="A","Generality"])
+
+
       
 ```
 
