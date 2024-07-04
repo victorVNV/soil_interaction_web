@@ -708,7 +708,7 @@ completo$biomasaheterotrofa<-completo$RESP*103008240
 #sin filtrar por estacion
 #base<-completo%>%filter(class!="macrofauna")
 #por estacion otoño, para comparar
-base<-completo%>%filter(class!="macrofauna",season=="O")
+base<-completo%>%filter(class!="macrofauna", season=="O")
 #Es el factor de conversión para llevar las abundancias a densidad
 
 #Densidad de los demás es 2.5²*3.14 = n()/0,00471 
@@ -927,7 +927,7 @@ mG["fungi",c("tej_veg","litter")]<-0.9
 mG["fungi",c("hummus","carrion")]<-0.7
 #Microfauna
 mG["proto",c("bac","proto","tej_veg")]<-0.9
-mG["proto","hummus"]<-0.4
+mG["proto","hummus"]<-0.25
 mG[c("enchytraeida","tardigrado"),c("bac","proto","fungi")]<-0.9
 mG[c("enchytraeida","tardigrado"),c("hummus")]<-0.7
 mG[c("enchytraeida"),c("litter")]<-0.7
@@ -1313,9 +1313,9 @@ observa en la Reserva.
 
 ```{r plot_redes, echo=FALSE, warning=FALSE,message=FALSE}
 
-plot_troph_level(R_net,modules=FALSE,vertexLabel = FALSE, tk = FALSE,main="Reserva")
-plot_troph_level(P_net,modules=FALSE,vertexLabel = FALSE, tk = FALSE,main="Pastizal")
-plot_troph_level(L_net,modules=FALSE,vertexLabel = FALSE, tk = FALSE,main="Agrícola")
+plot_troph_level(R_net,modules=FALSE,vertexLabel = FALSE, tk = FALSE,main="Reserva",ylab="Nivel Trófico")
+plot_troph_level(P_net,modules=FALSE,vertexLabel = FALSE, tk = FALSE,main="Pastizal",ylab="Nivel Trófico")
+plot_troph_level(L_net,modules=FALSE,vertexLabel = FALSE, tk = FALSE,main="Agrícola",ylab="Nivel Trófico")
 
 ```
 \newpage
@@ -1429,9 +1429,9 @@ un mayor nivel trófico medio.
 ```{r plot_redes2, echo=FALSE, warning=FALSE,message=FALSE}
 
 
-plot_troph_level(N_net,modules=FALSE,vertexLabel = FALSE, tk = FALSE,main="Pastizal")
-plot_troph_level(G_net,modules=FALSE,vertexLabel = FALSE, tk = FALSE,main="Mixto")
-plot_troph_level(A_net,modules=FALSE,vertexLabel = FALSE, tk = FALSE,main="Agrícola")
+plot_troph_level(N_net,modules=FALSE,vertexLabel = FALSE, tk = FALSE,main="Pastizal",ylab="Nivel Trófico")
+plot_troph_level(G_net,modules=FALSE,vertexLabel = FALSE, tk = FALSE,main="Mixto",ylab="Nivel Trófico")
+plot_troph_level(A_net,modules=FALSE,vertexLabel = FALSE, tk = FALSE,main="Agrícola",ylab="Nivel Trófico")
 
 
 ```
@@ -1695,51 +1695,76 @@ flux_P.r<-fluxing(t(mG[c(Pf.r$taxa,"litter","carrion","tej_veg","hummus"),c(Pf.r
 flux_L.r<-fluxing(t(mG[c(Lf.r$taxa,"litter","carrion","tej_veg","hummus"),c(Lf.r$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_Lf.r, losses =  t_metLf.r, efficiencies =  ef_Lf.r,ef.level = "pred")
 ```
 
-```{r flujos_multicanal, echo=FALSE, message=FALSE,warning=FALSE}
+```{r flujos_multicanal, include=FALSE, message=FALSE,warning=FALSE}
 #herbivros########
 #flujo através de los hervíboros
 
 F_herb_R<-sum(flux_R["tej_veg",])
+F_herb_RMF<-(sum(flux_R[c("tej_veg"),!colnames(flux_R)%in%mf])/F_herb_R)*100#, 0.917
 F_herb_P<-sum(flux_P["tej_veg",])
+F_herb_PMF<-(sum(flux_P[c("tej_veg"),!colnames(flux_P)%in%mf])/F_herb_P)*100 # 0.939
 F_herb_L<-sum(flux_L["tej_veg",])
+F_herb_LMF<-(sum(flux_L[c("tej_veg"),!colnames(flux_L)%in%mf])/F_herb_L)*100 # 0.972
 
 F_herb_N<-sum(flux_N["tej_veg",])
 F_herb_G<-sum(flux_G["tej_veg",])
 F_herb_A<-sum(flux_A["tej_veg",])
 
+
 F_herb_R.r<-sum(flux_R.r["tej_veg",])
 F_herb_P.r<-sum(flux_P.r["tej_veg",])
 F_herb_L.r<-sum(flux_L.r["tej_veg",])
 
+#contribucion del consumo herviboro por parte de bacterias y hongos mayor al 93%
+
 #humifagos/geófagos####
 
 F_mo_R<-sum(flux_R["hummus",])
+F_mo_RMF<-(sum(flux_R[c("hummus"),!colnames(flux_R)%in%mf])/F_mo_R)*100# 0,208
 F_mo_P<-sum(flux_P["hummus",])
+F_mo_PMF<-(sum(flux_P[c("hummus"),!colnames(flux_P)%in%mf])/F_mo_P)*100# 0,197
 F_mo_L<-sum(flux_L["hummus",])
+F_mo_LMF<-(sum(flux_L[c("hummus"),!colnames(flux_L)%in%mf])/F_mo_L)*100# 0.253
 
 F_mo_N<-sum(flux_N["hummus",])
+F_mo_NMF<-sum(flux_N[c("hummus"),!colnames(flux_N)%in%mf])/F_mo_N*100# 0,206
 F_mo_G<-sum(flux_G["hummus",])
+F_mo_GMF<-sum(flux_G[c("hummus"),!colnames(flux_G)%in%mf])/F_mo_G*100# 0,175
 F_mo_A<-sum(flux_A["hummus",])
+F_mo_AMF<-sum(flux_A[c("hummus"),!colnames(flux_A)%in%mf])/F_mo_A*100# 0,217
 
 F_mo_R.r<-sum(flux_R.r["hummus",])
+F_mo_R.rMF<-sum(flux_R.r[c("hummus"),!colnames(flux_R.r)%in%mf])/F_mo_R.r*100# 0,155
 F_mo_P.r<-sum(flux_P.r["hummus",])
+F_mo_P.rMF<-sum(flux_P.r[c("hummus"),!colnames(flux_P.r)%in%mf])/F_mo_P.r*100# 0,13
 F_mo_L.r<-sum(flux_L.r["hummus",])
+F_mo_L.rMF<-sum(flux_L.r[c("hummus"),!colnames(flux_L.r)%in%mf])/F_mo_L.r*100# 0,159
 
 
 #detritivoros##########
 #flujo através de los detritívoros
 
 F_det_R<-sum(flux_R[c("litter","carrion"),])
+F_det_RMF<-(sum(flux_R[c("litter","carrion"),!colnames(flux_R)%in%mf])/F_det_R)*100 # 0,12
+#quitar importancia a bacterias
 F_det_P<-sum(flux_P[c("litter","carrion"),])
+F_det_PMF<-(sum(flux_P[c("litter","carrion"),!colnames(flux_P)%in%mf])/F_det_P)*100 # 0,0724
 F_det_L<-sum(flux_L[c("litter","carrion"),])
+F_det_LMF<-(sum(flux_L[c("litter","carrion"),!colnames(flux_L)%in%mf])/F_det_L)*100 #0,143
 
 F_det_N<-sum(flux_N[c("litter","carrion"),])
+F_det_NMF<-(sum(flux_N[c("litter","carrion"),!colnames(flux_N)%in%mf])/F_det_N)*100 #0,0991
 F_det_G<-sum(flux_G[c("litter","carrion"),])
+F_det_GMF<-(sum(flux_G[c("litter","carrion"),!colnames(flux_G)%in%mf])/F_det_G)*100 #0,265
 F_det_A<-sum(flux_A[c("litter","carrion"),])
+F_det_AMF<-(sum(flux_A[c("litter","carrion"),!colnames(flux_A)%in%mf])/F_det_A)*100 #0,505
 
 F_det_R.r<-sum(flux_R.r[c("litter","carrion"),])
+F_det_R.rMF<-(sum(flux_R.r[c("litter","carrion"),!colnames(flux_R.r)%in%mf])/F_det_R.r)*100 #0,489
 F_det_P.r<-sum(flux_P.r[c("litter","carrion"),])
+F_det_P.rMF<-(sum(flux_P.r[c("litter","carrion"),!colnames(flux_P.r)%in%mf])/F_det_P.r)*100 #0,0638
 F_det_L.r<-sum(flux_L.r[c("litter","carrion"),])
+F_det_L.rMF<-(sum(flux_L.r[c("litter","carrion"),!colnames(flux_L.r)%in%mf])/F_det_L.r) *100#0,155
 #colnames(flux_L.r) %in% det
 #microfitfagos###########
 #flujo através de los microvíboros
@@ -1806,88 +1831,105 @@ En la Reserva se observá el mayor valor de energía ligada con el uso de la mat
 (1,6 MJ.año^-1^) y con respecto al sistema de la reserva el sistema agrícola se aleja con una diferencia 
 de 0,85 MJ.año^-1^. 
 
+El consumo de materia orgánica del suelo por parte de la microflora se estimó alrededor del 22 ± 3 % en estos sistemas 
+edáficos, la mayor participación de la microflora se observó en el sistema Agrícola (Tabla 5.x).
+
 ```{r flujos_multicanal_print, include=FALSE, message=FALSE,warning=FALSE}
 F_mc_lu<-data.frame(sitio=c("Reserva","Pastizal","Agrícola"),
-                    total=c(paste(round(sum(flux_R)/1e6,1),"a"),paste(round(sum(flux_P)/1e6,1),"a"),
-                            paste(round(sum(flux_L)/1e6,1),"b")
+                    total=c(paste(round(sum(flux_R)/1e6,2),"a"),paste(round(sum(flux_P)/1e6,2),"a"),
+                            paste(round(sum(flux_L)/1e6,2),"b")
                                ),
-           biotransformación=c(F_mo_R,F_mo_P,F_mo_L
+           biotransformación=c(paste(round(F_mo_R,2)," ","[",round(100-F_mo_RMF,1),"]",sep = ""),
+                               paste(round(F_mo_P,2)," ","[",round(100-F_mo_PMF,1),"]",sep = ""),
+                               paste(round(F_mo_L,2)," ","[",round(100-F_mo_LMF,1),"]",sep = "")
                                ),
-           detritivoria=c(F_det_R,F_det_P,F_det_L
+           detritivoria=c(paste(round(F_det_R,2)," ","[",round(100-F_det_RMF,1),"]",sep = ""),
+                               paste(round(F_det_P,2)," ","[",round(100-F_det_PMF,1),"]",sep = ""),
+                               paste(round(F_det_L,2)," ","[",round(100-F_det_LMF,1),"]",sep = "")
                                ),
            microfitofagia=c(F_mic_R,F_mic_P,F_mic_L),
            predación=c(F_pred_R,F_pred_P,F_pred_L),
            omnivoría=c(F_omn_R,F_omn_P,F_omn_L),
-           herbivoría=c(F_herb_R,F_herb_P,F_herb_L),
+           herbivoría=c(paste(round(F_herb_R,2)," ","[",round(100-F_herb_RMF,1),"]",sep = ""),
+                               paste(round(F_herb_P,2)," ","[",round(100-F_herb_PMF,1),"]",sep = ""),
+                               paste(round(F_herb_L,2)," ","[",round(100-F_herb_LMF,1),"]",sep = "")
+                               ),
            row.names = NULL)
 
 
 ```
 
-**Tabla 5.x Flujos de energía en Joule/año (flujo total en MJ/año) que atraviesan los diferentes canales de energía vinculados a funciones biológicas que ocurren en las redes tróficas de la comunidades de suelos Argiudoles de Luján**
+**Tabla 5.x Flujos de energía en Joule/año (flujo total en MJ/año) que atraviesan los diferentes canales de energía vinculados a funciones biológicas que ocurren en las redes tróficas de la comunidades de suelos Argiudoles de Luján. Entre corchetes el porcentaje del flujo de energía que llega a la microflora.**
+
+
 
 ```{r flujos_multicnl_print, echo=FALSE, message=FALSE,warning=FALSE}
 F_mc_lu
 ```
 
 La detritivoría y la microfitofagia fueron mayores en valor absoluto en la Reserva.
-En términos relativos la detritivoría fué mayor en el sistema agrícola ( ≈ 30%)
-y menor en el pastizal ( ≈ 20%).
-En todos los sistemas el consumo de bacterias y hongos, <u>microfitofagia o microviboría</u>,
-conyevan flujos de energía menores al 3,3%
-del flujo total de energía que atraviesa estos suelos, en los suelos de la Reserva la microviboría fué ligeramente mayor, seguidas por el sistema agrícola y 1 punto porcentual por debajo el 
+En términos relativos la detritivoría fué mayor en el sistema agrícola (≈ 30%) y fué menor en el pastizal (≈ 20%). A la vez (Tabla 5.x) 
+la participación de la microflora en el consumo de la materia orgánica en descomposición en el sistema del pastizal fué de mayor importancia, 
+viceversa la participación de la fauna edáfica en el consumo de este recurso fué mayor en el sistema agrícola.
+
+En todos los sistemas el consumo de bacterias y hongos, <u>microfitofagia/microviboría</u>,
+conyevan flujos de energía menores al 3,3% con relación al
+del flujo total de energía que atraviesa estos suelos, en los suelos de la Reserva 
+la microviboría fué ligeramente mayor, seguidas por el sistema agrícola y 1 punto porcentual por debajo el 
 sistema del Pastizal.
 
 El consumo de la fauna, la <u>zoofagia</u>, se estima como la suma de la 
 energía que pasa por los depredadores "verdaderos" y por la cantidad de energía ligada al consumo de 
-fauna del que se alimentan los omnívoros, la contribución de los omnívoros a otros canales de energía como
-por ejemplo el canal de la microfitofagía se halla contabilizada en el canal en cuestión.
+fauna del que se alimentan los omnívoros, este contabiliza ≈ 0,64% del flujo total de energía. Por su parte,
+la contribución de los omnívoros a los canales de la microfitofagia y detritivoria 
+se halla contabilizada en el canal en cuestión.
+seguido por el sistema agrícola y el pastizal.
 La zoofagia, en términos absolutos, fué mayor en el pastizal (≈12 kJ.año^-1^) y 
-menor en el sistema agrícola(≈7 kJ.año^-1^), con relación al total la importancia de la zoofagia fué cercana entre el pastizal y el sistema agrícola al rededor del 0,58% y menor en la Reserva con una importancia del 0,37%.
-
-La zoofagia por parte de los omnivoros es el tercer canal de energía en importancia a través de estos actores 
-llega hasta el ≈ 30% del flujo energético anual, en el pastizal su importancia fue ligeramente mayor.
-La cantidad de energía que llega a los depredadores es el de menor importancia relativa por debajo del 1% del 
-flujo total, en los suelos de la reserva la cantidad de energía en este canal fué mas bajo, seguido por el 
-sistema agrícola y el pastizal.
+menor en el sistema agrícola(≈7 kJ.año^-1^), con relación al total la importancia de la zoofagia fué cercana 
+entre el pastizal y el sistema agrícola al rededor del 0,67% y menor en la Reserva con una importancia del 0,54%.
+La cantidad de energía que llega a los predadores verdaderos es el de menor importancia relativa por debajo 
+del 0,3% del flujo total, en los suelos de la reserva la cantidad de energía en este canal fué mas bajo, 
+La zoofagia por parte de los omnivoros es de gran importancia en estos sistemas
+a través de estos actores llega aproximadamente 60% del flujo energético ligado al consumo de 
+zooplasma, en la reserva la contribución de los omnívoros fué mayor que en sistemas antropizados.
 
 ```{r flujos_multicanal_print1, include=FALSE, message=FALSE,warning=FALSE}
 F_mc_total<-data.frame(sitio=c("Naturalizado","Mixto","Agrícola","Reserva","Pastizal","Agrícola"),
-           biotransformación=c(paste(sep="",round((F_mo_N/1000),2)," ","(",round((F_mo_N/sum(flux_N))*100,2),")"),
-                               paste(sep="",round((F_mo_G/1000),2)," ","(",round((F_mo_G/sum(flux_G))*100,2),")"),
-                               paste(sep="",round((F_mo_A/1000),2)," ","(",round((F_mo_A/sum(flux_A))*100,2),")"),
-                               paste(sep="",round((F_mo_R.r/1000),2)," ","(",round((F_mo_R.r/sum(flux_R.r))*100,2),")"),
-                               paste(sep="",round((F_mo_P.r/1000),2)," ","(",round((F_mo_P.r/sum(flux_P.r))*100,2),")"),
-                               paste(sep="",round((F_mo_L.r/1000),2)," ","(",round((F_mo_L.r/sum(flux_L.r))*100,2),")")
+           biotransformación=c(paste(sep="",round((F_mo_N))," ","(",round((F_mo_N/sum(flux_N))*100,2),")","[",100-round(F_mo_NMF,1),"]"),
+                               paste(sep="",round((F_mo_G))," ","(",round((F_mo_G/sum(flux_G))*100,2),")","[",100-round(F_mo_GMF,1),"]"),
+                               paste(sep="",round((F_mo_A))," ","(",round((F_mo_A/sum(flux_A))*100,2),")","[",100-round(F_mo_AMF,1),"]"),
+                               paste(sep="",round((F_mo_R.r))," ","(",round((F_mo_R.r/sum(flux_R.r))*100,2),")","[",100-round(F_mo_R.rMF,1),"]"),
+                               paste(sep="",round((F_mo_P.r))," ","(",round((F_mo_P.r/sum(flux_P.r))*100,2),")","[",100-round(F_mo_P.rMF,1),"]"),
+                               paste(sep="",round((F_mo_L.r))," ","(",round((F_mo_L.r/sum(flux_L.r))*100,2),")","[",100-round(F_mo_L.rMF,1),"]")
                                ),
-           detritivoria=c(paste(sep="",round((F_det_N/1000),2)," ","(",round((F_det_N/sum(flux_N))*100,2),")"),
-                               paste(sep="",round((F_det_G/1000),2)," ","(",round((F_det_G/sum(flux_G))*100,2),")"),
-                               paste(sep="",round((F_det_A/1000),2)," ","(",round((F_det_A/sum(flux_A))*100,2),")"),
-                               paste(sep="",round((F_det_R.r/1000),2)," ","(",round((F_det_R.r/sum(flux_R.r))*100,2),")"),
-                               paste(sep="",round((F_det_P.r/1000),2)," ","(",round((F_det_P.r/sum(flux_P.r))*100,2),")"),
-                               paste(sep="",round((F_det_L.r/1000),2)," ","(",round((F_det_L.r/sum(flux_L.r))*100,2),")")
+           detritivoria=c(paste(sep="",round((F_det_N))," ","(",round((F_det_N/sum(flux_N))*100,2),")","[",100-round(F_det_NMF,1),"]"),
+                               paste(sep="",round((F_det_G))," ","(",round((F_det_G/sum(flux_G))*100,2),")","[",100-round(F_det_GMF,1),"]"),
+                               paste(sep="",round((F_det_A))," ","(",round((F_det_A/sum(flux_A))*100,2),")","[",100-round(F_det_AMF,1),"]"),
+                               paste(sep="",round((F_det_R.r))," ","(",round((F_det_R.r/sum(flux_R.r))*100,2),")","[",100-round(F_det_R.rMF,1),"]"),
+                               paste(sep="",round((F_det_P.r),2)," ","(",round((F_det_P.r/sum(flux_P.r))*100,2),")","[",100-round(F_det_P.rMF,1),"]"),
+                               paste(sep="",round((F_det_L.r))," ","(",round((F_det_L.r/sum(flux_L.r))*100,2),")","[",100-round(F_det_L.rMF,1),"]")
                                )
             ,
-           microfitofagia=c(paste(sep="",round((F_mic_N/1000),2)," ","(",round((F_mic_N/sum(flux_N))*100,2),")"),
-                               paste(sep="",round((F_mic_G/1000),2)," ","(",round((F_mic_G/sum(flux_G))*100,2),")"),
-                               paste(sep="",round((F_mic_A/1000),2)," ","(",round((F_mic_A/sum(flux_A))*100,2),")"),
-                               paste(sep="",round((F_mic_R.r/1000),2)," ","(",round((F_mic_R.r/sum(flux_R.r))*100,2),")"),
-                               paste(sep="",round((F_mic_P.r/1000),2)," ","(",round((F_mic_P.r/sum(flux_P.r))*100,2),")"),
-                               paste(sep="",round((F_mic_L.r/1000),2)," ","(",round((F_mic_L.r/sum(flux_L.r))*100,2),")")
+           microfitofagia=c(paste(sep="",round((F_mic_N))," ","(",round((F_mic_N/sum(flux_N))*100,2),")"),
+                               paste(sep="",round((F_mic_G))," ","(",round((F_mic_G/sum(flux_G))*100,2),")"),
+                               paste(sep="",round((F_mic_A))," ","(",round((F_mic_A/sum(flux_A))*100,2),")"),
+                               paste(sep="",round((F_mic_R.r))," ","(",round((F_mic_R.r/sum(flux_R.r))*100,2),")"),
+                               paste(sep="",round((F_mic_P.r))," ","(",round((F_mic_P.r/sum(flux_P.r))*100,2),")"),
+                               paste(sep="",round((F_mic_L.r))," ","(",round((F_mic_L.r/sum(flux_L.r))*100,2),")")
                                ),
-           predación=c(paste(sep="",round((F_pred_N/1000),2)," ","(",round((F_pred_N/sum(flux_N))*100,2),")"),
-                               paste(sep="",round((F_pred_G/1000),2)," ","(",round((F_pred_G/sum(flux_G))*100,2),")"),
-                               paste(sep="",round((F_pred_A/1000),2)," ","(",round((F_pred_A/sum(flux_A))*100,2),")"),
-                               paste(sep="",round((F_pred_R.r/1000),2)," ","(",round((F_pred_R.r/sum(flux_R.r))*100,2),")"),
-                               paste(sep="",round((F_pred_P.r/1000),2)," ","(",round((F_pred_P.r/sum(flux_P.r))*100,2),")"),
-                               paste(sep="",round((F_pred_L.r/1000),2)," ","(",round((F_pred_L.r/sum(flux_L.r))*100,2),")")
+           predación=c(paste(sep="",round((F_pred_N))," ","(",round((F_pred_N/sum(flux_N))*100,2),")"),
+                               paste(sep="",round((F_pred_G))," ","(",round((F_pred_G/sum(flux_G))*100,2),")"),
+                               paste(sep="",round((F_pred_A))," ","(",round((F_pred_A/sum(flux_A))*100,2),")"),
+                               paste(sep="",round((F_pred_R.r))," ","(",round((F_pred_R.r/sum(flux_R.r))*100,2),")"),
+                               paste(sep="",round((F_pred_P.r))," ","(",round((F_pred_P.r/sum(flux_P.r))*100,2),")"),
+                               paste(sep="",round((F_pred_L.r))," ","(",round((F_pred_L.r/sum(flux_L.r))*100,2),")")
                                ),
-           omnivoría=c(paste(sep="",round((F_omn_N/1000),2)," ","(",round((F_omn_N/sum(flux_N))*100,2),")"),
-                               paste(sep="",round((F_omn_G/1000),2)," ","(",round((F_omn_G/sum(flux_G))*100,2),")"),
-                               paste(sep="",round((F_omn_A/1000),2)," ","(",round((F_omn_A/sum(flux_A))*100,2),")"),
-                               paste(sep="",round((F_omn_R.r/1000),2)," ","(",round((F_omn_R.r/sum(flux_R.r))*100,2),")"),
-                               paste(sep="",round((F_omn_P.r/1000),2)," ","(",round((F_omn_P.r/sum(flux_P.r))*100,2),")"),
-                               paste(sep="",round((F_omn_L.r/1000),2)," ","(",round((F_omn_L.r/sum(flux_L.r))*100,2),")")
+           omnivoría=c(paste(sep="",round((F_omn_N))," ","(",round((F_omn_N/sum(flux_N))*100,2),")"),
+                               paste(sep="",round((F_omn_G))," ","(",round((F_omn_G/sum(flux_G))*100,2),")"),
+                               paste(sep="",round((F_omn_A))," ","(",round((F_omn_A/sum(flux_A))*100,2),")"),
+                               paste(sep="",round((F_omn_R.r))," ","(",round((F_omn_R.r/sum(flux_R.r))*100,2),")"),
+                               paste(sep="",round((F_omn_P.r))," ","(",round((F_omn_P.r/sum(flux_P.r))*100,2),")"),
+                               paste(sep="",round((F_omn_L.r))," ","(",round((F_omn_L.r/sum(flux_L.r))*100,2),")")
                                ),
              row.names = NULL)
 
@@ -1895,7 +1937,7 @@ F_mc_total<-data.frame(sitio=c("Naturalizado","Mixto","Agrícola","Reserva","Pas
 
 ```
 
-**Tabla 5.x Flujos de energía en Joule/año y en entre paréntesis el porcentaje con respecto al flujo total que atraviesan los diferentes canales de energía vinculados a funciones biológicas que ocurren en las redes tróficas de las comunidades de microartrópodos edáficos y lombrices de tierra de suelos Argiudoles de Chivilcoy y Navarro y suelos argiudoles de Luján**
+**Tabla 5.x Flujos de energía en Joule/año, en entre paréntesis el porcentaje del flujo de energía en relación al flujo total y entre corchetes el porcentaje del flujo de energía que llega a la microflora. Las columnas corresponden a los diferentes canales de energía vinculados a las funciones biológicas que ocurren en las redes tróficas de las comunidades de microartrópodos edáficos y lombrices de tierra de suelos Argiudoles de Chivilcoy y Navarro y suelos argiudoles de Luján**
 
 
 ```{r flujos_multicanal_show, echo=FALSE, message=FALSE,warning=FALSE}
@@ -1905,28 +1947,38 @@ F_mc_total
 
 <!--en chivilcoy hay 7 predadores y en luján 13 N98,52 G95.63 A97,12-->
 
-En los suelos de Chivilcoy y Navarro, (Tabla 5.x) los flujos de energía alcanzan un máximo de 81,2
-kJ.año^-1^ en los suelos con actividad agrícola ganadera, seguidos por el pastizal naturalizado con 78,7 
-kJ.año^-1^ y el sistema agrícola intensivo que suma 78,1 kJ.año^-1^. 
+En los suelos de Chivilcoy y Navarro, (Tabla 5.x) los flujos de energía alcanzan un máximo de 37,74
+kJ.año^-1^ en los suelos con actividad agrícola ganadera, seguidos por el sistema agrícola intensivo que suma 37,4 kJ.año^-1^
+y el pastizal naturalizado con 37,2 kJ.año^-1^. 
 
 En la red trofica con actores similares a los que ocurren en Chivilcoy y Navarro pero en los suelos 
-argiudoles de Luján en promedio el flujo total de energía fué de 1,65 MJ.año^-1^, es decir, que 
-através de la red trofica de Luján se estima un flujo de energía 21 veces mayor.
+argiudoles de Luján en promedio el flujo total de energía fué de 1,73 MJ.año^-1^, es decir, que 
+através de la red trofica de Luján se estimó un flujo de energía 46 veces mayor, esta diferencia puede
+deberse a diferencias en los valores de biomasa en los recursos tróficos base en los diferentes sistemas.
 
 El canal que mueve el humus del suelo fue el de mayor importancia, superando el 95% de la 
-contribución al flujo 
-total de energía en suelos argiudoles de Chivilcoy y Navarro, este fué mayor en términos relativos
-en el sistema del pastizal naturalizado y menor en el sistema mixto agrícola ganadero; en suelos de Luján
-tuvo importancias similares en la Reserva y el Pastizal y menor importancia en el 
-sistema Agrícola, aquí también la contribución de este canal fué mayor al 95%. 
+contribución al flujo total de energía. En suelos argiudoles de Chivilcoy y Navarro, en términos relativos
+los tres sistemas poseen valores próximos entre sí, siendo ligeramente mayor en el pastizal naturalizado. 
+Con respecto a la participación de la microflora en el uso de la materia orgánica del suelo, en términos relativos fué mayor en 
+el sistema mixto ganadero seguidos por el pastizal naturalizado.
+En suelos de Luján la transformación biológica de la materia orgánica del suelo muestran valores relativos próximos entre sí,
+con los mayores valores en el sistema agrícola y la reserva, por su parte, la contribución de la microflora
+fué mayor en el patizal seguidos por la reserva.
 
-La detritivoría (Tabla 5.x) fue de poca importancia en el pastizal naturalizado a la vez que fué mayor en el sistema mixto agrícola ganadero; por su parte en suelos de Luján en el sistema de la reserva se
-observó la mayor participación de detritívoros con relación al total. La microfitofagia en el pastizal naturalizado fué de menor importancia separandose casi dos puntos porcentuales de aquel que ocurre en el sistema mixto; en suelos de Luján esta fue mayor en el sistema Agrícola y menor en la Reserva. 
+La detritivoría (Tabla 5.x) fue menor en el pastizal naturalizado con una gran participación de la microflora en el consumo del recurso 
+a la vez la detritivoría fué mayor en el sistema agrícola intensivo con una participación importante de la fauna en el consumo de la hojarasca; por su parte en suelos de Luján en el sistema del pastizal se
+observó la mayor participación de detritívoros con relación al total con la mayor contribución de la microflora en el uso del recurso.
 
-La zoofagia, en suelos de Chivilcoy y Navarro, contabiliza la mayor contribución en los suelos con actividad agrícola ganadera en este la importancia del flujo a traveś de los predadores verdaderos fué similar a la que ocurre en el pastizal naturalizado pero es la zoofagia de los omnívoros la que contribuyen con un mayor flujo de energía. La predación fué mayor en suelos con sistema agrícola. En suelos de Luján la predación en el pastizal y en el sistema agrícola fué mayor, la zoofagia por omnívoros fue mayor en la reserva y en el sistema agrícola, en total, la zoofagia fue mayor en el pastizal.
+El canal de energía de la microfitofagia en Chivilcoy y Navarro relacionado al control de poblaciones de la
+microflora, en el pastizal naturalizado fué de menor importancia separandose casi 0,2 puntos porcentuales de los que ocurren en sistemas antropizados cuyos valores fueron próximos; en suelos de Luján la 
+microviboría fue mayor en el sistema Agrícola y menor en la Reserva. 
 
-## Estabilidad de las redes tróficas de suelos Argiudoles
-```{r include=FALSE}
+La zoofagia, en suelos de Chivilcoy y Navarro, contabiliza valores similares del flujo de energía entre el pastizal naturalizado y el sistema agrícola intensivo, aunque la contribución de los omnívoros es mayor en el sistema agrícola intensivo y solo un Joule por debajo el sistema mixto agrícola ganadero. En estos suelos la contribución de los predadores "verdaderos" a la zoofagia fue mayor que la zoofagia por parte de los omnívoros. En suelos de Luján la contribución a lo zoofagia por parte de los omnívoros es mayor que 
+la participación de los predadores "verdaderos", en términos relativos, en el pastizal la zooofagia es mayor y en la Reserva esta resultó menor.
+
+## Estabilidad de las redes tróficas en suelos Argiudoles
+
+```{r resumenQSS, include=FALSE}
 QSS.final <- read.csv("database/QSS.txt", sep="")
 #promedi
 Q_med_L<-mean(log(QSS.final$maxreL))
@@ -1944,13 +1996,15 @@ Q_median_L<-median(log(QSS.final$maxreL))
 ```
 
 
-En los suelos argiudoles de Luján  
+En los suelos argiudoles de Luján, en redes tróficas edáficas completas,  
 la distribución de la parte real del máximo autovalor (λ) de las matrices de cuasi-signo (QSS)
 de las redes de interacciones tróficas (Fig. 5.x) se movió en un rango de ≈ 7 ordenes de magnitud.
 
 Considerando la distribución de los valores de estabilidad de cuasi-signo (QSS)
-que resultan de las iteraciones hechas sobre las matrices Jacobianas de las redes tróficas de detritívoros 
-edáficos que ocurren en los diferentes sistemas de uso del suelo, se hallaron diferencias significativas entre 
+que resultan de las iteraciones del algoritmo hechas sobre las matrices Jacobianas 
+de las redes tróficas de detritívoros 
+edáficos que ocurren en los diferentes sistemas de uso del suelo, 
+se hallaron diferencias significativas entre 
 los tres sistemas de uso según la prueba de Anderson-Darling $AD: p_{\,valor} < 0.05$. 
 
 ```{r plot_QSS_IS, echo=FALSE,,message=FALSE,warning=FALSE}
@@ -1980,14 +2034,18 @@ par(mfrow=c(1,1))
 
 **Figura 5.x Histogramas del valor de estabilidad. En el eje horizontal, se expresa el valor del máximo autovalor de la matriz Jacobiana obtenidas a partir del algoritmo de quasi-signo (Alesina et al 2015) expresado en logaritmo natural, se muestran mil iteraciones. Eje vertical valor de frecuencia del intervalo. Como lineas verticales se dibujan, el promedio en color amarillo, la mediana en color rojo, y los cuartiles primero y tercero como lineas más finas.**
 
-Los tres sistemas de uso se diferencian entre sí, el promedio y la mediana de la parte real 
+Por lo tanto, la distribución de los autovalores en los tres sistemas de uso se diferencian entre sí, 
+el promedio y la mediana de la parte real 
 del autovalor de la matriz Jacobiana en los suelos de la comunidad de la Reserva, el Pastizal y el Agrícola fué
-de `r exp(Q_med_R)`; `r exp(Q_median_R)`- `r exp(Q_med_P)`; `r exp(Q_median_P)`- `r exp(Q_med_L)`;`r exp(Q_median_L)`, respectivamente.
+de `r exp(Q_med_R)`; `r exp(Q_median_R)` - `r exp(Q_med_P)`; `r exp(Q_median_P)`- `r exp(Q_med_L)`;`r exp(Q_median_L)`, respectivamente.
 
-La distribución de los valores λ del QSS se asemejan (Fig 5.x) a los de una campana simétrica, el valor más probable, es decir, la moda de la distribución, se halla cercana a los valores de tendencia centrales en los diferentes sistemas de uso del suelo. En la Reserva la moda la moda fué `r exp(Q_moda_R)`, en el pastizal la moda fué `r exp(Q_moda_P)`, en el sistema agrícola la moda fué `r exp(Q_moda_L)`, los valores de estas modas ocurrieron con una frecuencia mayor a 40 tanto por cien 
-en los diferentes sistemas de uso del suelo. 
+La distribución de los valores λ del QSS se asemejan (Fig 5.x) a los de una campana simétrica, producto de las aleatorizaciones del algoritmo implementado, el valor más probable, es decir, la moda de la distribución, se halla cercana a los valores de tendencia centrales en los diferentes sistemas de uso del suelo. 
 
-Estos datos nos muestran que en sistemas antropizados se obtienen valores del λ del cuasi-signo más cercanos a cero.
+En la Reserva la moda la moda fué `r exp(Q_moda_R)`, en el pastizal la moda fué `r exp(Q_moda_P)`, en el 
+sistema agrícola la moda fué `r exp(Q_moda_L)`, los valores de estas modas ocurrieron con una frecuencia mayor
+a 40 tanto por cien en los diferentes sistemas de uso del suelo. 
+
+Estos datos nos muestran que en sistemas antropizados, con una cobertura vegetal similar a las de la vegetación original de la Pampa Ondulada se obtienen valores del λ del cuasi-signo más cercanos a cero.
 
 # Conclusiones
 
@@ -1997,13 +2055,16 @@ como lo han descrito Digel et al (2014) quienes catalogan a la fauna edáfica co
 con un escaso nivel de especialización dietaria.
 
 Estas redes tróficas tienen 4 niveles tróficos como los encontrados en redes tróficas de otros sistemas ecológicos (Pimm et al 
-1931), esta red trófica edáfica podria estructurarse como los recursos bases que son consumidos 
+1931, Quévreux&Jacot2023), esta red trófica edáfica podria estructurarse como los recursos bases que son consumidos 
 principalmente por las bacterias y hongos
 quienes poseen el aparato enzimatico especializado para descomponer la materia orgánica, estos son los descomponedores 
 primarios, luego la fauna que se corresponde con los descomponedores secundarios que hacen
 uso de la microflora como principal recurso el cual posee una la mayor calidad nutritiva en comparación con los detritos. 
 Para los demás niveles tróficos la separación es difusa debido al importante porcentaje de omnivoría lo que 
-explica el valor del nivel trófico medio, alrededor de tres.
+explica el valor del nivel trófico medio, alrededor de tres, en estas redes de detritivoría en los suelos 
+se estructuran como redes reticulares (Waolkovich 2016) que implica que los animales de mayor porte utilizan 
+recursos en niveles tróficos similares a aquellos pertenecientes a la red trófica "micro-" (*"microfood web"* en inglés), por ejemplo que las lombrices de tierra
+cuyo espectro de tamaño es alto se alimente de hojarasca (Quévreux&Jacot2023, Potapov et al 2019).
 
 El importante porcentaje de omnivoria (>70%) es característica en estas redes detritívoras y está ligada a 
 la alimentación oportunista y a la redundancia funcional, por ejemplo, los omnívoros zoofagos se alimentarán 
@@ -2014,8 +2075,8 @@ recorrer poros del suelo predarán sobre nemátodos de gran tamaño como sobre l
 La conectancia de estas redes aunque ligeramente mayor que la observada en redes tróficas de ecosistemas que ocurren sobre 
 el suelo o en sistemas acuáticos se encuentra dentro de los valores de conectancia hallados en suelos de bosques templados (Digel 
 et al 2014) por lo que su valor se encuentra en los valores que corresponden a las redes tróficas ecológicas.
-El coeficiente de agupamiento "clustering", que implica la probabilidad de que diferentes especies tróficas 
-esten cercanamente interconectadas debido al solapamiento de predadores o de sus dietas, fué 
+El coeficiente de agrupamiento "clustering", que implica la probabilidad de que diferentes especies tróficas 
+esten cercanamente interconectadas debido al solapamiento de sus dietas o de sus depredadores, fué 
 moderado en las redes tróficas de suelo argiudoles típicos (C.C. > 0,4), según Digel et al (2014) en los suelos 
 las redes tróficas de detritívoros muestran un valor del coeficiente de agrupamiento más alto que el de 
 las demás redes ecológicas abordadas por estos autores (ecosistemas terrestres basado en plantas y ecosistemas de acuaticos) 
@@ -2037,7 +2098,69 @@ que son poco estudiados en los suelos argentinos. Si existen configuraciones que
 debidas la riqueza de especies tróficas como al número de interacciones con el que participan lo que determina
 la variabilidad entre parámetros.
 
+En estas redes solo se observó una diferencia en la magnitud del flujo de energía total que
+ocurre en el sistema agrícola en suelos de Luján lo que implica que en el sistema agrícola circuló una menor 
+cantidad de energía en estas condiciones, pero esto no repitió con respecto al flujo total de energía 
+calculado en redes parciales de Chivilcoy y Navarro.
+
+En las redes detritívoras del suelo el flujo de energía fluyó predominantemente a través 
+del canal que se abastece de la materia orgánica del suelo
+y su uso se canaliza principalmente a través de la microflora. El canal basado en
+el uso de recursos recalcitrantes como la hojarasca y la carroña, sigue en importancia con relación al 
+flujo de energia total, en este canal una mayor variabilidad ocurre con respecto a  
+participación de la fauna reflejando una mayor importancia de estos en el sistema agrícola en 
+redes completas.  
+En las redes parciales el segundo lugar de importancia en relación al flujo de energía 
+recae sobre el canal relacionado con el consumo de
+poblaciones de bacterias y hongos, recurso utilizado por los descomponedores de segundo nivel, 
+cuya influencia sobre a descomposición es indirecta al ejercer presión de consumo 
+sobre los "verdaderos" descomponedores (coleman, hunt 1987<!--ver citas adecuadas-->,
+esto está de linea con los integrantes de estas redes tróficas 
+parciales cuya comunidad se constituye principalmente 
+de microartrópodos edáficos que se alimentan en gran medida de hongos y bacterias.
+La zoofagia en las redes tróficas edáficas, en términos de flujo de energía es bajo
+y este fenómeno se haya ligado a características ecológicas generales basados en la cuestion 
+de la eficiencia energética (citas clásics a sugerir ?), además resalta que la zoofagia recae más sobre 
+omnívoros que sobre predadores 
+propiamente dichos, sin embargo en redes tróficas reducidas de Chivilcoy y Navarro 
+la zoofagia si que fluye con mayor importancia
+a través de los verdaderos predadores, es decir, ácaros mesostigmatas y prostigmatas, aunque en los suelos de 
+Luján el patron de zoofagia por parte de omnivoros se mantiene, indicando que los actores son diferentes
+quiza con los ácaros prostigmatas dominando el canal por sobre los ácaros mesostigmatas.
+
+La fracción del metabolismo edáfico que recae sobre la fauna edáfica representa solo un
+pequeño porcentaje del 
+metabolismo total del suelo (Hale 1971), sin embargo, 
+sobre la fauna edáfica recaen los mecanismos que influyen en la 
+dinámica espacial y temporal 
+de la microflora edáfica (Butcher, Snider, and Snider 1971) por lo que la magnitud de los cambios en la 
+comunidad de la fauna edáfica podría derivar en cambios con impacto significativos en los procesos ecológicos 
+y biogeoquímicos en el suelo (Potapov 2023).
+
+Estas redes tróficas edáficas fueron construidas a partir del conocimiento de características biológicas
+que configuran los rasgos funcionales de las especies y caracterísiticas poblacionales, basándose en la 
+recopilación de estos de forma empírica, o a partir de la bibliogafía disponible sobre la biología de 
+las diferentes especies tróficas. Este nivel de detalle permite calcular las fuerzas de interacciones tróficas
+en diferentes sistemas de uso del suelo y así obtener aproximaciones cercanas a la situación real 
+bajo las cuales se hallan las comunidades edáficas. Es así que llegamos a determinar que sin importar las 
+variaciones que pudiesen existir entre las comunidades edáficas en diferentes sistemas de uso del suelo 
+el cálculo de la estabilidad entre ellos nos indica que se encuentran próximos a una situación localmente 
+estable (Pimm libro, alesina)
+y que aquellos sistemas con un cierto grado de antropización requieren de una levemente
+menor autoregulación para llegar a una situación de estabilidad local aunque esto podría implicar la 
+aproximación hacia un nuevo estado estable que implique la adaptación de las comunidades 
+detritívoras del suelo a las prácticas desarrolladas sobre el sistema edáfico *per se* o a los 
+cambios debidos a las comunidades que componen la vegetación.
 
 # ref
 
 Pim Lawton Cohen 1931 Food web Paterns and consecuences
+
+Consequences of the multichannel structure of soil food
+webs on ecosystem functioning P. Quévreux, Franck Jabot
+
+Hunt 1987 detrital food web
+
+Potapov 2023 multifuncionality
+
+Size compartmentalization of energy channeling in terrestrial belowground food webs.Potapov 2019
