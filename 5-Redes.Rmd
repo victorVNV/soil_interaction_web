@@ -301,7 +301,8 @@ entre nodos en la red.
 
 El **nivel trófico** es el número que define la posición en la cuál se
 encuentra una especie trófica, aquí se indican el **nivel trófico medio** 
-de la red y el **nivel trófico máximo** de la red; se
+de la red <!--The trophic level of a consumer equals 1 + the
+weighted average of the trophic levels of its food. -->y el **nivel trófico máximo** de la red; se
 identifican por su posición en la red el número de especies **basales**
 aquellas que no consumen a otras especies tróficas y el número de
 especies **tope** quienes no tienen predadores que los consuman; el
