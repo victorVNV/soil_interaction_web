@@ -25,6 +25,18 @@ options("digits"=3)
 
 # Introducción
 
+<!-- Hay que ir de lo general a lo particular, una guia general para escribir la introducción es:
+
+1. Qué se sabe
+2. Qué no se sabe
+3. Limitaciones y lagunas en estudios previos
+4. Tu pregunta clave
+5. Tu enfoque experimental
+6. Por qué tu enfoque experimental es nuevo, diferente e importante (llena las lagunas)
+
+-->
+
+<!-- esto es la importancia de redes en general -->
 En los ecosistemas las especies presentes se relacionan entre sí de
 multiple maneras y estas relaciones configuran complejas redes de
 interacciones (Montoya et al. 2001), las redes de interacciones nos
@@ -34,15 +46,20 @@ caracterizarse en función del tipo de interacción que representan
 describiendo así redes tróficas, redes de competidores, redes
 mutualistas, entre otras (Labrador 2008; Montoya et al. 2001).
 
-El enfoque que permite integrar la diversidad de especies, las
-interacciones interespecíficas, las interacciones con el ambiente, la
-redundancia funcional, el papel de las especies claves y la
-multiplicidad de canales de materia y energia que ocurren en los
-ecosistemas es el estudio de la red de interacciones (.\@.barrios2007,
-.\@.briones2014, .\@.potapov2023) que permite simplificar la complejidad
-de interacciones y conectar con diferentes parámetros que emergen el
-estudio de los ecosistemas (.\@.Hooperetal2005;.\@.delmas_etal2019)
+<!-- Importancia de redes en general, se puede integrar con el parrafo anterior -->
+El enfoque que permite integrar la diversidad de especies, las interacciones interespecíficas, las interacciones con el ambiente, la redundancia funcional, el papel de las especies clave y la multiplicidad de canales de materia y energía que ocurren en los ecosistemas es el estudio de la red de interacciones (Barrios 2007, Briones 2014, Potapov 2023). Este enfoque simplifica la complejidad de las interacciones y conecta con diferentes parámetros emergentes del estudio de los ecosistemas (Hooper et al. 2005; Delmas et al. 2019).
 
+<!--Mas de lo mismo,para que sirven las redes, se repite un poco -->
+Las redes tróficas permiten el análisis de las interacciones de
+alimentación y es el enfoque más utilizado en ecología para describir
+los canales por los cuales se mueve la materia y la energía (\@.citar),
+mediante el estudio de las redes tróficas se pueden reconocen las
+especies claves y los grupos funcionales claves, definidos como el grupo
+de especies con un papel semejante en el funcionamiento de un ecosistema
+(Gitay y Noble, 1997) que permiten el mantenimiento de las funciones
+ecológicas del suelo (\@.citar).
+
+<! -- Importancia de las redes en el suelo -->
 En los suelos las redes de interacciones están influenciadas por
 **factores de largo plazo** tales como el clima, las características
 edáficas regionales y locales, la disponibilidad de recursos para los
@@ -54,15 +71,7 @@ la respuesta de la estructura de las redes ante los distintos tipos de
 disturbios y su relación con el funcionamiento del ecosistema del suelo
 (Sabatté, 2011; Kardol et al., 2016).
 
-Las redes tróficas permiten el análisis de las interacciones de
-alimentación y es el enfoque más utilizado en ecología para describir
-los canales por los cuales se mueve la materia y la energía (\@.citar),
-mediante el estudio de las redes tróficas se pueden reconocen las
-especies claves y los grupos funcionales claves, definidos como el grupo
-de especies con un papel semejante en el funcionamiento de un ecosistema
-(Gitay y Noble, 1997) que permiten el mantenimiento de las funciones
-ecológicas del suelo (\@.citar).
-
+<!-- Redes en general, menciona metricas sin explicar, yo pondria una sola metrica y la explicaria o explicaria que son las metricas de red -->
 Las redes tróficas se apoya en la teoría de grafos en la que los nodos
 (especies tróficas) y sus bordes (interacciones) determinan métricas
 asociadas con las redes empíricas tales como la conectividad, el grado
@@ -77,6 +86,7 @@ dinámica de la comunidad y las especies constituyentes (Kéfi et al.
 2012; Pimm et. al. 1991; Scheu 2001) y sobre los efectos en las
 funciones de los ecosistemas (Montoya et al. 2001; Labrador 2008)
 
+<!-- Redes en el suelo, complejidad estabilidad hay que definir que son -->
 Como la estructura de las redes ecológicas condiciona el funcionamiento
 intrínseco de un ecosistema (Labrador, 2008; Martín López et al., 2007)
 la complejidad del entramado de la red trófica edáfica es un factor
@@ -98,6 +108,7 @@ autorregulación del ecosistema (Martín-Lopez 2007) aunque la desaparición
 de especies muy conectadas puede desencadenar extinciones secundarias y
 fragmentaciones de la red (Montoya et al. 2001)
 
+<!-- Repite ya dijimos que es util --> 
 Los estudios de redes de interacciones proporcionan información acerca
 de la estructura autoorganizada de los ecosistemas (Momo 2018).
 La comprensión de la estructura y topología de la red es
@@ -113,6 +124,8 @@ canales de energía y las posibles diferencias en
 las redes tróficas de las comunidades de diferentes sistemas de uso del
 suelo (Scheu 2002; potapov2023(historicalperspe)).
 
+<!-- Ejemplos de analisis, no nos interesa saber las cantidades, sino que resultados obtuvieron con 
+respecto a las hipotesis planteadas-->
 Digel et al. (2014) utilizó las redes tróficas de 48 comunidades del
 suelo de bosques alemanes y comparó 22 parámetros de las métricas y
 topología de las redes tróficas entre las comunidades del suelo y las
@@ -122,6 +135,7 @@ redes tróficas del suelo para estudiar los efectos de forestar
 pastizales naturalizados de la Pampa Húmeda. En este estudio, compararon
 11 parámetros entre 2 sitios forestados y un pastizal naturalizado.
 
+<!-- Entonces "Digel y Maggioto utilizaron el analisis de ..." expandir este parrafo, cuales eran las hipotesis? -->
 En ambos casos el análisis de la estructura de las redes fue realizado
 comparando diferentes comunidades ó diferentes manejos del suelo,
 hallando características particulares para cada comunidad y coinciden en
@@ -129,7 +143,7 @@ que la estructura general de las redes no varía considerablemente según
 el uso del suelo, aunque en estos estudios no realizaron análisis
 sobre flujos de energía o cálculo de métricas de estabilidad de las redes tróficas.
 
-
+<!-- Repite, la importancia de las redes troficas, hay que poner todo esto de la importancia en un solo lugar entonces se puede resumir a un solo parrafo y no repetir tanto-->
 .\@.potapov2023 declara que el uso de las redes tróficas es una
 herramienta esencial que debe ser utilizada en los ecosistemas
 terrestres para comprender el funcionamiento del ecosistema del suelo,
@@ -144,7 +158,7 @@ como las interacciones tróficas y las
 adaptaciones de los organismos ante cambios en el ambiente
 [.\@.pey2014; .\@.white2007; .\@.turnbull2014].
 
-
+<!-- Esto es metodo, Falta la hipotesis o pregunta clave, que es lo que se espera encontrar? Dentro del parrafo tambien se repite -->
 En este contexto, se busca comparar la estabilidad
 estructural de las redes de tróficas de la fauna del suelo de suelos
 Argiudoles típicos de la Pampa Ondulada entre ambientes con distintas
@@ -156,7 +170,7 @@ suelos con uso pastoril como forraje para el ganado considerados como
 sistemas con intensidad de uso intermedio o leve; y c) suelos con
 actividad agrícola contínua considerado como sistema con intensidad de
 uso alta. Para ello, se construirá y modelará la red de interacciones tróficas
-de la fauna del suelo, se compararán las métricas estruturales, los
+de la fauna del suelo, se compararán las métricas estructurales, los
 flujos de energía y sus canales y 
 la estabilidad estructural de las redes tróficas de la
 fauna del suelo entre ambientes con distintas intensidades en el tiempo
@@ -164,6 +178,7 @@ de uso del suelo.
 
 <!--, una sin uso de suelo correspondiente a un pastizal naturalizado que servirá como sistema de referencia y un sistema de alta perturbación que se corresponde con un sistema agrícola intensivo con más de 50 años de actividad ininterrumpida.-->
 
+<!-- esto es metodo "basandonos en estos datos vamos a calcular lo siguiente...."  mas conciso-->
 Para la construcción y el modelado de la red de interacciones tróficas
 de la fauna del suelo es necesario conocer las comunidades que
 habitan los diferentes ambientes, los recursos tróficos que estos animales utilizan 
@@ -175,6 +190,7 @@ la red (.\@.potapov2023, .\@.barnes_etal_2017) y calcular la resiliencia
 y estabilidad de los sistemas bajo estudio (.\@.mooreandderutier_2018,
 .\@.gauzen_etal_2018, .\@.allisina_etal_2008).
 
+<!-- objetivo, tiene que quedar claro que son parametros estructurales y funcionales, falto la hipotesis-->
 Entonces a partir de un suelo definido como referencia donde se
 consideran que se encuentran características de un suelo no disturbado,
 se podrían comparar parámetros estructurales y funcionales de la
@@ -183,13 +199,18 @@ red de interacciones como indicadora del estado de conservación del
 suelo y determinar a través de su estudio la sustentabilidad de los
 sistemas de manejo [@bedano2007; @socarras2013].
 
+<!-- en resumen, coherencia tenes que guiar al lector hacia el problema, no repetir, definir conceptos porque los que 
+leen no son especialistas, ir de lo general a lo particular, eso sirve para construir un marco teórico. -->
+
 # Metodología
 
 ## Construccion de la red
 
 Se construyo una matriz de interacciones tróficas cuyos nodos son todos
 los taxones hallados en ambas comunidades de la fauna de suelo y sus interacciones tróficas y preferencias
-se establecen a partir de la evidencia empírica ($gamma\; [\gamma]$). A cada interacción se asignaron
+se establecen a partir de la evidencia empírica ($gamma\; [\gamma]$). 
+<!-- que significa gamma?? Que es evidencia empirica???? se observo directamente?? se hizo busqueda bibliografica??, si esta en otro capitulo igual hay que hacer una breve mencion al metodo -->
+A cada interacción se asignaron
 preferencias dietarias basados en la evidencia empírica (Capítulo 2), 
 se utilizó la siguiente es escala de preferencia alta - moderada alta - moderada -
 moderada baja - bajo - muy bajo, con valores de 0,9 - 0,7 - 0,5 - 0,4 - 0,25 - 0,1, respectivamente.
@@ -199,7 +220,9 @@ A partir de la matriz de interacciones global se
 seleccionan los actores que corresponden a cada comunidad en particular
 definiendo de esta manera matrices de interacciones para cada sistema de
 uso del suelo ($alpha \;[\alpha]$).
+<!-- que son los actores? especies? grupos? que significa alpha??-->
 
+<!-- que son los nodos??? = especie trofica??-->
 Se utilizaron como **atributos de nodos**, esto es, valores numéricos,
 nominales o categóricos que describen una característica del nodo en
 particular, atributos que se correspondan con los taxones hallados en los diferentes
@@ -211,11 +234,12 @@ recursos tróficos base (.\@.velazco,.\@.potapov_multichanel) basados en
 evidencia bibliográfica, estos nodos, o no han sido medidos como por
 ejemplo en los datos de comunidades edáficas de los suelos argiudoles de
 Chivilcoy y Navarro, o, debido a su complejidad son dificiles de
-cuantificar.
+cuantificar. <!-- que nodos fueron medidos y que nodos no-->
 
+<!-- que es un recurso trofico? es lo mismo que un nodo?-->
 Para el recurso trófico "Hummus" se considera que el 50% de la materia orgánica
 es el proxi de la biomasa de este nodo para suelos Argiudoles de la Pampa Ondulada (Álvarez
-2006 (cap3);Biological indicator of Soil Healt pp 70 - 71), para
+2006 (cap3);Biological indicator of Soil Health pp 70 - 71), para
 calcular su biomasa esta se refiere a la superficie en metros cuadrados con una 
 densidad aparente promedio de los suelos ($ \text{DAP} = 1,2 \; \frac{g}{cm^2} $)
 y hasta los 10 centímetros de profundidad, 
@@ -240,12 +264,12 @@ $2,3 \,x\,7\,^{-10} g\,m^{-2}$.
 Las biomasas de bacterias, hongos y microfauna no nemátoda, son
 aproximadas a partir de la respiración de los heterótrofos (capítulo 3 comunidad, imagen o
 tabla, ecuación), de esta biomasa media se considera que el 50% es el
-recurso efectivamente disponible para los consumidores, entonces, para
+recurso efectivamente disponible para los consumidores, <!-- por que? --> entonces, para
 ambos suelos argiudoles se consideró que el 2 % de la biomasa
 corresponde a la microfauna no nemátoda
 (.\@.cita_energetical.significance?); para <u>suelos de Luján</u> se
 utilizó la relación de hongos y bacterias para calcular la biomasa de
-estos actores sobre el 48% de la biomasa media de los
+estos actores <!--actores?? --> sobre el 48% de la biomasa media de los
 heterótrofos, en los <u>suelos de Chivilcoy y Navarro</u> se consideró el 45%
 de la respiración para calcular las biomasas de bacterias y hongos dado
 que el 3% será utilizado para estimar la biomasa de nemátodos y el 2% para microfauna 
@@ -257,7 +281,7 @@ cita sobre relación entre hongos y bacterias en sistemas del suelo)-->
 
 Para el caso de los nemátodos de vida libre del suelo para el conjunto
 de datos de los suelos argiudoles de Luján se utilizaron los valores de
-abundancia y peso medio a partir de la evidencia empírica recabada. En
+abundancia y peso medio a partir de <!-- muestreos --> la evidencia empírica recabada. En
 cambio, para los argiudoles de Chivilcoy y Navarro se utilizaron las
 relaciones de proporción promedio de nemátodos observados en los
 suelos de Luján, por lo tanto, nemátodos
@@ -276,7 +300,8 @@ peso de todos los invertebrados presente en los diferentes sistemas de
 uso y que pueden dejar carroña, considerando que un 5% de la biomasa de invertebrados 
 es igual a la biomasa de la carroña, finalmente el tejido vegetal que incluye raices y exudados
 (Cap 2.1. Recursos tróficos) no fué determinado. Para los recursos bases se asume que su densidad 
-y su peso son iguales a 1 a los fines de realizar cálculos de fuerzas de interacción y flujos de energía (.\@.pawar?; .\@.alesina; .\@.fluxweb).
+y su peso son iguales a 1 a los fines de realizar cálculos de fuerzas de interacción y flujos de energía (.\@.pawar?; .\@.alesina; .\@.fluxweb). <!-- densidad y peso 1 g/m2??? habria que hacer una tabla para ver todos los "nodos" que se 
+midieron y los que se asumieron -->
 
 ## Métricas y estadísticas
 
@@ -286,6 +311,8 @@ calculadas a partir de la arquitectura de la red que la describen
 matemáticamente y ecológicamente, estas medidas son calculadas como
 caracterísiticas relativas a la red como un todo o como características
 relativas a los nodos de la red. 
+
+<!--nodos = especie trofica = actores, usar una sola palabra para no confundir -->
 
 El **tamaño de la red** que indica el
 número de, nodos y especies tróficas a la vez; el <u>número</u> y la
@@ -315,12 +342,12 @@ nivel trófico, sobre los cuales se alimentan los omnívoros; desde el
 punto de vista de la especie trófica se miden la **vulnerabilidad** y la
 **generalidad**, que implican el número promedio de predadores que tiene
 un nodo trófico y el número medio de presas que consumen un nodo
-trófico, respectivamente.
+trófico, respectivamente. <!-- que aportan las metricas en relacion al nuestra hipotesis, que significado ecologico tienen -->
 
 Se calcularon los flujos de energía entre los nodos de la red asumiendo 
 que las pérdidas energéticas son compensadas con las ganancias energéticas,
 para el cálculo es necesario conocer los pesos corporales medios y las biomasas medias
-de los nodos tróficos,
+de los nodos tróficos, <!-- falta algo aca -->.
 la tasa metabólica estimada mediante, tasa metabólica = 17.17 peso^-0.29^, 
 y los coeficientes de asimilación (\@energeticalfoodweb, colleman), para la microflora, 
 detritívoros, microfitófago, predadores, omnívoros y herbívoros, 0,35-0,25-0,4-0,7-0,25-0,125, 
@@ -329,8 +356,9 @@ respectivamente.
 Con los flujos de energía se pueden caracterizar procesos ecológicos 
 relacionados con la clasificación funcional de las especies tróficas, por ejemplo, microbivoría, 
 detritivoría, etc, estos flujos de energía son expresados para cada
-interacción en Joules/año (\@gauzen, \energeticalfoodweb).
+interacción en Joules/año (\@gauzen, \energeticalfoodweb). <!-- falta la explicacion de la clasificación funcional-->
 
+<!-- revisar parrafo -->
 Se calcularon las fuerzas de interacciones entre los actores (e.i.
 especies tróficas) utilizando la teoría metabólica y la dimensionalidad
 de las interacciones que precisa del peso corporal promedio y las densidades de
@@ -341,18 +369,21 @@ cuantifica el efecto que tienen los depredadores/consumidores sobre la
 biomasa de las presas/recursos y lo expresa como el efecto por unidad de
 biomasa del predador/consumidor (\@pawar2012).
 
+<!-- hay que explicar que es la estructura de signos, la estructura de signos es quienes son los predadores y las presas, por ejemplo: 
+La estructura de signos se refiere a la disposición de los signos (positivos, negativos o ceros) que representan la naturaleza de las interacciones entre los nodos de la red: un signo positivo indica una interacción beneficiosa, un signo negativo indica una interacción perjudicial, y un cero indica ausencia de interacción. En el caso de las relaciones predador presa el predador tiene un signo positivo y la presa un signo negativo. En definitiva se mantienen quienes son los predadoras y quienes son las presas.
+
+-->
 Como valor de estabilidad se utilizará el valor de **estabilidad de quasi-signo** (\@alesina et al.201x), 
 para hallar este valor se toma la
 estructura de signos de la matriz de adyacencia que describe a
-la red trófica en cuestión, entonces realiza aleatorizaciones de las fuerzas
+la red trófica en cuestión,<!-- esta definida la matriz de adyacencia? la describe como?-->
+ entonces realizan aleatorizaciones de las fuerzas
 de interacción entre los nodos manteniendo la estructura de los signos,
 luego calcula los autovalores de la matriz Jacobiana, matriz que
 representa el efecto neto de la interacción entre pares de
-nodos (\@Delmasetal2019), para cada aleatorizacion producto del algoritmo; para una red
-trófica el valor de estabilidad de quasisigno es el valor del máximo autovalor (i.e. más
-cercano a cero) este es una medida de estabilidad dando la
-noción de distancia (*autoregulación*), a la cual se encuentra la red
-evaluada para lograr la estabilidad local.
+nodos (\@Delmasetal2019). Para cada aleatorizacion producto del algoritmo se calcula el  el valor del máximo autovalor,
+de la matriz Jacobiana, este indica la estabilidad del sistema: si el máximo autovalor tiene una parte real negativa, el sistema es estable, mientras que si tiene una parte real positiva, el sistema es inestable. 
+El valor de estabilidad de quasi-signo es el promedio de los valores de los autovalores obtenidos en las aleatorizaciones. Se puede interpretar el valor de estabilidad de quasi-signo como la cantidad de autoregulacion necesaria para estabilizar el sistema, dado que la autoregulacion en la matriz jacobiana (la diagonal) no está estimada, los autovalores maximos son casi siempre negativos. 
 
 Para conocer las diferencias en el valor de estabilidad se compara
 la distribucion del máximo autovalor del algoritmo de quasi-signo 
@@ -1290,10 +1321,28 @@ P_reduc.net <-graph_from_adjacency_matrix(t(mG[c(P.r,"litter","carrion","tej_veg
 
 # Resultados
 
+<!-- Guia para resultados: 
+
+La sección de resultados debe:
+* Resumir lo que muestran los datos
+* Señalar relaciones simples
+* Describir tendencias generales
+* Citar figuras o tablas que presenten datos de apoyo
+* Evitar simplemente repetir los números que ya están disponibles en tablas y figuras.
+
+
+EJEMPLO:
+
+Original:
+Las características de las brujas malas y las brujas buenas se muestran en la Tabla 1. Hubo una diferencia significativa en la edad entre los grupos. La edad media de las brujas malas fue de 45 ± 5; y la edad media de las brujas buenas fue de 36 ± 6. No hubo una diferencia significativa en el género entre los grupos, con un 85% de mujeres en las brujas malas y un 83% de mujeres en las brujas buenas. El IMC no fue significativamente diferente entre los grupos, ambos tenían IMCs normales. La presión arterial sistólica y el ejercicio fueron significativamente diferentes. Las brujas malas tenían una presión arterial media de 140 ± 10, mientras que las brujas buenas tenían una presión arterial media de 120 ± 9. El ejercicio diario estimado fue mayor en las brujas buenas (60 ± 30) que en las brujas malas (30 ± 20). El empleo no fue significativamente diferente entre los dos grupos...
+
+Revised:
+Las brujas eran, en promedio, delgadas y predominantemente femeninas (Tabla 1). Las brujas malas eran significativamente mayores, tenían una presión arterial más alta, hacían menos ejercicio y eran más propensas a fumar que las brujas buenas. Más brujas malas estaban desempleadas, pero esta diferencia no alcanzó significancia estadística.
+-->
 
 ## Parámetros estructurales de las redes tróficas de suelos Argiudoles
 
-
+<!--los recursos troficos son nodos basales, ojo con la terminología, usar siempre la misma-->
 Las redes de interacciones de los suelos Argiudoles tienen 4 recursos
 tróficos denominados también como especies base, estos son, el tejido
 vegetal que engloba a las raices y sus exudados, la hojarasca el tejido vegetal en proceso de fragmentación y descomposición, el humus materia orgánica en avanzado estado de descomposición y que forma enlaces 
@@ -1301,7 +1350,7 @@ con la fracción mineral de los coloides de la arcilla del suelo
 y la carroña proveniente de la fauna edáfica, 
 todas estas diferentes fuentes son denominados en conjunto como detritos.
 
-El tamaño de las red trófica en suelos de Luján fué mayor en el sistema
+El tamaño de la red trófica en suelos de Luján fué mayor en el sistema
 del pastizal con un mayor número y densidad de enlaces (Tabla 5.x),
 seguidos por la Reserva. A pesar del mayor número de especies tróficas
 en el pastizal, el número de especies tope fue el menor como así también
@@ -1398,6 +1447,9 @@ intensivo.
 
 Tanto el máximo nivel trófico como el nivel trófico medio fué mayor en
 el sistema agrícola intensivo y menor en el pastizal naturalizado.
+
+<!-- para entender que me dicen todos estos resultados hay que explicar que significa en terminos ecologicos 
+cada metrica, en materiales -->
 
 ```{r topolog_reduc,echo=FALSE,message=FALSE,warning=FALSE}
 topolog1$clus<-c(paste(round(topolog[1,"Clustering"],3),"b"),paste(round(topolog[2,"Clustering"],3),"a"),
@@ -1828,6 +1880,9 @@ es decir, el canal de energía relacionado con el consumo de la materia orgánic
 es de gran importancia en el sistema edáfico del suelo, pudiendo alcanzar hasta un 73% con respecto a 
 la cantidad total de energía que atraviesa el sistema.
 
+<!-- explicar en metodos que son los canales de energia,  -->
+
+
 En la Reserva se observá el mayor valor de energía ligada con el uso de la materia orgánica del suelo
 (1,6 MJ.año^-1^) y con respecto al sistema de la reserva el sistema agrícola se aleja con una diferencia 
 de 0,85 MJ.año^-1^. 
@@ -1879,6 +1934,7 @@ del flujo total de energía que atraviesa estos suelos, en los suelos de la Rese
 la microviboría fué ligeramente mayor, seguidas por el sistema agrícola y 1 punto porcentual por debajo el 
 sistema del Pastizal.
 
+<!-- explicacion de zoofagia a metodos, poner valores en tablas y aqui mencionar tendencias generales con % --> 
 El consumo de la fauna, la <u>zoofagia</u>, se estima como la suma de la 
 energía que pasa por los depredadores "verdaderos" y por la cantidad de energía ligada al consumo de 
 fauna del que se alimentan los omnívoros, este contabiliza ≈ 0,64% del flujo total de energía. Por su parte,
@@ -2050,10 +2106,52 @@ Estos datos nos muestran que en sistemas antropizados, con una cobertura vegetal
 
 # Conclusiones
 
+<!--
+Estructura general de conclusiones
+
+- Responde a la pregunta planteada.
+- Sustenta tu conclusión (tus datos, datos de otros).
+- Defiende tu conclusión (anticipa críticas).
+- Da el mensaje principal o conclusión general.
+
+En mas detalle
+
+Hallazgo clave (respuesta a la(s) pregunta(s) planteada(s) en la Introducción)
+
+* Comienza con: "HEMOS ENCONTRADO QUE..." (o algo similar)
+* Explica qué significan los datos (visión general)
+* Indica si los hallazgos son novedosos
+
+Describe Hallazgos secundarios clave
+
+Proporciona Contexto
+• Proporcionar posibles mecanismos o vías
+• Comparar sus resultados con los resultados de otras personas
+• Discutir cómo sus hallazgos apoyan o desafían el paradigma
+
+Describe Fortalezas y limitaciones
+• Anticipe las preguntas/críticas de los lectores
+• Explique por qué sus resultados son sólidos
+
+Ahora Qué sigue
+• Estudios confirmatorios recomendados ("necesita ser confirmado")
+• Señalar preguntas sin responder y direcciones futuras
+
+Implica, especula, recomienda
+• Proporciona las implicaciones generales (ecologicas) de los hallazgos científicos básicos
+• Dile a los lectores por qué deberían interesarse
+
+Conclusión sólida
+• Reafirme su hallazgo principal.
+• Dé un mensaje final para recordar
+
+-->
+
 Las redes tróficas de los suelos argiudoles de la Pampa Ondulada muestran un entramado de relaciones tróficas bastante densa
 en estas redes prevalece la omnivoría dado que los taxones se alimentan de más de un nivel trófico 
 como lo han descrito Digel et al (2014) quienes catalogan a la fauna edáfica como consumidores oportunistas
 con un escaso nivel de especialización dietaria.
+<!-- bastante densa, con respecto a quien??, bastante es un termino inexacto --> 
 
 Estas redes tróficas tienen 4 niveles tróficos como los encontrados en redes tróficas de otros sistemas ecológicos (Pimm et al 
 1931, Quévreux&Jacot2023), esta red trófica edáfica podria estructurarse como los recursos bases que son consumidos 
