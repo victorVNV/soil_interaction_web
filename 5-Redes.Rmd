@@ -59,7 +59,7 @@ de especies con un papel semejante en el funcionamiento de un ecosistema
 (Gitay y Noble, 1997) que permiten el mantenimiento de las funciones
 ecológicas del suelo (\@.citar).
 
-<! -- Importancia de las redes en el suelo -->
+<!-- Importancia de las redes en el suelo -->
 En los suelos las redes de interacciones están influenciadas por
 **factores de largo plazo** tales como el clima, las características
 edáficas regionales y locales, la disponibilidad de recursos para los
@@ -2001,8 +2001,6 @@ F_mc_total<-data.frame(sitio=c("Naturalizado","Mixto","Agrícola","Reserva","Pas
 F_mc_total
 ```
 
-
-<!--en chivilcoy hay 7 predadores y en luján 13 N98,52 G95.63 A97,12-->
 
 En los suelos de Chivilcoy y Navarro, (Tabla 5.x) los flujos de energía alcanzan un máximo de 37,74
 kJ.año^-1^ en los suelos con actividad agrícola ganadera, seguidos por el sistema agrícola intensivo que suma 37,4 kJ.año^-1^

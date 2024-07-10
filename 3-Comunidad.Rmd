@@ -1949,7 +1949,7 @@ div.beta<-hclust(betaBK_ro,method = "average") #average
 
 ```
 
-```{r Beta, echo=FALSE, warning=FALSE, message=FALSE}
+```{r Beta, echo=FALSE, warning=FALSE, message=FALSE, fig.align='center'}
 par(mfrow=c(1,2))
 #UNLu
 plot(div.beta.unlu,cex=0.6,main="Luján",
@@ -2088,7 +2088,7 @@ plot_PCA_ro<-fviz_pca_biplot(std_ab_pca, axes = c(1,2) , col.ind=col.sp,
 
 ```
 
-```{r plot_pca_U, echo=FALSE, warning=FALSE,message=FALSE}
+```{r plot_pca_U, echo=FALSE, warning=FALSE,message=FALSE,fig.align='center'}
 plot_PCA_unlu
 ```
 
@@ -2124,7 +2124,7 @@ mitad derecha del plano de componentes principales, en el nivel inferior se ubic
 sistema del pastizal naturalizado y el sistema agrícola relacionandose con el pastizal
 naturalizado en una situación intermedia.
 
-```{r plot_pca_Ro, echo=FALSE, warning=FALSE}
+```{r plot_pca_Ro, echo=FALSE, warning=FALSE,fig.align='center'}
 
 plot_PCA_ro
 ```
