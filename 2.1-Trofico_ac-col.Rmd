@@ -5,7 +5,7 @@ output:
   pdf_document:
     latex_engine: xelatex
     keep_tex: true
-bibliography: trophic.bib
+bibliography: referencias/trophic.bib
 
 documentclass: article
 geometry:

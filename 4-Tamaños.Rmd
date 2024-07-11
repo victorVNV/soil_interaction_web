@@ -1,9 +1,7 @@
 ---
-title: "4-Tamaños"
-author: "VNV"
-date: "2024-03-25"
+title: "Capítulo 4"
 output: html_document
-bibliography: size_spectra.bib
+bibliography: referencias/size_spectra.bib
 ---
 
 ```{r setup, include=FALSE}

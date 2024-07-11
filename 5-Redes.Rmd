@@ -256,7 +256,7 @@ bosques de la región Paleártica, el indica que
 el peso promedio de las bacterias del suelo es $9,5\, x \,10^{-16} g$,
 indica también el peso promedio de cada uno de los principales grupos de
 protozoos del suelo, tardígrados, rotíferos y otra microfauna que en
-conjunto que resultó en $1,1121 \,x\,10^{-10} g$ <!--3.3363e-1-->; 
+conjunto que resultó en $1,1121 \,x\,10^{-10} g$; 
 por el otro el se considera peso promedio de los hongos por metro lineal de las hifas
 como sugiere Pilar et al. (2016) y que resulta en un valor de
 $2,3 \,x\,7\,^{-10} g\,m^{-2}$.
@@ -329,7 +329,8 @@ entre nodos en la red.
 El **nivel trófico** es el número que define la posición en la cuál se
 encuentra una especie trófica, aquí se indican el **nivel trófico medio** 
 de la red <!--The trophic level of a consumer equals 1 + the
-weighted average of the trophic levels of its food. -->y el **nivel trófico máximo** de la red; se
+weighted average of the trophic levels of its food. -->y el **nivel trófico máximo** de la red<!-- give an idea of a species’
+vertical position in a food web-->; se
 identifican por su posición en la red el número de especies **basales**
 aquellas que no consumen a otras especies tróficas y el número de
 especies **tope** quienes no tienen predadores que los consuman; el

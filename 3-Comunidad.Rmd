@@ -1,10 +1,7 @@
 ---
-title: "Comunidad"
-author: "VNV"
-date: "`r Sys.Date()`"
+title: "Capítulo 3"
 output:
   html_document: default
-  word_document: default
 editor_options:
   markdown:
     wrap: 90
@@ -2218,3 +2215,81 @@ Bedano et al 2006 Influence of three different land management practices on soil
 (Arachnida: Acari) densities in relation to a natural soil
 
 Size Spectra http://hdl.handle.net/11336/229317
+
+
+\# 
+
+Bünemann et al., 2018 E.K. Bünemann, G. Bongiorno, Z. Bai, R.E. Creamer,
+G. de Deyn, R. de Goede, L. Fleskens, V. Geissen, T.W. Kuyper, P. Mäder,
+M. Pulleman, W. Sukkel, J.W. van Groenigen, L. Brussaard Soil quality –
+a critical review Soil Biology and Biochemistry, 120 (2018), pp.
+105-125, 10.1016/J.SOILBIO.2018.01.030
+
+Brown et al Soil metabolomics - current challenges and future
+perspectives Author links open overlay panelRobert W. Brown
+
+Enumerating soil biodiversity -
+<https://doi.org/10.1073/pnas.2304663120>
+
+Bascompte 2009 Disentangling the Web of Life
+
+Culliney 2013 Role of Arthropods in Maintaining Soil Fertility
+
+Lavelle et al 2006 Soil invertebrates and ecosystem services
+
+Lavelle 2012 Soil as habitat. in Wall 2012
+
+Thakur et al 2019 Towards an integrative understanding of soil
+biodiversity
+
+Bardgett 2002 Causes and consequences of biological diversity in soil
+
+Creamer et al 2022 The life of soils: Integrating the who and how of
+multifunctionality
+
+Wurst et al 2012 Soil Biodiversity and Functions. En Wall 2012
+
+Potapov 2023 Multifunctionality of belowground food webs: resource, size
+and spatial energy channels
+
+Hooper, et al 2005. Effects of biodiversity on ecosystem functioning: a
+consensus of current knowledge. Ecological Monographs 75: 3-35.
+
+Delmas et al 2019 Analysing ecological networks of species interactions
+
+Coleman etal 2004 Fundamental of soil ecology. chap 1, Historical
+Overview of Soils and the Fitness of the Soil Environment, sub section,
+Soils as Suppliers of Ecosystem Services pag 20
+
+Fonte et al 2023. Earthworms contribute significantly to global food
+production
+
+Laigle et al 2018 Species traits as drivers of food web structure
+
+de Ruiter et al 1995. Energetics, Patterns of Interaction Strengths, and
+Stability in Real Ecosystems
+
+Anderson 1978 A Method to Quantify Soil-Microhabitat Complexity and its
+Application to a Study of Soil Animal Species Diversity
+
+Barnes et al 2017 Energy flux: the link between multitropic biodiversity
+and ecosystem functioning
+
+Allesina, Stefano, Pascual, Mercedes, 2008. Network structure,
+predator - prey modules, and stability in large food webs. Theor. Ecol.
+1
+
+Gauzens etal 2018 fluxweb: An R package to easily estimate energy fluxes
+in food webs
+
+John C Moore and Peter C de Ruiter. Energetic Food Webs: An analysis of
+real and model ecosystems. Oxford University Press, 2012.
+
+Hall et al 19992 Field crop system of the Pampas. In field crop system
+
+Lavado R. y M. Taboada. 2009. The Argentinean Pampas: A key region with
+a negative nutrient balance and soil degradation needs better nutrient
+management and conservation programs to sustain its future viability as
+a world agroresource. Journal of Soil and Water Conservation 64 (5):
+150-153. <doi:10.2489/jswc.64.5.150A>
+
