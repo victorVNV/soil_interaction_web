@@ -36,6 +36,11 @@ options("digits"=3)
 
 -->
 
+<!--Although it is easy enough to describe in theory the functioning of any
+community in terms of simple linear food chains, with herbivore feeding on
+primary producer, carnivore feeding on herbivore, etc., in practice, the interrelationships between populations are so complex that they can be considered more
+accurately as a web, rather than a chain. Wallwork 1970-->
+
 <!-- esto es la importancia de redes en general -->
 En los ecosistemas las especies presentes se relacionan entre sí de
 multiple maneras y estas relaciones configuran complejas redes de
@@ -264,7 +269,8 @@ $2,3 \,x\,7\,^{-10} g\,m^{-2}$.
 Las biomasas de bacterias, hongos y microfauna no nemátoda, son
 aproximadas a partir de la respiración de los heterótrofos (capítulo 3 comunidad, imagen o
 tabla, ecuación), de esta biomasa media se considera que el 50% es el
-recurso efectivamente disponible para los consumidores, <!-- por que? --> entonces, para
+recurso efectivamente disponible para los consumidores, <!-- por que? --> <!--https://www.sciencedirect.com/science/article/abs/pii/003807179390240C Brussar, espacio de poros y grazzer
+Thakur comprender Towards an integrative understanding of soil biodiversity quien explica hotspot y micrositios, entonces no todos llegan a bacteris por restriccion de microporos--> entonces, para
 ambos suelos argiudoles se consideró que el 2 % de la biomasa
 corresponde a la microfauna no nemátoda
 (.\@.cita_energetical.significance?); para <u>suelos de Luján</u> se

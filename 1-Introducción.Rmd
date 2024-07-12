@@ -114,7 +114,7 @@ biológica con el funcionamiento del ecosistema del suelo [@lavelle2012; @brione
 
 Si bien la complejidad del suelo es enorme, su funcionamiento puede ser
 entendido como un sistema auto-organizado [@lavelle2006],
-característica que es una propiedad emergente de los ecosistemas [@oneill1986], en términos 
+característica que es una propiedad emergente de los ecosistemas [@oneill1986; @coleman2011], en términos 
 prácticos esto implica
 que la gran diversidad biológica y la complejidad de sus interacciones
 ocurren simultáneamente a diferentes escalas espaciales y temporales
