@@ -2,6 +2,7 @@
 title: "Capítulo 3"
 output:
   html_document: default
+bibliography: referencias/TesisC3.bib
 editor_options:
   markdown:
     wrap: 90
@@ -23,8 +24,6 @@ library("FactoMineR");library("factoextra"); library("kableExtra")}
 set.seed(167)
 
 ```
-
-# Análisis de las comunidad
 
 ## Introducción
 
@@ -53,7 +52,7 @@ periodo de probabilidad de heladas y los inviernos sin nieve permiten el cultivo
 especies invernales de manera que al año pueden realizarse hasta tres cosechas
 [@morello2000].
 
-Urricariet y Lavado en -@urricariet1999 ya mencionaban que la Pampa Ondulada estaba siendo sometida a
+Urricariet y Lavado en [-@urricariet1999] ya mencionaban que la Pampa Ondulada estaba siendo sometida a
 la pérdida de fertilidad debidas a las prácticas intensivas de manejo, ellos basaban sus
 conjeturas en estudios regionales realizados en la Pampa Ondulada y mencionan que la
 erosión de los suelos y los efectos de las prácticas agrícolas intensivas sobre estos,
@@ -87,10 +86,10 @@ microagregados y son almacen de carbono en el suelo y también sus actividades d
 de alimento o movimientos en búsqueda de mejores condiciones ambientales los tornan
 organismos que contribuyen, a diferentes escalas, a la formación del suelo [@wall1999; @barrios2007; @bardgett2002; @potapov2022; @zotero-1438; @creamer2022].
 
-Por ello es que Socarras (-@socarras2013) menciona que conocer el número de los diferentes taxones,
+Por ello es que Socarras [-@socarras2013] menciona que conocer el número de los diferentes taxones,
 su abundancia y el balance entre estos permite evaluar y predecir el impacto de los
 diferentes métodos de producción ocurridos en sistemas con condiciones edáficas y
-climáticas particulares; tambíen Cruz y colaboradores (-@cruz2004) mencionan en su síntesis
+climáticas particulares; tambíen Cruz y colaboradores [-@cruz2004] mencionan en su síntesis
 sobre los indicadores que dan cuenta sobre la calidad del suelo, entendida como *"la
 utilidad del suelo para un propósito específico en una escala amplia de tiempo"*, que los
 indicadores biológicos integran a la gran cantidad de factores que podrían estar afectando
@@ -144,7 +143,7 @@ WGS84 expresadas en grados, minutos y segundos.**
 |          | 34°35'22"S | 59°04'09"W |
 |          | 34°35'22"S | 59°04'12"W |
 
-Los suelos ubicados en los partidos de Chivilcoy y Navarro fueron muestreados por Sandler -@sandler2019,
+Los suelos ubicados en los partidos de Chivilcoy y Navarro fueron muestreados por Sandler [-@sandler2019],
 en cada estación del año durante dos años entre 2009 y 2010, dejando un conjunto
 de datos tanto con la clasificación de los taxas de Arachnida: Acari, Hexapoda: Collembola
 y Oligochaetta: Crassiclitelata como con la caracterización de las variables físicas y
@@ -159,10 +158,10 @@ típicos ubicados el campo experimental de la Universidad Nacional de Luján
 [@sfeir1998] [imagen1_mapa].
 
 El muestreo se llevó adelante con la intención de colectar la fauna edáfica que pasa todo
-su ciclo de vida en el suelo [@momo2009; @walkwork1970], conocidos
+su ciclo de vida en el suelo [@momo2009; @wallwork1970], conocidos
 también como **geobiontes**. Los geobiontes incluyen tres rangos de tamaño [@swift1979],
 <!--agregar imagen tamaños y formas de vida)-->: la **microfauna** constituida por los nemátodos
-(ancho corporal menor a 200 \$\mu m\$), la **mesofauna** en el que se incluyen los
+(ancho corporal menor a 200 $\mu m$), la **mesofauna** en el que se incluyen los
 microartrópodos y otros invertebrados cuyo diametro corporal es menor a 2 mm y la
 **macrofauna**.
 
@@ -233,7 +232,7 @@ Los animales capturados son almacenados en alcohol 96º hasta su identificación
 para la identificación se utilizaron claves taxonómicas que separan en grandes grupos
 taxonómicos [@vargas2014]. Las lombrices de tierra (Oligochaeta:
 Crassiclitellata) fueron identificadas hasta especies [@reynolds1996; @satchell1983; @demichis1999] y la macrofauna restante fué separada en diferentes rangos
-taxonómicos desde órdenes hasta familias [@choates1999; @claps2020; @klimaszewiski1997; @dindal1990; @zhang2011; @vargas2014]
+taxonómicos desde órdenes hasta familias [@choate1999; @claps2020; @klimaszewiski1997; @dindal1990; @zhang2011; @vargas2014]
 
 Para muestrear la comunidad de la mesofauna del suelo, se utilizaron los suelos
 correspondientes a las muestras tomadas para capturar la macrofauna, de ellos se tomaron
@@ -650,7 +649,7 @@ El fósforo no muestra correlación significativa con la respiración heterotró
 demás variables mostró relaciones significativas pero con ninguna de las variables las
 correlaciones fueron fuertes $\rho > 0.75$
 
-**Relaciones de las variables físicas, químicas y biológicas en los diferentes sistemas de uso en suelos Argiudoles típicos**
+**Relaciones de las variables químicas y biológicas en los diferentes sistemas de uso en suelos Argiudoles típicos**
 
 Los valores del pH (Tabla 3.x), en los suelos argiudoles de Luján, no mostraron diferencias
 significativas (K-W p:H\<0.1) entre los sitios. En los suelos de Chivilcoy y Navarro
@@ -800,7 +799,7 @@ pairwise.wilcox.test(RO_db_full$P, RO_db_full$system,data=RO_db_full,
 ```
 
 
-**Tabla 3.x Variables físico químicas de suelos Argiudoles típicos. Valores promedio y desvío estandar del pH, el porcentaje de materia orgánica (MO), el porcentaje de nitrógeno (N) y el fósforo asimilable (p.p.m.). Las letras representan diferencias significativas evaluadas mediante la prueba de Kruskall-Wallis. Los  sitios se corresponden con los sistemas de uso del suelo, en Luján: R=Reserva, P=pastizal,A=agrícola; en Chivilcoy y Navarro: N= pastizal naturalizado, G= sistema mixto agrícola ganadero, A= agrícola intensivo**
+**Tabla 3.x Variables químicas de suelos Argiudoles típicos. Valores promedio y desvío estandar del pH, el porcentaje de materia orgánica (MO), el porcentaje de nitrógeno (N) y el fósforo asimilable (p.p.m.). Las letras representan diferencias significativas evaluadas mediante la prueba de Kruskall-Wallis. Los  sitios se corresponden con los sistemas de uso del suelo, en Luján: R=Reserva, P=pastizal,A=agrícola; en Chivilcoy y Navarro: N= pastizal naturalizado, G= sistema mixto agrícola ganadero, A= agrícola intensivo**
 
 
 ```{r fq.tabA,echo=FALSE,message=FALSE,warning=FALSE}
@@ -919,6 +918,7 @@ kruskal.test(h ~ sitio, data = fqb.box),
 
 ```{r resp.tabB,echo=FALSE,message=FALSE,warning=FALSE}
 #print####
+colnames(resp.tab)<-c("Sitio", "Respiración heterotrófica", "Hongo:Bacteria", "Hojarasca")
 resp.tab
 ```
 
@@ -932,7 +932,7 @@ intensivo.
 
 En suelos de Luján no se encontraron diferencias entre los sistemas de uso del suelo, ni en la relación de hongos/bacterias ni en la cantidad de hojarasca en superficie.
 
-**Análisis de Componentes Principales (PCA) de las variables físicas, químicas y biológicas de los suelos Argiudoles típicos bajo diferentes foras de uso**
+**Análisis de Componentes Principales (PCA) de las variables químicas y biológicas de los suelos Argiudoles típicos bajo diferentes formas de uso**
 
 La relación entre las variables físicas, químicas y biológicas y
 los sitios de estudios en los suelos argiudoles de Luján a través de los valores  
@@ -1051,7 +1051,7 @@ expresan una situación intermedia entre los centroides del pastizal naturalizad
 y el sistema mixto, y a la vez relaciones con diversos puntos muestrales pertenecientes a cada sistema de uso
 
 
-### Diversidad de las comunidades edáficas que habitan los suelos Argiudoles típicos de la Pampa Ondulada bajo diferente formas de uso
+### Diversidad de las comunidades de la fauna edáfica que habitan los suelos Argiudoles típicos de la Pampa Ondulada bajo diferente formas de uso
 
 ```{r mat_D_unlu,include=FALSE, warning=FALSE}
 
@@ -1127,7 +1127,7 @@ unlu_merg$bacteria<-round((unlu_merg$bio.micro-unlu_merg$fungi),4)
 
 **Diversidad alfa (α) en suelos Argiudoles: Riqueza de unidades taxonómicas**
 
-```{r S,include=FALSE}
+```{r S, include=FALSE}
 #S Luján####
 D<-unlu_merg[,c(4:122,2)]
 # son 118 taxones, siquisiera poner nombre a todos...
@@ -1145,7 +1145,7 @@ ab_unlu<-S_unlu[,c("sitio","replica","estrato","taxa","abundance")] %>%
               values_fill = 0,
               values_fn = sum)
 
-#Sitios<-unlu_merg$nombre
+Sitios<-unlu_merg$nombre
 Riqueza<-specnumber(ab_unlu[,colnames(ab_unlu)!=c("sitio","replica","estrato")],groups = ab_unlu$sitio) #Riqueza[["R"]]
 Riqueza_nematodos<-specnumber(ab_unlu[,colnames(ab_unlu)%in%c("nem_fitofago","nem_bacterivoro","nem_fungivoro","nem_omnivor","nem_predador")],groups = ab_unlu$sitio)
 Riqueza_lombrices<-specnumber(ab_unlu[,colnames(ab_unlu)%in%c(
@@ -1182,7 +1182,8 @@ Riqueza_macrofauna<-specnumber(ab_unlu[,colnames(ab_unlu)%in%c(
  "embrioptera","pseudoscorpionida","aphidoidea","terebrantia","thysanoptera","coleoptera_suctor"
 )],groups = ab_unlu$sitio)
 
-S_UNLu<-data.frame(Sitios=c("R", "P", "A"),S=c(Riqueza[["R"]],Riqueza[["P"]],Riqueza[["L"]]),
+S_UNLu<-data.frame(siti= c("R", "P", "A"),
+                   S=c(Riqueza[["R"]],Riqueza[["P"]],Riqueza[["L"]]),
                    S_lombrices=c(Riqueza_lombrices[["R"]],
                          Riqueza_lombrices[["P"]],Riqueza_lombrices[["L"]]),
                    S_collembola=c(Riqueza_collembola[["R"]],
@@ -1243,13 +1244,13 @@ Riq_collembola<-specnumber(ab[,c("isotomidae", "onychiuridae","hypogastruridae",
                 "entomobroidea","symphypleona")],groups=ab$system)
 
 
-Sitios.r=levels(as.factor(ab$system))
-Sitios.r <- factor(Sitios.r, levels = c("N", "G", "A"))
+#Sitios.r<-levels(as.factor(ab$system))
+#Sitios.r <- factor(Sitios.r, levels = c("N", "G", "A"))
 
 
 
-S_RO<-data.frame(Sitios=c("N", "G", "A")
-                 ,S=c(Riq[["N"]],Riq[["G"]],Riq[["A"]]),
+S_RO<-data.frame(siti=c("N", "G", "A"),
+                 S=c(Riq[["N"]],Riq[["G"]],Riq[["A"]]),
                   S_lombrices=c(Riq_lombrices[["N"]],
                                 Riq_lombrices[["G"]],Riq_lombrices[["A"]]),
                  S_collembola=c(Riq_collembola[["N"]],
@@ -1260,8 +1261,8 @@ S_RO<-data.frame(Sitios=c("N", "G", "A")
                                   Riq_mesostigmata[["G"]],Riq_mesostigmata[["A"]]),
                  S_prostigmata=c(Riq_prostigmata[["N"]],
                                  Riq_prostigmata[["G"]],Riq_prostigmata[["A"]]),
-                 S_otra_mesofauna=c(rep("-",times=length(Sitios))),
-                 S_macrofauna=c(rep("-",times=length(Sitios))),
+                 S_otra_mesofauna=c(rep("-",times=3)),
+                 S_macrofauna=c(rep("-",times=3)),
                  row.names = NULL)
 ```
 
@@ -2150,7 +2151,7 @@ ciertos taxones y los sistemas de uso del suelo.
 
 El hecho de que no existan diferencias claras en la diversidad alfa puede relacionarse con el hecho 
 de que la fauna del suelo posee una gran redundancia de taxones para diferentes funciones ecológicas claves 
-(\@anderson), tales como, el control de poblaciones de la microflora, la fragmentación de la hojarasca, la 
+[@anderson1978], tales como, el control de poblaciones de la microflora, la fragmentación de la hojarasca, la 
 herbivoría, la formación de canales a través del suelo, etc. 
 
 Si se reflejan en cambios en la diversidad Beta, es decir, cambios entre los actores y sus abundancias que 
@@ -2163,122 +2164,3 @@ inclusive a grandes distancias y a frecuencia de muestreo y las variaciones que 
 se relacionan con el tiempo de uso y con la forma de uso que se realiza sobre el suelo.
 
 # Referencias
-
-West, A. W. (1986). Improvement of the selective respiratory inhibition technique to
-measure eukaryote: prokaryote ratios in soils. Journal of Microbiological Methods, 5(3-4),
-125-138.
-
-Sfeir, A., Costa, M. C., Stavinsky, A., Bonvecchi, V., Penón, E., Rossi, S. 1988. Mapa
-básico de suelos. Universidad Nacional de Luján, Luján.
-
-Potapov, A. M., Sun, X., Briones, M. J., Brown, G., Cameron, E., Cortet, J., ... & Wall,
-D. (2022). Global monitoring of soil animal communities using a common methodology.
-bioRxiv.
-
-Zabala, M., & Gómez, Y. (2010). Biomasa fúngica y bacteriana como indicadoras del
-secuestro de C en suelos de sabanas sustituidos por pinares en Uverito, Venezuela. Revista
-de Biología Tropical, 58(3), 977-989.
-
-Moreira, F. M., Huising J. E. - Bignell, D. E.(Ed.). (2012). Manual de biología de suelos
-tropicales. Instituto Nacional de Ecología. Muestreo y caracterización de la biodiversidad
-bajo suelo. Cap Nematodos pp165 ---- Agregar Capitulo Macrofauna
-
-Swift M, Heal O, Anderson J (1979) Decomposition in terrestial ecosystems. CAB URL:
-<https://www.cabdirect.org/cabdirect/abstract/19800665274>
-
-Frioni, L. 1999. Procesos microbianos. Anexo Práctico. p 290-295 Ed. de la Fundación
-Universidad Nacional de Río Cuarto. Argentina. 322 páginas.
-
-Measuring beta diversity for presence–absence data Koleff et al 2003
-
-S URRICARIET, R S LAVADO 1999 INDICADORES DE DETERIORO EN SUELOS DE LA PAMPA ONDULADA
-
-R.P. Colombo, L. Fernández Bidondo, V.A. Silvani, M.B. Carbonetto, N. Rascovan, M.J.
-Bompadre, M. Pérgola, G. Cuenca, and A.M. Godeas. 2014. Diversity of arbuscular
-mycorrhizal fungi in soil from the Pampa Ondulada, Argentina, assessed by pyrosequencing
-and morphological techniques
-
-Socarras 2013 Soil mesofauna: biological indicator of soil quality
-
-Bedano et al 2006 Influence of three different land management practices on soil mite
-(Arachnida: Acari) densities in relation to a natural soil
-
-Size Spectra http://hdl.handle.net/11336/229317
-
-
-\# 
-
-Bünemann et al., 2018 E.K. Bünemann, G. Bongiorno, Z. Bai, R.E. Creamer,
-G. de Deyn, R. de Goede, L. Fleskens, V. Geissen, T.W. Kuyper, P. Mäder,
-M. Pulleman, W. Sukkel, J.W. van Groenigen, L. Brussaard Soil quality –
-a critical review Soil Biology and Biochemistry, 120 (2018), pp.
-105-125, 10.1016/J.SOILBIO.2018.01.030
-
-Brown et al Soil metabolomics - current challenges and future
-perspectives Author links open overlay panelRobert W. Brown
-
-Enumerating soil biodiversity -
-<https://doi.org/10.1073/pnas.2304663120>
-
-Bascompte 2009 Disentangling the Web of Life
-
-Culliney 2013 Role of Arthropods in Maintaining Soil Fertility
-
-Lavelle et al 2006 Soil invertebrates and ecosystem services
-
-Lavelle 2012 Soil as habitat. in Wall 2012
-
-Thakur et al 2019 Towards an integrative understanding of soil
-biodiversity
-
-Bardgett 2002 Causes and consequences of biological diversity in soil
-
-Creamer et al 2022 The life of soils: Integrating the who and how of
-multifunctionality
-
-Wurst et al 2012 Soil Biodiversity and Functions. En Wall 2012
-
-Potapov 2023 Multifunctionality of belowground food webs: resource, size
-and spatial energy channels
-
-Hooper, et al 2005. Effects of biodiversity on ecosystem functioning: a
-consensus of current knowledge. Ecological Monographs 75: 3-35.
-
-Delmas et al 2019 Analysing ecological networks of species interactions
-
-Coleman etal 2004 Fundamental of soil ecology. chap 1, Historical
-Overview of Soils and the Fitness of the Soil Environment, sub section,
-Soils as Suppliers of Ecosystem Services pag 20
-
-Fonte et al 2023. Earthworms contribute significantly to global food
-production
-
-Laigle et al 2018 Species traits as drivers of food web structure
-
-de Ruiter et al 1995. Energetics, Patterns of Interaction Strengths, and
-Stability in Real Ecosystems
-
-Anderson 1978 A Method to Quantify Soil-Microhabitat Complexity and its
-Application to a Study of Soil Animal Species Diversity
-
-Barnes et al 2017 Energy flux: the link between multitropic biodiversity
-and ecosystem functioning
-
-Allesina, Stefano, Pascual, Mercedes, 2008. Network structure,
-predator - prey modules, and stability in large food webs. Theor. Ecol.
-1
-
-Gauzens etal 2018 fluxweb: An R package to easily estimate energy fluxes
-in food webs
-
-John C Moore and Peter C de Ruiter. Energetic Food Webs: An analysis of
-real and model ecosystems. Oxford University Press, 2012.
-
-Hall et al 19992 Field crop system of the Pampas. In field crop system
-
-Lavado R. y M. Taboada. 2009. The Argentinean Pampas: A key region with
-a negative nutrient balance and soil degradation needs better nutrient
-management and conservation programs to sustain its future viability as
-a world agroresource. Journal of Soil and Water Conservation 64 (5):
-150-153. <doi:10.2489/jswc.64.5.150A>
-
