@@ -1,46 +1,46 @@
 ---
-title: "2-Trofico"
-author: "VNV"
-date: "2024-03-25"
+title: "Capítulo 2"
 output: html_document
+bibliography: referencias/TesisC2.bib
 editor_options: 
   markdown: 
     wrap: 90
 ---
 
-# Ecología trófica del sistema detritívoro del suelo
+# Recursos tróficos y biología alimenticia de los principales taxones de la fauna edáfica que habita los suelos Argiudoles de la Pampa Ondulada, excepto Arachnida:Acari y Hexapoda:Collembolla
 
 En el suelo se encuentra aproximadamente la mitad de la biomasa total de animales que
-habitan la Tierra, la mayor diversidad de estos animales se relaciona con la hojarasca y
+habitan la Tierra [@anthony2023], la mayor diversidad de estos animales se relaciona con la hojarasca y
 con el suelo en el cual contribuyen con diversas funciones del ecosistema relacionadas con
-la descomposición del material orgánico que se acumula sobre el suelo, son piezas claves
+la descomposición del material orgánico que se acumula sobre el suelo [@briones2014], son piezas claves
 en los servicios ecosistemicos tales como el ciclo de los nutrientes, por lo tanto se
 correlacionan con la fertilidad de los suelos y su productividad en términos económicos,
 el ciclo del carbono, por lo que se vinculan con el cambio climático a gran escala, forman
 parte de los factores formadores del suelo a través de sus actividades a microescala (o
 dicho de otro modo a nivel local o puntual) por lo que contribuyen al ciclo hídrico y a la
 fertilidad física del suelo y la red trófica y el entramado de interacciones entre los
-miembros de la comunidad se relacionan estrechamente con el control de poblaciones que
+miembros de la comunidad se relacionan estrechamente con el control de poblaciones 
+[@barrios2007; @lavelle2006; @wall2012;  @creamer2022] que
 pueden resultar críticas para la actividad agrícola entendiendo que una comunidad edáfica
 podría ser incapaz de regular poblaciones de patógenos si la red trófica que esta conforma
-no regula al patógeno. (\@.citas)
+no regula al patógeno.
 
-En esta sección resumimos las carácterísticas de la ecología trófica de los principales
-taxones de animales del suelo, con excepción de los taxones Arachnida:Acari y 
-Hexápoda:Collembolla tratados en la sección anterior,
+En esta sección resumimos las carácterísticas de la biología trófica de los principales
+taxones de animales del suelo, con excepción de los taxones Arachnida: Acari y 
+Hexápoda: Collembolla tratados en la sección anterior,
 vinculados con el sistema detritívoro encargado de
 descomponer la materia orgánica, principalmente hojarasca, que se acumula sobre el suelo o
 proveniente de las raices muertas dentro del suelo mineral. La diversidad de taxones
-implica una diversidad de recursos alimenticios utiliados por cada uno de ellos. 
+implica una diversidad de recursos alimenticios utilizados por cada uno de ellos. 
 
 La revisión es un compendio basado en libros de Biología y Ecología del suelo de:
-a) Soil Biology Guide (Dindal 19xx), b) Soil Biology Burges (\-\@\Burges1967), b) Atlas on the Biology of Soil Arthropods Eisenbeis y
-Wichard (\@Eisenbeis1987) que corresponden a bibliografía clásica sobre el aspecto trófico de la fauna edáfica y que basa su
+a) Soil Biology Guide [@dindal1990], b) Soil Biology Burges [@burges1967], b) Atlas on the Biology of Soil Arthropods [@eisenbeis1987] que corresponden a bibliografía clásica sobre el aspecto trófico de la fauna edáfica y que basa su
 desarrollo en la evidencia empírica de la época, es decir en observaciones directas del
 comportamiento alimenticio de los animales en mesocosmos y microcosmos, ensayos de 
 alimentación, análisis de contenido intestinal, observación de las partes anatómicas bucales; 
-y la revisión general de Feeding habits and multifunctional classification of soil-associate consumers from protits to vertebrates de
-Potapov y colaboradores 2022 en la que un compendio de 18 autores expertos en diferentes taxones utilizan las herramientas
+y la revisión general de Feeding habits and multifunctional classification of soil-associate consumers from protits 
+to vertebrates [@potapov2022b] en la que un compendio de 18 autores expertos en 
+diferentes taxones utilizan las herramientas
 actuales, tales como isótopos estables, análisis de ácidos grasos, y análisis del ADN a
 nivel del contenido intestinal para dilucidar los hábitos alimenticios de estos animales
 reforzando la evidencia empírica anterior y a la vez relacionandolos con diversos aspectos
@@ -85,7 +85,7 @@ terrestres, el largo corporal de aquellos que habitan los suelos en promedio var
 las 200 y 700 $\mu$m, su coloración general es pálidad blancuzca pero pueden tomar
 diferentes colores.
 
-[Colocar Imagen]
+<!--[Colocar Imagen]-->
 
 Los tardígrados terrestres requieren de una película de agua para permanecer activos y
 desarrollar sus actividades, además de habitar la hojarasca y los primeros centímetros del
@@ -106,8 +106,7 @@ simetria bilateral y no segmentados.
 
 Los nemátodos de vida libre del suelo son los metazoos más abundantes varían en su tamaño
 pero en general son de un largo menor a 7 mm, su caracterización anatomo-morfológica está
-desarrollada y permite la clasificación taxonómica de estos hasta el nivel de genero
-(\@.chaves_etal2019).
+desarrollada y permite la clasificación taxonómica de estos hasta el nivel de genero [@chaves2019].
 
 Los nemátodos poseen una serie de adaptaciones a diferentes hábitos alimenticios que se
 observa mediante la diversidad de sus sistemas digestivos específicamente adaptaciones
@@ -118,7 +117,7 @@ mecanismo de alimentación del nemátodo en cuestión.
 
 Estas adaptaciones se correlacionan con su modo principal de alimentación y por lo que las
 partes bucales permiten definir grupos tróficos y cuya clasificación es corroborada por la
-evidencia empírica más reciente \@potapov.
+evidencia empírica más reciente [@potapov2022b].
 
 Los grupo tróficos de nemátodos de vida libre del suelo son: los nemátodos bacteríofagos,
 los nemátodos fungívoros, ambos se encuentran vinculados funcionalmente con la regulación
@@ -126,8 +125,7 @@ poblacional de las comunidades de la microflora, los nemátodos predadores que p
 protozoos, tardígrados, y otros nemátodos, los nemátodos omnívoros, estos regulan las
 poblaciones de la microfauna y son importantes en el control de poblaciones fitófagas y
 los nemátodos fitófagos que parasitan las raices y tejidos vegetales y que resultan de
-interés productivo por su potencial efecto nocivo sobre especies de interés agronómico
-(\@.momoyfalco2009, \@.yeatesetal1993).
+interés productivo por su potencial efecto nocivo sobre especies de interés agronómico [@yeates1971; @momo2009; @yeates1993].
 
 ## Mesofauna
 
@@ -139,8 +137,8 @@ Son gusanos segmentados cuyo largo no supera los 15 mm y en general
 su cuerpo es de color pálido blancuzco. Estos animales se relacionan con la formación del
 suelo mediante su papel en la fragmentación de la materia orgánica, su mezcla con la
 fracción mineral del suelo y la deposición de capsulas fecales ("pellets fecales") sobre
-el suelo a medida que van abriendo canales a través del suelo (\@.O'CONNOR1968). Dash
-(1990) comenta que los enquitreidos consumen remanentes vegetales, sílice, grandes
+el suelo a medida que van abriendo canales a través del suelo [@oconnor1967]. Dash [-@dash1990]
+comenta que los enquitreidos consumen remanentes vegetales, sílice, grandes
 cantidades de hifas de hongos, algas unicelulares, bacterias y nemátodos fitófagos. 
 Además los enquitreidos muestran preferencia por los hongos y por material vegetal en
 descomposición con una gran cantidad de hifas de hongos además consumen las heces de los
@@ -150,12 +148,12 @@ colémbolos junto con la hojarasca fragmentada.
 
 Los paurópodos son pequeños miriápodos blanquecinos y ciegos su cuerpo cilíndrico y unos
 pocos pares de patas aproximadamente entre 8 y 11 alcanzando largos de hasta 1,5 mm.
-Habitan principalmente en los poros del suelo mineral y orgánico (\@.raw1967), entre la
+Habitan principalmente en los poros del suelo mineral y orgánico [@raw1967], entre la
 hojarasca, entre los troncos en descomposición y lugares donde permanece oscuro, la
 humedad alta y temperaturas moderadas. Su movilidad es reducida, sus partes bucales son
 poco desarrolladas y consumen hifas de hongos principalmente y fluidos que son producto
-del material vegetal descompuesto (\@.scheller1990) también se han registrado el consumo de 
-humus y de carroña de microartrópodos (.@.Starling1944).
+del material vegetal descompuesto [@scheller1990] también se han registrado el consumo de 
+humus y de carroña de microartrópodos [@starling1944].
 
 ### Myriapoda: Symphyla
 
@@ -163,7 +161,7 @@ Los sínfilos habitan los suelos alrededor del mundo son importante en el
 fraccionamiento de la materia orgánica del cual obtienen sus nutrientes y además se
 alimentan de pequeñas raices y raicillas. Son animáles elongados, blanquecinos, con hasta
 12 pares de patas y pueden alcanzar largos de hasta 1,5 cm, debido a su forma corporal
-pueden recorrer a lo largo de los poros del suelo orgánico mineral (\@.edwards1990).
+pueden recorrer a lo largo de los poros del suelo orgánico mineral [@edwards1990].
 Edwards 1990 menciona como hábitos alimenticios que la clase incluye especie voraces
 consumiendo hasta 20 veces su peso, algunos son herbívoros pudiendo llegar a causar daños
 en especies vegetales de interés productivo, pero en general se alimentan de material
@@ -174,11 +172,10 @@ vegetal en descomposición, microrganimos, nemátodos y carroña de invertebrado
 Los proturos son hexapodos diminutos, delgados, aplanados, ciegos, se encuentran en la
 hojarasca y el suelo orgánico, debajo de troncos y piedras en lugares donde se mantienen
 la humedad alta entre los poros e intersticios que ellos ocupan y también se hallan a
-profundidades mayores a los 5 cm en el suelo mineral (\@.copeland_imadaté1990). Sobre los
+profundidades mayores a los 5 cm en el suelo mineral [@copeland1990]. Sobre los
 items alimenticios de estos animales poco se conoce, sus piezas bucales incuyen un
 estilete que le permite alimentarse mediante succión, se sabe que se alimentan de las
-hifas de hongos y específicamente ha sido documentada alimentandose sobre ectomicorrizas
-(\@.potapov2018),
+hifas de hongos y específicamente ha sido documentada alimentandose sobre ectomicorrizas [@bluhm2019].
 
 ### Hexapoda: Diplura
 
@@ -189,7 +186,7 @@ del suelo, su característica es el apéndice caudal que puede ser del tipo *pin
 Ambas clases de animales son omnívoros con preferencia por items alimenticios animales que
 incluyen colémbolos, ácaros, dipluros (es decir, canivales), sínfilos, larvas de insectos,
 enquitreidos y en menor grado consumen detritos y micelios y esporas de hongos
-(\@.ferguson1990).
+[@ferguson1990].
 
 ### Arachnida: Acari y Hexapoda: Collembola
 
@@ -208,15 +205,14 @@ anterior.
 ### Oligochaeta: Crassiclitellata
 
 La lombrices de tierra son gusanos pertenecen a los Oligochaeta y se
-encuentran en una amplia variedad de ecosistemas terrestres (\@.satchell1967) 
+encuentran en una amplia variedad de ecosistemas terrestres [@satchell1967] 
 con excepcion de lugares áridos o zonas desérticas debido a sus requerimientos 
 de humedad para poder llevar
-adelante sus actividades (Schewert 1990). Son importantes en el funcionamiento del
+adelante sus actividades [@schwert1990]. Son importantes en el funcionamiento del
 ecosistema del suelo debido a su capacidad para cavar galerias a través del suelo mineral,
 para mezclar la hojarasca con el suelo y con bacterias intestinales y de transportar y
 relocalizar la materia orgánica que toma de la superficie y la deposita como heces blandas
-("castings") en cuya composición se encuentran nutrientes asimilables por las plantas
-(\@.momofalco2019; \@.schewert1990). 
+("castings") en cuya composición se encuentran nutrientes asimilables por las plantas [@schwert1990; @momo2009]. 
 
 Las lombrices se alimentan ya sea enguyendo el suelo,
 enguyendo porciones de hojarasca y materia orgánica o una combinación de ambas, a su vez,
@@ -233,10 +229,10 @@ Las arañas de la hojarasca habitan sobre la hojarasca que se acumula sobre el s
 entre los intersiticios y espacios que puedan formarse entre el suelo, la hojarasca,
 troncos y rocas.
 
-Son organismos solitarios en su gran mayoría e importantes depredadores (\@.dondale 1990)
+Son organismos solitarios en su gran mayoría e importantes depredadores [@dondal1990]
 tal es así que se ha cuantificado que a nivel global las arañas en todos los niveles
 espaciales consumen entre 400 y 800 millones de toneladas anuales en términos de biomasa de
-presas. (\@potapovetal)
+presas [@potapov2022b].
 
 Como depredares poseen dos estrategias para capturar a sus presas, aquellas arañas
 que buscan activamente a su presa y aquellas que se "sientan a esperar" hasta que la
@@ -254,17 +250,17 @@ curvada con un aguijón ponzoñoso al final.
 
 Son artrópodos predadores en el suelo cuyas
 presas incluyen a los ácaros y colémbolos, trips, dipteros, otros pequeños artrópodos y
-larvas de coleópteros, Muchmore (1990) comenta que la estrategia de caza es esperar a que
+larvas de coleópteros, Muchmore [-@muchmore1990] comenta que la estrategia de caza es esperar a que
 la presa pase y luego capturarla. De manera similar a las arañas, los psudoescoprpiones al
 atrapar a la presa inyectan enzimas y se alimentan de sus fluidos. Debido a su pequeño
 tamaño sus hábitos de vida son crípticos ocupando los pequeños espacios que se forman
 entre la hojaras, el suelo, troncos,rocas, etc. y moviendose fácilmente a través de ellos
 y hacia otros espacios sobre el suelo, tales como, los troncos de árboles, superficies de
-grandes piedras, etc (\@.muchmore1990).
+grandes piedras, etc. [@muchmore1990].
 
 ### Myriapoda: Chilopoda
 
-Conocidos como cienpies (\@.mundel1990) son depredadores y según su adaptación corporal
+Conocidos como cienpies [@mundel1990] son depredadores y según su adaptación corporal
 buscan las presas sobre y entre la hojarasca, a través de los poros del suelo
 orgánico mineral o en los espacios que se forman entre piedras o troncos que se mantienen
 húmedos y oscuros. Las estructuras anatómicas relacionadas con la región anterior, permiten
@@ -283,7 +279,7 @@ ataque de los predadores. Los diplópodos, que viven en los suelos, son detrití
 alimentan principalmente de hojarasca, además de materia orgánica en descomposición y
 ocasionalmente de la carroña de invertebrados, para ello utilizan sus piezas bucales para
 cortar el tejido vegetal, ingerirlo y dejan a su paso cápsulas fecales con la hojarasca
-fragmentada y embebida con la microbiota (\@.hoffman1990).
+fragmentada y embebida con la microbiota [@hoffman1990].
 
 ### Isopoda: Oniscoidea
 
@@ -314,7 +310,7 @@ alimenticios incluyen, la herbivoría mediante el consumo de tejido vegetal vivo
 raices como de las estructura vegetales que se encuentra sobre el suelo y la detritivoría
 en el cual utilizan materiales ricos en celulosa.
 
-Nutting (1990) menciona que los isópteros consumen vegetación muerta tanto hojarasca
+Nutting [-@nutting1990] menciona que los isópteros consumen vegetación muerta tanto hojarasca
 como troncos y ramas en descomposición, bosta, hifas de hongos y humus.
 
 Por otra parte, debido a su forma de alimentación y su forma de vida las termitas son
@@ -343,8 +339,7 @@ Su mecanismo de alimentación es peculiar, utilizando la digestión *extra-oral*
 sus presas, las enrollan y las almacenan un tiempo para permitir que el cultivo se digiera.
 Con respecto a la alimentación de las larvas de los carábidos se asumen que
 se alimentan de items similares a aquelos que consumen los adultos, algunas especies
-poseen estructurs bucales que permiten capturar y perforar a los microartrópodos (Bell
-1990).
+poseen estructurs bucales que permiten capturar y perforar a los microartrópodos [@bell1990].
 
 ### Coleoptera: Staphylinidae
 
@@ -356,14 +351,14 @@ hojarasca y los poros del suelo orgánico, sus presas incluyen a los colémbolos
 ácaros oribátidos, larvas y adultos de escarabajos e insectos de pequeño tamaño y
 nemátodos. Similar a los carábidos ellos hacen uso de la estrategia de digestión extra-oral 
 de sus presas capturadas y procesadas. Las excepciones a este modo alimenticio
-incluyen su alimentación sobre material orgánico descompuesto y hongos (\@.newton1960)
+incluyen su alimentación sobre material orgánico descompuesto y hongos [@newton1990].
 
 ### Coleoptera: Ptiliidae
 
 La familia de Ptiliidae incluye escarabajos más pequeños con largos de hasta 1mm. Habitan
 en la hojarasca y sitios en el cual exista una alta humedad tal que permita el desarrollo
-de hongos de los cuales se alimenta (\@.dybas1990) Los ptiliidae son predadores
-(\@.raw1967).
+de hongos de los cuales se alimenta [@dyvas1990] Los ptiliidae son predadores
+[@raw1967].
 
 ### Coleoptera: Scarabaeidae
 
@@ -376,7 +371,7 @@ permiten masticar el alimento. Algunas de estas larvas son reconocidas por su im
 económico al alimentarse de las raices de plantas cultivada, pero en la mayoría de las
 especies la alimentación de estas larvas se basa en el consumo de material vegetal en
 descomposición, hojarasca y raices, humus, estiercol y carroña. Los adultos de esta
-familia pueden ser coprófagos, carroñeros, herbívoros o no alimentarse (Tashiro 1990).
+familia pueden ser coprófagos, carroñeros, herbívoros o no alimentarse [@tashiro1990].
 
 ### Insecta: Diptera
 
@@ -387,7 +382,7 @@ material orgánico en descomosición o directamente sobre el suelo, en zonas don
 humedad es alta y constante y la materia orgánica es abundante, posteriormente los huevos
 eclosionan y sus larvas y pupas se alimentan de las hifas de hongos, 
 hojarasca en descomosición, suelo orgánico, humus, estiercol, carroña y en fluidos ricos en compuestos orgánicos
-(\@.mcalpine1990; \@.teskey1990).
+[@mcalpine1990; @teskey1990]
 
 ### Hymenoptera: Formicidae
 
@@ -401,7 +396,7 @@ En el suelo los formícidos son principalente predadores generalistas capturando
 presas más pequeñas, tales como colémbolos ácaros y demás microartrópodos, como a presas
 de mayor tamaño al trabajar en equipo, donde se incluyen lombrices de tierra, caracoles,
 miriápodos, arañas, larvas de invertebrados, termitas, coleópteros y otros insectos. Su
-importancia es tal que (\@.potapovetal2022) menciona que las hormigas se encargan de
+importancia es tal que [@potapov2022b] menciona que las hormigas se encargan de
 remover hasta el 60% de los artrópodos que se encuentran sobre los suelos de bosques
 templados.
 
@@ -416,52 +411,6 @@ Estos animales habitan entre la hojarasca y el suelo orgánico. En general se
 define a los gastrópodos como herbívoros generalistas, pero estos son aquellos que viven y
 se alimentan en el sistema que se forma sobre el suelo, en el sistema detritívoro del
 suelo ellos consumen hongos, bacterias, tejido vegetal senescente y humus por lo que son
-considerados pricipalmente como microbívoros.
+considerados pricipalmente como microbívoros. [@burch1990]
 
 # Referencias
-
-Chaves et al 2019 Clave para determinar generos de nematodos de la república argentina.
-
-Burch y Pearce 1990 GASTROPODA in Dindal 1990
-
-Dash 1990 Oligochaeta: Enchytraeidae in Dindal 1990
-
-Schewert 1990 Oligochaeta: Enchytraeidae in Dindal 1990
-
-Momo y Falco 2019 Biologia y Ecología de la fauna del suelo
-
-Dondale 1990 Litter Araneae in Dindal 1990
-
-Dondale 1990 Chilopoda in Dindal 1990
-
-Dondale 1990 Diplopoda in Dindal 1990
-
-Scheller 1990 Pauropoda in Dindal 1990
-
-Edwards 1990 Pauropoda in Dindal 1990
-
-Copeland and Imadaté 1990 Protura in Dindal 1990
-
-Ferguson 1990 Diplura in Dindal 1990
-
-Nutting 1990 Isoptera in Dindal 1990
-
-Bell 1990 Carabidae in Dindal 1990 Bell 1990
-
-Ptiliidae in Dindal 1990 Divas 1990 Ptiliidae in Dindal 1990
-
-Tashiro 1990 Scarabaeidae larvae in Dindal 1990
-
-McAlpine 1990 Diptera larvae in Dindal 1990
-
-Teskey 1990 Diptera larvae larvae in Dindal 1990
-
-O'connor The Enchytraeid, in Soil Biology de Burges y Raw 1967
-
-Satchell 1967 Lumbrícidos, in Soil Biology de Burges y Raw 1967
-
-Raw 1967 Artrópodos (excepto ácaros y colémbolos) in Soil Biology de Burges y Raw 1967
-
-Potapov 2018 paper donde dice que ve a protura comer ectomicorriza
-
-Starling 1994. Ecological Studies of the Pauropoda of the Duke Forest
