@@ -324,7 +324,7 @@ alimentan con preferencia de las hifas de hongos y de partículas de material or
 avanzado estado de descomposición (detritos en ingles: "debris"), además se incluye
 también el consumo de algas y líquenes.
 
-### Coleóptera: Carabidae
+### Coleoptera: Carabidae
 
 Los carábidos pertenecen a una familia de coleópteros que habitan la superficie de los
 suelos en el que se halla la hojarasca, tienen la capacidad de formar espacios a través
@@ -400,7 +400,7 @@ importancia es tal que [@potapov2022b] menciona que las hormigas se encargan de
 remover hasta el 60% de los artrópodos que se encuentran sobre los suelos de bosques
 templados.
 
-### Molusca: Gastropoda terrestres.
+### Molusca: Gastropoda terrestres
 
 Los moluscos terrestres, caracoles y babosas, prefieren hábitats húmedos, con
 abundante cantidad de alimento y una fuente de calcio. Estos animales requieren de la
@@ -411,6 +411,6 @@ Estos animales habitan entre la hojarasca y el suelo orgánico. En general se
 define a los gastrópodos como herbívoros generalistas, pero estos son aquellos que viven y
 se alimentan en el sistema que se forma sobre el suelo, en el sistema detritívoro del
 suelo ellos consumen hongos, bacterias, tejido vegetal senescente y humus por lo que son
-considerados pricipalmente como microbívoros. [@burch1990]
+considerados pricipalmente como microbívoros [@burch1990].
 
 # Referencias
