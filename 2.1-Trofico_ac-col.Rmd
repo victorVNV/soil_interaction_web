@@ -177,7 +177,7 @@ Sy \\ \addlinespace
 \end{longtable}
 \normalsize
 ```
-<!--En esta tabla (Tabla 2), al no haber especies nuevas queda igual, solo agregue la columna opilioacarida en la que corresponde a especies, para que quede similar a las demas -->
+
 
 ### Uso de los recursos trófico por parte de los microartrópodos del suelo
 

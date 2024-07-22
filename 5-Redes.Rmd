@@ -238,8 +238,8 @@ Chivilcoy y Navarro, o, debido a su complejidad son dificiles de
 cuantificar. <!-- que nodos fueron medidos y que nodos no-->
 
 <!-- que es un recurso trofico? es lo mismo que un nodo?-->
-Para el recurso trófico "Hummus" se considera que el 50% de la materia orgánica
-es el proxi de la biomasa de este nodo para suelos Argiudoles de la Pampa Ondulada [@alvarez2006; @pankhurst1997],
+Para el recurso trófico "humus" se considera que el 50% de la materia orgánica
+es el proxi de la biomasa de este nodo para suelos Argiudoles de la Pampa Ondulada [@alvarez2006; @pankhurst1997;@konova1975],
 para calcular su biomasa esta se refiere a la superficie en metros cuadrados con una 
 densidad aparente promedio de los suelos ($ \text{DAP} = 1,2 \; \frac{g}{cm^2} $)
 y hasta los 10 centímetros de profundidad, 
@@ -265,7 +265,9 @@ Las biomasas de bacterias, hongos y microfauna no nemátoda, son
 aproximadas a partir de la respiración de los heterótrofos (capítulo 3 comunidad, imagen o
 tabla, ecuación), de esta biomasa media se considera que el 50% es el
 recurso efectivamente disponible para los consumidores, <!-- por que? --> <!--https://www.sciencedirect.com/science/article/abs/pii/003807179390240C Brussar, espacio de poros y grazzer
-Thakur comprender Towards an integrative understanding of soil biodiversity quien explica hotspot y micrositios, entonces no todos llegan a bacteris por restriccion de microporos--> entonces, para
+Thakur comprender Towards an integrative understanding of soil biodiversity quien explica hotspot y micrositios, entonces no todos llegan a bacteris por restriccion de microporos, Coleman en fundamental muestra las escalas Soil Food Webs:
+Detritivory and
+Microbivory in Soils y una imagen para justificar esto. Basicamente decir que no llegan los animales a capturar a odos los ongos y bacterias--> entonces, para
 ambos suelos argiudoles se consideró que el 2 % de la biomasa
 corresponde a la microfauna no nemátoda [@persson1980a; @persson1977; @hale1971];
 para <u>suelos de Luján</u> se
@@ -2146,6 +2148,8 @@ Conclusión sólida
 
 -->
 
+
+
 Las redes tróficas de los suelos argiudoles de la Pampa Ondulada muestran un entramado de relaciones tróficas bastante densa
 en estas redes prevalece la omnivoría dado que los taxones se alimentan de más de un nivel trófico 
 como lo han descrito Digel et al [-@digel2014] quienes catalogan a la fauna edáfica como consumidores oportunistas
@@ -2235,7 +2239,8 @@ la zoofagia si que fluye con mayor importancia
 a través de los verdaderos predadores, es decir, ácaros mesostigmatas y prostigmatas, aunque en los suelos de 
 Luján el patron de zoofagia por parte de omnivoros se mantiene, indicando que los actores son diferentes
 quiza con los ácaros prostigmatas dominando el canal por sobre los ácaros mesostigmatas.
-
+<!-- Restructuring of soil food webs reduces carbon storage potential in boreal
+peatlands Barreto, Carlos-->
 La fracción del metabolismo edáfico que recae sobre la fauna edáfica representa solo un
 pequeño porcentaje del 
 metabolismo total del suelo [@persson1980a; @persson1977; @hale1971] , sin embargo, 

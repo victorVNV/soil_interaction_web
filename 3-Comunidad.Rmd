@@ -27,7 +27,7 @@ set.seed(167)
 
 ## Introducción
 
-La Pampa argentina es una amplia llanura con una extensión de más de 450 mil km^2^, de las
+La Pampa argentina <!--imagen de la pampa--> es una amplia llanura con una extensión de más de 450 mil km^2^, de las
 cuales se estima que la Pampa Ondulada ocupa 4,4 millones de hectáreas, esta ocupa la
 parte centro-oriental de la provincia de Córdoba, el norte de Buenos Aires y el suroeste
 de Santa Fé [@morello2000].
@@ -53,7 +53,7 @@ especies invernales de manera que al año pueden realizarse hasta tres cosechas
 [@morello2000].
 
 Urricariet y Lavado en [-@urricariet1999] ya mencionaban que la Pampa Ondulada estaba siendo sometida a
-la pérdida de fertilidad debidas a las prácticas intensivas de manejo, ellos basaban sus
+la pérdida de fertilidad debidas a las prácticas intensivas de manejo, ellos basaron sus
 conjeturas en estudios regionales realizados en la Pampa Ondulada y mencionan que la
 erosión de los suelos y los efectos de las prácticas agrícolas intensivas sobre estos,
 alteran la fertilidad física y estructural del suelo, la fertilidad química principalmente
@@ -102,7 +102,7 @@ mantenimiento de la fertilidad, la estabilidad física y biológica y con la pro
 ecológica (productividad primaria) y económica (rendimiento de los cultivos y producción
 de proteina animal) de los suelos.
 
-El esta sección se pretende describir las comunidades edáficas halladas en suelos
+En esta sección se pretende describir las comunidades edáficas halladas en suelos
 argiudoles en dos localidades de la Pampa Ondulada con diferentes sistemas de uso,
 como puntapié de la construcción de la red de interacciones tróficas,
 mediante la caracterización de las condiciones fisico químicas de los suelos que 
@@ -120,16 +120,16 @@ fauna edáfica tomada en suelos del partido de Luján (Tabla 3.1) y
 fauna edáfica pertenecientes a suelos de los partidos de Chivilcoy y Navarro,
 estas distancias en la Pampa implican características similares en términos de clima y elevación.
 
-En ambos casos se tomaron muestras de suelos con diferentes formas de uso y se
+En ambos casos se tomaron muestras en suelos con diferentes formas de uso y se
 consideraron estos como diferentes grados en la intensidad de perturbación sobre el suelo.
 
 Los suelos de Luján fueron muestreados en el año 2022 y
 el trabajo de extracción, clasificación de los taxas y medición de rasgos fué realizado
 por el autor y colaboradores.
 
-**Tabla 3.1. Ubicación de los puntos de muestreo en los sitios con diferentes intensidades
+**Tabla 3.1.** Ubicación de los puntos de muestreo en los sitios con diferentes intensidades
 de uso en suelos argiudoles de Luján. Coordenadas geográficas en el sistema de referencia
-WGS84 expresadas en grados, minutos y segundos.**
+WGS84 expresadas en grados, minutos y segundos.
 
 | Sitio    | Latitud    | Longitud   |
 |----------|------------|------------|
@@ -144,18 +144,18 @@ WGS84 expresadas en grados, minutos y segundos.**
 |          | 34°35'22"S | 59°04'12"W |
 
 Los suelos ubicados en los partidos de Chivilcoy y Navarro fueron muestreados por Sandler [-@sandler2019],
-en cada estación del año durante dos años entre 2009 y 2010, dejando un conjunto
+durante dos años entre 2009 y 2010, dejando un conjunto
 de datos tanto con la clasificación de los taxas de Arachnida: Acari, Hexapoda: Collembola
 y Oligochaetta: Crassiclitelata como con la caracterización de las variables físicas y
 químicas. Además la organismos de la fauna mesofauna edáfica de estos lotes fueron
-preservados en el laboratorio de Ecología: programa de Ecología Terrestre (INEDES-UNLu) lo
-que permitió al autor la medición de rasgos corporales [@velazco2023;@velazco2023a].
+preservados en el laboratorio de Ecología pertenencientes al programa de Ecología Terrestre (INEDES-UNLu) lo
+que permitió al autor la medición de rasgos corporales [@velazco2023;@velazco2023a] tópico que será tratado en el capítulo siguiente.
 
 ### Diseño de muestreo
 
 Durante el año 2022 se llevó adelante el muestreo de suelos Argiudoles
 típicos ubicados el campo experimental de la Universidad Nacional de Luján
-[@sfeir1998] [imagen1_mapa].
+[@sfeir1998].
 
 El muestreo se llevó adelante con la intención de colectar la fauna edáfica que pasa todo
 su ciclo de vida en el suelo [@momo2009; @wallwork1970], conocidos
@@ -169,7 +169,7 @@ De manera complementaria se estimaron, por un lado, la respiración heterotrófi
 biomasa de la microflora y la proporción de procariotas y eucariotas, y por el otro, las
 variables químicas y físicas que caracterizan estos ambientes edáficos.
 
-Se eligieron 3 sitios [Fig 3.1 Colocar imagendiseño muestreo] con diferentes usos del
+Se eligieron 3 sitios (Tabla 3.1.) con diferentes usos del
 suelo y en cada sitio se ubicaron 3 réplicas de un metro cuadrado de superficie separadas
 50 metros entre sí y separadas 10 metros de los bordes de parcelas [@moreira2012; @potapov2022a].
 
@@ -180,7 +180,7 @@ con dominancia de Sorgo de Alepo *Sorghum halepense* y Cardo mariano *Silybum ma
 áreas que reciben baja presión de pastoreo por los bovinos lecheros con descanso semanales entre
 pastoreos, y; c) un área clausurada por más de 30 años (R) considerada como Reserva cuya
 vegetación característica es de tipo arbórea dominada por Ligustro *Ligustrum lucidum* y
-Acacia *Acacia melanoxylon*.
+Acacia *Acacia melanoxylon*.<!--Ver las imagenes de muestreo -->
 
 ### Métodos de extracción de la fauna edáfica.
 
@@ -283,7 +283,7 @@ la respiración heterotrófica en mg CO~2~.g suelo^-1^.día^-1^.
 Por otra parte, en suelos de Luján, se llevó adelante la técnica de
 respiración inducida por sustrato en conjunto con el uso de antibióticos
 para determinar la proporción de procariotas y eucariotas halladas por gramo de suelo, 
-cuyo resultado es la aproximación del total de bacterias y hongos hallados en el suelo [@west1986; @zabala2010].
+cuyo resultado es la aproximación del total de bacterias y hongos hallados en el suelo [@west1986; @zabala2010; @beare1990].
 
 El procedimiento consiste en aplicar diferente soluciones, a razón 1:1 suelo:solución, con
 antibióticos sobre cada gramo de suelo para estimular la respiración del grupo de interés,
@@ -2142,7 +2142,7 @@ fertilizantes que a la vez conyeva la disminución del valor del pH en estos sis
 la actividad microbiológica responde con una retroalimentación negativa 
 al aumento de nutrientes en estos suelos, disminuyendo su actividad y potencialmente reduciendo los procesos de 
 descomposición y mineralización de la materia orgánica.
-
+<!-- In a virtuous circle, low levels of nitrogen and phosphorus stimulate biological activity in order to recirculate more organic matter. Therefore, care must be taken when providing "easy nutrition" with fertilizers, because they can inhibit interactions. Soil health ultimately determines the quality of food generated from plants. "Men, therefore, is responsible for recovering, caring for and managing the resource with intensification, crop diversification and monitoring its biology along the way," he summarized. Luis Wall en un blog de Apresid https://www.aapresid.org.ar/blog/soil-biology-why-is-it-important-and-how-do-we-take-care-of-it -->
 La diversidad alfa puntual de las comunidades edáficas en los suelos Argiudoles típicos se mantiene similar 
 a pesar de los efectos que la actividad antrópica pudiera tener sobre el ambiente edáfico, sin embargo,
 las comunidades que habitan en los diferentes sistemas de uso del suelo difieren en su composición,

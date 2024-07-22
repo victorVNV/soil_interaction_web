@@ -990,6 +990,10 @@ trófico.
 Estos hallazgos sugieren que la relación entre el espectro de tamaños de la fauna edáfica y el uso que se hace de los suelos Argiudoles de la Pampa Ondulada no sigue una respuesta que vincule efectos fuertes debido a perturbaciones en detrimento de la comunidad [@potapov2019; @zhou2022; @sechi2017], sino que las prácticas de manejo a nivel local reflejan que el suelo mantuvo cercanos entre sí los atributos estudiados en la comunidad de la fauna edáfica,
 por lo que resulta interesante continuar con investigaciones para comprender mejor estas relaciónes de modo que retroalimente las buenas prácticas agropecuarias con objetivos de lograr el equilibrio entre el uso del suelo, su estabilidad y la conservación del mismo.
 
+<!-- turnbul014 en una de sus figuras muestra que la relacion ab-peso es pendiente casi nula para 
+comunidades de nematodos de tipo "estructurado" pendiente bien negtivas para "basales" y "intermedio" para enriquesiddso
+Dicha clasificacion esta basado en los generos de nematodos, con la escala colonizador persistente, habitos troficos -->
+
 <!-- Esto es para cambiar tamaño de letra color, tipo etc -->
 
 <!-- <font face = "Microsoft Yahei"> Ingrese el texto aquí </font> -->
