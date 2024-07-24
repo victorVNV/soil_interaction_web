@@ -3,12 +3,8 @@ title: "Capítulo 3"
 output:
   html_document: default
 bibliography: referencias/TesisC3.bib
-editor_options:
-  markdown:
-    wrap: 90
 ---
 
-<!--modificar, eliminar la parte de Rosana a niveles comparativos-->
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -27,7 +23,7 @@ set.seed(167)
 
 ## Introducción
 
-La Pampa argentina <!--imagen de la pampa--> es una amplia llanura con una extensión de más de 450 mil km^2^, de las
+La Pampa argentina (Fig. 3.1) es una amplia llanura con una extensión de más de 450 mil km^2^, de las
 cuales se estima que la Pampa Ondulada ocupa 4,4 millones de hectáreas, esta ocupa la
 parte centro-oriental de la provincia de Córdoba, el norte de Buenos Aires y el suroeste
 de Santa Fé [@morello2000].
@@ -40,7 +36,7 @@ y una temperatura media anual alrededor de los 17 ºC, la distribución de las l
 casi uniforme, interrumpida periódicamente por sequías derivadas de los fenómenos
 meteorogicos El Niño y La Niña.
 
-La Pampa Onduada es la zona más fértil y productiva de la región Pampeana, donde más del
+La Pampa Ondulada es la zona más fértil y productiva de la región Pampeana, donde más del
 80% de la tierra se dedica a la producción de cultivos agrícolas. Los suelos de la Pampa
 tienen relativamente pocas limitaciones para la producción de cultivos y son aptos para la
 ganadería. Son suelos profundos, bien drenados, no ofrecen limitaciones para el
@@ -51,6 +47,12 @@ sumando a estas bondadosas características para la producción agrícola, el es
 periodo de probabilidad de heladas y los inviernos sin nieve permiten el cultivo de
 especies invernales de manera que al año pueden realizarse hasta tres cosechas
 [@morello2000].
+
+
+
+![La Pampa Argentina y sus principales divisiones [@morello1997]](Figures/chap3_morello1997.png)
+
+
 
 Urricariet y Lavado en [-@urricariet1999] ya mencionaban que la Pampa Ondulada estaba siendo sometida a
 la pérdida de fertilidad debidas a las prácticas intensivas de manejo, ellos basaron sus
@@ -110,14 +112,14 @@ corresponde con las características ambientales en la que habita la fauna,
 además conocer el comportamiento de la diversidad de las comunidades y 
 las relaciones de similitud entre los sistemas de uso que tiene el suelo.
 
-## Materiales y métodos.
+## Materiales y métodos
 
 ### Sitios de estudio
 
 Las comunidades de la fauna del suelo trabajadas aquí ocurren en suelos Argiudoles típicos
 de la Pampa Ondulada. Las comunidades se trabajan en dos conjuntos de datos, a saber,
 fauna edáfica tomada en suelos del partido de Luján (Tabla 3.1) y 
-fauna edáfica pertenecientes a suelos de los partidos de Chivilcoy y Navarro,
+fauna edáfica pertenecientes a suelos de los partidos de Chivilcoy y Navarro [@velazco2023a],
 estas distancias en la Pampa implican características similares en términos de clima y elevación.
 
 En ambos casos se tomaron muestras en suelos con diferentes formas de uso y se
@@ -133,13 +135,13 @@ WGS84 expresadas en grados, minutos y segundos.
 
 | Sitio    | Latitud    | Longitud   |
 |----------|------------|------------|
-| Reserva  | 34°35'34"S | 59°04'16"W |
+| Reserva (R)  | 34°35'34"S | 59°04'16"W |
 |          | 34°35'35"S | 59°04'18"W |
 |          | 34°35'36"S | 59°04'20"W |
-| Pastizal | 34°35'38"S | 59°04'22"W |
+| Pastizal (P) | 34°35'38"S | 59°04'22"W |
 |          | 34°35'38"S | 59°04'23"W |
 |          | 34°35'38"S | 59°04'25"W |
-| Agrícola | 34°35'22"S | 59°04'05"W |
+| Agrícola (A)| 34°35'22"S | 59°04'05"W |
 |          | 34°35'22"S | 59°04'09"W |
 |          | 34°35'22"S | 59°04'12"W |
 
@@ -155,21 +157,21 @@ que permitió al autor la medición de rasgos corporales [@velazco2023;@velazco2
 
 Durante el año 2022 se llevó adelante el muestreo de suelos Argiudoles
 típicos ubicados el campo experimental de la Universidad Nacional de Luján
-[@sfeir1998].
+[@sfeir1998]. <!--con respecto al hecho de tmar reeticiones en un mismo lugar: En cada lote se tomaron varias muestras distantes entre sí al menos diez metros por lo que pueden considerarse estadísticamente independientes (es decir que no presentan pseudorreplicación) ya que, como está ampliamente demostrado en el caso de estos suelos, las distancias entre muestras exceden ampliamente las distancias de autocorrelación, con lo cual los datos son estadísticamente independientes aunque estén tomados en el mismo campo (Conti et al. 1980; Giuffré et al. 1998; M. Massobrio, comunicación personal, tomado del paper de monica | Artrópodos del suelo: Relaciones entre la composición faunística y la intensificación agropecuaria-->
 
 El muestreo se llevó adelante con la intención de colectar la fauna edáfica que pasa todo
 su ciclo de vida en el suelo [@momo2009; @wallwork1970], conocidos
-también como **geobiontes**. Los geobiontes incluyen tres rangos de tamaño [@swift1979],
-<!--agregar imagen tamaños y formas de vida)-->: la **microfauna** constituida por los nemátodos
-(ancho corporal menor a 200 $\mu m$), la **mesofauna** en el que se incluyen los
+también como **geobiontes**. Los geobiontes incluyen tres rangos de tamaño [@swift1979]:
+la **microfauna** constituida por los nemátodos
+(ancho corporal menor a 200 μm), la **mesofauna** en el que se incluyen los
 microartrópodos y otros invertebrados cuyo diametro corporal es menor a 2 mm y la
 **macrofauna**.
 
 De manera complementaria se estimaron, por un lado, la respiración heterotrófica, la
 biomasa de la microflora y la proporción de procariotas y eucariotas, y por el otro, las
-variables químicas y físicas que caracterizan estos ambientes edáficos.
+variables químicas que caracterizan estos ambientes edáficos.
 
-Se eligieron 3 sitios (Tabla 3.1.) con diferentes usos del
+Se eligieron 3 sitios (Tabla 3.1) con diferentes usos del
 suelo y en cada sitio se ubicaron 3 réplicas de un metro cuadrado de superficie separadas
 50 metros entre sí y separadas 10 metros de los bordes de parcelas [@moreira2012; @potapov2022a].
 
@@ -178,13 +180,13 @@ agricultura convencional con labranza para la producción forrajera de alfalfa *
 sativa* para pastoreo de bovinos en producción lechera; b) un área de pastizal (P)
 con dominancia de Sorgo de Alepo *Sorghum halepense* y Cardo mariano *Silybum marianum*,
 áreas que reciben baja presión de pastoreo por los bovinos lecheros con descanso semanales entre
-pastoreos, y; c) un área clausurada por más de 30 años (R) considerada como Reserva cuya
+pastoreos, y; c) un área clausurada por más de 30 años considerada como Reserva (R) cuya
 vegetación característica es de tipo arbórea dominada por Ligustro *Ligustrum lucidum* y
-Acacia *Acacia melanoxylon*.<!--Ver las imagenes de muestreo -->
+Acacia *Acacia melanoxylon*.
 
 ### Métodos de extracción de la fauna edáfica.
 
-Para muestrear los nemátodos de vida libre del suelo por cada réplica muestral se tomaron
+Para muestrear los **nemátodos de vida libre del suelo** por cada réplica muestral se tomaron
 4 submuestras, en puntos al azar dentro de un área muestral de un metro cuadrado previamente
 delimitada, con sacadocados de 5 cm diámetro y 10 cm de profundidad.
 
@@ -218,9 +220,7 @@ y suelo hasta los 20 cm de profundidad.
 Para cada estrato las muestras de suelo fueron trasladadas al laboratorio, manteniendo el
 suelo intacto y cuidando que no pierda la humedad natural para evitar la deshidratación de
 la macrofauna hasta que el culmine el proceso de exploración y extracción de los animales,
-proceso que llevo aproximadamente una semana (Fig 3.x).
-
-[Fig 3.x colocar mosaico de imágenes donde estamos suelo lupa y balanza]
+proceso que llevo aproximadamente una semana. <!--anexo tal vez:(Fig 3.x)[Fig 3.x colocar mosaico de imágenes donde estamos suelo lupa y balanza]-->
 
 Cada muestra de suelo fue desagregada minusiosamente, sobre fondo blanco, prestando
 atención al movimiento de los animales de la macrofauna con la ayuda de lupa de mesa y luz
@@ -231,8 +231,9 @@ lombrices de tierra, arañas lobo, bichos bolita, milpies, cienpies, entre otros
 Los animales capturados son almacenados en alcohol 96º hasta su identificación taxonómica,
 para la identificación se utilizaron claves taxonómicas que separan en grandes grupos
 taxonómicos [@vargas2014]. Las lombrices de tierra (Oligochaeta:
-Crassiclitellata) fueron identificadas hasta especies [@reynolds1996; @satchell1983; @demichis1999] y la macrofauna restante fué separada en diferentes rangos
-taxonómicos desde órdenes hasta familias [@choate1999; @claps2020; @klimaszewiski1997; @dindal1990; @zhang2011; @vargas2014]
+Crassiclitellata) fueron identificadas hasta especies [@reynolds1996; @satchell1983; @demichis1999] 
+y la macrofauna restante fué separada en diferentes rangos
+taxonómicos desde órdenes hasta familias [@choate1999; @claps2020; @klimaszewiski1997; @dindal1990; @zhang2011; @vargas2014].
 
 Para muestrear la comunidad de la mesofauna del suelo, se utilizaron los suelos
 correspondientes a las muestras tomadas para capturar la macrofauna, de ellos se tomaron
@@ -249,25 +250,25 @@ Las submuestras de la mesofauna edáfica fueron sometidas al método de flotaci�
 [@vargas2007] Estas se desagregan en agua en relación 1:4 de suelo:agua, se agita
 enérgicamente durante 2 min, se deja reposar la solución durante unos minutos y luego se
 vuelca la solución a través del juego de tamices. El juego de tamices consistío en tamices
-apilados de 4 mm, 2mm, 1mm, 500 $\mu m$, 250 $\mu m$ y 170 $\mu m$; la mesofauna se
-colecta de lo que queda atrapado en los tamices desde los 1000 $\mu m$ hasta las 170
-$\mu m$.
+apilados de 4 mm, 2mm, 1mm, 500 μm, 250 μm y 170 μm; la mesofauna se
+colecta de lo que queda atrapado en los tamices desde los 1000 μm hasta las 170 μm.
+
 
 Los animales colectados se almacenan en alcohol 96º, luego se procede al conteo e
 identificación de los taxones en diferentes rangos taxonómicos hasta familias utilizando
-claves taxonómicas que pueden consultarse en: @krantz2009;@momo2009; @janssens; @balogh1988; @burges1967; @evans1979; @dindal1990.
+claves taxonómicas que pueden consultarse en: @krantz2009; @momo2009; @janssens; @balogh1988; @burges1967; @evans1979; @dindal1990.
 
-Este procedimiento de estratificación se llevó adelante con la intención de conocer la
+<!-- Este procedimiento de estratificación se llevó adelante con la intención de conocer la
 diversidad de organismos de la mesofauna edáfica según el estrato de suelo considerando
-este procedimiento como proxi del hábitat más probable. 
+este procedimiento como proxi del hábitat más probable. -->
 
 La metodología utilizada para extraer la fauna edáfica de los suelos de Chivilcoy y
-Navarro según describe Sandler (-@sandler2019) implicó, el uso de la técnica de flotación y
+Navarro según describe Sandler [-@sandler2019] implicó, el uso de la técnica de flotación y
 tamizado para extraer los ácaros y colémbolos cuya identificación taxonómica se realizó
 con lupa binocular y microscopio óptico utilizando montaje temporal, y, el en el sitio y
 momento de muestreo de un marco de 625 cm^2^ hasta los 20 cm de profundidad el uso de la
 extracción manual de lombrices de tierra luego se realizó su posterior identificación
-taxonómica bajo lupa binocular, en este muestreo no se realizó la estratificación de las muestras.
+taxonómica bajo lupa binocular.
 
 Con el suelo de los primeros 10 cm de profundidad, porción en la cuál se desarrolla la
 mayor actividad de la microbiota [@pankhurst1997], se llevó adelante la técnica para estimar la 
@@ -345,13 +346,17 @@ $$
 
   *   $H'$ es el índice de Shannon-Wiener. 
   *   $S$ es el número total de unidades taxonómicas en la comunidad. 
-  *   $p_i$ es la proporción del $i$-ésima taxón en la comunidad.
+  *   $p_i$ es la proporción del i-ésima taxón en la comunidad.
 
 
-Además, mediante análisis multivariado de las similitudes (ANOSIM), se determinan las posibles diferencias 
-entre las comunidades, a la vez para conocer cuáles son las comunidades similares entre sí, 
+Además, mediante análisis multivariado de las similitudes (ANOSIM) se determinan las posibles diferencias 
+entre las comunidades pertenecientes a diferentes sistemas de uso del suelo, por lo que el valor p de 
+probabilidad indica que las comunidades son diferentes entre sí considerando el p~valor~ < 0,1, 
+el valor del estadístico R nos indica el grado de separación que existe entre las comunidades
+comparadas entendiendo que si este se aproxima al valor 1 el grado e separación es más marcado;
+a la vez para conocer cuáles son las comunidades similares entre sí, 
 se calculó el dendograma basado en el agrupamiento jerárquico con el método de enlace promedio. 
-En ambos análisis se utilizó el coeficiente de distancia de Bray-Curtis [@legendre2012;@koleff2003].
+Para ambos análisis se utilizó el coeficiente de distancia de Bray-Curtis [@legendre2012;@koleff2003].
 
 
 $$ BC = \frac{\sum |x_i - y_i|}{\sum (x_i + y_i)} $$
@@ -366,8 +371,6 @@ la abundancia de los taxones previamente transformados con $\log_bx + 1$
 como vectores y a los taxones como puntos en el espacio euclidiano de las coordenadas
 principales.
 
-
-<!--Imágenes ![texto_alternativo](ubicacion_de_la_imagen){width=width height=height}-->
 
 ## Resultados
 
@@ -509,19 +512,6 @@ names(RO_db_full)<-c("nombre","system","site",name.RO_db_full[-c(1:3)])
 
 ```
 
-### Caracterización química y biológica de los suelos Argiudoles típicos de la Pampa Ondulada bajo diferentes formas de uso
-
-**Correlaciones de Spearman entre pares de variables en suelos Argiudoles típicos**
-
-En los suelos de Luján la matriz de correlaciones de a pares (Tabla 3.x) nos muestran que las
-variables están poco correlacionadas entre si con excepción del nitrógeno que se
-correlaciona negativamente con la respiración heterotrófica ($\rho: p_{valor}<0.1$. 
-
-El fósforo presenta una situación marginal, con su p-valor igual a $\rho$: p=0.1, con 
-relación a la respiración heterotrófica, estas variables se corelacionan entre sí negativamente.
-También hay una correlación positiva entre el fośforo y nitrógeno $\rho = 0.57$ pero su 
-significancia esta un punto por arriba de la situación marginal $\rho$: p=0.11.
-
 ```{r matriz_pca, include=FALSE}
 
 fyq.pca<-fyq_unlu%>%mutate(sitio=substr(Sitio, 3, 3),
@@ -602,6 +592,19 @@ corr_ro[lower.tri(corr_ro,diag = TRUE)] <- r_ro[lower.tri(r_ro,diag = TRUE)]
 # PerformanceAnalytics::chart.Correlation(as.matrix(fq1), histogram = TRUE, method = "spearman")
 ```
 
+### Caracterización química y biológica de los suelos Argiudoles típicos de la Pampa Ondulada bajo diferentes formas de uso
+
+**Correlaciones de Spearman entre pares de variables en suelos Argiudoles típicos**
+
+En los suelos de Luján la matriz de correlaciones de a pares (Tabla 3.2) nos muestran que las
+variables están poco correlacionadas entre si con excepción del nitrógeno que se
+correlaciona negativamente con la respiración heterotrófica ($\rho$: p~valor~ < 0,1). 
+
+El fósforo presenta una situación marginal, con su p-valor igual a $\rho$: p~valor~ = 0,1, con 
+relación a la respiración heterotrófica, estas variables se correlacionan entre sí negativamente.
+También hay una correlación positiva entre el fośforo y nitrógeno $\rho$ = 0,57 pero su 
+significancia esta un punto por arriba de la situación marginal $\rho$: p~valor~ = 0,11.
+
 Considerando que los organismos requieren de nutrientes y que justamente el P y N forman
 parte de los macronutrientes, puede ligarse la concentracion de estos con la respiración
 heterotrofica, aunque en este caso nos muestran correlaciones negativas, es decir, mayores
@@ -614,7 +617,7 @@ La correlacion entre el nitrógeno y el fósforo es positiva, aunque no signific
 que puede ser debido al efecto de la fertilización con compuestos que poseen ambos
 componentes.
 
-**Tabla 3.x. Matriz de correlaciones de Spearman en suelos Argiudoles. A) Argiudoles de Luján, B) Argiudoles de Chivilcoy y Navarro. Significatividades en el triángulo superior, valor de correlación $\rho$ de Spearman en triángulo inferior de la matriz.**
+**Tabla 3.2.** Matriz de correlaciones de Spearman en suelos Argiudoles. A) Argiudoles de Luján, B) Argiudoles de Chivilcoy y Navarro. Significatividades en el triángulo superior, valor de correlación $\rho$ de Spearman en triángulo inferior de la matriz.
 
 **A)**
 
@@ -629,7 +632,7 @@ corr_unlu
 corr_ro
 ```
 
-Las correlaciones entre pares de las variables  (Tabla 3.x) medidas en los suelos Argiudoles de
+Las correlaciones entre pares de las variables (Tabla 3.2) medidas en los suelos Argiudoles de
 Chivilcoy y Navarro mostraron relaciones diferentes a aquellas de los suelos de Luján.
 
 El pH se correlacionó significativamente con el nitrógeno, el fósforo y la respiración
@@ -647,11 +650,11 @@ casos de manera positiva, con la respiración heterotrófica la correlación es 
 
 El fósforo no muestra correlación significativa con la respiración heterotrófica, con las
 demás variables mostró relaciones significativas pero con ninguna de las variables las
-correlaciones fueron fuertes $\rho > 0.75$
+correlaciones fueron fuertes $\rho$ > 0,75.
 
 **Relaciones de las variables químicas y biológicas en los diferentes sistemas de uso en suelos Argiudoles típicos**
 
-Los valores del pH (Tabla 3.x), en los suelos argiudoles de Luján, no mostraron diferencias
+Los valores del pH (Tabla 3.3), en los suelos argiudoles de Luján, no mostraron diferencias
 significativas (K-W p:H\<0.1) entre los sitios. En los suelos de Chivilcoy y Navarro
 existió diferencias significativas entre grupos (K-W p:H\<0.1) en los cuáles, es el
 pastizal naturalizado con un mayor pH quién se diferencia de los demás sistemas de usos, 
@@ -799,7 +802,7 @@ pairwise.wilcox.test(RO_db_full$P, RO_db_full$system,data=RO_db_full,
 ```
 
 
-**Tabla 3.x Variables químicas de suelos Argiudoles típicos. Valores promedio y desvío estandar del pH, el porcentaje de materia orgánica (MO), el porcentaje de nitrógeno (N) y el fósforo asimilable (p.p.m.). Las letras representan diferencias significativas evaluadas mediante la prueba de Kruskall-Wallis. Los  sitios se corresponden con los sistemas de uso del suelo, en Luján: R=Reserva, P=pastizal,A=agrícola; en Chivilcoy y Navarro: N= pastizal naturalizado, G= sistema mixto agrícola ganadero, A= agrícola intensivo**
+**Tabla 3.3.** Variables químicas de suelos Argiudoles típicos. Valores promedio y desvío estandar del pH, el porcentaje de materia orgánica (MO), el porcentaje de nitrógeno (N) y el fósforo asimilable (p.p.m.). Las letras representan diferencias significativas evaluadas mediante la prueba de Kruskall-Wallis. Los  sitios se corresponden con los sistemas de uso del suelo, en Luján: R = Reserva, P = pastizal, A = agrícola; en Chivilcoy y Navarro: N = pastizal naturalizado, G = sistema mixto agrícola ganadero, A = agrícola intensivo.
 
 
 ```{r fq.tabA,echo=FALSE,message=FALSE,warning=FALSE}
@@ -811,7 +814,7 @@ fq.tab
 El patrón general muestra que en sistemas agrícolas los valores de pH son más bajos y
 menos variables fenómeno que podríamos relacionar con la aplicación de insumos inorgánicos
 que podrían disminuir el pH y a la vez por su forma de aplicación homogénea a lo ancho del
-lote logranrían "homogeneizar" el valor de este en la superficie agrícola.
+lote lograrían "homogeneizar" el valor de este en la superficie agrícola.
 
 En los suelos argiudoles el porcentaje de materia orgánica no resulto
 diferente significativamente (K-W H:p\<0.1), <u<entre</u> sitios dentro de una misma localidad,
@@ -914,7 +917,7 @@ kruskal.test(h ~ sitio, data = fqb.box),
 ```
 
 
-**Tabla 3.x Variables biológicas de suelos Argiudoles típicos. Valores promedio y desvío estandar de la respiración heterotrófica edáfica en mg C-CO~2~/gr~suelo~.día (resp), la relación hongos:bacterias (H/B), biomasa de hojarasca en gramos (Hoj). Las letras representan diferencias significativas evaluadas mediante la prueba de Kruskall-Wallis. Los  sitios se corresponden con los sistemas de uso del suelo, en Luján: R=Reserva, P= Pastizal,A= Agrícola; en Chivilcoy y Navarro: N= pastizal naturalizado, G= mixto agrícola ganadero, A= agrícola intensivo**
+**Tabla 3.4** Variables biológicas de suelos Argiudoles típicos. Valores promedio y desvío estandar de la respiración heterotrófica edáfica en mg C-CO~2~/gr~suelo~.día, la relación hongos:bacterias, biomasa de hojarasca en gramos. Las letras representan diferencias significativas evaluadas mediante la prueba de Kruskall-Wallis. Los  sitios se corresponden con los sistemas de uso del suelo, en Luján: R = Reserva, P = Pastizal, A = Agrícola; en Chivilcoy y Navarro: N = pastizal naturalizado, G = mixto agrícola ganadero, A = agrícola intensivo.
 
 ```{r resp.tabB,echo=FALSE,message=FALSE,warning=FALSE}
 #print####
@@ -966,15 +969,17 @@ fviz_pca_biplot(unlu_pcaFQB, axes = c(1,2),  col.ind=sit, label = "var")
 
 ```
 
-**Figura 3.x. Biplot de coordenadas principales de las variables químicas y biológicas en suelos Argiudoles típicos de Luján. Los vectores representan las variables químicas y biológicas. pH= potencial de hidrogeniones. MO= porcentaje de materia orgánica. N= porcentaje de nitrógeno. P= fósforo asimilable en partes por millón. R-H= respiración heterotrófica en mg C-CO~2~/gr~suelo~.día. H/B= relación hongos/bacterias. Hoj= biomasa de hojarasca en g/m^2^. Los puntos indican los sitios de muestreos, los puntos de mayor tamaño indican que centroide que resume las características de los sistemas de uso del suelo. R: Reserva, P: Pastizal, L: Agrícola**
+**Figura 3.2.** Biplot de coordenadas principales de las variables químicas y biológicas en suelos Argiudoles típicos de Luján. Los vectores representan las variables químicas y biológicas. pH = potencial de hidrogeniones. MO = porcentaje de materia orgánica. N = porcentaje de nitrógeno. P = fósforo asimilable en partes por millón. R-H = respiración heterotrófica en mg C-CO~2~/gr~suelo~.día. H/B = relación hongos/bacterias. Hoj = biomasa de hojarasca en g/m^2^. Los puntos indican los sitios de muestreos, los puntos de mayor tamaño indican el centroide que resume las características de los sistemas de uso del suelo. R: Reserva, P: Pastizal, L: Agrícola.
+
+
 
 Las primeras 2 dimensiones de PCA resumen el 64,77 % de la variabilidad entre las
 variables físicas-químicas-biológicas y los sitios. 
 
 Sobre la dimensión 1 los centroides del sistema de uso del suelo Agrícola y de los sistemas del 
 Pastizal y la Reserva se separan en cuadrantes opuestos. Sobre la dimensión 2 se ubica el centroide
-de sistema de uso de suelo Pastizal sobre el lado negativo del eje. Con estas dimensiones pueden
-observarse que cada sistema de uso del suelo se separan claramente.
+de sistema de uso de suelo Pastizal sobre el lado negativo del eje. Con estas dimensiones (Fig. 3.2) 
+pueden observarse que cada sistema de uso del suelo se separan claramente.
 
 El fósforo, el nitrógeno y la cantidad de hojarasca se relacionan con el sistema Agrícola, 
 estas variables tienen fuertes correlacines positivas con la primera dimensión con r > 0,7. 
@@ -983,7 +988,7 @@ Estas variables con la segunda dimensión tienen también correlaciones positiva
 El pH y la relación de Hongos:Bacterias muestran relaciones similares de sus vectores, en 
 ambos casos estos se relacionan levemente con el sistema de la Reserva, se correlacionan positivamente con
 la segunda dimensión con una importancia media (r < 0,6) y negativamente con la primera dimensión
-con una gran importancia (r= -0.85) para la relción de hongos:bacterias y una importancia media 
+con una gran importancia (r= -0.85) para la relación de hongos:bacterias y una importancia media 
 para el pH.
 
 La materia orgánica se relaciona también con el sistema de la Reserva aunque un poco más alejado 
@@ -992,12 +997,9 @@ que los vectores del pH y la relación Hongos:Bacterias, su correlación es medi
 más baja (r < |-0,4|).
 
 Los vectores pH, relación Hongos:Bacterias y Materia Orgánica están más relacionados con los suelos 
-argiudoles de la reserva pero a la vez en una situación intermedia con suelos del sistema Agrícola.
-
-La respiración heterotrófica, se relaciona cercanamente con la Reserva y de forma intermedia con
-los suelos del Pastizal, esta variable tiene una fuerte correlación negativa con la 
+argiudoles de la reserva, también la respiración heterotrófica se relaciona cercanamente con la Reserva 
+y levemente con los suelos del pastizal, esta variable tiene una fuerte correlación negativa con la 
 primera dimensión (r < |-0,9|) y una correlacion mediana (r < 0,5) con la tercera dimensión.
-
 
 
 ```{r pcaFQ_RO,include=FALSE, warning=FALSE}
@@ -1022,33 +1024,37 @@ fviz_pca_biplot(f_pca, axes = c(1,2),  col.ind=sit, label = "var")
 #fviz_pca_biplot(f_pca, axes = c(2,3),  col.ind=sit, label = "var")
 ```
 
-**Figura 3.x. Biplot de coordenadas principales de las variables químicas y biológicas en suelos Argiudoles típicos de Chivilcoy y Navarro. Los vectores representan las variables químicas y biológicas. pH= potencial de hidrogeniones. MO= porcentaje de materia orgánica. N= porcentaje de nitrógeno. P= fósforo asimilable en partes por millón. rH= respiración heterotrófica en mg C-CO~2~/gr~suelo~.día. Los puntos indican los sitios de muestreos, los puntos de mayor tamaño indican que centroide que resume las características de los sistemas de uso del suelo. N: Pastizal naturalizado, G: Mixto agrícola ganadero, A: Agrícola intensivo.**
+**Figura 3.3.** Biplot de coordenadas principales de las variables químicas y biológicas en suelos Argiudoles típicos de Chivilcoy y Navarro. Los vectores representan las variables químicas y biológicas. pH = potencial de hidrogeniones. MO = porcentaje de materia orgánica. N = porcentaje de nitrógeno. P = fósforo asimilable en partes por millón. rH = respiración heterotrófica en mg C-CO~2~/gr~suelo~.día. Los puntos indican los sitios de muestreos, los puntos de mayor tamaño indican que centroide que resume las características de los sistemas de uso del suelo. N: Pastizal naturalizado, G: Mixto agrícola ganadero, A: Agrícola intensivo.
 
 
 Para los suelos argiudoles de Chivilcoy y Navarro las primeras dos dimensiones de los
 componentes principales tienen autovalores mayores a 1 resumiendo el 60% de la
 variabilidad multidimensional.
 
-En el biplot se observa una separación a lo largo de la primera dimensión del centroide del
-sistema del pastizal naturalizado que se ubica hacia el lado positivo del eje de
-coordenadas de los sistemas de uso agrícola y mixto que se ubican hacia el lado opuesto.
-Los centroides de los sistemas Mixto y Agrícola intensivo se encuentran cercanos,
-con el centroide del sistema ganadero hacia el lado positivo de la segunda dimensión
-y el sistema del uso agrícola intensivo que se ubica sobre el sentido negativo del segundo 
+En el biplot (Fig. 3.2) se observa una clara separación a lo largo de la primera dimensión 
+del centroide del sistema del pastizal naturalizado sobre el lado positivo del eje de
+coordenadas. 
+
+Los sistemas de uso agrícola y mixto que se ubican hacia el lado opuesto y en posiciones 
+similares sobre primer eje dimensional, se diferencian en su ubicación 
+en relación al segundo eje de coordenadas ya que el centroide del sistema ganadero se ubica
+hacia el lado positivo de la segunda dimensión
+y el sistema de uso agrícola intensivo se ubica sobre el sentido negativo del segundo 
 eje dimensional.
 
 El pH se dirige hacia el centroide del sistema pastizal naturalizado, con una alta 
 correlación con la primera dimension (r > 0,8) y una correlación media con la 3 ra. 
-dimension. El fósforo asimilable se encuentra en una relación intermedia
-entre los centroides del sistema agrícola intensivo y mixto. El porcentaje de nitrógeno 
+dimension. El fósforo asimilable se ubica en sentido opuesto al pH con una importante 
+relación con el primer eje de coordenadas y relacionado con 
+los centroides de los sistemas agrícola intensivo y mixto. El porcentaje de nitrógeno 
 se relaciona con el centroide del sistema mixto, este presentó correlaciones medianamente 
 fuertes con las dimensiones 1 y 2 (r < |0,65|).
 
 La materia orgánica y la respiración heterotrófica se encuentran cercanos 
 en el plano de coordenadas principales, sus correlaciones son más fuertes con el 
 segundo eje de coordenadas (r < |0,8|) y más bajas con el primer eje (r < |0,3|),
-expresan una situación intermedia entre los centroides del pastizal naturalizado 
-y el sistema mixto, y a la vez relaciones con diversos puntos muestrales pertenecientes a cada sistema de uso
+establecen relaciones con puntos muestrales en los diferentes sistemas de uso del suelo
+no siendo específicos a aluguno de ellos.
 
 
 ### Diversidad de las comunidades de la fauna edáfica que habitan los suelos Argiudoles típicos de la Pampa Ondulada bajo diferente formas de uso
@@ -1266,18 +1272,18 @@ S_RO<-data.frame(siti=c("N", "G", "A"),
                  row.names = NULL)
 ```
 
-En los suelos de la Luján el máximo valor de la riqueza (Tabla 3.x) en unidades taxonómicas se halló
-en suelos del pastizal ($S_{pastizal}=79$). En suelos de Chivilcoy y
+En los suelos de la Luján el máximo valor de la riqueza (Tabla 3.4) en unidades taxonómicas se halló
+en suelos del pastizal, en suelos de Chivilcoy y
 Navarro la máxima riqueza de unidades taxonómicas es similar en los sistemas agrícola intensivo y mixto agrícola-ganadero.
 
 La riqueza de colémbolos (Hexapoda: Collembolla) en los suelos argiudoles de Luján fué menor que 
 la hallada en suelos de Chivilcoy y Navarro.
 
 Las lombrices de tierra (Oligochaeta: Crassiclitellata) expresan una mayor riqueza en los
-suelos de Chivilcoy y Navarro, con el valor máximo en el sistema del pastizal naturalizado
-($S_{pastizal\,naturalizado\,_1}=8$). En suelos de Luján, el sistema agrícola presenta la menor riqueza de lombrices.
+suelos de Chivilcoy y Navarro, con el valor máximo en el sistema del pastizal naturalizado.
+En suelos de Luján, el sistema agrícola presenta la menor riqueza de lombrices.
 
-**Tabla 3.x. Riqueza en unidades taxonómicas ocurridas en suelos Argiudoles típicos en suelos con diferentes formas de uso. Sitios: argiudoles de Luján R= Reserva, P= pastizal, A= agrícola; argiudoles de Chivilcoy y Navarro N= pastizal naturalizado, G= mixto agrícola ganadero, A= agrícola intensivo. Las columnas indican el número de taxones diferentes como riqueza total (S) y por grupo taxonómico.**
+**Tabla 3.4.** Riqueza en unidades taxonómicas ocurridas en suelos Argiudoles típicos en suelos con diferentes formas de uso. Sitios: argiudoles de Luján R = Reserva, P = pastizal, A = agrícola; argiudoles de Chivilcoy y Navarro N = pastizal naturalizado, G = mixto agrícola ganadero,  A = agrícola intensivo. Las columnas indican el número de taxones diferentes como riqueza total (S) y por grupo taxonómico.
 
 ```{r Riqueza, echo=FALSE, warning=FALSE}
 
@@ -1307,7 +1313,7 @@ en el sistema Agrícola.
 
 **Diversidad alfa (α) en suelos Argiudoles: Índice de Shannon-Wiener**
 
-El índice de diversidad de Shanon-Wiener (Tabla 3.x) no mostró diferencias significativas 
+El índice de diversidad de Shanon-Wiener (Tabla 3.5) no mostró diferencias significativas 
 ($H : p_{_{valor}} < 0.1$) entre las comunidades en los diferentes sistemas de uso del suelo, 
 ni en suelos de Luján ni en suelos de Chivilcoy y Navarro.
 
@@ -1798,7 +1804,7 @@ colnames(H)<-c("Sitios","Total","  ","Lombrices","   ","Mesofauna","    ","Macro
 
 ```
 
-**Tabla 3.x Índice de Diversidad de Shannon (H') en suelos Argiudoles típicos con diferentes formas de uso. Sitios: argiudoles de Luján R= Reserva, P= pastizal, A= agrícola; argiudoles de Chivilcoy y Navarro N= pastizal naturalizado, G= mixto agrícola ganadero, A= agrícola intensivo. Total: refiere al índice de diversidad de toda la comunidad de la fauna edáfica; Lombrices, Mesofauna, Macrofauna, Microfauna, refiere a la diversidad calculada para grupos de la fauna edáfica clasificados según su rango de tamaños. X̅ ± σ: valor promedio más el desvío estandar de la diversidad del componente, X̂: valor de la mediana de la diversidad del componente**
+**Tabla 3.5.** Índice de Diversidad de Shannon (H') en suelos Argiudoles típicos con diferentes formas de uso. Sitios: argiudoles de Luján R = Reserva, P = pastizal, A = agrícola; argiudoles de Chivilcoy y Navarro N = pastizal naturalizado, G = mixto agrícola ganadero, A = agrícola intensivo. Total: refiere al índice de diversidad de toda la comunidad de la fauna edáfica; Lombrices, Mesofauna, Macrofauna, Microfauna, refiere a la diversidad calculada para grupos de la fauna edáfica clasificados según su rango de tamaños. X̅ ± σ: valor promedio más el desvío estandar de la diversidad del componente, X̂: valor de la mediana de la diversidad del componente.
 
 ```{r tabla_Shannon, echo=FALSE, warning=FALSE}
 H
@@ -1864,8 +1870,7 @@ r_RO_anosim<-Den_anosim[["statistic"]]
 Respectivamente, `r r_unlu_anosim` (Luján) y `r r_RO_anosim` (Chivilcoy y Navarro), son
 los valores del estadístico que indican la proporción de disimilitud existente 
 entre los grupos, es decir, la separación de las comunidades halladas en los 
-diferentes sistemas de uso del suelo en cada región de estudio.
-
+diferentes sistemas de uso del suelo en cada región de estudio. 
 En los suelos de Luján las comunidades de la fauna edáfica muestran importantes 
 separaciones entre los sistemas de uso del suelo, por su parte, las comunidades de
 microartrópodos y lombrices de suelos de Chivilcoy y Navarro también se separan 
@@ -1876,7 +1881,7 @@ entre las zonas de
 estudio puede deberse a los diferentes grupos estudiados, por ejemplo, 
 en los suelos de Luján la composición
 taxonómica del grupo de la macrofauna puede ser más heterogéneo debido a diferentes 
-actores en cada sistema de uso del suelo y con abundancias bajas de taxones. 
+unidades taxonómicas en cada sistema de uso del suelo y con abundancias bajas de estos taxones. 
 Las comunidades en ambos sitios de estudios muestran diferencias significativas que
 indican que los sistemas de uso de suelo en términos de composición de la comunidad son
 diferentes.
@@ -1951,14 +1956,14 @@ plot(div.beta,cex=0.6,main="Chivilcoy y Navarro",
 par(mfrow=c(1,1))
 ```
 
-**Figura 3.x Dendrogramas de similitud entre sistemas de usos de suelos que ocurren en suelos Argiudoles típicos. En el eje vertical se indica el valor del índice de Bray-Curtis, valores altos indican sitios más disímiles en contra parte valores bajos del índice expresan una mayor similitud entre grupos. Las letras representan a los sistemas de uso: argiudoles de Luján R= Reserva, P= pastizal, A= agrícola; argiudoles de Chivilcoy y Navarro N= pastizal naturalizado, G= mixto agrícola ganadero, A= agrícola intensivo. Los números que acompañan a las letras indican la réplica dentro de un mismo sistema de uso del suelo**
+**Figura 3.3.** Dendrogramas de similitud entre sistemas de usos de suelos que ocurren en suelos Argiudoles típicos. En el eje vertical se indica el valor del índice de Bray-Curtis, valores altos indican sitios más disímiles en contra parte valores bajos del índice expresan una mayor similitud entre grupos. Las letras representan a los sistemas de uso: argiudoles de Luján R = Reserva, P = pastizal, A = agrícola; argiudoles de Chivilcoy y Navarro N = pastizal naturalizado, G = mixto agrícola ganadero, A = agrícola intensivo. Los números que acompañan a las letras indican la réplica dentro de un mismo sistema de uso del suelo
 
-Los dendrogramas (Fig 3.x) muestran la similitud de las comunidades
+Los dendrogramas (Fig 3.3) muestran la similitud de las comunidades
 de cada sistema de uso del suelo en cada localidad según Bray Curtis, 
 se observa que: **a)** en los suelos de Luján existe un claro
 agrupamiento entre los sitios que corresponden al sistema de uso Agrícola, a la vez, se
 forman dos grupos separados entre el sistema del Pastizal y el sistema de la Reserva y una
-situación intermedia entre sitios del Pastizal y la Reserva; **b)** en los suelos de Chivilcoy
+situación de proximidad entre sitios del Pastizal y la Reserva; **b)** en los suelos de Chivilcoy
 y Navarro no se observan claras asociaciones vinculadas con los sistemas de uso el suelo, 
 lo que explicaría el bajo valor del estadístico R del análisis de similitudes
 (`r r_RO_anosim`), un cierto grado de similitud existe entre dos de los sitios del sistema del pastizal naturalizado, por otra parte, en valor del grado de similitud el sistema agrícola
@@ -1966,15 +1971,18 @@ intensivo muestra menores valores del índice de Bray-Curtis y aunque estos no s
 jerárquicamente resultan en comunidades más similares que aquellas que 
 se encuentran en el sistema mixto agrícola ganadero.
 
+**Análisis de Componentes Principales (PCA) de las comunidades que ocurren en suelos argiudoles típicos bajo diferentes sistemas de uso**
+
 Las primeras dos dimensiones del análisis de coordenadas principales 
 explican el 74,8 y el 77,1 por ciento de la multivariabilidad entre los diferentes 
 sistemas de uso del suelo en relación a los taxones que conforman las comunidades
 edáficas tanto en suelos de Luján como en suelos de Chivilcoy y Navarro, respectivamente.
 
-En ambos casos a lo largo del primer eje se resume la diversidad de taxones que se hallan
-en las comunidades edáficas e intuitivamente podemos decir que este eje relaciona la
-abundancia de los taxones ubicándo más a la izquierda los taxones raros de la macrofauna
-y más hacia la derecha los taxones abundantes que corresponde a la microfauna.
+En ambas localidades, a lo largo del primer eje se resume la diversidad de taxones que se hallan
+en las comunidades edáficas por lo tanto se observa que este eje relaciona la
+abundancia de los taxones ubicándo más hacia la izquierda los taxones raros como aquellos
+de la macrofauna y más hacia la derecha los taxones abundantes que corresponde principalmente
+a la microfauna.
 A través del segundo eje de las coordenadas se explican la similitud, en términos de la 
 composición de la comunidad, que se encuentra entre los sistemas de uso del suelo.
 
@@ -2079,33 +2087,35 @@ plot_PCA_ro<-fviz_pca_biplot(std_ab_pca, axes = c(1,2) , col.ind=col.sp,
 plot_PCA_unlu
 ```
 
-**Fig 3.x Biplot de coordenadas principales de las unidades taxonómicas de la comunidad de la fauna edáfica ocurridas en suelos Argiudoles típicos de Luján bajo diferentes sistemas de uso del suelo. Los vectores representan los sistemas de uso del suelo R = Reserva, P = pastizal, A = agrícola, los números que los acompañan marcan la réplica. Los puntos claros indican cada uno de los taxones diferentes hallados en estos suelos, los puntos fuertes representa el centroide de los grupos taxonómicos cuyo símbolo y color representa a un grupo particular en función de una clasificación que refiere al tamaño, al taxón y a hábitos tróficos característicos. ast = astigmatas, col = colémbolos, enchy= enquitreidos, lom= lombrices de tierra, macro_det= macrofauna detritívora, macro_fun= macrofauna microfitófaga, macro_herb= macrofauna herbívora, macro_omn= macrofauna omnívora, macro_pred= macrofauna predadora, meso= mesostigmatas, mesof= mesofauna diferente de ácaros o colémbolos, nem_bac= nemátodos bacterívoros, nem_fit= nemátodos fitófagos, nem_fung= nemátdos fungívoros, nem_omn= nemátodos omnívoros, nem_pre= nemátodos predadores, orib= sarcoptiformes, pros= prostigmatas, tardi= tardígrados.**
+**Fig 3.4.** Biplot de coordenadas principales de las unidades taxonómicas de la comunidad de la fauna edáfica ocurridas en suelos Argiudoles típicos de Luján bajo diferentes sistemas de uso del suelo. Los vectores representan los sistemas de uso del suelo R = Reserva, P = pastizal, A = agrícola, los números que los acompañan indican la réplica. Los puntos claros indican cada uno de los diferentes taxones hallados en estos suelos, los puntos fuertes representa el centroide de los grupos taxonómicos cuyo símbolo y color representa a un grupo particular en función de una clasificación que refiere al tamaño, al taxón y a hábitos tróficos característicos. ast = astigmatas, col = colémbolos, enchy= enquitreidos, lom= lombrices de tierra, macro_det= macrofauna detritívora, macro_fun= macrofauna microfitófaga, macro_herb= macrofauna herbívora, macro_omn= macrofauna omnívora, macro_pred= macrofauna predadora, meso= mesostigmatas, mesof= mesofauna diferente de ácaros o colémbolos, nem_bac= nemátodos bacterívoros, nem_fit= nemátodos fitófagos, nem_fung= nemátdos fungívoros, nem_omn= nemátodos omnívoros, nem_pre= nemátodos predadores, orib= sarcoptiformes, pros= prostigmatas, tardi= tardígrados.
 
 
-En los suelos de Luján (Fig 3.x) la separación del sistema agrícola de los demás sistemas de uso del
-suelo es clara dirigiéndose hacia el lado negativo del segundo eje de cooredenadas. El
+En los suelos de Luján (Fig 3.4) la separación del sistema agrícola de los demás sistemas de uso del
+suelo es clara dirigiéndose hacia el lado negativo del segundo eje de coordenadas. El
 sistema de la reserva se posiciona en el nivel superior del segundo eje y el sistema
-del pastizal se encuentra en una situación intermedia. Por lo que podría interpretarse una
-situación de gradiente con respecto a la composición de as comunidades del suelo.
+del pastizal se muestra entre ambos. Por lo que podría interpretarse una
+situación de gradiente con respecto a la composición de las comunidades del suelo.
 
-Si observamos los principales grupos taxonómicos, se forma un agrupamiento entre los
+Al observar los principales grupos taxonómicos, se forma un agrupamiento entre los
 nemátodos, los enquitreidos y los astigmatas en el extremo positivo de la primera dimensión
-de las coordenadas principales. En el extremo opuesto, se agrupan organismos que
+de las coordenadas principales. En el extremo opuesto, se agrupan los taxones que
 corresponden principalmente a la macrofauna, de mayor a menor serían las lombrices de
-tierra, herbívoros, detritívoros, predadores y fungívoros. Entre los
-dos grupos conformados en los extremos, descritos anteriormente, se dan situaciones particulares, 
+tierra, herbívoros, detritívoros, predadores y fungívoros. 
+
+Entre los dos grupos conformados en los extremos del primer eje de coordenadas,
+descritos anteriormente, se dan situaciones particulares, 
 los ácaros prostigmatas se
 ubican sobre el brazo negativo del segundo eje correlacionandose con los sistemas de uso del
 suelo agrícola. Los ácaros mesostigmatas, ácaros predadores del suelo, se encuentran en
-una situación cercana al centro de coordenadas (0,0) por lo que su variabilidad no se
-encuentra bien representada por estas dimensiones. De cerca se encuentran los ácaros
-oribátidos con una leve relación con los vectores de los sitios que corresponden al suelo
-de la Reserva, en esta situación también se hallan los macroartrópodos omnívoros con una
-relación más fuerte con los sistemas de uso de la Reserva, los tardígrados se hallan
+una situación cercana al centro de coordenadas (0,0) lo que indica que su variabilidad no se
+encuentra bien representada por estas dimensiones. Los ácaros
+oribátidos muestran con una leve relación con los vectores de los sitios que corresponden al suelo
+de la Reserva, en esta situación también se hallan los macroartrópodos omnívoros con una mayor
+relación con el suelo de la Reserva, los tardígrados se hallan
 fuertemente relacionados con el sistema de la Reserva indicando la presencia de retención y saturación
-de humedad. Los colémbolos se relacionan con los argiudoles del sistema del pastizal.
+de humedad en el suelo. Los colémbolos se relacionan con los argiudoles del sistema del pastizal.
 
-En los suelos argiudoles de Chivilcoy y Navarro (Fig 3.x) se observa una clara separación del
+En los suelos argiudoles de Chivilcoy y Navarro (Fig 3.5) se observa una clara separación del
 sistema de uso del suelo mixto agrícola ganadero ubicándose en el nivel superior de la
 mitad derecha del plano de componentes principales, en el nivel inferior se ubica al
 sistema del pastizal naturalizado y el sistema agrícola relacionandose con el pastizal
@@ -2116,13 +2126,13 @@ naturalizado en una situación intermedia.
 plot_PCA_ro
 ```
 
-**Fig 3.x Biplot de coordenadas principales de las unidades taxonómicas de la comunidad de la fauna edáfica ocurridas en suelos Argiudoles típicos de Chivilcoy y Navarro bajo diferentes sistemas de uso del suelo. Los vectores representan los sistemas de uso del suelo N = Pastizal naturalizado, G = mixto agrícola-ganadero, A = agrícola intensivo, los números que los acompañan marcan la réplica. Los puntos claros indican cada uno de los taxones diferentes hallados en estos suelos, los puntos fuertes representa el centroide de los grupos taxonómicos cuyo símbolo y color representa a un grupo particular en función de una clasificación que refiere al tamaño, al taxón y a hábitos tróficos característicos. col = colémbolos, lom= lombrices de tierra, mes= mesostigmatas, ori= sarcoptiformes, pros= prostigmatas.**
+**Fig 3.5.** Biplot de coordenadas principales de las unidades taxonómicas de la comunidad de la fauna edáfica ocurridas en suelos Argiudoles típicos de Chivilcoy y Navarro bajo diferentes sistemas de uso del suelo. Los vectores representan los sistemas de uso del suelo N = Pastizal naturalizado, G = mixto agrícola-ganadero, A = agrícola intensivo, los números que los acompañan marcan la réplica. Los puntos claros indican cada uno de los taxones diferentes hallados en estos suelos, los puntos fuertes representa el centroide de los grupos taxonómicos cuyo símbolo y color representa a un grupo particular en función de una clasificación que refiere al tamaño, al taxón y a hábitos tróficos característicos. col = colémbolos, lom = lombrices de tierra, mes = mesostigmatas, ori = sarcoptiformes, pros = prostigmatas.
 
 Observando los centroides de los taxones estudiados en los suelos de Chivilcoy y Navarro
 de menor a mayor a lo largo de la primera dimensión, observamos a las lombrices de tierra, estas a la 
 vez se correlacionan levemente con el lado negativo del segundo eje de coordenadas lado que explica el
 agrupamiento del pastizal naturalizado. Luego se ubican los ácaros predadores del suelo
-(Mesostigmatas) sin una relación aparente con algúnsistema de uso del suelo. 
+(Mesostigmatas) sin una relación aparente con algún sistema de uso del suelo. 
 Los ácaros prostigmatas y los ácaros oribátidos se ubican cercanos en un valor similar del primer eje
 de coordenadas pero separandosé levemente sobre el sentido positivo del segundo eje de coordenadas, a
 la vez se encuentran relacionandose a los ácaros Prostigmata con los
@@ -2131,36 +2141,39 @@ ganadero. Más alejado se ubica el centroide que corresponde a los colémbolos, 
 
 # Conclusión
 
-Las caracterizaciones químicas y biológicas de los suelos se corelacionan entre sí 
+Las caracterizaciones químicas y biológicas de los suelos se correlacionan entre sí 
 con mayor grado a medida que aumentan el número de observaciones, este fenómeno, refleja 
 la complejidad de asociaciones que ocurren en el ecosistema del suelo.
 
 Los sistemas de uso del suelo por sus caracterísiticas químicas y biológicas mostraron una 
-separación uno del otro. Existen claras relaciones con las prácticas de manejo, relacionadas al uso agrícola,
-que aporta ciertos macronutrientes como el fósforo y el nitrógeno mediante el uso de
+separación uno del otro. Existen claras relaciones con las prácticas de manejo, relacionadas al uso 
+agrícola, que aporta ciertos macronutrientes como el fósforo y el nitrógeno mediante el uso de
 fertilizantes que a la vez conyeva la disminución del valor del pH en estos sistemas, por su parte, 
 la actividad microbiológica responde con una retroalimentación negativa 
-al aumento de nutrientes en estos suelos, disminuyendo su actividad y potencialmente reduciendo los procesos de 
-descomposición y mineralización de la materia orgánica.
+al aumento de nutrientes en estos suelos, disminuyendo su actividad y potencialmente reduciendo los 
+procesos de descomposición y mineralización de la materia orgánica.
 <!-- In a virtuous circle, low levels of nitrogen and phosphorus stimulate biological activity in order to recirculate more organic matter. Therefore, care must be taken when providing "easy nutrition" with fertilizers, because they can inhibit interactions. Soil health ultimately determines the quality of food generated from plants. "Men, therefore, is responsible for recovering, caring for and managing the resource with intensification, crop diversification and monitoring its biology along the way," he summarized. Luis Wall en un blog de Apresid https://www.aapresid.org.ar/blog/soil-biology-why-is-it-important-and-how-do-we-take-care-of-it -->
-La diversidad alfa puntual de las comunidades edáficas en los suelos Argiudoles típicos se mantiene similar 
-a pesar de los efectos que la actividad antrópica pudiera tener sobre el ambiente edáfico, sin embargo,
+La diversidad alfa puntual de las comunidades edáficas en los suelos Argiudoles típicos se mantiene 
+similar a pesar de los efectos que la actividad antrópica pudiera tener sobre el ambiente edáfico, 
+sin embargo,
 las comunidades que habitan en los diferentes sistemas de uso del suelo difieren en su composición,
 es decir, existen diferencias claras en la diversidad beta y se puden reconocer asociaciones entre 
 ciertos taxones y los sistemas de uso del suelo. 
 
 El hecho de que no existan diferencias claras en la diversidad alfa puede relacionarse con el hecho 
-de que la fauna del suelo posee una gran redundancia de taxones para diferentes funciones ecológicas claves 
-[@anderson1978], tales como, el control de poblaciones de la microflora, la fragmentación de la hojarasca, la 
-herbivoría, la formación de canales a través del suelo, etc. 
+de que la fauna del suelo posee una gran redundancia de taxones para diferentes funciones ecológicas 
+claves[@anderson1978], tales como, el control de poblaciones de la microflora, la fragmentación de la 
+hojarasca, la herbivoría, la formación de canales a través del suelo, etc. 
 
-Si se reflejan en cambios en la diversidad Beta, es decir, cambios entre los actores y sus abundancias que 
+Si se reflejan en cambios en la diversidad Beta, es decir, cambios entre los actores 
+y sus abundancias que 
 componen las comunidades de suelos halladas en diferentes sistemas de uso del suelo. Esta diferencia se
 relaciona con los procesos que ocurren sobre el ambiente debidas a las prácticas de manejo.
 
 Por lo tanto, los suelos Argiudoles típicos de la Pampa Ondulada comparten caracterísiticas similares 
 en cuanto a la composición química y biológica y a la composición de las comunidades de la fauna edáfica
-inclusive a grandes distancias y a frecuencia de muestreo y las variaciones que existen en estas características
-se relacionan con el tiempo de uso y con la forma de uso que se realiza sobre el suelo.
+inclusive a grandes distancias y a frecuencia de muestreo y las variaciones que existen en estas 
+características se relacionan con el tiempo de uso y con la forma de uso que se realiza sobre el suelo.
 
 # Referencias
+

@@ -2,9 +2,7 @@
 title: "Capítulo 1"
 output: html_document
 bibliography: referencias/TesisC1.bib
-editor_options: 
-  markdown: 
-    wrap: 72
+
 ---
 
 ```{r setup, include=FALSE}

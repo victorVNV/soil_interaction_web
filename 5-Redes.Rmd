@@ -2,9 +2,6 @@
 title: "Capítulo 5"
 output: html_document
 bibliography: referencias/TesisC5.bib
-editor_options: 
-  markdown: 
-    wrap: 72
 ---
 
 ```{r setup, include=FALSE, message=FALSE,warning=FALSE}
@@ -215,7 +212,8 @@ A cada interacción se asignaron
 preferencias dietarias basados en la evidencia empírica (Capítulo 2), 
 se utilizó la siguiente es escala de preferencia alta - moderada alta - moderada -
 moderada baja - bajo - muy bajo, con valores de 0,9 - 0,7 - 0,5 - 0,4 - 0,25 - 0,1, respectivamente.
-La matriz de interacciones global con sus valores de preferencias alimenticias puede consultarse en el anexo (5.x).
+La matriz de interacciones global con sus valores de preferencias alimenticias puede consultarse en el
+(Apéndice 5.1).
 
 A partir de la matriz de interacciones global se
 seleccionan los actores que corresponden a cada comunidad en particular
@@ -228,7 +226,7 @@ Se utilizaron como **atributos de nodos**, esto es, valores numéricos,
 nominales o categóricos que describen una característica del nodo en
 particular, atributos que se correspondan con los taxones hallados en los diferentes
 sistemas de uso del suelo, los valores de pesos corporales, las biomasas
-medias y las densidades medias (Ver tablas 4.x al x).
+medias y las densidades medias (Ver tablas del capítulo cuatro 4.1 al 4.5).
 
 Se asumieron algunos parámetros para nodos que se corresponden a
 recursos tróficos base [@velazco2023b; @potapov2022] basados en
@@ -262,8 +260,8 @@ como sugiere Pilar et al. [-@andres2016] y que resulta en un valor de
 $2,3 \,x\,7\,^{-10} g\,m^{-2}$.
 
 Las biomasas de bacterias, hongos y microfauna no nemátoda, son
-aproximadas a partir de la respiración de los heterótrofos (capítulo 3 comunidad, imagen o
-tabla, ecuación), de esta biomasa media se considera que el 50% es el
+aproximadas a partir de la respiración de los heterótrofos <!--(capítulo 3 comunidad, imagen o
+tabla, ecuación)-->, de esta biomasa media se considera que el 50% es el
 recurso efectivamente disponible para los consumidores, <!-- por que? --> <!--https://www.sciencedirect.com/science/article/abs/pii/003807179390240C Brussar, espacio de poros y grazzer
 Thakur comprender Towards an integrative understanding of soil biodiversity quien explica hotspot y micrositios, entonces no todos llegan a bacteris por restriccion de microporos, Coleman en fundamental muestra las escalas Soil Food Webs:
 Detritivory and
@@ -1362,7 +1360,7 @@ observa en la Reserva.
 
 \newpage
 
-**Figura 5.x Representación de las redes tróficas de la comunidad detritívora de la fauna edáfica de suelos argiudoles típicos de Luján para cada sistema de uso del suelo. El tamaño de los nodos representa al grado del nodo, los colores forman un gradiente desde el verde hacia el rojo para indicar especies base hacia especies tope respectivamente. La distribución de los nodos a lo largo del eje horizontal sigue un patron semi-aleatorio ("jitter") por lo tanto no se vincula a caracteristicas del nodo en particular. Sobre el eje vertical se indica el nivel trófico.**
+**Figura 5.1** Representación de las redes tróficas de la comunidad detritívora de la fauna edáfica de suelos argiudoles típicos de Luján para cada sistema de uso del suelo. El tamaño de los nodos representa al grado del nodo, los colores forman un gradiente desde el verde hacia el rojo para indicar especies base hacia especies tope respectivamente. La distribución de los nodos a lo largo del eje horizontal sigue un patron semi-aleatorio ("jitter") por lo tanto no se vincula a caracteristicas del nodo en particular. Sobre el eje vertical se indica el nivel trófico.
 
 ```{r plot_redes, echo=FALSE, warning=FALSE,message=FALSE}
 
@@ -1371,6 +1369,7 @@ plot_troph_level(P_net,modules=FALSE,vertexLabel = FALSE, tk = FALSE,main="Pasti
 plot_troph_level(L_net,modules=FALSE,vertexLabel = FALSE, tk = FALSE,main="Agrícola",ylab="Nivel Trófico")
 
 ```
+
 \newpage
 
 El nivel trófico promedio de las redes en suelos argiudoles de Luján
@@ -1424,6 +1423,7 @@ colnames(topolog1)<-c("Sistema","Tamaño","nº enlaces","Tope","% Omnivoría","N
 
 ```
 
+**Tabla 5.1.** Tabla de índices topológicos de las redes tróficas de los diferentes sistemas de uso de los suelos Argiudoles típicos de la Pampa Ondulada. 
 ```{r topolog_showtab, echo=FALSE, message=FALSE, warning=FALSE}
 topolog$clus<-c(paste(round(topolog[1,"Clustering"],3),"b"),paste(round(topolog[2,"Clustering"],3),"a"),
                                    paste(round(topolog[3,"Clustering"],3),"a"))
@@ -1480,7 +1480,7 @@ un mayor nivel trófico medio.
 
 \newpage
 
-**Figura 5.x Representación de las redes tróficas de suelos argiudoles típicos de Chivilcoy y Navarro para cada sistema de uso del suelo cuya comunidad se conforma de microartrópodos edáficos y lombrices de tierra. El tamaño de los nodos representa al grado del nodo, los colores forman un gradiente desde el verde hacia el rojo para indicar especies base hacia especies tope respectivamente. La distribución de los nodos a lo largo del eje horizontal sigue un patron semi-aleatorio ("jitter") por lo tanto no se vincula a caracteristicas del nodo en particular. Sobre el eje vertical se indica el nivel trófico.**
+**Figura 5.2** Representación de las redes tróficas de suelos argiudoles típicos de Chivilcoy y Navarro para cada sistema de uso del suelo cuya comunidad se conforma de microartrópodos edáficos y lombrices de tierra. El tamaño de los nodos representa al grado del nodo, los colores forman un gradiente desde el verde hacia el rojo para indicar especies base hacia especies tope respectivamente. La distribución de los nodos a lo largo del eje horizontal sigue un patron semi-aleatorio ("jitter") por lo tanto no se vincula a caracteristicas del nodo en particular. Sobre el eje vertical se indica el nivel trófico.
 
 ```{r plot_redes2, echo=FALSE, warning=FALSE,message=FALSE}
 
@@ -1878,7 +1878,7 @@ El flujo de energía total, que atraviesa las redes tróficas de la comunidad de
 argiudoles de Luján fué mayor en la comunidad de
 la Reserva, seguida por la comunidad en el Pastizal y el sistema agrícola intensivo con un flujo menor de energía, siendo estos de 2,32 - 2 - 1,26 MJ.año^-1^ respectivamente.
 
-La cantidad de energía ligada a la <u>biotransformación</u> del suelo (Table 5.x),
+La cantidad de energía ligada a la <u>biotransformación</u> del suelo (Table 5.2),
 es decir, el canal de energía relacionado con el consumo de la materia orgánica del suelo,
 es de gran importancia en el sistema edáfico del suelo, pudiendo alcanzar hasta un 73% con respecto a 
 la cantidad total de energía que atraviesa el sistema.
@@ -1891,7 +1891,7 @@ En la Reserva se observá el mayor valor de energía ligada con el uso de la mat
 de 0,85 MJ.año^-1^. 
 
 El consumo de materia orgánica del suelo por parte de la microflora se estimó alrededor del 22 ± 3 % en estos sistemas 
-edáficos, la mayor participación de la microflora se observó en el sistema Agrícola (Tabla 5.x).
+edáficos, la mayor participación de la microflora se observó en el sistema Agrícola (Tabla 5.2).
 
 ```{r flujos_multicanal_print, include=FALSE, message=FALSE,warning=FALSE}
 F_mc_lu<-data.frame(sitio=c("Reserva","Pastizal","Agrícola"),
@@ -1918,7 +1918,7 @@ F_mc_lu<-data.frame(sitio=c("Reserva","Pastizal","Agrícola"),
 
 ```
 
-**Tabla 5.x Flujos de energía en Joule/año (flujo total en MJ/año) que atraviesan los diferentes canales de energía vinculados a funciones biológicas que ocurren en las redes tróficas de la comunidades de suelos Argiudoles de Luján. Entre corchetes el porcentaje del flujo de energía que llega a la microflora.**
+**Tabla 5.2** Flujos de energía en Joule/año (flujo total en MJ/año) que atraviesan los diferentes canales de energía vinculados a funciones biológicas que ocurren en las redes tróficas de la comunidades de suelos Argiudoles de Luján. Entre corchetes el porcentaje del flujo de energía que llega a la microflora.
 
 
 
@@ -1927,7 +1927,7 @@ F_mc_lu
 ```
 
 La detritivoría y la microfitofagia fueron mayores en valor absoluto en la Reserva.
-En términos relativos la detritivoría fué mayor en el sistema agrícola (≈ 30%) y fué menor en el pastizal (≈ 20%). A la vez (Tabla 5.x) 
+En términos relativos la detritivoría fué mayor en el sistema agrícola (≈ 30%) y fué menor en el pastizal (≈ 20%). A la vez (Tabla 5.2) 
 la participación de la microflora en el consumo de la materia orgánica en descomposición en el sistema del pastizal fué de mayor importancia, 
 viceversa la participación de la fauna edáfica en el consumo de este recurso fué mayor en el sistema agrícola.
 
@@ -1997,7 +1997,7 @@ F_mc_total<-data.frame(sitio=c("Naturalizado","Mixto","Agrícola","Reserva","Pas
 
 ```
 
-**Tabla 5.x Flujos de energía en Joule/año, en entre paréntesis el porcentaje del flujo de energía en relación al flujo total y entre corchetes el porcentaje del flujo de energía que llega a la microflora. Las columnas corresponden a los diferentes canales de energía vinculados a las funciones biológicas que ocurren en las redes tróficas de las comunidades de microartrópodos edáficos y lombrices de tierra de suelos Argiudoles de Chivilcoy y Navarro y suelos argiudoles de Luján**
+**Tabla 5.3** Flujos de energía en Joule/año, en entre paréntesis el porcentaje del flujo de energía en relación al flujo total y entre corchetes el porcentaje del flujo de energía que llega a la microflora. Las columnas corresponden a los diferentes canales de energía vinculados a las funciones biológicas que ocurren en las redes tróficas de las comunidades de microartrópodos edáficos y lombrices de tierra de suelos Argiudoles de Chivilcoy y Navarro y suelos argiudoles de Luján
 
 
 ```{r flujos_multicanal_show, echo=FALSE, message=FALSE,warning=FALSE}
@@ -2005,7 +2005,7 @@ F_mc_total
 ```
 
 
-En los suelos de Chivilcoy y Navarro, (Tabla 5.x) los flujos de energía alcanzan un máximo de 37,74
+En los suelos de Chivilcoy y Navarro, (Tabla 5.3) los flujos de energía alcanzan un máximo de 37,74
 kJ.año^-1^ en los suelos con actividad agrícola ganadera, seguidos por el sistema agrícola intensivo que suma 37,4 kJ.año^-1^
 y el pastizal naturalizado con 37,2 kJ.año^-1^. 
 
@@ -2023,7 +2023,7 @@ En suelos de Luján la transformación biológica de la materia orgánica del su
 con los mayores valores en el sistema agrícola y la reserva, por su parte, la contribución de la microflora
 fué mayor en el patizal seguidos por la reserva.
 
-La detritivoría (Tabla 5.x) fue menor en el pastizal naturalizado con una gran participación de la microflora en el consumo del recurso 
+La detritivoría (Tabla 5.3) fue menor en el pastizal naturalizado con una gran participación de la microflora en el consumo del recurso 
 a la vez la detritivoría fué mayor en el sistema agrícola intensivo con una participación importante de la fauna en el consumo de la hojarasca; por su parte en suelos de Luján en el sistema del pastizal se
 observó la mayor participación de detritívoros con relación al total con la mayor contribución de la microflora en el uso del recurso.
 
@@ -2056,7 +2056,7 @@ Q_median_L<-median(log(QSS.final$maxreL))
 
 En los suelos argiudoles de Luján, en redes tróficas edáficas completas,  
 la distribución de la parte real del máximo autovalor (λ) de las matrices de cuasi-signo (QSS)
-de las redes de interacciones tróficas (Fig. 5.x) se movió en un rango de ≈ 7 ordenes de magnitud.
+de las redes de interacciones tróficas (Fig. 5.3) se movió en un rango de ≈ 7 ordenes de magnitud.
 
 Considerando la distribución de los valores de estabilidad de cuasi-signo (QSS)
 que resultan de las iteraciones del algoritmo hechas sobre las matrices Jacobianas 
@@ -2090,7 +2090,7 @@ par(mfrow=c(1,1))
 
 ```
 
-**Figura 5.x Histogramas del valor de estabilidad. En el eje horizontal, se expresa el valor del máximo autovalor de la matriz Jacobiana obtenidas a partir del algoritmo de quasi-signo (Alesina et al 2015) expresado en logaritmo natural, se muestran mil iteraciones. Eje vertical valor de frecuencia del intervalo. Como lineas verticales se dibujan, el promedio en color amarillo, la mediana en color rojo, y los cuartiles primero y tercero como lineas más finas.**
+**Figura 5.3** Histogramas del valor de estabilidad. En el eje horizontal, se expresa el valor del máximo autovalor de la matriz Jacobiana obtenidas a partir del algoritmo de quasi-signo (Alesina et al 2015) expresado en logaritmo natural, se muestran mil iteraciones. Eje vertical valor de frecuencia del intervalo. Como lineas verticales se dibujan, el promedio en color amarillo, la mediana en color rojo, y los cuartiles primero y tercero como lineas más finas.
 
 Por lo tanto, la distribución de los autovalores en los tres sistemas de uso se diferencian entre sí, 
 el promedio y la mediana de la parte real 
@@ -2266,3 +2266,19 @@ detritívoras del suelo a las prácticas desarrolladas sobre el sistema edáfico
 cambios debidos a las comunidades que componen la vegetación.
 
 # Referencias
+
+::: {#refs}
+:::
+
+
+\newpage
+
+# Apéndice del capítulo 5
+## Apéndice 5.1. Matriz de adyacencia de la fauna del suelo
+
+```{r apendice1, echo=FALSE, message=FALSE,error=FALSE,warning=FALSE}
+t(mG)
+```
+
+
+
