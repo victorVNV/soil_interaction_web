@@ -1,11 +1,8 @@
 ---
-title: "Capítulo 2"
 output: html_document
 bibliography: referencias/TesisC2.bib
-editor_options: 
-  markdown: 
-    wrap: 90
 ---
+# Apéndice 2.2
 
 # Recursos tróficos y biología alimenticia de los principales taxones de la fauna edáfica que habita los suelos Argiudoles de la Pampa Ondulada, excepto Arachnida:Acari y Hexapoda:Collembolla
 
@@ -25,11 +22,13 @@ pueden resultar críticas para la actividad agrícola entendiendo que una comuni
 podría ser incapaz de regular poblaciones de patógenos si la red trófica que esta conforma
 no regula al patógeno.
 
+<!--La información sobre las relaciones tróficas de los diferentes grupos taxonómicos de microartrópodos es todavía bastante escasa. Estos datos son necesarios para construir y analizar redes tróficas que, a su vez, puedan ser utilizadas para evaluar la estabilidad y el estado de conservación de estos ecosistemas [@Barrios2007; @Briones2014; @Thakur2020].-->
+
 En esta sección resumimos las carácterísticas de la biología trófica de los principales
 taxones de animales del suelo, con excepción de los taxones Arachnida: Acari y 
 Hexápoda: Collembolla tratados en la sección anterior,
 vinculados con el sistema detritívoro encargado de
-descomponer la materia orgánica, principalmente hojarasca, que se acumula sobre el suelo o
+fraccionar y engullir la materia orgánica, principalmente hojarasca, que se acumula sobre el suelo o
 proveniente de las raices muertas dentro del suelo mineral. La diversidad de taxones
 implica una diversidad de recursos alimenticios utilizados por cada uno de ellos. 
 

@@ -6,10 +6,11 @@ bibliography: referencias/TesisC1.bib
 ---
 
 ```{r setup, include=FALSE}
+library("knitr")
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Los organismos del suelo, sus interacciones y el vínculo con el funcionamiento del ecosistema del suelo
+# Los biodiversidad del suelo, sus interacciones y el vínculo con el funcionamiento del ecosistema del suelo
 
 Los bienes y servicios que la humanidad aprovecha de los ecosistemas
 terrestres dependen en su gran mayoría de los procesos naturales que
@@ -17,10 +18,10 @@ ocurren en el ecosistema edáfico, estos procesos son el resultado de
 complejas interacciones entre la fracción biológica y la matriz física y
 química que componen los suelos.
 
-Las diferentes actividades antrópicas (Fig. 1.1) ejercen un efecto sobre
+Las diferentes actividades antrópicas (Fig. 1.1) ejercen un efecto sobre 
 el suelo modificando la estructura física, química y biológica del
 mismo, que dependiendo del impacto sobre los diferentes componentes
-producen cambios en la dinámica del ciclo de los nutrientes y de la
+conyevan cambios en la dinámica del ciclo de los nutrientes y de la
 materia orgánica, influyen en la dinámica del almacenamiento del
 carbono, en la dinámica del ciclo del agua y en la liberación y captura
 de los gases de efecto invernadero que afectan directamente al
@@ -41,20 +42,21 @@ componente biológico de los suelos [@culliney2013; @lavelle2006;
 @orgiazzi2016].
 
 
+<p align="center">
+  <img id="fig1" src="Figures/chap1_wall2012.png" 
+  style="margin-bottom: 20px;" /></p>
 
-![Figura 1.1. Esquema conceptual que estructura las relaciones entre los
-factores climáticos y el efecto de la actividad antrópica sobre la
-estructura y el funcionamiento del ecosistema del suelo y el vínculo con
-los bienes y servicios de los que depende la humanidad
-[@wall2012]](Figures/chap1_wall2012.png){width="6in" height="4in"}
+<p align="left">
+  <em>Figura 1.1. Esquema conceptual que estructura las relaciones entre los factores climáticos y el efecto de la actividad antrópica sobre la estructura y el funcionamiento del ecosistema del suelo y el vínculo con los bienes y servicios de los que depende la humanidad [@wall2012]</em>
+</p>
 
 
 
 De la biodiversidad edáfica dependen diversos procesos que influyen
 sobre el funcionamiento de los suelos sean estos naturales o manejados
 por el hombre [@thakur2020; @bardgett2002; @creamer2022]. Estos procesos
-(Fig 1.2) ocurren debidas a las interacciones entre los organismos y el
-medio ambiente edáfico que intervienen en la formación, la estructura,
+(Fig 1.2) son producto de las interacciones entre los organismos y el
+medio ambiente edáfico por lo que intervienen en la formación, la estructura,
 el mantenimiento y el funcionamiento de los suelos y cuyos efectos
 suceden a diferentes escalas espaciales y temporales con una determinada
 jerarquía [@barrios2007; @lavelle2006]. Entender la complejidad de estos
@@ -64,13 +66,15 @@ suelo, por ej, el mantenimiento de la fertilidad, el aumento de la
 captura de carbono, la reducción de insumos externos para la producción
 de alimentos, la protección de la biodiversidad que podría resultar
 clave en la obtención de nuevos compuestos de interés medicinal e
-industrial o en procedimientos de remediación ambiental, entre otros
-[@zotero-1438].
+industrial o en procedimientos de remediación ambiental, entre otros [@zotero-1438].
 
 
+<p align="center">
+  <img id="fig2" src="Figures/chap1_lavelle2006.png" width="600" height="400" style="margin-bottom: 20px;" /></p>
 
-![Figura 1.2. Esquema conceptual sobre la estructura jerárquica del ecosistema auto-organizado del suelo, los servicios ecosistémicos provistos por el suelo son el resultado de las interacciones simultáneas de la actividad biológica y sus interacciones con la estructura del suelo en todas las escalas espacio-temporales [@lavelle2006]](Figures/chap1_lavelle2006.png){width="6in" height="4in"}
-
+<p align="left">
+  <em>Figura 1.2. Esquema conceptual sobre la estructura jerárquica del ecosistema auto-organizado del suelo, los servicios ecosistémicos provistos por el suelo son el resultado de las interacciones simultáneas de la actividad biológica y sus interacciones con la estructura del suelo en todas las escalas espacio-temporales [@lavelle2006]</em>
+</p>
 
 
 En el suelo existe una intrincada red de poros e intersiticios que se
@@ -91,14 +95,16 @@ diferencialmente a las variaciones ambientales y a la disponibilidad de
 recursos tróficos alimenticios [@lavelle2003; @bardgett2002].
 
 
+<p align="center">
+  <img id="fig3" src="Figures/chap1_coleman2004.png" style="margin-bottom: 20px;" /></p>
 
-![Figura 1.3. Representación de las diferentes zonas de actividad biológica que ocurren a lo largo del perfil del suelo. Estas zonas de actividad biológica se denominan "esferas" en función de la estructura biogénica considerada, a saber: **drilidrósfera**, vinculados a las cavidades formadas por las lombrices de tierra; **detritósfera**, vinculados con la acumulación de hojarasca; **rizósfera**, vinculado al área en íntima relación con las raíces de plantas; **porósfera**, vinculado con los poros orgánicos minerales del suelo; **agregatósfera**, vinculado con los agregados que se forman entre la materia orgánica y la fracción mineral del suelo [@coleman2004]](Figures/chap1_coleman2004.png)
-
-
+<p align="left">
+  <em>Figura 1.3. Representación de las diferentes zonas de actividad biológica que ocurren a lo largo del perfil del suelo. Estas zonas de actividad biológica se denominan "esferas" en función de la estructura biogénica considerada, a saber: **drilidrósfera**, vinculados a las cavidades formadas por las lombrices de tierra; **detritósfera**, vinculados con la acumulación de hojarasca; **rizósfera**, vinculado al área en íntima relación con las raíces de plantas; **porósfera**, vinculado con los poros orgánicos minerales del suelo; **agregatósfera**, vinculado con los agregados que se forman entre la materia orgánica y la fracción mineral del suelo [@coleman2004]</em>
+</p>
 
 Los organismos que viven en el suelo son clasificados tradicionalmente
-en función del ancho corporal [@swift1979]: los organismos \<100 $\mu m$
-incluyen la microbiota (bacterias y hongos), organismos \<200 $\mu m$ se
+en función del ancho corporal [@swift1979]: los organismos \<100 μm
+incluyen la microbiota (bacterias y hongos), organismos \<200 μm se
 denominan microfauna (protozoa, nematoda, etc.), siguen a estos la
 mesofauna con anchos corporales \< 2mm (microartrópodos y enquitreidos)
 y la macrofauna que son aquellos animales con un ancho corporal mayor a
@@ -108,13 +114,16 @@ megafauna aquellos animales con un ancho corporal mayor a 5 cm
 [@wurst2012] por ej. *Amphisbaena sp*.
 
 
+<p align="center">
+  <img id="fig4" src="Figures/chap1_swif_deluca2019.png" style="margin-bottom: 20px;" /></p>
 
-![Figura 1.4. A) Clases de tamaños de los organismos que habitan el ecosistema del suelo clasificados en función del ancho corporal @swift1979. B) Relación entre la densidad (eje y) y el peso corporal (eje x) de los grandes grupos taxonómicos halladados en los suelos, ademas se marca con líneas quebradas las relaciones de biomasa alcanzadas por la biota edáfica [@deluca2019]](Figures/chap1_swif_deluca2019.png)
+<p align="left">
+  <em>Figura 1.4. A) Clases de tamaños de los organismos que habitan el ecosistema del suelo clasificados en función del ancho corporal @swift1979. B) Relación entre la densidad (eje y) y el peso corporal (eje x) de los grandes grupos taxonómicos halladados en los suelos, ademas se marca con líneas quebradas las relaciones de biomasa alcanzadas por la biota edáfica [@deluca2019]</em>
+</p>
 
 
-
-Los organismos según su rango de tamaño (Fig. 1.4.) se adaptan a la vida
-en el suelo mediante diferentes estrategias en sus fomas de vida y
+Los organismos según su rango de tamaño (Fig. 1.4) se adaptan a la vida
+en el suelo mediante diferentes estrategias en sus formas de vida y
 fisiología [@lavelle2012], dado que en los poros e intersticios del
 suelo existen diferentes regímenes hídricos, de cantidad de aire y de
 espacio lo que se traduce en la heterogeneidad de ambientes,
@@ -138,7 +147,7 @@ funcional se ha desarrollado para conectar la diversidad biológica con
 el funcionamiento del ecosistema del suelo [@lavelle2012; @briones2014].
 
 Si bien la complejidad del suelo es enorme, su funcionamiento puede ser
-entendido (Fig. 1.1. y Fig. 1.2.) como un sistema auto-organizado
+entendido (Fig. 1.1 y Fig. 1.2) como un sistema auto-organizado
 [@lavelle2006], característica que es una propiedad emergente de los
 ecosistemas [@oneill1986; @coleman2011], en términos prácticos esto
 implica que la gran diversidad biológica y la complejidad de sus
@@ -159,7 +168,7 @@ nivel global representa trillones de dolares anuales [@fonte2023;
 La pampa ondulada una llanura amplia con un clima templado sin inviernos
 severos, con los suelos más fértiles de la Argentina y en general sin
 limitaciones edáficas, son suelos destinados casi exclusivamente a la
-producción de cultivos [@morello2000; @oyarzabal2018; @cabrera1973] ,
+producción de cultivos [@morello2000; @oyarzabal2018; @cabrera1973],
 además aquí se concentra la mayor población argentina y esta llanura es
 el principal generador de divisas de la Nación [@alvarez2006]. Sin
 embargo, sobre estos suelos hace más de 20 años ya se advertía que las
@@ -167,7 +176,7 @@ diversas actividades antrópicas han llevado al deterioro de la
 fertilidad de los mismos [@urricariet1999; @casas1998] afectando la
 sustentabilidad del suelo y la sostenibilidad de la producción
 agropecuaria, en este contexto, las comunidades edáficas como parte del
-atributo biológico que compone los suelos dan cuenta de los efectos que
+atributo biológico que compone los suelos pueden dar cuenta de los efectos que
 tienen las diferentes actividades, ya sea, reflejandose en cambios en la
 estructura y la diversidad ó en cambios en los flujos de materia y
 energía.
@@ -189,14 +198,17 @@ ecosistemas, que permiten conocer el estado del sistema y en funcion de
 ello la toma de decisiones [@delmas2019; @zotero-1438; @hooper2005]
 
 
+<p align="center">
+  <img id="fig5" src="Figures/chap1_digel2014.png" style="margin-bottom: 20px;" /></p>
 
-![Figura 1.5. Representación del entramado de relaciones tróficas que ocurren en redes tróficas edáficas [@digel2014]](Figures/chap1_digel2014.png)
-
+<p align="left">
+  <em>Figura 1.5. Representación del entramado de relaciones tróficas que ocurren en redes tróficas edáficas [@digel2014]</em>
+</p>
 
 
 Estas redes de interacciones, de las cuales las redes de interacciones
 alimenticias es el enfoque más utilizado [@kefi2012; @bascompte2009], es
-decir las redes tróficas (Fig. 1.5.), están influenciadas por
+decir las redes tróficas (Fig. 1.5), están influenciadas por
 <u>factores de largo plazo</u> tales como el clima, factores formadores
 del suelo, la disponibilidad de recursos y por las influencias
 biogeográficas sobre el grupo de especies y por <u>factores de corto
@@ -218,14 +230,14 @@ adaptaciones de estos organismos ante cambios en el ambiente
 que el uso de las redes tróficas es una herramienta esencial que debe
 ser utilizada en los ecosistemas terrestres para comprender el
 funcionamiento del ecosistema del suelo, ya que une los aspetos
-relacionados con la <u>diversidad específica, la diversidad de rasgos y
+relacionados con la <u>diversidad taxonómica, la diversidad de rasgos y
 la diversidad funcional</u> con los aspectos relacionados con la
 <u>dinámica, estabilidad y la resiliencia</u> de estos sistemas.
 
 Para la construcción y el modelado de la red de interacciones tróficas
 de la fauna del suelo es necesario: *I)* conocer las comunidades que
-habitan los diferentes ambientes y las características físicas y
-químicas de esos ambientes, *II)* recopilar información sobre los
+habitan los diferentes ecosistemas y las características ambientales 
+de estos, *II)* recopilar información sobre los
 recursos tróficos que estos animales utilizan para poder modelar la
 matriz de interacciones alimenticias [@delmas2019], *III)* obtener
 información sobre el peso corporal de los taxas involucrados
@@ -236,10 +248,13 @@ resiliencia y la estabilidad estructural de las redes de interacciones
 tróficas que ocurren en los sistemas bajo estudio [@moore2012;
 @allesina2008; @gauzens2019].
 
-En este contexto, el presente trabajo busca através de la construcción y
+En este contexto, esta tesis busca através de la construcción y
 el modelado de la red de interacciones tróficas, describir las
-relaciones de alimentación, caracterizar la diversidad, analizar las
-variaciones del espectro de tamaños, calcular los flujos de energía y
+relaciones de alimentación de la fauna que habitan los suelos,
+caracterizar la diversidad de las comunidades halladas en los suelos de 
+la Pampa Ondulada, analizar las
+variaciones del espectro de tamaños de los taxones de la fauna edáfica,
+calcular los flujos de energía y
 comparar la estabilidad estructural de las redes tróficas de la fauna
 edáfica de comunidades que habitan los suelos Argiudoles típicos de la
 Pampa Ondulada entre ambientes con distintas estrategias en el **uso del

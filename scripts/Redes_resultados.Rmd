@@ -1,0 +1,2358 @@
+---
+title: "Capítulo 5"
+output: html_document
+bibliography: referencias/TesisC5.bib
+---
+
+```{r setup, include=FALSE, message=FALSE,warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+loadNamespace('printr')
+
+```
+
+```{r lib, include=FALSE,message=FALSE, warning=FALSE}
+
+{library(tidyverse);library(statnet);library(network);
+  library(igraph);library(intergraph);library(multiweb);library(fluxweb);
+  library(kSamples);library(modeest)}
+set.seed(167)
+options("digits"=3)
+```
+
+# Introducción
+
+<!-- Hay que ir de lo general a lo particular, una guia general para escribir la introducción es:
+
+1. Qué se sabe
+2. Qué no se sabe
+3. Limitaciones y lagunas en estudios previos
+4. Tu pregunta clave
+5. Tu enfoque experimental
+6. Por qué tu enfoque experimental es nuevo, diferente e importante (llena las lagunas)
+
+-->
+
+<!--Although it is easy enough to describe in theory the functioning of any
+community in terms of simple linear food chains, with herbivore feeding on
+primary producer, carnivore feeding on herbivore, etc., in practice, the interrelationships between populations are so complex that they can be considered more
+accurately as a web, rather than a chain. Wallwork 1970-->
+
+<!-- esto es la importancia de redes en general -->
+En los ecosistemas las especies presentes se relacionan entre sí de
+multiple maneras y estas relaciones configuran complejas redes de
+interacciones [@sole2001], las redes de interacciones nos
+muestran todas las posibles tramas en las que las especies pueden
+interactuar [@delmas2019; @kefi2012] esta pueden
+caracterizarse en función del tipo de interacción que representan
+describiendo así redes tróficas, redes de competidores, redes
+mutualistas, entre otras [@sole2001; @labrador2008].
+
+<!-- Importancia de redes en general, se puede integrar con el parrafo anterior -->
+El enfoque que permite integrar la diversidad de especies, las interacciones interespecíficas, las interacciones con el ambiente, la redundancia funcional, el papel de las especies clave y la multiplicidad de canales de materia y energía que ocurren en los ecosistemas es el estudio de la red de interacciones [@potapov2022;@barrios2007;@briones2014]. Este enfoque simplifica la complejidad de las interacciones y conecta con diferentes parámetros emergentes del estudio de los ecosistemas [@hooper2005; @delmas2019].
+
+<!--Mas de lo mismo,para que sirven las redes, se repite un poco -->
+Las redes tróficas permiten el análisis de las interacciones de
+alimentación y es el enfoque más utilizado en ecología para describir
+los canales por los cuales se mueve la materia y la energía [@barnes2018],
+mediante el estudio de las redes tróficas se pueden reconocen las
+especies claves y los grupos funcionales claves, definidos como el grupo
+de especies con un papel semejante en el funcionamiento de un ecosistema [@gitay1997]
+que permiten el mantenimiento de las funciones
+ecológicas del suelo [@quevreux2023].
+
+<!-- Importancia de las redes en el suelo -->
+En los suelos las redes de interacciones están influenciadas por
+**factores de largo plazo** tales como el clima, las características
+edáficas regionales y locales, la disponibilidad de recursos para los
+organismos que en el habitan, las influencias biogeográficas sobre las
+comunidades y por **factores de corto plazo** como las perturbaciones
+antrópicas [@kardol2016] que ocurren debidas al manejo del suelo con fines agropecuarios,
+por lo que resulta de particular interés
+la respuesta de la estructura de las redes ante los distintos tipos de
+disturbios y su relación con el funcionamiento del ecosistema del suelo [@sabatte2021].
+
+<!-- Redes en general, menciona metricas sin explicar, yo pondria una sola metrica y la explicaria o explicaria que son las metricas de red -->
+Las redes tróficas se apoya en la teoría de grafos en la que los nodos
+(especies tróficas) y sus bordes (interacciones) determinan métricas
+asociadas con las redes empíricas tales como la conectividad, el grado
+de correlación, la longitud de un camino, etc., al mismo tiempo también determinan 
+metricas ecológicas de una comunidad en el que se incluyen por ejemplo la
+riqueza, la diversidad, el máximo nivel trófico, la fracción de
+omnívoros, la vulnerabilidad, la generalidad, etc. [@digel2014; @delmas2019; @maggiotto2019].
+Por lo tanto se obtienen patrones generales sobre
+la topología de la red, sobre las consecuencias en la 
+dinámica de la comunidad y las especies constituyentes [@kefi2012; @pimm1991]
+y sobre los efectos en las
+funciones de los ecosistemas [@sole2001; @labrador2008].
+
+<!-- Redes en el suelo, complejidad estabilidad hay que definir que son -->
+Como la estructura de las redes ecológicas condiciona el funcionamiento
+intrínseco de un ecosistema [@labrador2008; @martin-lopez2007] 
+la complejidad del entramado de la red trófica edáfica es un factor
+clave en la estabilidad de los procesos del suelo [@wardle1995; @sabatte2021]
+y por lo tanto en el estado de conservación del mismo que
+será mayor cuanto mayor sea la estabilidad de la red de interacciones.
+En las redes ecológicas, las conexiones características son aquellas en
+las que unas pocas especies poseen un gran número de enlaces por lo
+tanto la mayoría de las especies poseen pocas conexiones [@delmas2019; @pimm1991; @sole2001] 
+y este es el modo en que la
+diversidad biológica y el funcionamiento de los ecosistemas están
+ligados [@balvanera2006]. En el ecosistema del suelo priman
+los grupos funcionales con especies redundantes [@martin-lopez2007]
+estos grupos funcionales permiten una mayor capacidad de respuesta ante las perturbaciones 
+(**resiliencia**) asegurando el mantenimiento de las funciones en el ecosistema[@delmas2019; @pimm1991; @sole2001],
+manteniendo la estructura, el funcionamiento y los mecanismos de
+autorregulación del ecosistema [@martin-lopez2007] aunque la desaparición
+de especies muy conectadas puede desencadenar extinciones secundarias y
+fragmentaciones de la red [@sole2001].
+
+<!-- Repite ya dijimos que es util --> 
+Los estudios de redes de interacciones proporcionan información acerca
+de la estructura autoorganizada de los ecosistemas [@oneill1986].
+La comprensión de la estructura y topología de la red es
+una herramienta útil para describir y cuantificar la complejidad del
+sistema y la respuesta de las comunidades de la fauna edáfica ante
+las perturbaciones debidas al manejo del suelo [@delmas2019; @maggiotto2019]. En las
+redes tróficas del suelo además se busca comprender el funcionamiento del ecosistema edáfico,
+a través de los fenómenos de la descomposición de la materia orgánica,
+el ciclo de nutrientes, el control de poblaciones, etc. 
+mediante el estudio de los flujos de energía a través de diferentes 
+canales de energía y las posibles diferencias en
+las redes tróficas de las comunidades de diferentes sistemas de uso del
+suelo [@scheu2002; @potapov2023].
+
+<!-- Ejemplos de analisis, no nos interesa saber las cantidades, sino que resultados obtuvieron con 
+respecto a las hipotesis planteadas-->
+Digel et al. [-@digel2014] utilizó las redes tróficas de 48 comunidades del
+suelo de bosques alemanes y comparó 22 parámetros de las métricas y
+topología de las redes tróficas entre las comunidades del suelo y las
+comunidades de ecosistemas acuáticos y terrestres. En la Argentina
+Maggioto et al. [-@maggiotto2019] utilizaron las herramientas del análisis de las
+redes tróficas del suelo para estudiar los efectos de forestar
+pastizales naturalizados de la Pampa Húmeda. En este estudio, compararon
+11 parámetros entre 2 sitios forestados y un pastizal naturalizado.
+
+<!-- Entonces "Digel y Maggioto utilizaron el analisis de ..." expandir este parrafo, cuales eran las hipotesis? -->
+En ambos casos el análisis de la estructura de las redes fue realizado
+comparando diferentes comunidades ó diferentes manejos del suelo,
+hallando características particulares para cada comunidad y coinciden en
+que la estructura general de las redes no varía considerablemente según
+el uso del suelo, aunque en estos estudios no realizaron análisis
+sobre flujos de energía o cálculo de métricas de estabilidad de las redes tróficas.
+
+<!-- Repite, la importancia de las redes troficas, hay que poner todo esto de la importancia en un solo lugar entonces se puede resumir a un solo parrafo y no repetir tanto-->
+@potapov2023 declara que el uso de las redes tróficas es una
+herramienta esencial que debe ser utilizada en los ecosistemas
+terrestres para comprender el funcionamiento del ecosistema del suelo,
+ya que une los aspetos relacionados con la diversidad específica, la
+diversidad de rasgos, la diversidad funcional y los aspectos que se
+relacionan con la estabilidad y resiliencia de estos sistemas.
+Por ello, en las redes de interacciones pueden relacionarse rasgos
+como el peso corporal, parámetros fisiológicos como el metabolismo
+y el uso de los recursos, atributos poblacionales
+como la abundancia de los taxones, parámetros interpoblacionales
+como las interacciones tróficas y las
+adaptaciones de los organismos ante cambios en el ambiente
+[@pey2014; @white2007; @turnbull2014].
+
+<!-- Esto es metodo, Falta la hipotesis o pregunta clave, que es lo que se espera encontrar? Dentro del parrafo tambien se repite -->
+En este contexto, se busca comparar la estabilidad
+estructural de las redes de tróficas de la fauna del suelo de suelos
+Argiudoles típicos de la Pampa Ondulada entre ambientes con distintas
+estrategias en el uso del suelo, como aproximación a distintas
+intensidades de perturbación: a) suelos sin uso agropecuario, tales como
+un pastizal naturalizado sin uso por mas de 50 años o un lote clausurado
+sin uso por más de 30 años, que servirán como sistema de referencia; b)
+suelos con uso pastoril como forraje para el ganado considerados como
+sistemas con intensidad de uso intermedio o leve; y c) suelos con
+actividad agrícola contínua considerado como sistema con intensidad de
+uso alta. Para ello, se construirá y modelará la red de interacciones tróficas
+de la fauna del suelo, se compararán las métricas estructurales, los
+flujos de energía y sus canales y 
+la estabilidad estructural de las redes tróficas de la
+fauna del suelo entre ambientes con distintas intensidades en el tiempo
+de uso del suelo.
+
+<!--, una sin uso de suelo correspondiente a un pastizal naturalizado que servirá como sistema de referencia y un sistema de alta perturbación que se corresponde con un sistema agrícola intensivo con más de 50 años de actividad ininterrumpida.-->
+
+<!-- esto es metodo "basandonos en estos datos vamos a calcular lo siguiente...."  mas conciso-->
+Para la construcción y el modelado de la red de interacciones tróficas
+de la fauna del suelo es necesario conocer las comunidades que
+habitan los diferentes ambientes, los recursos tróficos que estos animales utilizan 
+para poder modelar la matriz de interacciones tróficas [@delmas2019], 
+el peso  corporal y la densidad de los taxas involucrados [@laigle2018]
+ que permite conocer las fuerzas de
+interacciones [@deruiter1995], los flujos de energía através de
+la red [@potapov2022; @barnes2018] y calcular la resiliencia
+y estabilidad de los sistemas bajo estudio [@moore2012; @gauzens2019; @allesina2008].
+
+<!-- objetivo, tiene que quedar claro que son parametros estructurales y funcionales, falto la hipotesis-->
+Entonces a partir de un suelo definido como referencia donde se
+consideran que se encuentran características de un suelo no disturbado,
+se podrían comparar parámetros estructurales y funcionales de la
+comunidad de la fauna edáfica que permitan evaluar la estabilidad de la
+red de interacciones como indicadora del estado de conservación del
+suelo y determinar a través de su estudio la sustentabilidad de los
+sistemas de manejo [@bedano2007; @socarras2013].
+
+<!-- en resumen, coherencia tenes que guiar al lector hacia el problema, no repetir, definir conceptos porque los que 
+leen no son especialistas, ir de lo general a lo particular, eso sirve para construir un marco teórico. -->
+
+<!--Roughly speak-ing, complexity may be measured by the number andnature of the individual links in the trophic web,and stability by the tendency for relatively smallpopulation perturbations to damp out, returning thesystem to its equilibrium configuration. QUALITATIVE STABILITY IN MODEL ECOSYSTEMS1 RoBERT M. MAY -->
+
+# Metodología
+
+## Construccion de la red
+
+Se construyo una matriz de interacciones tróficas cuyos nodos son todos
+los taxones hallados en ambas comunidades de la fauna de suelo y sus interacciones tróficas y preferencias
+se establecen a partir de la evidencia empírica ($gamma\; [\gamma]$). 
+<!-- que significa gamma?? Que es evidencia empirica???? se observo directamente?? se hizo busqueda bibliografica??, si esta en otro capitulo igual hay que hacer una breve mencion al metodo -->
+A cada interacción se asignaron
+preferencias dietarias basados en la evidencia empírica (Capítulo 2), 
+se utilizó la siguiente es escala de preferencia alta - moderada alta - moderada -
+moderada baja - bajo - muy bajo, con valores de 0,9 - 0,7 - 0,5 - 0,4 - 0,25 - 0,1, respectivamente.
+La matriz de interacciones global con sus valores de preferencias alimenticias puede consultarse en el
+(Apéndice 5.1).
+
+A partir de la matriz de interacciones global se
+seleccionan los actores que corresponden a cada comunidad en particular
+definiendo de esta manera matrices de interacciones para cada sistema de
+uso del suelo ($alpha \;[\alpha]$).
+<!-- que son los actores? especies? grupos? que significa alpha??-->
+
+<!-- que son los nodos??? = especie trofica??-->
+Se utilizaron como **atributos de nodos**, esto es, valores numéricos,
+nominales o categóricos que describen una característica del nodo en
+particular, atributos que se correspondan con los taxones hallados en los diferentes
+sistemas de uso del suelo, los valores de pesos corporales, las biomasas
+medias y las densidades medias (Ver tablas del capítulo cuatro 4.1 al 4.5).
+
+Se asumieron algunos parámetros para nodos que se corresponden a
+recursos tróficos base [@velazco2023b; @potapov2022] basados en
+evidencia bibliográfica, estos nodos, o no han sido medidos como por
+ejemplo en los datos de comunidades edáficas de los suelos argiudoles de
+Chivilcoy y Navarro, o, debido a su complejidad son dificiles de
+cuantificar. <!-- que nodos fueron medidos y que nodos no-->
+
+<!-- que es un recurso trofico? es lo mismo que un nodo?-->
+Para el recurso trófico "humus" se considera que el 50% de la materia orgánica
+es el proxi de la biomasa de este nodo para suelos Argiudoles de la Pampa Ondulada [@alvarez2006; @pankhurst1997;@konova1975],
+para calcular su biomasa esta se refiere a la superficie en metros cuadrados con una 
+densidad aparente promedio de los suelos ($ \text{DAP} = 1,2 \; \frac{g}{cm^2} $)
+y hasta los 10 centímetros de profundidad, 
+zona en la cuál se encuentra la mayor proporción del contenido en materia orgánica
+y la mayor actividad biológica.
+
+<!--[tal vez poner gráficos]-->
+
+Para los organismos de la microflora y la microfauna se tomo 
+por un lado el criterio de Digel [-@digel2014],
+quien evaluó las características topológicas de decenas de redes de
+diferentes ecosistemas y las comparó con redes tróficas de los suelos de
+bosques de la región Paleártica, el indica que
+el peso promedio de las bacterias del suelo es $9,5\, x \,10^{-16} g$,
+indica también el peso promedio de cada uno de los principales grupos de
+protozoos del suelo, tardígrados, rotíferos y otra microfauna que en
+conjunto que resultó en $1,1121 \,x\,10^{-10} g$; 
+por el otro el se considera peso promedio de los hongos por metro lineal de las hifas
+como sugiere Pilar et al. [-@andres2016] y que resulta en un valor de
+$2,3 \,x\,7\,^{-10} g\,m^{-2}$.
+
+Las biomasas de bacterias, hongos y microfauna no nemátoda, son
+aproximadas a partir de la respiración de los heterótrofos <!--(capítulo 3 comunidad, imagen o
+tabla, ecuación)-->, de esta biomasa media se considera que el 50% es el
+recurso efectivamente disponible para los consumidores, <!-- por que? --> <!--https://www.sciencedirect.com/science/article/abs/pii/003807179390240C Brussar, espacio de poros y grazzer
+Thakur comprender Towards an integrative understanding of soil biodiversity quien explica hotspot y micrositios, entonces no todos llegan a bacteris por restriccion de microporos, Coleman en fundamental muestra las escalas Soil Food Webs:
+Detritivory and
+Microbivory in Soils y una imagen para justificar esto. Basicamente decir que no llegan los animales a capturar a odos los ongos y bacterias--> entonces, para
+ambos suelos argiudoles se consideró que el 2 % de la biomasa
+corresponde a la microfauna no nemátoda [@persson1980a; @persson1977; @hale1971];
+para <u>suelos de Luján</u> se
+utilizó la relación de hongos y bacterias para calcular la biomasa de
+estos actores <!--actores?? --> sobre el 48% de la biomasa media de los
+heterótrofos, en los <u>suelos de Chivilcoy y Navarro</u> se consideró el 45%
+de la respiración para calcular las biomasas de bacterias y hongos dado
+que el 3% será utilizado para estimar la biomasa de nemátodos y el 2% para microfauna 
+no nemátoda, en
+sistemas agrícolas intensivos se asumió 35% de bacterias, en el sistema
+mixto agrícola ganadero se asumió 30% de bacterias y para el pastizal
+naturalizado se asumió una contribución de bacterias del 25% [@pankhurst1997; @hunt1987; @lavelle2003; @moore2012]
+
+<!--
+La biomasa microbiana se aproxima considerando que 1 ml HCl 0.1M, equivale a 2.2mg de CO~2~ y que para un coeficiente de respiración igual a 1, se cumple que:
+
+$$\frac{1\text{ mg CO}_2}{100\text{ g suelo}\times h}  = \frac{20.6\text{ mg C-biomasa}}{100\text{g suelo}}$$
+
+-->
+
+Para el caso de los nemátodos de vida libre del suelo para el conjunto
+de datos de los suelos argiudoles de Luján se utilizaron los valores de
+abundancia y peso medio a partir de <!-- muestreos --> la evidencia empírica recabada. En
+cambio, para los argiudoles de Chivilcoy y Navarro se utilizaron las
+relaciones de proporción promedio de nemátodos observados en los
+suelos de Luján, por lo tanto, nemátodos
+fungívoros, bacteríofagos, fitófagos, omnívoros y predadores, fueron
+referidos al 40 - 30 - 14 - 8 y 8 % respectivamente, a la vez se consideró el peso medio
+de los nemátodos de cada categoría trófica a partir del peso medio general
+obtenidos en suelos de Luján, por lo tanto, nemátodos
+fungívoros, bacteríofagos, fitófagos, omnívoros y predadores, pesaron
+3,2 - 1,8 - 1,02 - 8 - 6 microgramos respectivamente.
+
+De los recursos tróficos base, en algunos casos pudo estimarse la
+biomasa, a saber, el recurso hojarasca fué calculado para suelos de
+Luján pero no en Chivilcoy y Navarro, el humus como dicho más arriba fué
+calculado para ambas localidades, la carroña fue estimada a partir del
+peso de todos los invertebrados presente en los diferentes sistemas de
+uso y que pueden dejar carroña, considerando que un 5% de la biomasa de invertebrados 
+es igual a la biomasa de la carroña, finalmente el tejido vegetal que incluye raices y exudados
+(Cap 2.1. Recursos tróficos) no fué determinado. Para los recursos bases se asume que su densidad 
+y su peso son iguales a 1 a los fines de realizar cálculos de fuerzas de interacción y flujos de energía [@allesina2008; @pawar2009; @gauzens2019] <!-- densidad y peso 1 g/m2??? habria que hacer una tabla para ver todos los "nodos" que se 
+midieron y los que se asumieron -->
+
+## Métricas y estadísticas
+
+A partir de la matriz de interacciones, para cada red trófica, se
+calcularon los índices topológicos, es decir, aquellas medidas
+calculadas a partir de la arquitectura de la red que la describen
+matemáticamente y ecológicamente, estas medidas son calculadas como
+caracterísiticas relativas a la red como un todo o como características
+relativas a los nodos de la red. 
+
+<!--nodos = especie trofica = actores, usar una sola palabra para no confundir -->
+
+El **tamaño de la red** que indica el
+número de, nodos y especies tróficas a la vez; el <u>número</u> y la
+<u>densidad</u> de **enlaces** que implica a la vez, el número total en
+la red de interacciones tróficas y la densidad de interacciones tróficas
+que indica la proporción de interacciones por nodo referidas al total;
+la **conectancia** es la proporción de enlaces efectivamente
+realizados en la red trófica en relación al total de conecciones
+potenciales del grafo con el mismo tamaño; el **agrupamiento o clustering** 
+mide un coeficiente que indica la magnitud en los cuales
+existe pequeños agrupamientos, denominados también como "camarillas",
+entre nodos en la red.
+
+El **nivel trófico** es el número que define la posición en la cuál se
+encuentra una especie trófica, aquí se indican el **nivel trófico medio** 
+de la red <!--The trophic level of a consumer equals 1 + the
+weighted average of the trophic levels of its food. -->y el **nivel trófico máximo** de la red<!-- give an idea of a species’
+vertical position in a food web-->; se
+identifican por su posición en la red el número de especies **basales**
+aquellas que no consumen a otras especies tróficas y el número de
+especies **tope** quienes no tienen predadores que los consuman; el
+número de especies **canibales** aquellas especies que consumen a
+individuos de la misma especie trófica; la **omnivoría** que mide la
+proporción de especies omnívoras, es decir, la proporción de especies
+tróficas que se alimentan (o se enlazan) de más de un nivel trófico, y
+el **nivel de omnivoría** que indica el valor promedio, en términos de
+nivel trófico, sobre los cuales se alimentan los omnívoros; desde el
+punto de vista de la especie trófica se miden la **vulnerabilidad** y la
+**generalidad**, que implican el número promedio de predadores que tiene
+un nodo trófico y el número medio de presas que consumen un nodo
+trófico, respectivamente. <!-- que aportan las metricas en relacion al nuestra hipotesis, 
+que significado ecologico tienen -->
+
+Se calcularon los flujos de energía entre los nodos de la red asumiendo 
+que las pérdidas energéticas son compensadas con las ganancias energéticas,
+para el cálculo es necesario conocer los pesos corporales medios y las biomasas medias
+de los nodos tróficos, <!-- falta algo aca -->.
+la tasa metabólica estimada mediante, tasa metabólica = 17.17 peso^-0.29^, 
+y los coeficientes de asimilación [@coleman2004; @moore2012], para la microflora, 
+detritívoros, microfitófago, predadores, omnívoros y herbívoros, 0,35-0,25-0,4-0,7-0,25-0,125, 
+respectivamente.
+
+Con los flujos de energía se pueden caracterizar procesos ecológicos 
+relacionados con la clasificación funcional de las especies tróficas, por ejemplo, microbivoría, 
+detritivoría, etc, estos flujos de energía son expresados para cada
+interacción en Joules/año [@gauzens2019;@moore2012]. <!-- falta la explicacion de la clasificación funcional-->
+
+<!-- revisar parrafo -->
+Se calcularon las fuerzas de interacciones entre los actores (e.i.
+especies tróficas) utilizando la teoría metabólica y la dimensionalidad
+de las interacciones que precisa del peso corporal promedio y las densidades de
+las especies tróficas, y de la dimensionalidad de las
+interacciones, que en redes detritívoras del suelo corresponden a la
+dimensionalidad del tipo "2D". El valor de la fuerza de interacción
+cuantifica el efecto que tienen los depredadores/consumidores sobre la
+biomasa de las presas/recursos y lo expresa [@pawar2009].
+
+<!-- hay que explicar que es la estructura de signos, la estructura de signos es quienes son los predadores y las presas, por ejemplo: 
+La estructura de signos se refiere a la disposición de los signos (positivos, negativos o ceros) que representan la naturaleza de las interacciones entre los nodos de la red: un signo positivo indica una interacción beneficiosa, un signo negativo indica una interacción perjudicial, y un cero indica ausencia de interacción. En el caso de las relaciones predador presa el predador tiene un signo positivo y la presa un signo negativo. En definitiva se mantienen quienes son los predadoras y quienes son las presas.
+
+-->
+Como valor de estabilidad se utilizará el valor de **estabilidad de quasi-signo** [@allesina2008], 
+para hallar este valor se toma la
+estructura de signos de la matriz de adyacencia que describe a
+la red trófica en cuestión,<!-- esta definida la matriz de adyacencia? la describe como?-->
+ entonces realizan aleatorizaciones de las fuerzas
+de interacción entre los nodos manteniendo la estructura de los signos,
+luego calcula los autovalores de la matriz Jacobiana, matriz que
+representa el efecto neto de la interacción entre pares de
+nodos [@delmas2019]. Para cada aleatorizacion producto del algoritmo se calcula el  el valor del máximo autovalor,
+de la matriz Jacobiana, este indica la estabilidad del sistema: si el máximo autovalor tiene una parte real negativa, el sistema es estable, mientras que si tiene una parte real positiva, el sistema es inestable. 
+El valor de estabilidad de quasi-signo es el promedio de los valores de los autovalores obtenidos en las aleatorizaciones. Se puede interpretar el valor de estabilidad de quasi-signo como la cantidad de autoregulacion necesaria para estabilizar el sistema, dado que la autoregulacion en la matriz jacobiana (la diagonal) no está estimada, los autovalores maximos son casi siempre negativos. 
+
+Para conocer las diferencias en el valor de estabilidad se compara
+la distribucion del máximo autovalor del algoritmo de quasi-signo 
+mediante la prueba de Anderson-Darling que permite identificar diferencias estadísticamente
+significativas.
+
+Se utilizó el paquete ["multiweb"](https://github.com/lsaravia/multiweb)
+para calcular las métricas de topología, las fuerzas de interacciones y
+la estabilidad de las redes tróficas, además se utilizó el paquete
+["fluxweb"](https://bit.ly/2OC0uKF) para calcular los flujos de energía
+y también se utilizaron paquetes complementarios para manejo de datos y
+la comparación estadística de los parámetros calculados, todos ellos
+implementados en R.
+
+```{r dtb,include=FALSE,message=FALSE, warning=FALSE}
+#Carga datos, comunidad completa, abundancia, pesos corporales medios, de suelos UNLu
+SFW_unlu <- read.delim("database/unlu_ab_mass_mean_web.txt")
+#carga datos, suelos ROSANA, Chivilcoy y Navarro
+completo <- readxl::read_excel("database/soil_networks.xlsx", sheet = "Ro_web")
+```
+
+```{r densidad_unlu,include=FALSE,message=FALSE, warning=FALSE}
+#microfauna (se contaron los nemátodos de 4 sacabocados)
+sup.bocado.micro <- (1/(pi*2.5^2/10000))*4
+#mesofauna (se contaron y extrajeron de 3 frasquitos homojeneizados del monolito)
+sup.bocado.meso <- (1/(pi*2.5^2/10000))*3
+#macrofauna (superficie estandar 25 x 25)
+sup.monolito <- 1/(0.25*0.25)
+# calculo la densidad en n7m2 y la biomasa en ug/m2
+
+unlu_D<-SFW_unlu%>%
+  mutate(nombre=paste(sitio,replica))%>%
+           mutate(
+             D=floor(case_when(
+  size_class=="macro"~ sup.monolito*abundance,
+  size_class=="meso"~ sup.bocado.meso*abundance,
+  size_class=="micro"~ sup.bocado.micro*abundance)
+  ),
+  biomass=body_mass*D
+  )
+#previo a la red, todas las modificaciones sobre este
+web<-unlu_D%>%
+  group_by(nombre,sitio,replica,taxa)%>%
+  summarise(body=mean(body_mass,na.rm=TRUE),
+            biomass=mean(biomass,na.rm=TRUE))%>%
+  distinct(taxa,.keep_all=TRUE)
+
+```
+
+```{r recurso_base_unlu,include=FALSE,message=FALSE, warning=FALSE}
+#agrega recursos####
+#se utilizaron la biomasa estimada por m2 hasta los 10 cm
+#esto se puede justificar con el gráfico de libros donde la biomasa disminuye con la profundidad
+
+#recursos base, hongo, bacteria, protozoa
+sitio<-c("L","L","L","P","P","P","R","R","R",
+         "L","L","L","P","P","P","R","R","R",
+         "L","L","L","P","P","P","R","R","R")
+replica<-c(1,2,3,1,2,3,1,2,3,
+           1,2,3,1,2,3,1,2,3,
+           1,2,3,1,2,3,1,2,3)
+taxa<-c("bac","bac","bac","bac","bac","bac","bac","bac","bac",
+        "fungi","fungi","fungi","fungi","fungi","fungi","fungi","fungi","fungi",
+        "proto","proto","proto","proto","proto","proto","proto","proto","proto")
+
+#los recursos disponibles para consumo del total, serán el 50% de la biomasa microbiana
+# de ello se proporciona para bacterias y hongos según la relación hongo bacterias
+
+# acá utilio la relacion hongos bacterias
+# 1-(relaciónHB/(1+relacionHB)) = bacterias
+# (relaciónHB/(1+relacionHB)) = hongos
+# de la "biomasa total" el 50% disponible, de los cuales 5% es protozoos y 45% seran hongos y bacterias.
+# se multiplican el 45 que es disponible por la proporcion HB previamente calculada, o lo que es
+
+#esto fué previamente mostrado en cap 3
+#relacion H/B####
+ratio.hb<-c( 3.25, 14/3, 5/6, #Agrícola #promedio H = 0.745
+             11/8, 11/6, 7/6, #Pastizal H = 0.593
+            2.429, 11/6, 3.5 #Reserva H=0.721
+                       ) 
+
+#densidad suelo 1,2g/cm2, volumen 1e5 cm3 a 10cm, peso suelo = 120 000 g suelo
+#los datos estan en mgCmicrbiana/100g suelo
+#peso del suelo 120000g/100g=1200 pasar mg a ug son 1000, total 1200000 factor
+#(resp*100)/24; resp*4,167; 1200 suelo/100g suelo; 20600 ug/100g suelo;
+
+
+
+biomass<-c(216366451.612903*0.40*(1-(3.25/(1+3.25))),#bacterias
+           257300645.16129*0.40*(1-(14/3/(1+14/3))),
+           204670967.741936*0.40*(1-(5/6/(1+5/6))),
+          315122242.990654*0.40*(1-(11/8/(1+11/8))),
+          416774579.439252*0.40*(1-(11/6/(1+11/6))),
+           284626542.056075*0.40*(1-(7/6/(1+7/6))),
+           454123014.256619*0.40*(1-(2.429/(1+2.429))),
+           420894501.01833*0.40*(1-(11/6/(1+11/6))),
+           465199185.336049*0.40*(1-(3.5/(1+3.5))),
+           
+          216366451.612903*0.4*((3.25/(1+3.25))), #hongos
+          257300645.16129*0.4*((14/3/(1+14/3))), 
+          204670967.741936*0.4*((5/6/(1+5/6))),
+          315122242.990654*0.4*((11/8/(1+11/8))),
+          416774579.439252*0.4*((11/6/(1+11/6))),
+          284626542.056075*0.4*((7/6/(1+7/6))),
+          454123014.256619*0.4*((2.429/(1+2.429))),
+          420894501.01833*0.4*((11/6/(1+11/6))),
+          465199185.336049*0.4*((3.5/(1+3.5))),
+          
+          216366451.612903*0.03,257300645.16129*0.03,204670967.741936*0.03, #protozoos
+          315122242.990654*0.03,416774579.439252*0.03,284626542.056075*0.03,
+          454123014.256619*0.03,420894501.01833*0.03,465199185.336049*0.03)
+
+
+rec_base<-data.frame(sitio,replica,taxa,biomass)
+rec_base<-rec_base%>%
+             mutate(
+             body=case_when(
+  taxa=="bac"~ 9.5e-4, #peso medio bacteria, segun digel, en ug
+  taxa=="fungi"~ 2.3e-1, # Andres Pilar et al 2016. soilfoodweb prairie
+  taxa=="proto"~ 1.1121e-3)#peso medio, segun digel y en microgramos
+  )
+  
+rec_base<-rec_base%>%
+  mutate(nombre=paste(sitio,replica))
+
+rec_base<-rec_base[,c("nombre","sitio","replica","taxa","body","biomass")]
+
+web<-rbind(rec_base, web)
+
+#subred sin recursos############
+
+web0<-web%>%
+  group_by(sitio,taxa)%>%
+  summarise(body=mean(body,na.rm=TRUE),
+            biomass=mean(biomass,na.rm=TRUE))%>%
+  distinct(taxa,.keep_all=TRUE)
+#######
+
+#eficiencias############
+
+#Adaptado de COLEMAN y Energetic Fluxweb, como eficiencias de producción
+# bacteria hongo 30%
+#nemátodos 
+
+mf<-c("bac","fungi")
+micf<-c("alycidae", "diplura","brachychthonioidea","crotonioidea",
+        "oribatido","limnozetidae",
+  "Aporrectodea caliginosa","Aporrectodea rosea","Bimastos parvus",
+  "Aporrectodea trapezoides","Bimastos beddardi sophiae",
+   "ceratozetoidea","cryptophagidae","enchytraeida","entomobridae",
+  "epilhomanioidea","eremobelbidae","Eukerria halophila","galumnidae",
+   "Glossoscolex sp.","isotomidae","juvenil","macropilina","Microscolex phosphoreus","Octalasion lacteum","Microscolex dubius","Eukerria stagnalis",
+  "nem_bacterivoro", "nem_fitofago","nem_fungivoro","Octalasion cyaneum",
+  "Octolasion tyrtaeum","onichiuridae","oppioidea","oribatulidae",
+  "oripodidae","protura","scheloribatidae","symphyla","symphypleona"
+  )
+pred<-c("ameroseidae","arctacaridae","bdelloidea","carabidae",
+  "coccinelidae","cunaxide","dermanisoidea","eviphididae",
+  "geophylomorpha","grillopalpidae","ichtyostomatogasteridae", "laelapidae", "larva_carabidae","linyphiidae","lycosidae","nem_predador","mesostigmata",
+  "ologamasidae","parasitidae",  "pseudoscorpionida",
+  "rhagidiidae","rhodacarioidea","staphiliniidae","teneriffidae",
+  "trombidiidae", "uropodoidea","veigaioidea") 
+det<-c("anthribidae","blattodea","gasteropoda","diplopoda","elateriforme",
+  "embrioptera","eupthiracaroidea","larva_coleoptero","isoptera",
+ "larva_diptera","larva_elateridae","larva_scarabidae","larva_sciaridae",
+  "larva_tenebrionidae","limnozetidae","oniscidea","ptilidae","pupa_diptera",
+ "tenebrionidae","terebrantia","trogossitidae")
+herb<-c("aphidoidea","cicadidae","coleoptera_suctor","hemiptero","larva_curculionidae",
+   "ortoptero","thysanoptera")
+omn<-c("astigmata","formicidae","hipogastruridae","nem_omnivor","tardigrado",
+       "anystidae","eupodoidea","penthalidae","tarsonemidae","tydeioidea","proto")
+
+no_a<-c("nematomorpha") 
+
+
+#A vector or an array of conversion efficiencies of species in the adjacency matrix. #These values describe the proportion of consumed energy that is converted to #biomass of the consumer.-->
+
+web0$ef<-NA
+web0$ef[web0$taxa%in%mf]<-0.35
+web0$ef[web0$taxa%in%micf]<-0.4
+web0$ef[web0$taxa%in%pred]<-0.7
+web0$ef[web0$taxa%in%det]<-0.25
+web0$ef[web0$taxa%in%herb]<-0.125
+web0$ef[web0$taxa%in%omn]<-0.25
+web0$ef[web0$taxa%in%no_a]<-0.1
+
+#sistemas####### 
+L<-web0%>%filter(sitio=="L")
+P<-web0%>%filter(sitio=="P")
+R<-web0%>%filter(sitio=="R")
+
+#biomasas####
+#en microgramos pasados a gramos
+#tejido vegetal se asume 125% (1+125/100) mas que la materia orgánica aunque puede ser 225% más
+#finalmente no se asume la biomasa del tejido vegetal, será 1.
+#carroña será el 5% de la biomasa total de los invertebrados
+#hojarasca llevada a peso seco, factor de 0.32 P ; 0.37 R ; 0.28 L
+bm_L<-c(L$biomass,
+        (77.0321/0.0625)*0.28*1e6, #Hojarasca
+        mean(L[L$taxa!="fungi"&L$taxa!="bac"&L$taxa!="proto",]$biomass)*0.05, #Carroña
+        1*1e6,#2.25*0.0273*1.2*50000*1e6,#Tej_veg
+        0.4*0.0273*1.2*50000*1e6)/1e6#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
+bm_R<-c(R$biomass,
+        55.753/0.065*0.37*1e6, #Hojarasca
+        mean(R[R$taxa!="fungi"&R$taxa!="bac"&R$taxa!="proto",]$biomass)*0.05, #carroña
+        1*1e6,#2.25*0.0352*1.2*50000*1e6, #tej_veg
+        0.4*0.0352*1.2*50000*1e6)/1e6 #"humus" = POM = 0.4MO
+bm_P<-c(P$biomass,
+        (58.63/0.0625)*0.32*1e6, #Hojarasca
+        mean(P[P$taxa!="fungi"&P$taxa!="bac"&P$taxa!="proto",]$biomass)*0.05, #carroña
+        1*1e6,#2.25*0.0352*1.2*50000*1e6, #Tej_veg
+        0.4*0.0309*1.2*50000*1e6)/1e6 #Humus
+
+#Pesos corporales####
+body_L<-c(L$body/1e6,1,1,1,1)
+body_R<-c(R$body/1e6,1,1,1,1)
+body_P<-c(P$body/1e6,1,1,1,1)
+
+
+ef_L<-c(L$ef,1,1,1,1)
+ef_P<-c(P$ef,1,1,1,1)
+ef_R<-c(R$ef,1,1,1,1)
+
+
+t_metR<- 17.17*body_R^(-0.29)
+t_metR[is.na(t_metR)|t_metR==Inf]<-0
+t_metP<- 17.17*body_P^(-0.29)
+t_metP[is.na(t_metP)|t_metP==Inf]<-0
+t_metL<- 17.17*body_L^(-0.29)
+t_metL[is.na(t_metL)|t_metL==Inf]<-0
+
+#reducido Lujan####
+
+meso.reduc<-c("juvenil","Aporrectodea caliginosa",
+     "Aporrectodea rosea","Aporrectodea trapezoides",
+     "Bimastos beddardi sophiae","Bimastos parvus",
+     "Eukerria halophila","Glossoscolex sp.","Octalasion lacteum", "Microscolex dubius",
+     "Eukerria stagnalis","Microscolex phosphoreus","Octalasion cyaneum","Octolasion tyrtaeum","bac","fungi","alycidae", "brachychthonioidea","crotonioidea",
+        "oribatido","limnozetidae",
+   "ceratozetoidea","entomobridae",
+  "epilhomanioidea","eremobelbidae","galumnidae",
+   "isotomidae","macropilina",
+  "nem_bacterivoro", "nem_fitofago","nem_fungivoro","onichiuridae","oppioidea",
+  "oribatulidae",
+  "oripodidae","scheloribatidae","symphypleona",
+  "ameroseidae","arctacaridae","bdelloidea","cunaxide","dermanisoidea","eviphididae",
+  "ichtyostomatogasteridae", "laelapidae", "nem_predador","mesostigmata",
+  "ologamasidae","parasitidae","rhagidiidae","rhodacarioidea",
+  "teneriffidae",
+  "trombidiidae", "uropodoidea","veigaioidea","eupthiracaroidea","limnozetidae",
+  "astigmata","hipogastruridae","nem_omnivor","anystidae","eupodoidea","penthalidae",
+  "tarsonemidae","tydeioidea","proto")
+
+
+Rf.r<-R[R$taxa%in%meso.reduc,]
+Pf.r<-P[P$taxa%in%meso.reduc,]
+Lf.r<-L[L$taxa%in%meso.reduc,]
+
+Rf.r[Rf.r$taxa=="nem_bacterivoro","body"]<-1.854
+Rf.r[Rf.r$taxa=="nem_fungivoro","body"]<-5.184
+Rf.r[Rf.r$taxa=="nem_fitofago","body"]<-1.02
+Rf.r[Rf.r$taxa=="nem_omnivor","body"]<-16.89
+Rf.r[Rf.r$taxa=="nem_predador","body"]<-4.58
+
+Pf.r[Pf.r$taxa=="nem_bacterivoro","body"]<-1.854
+Pf.r[Pf.r$taxa=="nem_fungivoro","body"]<-5.184
+Pf.r[Pf.r$taxa=="nem_fitofago","body"]<-1.02
+Pf.r[Pf.r$taxa=="nem_omnivor","body"]<-16.89
+Pf.r[Pf.r$taxa=="nem_predador","body"]<-4.58
+
+Lf.r[Lf.r$taxa=="nem_bacterivoro","body"]<-1.854
+Lf.r[Lf.r$taxa=="nem_fungivoro","body"]<-5.184
+Lf.r[Lf.r$taxa=="nem_fitofago","body"]<-1.02
+Lf.r[Lf.r$taxa=="nem_omnivor","body"]<-16.89
+Lf.r[Lf.r$taxa=="nem_predador","body"]<-4.58
+
+Rf.r[Rf.r$taxa=="nem_bacterivoro","biomass"]<-4.47e8*0.02*0.3
+Rf.r[Rf.r$taxa=="nem_fungivoro","biomass"]<-4.47e8*0.02*0.4
+Rf.r[Rf.r$taxa=="nem_fitofago","biomass"]<-4.47e8*0.02*0.14
+Rf.r[Rf.r$taxa=="nem_omnivor","biomass"]<-4.47e8*0.02*0.08
+Rf.r[Rf.r$taxa=="nem_predador","biomass"]<-4.47e8*0.02*0.08
+
+Pf.r[Pf.r$taxa=="nem_bacterivoro","biomass"]<-3.39e8*0.02*0.3
+Pf.r[Pf.r$taxa=="nem_fungivoro","biomass"]<-3.39e8*0.02*0.4
+Pf.r[Pf.r$taxa=="nem_fitofago","biomass"]<-3.39e8*0.02*0.14
+Pf.r[Pf.r$taxa=="nem_omnivor","biomass"]<-3.39e8*0.02*0.08
+Pf.r[Pf.r$taxa=="nem_predador","biomass"]<-3.39e8*0.02*0.08
+
+Lf.r[Lf.r$taxa=="nem_bacterivoro","biomass"]<-2.26e8*0.02*0.3
+Lf.r[Lf.r$taxa=="nem_fungivoro","biomass"]<-2.26e8*0.02*0.4
+Lf.r[Lf.r$taxa=="nem_fitofago","biomass"]<-2.26e8*0.02*0.14
+Lf.r[Lf.r$taxa=="nem_omnivor","biomass"]<-2.26e8*0.02*0.08
+Lf.r[Lf.r$taxa=="nem_predador","biomass"]<-2.26e8*0.02*0.08
+
+#Biomasa hetero 2.26e+08 Lote; 3.39e+08 pastizal; 4.47e+08 reserva
+
+#biomasas red####
+#todos excepto carroña y humus igual a uno, para fines de comparacion entre sistemas y localidads
+bm_Lf.r<-c(Lf.r$biomass,
+        1*1e6, #Hojarasca
+        mean(Lf.r[Lf.r$taxa!="fungi"&Lf.r$taxa!="bac"&Lf.r$taxa!="proto",]$biomass)*0.05, #Carroña
+        #1*1e6,#carroña
+        1*1e6,#2.25*0.0273*1.2*50000*1e6,#Tej_ve
+        #1*1e6 #hummus)
+        0.4*0.0273*1.2*50000*1e6)/1e6#humus; 0.4 proxi POM, %MO, 1.2 DAP, 50k volumen suelo
+      
+
+bm_Rf.r<-c(Rf.r$biomass,
+        1*1e6, #Hojarasca
+        mean(Rf.r[Rf.r$taxa!="fungi"&Rf.r$taxa!="bac"&Rf.r$taxa!="proto",]$biomass)*0.05, #carroña1*1e6,
+        #1*1e6,
+        1*1e6, #2.25*0.0352*1.2*50000*1e6, #tej_veg
+       # mean(Rf.r[Rf.r$taxa!="fungi"&Rf.r$taxa!="bac"&Rf.r$taxa!="proto",]$biomass)*0.05, #carroña
+       0.4*0.0352*1.2*50000*1e6)/1e6 #"humus" = POM = 0.4MO
+
+
+bm_Pf.r<-c(Pf.r$biomass,
+        1*1e6, #Hojarasca
+        mean(Pf.r[Pf.r$taxa!="fungi"&Pf.r$taxa!="bac"&Pf.r$taxa!="proto",]$biomass)*0.05, #carroña
+        1*1e6,#2.25*0.0352*1.2*50000*1e6, #Tej_veg
+       #1*1e6,
+       0.4*0.0309*1.2*50000*1e6)/1e6 #Humus
+
+
+#Pesos corporales####
+body_Lf.r<-c(Lf.r$body/1e6,1,1,1,1)
+body_Rf.r<-c(Rf.r$body/1e6,1,1,1,1)
+body_Pf.r<-c(Pf.r$body/1e6,1,1,1,1)
+
+
+ef_Lf.r<-c(Lf.r$ef,1,1,1,1)
+ef_Pf.r<-c(Pf.r$ef,1,1,1,1)
+ef_Rf.r<-c(Rf.r$ef,1,1,1,1)
+
+
+t_metRf.r<- 17.17*body_Rf.r^(-0.29)
+t_metRf.r[is.na(t_metRf.r)|t_metRf.r==Inf]<-0
+t_metPf.r<- 17.17*body_Pf.r^(-0.29)
+t_metPf.r[is.na(t_metPf.r)|t_metPf.r==Inf]<-0
+t_metLf.r<- 17.17*body_Lf.r^(-0.29)
+t_metLf.r[is.na(t_metLf.r)|t_metLf.r==Inf]<-0
+
+```
+
+```{r datosRO, include=FALSE,message=FALSE, warning=FALSE}
+
+#representan 166 registros macrofauna / 8662 registros totales
+#lombrices 1454 / 8662 totales, pero correctamente muestreados
+#densidad suelo 1,2g/cm2, volumen 1e5 cm3, peso suelo, 120 000 g suelo
+#(resp*100)/24; resp*4,167; 1200 suelo/100g suelo; 20600 ug/100g suelo;
+#resp*4.167*1200*20600= resp*103008240
+
+completo$biomasaheterotrofa<-completo$RESP*103008240
+#sin filtrar por estacion
+#base<-completo%>%filter(class!="macrofauna")
+#por estacion otoño, para comparar
+base<-completo%>%filter(class!="macrofauna", season=="O")
+#Es el factor de conversión para llevar las abundancias a densidad
+
+#Densidad de los demás es 2.5²*3.14 = n()/0,00471 
+sup.bocado <- 1/(pi*2.5^2/10000)
+#Densidad de lombrice en 25*25 = a n()/0.0625
+sup.monolito <- 1/(0.25*0.25)
+
+
+#ro por sitio###### 
+
+#A partir de aqui determina las abundancias
+base.sitio<-base%>%group_by(system,site,class,order,specie) %>%
+  summarise(abundance=n(), bio.ind=mean(biomass),
+            bm=(max(biomasaheterotrofa)),POM=mean(POM))%>%distinct(specie,.keep_all=TRUE)
+#bm=(mean(bm))
+#densidad y biomasa
+ab.sitio<-base.sitio%>%
+  mutate(D=case_when(order=="crassiclitellata"~sup.monolito*abundance,
+                     order!="crassiclitellata"~sup.bocado*abundance),
+         BT=case_when(order=="crassiclitellata"~sup.monolito*abundance*bio.ind,
+                      order!="crassiclitellata"~sup.bocado*abundance*bio.ind))
+
+#acá agrego biomasa microbiana total, como bmt, pero la biomasa disponible la dejo en 50% como bm, 
+#ya que es el criterio anteriormente dado. 
+#entonces hongos y bacterias trabajan sobre el 45% y microfauna sobre el 5%
+#buscar las citas con estas relaciones
+base1 <-ab.sitio %>% group_by(system,site) %>%  
+  summarise(humus=mean(POM),bmt=(mean(bm)))%>% 
+  mutate(bacteria=case_when(system=="A"~bmt*0.45*0.35,
+                            system=="G"~bmt*0.45*0.3,system=="N"~bmt*0.45*0.25),
+         hongo=(bmt*0.45)-bacteria,
+         microfauna=(0.03*bmt), #3% microfauna, 2% nemátodos
+         nem_f=(0.02*bmt*0.4),nem_b=(0.02*bmt*0.3),nem_phy=(0.02*bmt*0.14),
+         nem_pr=(0.02*bmt*0.08),nem_om=(0.02*bmt*0.08))%>%distinct(site,.keep_all=TRUE)
+
+# matriz red
+mRO<-ab.sitio[,c("system","site","specie","bio.ind","D","BT")]
+mRO_rec<-base1%>% 
+  pivot_longer(cols = c("humus","bacteria","hongo","microfauna","nem_f",
+                        "nem_b","nem_phy","nem_pr","nem_om"),
+              names_to = "specie",
+              values_to = "BT"
+              )
+#en pivot longer no usar, distinct(site,.keep_all=TRUE), porque elimina las observaciones con las
+#mismas filas y columnas
+
+#en microgramos
+{mRO_rec$bio.ind<-NA
+mRO_rec[mRO_rec$specie=="humus","bio.ind"]<-1*1e6
+#mRO_rec[mRO_rec$specie=="humus","BT"]<-1*1e6 #aca iria el calculo con la MO%*0.5
+mRO_rec[mRO_rec$specie=="bacteria","bio.ind"]<-9.5e-4
+mRO_rec[mRO_rec$specie=="hongo","bio.ind"]<-2.3e-1
+mRO_rec[mRO_rec$specie=="microfauna","bio.ind"]<-1.1121e-3 #3.3363e-1 # este sale de promediar, 
+                                          #lo que los protozoos "pesan"
+
+#para los nemátodos utilizo el promedio GLOBAL de peso de los encontrados en suelos de Luján
+
+#fitófago, luján 1.02ug, 
+#fungivoro, luján 5,184 ug, 
+#bacterivoro, luján 1,854, 
+#omnivoro, luján 16,89 ug, 
+#predador, luján 4,58 ug, 
+mRO_rec[mRO_rec$specie=="nem_b","bio.ind"]<-1.854
+mRO_rec[mRO_rec$specie=="nem_f","bio.ind"]<-5.184
+mRO_rec[mRO_rec$specie=="nem_phy","bio.ind"]<-1.02
+mRO_rec[mRO_rec$specie=="nem_om","bio.ind"]<-16.89
+mRO_rec[mRO_rec$specie=="nem_pr","bio.ind"]<-4.58
+
+#elijo solo los recursos y le asigno nombre
+
+mRO_rec$D<-mRO_rec$BT/mRO_rec$bio.ind}
+mRO_rec<-mRO_rec[c("system","site","specie","bio.ind","D","BT")]
+
+#matriz Rosana. Completo con recursos
+mRO<-rbind(mRO,mRO_rec)
+#corregir nombres de taxas para que sean simlares
+{
+mRO$specie[mRO$specie=="acaroidea"]<-"astigmata"
+mRO$specie[mRO$specie=="Apo_cal"]<-"Aporrectodea caliginosa"
+mRO$specie[mRO$specie=="Apo_ros"]<-"Aporrectodea rosea"
+mRO$specie[mRO$specie=="Apo_tra"]<-"Aporrectodea trapezoides"
+mRO$specie[mRO$specie=="hongo"]<-"fungi"
+mRO$specie[mRO$specie=="bacteria"]<-"bac"
+mRO$specie[mRO$specie=="dermanyssoidea"]<-"dermanisoidea"
+mRO$specie[mRO$specie=="entomobroidea"]<-"entomobridae"
+mRO$specie[mRO$specie=="epilohmannioidea"]<-"epilhomanioidea"
+mRO$specie[mRO$specie=="euker"]<-"Eukerria stagnalis" #agregar
+mRO$specie[mRO$specie=="euphthiracaroidea"]<-"eupthiracaroidea"
+mRO$specie[mRO$specie=="galumnioidea"]<-"galumnidae"
+mRO$specie[mRO$specie=="humus"]<-"hummus"
+mRO$specie[mRO$specie=="hypogastruridae"]<-"hipogastruridae"
+mRO$specie[mRO$specie=="lom_juv"]<-"juvenil"
+mRO$specie[mRO$specie=="Mic_pho"]<-"Microscolex phosphoreus"
+mRO$specie[mRO$specie=="Mic_dub"]<-"Microscolex dubius" #agregar
+mRO$specie[mRO$specie=="microfauna"]<-"proto"
+mRO$specie[mRO$specie=="nem_b"]<-"nem_bacterivoro"
+mRO$specie[mRO$specie=="nem_f"]<-"nem_fungivoro"
+mRO$specie[mRO$specie=="nem_phy"]<-"nem_fitofago"
+mRO$specie[mRO$specie=="nem_om"]<-"nem_omnivor"
+mRO$specie[mRO$specie=="nem_pr"]<-"nem_predador"
+mRO$specie[mRO$specie=="octacy"]<-"Octalasion cyaneum"
+mRO$specie[mRO$specie=="octala"]<-"Octalasion lacteum" #agregar
+mRO$specie[mRO$specie=="onychiuridae"]<-"onichiuridae"
+#oribatido agregar
+mRO$specie[mRO$specie=="oripodoidea"]<-"oripodidae"
+mRO$specie[mRO$specie=="parasitoidea"]<-"parasitidae"
+mRO$specie[mRO$specie=="rhodacaroidea"]<-"rhodacarioidea"
+mRO$specie[mRO$specie=="trombidioidea"]<-"trombidiidae"
+mRO$specie[mRO$specie=="tydeoidea"]<-"tydeioidea"
+
+}
+
+webRO<-mRO%>%
+  group_by(system,specie)%>%
+  summarise(body=mean(bio.ind,na.rm=TRUE),
+            d=mean(D,na.rm=TRUE),
+            biomass=mean(BT,na.rm=TRUE))%>%
+  distinct(specie,.keep_all=TRUE)
+#reemplazo nombre hummus por humus
+
+webRO$ef<-NA
+webRO$ef[webRO$specie%in%mf]<-0.35
+webRO$ef[webRO$specie%in%micf]<-0.4
+webRO$ef[webRO$specie%in%pred]<-0.7
+webRO$ef[webRO$specie%in%det]<-0.25
+webRO$ef[webRO$specie%in%omn]<-0.25
+webRO$ef[webRO$specie=="hummus"]<-1
+
+
+N<-webRO%>%filter(system=="N")
+G<-webRO%>%filter(system=="G")
+A<-webRO%>%filter(system=="A")
+
+#Pesos corporales
+body_N<-c(N$body/1e6,1,1,1)
+body_G<-c(G$body/1e6,1,1,1)
+body_A<-c(A$body/1e6,1,1,1)
+
+#eficiencias
+
+ef_N<-c(N$ef,1,1,1)
+ef_N[is.na(ef_N)]<-1
+ef_G<-c(G$ef,1,1,1)
+ef_G[is.na(ef_G)]<-1
+ef_A<-c(A$ef,1,1,1)
+ef_A[is.na(ef_A)]<-1
+
+t_metN<- 17.17*body_N^(-0.29)
+t_metN[is.na(t_metN)|t_metN==Inf]<-0
+t_metG<- 17.17*body_G^(-0.29)
+t_metG[is.na(t_metG)|t_metG==Inf]<-0
+t_metA<- 17.17*body_A^(-0.29)
+t_metA[is.na(t_metA)|t_metA==Inf]<-0
+
+#biomasas
+#el hummus ya se calculó
+#la carroña se calcula igual que en el anterior
+#no informacion sobre los demás
+bm_N<-c(N$biomass,
+        1*1e6, #Hojarasca
+       mean(N[N$specie!="fungi"&N$specie!="bac"&N$specie!="proto",]$biomass)*0.05, #Carroña
+       #1*1e6, #carroña 
+       1*1e6#Tej_veg
+        )/1e6
+
+bm_G<-c(G$biomass,
+        1*1e6, #Hojarasca
+       mean(G[!G$specie%in%c("fungi","bac","proto"),]$biomass)*0.05, #Carroña
+       #1*1e6, #carroña  
+       1*1e6#Tej_veg
+        #G$biomass[G$specie=="hummus"]
+        )/1e6 
+bm_A<-c(A$biomass,
+        1*1e6, #Hojarasca
+      mean(A[A$specie!="fungi"&A$specie!="bac"&A$specie!="proto",]$biomass)*0.05, #Carroña
+      #1*1e6, #carroña  
+       1*1e6#Tej_veg
+)/1e6
+
+```
+
+```{r Gamma_matrix, include=FALSE,message=FALSE, warning=FALSE}
+# agregados: crotonioidea; Octalasion lacteum; Microscolex dubius;
+# Eukerria stagnalis; brachychthonioidea
+# provenientes de la comunidad Rosana
+
+webG<-web%>%
+  group_by(taxa)%>%
+  distinct(taxa,.keep_all=TRUE)
+
+#vector de nodos
+sp_G<-c("litter","carrion","tej_veg","hummus",
+        "isoptera","crotonioidea","Octalasion lacteum",
+        "Microscolex dubius","Eukerria stagnalis",
+        "brachychthonioidea","oribatido",levels(as.factor(webG$taxa)))
+
+mG<-matrix(nrow = length(sp_G),ncol = length(sp_G),
+           dimnames = list(sp_G,sp_G))
+#reemplazar NA por ceros
+
+mG[is.na(mG)] <- 0
+
+#matriz interacciones####
+#ponderado
+#alto 0.9
+#medio bajo 0.4 
+#medio alto 0.7
+#medio 0.5
+#bajo 0.25
+#muy bajo 0.1
+
+{
+#Microflora#####
+mG["bac",c("hummus","litter","carrion")]<-0.9
+mG["fungi",c("tej_veg","litter")]<-0.9
+mG["fungi",c("hummus","carrion")]<-0.7
+#Microfauna
+mG["proto",c("bac","proto","tej_veg")]<-0.9
+mG["proto","hummus"]<-0.25
+mG[c("enchytraeida","tardigrado"),c("bac","proto","fungi")]<-0.9
+mG[c("enchytraeida","tardigrado"),c("hummus")]<-0.7
+mG[c("enchytraeida"),c("litter")]<-0.7
+mG["nem_predador",c("nem_fitofago",
+                    "nem_bacterivoro","nem_fungivoro","proto")]<-0.9
+mG["nem_predador",c("nem_predador","nem_omnivor","tardigrado")]<-0.7
+mG["nem_omnivor",c("nem_fitofago","nem_bacterivoro","nem_fungivoro","proto",
+                   "tardigrado")]<-0.7
+mG["nem_omnivor",c("bac","fungi","hummus")]<-0.5
+mG["nem_fitofago","tej_veg"]<-0.9
+mG["nem_fungivoro","fungi"]<-0.9
+mG["nem_bacterivoro","bac"]<-0.9
+
+
+#lombrices#####
+mG[c("juvenil","Aporrectodea caliginosa",
+     "Aporrectodea rosea","Aporrectodea trapezoides",
+     "Bimastos beddardi sophiae","Bimastos parvus",
+     "Eukerria halophila","Glossoscolex sp.","Octalasion lacteum", "Microscolex dubius",
+     "Eukerria stagnalis","Microscolex phosphoreus","Octalasion cyaneum","Octolasion tyrtaeum"),
+   c("litter","hummus")]<-0.9
+mG[c("juvenil","Aporrectodea caliginosa",
+     "Aporrectodea rosea","Aporrectodea trapezoides",
+     "Bimastos beddardi sophiae","Bimastos parvus",
+     "Eukerria halophila","Glossoscolex sp.","Octalasion lacteum", "Microscolex dubius",
+     "Eukerria stagnalis","Microscolex phosphoreus","Octalasion cyaneum","Octolasion tyrtaeum"),
+   c("bac","fungi","proto")]<-0.7
+#varios####
+mG["astigmata",c("bac","fungi","proto")]<-0.7
+mG["astigmata",c("nem_fitofago","nem_bacterivoro","nem_fungivoro")]<-0.4
+
+mG["coccinelidae",c("aphidoidea","thysanoptera","terebrantia","cicadidae")]<-0.25
+
+mG[c("aphidoidea","coleoptera_suctor","thysanoptera","hemiptero",
+     "cicadidae","ortoptero","terebrantia","embrioptera"),
+   c("tej_veg")]<-0.7 #este aparece, pero tal vez no se alimente¿?
+
+#grandes detritivoros#####
+mG[c("oniscidea","blattodea","diplopoda","gasteropoda",
+     "larva_coleoptero","larva_tenebrionidae","larva_curculionidae",
+     "larva_diptera",
+     "larva_elateridae","larva_scarabidae","larva_sciaridae",
+     "pupa_diptera","trogossitidae","cryptophagidae",
+     "ptilidae","elateriforme","tenebrionidae","anthribidae"),
+   c("fungi")]<-0.9
+mG[c("oniscidea","blattodea","diplopoda","gasteropoda",
+     "larva_coleoptero","larva_tenebrionidae","larva_curculionidae",
+     "larva_diptera",
+     "larva_elateridae","larva_scarabidae","larva_sciaridae",
+     "pupa_diptera","trogossitidae","cryptophagidae",
+     "ptilidae","elateriforme","tenebrionidae","anthribidae"),
+   c("litter")]<-0.7
+mG[c("oniscidea","blattodea","diplopoda","gasteropoda",
+     "larva_coleoptero","larva_tenebrionidae","larva_curculionidae",
+     "larva_diptera",
+     "larva_elateridae","larva_scarabidae","larva_sciaridae",
+     "pupa_diptera","trogossitidae","cryptophagidae",
+     "ptilidae","elateriforme","tenebrionidae","anthribidae"),
+   c("carrion")]<-0.25
+
+#Mesostigmatas predadores####
+
+#arctacaridae in the review not information of this group
+#Krantz say " it may represent the sister group of the gamasine subcohorrs 
+# Parasitiae and Dermanyssiae, 
+#eviphididae, laelapidae, ologamasidae, parasitidae, veigaioidea
+
+mG[c("arctacaridae","dermanisoidea","eviphididae", 
+     "ichtyostomatogasteridae","laelapidae","ologamasidae", 
+     "parasitidae", "veigaioidea","rhagidiidae","bdelloidea",
+     "cunaxide","teneriffidae","trombidiidae"),
+   c("nem_predador","nem_omnivor","nem_fitofago",
+     "nem_bacterivoro","nem_fungivoro","proto","tardigrado")]<-0.9
+mG[c("arctacaridae","dermanisoidea","eviphididae", 
+     "ichtyostomatogasteridae","laelapidae","ologamasidae", 
+     "parasitidae", "veigaioidea","rhagidiidae","bdelloidea",
+     "cunaxide","teneriffidae","trombidiidae"),
+   c("astigmata","diplura","entomobridae",
+     "hipogastruridae","isotomidae","onichiuridae","protura", "symphyla",
+     "symphypleona")]<-0.7
+
+mG[c("arctacaridae","dermanisoidea","eviphididae", 
+     "ichtyostomatogasteridae","laelapidae","ologamasidae", 
+     "parasitidae", "veigaioidea","rhagidiidae","bdelloidea",
+     "cunaxide","teneriffidae","trombidiidae"),
+   c("enchytraeida","teneriffidae",
+     "alycidae", "anystidae","ameroseidae",
+     "arctacaridae","dermanisoidea","eviphididae", 
+     "ichtyostomatogasteridae","laelapidae","ologamasidae", 
+     "parasitidae", "veigaioidea",
+     "bdelloidea","penthalidae","cunaxide","trombidiidae",
+     "eupodoidea","tydeioidea","alycidae","anystidae","tarsonemidae",
+     "rhodacarioidea","teneriffidae","rhagidiidae",
+     "uropodoidea")]<-0.5
+mG[c("arctacaridae","dermanisoidea","eviphididae", 
+     "ichtyostomatogasteridae","laelapidae","ologamasidae", 
+     "parasitidae", "veigaioidea","rhagidiidae","bdelloidea",
+     "cunaxide","teneriffidae","trombidiidae"),
+   c("limnozetidae","ceratozetoidea",
+     "epilhomanioidea","eremobelbidae","eupthiracaroidea",
+     "galumnidae","oppioidea","oribatulidae",
+     "oripodidae","scheloribatidae","macropilina")]<-0.4
+mG[c("arctacaridae","dermanisoidea","eviphididae", 
+     "ichtyostomatogasteridae","laelapidae","ologamasidae", 
+     "parasitidae", "veigaioidea","rhagidiidae","bdelloidea",
+     "cunaxide","teneriffidae","trombidiidae"),
+   c("larva_diptera",
+     "larva_sciaridae")]<-0.1
+
+#arctacaridae segun Krantz dieta similar a Parasitidae
+#dermanisoidea una amplia superfamilia, en ella estan los Laelapidae, Ascoidea, etc,
+#mesostigmtas nematófagos
+mG[c("uropodoidea","mesostigmata"),c("nem_predador","nem_omnivor","nem_fitofago",
+                   "nem_bacterivoro","nem_fungivoro","proto","tardigrado")]<-0.9
+
+#mesostigmatas pequeños
+mG[c("rhodacarioidea"),
+   c("nem_predador","nem_omnivor","nem_fitofago",
+     "nem_bacterivoro","nem_fungivoro","proto","tardigrado")]<-0.9 #se alimentan solo de colembolos, 
+                                        #evitando acaros
+mG[c("rhodacarioidea"),
+   c("onichiuridae","hipogastruridae","isotomidae","symphypleona",
+     "protura","diplura","symphyla",
+     "entomobridae","enchytraeida")]<-0.7
+#####
+#Prostigmatas omnivoro, excepto ameroseidae que es mesostigmata
+mG[c("eupodoidea","ameroseidae","penthalidae","tydeioidea",
+     "alycidae","anystidae","tarsonemidae"),
+   c("bac","fungi",
+     "nem_predador","nem_omnivor","nem_fitofago",
+     "nem_bacterivoro","nem_fungivoro","proto","tardigrado",
+     "hipogastruridae","isotomidae",
+     "entomobridae","symphyla","protura","diplura","astigmata")]<-0.7
+mG[c("eupodoidea","ameroseidae","penthalidae","tydeioidea",
+     "alycidae","anystidae","tarsonemidae"),
+   c("enchytraeida")]<-0.5
+mG[c("eupodoidea","ameroseidae","penthalidae","tydeioidea",
+     "alycidae","anystidae","tarsonemidae"),
+   c("carrion",
+     "onichiuridae","symphypleona")]<-0.4
+mG[c("eupodoidea","ameroseidae","penthalidae","tydeioidea",
+     "alycidae","anystidae","tarsonemidae"),
+   c("carrion")]<-0.25
+
+mG[c("ameroseidae"),
+   c("bac","carrion")]<-0
+
+#Macro predadores#####
+#
+# acaros, colembolos, otros microartrópodos
+mG[c("carabidae","staphiliniidae","pseudoscorpionida"),
+   c("astigmata","limnozetidae","ceratozetoidea","diplura",
+     "entomobridae","epilhomanioidea","eremobelbidae","eupthiracaroidea","eupodoidea",
+     "eviphididae","galumnidae","hipogastruridae","isotomidae",
+     "mesostigmata","laelapidae",
+     "ologamasidae","parasitidae","bdelloidea","onichiuridae","oppioidea",
+     "oribatulidae","oripodidae","protura", "scheloribatidae","symphyla",
+     "symphypleona", "teneriffidae","rhodacarioidea",
+     "rhagidiidae","tydeioidea","uropodoidea","veigaioidea","arctacaridae",
+     "bdelloidea","penthalidae","cunaxide","trombidiidae",
+     "ameroseidae","arctacaridae","dermanisoidea", 
+     "ichtyostomatogasteridae","macropilina","eupodoidea","tydeioidea","alycidae",
+     "anystidae","tarsonemidae","teneriffidae")]<-0.7
+
+mG[c("carabidae","staphiliniidae"),
+   c("enchytraeida","larva_diptera","larva_sciaridae")]<-0.4
+
+
+#japyjapidae
+mG[c("diplura"),c("protura","symphyla","onichiuridae","isotomidae","enchytraeida",
+                  "entomobridae","hipogastruridae","carrion","proto")]<-0.7
+#"bac","fungi", para los dipluras no carnívoros
+
+
+mG["larva_carabidae",c("enchytraeida","nem_predador","nem_omnivor","nem_fitofago",
+                   "nem_bacterivoro","nem_fungivoro","proto","diplura",
+                   "astigmata","protura","symphyla","onichiuridae","isotomidae","carrion",
+                  "entomobridae","hipogastruridae","tardigrado","larva_diptera","larva_sciaridae",
+                  "oppioidea","oripodidae","scheloribatidae","rhodacarioidea","eupodoidea")]<-0.7
+
+#come colembolos, larvas,pequeños acaros
+#cienpies: todo tipo de artrópodo conforman su presa
+
+mG["geophylomorpha",c("alycidae","anystidae","ameroseidae","bdelloidea","cunaxide",
+                      "arctacaridae","astigmata","limnozetidae",
+                      "ceratozetoidea", "diplura","entomobridae",
+                      "dermanisoidea","ichtyostomatogasteridae","macropilina",
+                   "epilhomanioidea","eremobelbidae","eupthiracaroidea","eupodoidea",
+                   "eviphididae","galumnidae","hipogastruridae","isotomidae",
+                 "mesostigmata","laelapidae",
+                 "ologamasidae","parasitidae",
+                 "onichiuridae","oppioidea","oribatulidae","penthalidae",
+                   "oripodidae","protura", "scheloribatidae","symphyla",
+                   "symphypleona", "teneriffidae","rhodacarioidea","tardigrado",
+                  "rhagidiidae","tydeioidea","uropodoidea","veigaioidea"
+                                 )]<-0.9
+mG["geophylomorpha",c("enchytraeida","larva_coleoptero","larva_curculionidae",
+                 "larva_diptera","larva_elateridae","larva_sciaridae",
+                 "juvenil")]<-0.4
+
+mG["geophylomorpha",c("blattodea","carabidae",
+                 "cicadidae","coleoptera_suctor","cryptophagidae",
+                 "diplopoda","elateriforme","hemiptero","larva_carabidae",
+                 "ptilidae","staphiliniidae","thysanoptera","trogossitidae"
+                  )]<-0.7
+
+#arácnidos 
+mG[c("linyphiidae","lycosidae"),
+   c("coccinelidae","aphidoidea","blattodea","carabidae","grillopalpidae",
+     "cicadidae","coleoptera_suctor","cryptophagidae",
+     "elateriforme","ortoptero",
+     "formicidae","geophylomorpha",
+     "hemiptero",
+     "ptilidae","staphiliniidae","thysanoptera","trogossitidae",
+     "anthribidae",
+     "embrioptera","terebrantia")]<-0.9
+mG[c("linyphiidae","lycosidae"),
+   c("arctacaridae","astigmata",
+     "limnozetidae",
+     "ceratozetoidea",
+     "cunaxide","diplura","entomobridae",
+     "eremobelbidae","eupodoidea","eviphididae","macropilina","galumnidae",
+     "penthalidae","hipogastruridae","isotomidae",
+     "laelapidae","mesostigmata","ologamasidae",
+     "oribatulidae","oripodidae","parasitidae",
+     "symphyla","dermanisoidea",
+     "symphypleona",
+     "tydeioidea","uropodoidea","veigaioidea","trombidiidae")]<-0.5
+
+#topogrillo
+mG["grillopalpidae",c("carrion","bac","fungi","tej_veg")]<-0.25
+mG["grillopalpidae",c("enchytraeida",
+                      "nem_predador","nem_omnivor","nem_fitofago",
+                   "nem_bacterivoro","nem_fungivoro","proto",
+                   "diplura","entomobridae","hipogastruridae","isotomidae",
+                  "onichiuridae","oppioidea","oripodidae","protura",
+                  "symphyla","symphypleona","rhodacarioidea","tardigrado")]<-0.7
+#hormigas, predadores generalistas.
+#Atacan lombrices
+#"carrion","fungi","tej_veg",
+#se quitan los acaros y colembolos que escapan, por su capacidad de vivir en los poros y pequeño tamaño
+
+mG["formicidae",c("Aporrectodea caliginosa","Aporrectodea rosea",
+                  "Aporrectodea trapezoides","Bimastos beddardi sophiae",
+                  "Eukerria halophila","Glossoscolex sp.",
+                  "Bimastos parvus","arctacaridae","limnozetidae","embrioptera","grillopalpidae",
+                  "macropilina","Microscolex phosphoreus",
+                  "Octalasion cyaneum",
+                  "Octolasion tyrtaeum","ortoptero","penthalidae",
+                      "ceratozetoidea", "diplura","entomobridae",
+                   "epilhomanioidea","eremobelbidae","eupthiracaroidea",
+                   "eviphididae","galumnidae","hipogastruridae","isotomidae",
+                 "mesostigmata","laelapidae","larva_coleoptero","larva_curculionidae",
+                 "larva_diptera","larva_elateridae","larva_sciaridae",
+                 "ologamasidae","parasitidae","bdelloidea","blattodea","carabidae",
+                 "onichiuridae","oribatulidae","pupa_diptera",
+                   "protura","symphyla",
+                   "symphypleona", "teneriffidae",
+                  "rhagidiidae","tydeioidea","uropodoidea","veigaioidea",
+                 "aphidoidea","cicadidae","coleoptera_suctor","cryptophagidae",
+                 "diplopoda","juvenil","elateriforme","hemiptero","larva_carabidae",
+                 "ptilidae","staphiliniidae","thysanoptera","trogossitidae",
+                 "alycidae","ameroseidae","anthribidae","anystidae","coccinelidae",
+                 "tenebrionidae","terebrantia"
+                  )]<-0.4
+
+#parasito de grandes insectos
+mG["nematomorpha",c("carabidae","coleoptera_suctor","cryptophagidae",
+    "elateriforme","ptilidae","staphiliniidae","trogossitidae")]<-0.7
+mG["nematomorpha",c("aphidoidea","blattodea",
+    "cicadidae","hemiptero","thysanoptera")]<-0.4
+
+
+#microfitofagos
+mG[c("macropilina","limnozetidae","oribatido",
+     "scheloribatidae","oripodidae","oribatulidae",
+     "protura","eremobelbidae","oppioidea","brachychthonioidea"),
+   c("bac","fungi")]<-0.9
+mG[c("macropilina","limnozetidae","oribatido",
+     "scheloribatidae","oripodidae","oribatulidae",
+     "protura","eremobelbidae","oppioidea","brachychthonioidea"),
+   c("hummus")]<-0.7
+#macrofitofago
+mG[c("symphypleona","crotonioidea"),c("bac","fungi")]<-0.9
+mG[c("symphypleona","crotonioidea"),c("hummus","tej_veg","litter")]<-0.5
+mG[c("epilhomanioidea","eupthiracaroidea","isoptera"),c("litter")]<-0.7
+mG[c("isoptera"),c("fungi")]<-0.9
+mG[c("isoptera"),c("hummus")]<-0.4
+#macrofitofago omnivoro
+mG[c("ceratozetoidea","onichiuridae","isotomidae",
+     "scheloribatidae","symphyla"),
+   c("bac","fungi","hummus","nem_fungivoro","nem_bacterivoro")]<-0.7
+mG[c("ceratozetoidea","onichiuridae","isotomidae",
+     "scheloribatidae","symphyla"),
+   c("carrion","litter","tej_veg")]<-0.4
+
+#omnivoro
+mG[c("entomobridae"),c("bac","fungi","nem_bacterivoro","nem_fungivoro")]<-0.9
+
+
+mG["galumnidae",c("nem_fitofago",
+                   "nem_bacterivoro","nem_fungivoro","proto","bac","fungi")]<-0.9
+mG["galumnidae",c("carrion","tardigrado")]<-0.5
+
+mG["hipogastruridae",c("bac","fungi")]<-0.7
+mG["hipogastruridae",c("carrion")]<-0.4 
+mG["hipogastruridae",c("nem_predador","nem_omnivor","nem_fitofago",
+                   "nem_bacterivoro","nem_fungivoro","proto",
+                   "tardigrado")]<-0.5
+###
+
+mG[c("protura","symphyla"),c("bac","fungi","proto")]<-0.9
+mG[c("protura","symphyla"),c("carrion","litter")]<-0.25
+
+mG["ptilidae",c("hummus","fungi","bac","proto")]<-0.9
+mG["ptilidae",c("nem_fitofago","nem_bacterivoro","nem_fungivoro","carrion")]<-0.25
+
+#diagonal de la matriz 0, y dejar solo las interacciones canibalistas "reales"
+
+diag(mG)<-0
+
+mG["proto","proto"]<-0.5
+mG["geophylomorpha","geophylomorpha"]<-0.1
+mG["nem_predador","nem_predador"]<-0.25
+}
+
+
+```
+
+
+```{r redes, include=FALSE, message=FALSE, warning=FALSE}
+
+T_net<-graph_from_adjacency_matrix(t(mG),mode=c("directed"),weighted = TRUE )
+V(T_net)$id <- seq_along(V(T_net))
+
+L_net <- induced_subgraph(T_net, vids = c(L$taxa,"litter","carrion","tej_veg","hummus"))
+P_net <- induced_subgraph(T_net, vids = c(P$taxa,"litter","carrion","tej_veg","hummus"))
+R_net <- induced_subgraph(T_net, vids = c(R$taxa,"litter","carrion","tej_veg","hummus"))
+
+A_net <- induced_subgraph(T_net, vids = c(A$specie,"litter","carrion","tej_veg","hummus"))
+G_net <- induced_subgraph(T_net, vids = c(G$specie,"litter","carrion","tej_veg","hummus"))
+N_net <- induced_subgraph(T_net, vids = c(N$specie,"litter","carrion","tej_veg","hummus"))
+```
+
+# Resultados
+
+<!-- Guia para resultados: 
+
+La sección de resultados debe:
+* Resumir lo que muestran los datos
+* Señalar relaciones simples
+* Describir tendencias generales
+* Citar figuras o tablas que presenten datos de apoyo
+* Evitar simplemente repetir los números que ya están disponibles en tablas y figuras.
+
+
+EJEMPLO:
+
+Original:
+Las características de las brujas malas y las brujas buenas se muestran en la Tabla 1. Hubo una diferencia significativa en la edad entre los grupos. La edad media de las brujas malas fue de 45 ± 5; y la edad media de las brujas buenas fue de 36 ± 6. No hubo una diferencia significativa en el género entre los grupos, con un 85% de mujeres en las brujas malas y un 83% de mujeres en las brujas buenas. El IMC no fue significativamente diferente entre los grupos, ambos tenían IMCs normales. La presión arterial sistólica y el ejercicio fueron significativamente diferentes. Las brujas malas tenían una presión arterial media de 140 ± 10, mientras que las brujas buenas tenían una presión arterial media de 120 ± 9. El ejercicio diario estimado fue mayor en las brujas buenas (60 ± 30) que en las brujas malas (30 ± 20). El empleo no fue significativamente diferente entre los dos grupos...
+
+Revised:
+Las brujas eran, en promedio, delgadas y predominantemente femeninas (Tabla 1). Las brujas malas eran significativamente mayores, tenían una presión arterial más alta, hacían menos ejercicio y eran más propensas a fumar que las brujas buenas. Más brujas malas estaban desempleadas, pero esta diferencia no alcanzó significancia estadística.
+-->
+
+## Parámetros estructurales de las redes tróficas de suelos Argiudoles
+
+<!--los recursos troficos son nodos basales, ojo con la terminología, usar siempre la misma-->
+Las redes de interacciones de los suelos Argiudoles tienen 4 recursos
+tróficos denominados también como especies base, estos son, el tejido
+vegetal que engloba a las raices y sus exudados, la hojarasca el tejido vegetal en proceso de fragmentación y descomposición, el humus materia orgánica en avanzado estado de descomposición y que forma enlaces 
+con la fracción mineral de los coloides de la arcilla del suelo
+y la carroña proveniente de la fauna edáfica, 
+todas estas diferentes fuentes son denominados en conjunto como detritos.
+
+El tamaño de la red trófica en suelos de Luján fué mayor en el sistema
+del pastizal con un mayor número y densidad de enlaces (Tabla 5.x),
+seguidos por la Reserva. A pesar del mayor número de especies tróficas
+en el pastizal, el número de especies tope fue el menor como así también
+el porcentaje de omnivoría, para ambos parámetros el mayor valor se
+observa en la Reserva.
+
+\newpage
+
+**Figura 5.1** Representación de las redes tróficas de la comunidad detritívora de la fauna edáfica de suelos argiudoles típicos de Luján para cada sistema de uso del suelo. El tamaño de los nodos representa al grado del nodo, los colores forman un gradiente desde el verde hacia el rojo para indicar especies base hacia especies tope respectivamente. La distribución de los nodos a lo largo del eje horizontal sigue un patron semi-aleatorio ("jitter") por lo tanto no se vincula a caracteristicas del nodo en particular. Sobre el eje vertical se indica el nivel trófico.
+
+```{r plot_redes, echo=FALSE, warning=FALSE,message=FALSE}
+V(R_net)$nameid <- V(R_net)$name
+V(R_net)$name<-V(R_net)$id
+plot_troph_level(R_net,modules=FALSE,vertexLabel = TRUE, tk = FALSE,main="Reserva",ylab="Nivel Trófico")
+
+V(P_net)$nameid <- V(P_net)$name
+V(P_net)$name<-V(P_net)$id
+plot_troph_level(P_net,modules=FALSE,vertexLabel = TRUE, tk = FALSE,main="Pastizal",ylab="Nivel Trófico")
+
+V(L_net)$nameid <- V(L_net)$name
+V(L_net)$name<-V(L_net)$id
+plot_troph_level(L_net,modules=FALSE,vertexLabel = TRUE, tk = FALSE,main="Agrícola",ylab="Nivel Trófico")
+
+#ggsave("redR.png",width=6,height=6,units="in",dpi=600)
+
+```
+
+\newpage
+
+
+\newpage
+
+**Figura 5.2** Representación de las redes tróficas de suelos argiudoles típicos de Chivilcoy y Navarro para cada sistema de uso del suelo cuya comunidad se conforma de microartrópodos edáficos y lombrices de tierra. El tamaño de los nodos representa al grado del nodo, los colores forman un gradiente desde el verde hacia el rojo para indicar especies base hacia especies tope respectivamente. La distribución de los nodos a lo largo del eje horizontal sigue un patron semi-aleatorio ("jitter") por lo tanto no se vincula a caracteristicas del nodo en particular. Sobre el eje vertical se indica el nivel trófico.
+
+```{r plot_redes2, echo=FALSE, message=FALSE, warning=FALSE}
+
+V(N_net)$nameid <- V(N_net)$name
+V(N_net)$name<-V(N_net)$id
+plot_troph_level(N_net,modules=FALSE,vertexLabel = TRUE, tk = FALSE,main="Pastizal",ylab="Nivel Trófico")
+
+V(G_net)$nameid <- V(G_net)$name
+V(G_net)$name<-V(G_net)$id
+plot_troph_level(G_net,modules=FALSE,vertexLabel = TRUE, tk = FALSE,main="Mixto",ylab="Nivel Trófico")
+
+
+V(A_net)$nameid <- V(A_net)$name
+V(A_net)$name<-V(A_net)$id
+plot_troph_level(A_net,modules=FALSE,vertexLabel = TRUE, tk = FALSE,main="Agrícola",ylab="Nivel Trófico")
+
+
+```
+\newpage
+
+
+
+El nivel trófico promedio de las redes en suelos argiudoles de Luján
+ente los tres sistemas de uso fué de aproximadamente 2,95 y con respecto
+al máximo nivel trófico este fué mayor en el pastizal seguido por el
+sistema agrícola intensivo, el nivel de omnivoría sigue un patron
+similar Pastizal \> Sistema agrícola \> Reserva.
+
+```{r redes_anerior, include=FALSE}
+
+#Red Lote UNLu
+L_net <-graph_from_adjacency_matrix(t(mG[c(L$taxa,"litter","carrion","tej_veg","hummus"),c(L$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed"),weighted = TRUE )
+#Red Reserva UNLu
+R_net <-graph_from_adjacency_matrix(t(mG[c(R$taxa,"litter","carrion","tej_veg","hummus"),c(R$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed"),weighted = TRUE )
+#Red Pastizal UNLu
+P_net <-graph_from_adjacency_matrix(t(mG[c(P$taxa,"litter","carrion","tej_veg","hummus"),c(P$taxa,"litter","carrion","tej_veg","hummus")]),mode=c("directed"),weighted = TRUE )
+
+#Datos de ácaros - colémbolos -lombrices - y respiración heterotrófica
+#Red Pastizal Naturalizado RO
+N_net <-graph_from_adjacency_matrix(t(mG[c(N$specie,"litter","carrion","tej_veg"),c(N$specie,"litter","carrion","tej_veg")]),mode=c("directed"),weighted = TRUE )
+#Red mixto Agrícola Ganadero RO
+G_net <-graph_from_adjacency_matrix(t(mG[c(G$specie,"litter","carrion","tej_veg"),c(G$specie,"litter","carrion","tej_veg")]),mode=c("directed"),weighted = TRUE )
+#Red agrícola intensivo RO
+A_net <-graph_from_adjacency_matrix(t(mG[c(A$specie,"litter","carrion","tej_veg"),c(A$specie,"litter","carrion","tej_veg")]),mode=c("directed"),weighted = TRUE )
+#Reducción de redes####
+#a acaros colembolos
+L.r<-as_vector(L[L$taxa%in%meso.reduc,"taxa"][[1]])
+L_reduc.net <-graph_from_adjacency_matrix(t(mG[c(L.r,"litter","carrion","tej_veg","hummus"),c(L.r,"litter","carrion","tej_veg","hummus")]),mode=c("directed"),weighted = TRUE )
+#Red Reserva UNLu
+R.r<-as_vector(R[R$taxa%in%meso.reduc,"taxa"][[1]])
+R_reduc.net <-graph_from_adjacency_matrix(t(mG[c(R.r,"litter","carrion","tej_veg","hummus"),c(R.r,"litter","carrion","tej_veg","hummus")]),mode=c("directed"),weighted = TRUE )
+#Red Pastizal UNLu
+P.r<-as_vector(P[P$taxa%in%meso.reduc,"taxa"][[1]])
+P_reduc.net <-graph_from_adjacency_matrix(t(mG[c(P.r,"litter","carrion","tej_veg","hummus"),c(P.r,"litter","carrion","tej_veg","hummus")]),mode=c("directed"),weighted = TRUE )
+
+
+
+```
+
+
+```{r topolog, include=FALSE, message=FALSE, warning=FALSE}
+
+#topologico####
+# índices topológicos
+#calc_topological_indices(Gl_net)
+topological<-rbind(
+calc_topological_indices(R_net),
+calc_topological_indices(P_net),
+calc_topological_indices(L_net),colnames=NULL)
+
+topological1<-rbind(
+calc_topological_indices(N_net),
+calc_topological_indices(G_net),
+calc_topological_indices(A_net),colnames=NULL)
+
+topological2<-rbind(
+calc_topological_indices(N_net),
+calc_topological_indices(G_net),
+calc_topological_indices(A_net),
+
+calc_topological_indices(R_reduc.net),
+calc_topological_indices(P_reduc.net),
+calc_topological_indices(L_reduc.net),colnames=NULL
+)
+topological$Sistema<-c("Reserva","Pastizal","Agrícola intensivo")
+topolog<-topological[,c("Sistema","Size","Links","Top","Omnivory","LOmnivory",
+                        "TLmax","TLmean","Connectance","LD",
+                        "Clustering","Vulnerability","Generality"	)]
+colnames(topolog)<-c("Sistema","Tamaño","nº enlaces","Tope","% Omnivoría","Nivel de Omnivoría",
+                        "Nivel trófico","Nivel trófico promedio","Conectancia","Densidad de enlaces",
+                        "Clustering","Vulnerabilidad","Generalidad"	)
+
+topological1$Sistema<-c("Pastizal naturalizado", "Mixto agrícola ganadero", "Agrícola intensivo")
+topological2$Sistema<-c("Pastizal naturalizado", "Mixto agrícola ganadero", "Agrícola intensivo","Reserva","Pastizal","Agrícola intensivo")
+topolog1<-topological1[,c("Sistema","Size","Links","Top","Omnivory","LOmnivory",
+                        "TLmax","TLmean","Connectance","LD",
+                        "Clustering","Vulnerability","Generality"	)]
+colnames(topolog1)<-c("Sistema","Tamaño","nº enlaces","Tope","% Omnivoría","Nivel de Omnivoría",
+                        "Nivel trófico","Nivel trófico promedio","Conectancia","Densidad de enlaces",
+                        "Clustering","Vulnerabilidad","Generalidad"	)
+
+
+
+```
+
+**Tabla 5.1.** Tabla de índices topológicos de las redes tróficas de los diferentes sistemas de uso de los suelos Argiudoles típicos de la Pampa Ondulada. 
+```{r topolog_showtab, echo=FALSE, message=FALSE, warning=FALSE}
+topolog$clus<-c(paste(round(topolog[1,"Clustering"],3),"b"),paste(round(topolog[2,"Clustering"],3),"a"),
+                                   paste(round(topolog[3,"Clustering"],3),"a"))
+topolog3<-topolog[,-11]
+names(topolog3)<-c("Sistema","Tamaño","nº enlaces","Tope","% Omnivoría","Nivel de Omnivoría",
+                   "Nivel trófico","Nivel trófico promedio","Conectancia","Densidad de enlaces",
+                   "Vulnerabilidad","Generalidad","Clustering")
+topolog3<-topolog3[,c("Sistema","Tamaño","nº enlaces","Tope","% Omnivoría","Nivel de Omnivoría",
+                   "Nivel trófico","Nivel trófico promedio","Conectancia","Densidad de enlaces","Clustering",
+                   "Vulnerabilidad","Generalidad")]
+kableExtra::kable(topolog3)
+
+
+```
+
+La densidad de enlaces, la conectancia y el coeficiente de clustering fueron mayores en
+el pastizal seguido por el sistema agrícola, mismo
+comportamiento se observa con los valores de Generalidad y
+Vulnerabilidad.
+
+El tamaño de la red en suelos de Chivilcoy y Navarro fué similar en los
+tres sistemas de uso, con una especie trófica menos en la pastizal
+naturalizado, de manera similar el número de especies tope fué similar
+entre los sistemas de uso con una especie menos en el sistema Agrícola
+intensivo.
+
+Tanto el máximo nivel trófico como el nivel trófico medio fué mayor en
+el sistema agrícola intensivo y menor en el pastizal naturalizado.
+
+<!-- para entender que me dicen todos estos resultados hay que explicar que significa en terminos ecologicos 
+cada metrica, en materiales -->
+
+```{r topolog_reduc,echo=FALSE,message=FALSE,warning=FALSE}
+topolog1$clus<-c(paste(round(topolog[1,"Clustering"],3),"b"),paste(round(topolog[2,"Clustering"],3),"a"),
+                                   paste(round(topolog[3,"Clustering"],3),"a"))
+topolog1$gen<-c(paste(round(topolog[1,"Generalidad"],2),"b"),paste(round(topolog[2,"Generalidad"],2),"a"),
+                                   paste(round(topolog[3,"Generalidad"],2),"a"))
+topolog1<-topolog1[,-c(11,13)]
+names(topolog1)<-c("Sistema","Tamaño","nº enlaces","Tope","% Omnivoría","Nivel de Omnivoría",
+                   "Nivel trófico","Nivel trófico promedio","Conectancia","Densidad de enlaces",
+                   "Vulnerabilidad","Clustering","Generalidad")
+topolog1<-topolog1[,c("Sistema","Tamaño","nº enlaces","Tope","% Omnivoría","Nivel de Omnivoría",
+                   "Nivel trófico","Nivel trófico promedio","Conectancia","Densidad de enlaces","Clustering",
+                   "Vulnerabilidad","Generalidad")]
+kableExtra::kable(topolog1)
+
+```
+
+Hubo un mayor número de interacciones en el sistema agrícola intensivo
+al igual que en otros parámetros como la densidad de enlaces, la
+conectancia, el clusterin, la vulnerabilidad y la generalidad. El
+sistema mixto agrícola ganadero y el pastizal naturalizado tuvieron
+valores similares en conectancia y clustering. En el sistema mixto en
+comparación con el pastizal naturalizado se observaron un mayor número y
+densidad de enlaces, mayores valores de vulnerabilidad y generalidad y
+un mayor nivel trófico medio.
+
+```{r interaction_strenght, include=FALSE}
+set.seed(167)
+#Los pesos ya se configuran con 1e-3 para convertir los gramos a kilogramos. Pawar así lo calcula
+#RESERVA
+{#genero el edge list
+edge_R_net <- as.data.frame(as.matrix(R_net, "edgelist"))
+names(edge_R_net)<-c("recurso","consumidor")
+
+#a cada nodo agrego el peso corporal y la densidad 
+v_ig<-data.frame(nombre=c(R$taxa,"litter","carrion","tej_veg","hummus"),peso=body_R*1e-3,
+                 densidad=bm_R/body_R)
+
+###########
+#se asume que la relacion densidad de recurso y peso es 1
+#cuando no el consumidor no deppende del peso del recurso
+#asignandos pesos
+v_ig[v_ig$nombre=="litter","peso"]<-1
+v_ig[v_ig$nombre=="carrion","peso"]<-1 
+v_ig[v_ig$nombre=="tej_veg","peso"]<-1 
+v_ig[v_ig$nombre=="hummus","peso"]<-1 
+#asignando densidades a los recursos
+v_ig[v_ig$nombre=="litter","densidad"]<-1
+v_ig[v_ig$nombre=="carrion","densidad"]<-1 
+v_ig[v_ig$nombre=="tej_veg","densidad"]<-1 
+v_ig[v_ig$nombre=="hummus","densidad"]<-1
+
+# con bucle busco asignar a cada eje su correspondiente peso corporal y densidad
+###########
+
+edge_R_net$peso_consumidor<-NA
+# columna peso del consumidor
+for (pc in 1:length(v_ig$nombre)) {edge_R_net[edge_R_net$consumidor==as.character(v_ig$nombre[pc]),"peso_consumidor"]<-v_ig$peso[pc]
+}
+
+#columna peso del recurso
+edge_R_net$peso_recurso<-NA
+for (pr in 1:length(v_ig$nombre)) {edge_R_net[edge_R_net$recurso==as.character(v_ig$nombre[pr]),"peso_recurso"]<-v_ig$peso[pr]
+}
+
+#columna densidad del consumidor
+edge_R_net$densidad_consumidor<-NA
+for (dc in 1:length(v_ig$nombre)) {edge_R_net[edge_R_net$consumidor==as.character(v_ig$nombre[dc]),"densidad_consumidor"]<-v_ig$densidad[dc]
+}
+#columna densidad del recurso
+edge_R_net$densidad_recurso<-NA
+for (dr in 1:length(v_ig$nombre)) {edge_R_net[edge_R_net$recurso==as.character(v_ig$nombre[dr]),"densidad_recurso"]<-v_ig$densidad[dr]
+}
+
+edge_R_net$dimension<-"2D"
+}
+#edge_list_UNLu[edge_list_UNLu$peso_recurso==0|edge_list_UNLu$peso_recurso==-999,"peso_recurso"]<-1e-15
+#edge_list_UNLu[edge_list_UNLu$peso_consumidor==0|edge_list_UNLu$peso_consumidor==-999,"peso_consumidor"]<-1e-15
+#error
+#PASTIZAL#####
+{#genero el edge list
+edge_P_net <- as.data.frame(as.matrix(P_net, "edgelist"))
+names(edge_P_net)<-c("recurso","consumidor")
+
+#a cada nodo agrego el peso corporal y la densidad 
+v_ig<-data.frame(nombre=c(P$taxa,"litter","carrion","tej_veg","hummus"),peso=body_P*1e-3,densidad=bm_P/body_P)
+
+###########
+#se asume que la relacion densidad de recurso y peso es 1
+#cuando no el consumidor no deppende del peso del recurso
+#asignandos pesos
+v_ig[v_ig$nombre=="litter","peso"]<-1
+v_ig[v_ig$nombre=="carrion","peso"]<-1 #tomo el mínimo y lo llevo a unidad
+v_ig[v_ig$nombre=="tej_veg","peso"]<-1 #peso de las raices por centímero
+v_ig[v_ig$nombre=="hummus","peso"]<-1 #la mitad de la carroña, a dedo, es un componente amorfo y no tiene una unidad en concreto lo mismo las demás recursos.
+#asignando densidades a los recursos
+v_ig[v_ig$nombre=="litter","densidad"]<-1
+v_ig[v_ig$nombre=="carrion","densidad"]<-1 #tomo el mínimo y lo llevo a unidad
+v_ig[v_ig$nombre=="tej_veg","densidad"]<-1 #peso de las raices por centímero
+v_ig[v_ig$nombre=="hummus","densidad"]<-1
+# con bucle busco asignar a cada eje su correspondiente peso corporal y densidad
+
+
+# con bucle busco asignar a cada eje su correspondiente peso corporal y densidad
+###########
+
+edge_P_net$peso_consumidor<-NA
+# columna peso del consumidor
+for (pc in 1:length(v_ig$nombre)) {edge_P_net[edge_P_net$consumidor==as.character(v_ig$nombre[pc]),"peso_consumidor"]<-v_ig$peso[pc]
+}
+
+#columna peso del recurso
+edge_P_net$peso_recurso<-NA
+for (pr in 1:length(v_ig$nombre)) {edge_P_net[edge_P_net$recurso==as.character(v_ig$nombre[pr]),"peso_recurso"]<-v_ig$peso[pr]
+}
+
+#columna densidad del consumidor
+edge_P_net$densidad_consumidor<-NA
+for (dc in 1:length(v_ig$nombre)) {edge_P_net[edge_P_net$consumidor==as.character(v_ig$nombre[dc]),"densidad_consumidor"]<-v_ig$densidad[dc]
+}
+#columna densidad del recurso
+edge_P_net$densidad_recurso<-NA
+for (dr in 1:length(v_ig$nombre)) {edge_P_net[edge_P_net$recurso==as.character(v_ig$nombre[dr]),"densidad_recurso"]<-v_ig$densidad[dr]
+}
+
+edge_P_net$dimension<-"2D"
+}
+#LOTE AGRICOLA#####
+{#genero el edge list
+edge_L_net <- as.data.frame(as.matrix(L_net, "edgelist"))
+names(edge_L_net)<-c("recurso","consumidor")
+
+#a cada nodo agrego el peso corporal y la densidad 
+v_ig<-data.frame(nombre=c(L$taxa,"litter","carrion","tej_veg","hummus"),peso=body_L*1e-3,densidad=bm_L/body_L)
+
+###########
+#se asume que la relacion densidad de recurso y peso es 1
+#cuando no el consumidor no deppende del peso del recurso
+#asignandos pesos
+v_ig[v_ig$nombre=="litter","peso"]<-1
+v_ig[v_ig$nombre=="carrion","peso"]<-1 #tomo el mínimo y lo llevo a unidad
+v_ig[v_ig$nombre=="tej_veg","peso"]<-1 #peso de las raices por centímero
+v_ig[v_ig$nombre=="hummus","peso"]<-1 #la mitad de la carroña, a dedo, es un componente amorfo y no tiene una unidad en concreto lo mismo las demás recursos.
+#asignando densidades a los recursos
+v_ig[v_ig$nombre=="litter","densidad"]<-1
+v_ig[v_ig$nombre=="carrion","densidad"]<-1 #tomo el mínimo y lo llevo a unidad
+v_ig[v_ig$nombre=="tej_veg","densidad"]<-1 #peso de las raices por centímero
+v_ig[v_ig$nombre=="hummus","densidad"]<-1
+# con bucle busco asignar a cada eje su correspondiente peso corporal y densidad
+
+
+# con bucle busco asignar a cada eje su correspondiente peso corporal y densidad
+###########
+
+edge_L_net$peso_consumidor<-NA
+# columna peso del consumidor
+for (pc in 1:length(v_ig$nombre)) {edge_L_net[edge_L_net$consumidor==as.character(v_ig$nombre[pc]),"peso_consumidor"]<-v_ig$peso[pc]
+}
+
+#columna peso del recurso
+edge_L_net$peso_recurso<-NA
+for (pr in 1:length(v_ig$nombre)) {edge_L_net[edge_L_net$recurso==as.character(v_ig$nombre[pr]),"peso_recurso"]<-v_ig$peso[pr]
+}
+
+#columna densidad del consumidor
+edge_L_net$densidad_consumidor<-NA
+for (dc in 1:length(v_ig$nombre)) {edge_L_net[edge_L_net$consumidor==as.character(v_ig$nombre[dc]),"densidad_consumidor"]<-v_ig$densidad[dc]
+}
+#columna densidad del recurso
+edge_L_net$densidad_recurso<-NA
+for (dr in 1:length(v_ig$nombre)) {edge_L_net[edge_L_net$recurso==as.character(v_ig$nombre[dr]),"densidad_recurso"]<-v_ig$densidad[dr]
+}
+
+edge_L_net$dimension<-"2D"
+}
+
+#calculo fuerza interaccion####
+
+#Ya tengo todos los componentes solicitados
+
+# Para detritos litter, carrion, etc. el tamaño del recurso res_mm y la densidad del recurso res_den están desacoplados del tamaño del consumidor, hay que asignar 1 a ambos
+
+#el peso debe ser utilizado como en kilogramos,
+#como esto está en microgramos será 1e-9
+
+IS_R1<-calc_interaction_intensity(da=edge_R_net,
+                         res_mm =peso_recurso,res_den = densidad_recurso,
+                        con_mm = peso_consumidor, int_dim =dimension )
+IS_P1<-calc_interaction_intensity(da=edge_P_net,
+                         res_mm =peso_recurso,res_den = densidad_recurso,
+                        con_mm = peso_consumidor, int_dim =dimension )
+IS_L1<-calc_interaction_intensity(da=edge_L_net,
+                         res_mm =peso_recurso,res_den = densidad_recurso,
+                        con_mm = peso_consumidor, int_dim =dimension )
+
+#calculo de QSS con fuerza de interaccion####
+#multiplicar qRC por la densidad el consumidor para que de la fuerza de interaccion total, sino es por unidad de peso del consumidor
+
+#Reserva
+IS_R<-IS_R1[,c(1,2,11)]
+names(IS_R)<-c("recurso","consumidor","weight")
+IS_R_net<-graph_from_data_frame(IS_R,directed = TRUE, vertices =NULL)
+#Pastizal
+IS_P<-IS_P1[,c(1,2,11)]
+names(IS_P)<-c("recurso","consumidor","weight")
+IS_P_net<-graph_from_data_frame(IS_P,directed = TRUE, vertices =NULL)
+#Lote unlu
+IS_L<-IS_L1[,c(1,2,11)]
+names(IS_L)<-c("recurso","consumidor","weight")
+IS_L_net<-graph_from_data_frame(IS_L,directed = TRUE, vertices =NULL)
+
+####
+QSS_IS_R<-calc_QSS(IS_R_net, istrength=TRUE, returnRaw = TRUE, nsim=1000)
+QSS_IS_P<-calc_QSS(IS_P_net, istrength=TRUE, returnRaw = TRUE, nsim=1000)
+QSS_IS_L<-calc_QSS(IS_L_net, istrength=TRUE, returnRaw = TRUE, nsim=1000)
+
+#prueba de diferencias####
+#Luján
+Q_T_unlu<-rbind(data_frame(sitio=rep("R",length(QSS_IS_R)),qss=QSS_IS_R$maxre),
+                data_frame(sitio=rep("P",length(QSS_IS_P)),qss=QSS_IS_P$maxre),
+                data_frame(sitio=rep("A",length(QSS_IS_L)),qss=QSS_IS_L$maxre))
+names(Q_T_unlu)<-c("sitio","qss")
+
+
+AD_qss_RP<-kSamples::ad.test(as.numeric(qss) ~ sitio,data=Q_T_unlu[Q_T_unlu$sitio %in% c("R", "P"), ], method = "simulated", dist = FALSE, Nsim = 1000)
+AD_qss_RA<-kSamples::ad.test(as.numeric(qss) ~ sitio,data=Q_T_unlu[Q_T_unlu$sitio %in% c("R", "A"), ], method = "simulated", dist = FALSE, Nsim = 1000)
+AD_qss_AP<-kSamples::ad.test(as.numeric(qss) ~ sitio,data=Q_T_unlu[Q_T_unlu$sitio %in% c("A", "P"), ], method = "simulated", dist = FALSE, Nsim = 1000)
+
+# Recopilar los p-valores en un vector
+p_values_luj <- c(AD_qss_RP$ad[2, 3], AD_qss_RA$ad[2, 3], AD_qss_AP$ad[2, 3])
+
+# Ajustar los p-valores usando el método de Benjamini-Hochberg (FDR)
+adjusted_p_val_luj <- p.adjust(p_values_luj, method = "BH")
+
+
+#En luján/UNLu
+
+ks_RL_qss<-ks.test(QSS_IS_R$maxre,QSS_IS_L$maxre)
+ks_RP_qss<-ks.test(QSS_IS_R$maxre,QSS_IS_P$maxre)
+ks_LP_qss<-ks.test(QSS_IS_L$maxre,QSS_IS_P$maxre)
+# L: 0.414; R: 0.348; P: 0.371, ¿En que difieren a lo largo de la distribución?
+#Diferencias con el pastizal que obtuvo el menor valor de autovalor
+# Recopilar los p-valores en un vector
+p_values_ks.lu<- c(ks_RL_qss$p.value[1], ks_RP_qss$p.value[1],ks_LP_qss$p.value[1])
+
+
+# Ajustar los p-valores usando el método de Benjamini-Hochberg (FDR)
+adj_ks_p_val_lu <- p.adjust(p_values_ks.lu, method = "BH")
+
+
+```
+
+
+```{r flux, include=FALSE}
+
+flux_L<-fluxing(t(mG[c(L$taxa,"litter","carrion","tej_veg","hummus"),c(L$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_L, losses =  t_metL, efficiencies =  ef_L,ef.level = "pred")
+
+flux_R<-fluxing(t(mG[c(R$taxa,"litter","carrion","tej_veg","hummus"),c(R$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_R, losses =  t_metR, efficiencies =  ef_R,ef.level = "pred")
+
+flux_P<-fluxing(t(mG[c(P$taxa,"litter","carrion","tej_veg","hummus"),c(P$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_P, losses =  t_metP, efficiencies =  ef_P,ef.level = "pred")
+
+### flujo Ro
+flux_N<-fluxing(t(mG[c(N$specie,"litter","carrion","tej_veg"),
+                     c(N$specie,"litter","carrion","tej_veg")]),
+                biomasses = bm_N, losses =  t_metN, 
+                efficiencies =  ef_N,ef.level = "pred")
+flux_G<-fluxing(t(mG[c(G$specie,"litter","carrion","tej_veg"),
+                     c(G$specie,"litter","carrion","tej_veg")]),
+                biomasses = bm_G, losses =  t_metG, 
+                efficiencies =  ef_G,ef.level = "pred")
+flux_A<-fluxing(t(mG[c(A$specie,"litter","carrion","tej_veg"),
+                     c(A$specie,"litter","carrion","tej_veg")]),
+                biomasses = bm_A, losses =  t_metA, 
+                efficiencies =  ef_A,ef.level = "pred")
+
+#Reducción de redes####
+#a acaros colembolos
+flux_R.r<-fluxing(t(mG[c(Rf.r$taxa,"litter","carrion","tej_veg","hummus"),c(Rf.r$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_Rf.r, losses =  t_metRf.r, efficiencies =  ef_Rf.r,ef.level = "pred")
+
+flux_P.r<-fluxing(t(mG[c(Pf.r$taxa,"litter","carrion","tej_veg","hummus"),c(Pf.r$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_Pf.r, losses =  t_metPf.r, efficiencies =  ef_Pf.r,ef.level = "pred")
+
+flux_L.r<-fluxing(t(mG[c(Lf.r$taxa,"litter","carrion","tej_veg","hummus"),c(Lf.r$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_Lf.r, losses =  t_metLf.r, efficiencies =  ef_Lf.r,ef.level = "pred")
+```
+
+```{r flujos_multicanal, include=FALSE, message=FALSE,warning=FALSE}
+#herbivros########
+#flujo através de los hervíboros
+
+F_herb_R<-sum(flux_R["tej_veg",])
+F_herb_RMF<-(sum(flux_R[c("tej_veg"),!colnames(flux_R)%in%mf])/F_herb_R)*100#, 0.917
+F_herb_P<-sum(flux_P["tej_veg",])
+F_herb_PMF<-(sum(flux_P[c("tej_veg"),!colnames(flux_P)%in%mf])/F_herb_P)*100 # 0.939
+F_herb_L<-sum(flux_L["tej_veg",])
+F_herb_LMF<-(sum(flux_L[c("tej_veg"),!colnames(flux_L)%in%mf])/F_herb_L)*100 # 0.972
+
+F_herb_N<-sum(flux_N["tej_veg",])
+F_herb_G<-sum(flux_G["tej_veg",])
+F_herb_A<-sum(flux_A["tej_veg",])
+
+
+F_herb_R.r<-sum(flux_R.r["tej_veg",])
+F_herb_P.r<-sum(flux_P.r["tej_veg",])
+F_herb_L.r<-sum(flux_L.r["tej_veg",])
+
+#contribucion del consumo herviboro por parte de bacterias y hongos mayor al 93%
+
+#humifagos/geófagos####
+
+F_mo_R<-sum(flux_R["hummus",])
+F_mo_RMF<-(sum(flux_R[c("hummus"),!colnames(flux_R)%in%mf])/F_mo_R)*100# 0,208
+F_mo_P<-sum(flux_P["hummus",])
+F_mo_PMF<-(sum(flux_P[c("hummus"),!colnames(flux_P)%in%mf])/F_mo_P)*100# 0,197
+F_mo_L<-sum(flux_L["hummus",])
+F_mo_LMF<-(sum(flux_L[c("hummus"),!colnames(flux_L)%in%mf])/F_mo_L)*100# 0.253
+
+F_mo_N<-sum(flux_N["hummus",])
+F_mo_NMF<-sum(flux_N[c("hummus"),!colnames(flux_N)%in%mf])/F_mo_N*100# 0,206
+F_mo_G<-sum(flux_G["hummus",])
+F_mo_GMF<-sum(flux_G[c("hummus"),!colnames(flux_G)%in%mf])/F_mo_G*100# 0,175
+F_mo_A<-sum(flux_A["hummus",])
+F_mo_AMF<-sum(flux_A[c("hummus"),!colnames(flux_A)%in%mf])/F_mo_A*100# 0,217
+
+F_mo_R.r<-sum(flux_R.r["hummus",])
+F_mo_R.rMF<-sum(flux_R.r[c("hummus"),!colnames(flux_R.r)%in%mf])/F_mo_R.r*100# 0,155
+F_mo_P.r<-sum(flux_P.r["hummus",])
+F_mo_P.rMF<-sum(flux_P.r[c("hummus"),!colnames(flux_P.r)%in%mf])/F_mo_P.r*100# 0,13
+F_mo_L.r<-sum(flux_L.r["hummus",])
+F_mo_L.rMF<-sum(flux_L.r[c("hummus"),!colnames(flux_L.r)%in%mf])/F_mo_L.r*100# 0,159
+
+
+#detritivoros##########
+#flujo através de los detritívoros
+
+F_det_R<-sum(flux_R[c("litter","carrion"),])
+F_det_RMF<-(sum(flux_R[c("litter","carrion"),!colnames(flux_R)%in%mf])/F_det_R)*100 # 0,12
+#quitar importancia a bacterias
+F_det_P<-sum(flux_P[c("litter","carrion"),])
+F_det_PMF<-(sum(flux_P[c("litter","carrion"),!colnames(flux_P)%in%mf])/F_det_P)*100 # 0,0724
+F_det_L<-sum(flux_L[c("litter","carrion"),])
+F_det_LMF<-(sum(flux_L[c("litter","carrion"),!colnames(flux_L)%in%mf])/F_det_L)*100 #0,143
+
+F_det_N<-sum(flux_N[c("litter","carrion"),])
+F_det_NMF<-(sum(flux_N[c("litter","carrion"),!colnames(flux_N)%in%mf])/F_det_N)*100 #0,0991
+F_det_G<-sum(flux_G[c("litter","carrion"),])
+F_det_GMF<-(sum(flux_G[c("litter","carrion"),!colnames(flux_G)%in%mf])/F_det_G)*100 #0,265
+F_det_A<-sum(flux_A[c("litter","carrion"),])
+F_det_AMF<-(sum(flux_A[c("litter","carrion"),!colnames(flux_A)%in%mf])/F_det_A)*100 #0,505
+
+F_det_R.r<-sum(flux_R.r[c("litter","carrion"),])
+F_det_R.rMF<-(sum(flux_R.r[c("litter","carrion"),!colnames(flux_R.r)%in%mf])/F_det_R.r)*100 #0,489
+F_det_P.r<-sum(flux_P.r[c("litter","carrion"),])
+F_det_P.rMF<-(sum(flux_P.r[c("litter","carrion"),!colnames(flux_P.r)%in%mf])/F_det_P.r)*100 #0,0638
+F_det_L.r<-sum(flux_L.r[c("litter","carrion"),])
+F_det_L.rMF<-(sum(flux_L.r[c("litter","carrion"),!colnames(flux_L.r)%in%mf])/F_det_L.r) *100#0,155
+#colnames(flux_L.r) %in% det
+#microfitfagos###########
+#flujo através de los microvíboros
+
+F_mic_R<-sum(flux_R[c("bac","fungi"),])
+F_mic_P<-sum(flux_P[c("bac","fungi"),])
+F_mic_L<-sum(flux_L[c("bac","fungi"),])
+
+F_mic_N<-sum(flux_N[c("bac","fungi"),])
+F_mic_G<-sum(flux_G[c("bac","fungi"),])
+F_mic_A<-sum(flux_A[c("bac","fungi"),])
+
+F_mic_R.r<-sum(flux_R.r[c("bac","fungi"),])
+F_mic_P.r<-sum(flux_P.r[c("bac","fungi"),])
+F_mic_L.r<-sum(flux_L.r[c("bac","fungi"),])
+
+#predadores####
+#flujo através de los predadores
+# se incluyen lo que comen los omnívoros
+
+#Rbases<-c("tej_veg", "fungi","bac","litter","carrion")
+#!colnames(flux_R) %in% Rbases
+F_pred_R<-sum(flux_R[,colnames(flux_R) %in% pred])
+F_pred_P<-sum(flux_P[,colnames(flux_P) %in% pred])
+F_pred_L<-sum(flux_L[,colnames(flux_L) %in% pred])
+
+F_pred_N<-sum(flux_N[,colnames(flux_N) %in% pred])
+F_pred_G<-sum(flux_G[,colnames(flux_G) %in% pred])
+F_pred_A<-sum(flux_A[,colnames(flux_A) %in% pred])
+
+F_pred_R.r<-sum(flux_R.r[,colnames(flux_R.r) %in% pred])
+F_pred_P.r<-sum(flux_P.r[,colnames(flux_P.r) %in% pred])
+F_pred_L.r<-sum(flux_L.r[,colnames(flux_L.r) %in% pred])
+
+#omnivoros####
+#flujo através de los omnivoros
+
+F_omn_R<-sum(flux_R[!rownames(flux_R) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_R) %in% omn])
+F_omn_P<-sum(flux_P[!rownames(flux_P) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_P) %in% omn])
+F_omn_L<-sum(flux_L[!rownames(flux_L) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_L) %in% omn])
+
+F_omn_N<-sum(flux_N[!rownames(flux_N) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_N) %in% omn])
+F_omn_G<-sum(flux_G[!rownames(flux_G) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_G) %in% omn])
+F_omn_A<-sum(flux_A[!rownames(flux_A) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_A) %in% omn])
+
+F_omn_R.r<-sum(flux_R.r[!rownames(flux_R.r) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_R.r) %in% omn])
+F_omn_P.r<-sum(flux_P.r[!rownames(flux_P.r) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_P.r) %in% omn])
+F_omn_L.r<-sum(flux_L.r[!rownames(flux_L.r) %in%(c("bac","fungi","litter","hummus","carrion","tej_veg")),colnames(flux_L.r) %in% omn])
+
+```
+
+## Flujos de energía a través de las redes tróficas en suelos Argiudoles
+
+El flujo de energía total, que atraviesa las redes tróficas de la comunidad de la fauna edáfica en suelos 
+argiudoles de Luján fué mayor en la comunidad de
+la Reserva, seguida por la comunidad en el Pastizal y el sistema agrícola intensivo con un flujo menor de energía, siendo estos de 2,32 - 2 - 1,26 MJ.año^-1^ respectivamente.
+
+La cantidad de energía ligada a la <u>biotransformación</u> del suelo (Table 5.2),
+es decir, el canal de energía relacionado con el consumo de la materia orgánica del suelo,
+es de gran importancia en el sistema edáfico del suelo, pudiendo alcanzar hasta un 73% con respecto a 
+la cantidad total de energía que atraviesa el sistema.
+
+<!-- explicar en metodos que son los canales de energia,  -->
+
+
+En la Reserva se observá el mayor valor de energía ligada con el uso de la materia orgánica del suelo
+(1,6 MJ.año^-1^) y con respecto al sistema de la reserva el sistema agrícola se aleja con una diferencia 
+de 0,85 MJ.año^-1^. 
+
+El consumo de materia orgánica del suelo por parte de la microflora se estimó alrededor del 22 ± 3 % en estos sistemas 
+edáficos, la mayor participación de la microflora se observó en el sistema Agrícola (Tabla 5.2).
+
+```{r flujos_multicanal_print, include=FALSE, message=FALSE,warning=FALSE}
+F_mc_lu<-data.frame(sitio=c("Reserva","Pastizal","Agrícola"),
+                    total=c(paste(round(sum(flux_R)/1e6,2),"a"),paste(round(sum(flux_P)/1e6,2),"a"),
+                            paste(round(sum(flux_L)/1e6,2),"b")
+                               ),
+           biotransformación=c(paste(round(F_mo_R,2)," ","[",round(100-F_mo_RMF,1),"]",sep = ""),
+                               paste(round(F_mo_P,2)," ","[",round(100-F_mo_PMF,1),"]",sep = ""),
+                               paste(round(F_mo_L,2)," ","[",round(100-F_mo_LMF,1),"]",sep = "")
+                               ),
+           detritivoria=c(paste(round(F_det_R,2)," ","[",round(100-F_det_RMF,1),"]",sep = ""),
+                               paste(round(F_det_P,2)," ","[",round(100-F_det_PMF,1),"]",sep = ""),
+                               paste(round(F_det_L,2)," ","[",round(100-F_det_LMF,1),"]",sep = "")
+                               ),
+           microfitofagia=c(F_mic_R,F_mic_P,F_mic_L),
+           predación=c(F_pred_R,F_pred_P,F_pred_L),
+           omnivoría=c(F_omn_R,F_omn_P,F_omn_L),
+           herbivoría=c(paste(round(F_herb_R,2)," ","[",round(100-F_herb_RMF,1),"]",sep = ""),
+                               paste(round(F_herb_P,2)," ","[",round(100-F_herb_PMF,1),"]",sep = ""),
+                               paste(round(F_herb_L,2)," ","[",round(100-F_herb_LMF,1),"]",sep = "")
+                               ),
+           row.names = NULL)
+
+
+```
+
+**Tabla 5.2** Flujos de energía en Joule/año (flujo total en MJ/año) que atraviesan los diferentes canales de energía vinculados a funciones biológicas que ocurren en las redes tróficas de la comunidades de suelos Argiudoles de Luján. Entre corchetes el porcentaje del flujo de energía que llega a la microflora.
+
+
+
+```{r flujos_multicnl_print, echo=FALSE, message=FALSE,warning=FALSE}
+F_mc_lu
+
+```
+
+La detritivoría y la microfitofagia fueron mayores en valor absoluto en la Reserva.
+En términos relativos la detritivoría fué mayor en el sistema agrícola (≈ 30%) y fué menor en el pastizal (≈ 20%). A la vez (Tabla 5.2) 
+la participación de la microflora en el consumo de la materia orgánica en descomposición en el sistema del pastizal fué de mayor importancia, 
+viceversa la participación de la fauna edáfica en el consumo de este recurso fué mayor en el sistema agrícola.
+
+En todos los sistemas el consumo de bacterias y hongos, <u>microfitofagia/microviboría</u>,
+conyevan flujos de energía menores al 3,3% con relación al
+del flujo total de energía que atraviesa estos suelos, en los suelos de la Reserva 
+la microviboría fué ligeramente mayor, seguidas por el sistema agrícola y 1 punto porcentual por debajo el 
+sistema del Pastizal.
+
+<!-- explicacion de zoofagia a metodos, poner valores en tablas y aqui mencionar tendencias generales con % --> 
+El consumo de la fauna, la <u>zoofagia</u>, se estima como la suma de la 
+energía que pasa por los depredadores "verdaderos" y por la cantidad de energía ligada al consumo de 
+fauna del que se alimentan los omnívoros, este contabiliza ≈ 0,64% del flujo total de energía. Por su parte,
+la contribución de los omnívoros a los canales de la microfitofagia y detritivoria 
+se halla contabilizada en el canal en cuestión.
+seguido por el sistema agrícola y el pastizal.
+La zoofagia, en términos absolutos, fué mayor en el pastizal (≈12 kJ.año^-1^) y 
+menor en el sistema agrícola(≈7 kJ.año^-1^), con relación al total la importancia de la zoofagia fué cercana 
+entre el pastizal y el sistema agrícola al rededor del 0,67% y menor en la Reserva con una importancia del 0,54%.
+La cantidad de energía que llega a los predadores verdaderos es el de menor importancia relativa por debajo 
+del 0,3% del flujo total, en los suelos de la reserva la cantidad de energía en este canal fué mas bajo, 
+La zoofagia por parte de los omnivoros es de gran importancia en estos sistemas
+a través de estos actores llega aproximadamente 60% del flujo energético ligado al consumo de 
+zooplasma, en la reserva la contribución de los omnívoros fué mayor que en sistemas antropizados.
+
+```{r flujos_multicanal_print1, include=FALSE, message=FALSE,warning=FALSE}
+F_mc_total<-data.frame(sitio=c("Naturalizado","Mixto","Agrícola","Reserva","Pastizal","Agrícola"),
+           biotransformación=c(paste(sep="",round((F_mo_N))," ","(",round((F_mo_N/sum(flux_N))*100,2),")","[",100-round(F_mo_NMF,1),"]"),
+                               paste(sep="",round((F_mo_G))," ","(",round((F_mo_G/sum(flux_G))*100,2),")","[",100-round(F_mo_GMF,1),"]"),
+                               paste(sep="",round((F_mo_A))," ","(",round((F_mo_A/sum(flux_A))*100,2),")","[",100-round(F_mo_AMF,1),"]"),
+                               paste(sep="",round((F_mo_R.r))," ","(",round((F_mo_R.r/sum(flux_R.r))*100,2),")","[",100-round(F_mo_R.rMF,1),"]"),
+                               paste(sep="",round((F_mo_P.r))," ","(",round((F_mo_P.r/sum(flux_P.r))*100,2),")","[",100-round(F_mo_P.rMF,1),"]"),
+                               paste(sep="",round((F_mo_L.r))," ","(",round((F_mo_L.r/sum(flux_L.r))*100,2),")","[",100-round(F_mo_L.rMF,1),"]")
+                               ),
+           detritivoria=c(paste(sep="",round((F_det_N))," ","(",round((F_det_N/sum(flux_N))*100,2),")","[",100-round(F_det_NMF,1),"]"),
+                               paste(sep="",round((F_det_G))," ","(",round((F_det_G/sum(flux_G))*100,2),")","[",100-round(F_det_GMF,1),"]"),
+                               paste(sep="",round((F_det_A))," ","(",round((F_det_A/sum(flux_A))*100,2),")","[",100-round(F_det_AMF,1),"]"),
+                               paste(sep="",round((F_det_R.r))," ","(",round((F_det_R.r/sum(flux_R.r))*100,2),")","[",100-round(F_det_R.rMF,1),"]"),
+                               paste(sep="",round((F_det_P.r),2)," ","(",round((F_det_P.r/sum(flux_P.r))*100,2),")","[",100-round(F_det_P.rMF,1),"]"),
+                               paste(sep="",round((F_det_L.r))," ","(",round((F_det_L.r/sum(flux_L.r))*100,2),")","[",100-round(F_det_L.rMF,1),"]")
+                               )
+            ,
+           microfitofagia=c(paste(sep="",round((F_mic_N))," ","(",round((F_mic_N/sum(flux_N))*100,2),")"),
+                               paste(sep="",round((F_mic_G))," ","(",round((F_mic_G/sum(flux_G))*100,2),")"),
+                               paste(sep="",round((F_mic_A))," ","(",round((F_mic_A/sum(flux_A))*100,2),")"),
+                               paste(sep="",round((F_mic_R.r))," ","(",round((F_mic_R.r/sum(flux_R.r))*100,2),")"),
+                               paste(sep="",round((F_mic_P.r))," ","(",round((F_mic_P.r/sum(flux_P.r))*100,2),")"),
+                               paste(sep="",round((F_mic_L.r))," ","(",round((F_mic_L.r/sum(flux_L.r))*100,2),")")
+                               ),
+           predación=c(paste(sep="",round((F_pred_N))," ","(",round((F_pred_N/sum(flux_N))*100,2),")"),
+                               paste(sep="",round((F_pred_G))," ","(",round((F_pred_G/sum(flux_G))*100,2),")"),
+                               paste(sep="",round((F_pred_A))," ","(",round((F_pred_A/sum(flux_A))*100,2),")"),
+                               paste(sep="",round((F_pred_R.r))," ","(",round((F_pred_R.r/sum(flux_R.r))*100,2),")"),
+                               paste(sep="",round((F_pred_P.r))," ","(",round((F_pred_P.r/sum(flux_P.r))*100,2),")"),
+                               paste(sep="",round((F_pred_L.r))," ","(",round((F_pred_L.r/sum(flux_L.r))*100,2),")")
+                               ),
+           omnivoría=c(paste(sep="",round((F_omn_N))," ","(",round((F_omn_N/sum(flux_N))*100,2),")"),
+                               paste(sep="",round((F_omn_G))," ","(",round((F_omn_G/sum(flux_G))*100,2),")"),
+                               paste(sep="",round((F_omn_A))," ","(",round((F_omn_A/sum(flux_A))*100,2),")"),
+                               paste(sep="",round((F_omn_R.r))," ","(",round((F_omn_R.r/sum(flux_R.r))*100,2),")"),
+                               paste(sep="",round((F_omn_P.r))," ","(",round((F_omn_P.r/sum(flux_P.r))*100,2),")"),
+                               paste(sep="",round((F_omn_L.r))," ","(",round((F_omn_L.r/sum(flux_L.r))*100,2),")")
+                               ),
+             row.names = NULL)
+
+
+
+```
+
+**Tabla 5.3** Flujos de energía en Joule/año, en entre paréntesis el porcentaje del flujo de energía en relación al flujo total y entre corchetes el porcentaje del flujo de energía que llega a la microflora. Las columnas corresponden a los diferentes canales de energía vinculados a las funciones biológicas que ocurren en las redes tróficas de las comunidades de microartrópodos edáficos y lombrices de tierra de suelos Argiudoles de Chivilcoy y Navarro y suelos argiudoles de Luján
+
+
+```{r flujos_multicanal_show, echo=FALSE, message=FALSE,warning=FALSE}
+F_mc_total
+
+
+
+```
+
+
+En los suelos de Chivilcoy y Navarro, (Tabla 5.3) los flujos de energía alcanzan un máximo de 37,74
+kJ.año^-1^ en los suelos con actividad agrícola ganadera, seguidos por el sistema agrícola intensivo que suma 37,4 kJ.año^-1^
+y el pastizal naturalizado con 37,2 kJ.año^-1^. 
+
+En la red trofica con actores similares a los que ocurren en Chivilcoy y Navarro pero en los suelos 
+argiudoles de Luján en promedio el flujo total de energía fué de 1,73 MJ.año^-1^, es decir, que 
+através de la red trofica de Luján se estimó un flujo de energía 46 veces mayor, esta diferencia puede
+deberse a diferencias en los valores de biomasa en los recursos tróficos base en los diferentes sistemas.
+
+El canal que mueve el humus del suelo fue el de mayor importancia, superando el 95% de la 
+contribución al flujo total de energía. En suelos argiudoles de Chivilcoy y Navarro, en términos relativos
+los tres sistemas poseen valores próximos entre sí, siendo ligeramente mayor en el pastizal naturalizado. 
+Con respecto a la participación de la microflora en el uso de la materia orgánica del suelo, en términos relativos fué mayor en 
+el sistema mixto ganadero seguidos por el pastizal naturalizado.
+En suelos de Luján la transformación biológica de la materia orgánica del suelo muestran valores relativos próximos entre sí,
+con los mayores valores en el sistema agrícola y la reserva, por su parte, la contribución de la microflora
+fué mayor en el patizal seguidos por la reserva.
+
+La detritivoría (Tabla 5.3) fue menor en el pastizal naturalizado con una gran participación de la microflora en el consumo del recurso 
+a la vez la detritivoría fué mayor en el sistema agrícola intensivo con una participación importante de la fauna en el consumo de la hojarasca; por su parte en suelos de Luján en el sistema del pastizal se
+observó la mayor participación de detritívoros con relación al total con la mayor contribución de la microflora en el uso del recurso.
+
+El canal de energía de la microfitofagia en Chivilcoy y Navarro relacionado al control de poblaciones de la
+microflora, en el pastizal naturalizado fué de menor importancia separandose casi 0,2 puntos porcentuales de los que ocurren en sistemas antropizados cuyos valores fueron próximos; en suelos de Luján la 
+microviboría fue mayor en el sistema Agrícola y menor en la Reserva. 
+
+La zoofagia, en suelos de Chivilcoy y Navarro, contabiliza valores similares del flujo de energía entre el pastizal naturalizado y el sistema agrícola intensivo, aunque la contribución de los omnívoros es mayor en el sistema agrícola intensivo y solo un Joule por debajo el sistema mixto agrícola ganadero. En estos suelos la contribución de los predadores "verdaderos" a la zoofagia fue mayor que la zoofagia por parte de los omnívoros. En suelos de Luján la contribución a lo zoofagia por parte de los omnívoros es mayor que 
+la participación de los predadores "verdaderos", en términos relativos, en el pastizal la zooofagia es mayor y en la Reserva esta resultó menor.
+
+## Estabilidad de las redes tróficas en suelos Argiudoles
+
+```{r resumenQSS, include=FALSE}
+QSS.final <- read.csv("database/QSS.txt", sep="")
+#promedi
+Q_med_L<-mean(log(QSS.final$maxreL))
+Q_med_R<-mean(log(QSS.final$maxreR))
+Q_med_P<-mean(log(QSS.final$maxreP))
+#desvio
+
+Q_sd_L<-sd(log(QSS.final$maxreL))
+Q_sd_R<-sd(log(QSS.final$maxreR))
+Q_sd_P<-sd(log(QSS.final$maxreP))
+
+#intervalo confianza
+Q_int_L<-t.test((log(QSS.final$maxreL)))
+Q_int_R<-t.test((log(QSS.final$maxreR)))
+Q_int_P<-t.test((log(QSS.final$maxreP)))
+
+#moda
+Q_moda_L<-mlv(log(QSS.final$maxreL), method = "naive",bw=0.09)
+Q_moda_R<-mlv(log(QSS.final$maxreR), method = "naive",bw=0.09)
+Q_moda_P<-mlv(log(QSS.final$maxreP), method = "naive",bw=0.09)
+#mediana
+Q_median_R<-median(log(QSS.final$maxreR))
+Q_median_P<-median(log(QSS.final$maxreP))
+Q_median_L<-median(log(QSS.final$maxreL))
+
+```
+
+
+En los suelos argiudoles de Luján, en redes tróficas edáficas completas,  
+la distribución de la parte real del máximo autovalor (λ) de las matrices de cuasi-signo (QSS)
+de las redes de interacciones tróficas (Fig. 5.3) se movió en un rango de ≈ 7 ordenes de magnitud.
+
+Considerando la distribución de los valores de estabilidad de cuasi-signo (QSS)
+que resultan de las iteraciones del algoritmo hechas sobre las matrices Jacobianas 
+de las redes tróficas de detritívoros 
+edáficos que ocurren en los diferentes sistemas de uso del suelo, 
+se hallaron diferencias significativas entre 
+los tres sistemas de uso según la prueba de Anderson-Darling $AD: p_{\,valor} < 0.05$. 
+
+```{r plot_QSS_IS, echo=FALSE,,message=FALSE,warning=FALSE}
+par(mfrow=c(1,3))
+hist(log(QSS.final$maxreR),border =  "blue4",col=NULL,breaks=40,freq = FALSE,main = "Reserva", sub= "Estabilidad de cuasi-signo", xlab = "ln qss",ylab=NULL)
+axis(1, at = seq(-6, 3, by = 1))
+abline(v=mean(log(QSS.final$maxreR)),col="yellow",lty=3,lwd=3)
+abline(v=median(log(QSS.final$maxreR)),col="red",lty=3,lwd=2.5)
+abline(v=c(quantile(log(QSS.final$maxreR),probs = 0.25),quantile(log(QSS.final$maxreR),probs = 0.75)),col="skyblue",lty=3,lwd=1.5)
+
+hist(log(QSS.final$maxreP), border =  "green4",col=NULL,breaks=40,freq = FALSE,main = "Pastizal", sub= "Estabilidad de cuasi-signo", xlab = "ln qss",ylab=NULL)
+axis(1, at = seq(-6, 3, by = 1)) 
+abline(v=mean(log(QSS.final$maxreP)),col="yellow",lty=3,lwd=3)
+abline(v=median(log(QSS.final$maxreP)),col="red",lty=3,lwd=2.5)
+abline(v=c(quantile(log(QSS.final$maxreP),probs = 0.25),quantile(log(QSS.final$maxreP),probs = 0.75)),col="skyblue",lty=3,lwd=1.5)
+
+hist(log(QSS.final$maxreL), border =  "orange3",col=NULL,breaks=40,freq = FALSE,main = "Agrícola", sub= "Estabilidad de cuasi-signo", xlab = "ln qss",ylab=NULL)
+axis(1, at = seq(-6, 3, by = 1)) 
+abline(v=mean(log(QSS.final$maxreL)),col="yellow",lty=3,lwd=3)
+abline(v=median(log(QSS.final$maxreL)),col="red",lty=3,lwd=2.5)
+abline(v=c(quantile(log(QSS.final$maxreL),probs = 0.25),quantile(log(QSS.final$maxreL),probs = 0.75)),col="skyblue",lty=3,lwd=1.5)
+
+par(mfrow=c(1,1))
+
+
+```
+
+**Figura 5.3** Histogramas del valor de estabilidad. En el eje horizontal, se expresa el valor del máximo autovalor de la matriz Jacobiana obtenidas a partir del algoritmo de quasi-signo (Alesina et al 2015) expresado en logaritmo natural, se muestran mil iteraciones. Eje vertical valor de frecuencia del intervalo. Como lineas verticales se dibujan, el promedio en color amarillo, la mediana en color rojo, y los cuartiles primero y tercero como lineas más finas.
+
+Por lo tanto, la distribución de los autovalores en los tres sistemas de uso se diferencian entre sí, 
+el promedio y la mediana de la parte real 
+del autovalor de la matriz Jacobiana en los suelos de la comunidad de la Reserva, el Pastizal y el Agrícola fué
+de `r exp(Q_med_R)`; `r exp(Q_median_R)` - `r exp(Q_med_P)`; `r exp(Q_median_P)`- `r exp(Q_med_L)`;`r exp(Q_median_L)`, respectivamente.
+
+La distribución de los valores λ del QSS se asemejan (Fig 5.x) a los de una campana simétrica, producto de las aleatorizaciones del algoritmo implementado, el valor más probable, es decir, la moda de la distribución, se halla cercana a los valores de tendencia centrales en los diferentes sistemas de uso del suelo. 
+
+En la Reserva la moda la moda fué `r exp(Q_moda_R)`, en el pastizal la moda fué `r exp(Q_moda_P)`, en el 
+sistema agrícola la moda fué `r exp(Q_moda_L)`, los valores de estas modas ocurrieron con una frecuencia mayor
+a 40 tanto por cien en los diferentes sistemas de uso del suelo. 
+
+Estos datos nos muestran que en sistemas antropizados, con una cobertura vegetal similar a las de la vegetación original de la Pampa Ondulada se obtienen valores del λ del cuasi-signo más cercanos a cero.
+
+# Conclusiones
+
+<!--
+Estructura general de conclusiones
+
+- Responde a la pregunta planteada.
+- Sustenta tu conclusión (tus datos, datos de otros).
+- Defiende tu conclusión (anticipa críticas).
+- Da el mensaje principal o conclusión general.
+
+En mas detalle
+
+Hallazgo clave (respuesta a la(s) pregunta(s) planteada(s) en la Introducción)
+
+* Comienza con: "HEMOS ENCONTRADO QUE..." (o algo similar)
+* Explica qué significan los datos (visión general)
+* Indica si los hallazgos son novedosos
+
+Describe Hallazgos secundarios clave
+
+Proporciona Contexto
+• Proporcionar posibles mecanismos o vías
+• Comparar sus resultados con los resultados de otras personas
+• Discutir cómo sus hallazgos apoyan o desafían el paradigma
+
+Describe Fortalezas y limitaciones
+• Anticipe las preguntas/críticas de los lectores
+• Explique por qué sus resultados son sólidos
+
+Ahora Qué sigue
+• Estudios confirmatorios recomendados ("necesita ser confirmado")
+• Señalar preguntas sin responder y direcciones futuras
+
+Implica, especula, recomienda
+• Proporciona las implicaciones generales (ecologicas) de los hallazgos científicos básicos
+• Dile a los lectores por qué deberían interesarse
+
+Conclusión sólida
+• Reafirme su hallazgo principal.
+• Dé un mensaje final para recordar
+
+-->
+
+```{=html}
+<!-- ESTE PARRAFO SOBRE LA IMPORTANCIA DE LAS REDES ES UN POCO REDUNDANTE quizas moverlo hacia abajo
+
+ Los estudios sobre el flujo de energía y materia en el ecosistema edáfico, agrupan a los organismos edáficos en gremios funcionales para comprender las relaciones entre la estructura de la biota del suelo y el funcionamiento del ecosistema. Sin embargo, este enfoque deja de lado la comprensión de cómo los cambios en la comunidad influyen en el funcionamiento del ecosistema (Thompson et al., 2012; Wall y Moore, 1999). Thompson et. al. (2012) sugieren abordar este problema desde el punto de vista de las redes tróficas, que podrían vincular el flujo de materia y energía y la diversidad de una comunidad. Así, estudiando la estructura de las redes tróficas, podemos comprender mejor el papel de la biodiversidad en el funcionamiento del ecosistema.
+
+-->
+```
+
+Las redes tróficas de los suelos argiudoles de la Pampa Ondulada muestran un entramado de relaciones tróficas bastante densa
+en estas redes prevalece la omnivoría dado que los taxones se alimentan de más de un nivel trófico 
+como lo han descrito Digel et al [-@digel2014] quienes catalogan a la fauna edáfica como consumidores oportunistas
+con un escaso nivel de especialización dietaria.
+<!-- bastante densa, con respecto a quien??, bastante es un termino inexacto --> 
+
+Estas redes tróficas tienen 4 niveles tróficos como los encontrados en redes tróficas de otros sistemas ecológicos 
+[@pimm1991; @quevreux2023],
+esta red trófica edáfica podria estructurarse como los recursos bases que son consumidos 
+principalmente por las bacterias y hongos
+quienes poseen el aparato enzimatico especializado para descomponer la materia orgánica, estos son los descomponedores 
+primarios, luego la fauna que se corresponde con los descomponedores secundarios que hacen
+uso de la microflora como principal recurso el cual posee una la mayor calidad nutritiva en comparación con los detritos. 
+Para los demás niveles tróficos la separación es difusa debido al importante porcentaje de omnivoría lo que 
+explica el valor del nivel trófico medio, alrededor de tres, en estas redes de detritivoría en los suelos 
+se estructuran como redes reticulares [@wolkovich2016] que implica que los animales de mayor porte utilizan 
+recursos en niveles tróficos similares a aquellos pertenecientes a la red trófica "micro-" (*"microfood web"* en 
+inglés), por ejemplo que las lombrices de tierra
+cuyo espectro de tamaño es alto se alimente de hojarasca [@quevreux2023;@potapov2021a].
+
+El importante porcentaje de omnivoria (>70%) es característica en estas redes detritívoras y está ligada a 
+la alimentación oportunista y a la redundancia funcional, por ejemplo, los omnívoros zoofagos se alimentarán 
+tanto de la microfauna como de los descomponedores secundarios como de la microflora; por otra parte, los predadores "verdaderos"
+por su alimentacion generalista también consumen en más de un nivel trófico, por ej. aquellos miríapodos con adaptaciones para 
+recorrer poros del suelo predarán sobre nemátodos de gran tamaño como sobre la mesofauna y la macrofauna de pequeño tamaño.
+
+La conectancia de estas redes aunque ligeramente mayor que la observada en redes tróficas de ecosistemas que 
+ocurren sobre el suelo o en sistemas acuáticos se encuentra dentro de los valores de 
+conectancia hallados en suelos de bosques templados [@digel2014]
+por lo que su valor se encuentra en los valores que corresponden a las redes tróficas ecológicas.
+El coeficiente de agrupamiento "clustering", que implica la probabilidad de que diferentes especies tróficas 
+esten cercanamente interconectadas debido al solapamiento de sus dietas o de sus depredadores, fué 
+moderado en las redes tróficas de suelo argiudoles típicos (C.C. > 0,4), según Digel et al  [-@digel2014]
+en los suelos 
+las redes tróficas de detritívoros muestran un valor del coeficiente de agrupamiento más alto que el de 
+las demás redes ecológicas abordadas por estos autores (ecosistemas terrestres basado en plantas y 
+ecosistemas de acuaticos) 
+aunque el valor calculado para los suelos locales de la Pampa Ondulada fueron de más del doble que 
+el valor estimado por aquellos autores. 
+
+Tanto los valores de vulnerabilidad como los de generalidad fueron similares dentro 
+de las redes tróficas en un mismo sistema de uso del suelo como entre sistemas de uso del 
+suelo esto implica que las diferentes 
+especies tróficas consumen y son consumidos aproximadamente con un mismo número, es decir, si una especie trófica 
+consume 4 especies tróficas entonces la misma será consumida por otras 4 especies tróficas, 
+esto refleja la redundancia de especies tróficas que existe
+en las redes tróficas del sistema detritívoro edáfico.
+
+En general los valores de los parámetros topológicos entre los diferentes sistemas de uso del suelo fueron próximos 
+entre sí,
+y esto se observa tanto en redes tróficas edáficas parciales como aquellas abordadas para suelos de Chivilcoy y 
+Navarro conformadas
+por taxones de ácaros, colémbolos y lombrices que dominan las comunidades del suelo 
+como en redes tróficas más abarcativas con los taxones de 
+la micro-, meso- y macro- fauna en el cual existen tanto taxones raros como taxones dominantes tal como los 
+enquitreidos 
+que son poco estudiados en los suelos argentinos. Si existen configuraciones que varían entre los sistemas de uso 
+del suelo debidas la riqueza de especies tróficas como al número de interacciones con el que participan lo que 
+determina la variabilidad entre parámetros.
+
+En estas redes solo se observó una diferencia en la magnitud del flujo de energía total que
+ocurre en el sistema agrícola en suelos de Luján lo que implica que en el sistema agrícola circuló una menor 
+cantidad de energía en estas condiciones, pero esto no repitió con respecto al flujo total de energía 
+calculado en redes parciales de Chivilcoy y Navarro.
+
+En las redes detritívoras del suelo el flujo de energía fluyó predominantemente a través 
+del canal que se abastece de la materia orgánica del suelo
+y su uso se canaliza principalmente a través de la microflora. El canal basado en
+el uso de recursos recalcitrantes como la hojarasca y la carroña, sigue en importancia con relación al 
+flujo de energia total, en este canal una mayor variabilidad ocurre con respecto a  
+participación de la fauna reflejando una mayor importancia de estos en el sistema agrícola en 
+redes completas.  
+En las redes parciales el segundo lugar de importancia en relación al flujo de energía 
+recae sobre el canal relacionado con el consumo de
+poblaciones de bacterias y hongos, recurso utilizado por los descomponedores de segundo nivel, 
+cuya influencia sobre a descomposición es indirecta al ejercer presión de consumo 
+sobre los "verdaderos" descomponedores [@coleman2004; @hunt1987],
+esto está de linea con los integrantes de estas redes tróficas 
+parciales cuya comunidad se constituye principalmente 
+de microartrópodos edáficos que se alimentan en gran medida de hongos y bacterias.
+La zoofagia en las redes tróficas edáficas, en términos de flujo de energía es bajo
+y este fenómeno se haya ligado a características ecológicas generales basados en la cuestion 
+de la eficiencia energética (citas clásics a sugerir ?), además resalta que la zoofagia recae más sobre 
+omnívoros que sobre predadores 
+propiamente dichos, sin embargo en redes tróficas reducidas de Chivilcoy y Navarro 
+la zoofagia si que fluye con mayor importancia
+a través de los verdaderos predadores, es decir, ácaros mesostigmatas y prostigmatas, aunque en los suelos de 
+Luján el patron de zoofagia por parte de omnivoros se mantiene, indicando que los actores son diferentes
+quiza con los ácaros prostigmatas dominando el canal por sobre los ácaros mesostigmatas.
+<!-- Restructuring of soil food webs reduces carbon storage potential in boreal
+peatlands Barreto, Carlos-->
+La fracción del metabolismo edáfico que recae sobre la fauna edáfica representa solo un
+pequeño porcentaje del 
+metabolismo total del suelo [@persson1980a; @persson1977; @hale1971] , sin embargo, 
+sobre la fauna edáfica recaen los mecanismos que influyen en la 
+dinámica espacial y temporal 
+de la microflora edáfica [@butcher1971] por lo que la magnitud de los cambios en la 
+comunidad de la fauna edáfica podría derivar en cambios con impacto significativos en los procesos ecológicos 
+y biogeoquímicos en el suelo [@potapov2023; @potapov2022].
+
+Estas redes tróficas edáficas fueron construidas a partir del conocimiento de características biológicas
+que configuran los rasgos funcionales de las especies y caracterísiticas poblacionales, basándose en la 
+recopilación de estos de forma empírica, o a partir de la bibliogafía disponible sobre la biología de 
+las diferentes especies tróficas. Este nivel de detalle permite calcular las fuerzas de interacciones tróficas
+en diferentes sistemas de uso del suelo y así obtener aproximaciones cercanas a la situación real 
+bajo las cuales se hallan las comunidades edáficas. Es así que llegamos a determinar que sin importar las 
+variaciones que pudiesen existir entre las comunidades edáficas en diferentes sistemas de uso del suelo 
+el cálculo de la estabilidad entre ellos nos indica que se encuentran próximos a una situación localmente 
+estable [@allesina2008; @pimm1991] 
+y que aquellos sistemas con un cierto grado de antropización requieren de una levemente
+menor autoregulación para llegar a una situación de estabilidad local aunque esto podría implicar la 
+aproximación hacia un nuevo estado estable que implique la adaptación de las comunidades 
+detritívoras del suelo a las prácticas desarrolladas sobre el sistema edáfico *per se* o a los 
+cambios debidos a las comunidades que componen la vegetación.
+
+# Referencias
+
+::: {#refs}
+:::
+
+
+\newpage
+
+# Apéndice del capítulo 5
+## Apéndice 5.1. Matriz de adyacencia de la fauna del suelo
+
+```{r apendice1, echo=FALSE, message=FALSE,error=FALSE,warning=FALSE}
+t(mG)
+```
+
+## Apéndice 5.2. Matriz de adyacencia de la fauna del suelo
+```{r apendice2, echo=FALSE, message=FALSE,error=FALSE,warning=FALSE}
+
+tabla_nombre<-data.frame(Nombre=V(T_net)$name,Identificador=V(T_net)$id,row.names=NULL)
+tabla_nombre
+```
+
+

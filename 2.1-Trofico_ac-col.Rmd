@@ -27,22 +27,17 @@ En las últimas décadas, el uso sostenible del suelo se ha convertido en el cen
 
 La visión sobre la biota edáfica ha cambiado en los últimos años. La mayoría de los trabajos sobre descripciones taxonómicas, riqueza, estimación de la biodiversidad y microambientes [@Anderson1978; @Petersen1982], destacan la fragilidad y necesidad de conservación de los suelos y de la biodiversidad edáfica [@FAO2020; @Walker1992]. El enfoque se ha desplazado gradualmente hacia el estudio del funcionamiento del ecosistema edáfico, en el que las interacciones entre la biota y el medio edáfico afectan jerárquicamente a su estructura y funcionamiento [@Barrios2007; @Behan-Pelletier1999; @Brussaard1997; @Lavelle2006]. Las relaciones de la riqueza de especies con la dinámica de los ecosistemas permiten establecer relaciones causales entre las características de los organismos presentes y los procesos y servicios del ecosistema [@Hooper2005; @Martin-Lopez2007] tanto en ambientes naturales como controlados [@Wall2012].
 
-Los microartrópodos del suelo están formados principalmente por microartrópodos pertenecientes a las subclases Acari y Collembola (siguiendo a @Krantz2009 y @Hopkin1997) que habitan en los horizontes superiores del suelo [@Martinez2009], donde se desarrollan y mantienen comunidades complejas. Estas comunidades están influenciadas por una elevada heterogeneidad de microhábitats y el número de recursos alimenticios disponibles [@Anderson1977; @Anderson1978; @Lavelle2001], que proporcionan un amplio y variado conjunto de nichos ecológicos [@Nielsen2010; @Wallwork1958]. Los microartrópodos, a través de sus relaciones tróficas, contribuyen al funcionamiento edáfico mediante la fragmentación de la materia orgánica, la dinámica del ciclo de nutrientes, el transporte de propágulos de microflora y la regulación de las poblaciones de microflora y microfauna que afectan a la producción primaria [@Brussaard1997; @Cragg2001; @Lavelle1996; @Wall2012; @FAO2020].
+Los microartrópodos del suelo están formados principalmente por especies pertenecientes a las subclases Acari y Collembola (siguiendo a @Krantz2009 y @Hopkin1997) que habitan en los horizontes superiores del suelo [@Martinez2009], donde se desarrollan y mantienen comunidades complejas. Estas comunidades están influenciadas por una elevada heterogeneidad de microhábitats y el número de recursos alimenticios disponibles [@Anderson1977; @Anderson1978; @Lavelle2001], que proporcionan un amplio y variado conjunto de nichos ecológicos [@Nielsen2010; @Wallwork1958]. Los microartrópodos, a través de sus relaciones tróficas, contribuyen al funcionamiento edáfico mediante la fragmentación de la materia orgánica, la dinámica del ciclo de nutrientes, el transporte de propágulos de microflora y la regulación de las poblaciones de microflora y microfauna que afectan a la producción primaria [@Brussaard1997; @Cragg2001; @Lavelle1996; @Wall2012; @FAO2020].
 
-```{=html}
-<!-- ESTE PARRAFO SOBRE LA IMPORTANCIA DE LAS REDES ES UN POCO REDUNDANTE quizas moverlo hacia abajo
 
- Los estudios sobre el flujo de energía y materia en el ecosistema edáfico, agrupan a los organismos edáficos en gremios funcionales para comprender las relaciones entre la estructura de la biota del suelo y el funcionamiento del ecosistema. Sin embargo, este enfoque deja de lado la comprensión de cómo los cambios en la comunidad influyen en el funcionamiento del ecosistema (Thompson et al., 2012; Wall y Moore, 1999). Thompson et. al. (2012) sugieren abordar este problema desde el punto de vista de las redes tróficas, que podrían vincular el flujo de materia y energía y la diversidad de una comunidad. Así, estudiando la estructura de las redes tróficas, podemos comprender mejor el papel de la biodiversidad en el funcionamiento del ecosistema.
-
--->
-```
 Determinar los recursos alimentarios utilizados por los grupos de microartrópodos es difícil debido a su tamaño y a su entorno críptico. El reconocimiento de su dieta debe basarse en pruebas empíricas, lo que constituye el primer paso para establecer las interacciones entre las especies tróficas y los recursos que describen las redes tróficas. [@Briand1984; @vanStraalen1998; @Walter1991].
 
 La información sobre las relaciones tróficas de los diferentes grupos taxonómicos de microartrópodos es todavía bastante escasa. Estos datos son necesarios para construir y analizar redes tróficas que, a su vez, puedan ser utilizadas para evaluar la estabilidad y el estado de conservación de estos ecosistemas [@Barrios2007; @Briones2014; @Thakur2020].
 
+La caracterización empírica de las interacciones tróficas es un reto debido a la complejidad espacial y temporal de los patrones de alimentación, y a las limitaciones de los métodos para identificar y cuantificar los componentes de la dieta [@Nielsen2018; @Pankhurst1997; @Walter1991].
+
 Esta revisión recoge la información actualmente disponible sobre el uso de los recursos tróficos por parte de los microartrópodos edáficos. Esta información, junto con otros rasgos característicos de los microartrópodos edáficos, permitirá construir una red de interacciones tróficas que podría resultar en una mejor comprensión de la estructura y funcionamiento de la biota edáfica [@FAO2020]. Las redes tróficas permitirán, a su vez, comparar el estado de diferentes suelos, o de los mismos suelos bajo diferentes intensidades de impacto antrópico [@Thompson2012].
 
-La caracterización empírica de las interacciones tróficas es un reto debido a la complejidad espacial y temporal de los patrones de alimentación, y a las limitaciones de los métodos para identificar y cuantificar los componentes de la dieta [@Nielsen2018; @Pankhurst1997; @Walter1991].
 
 Así, los objetivos de esta revisión son: 1) recopilar toda la información actualmente disponible sobre los recursos tróficos utilizados por los microartrópodos del suelo, 2) describir las relaciones tróficas conocidas y las dietas potenciales de estos microartrópodos del suelo a diferentes niveles taxonómicos (de familia a especie), y 3) establecer el estado actual de los sesgos de conocimiento en la información disponible.
 
@@ -76,11 +71,11 @@ El primer criterio de elegibilidad para reducir el número de registros fue sele
 
 ### Construcción de la base de datos
 
-La evidencia empírica proporciona información sobre las relaciones tróficas de estos animales de diferentes maneras: algunas publicaciones relacionan los taxones con los elementos alimenticios y otras los agrupan en gremios o categorías tróficas. Para hacer frente a esta heterogeneidad, fue necesario definir los recursos tróficos (Tabla 1) que resumen sus características tróficas y ecológicas en el ecosistema edáfico [@Berg2008; @Clark1971; @Warcup1971; @Ponge1991; @Persson1980; @Krantz2009; @Chernova2007; @Rusek1998; @Schneider2005].
+La evidencia empírica proporciona información sobre las relaciones tróficas de estos animales de diferentes maneras: algunas publicaciones relacionan los taxones con los elementos alimenticios y otras los agrupan en gremios o categorías tróficas. Para hacer frente a esta heterogeneidad, fue necesario definir los recursos tróficos (Tabla 2.1) que resumen sus características tróficas y ecológicas en el ecosistema edáfico [@Berg2008; @Clark1971; @Warcup1971; @Ponge1991; @Persson1980; @Krantz2009; @Chernova2007; @Rusek1998; @Schneider2005].
 
 Asociamos los taxones y esos recursos de modo que: a) si la publicación indicaba un ítem alimenticio, se asignó a un recurso trófico en el que está definido, b) o si los taxones están agrupados en algún gremio o categoría trófica, entonces a cada taxón se le asignaron los recursos típicos consumidos por esa categoría.
 
-A partir de esta estrategia de asignación, desarrollamos una base de datos que se presenta en el material suplementario II. La información taxonómica y los recursos tróficos se obtuvieron de las diferentes secciones de las publicaciones y sus apéndices [@Thakur2020]. De forma complementaria, cada taxón encontrado tiene todos los niveles de clasificación según @Krantz2009 y @Hopkin1997, para ácaros y colémbolos respectivamente. La base de datos también está disponible en el repositorio de GitHub <https://github.com/EcoComplex/TrophicResources> y Zenodo <https://doi.org/10.5281/zenodo.6508661>.
+A partir de esta estrategia de asignación, desarrollamos una base de datos que se presenta en el material suplementario II. La información taxonómica y los recursos tróficos se obtuvieron de las diferentes secciones de las publicaciones y sus apéndices [@Thakur2020]. De forma complementaria, cada taxón encontrado tiene todos los niveles de clasificación según @Krantz2009 y @Hopkin1997, para ácaros y colémbolos respectivamente. La base de datos también está disponible en el repositorio de [GitHub](https://github.com/EcoComplex/TrophicResources) y [Zenodo](https://doi.org/10.5281/zenodo.6508661).
 
 | **Recurso trófico**          |                                               **Descrición**                                               | **Total de consumidores registrados (%)** | Familia | Genero  | Especie |
 |:-----------------------------|:----------------------------------------------------------------------------------------------------------:|:-----------------------------------------:|:-------:|:-------:|:-------:|
@@ -98,7 +93,7 @@ A partir de esta estrategia de asignación, desarrollamos una base de datos que 
 | **Enquitreidos**             |                    Anélidos oligoquetos de cuerpo blando anatómicamente homogéneos.^c^                     |               **97 (3.2)**                | **11**  | **30**  | **56**  |
 | **Larvas**                   |                                 Larvas de invertebrados de cuerpo blando.                                  |               **86 (2.9)**                | **15**  | **20**  | **51**  |
 
-: Descripción básica de los recursos tróficos. Registros totales de consumidores por recurso trófico con valores absolutos y porcentajes; y número de registros por resolución taxonómica. ^a^Berg & McClaugherty 2008 ^b^Clark 1971 ^c^Warcup 1971 ^d^Ponge 1991 ^e^Persson et al. 1980 ^f^Krantz & Walter 2009 ^g^Chernova et al. 2007 ^h^Rusek 1998 ^i^Schneider et al. 2005
+**Tabla 2.1.** Descripción básica de los recursos tróficos. Registros totales de consumidores por recurso trófico con valores absolutos y porcentajes; y número de registros por resolución taxonómica. ^a^Berg & McClaugherty 2008 ^b^Clark 1971 ^c^Warcup 1971 ^d^Ponge 1991 ^e^Persson et al. 1980 ^f^Krantz & Walter 2009 ^g^Chernova et al. 2007 ^h^Rusek 1998 ^i^Schneider et al. 2005
 
 ### Análisis de datos
 
@@ -114,7 +109,7 @@ Los cálculos, gráficos y tablas se prepararon utilizando Microsoft Excel y el 
 
 De los 3208 documentos de investigación recuperados inicialmente, 200 cumplían nuestros criterios (véase ESM III). Un total de 133 artículos de las 200 publicaciones seleccionadas (ESM I) mencionan los países en los que se realizaron los estudios. De ellos, 1 artículo pertenece a la región etíope, 3 a la región neotropical, 3 a la región oriental, 7 a la región australiana, 34 a la región neártica, 75 se sitúan en la región paleártica y los 10 restantes son de la región antártica. (Figura 1). Esto es importante destacarlo porque las especies varían mucho en función de la región biogeográfica. Hay 106 publicaciones que mencionan los ambientes en los que se realizaron los estudios; de ellos 59 eran bosques templados, 3 bosques tropicales, 21 praderas, 23 agroecosistemas y 11 desiertos.
 
-![Mapa mundial que muestra la distribución de los registros que asignan recursos tróficos a los microartrópodos del suelo, en gran parte inexplorados fuera de Europa y Estados Unidos.](Figures/world_records.png){width="5.0in" height="2.5194444444444444in"}
+![Figura 1. Mapa mundial que muestra la distribución de los registros que asignan recursos tróficos a los microartrópodos del suelo, en gran parte inexplorados fuera de Europa y Estados Unidos.](Figures/world_records.png){width="5.0in" height="2.5194444444444444in"}
 
 Obtuvimos un total de 3024 registros sobre relaciones tróficas (ESM II), aportando Acari 2218 registros (73,34%), y dentro de este número, la mayoría (50,86%) corresponde a Sarcoptiformes. Según la resolución taxonómica, se obtuvieron datos de 170 especies, 30 géneros y 2 familias de Collembola y 412 especies, 131 géneros y 49 familias de Acari.
 
@@ -124,7 +119,7 @@ Obtuvimos un total de 3024 registros sobre relaciones tróficas (ESM II), aporta
 
 El método de observaciones en pruebas de laboratorio proporciona la principal prueba empírica, con 706 registros (Figura 2).
 
-![Métodos utilizados en la literatura para asignar recursos tróficos a los taxones de microartrópodos del suelo. Los colores dentro de las columnas se refieren al número de niveles taxonómicos diferentes para los que cada método asignó al menos un recurso. Assay: ensayos y observaciones de laboratorio. Isotopes: isotopos estables. Gut: contenido intestinal. Enzymes: enzimas digestivas. Mouth: morfología de las partes bucales. Lipid: perfíl lipídico. Mo. det: detección molecular del contenido intestinal, f.p.: ensayos de preferencias alimenticias. Obs.: observaciones directas del comportamiento alimenticio. Reviews: revisiones realizadas por otros autores.](Figures/Metodo_ByTaxLevel.png){width="4.920138888888889in" height="4.920138888888889in"}
+![Figura 2.2. Métodos utilizados en la literatura para asignar recursos tróficos a los taxones de microartrópodos del suelo. Los colores dentro de las columnas se refieren al número de niveles taxonómicos diferentes para los que cada método asignó al menos un recurso. Assay: ensayos y observaciones de laboratorio. Isotopes: isotopos estables. Gut: contenido intestinal. Enzymes: enzimas digestivas. Mouth: morfología de las partes bucales. Lipid: perfíl lipídico. Mo. det: detección molecular del contenido intestinal, f.p.: ensayos de preferencias alimenticias. Obs.: observaciones directas del comportamiento alimenticio. Reviews: revisiones realizadas por otros autores.](Figures/Metodo_ByTaxLevel.png){width="4.920138888888889in" height="4.920138888888889in"}
 
 Los microartrópodos a nivel de familia constituyen el 9,3 por ciento de las observaciones en pruebas de laboratorio, correspondiendo el 63,6 por ciento del total al suborden Prostigmata, dentro del cual se mencionan 10 familias diferentes. Las pruebas ofrecidas por las observaciones en pruebas de laboratorio suman un 90,7 por ciento en el caso de las especies y los géneros. Los órdenes Mesostigmata (62,5%), Sarcoptiformes (23,8%), Trombidiformes (9%) y Arthropleona (4%) son los de mayor presencia en la bibliografía.
 
@@ -140,9 +135,9 @@ El análisis del contenido intestinal con técnicas moleculares para la detecci�
 
 #### Recursos tróficos identificados por la evidencia empírica
 
-El principal recurso mencionado corresponde a hongos saprofitos (19,8%) seguido de microfauna (15,5%), bacterias (10,7%), y hojarasca (10,3%), los registros de ácaros, colémbolos, enquitreidos, larvas y huevos acumulan 725 menciones (24%) (Tabla 1). Cabe destacar que un mayor número de registros se han llevado al nivel de especie. Por ejemplo, 592 registros tróficos están asociados al consumo de hongos saprofitos, de los cuales 16 se asociaron al nivel taxonómico de familia, 105 al de género y 474 al de especie.
+El principal recurso mencionado corresponde a hongos saprofitos (19,8%) seguido de microfauna (15,5%), bacterias (10,7%), y hojarasca (10,3%), los registros de ácaros, colémbolos, enquitreidos, larvas y huevos acumulan 725 menciones (24%) (Tabla 2.1). Cabe destacar que un mayor número de registros se han llevado al nivel de especie. Por ejemplo, 592 registros tróficos están asociados al consumo de hongos saprofitos, de los cuales 16 se asociaron al nivel taxonómico de familia, 105 al de género y 474 al de especie.
 
-![El número de registros en la literatura que asignan cada uno de los 13 recursos tróficos a un taxón de microartrópodos, como se muestra en la Tabla 1. Los colores en las columnas se refieren al método utilizado para asignar esos recursos tróficos a un taxón en particular, como se muestra en la Fig. 2. Las abreviaturas de los recursos son: hongos saprófitos (sap. fun.), microfauna (m. fau), bacterias (bac), hojarasca, colémbolos (coll), tejido vegetal (plant), ácaros, hongos micorrícicos (myco), humus, carroña de invertebrados (carrion), huevos de invertebrados (eggs), enquitreidos (enchy) y larvas.](Figures/Recursos_ByMetodo.png){width="5.116666666666666in" height="5.116666666666666in"}
+![Figura 2.3. El número de registros en la literatura que asignan cada uno de los 13 recursos tróficos a un taxón de microartrópodos, como se muestra en la Tabla 2.1. Los colores en las columnas se refieren al método utilizado para asignar esos recursos tróficos a un taxón en particular, como se muestra en la Fig. 2. Las abreviaturas de los recursos son: hongos saprófitos (sap. fun.), microfauna (m. fau), bacterias (bac), hojarasca, colémbolos (coll), tejido vegetal (plant), ácaros, hongos micorrícicos (myco), humus, carroña de invertebrados (carrion), huevos de invertebrados (eggs), enquitreidos (enchy) y larvas.](Figures/Recursos_ByMetodo.png){width="5.116666666666666in" height="5.116666666666666in"}
 
 Las observaciones de laboratorio (el método más utilizado), mencionan la utilización de los trece recursos tróficos (Figura 3) en los que el orden de importancia según el número de menciones es microfauna \> colémbolos \> ácaros \> hongos saprofitos \> huevos de invertebrados \> enquitreidos \> larvas de invertebrados que acumulan el 82,3%. Para este método empírico, los principales recursos corresponden a recursos típicos de animales depredadores excepto para los hongos saprofitos, el principal taxón mencionado es Mesostigmata. Las barras apiladas (Figura 3) muestran las diferentes proporciones en que los métodos aportan pruebas del uso de un recurso, si se considera la contribución de cada método según el número de citas en la bibliografía, se cuentan en orden decreciente: observaciones directas (706 registros) \> contenido intestinal (639) \> isótopos (591) \> pruebas de laboratorio (503) \> enzimas (178) \> pruebas de preferencia alimentaria (140 registros).
 
@@ -197,7 +192,7 @@ En cuanto a los Collembola, la diversidad de especies abordada por las pruebas e
 
 Las pruebas empíricas que abordan el estudio trófico de Arthropleona (Collembola) están representadas por 154 especies diferentes, éstas se asociaron principalmente a hongos saprofitos (119 especies), seguidas en importancia por bacterias, hojarasca y humus. La microfauna se menciona como recurso para 39 especies.
 
-![Gráfico bipartito que muestra el uso de los recursos tróficos por los principales órdenes de Acari y Collembola. Nodos superiores: Órdenes Acari y Collembola como en la Tabla 2. Nodos inferiores: recursos tróficos. El grosor y la intensidad de las líneas dan una idea de la proporción de menciones en la literatura disponible sobre su uso de recursos tróficos. Las abreviaturas de los recursos son: hongos saprófitos (sap. fun.), microfauna (m. fau), bacterias (bac), hojarasca, colémbolos (coll), tejido vegetal (plant), ácaros (mite), hongos micorrícicos (myco), humus, carroña de invertebrados (carrion), huevos de invertebrados (eggs), enquitreidos (enchy) y larvas.](Figures/Bi_Orden_Recurso.png){width="5.4125in" height="3.6083333333333334in"}
+![Figura 2.4. Gráfico bipartito que muestra el uso de los recursos tróficos por los principales órdenes de Acari y Collembola. Nodos superiores: Órdenes Acari y Collembola como en la Tabla 2. Nodos inferiores: recursos tróficos. El grosor y la intensidad de las líneas dan una idea de la proporción de menciones en la literatura disponible sobre su uso de recursos tróficos. Las abreviaturas de los recursos son: hongos saprófitos (sap. fun.), microfauna (m. fau), bacterias (bac), hojarasca, colémbolos (coll), tejido vegetal (plant), ácaros (mite), hongos micorrícicos (myco), humus, carroña de invertebrados (carrion), huevos de invertebrados (eggs), enquitreidos (enchy) y larvas.](Figures/Bi_Orden_Recurso.png){width="5.4125in" height="3.6083333333333334in"}
 
 La figura 4 presenta la proporción de recursos utilizados por los 4 principales órdenes de ácaros y los 3 órdenes de Collembola, según se desprende de la bibliografía. Por ejemplo, el recurso de los hongos saprofitos es el principal constituyente de la dieta de los Arthropleona, siendo las bacterias, la hojarasca, el humus, y la microfauna mencionados recursos en menor proporción. Los Trombidiformes tienen una dieta basada principalmente en microartrópodos y nematodos y en menor medida en hongos saprofitos y bacterias.
 
@@ -231,19 +226,27 @@ Está claro que deben colmarse grandes lagunas en la información disponible par
 :::
 
 \newpage
+# Apéndice Capítulo 2
 
-**Descripción sobre Material Suplementario**
+## Apéndice 2.1. Descripción sobre Material Suplementario
 
-Material suplementario electrónico I ([ESM I]()): Lista completa de las fuentes bibligráficas que relaciona los taxones de microartrópodos edáficos con uno o más recursos tróficos.
+Material suplementario electrónico I ([ESM I](https://doi.org/10.1016/j.heliyon.2023.e20439)): Lista completa de las fuentes 
+bibligráficas que relaciona los taxones de microartrópodos edáficos con uno o más recursos tróficos.
+Biblioteca disponible en [Zotero](https://www.zotero.org/groups/4674099/trophicresourcesedaphicmicroarthropods)
+<https://www.zotero.org/groups/4674099/trophicresourcesedaphicmicroarthropods>
 
-Material suplementario electrónico II ([ESM II]()): Lista completa con 2717 taxones y los recursos tróficos asignados a ellos.
+Material suplementario electrónico II ([ESM II](https://doi.org/10.1016/j.heliyon.2023.e20439)): Lista completa con 2717 taxones y los recursos tróficos asignados a ellos.
 
-Material suplementario electrónico III (ESM III[ESM III]()): Diagrama de flujo que muestra los criterios utilizados en la búsqueda y selección bibliográfica.
+Material suplementario electrónico III ([ESM III](https://doi.org/10.1016/j.heliyon.2023.e20439)): Diagrama de flujo sobre los criterios utilizados en la búsqueda y selección bibliográfica.
 
-https://zenodo.org/records/8086711
+
 https://github.com/EcoComplex/TrophicResources.git
+https://zenodo.org/records/8086711
 
-doi: https://doi.org/10.1101/2021.02.06.430061
-Now published in Heliyon doi: 10.1016/j.heliyon.2023.e20439
-https://doi.org/10.1016/j.heliyon.2023.e20439
-Conicet http://hdl.handle.net/11336/229316
+Publcado en Heliyon https://doi.org/10.1016/j.heliyon.2023.e20439
+Repositorio CONICET http://hdl.handle.net/11336/229316
+Preimpresión https://doi.org/10.1101/2021.02.06.430061
+
+
+
+
