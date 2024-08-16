@@ -1,5 +1,7 @@
 ---
+title: "Capítulo 2. Análisis de los recursos tróficos de la fauna del suelo"
 output:
+  
   html_document:
     df_print: paged
   pdf_document:
@@ -224,28 +226,6 @@ Está claro que deben colmarse grandes lagunas en la información disponible par
 
 ::: {#refs}
 :::
-
-\newpage
-# Apéndice Capítulo 2
-
-## Apéndice 2.1. Descripción sobre Material Suplementario
-
-Material suplementario electrónico I ([ESM I](https://doi.org/10.1016/j.heliyon.2023.e20439)): Lista completa de las fuentes 
-bibligráficas que relaciona los taxones de microartrópodos edáficos con uno o más recursos tróficos.
-Biblioteca disponible en [Zotero](https://www.zotero.org/groups/4674099/trophicresourcesedaphicmicroarthropods)
-<https://www.zotero.org/groups/4674099/trophicresourcesedaphicmicroarthropods>
-
-Material suplementario electrónico II ([ESM II](https://doi.org/10.1016/j.heliyon.2023.e20439)): Lista completa con 2717 taxones y los recursos tróficos asignados a ellos.
-
-Material suplementario electrónico III ([ESM III](https://doi.org/10.1016/j.heliyon.2023.e20439)): Diagrama de flujo sobre los criterios utilizados en la búsqueda y selección bibliográfica.
-
-
-https://github.com/EcoComplex/TrophicResources.git
-https://zenodo.org/records/8086711
-
-Publcado en Heliyon https://doi.org/10.1016/j.heliyon.2023.e20439
-Repositorio CONICET http://hdl.handle.net/11336/229316
-Preimpresión https://doi.org/10.1101/2021.02.06.430061
 
 
 

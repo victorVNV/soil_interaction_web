@@ -1,13 +1,15 @@
 ---
-title: "Capítulo 5"
+title: "Capítulo 5. Análisis comparativo de la estructura, topología y estabilidad de las redes tróficas de la edafofauna bajo distinta intensidad de uso"
 output: html_document
 bibliography: referencias/TesisC5.bib
 ---
 
-```{r setup, include=FALSE, message=FALSE,warning=FALSE}
+```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(comment = NA)
 loadNamespace('printr')
-
+set.seed(167)
+options("digits"=3)
 ```
 
 ```{r lib, include=FALSE,message=FALSE, warning=FALSE}
@@ -719,7 +721,7 @@ de la Reserva, el Pastizal y el Agrícola intensivo respectivmente.
 Estos datos nos muestran que en sistemas antropizados, cuya cobertura vegetal es más 
 parecida a la vegetación original de la Pampa Ondulada, se obtuvieron valores del λ del quasi-signo más cercanos a cero por lo tanto resultan en sistemas más estables.
 
-# Conclusiones
+# Discusión
 
 <!--
 Estructura general de conclusiones
@@ -930,25 +932,3 @@ más relacionada a los cambios que ocurren sobre la composición de la vegetaci�
 
 ::: {#refs}
 :::
-
-
-\newpage
-
-# Apéndice del capítulo 5
-## Apéndice 5.1. Matriz de adyacencia de la fauna del suelo
-```{r apendice1, echo=FALSE, message=FALSE,error=FALSE,warning=FALSE}
-mG <- read.csv("scripts/database/mG.txt", sep="")
-
-t(mG)
-```
-
-
-## Apéndice 5.2. Lista de identidad de los nodos de las redes tróficas
-
-```{r apendice2, echo=FALSE, message=FALSE,error=FALSE,warning=FALSE}
-tabla_nombre <- read.csv("scripts/database/tabla_nombre.txt", sep="")
-
-tabla_nombre
-```
-
-

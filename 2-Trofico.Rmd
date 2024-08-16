@@ -2,7 +2,6 @@
 output: html_document
 bibliography: referencias/TesisC2.bib
 ---
-# Apéndice 2.2
 
 # Recursos tróficos y biología alimenticia de los principales taxones de la fauna edáfica que habita los suelos Argiudoles de la Pampa Ondulada, excepto Arachnida:Acari y Hexapoda:Collembolla
 

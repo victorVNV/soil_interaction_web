@@ -391,8 +391,9 @@ body_unlu%>%filter(clase_tam=="micro")%>%
   geom_density_ridges(rel_min_height = 0.001,scale=1.5,show.legend=FALSE)+ 
   scale_fill_viridis_d(alpha = 0.8)+  
   facet_grid(.~Sistema)+
-  labs(title='Nemátodos de vida libre', 
-       x= 'Peso corporal en ln ug',y=NULL)
+  labs(x= 'Peso corporal en ln ug',y=NULL)
+
+
 
 ```
 
@@ -405,6 +406,8 @@ Los nemátodos omnívoros y los nemátodos predadores muestran modas del peso co
 
 ```{r tab_nem_ridg,echo=FALSE,warning=FALSE,message=FALSE}
 Dp_U_m%>% kbl() %>%kable_classic(full_width = F, html_font = "Cambria")
+
+
 ```
 
 Los nemátodos omnívoros de la Reserva (Tabla 4.x) muestran el mayor valor de peso corporal promedio y la mayor biomasa media, con relación a todas las categorías tróficas de nemátodos. La mayor abundancia de nemátodos omnívoros se observó en el sistema del pastizal.
@@ -441,8 +444,7 @@ body_unlu%>%filter(clase_tam=="meso"&body_unlu$taxa%in%c("alycidae",
   geom_density_ridges(rel_min_height = 0.001,scale = 2.5)+ 
   scale_fill_viridis_d(alpha = 0.8)+
   facet_grid(.~Sistema)+
-  labs(title='Mesofauna no depredadora', 
-       x= 'Peso corporal en ln ug/m^2',y=NULL)
+  labs(x= 'Peso corporal en ln ug/m^2',y=NULL)
 
 
 ```
@@ -455,6 +457,7 @@ Los enquitreidos, animales con función ecológica similar a la de las lombrices
 
 ```{r tab_mesodet_ridg,echo=FALSE,warning=FALSE,message=FALSE}
 Dp_U_me_D%>% kbl() %>%kable_classic(full_width = F, html_font = "Cambria")
+
 ```
 
 
@@ -483,8 +486,7 @@ body_unlu%>%filter(clase_tam=="meso"
   geom_density_ridges(rel_min_height = 0.001,scale = 1.5,show.legend=FALSE)+ 
   scale_fill_viridis_d(alpha = 0.8)+
   facet_grid(.~Sistema)+
-  labs(title='Mesofauna depredadora', 
-       x= 'Peso corporal en ln ug',y=NULL)
+  labs(x= 'Peso corporal en ln ug',y=NULL)
 
 ```
 
@@ -498,6 +500,8 @@ Estos animales con excepción de los tardígrados son poco abundantes en compara
 
 ```{r tab_msopred_ridg,echo=FALSE,warning=FALSE,message=FALSE}
 Dp_U_me_P%>% kbl() %>%kable_classic(full_width = F, html_font = "Cambria")
+
+
 ```
 
 Entre los ácaros mesostigmata (Tabla 4.x3 el taxón de mayor peso corporal fué la familia <u>Ichtyostomatogasteridae</u> aunque solo se observaron en el suelo del pastizal; la familia <u>Ologamasidae</u> tuvo la mayor abundancia en los suelos de la reserva pero el mayor peso corporal y biomasa media se observó en el suelo agrícola; los <u>Parasitidae</u> fueron más grandes en el suelo agrícola pero más abundantes y con mayor biomasa en el pastizal; los mesostigmatas <u>Dermanisoidea</u> en el sistema agrícola tienen la mayor biomasa y peso corporal; la superfamilia <u>Rhodacaroidea</u> son mesostigmatas **euedáficos**, son predadores de pequeño tamaño, muestran la mayor densidad y biomasa en el pastizal pero el mayor peso corporal promedio en el sistema agrícola.
@@ -515,7 +519,9 @@ meso1$Taxón<-factor(meso1$specie,labels=c("Acaroidea","Bdelloidea","Brachychtho
 
 meso1$Gremio<-factor(meso1$guild,labels=c("Detritivoro","Microfitofago","Omnivoro","Predador"))
 
-meso1%>%ggplot(aes(x=log(biomass), y=Taxón, fill=Gremio)) + geom_density_ridges(rel_min_height = 0.0000005) +scale_x_continuous(breaks = seq(from=-4, to=5, by=2))+  scale_fill_viridis_d(alpha = 0.8)+facet_grid(.~Sistema)+labs(title='Microartrópodos edáficos', x= 'Peso corporal en ln ug/m^2',y=NULL)
+meso1%>%ggplot(aes(x=log(biomass), y=Taxón, fill=Gremio)) + geom_density_ridges(rel_min_height = 0.0000005) +scale_x_continuous(breaks = seq(from=-4, to=5, by=2))+  scale_fill_viridis_d(alpha = 0.8)+facet_grid(.~Sistema)+labs(x= 'Peso corporal en ln ug/m^2',y=NULL)
+
+
 ```
 
 **Figura 4.4.** Distribución de los pesos corporales de los microartrópodos edáficos ocurridos en suelos Argiudoles de Chyvilcoy y Navarro. Se muestra sobre el eje horizontal la escala en logaritmo natural del peso corporal en microgramos de peso seco. Sobre el eje vertical se indica el taxón. Los colores representan al gremio trófico al cual pertenece el taxón
@@ -530,6 +536,8 @@ Entre los ácaros oribátidos detritívoros (Tabla 4.4) la superfamilia <u>Eupht
 
 ```{r tab_mesoRO_ridg,echo=FALSE,warning=FALSE,message=FALSE}
 B2%>% kbl() %>%kable_classic(full_width = F, html_font = "Cambria")
+
+
 ```
 
 De los ácaros oribátidos microfitófagos (Tabla 4.4) los <u>galumnidos</u> por su estructura corporal son los de mayor tamaño, estos pesaron $\approx 31 \;\mu g$ tanto en el pastizal naturalizado como en el suelo agrícola ganadero; la superfamilia <u>Crotonioidea</u> en el sistema agrícola intensivo tiene la mayor biomasa; los oribátidos <u>oppididos</u> son oribátidos **euedáficos** con una estructura corporal pequeña, estos fueron más pesados en el pastizal naturalizado pero más abundantes en el sistema agrícola intensivo donde se observa además la mayor biomasa.
@@ -550,8 +558,8 @@ body_unlu%>%filter(clase_tam=="macro")%>%
   geom_density_ridges(rel_min_height = 0.001,scale = 2.5)+ 
   scale_fill_viridis_d(alpha = 0.8)+
   facet_grid(.~sitio)+
-  labs(title='Macrofauna edáfica', 
-       x= 'Peso corporal en ln ug/m^2',y=NULL)
+  labs(x= 'Peso corporal en ln ug/m^2',y=NULL)
+
 ```
 
 **Figura 4.5.** Distribución de los pesos corporales de la macrofauna edáfica ocurridos en suelos Argiudoles de Luján. Se muestra sobre el eje horizontal la escala en logaritmo natural del peso corporal en microgramos de peso seco. Sobre el eje vertical se indica el taxón. Los colores representan al gremio trófico al cual pertenece el taxón.
@@ -564,6 +572,8 @@ Fué importante la contribución numérica de las las lombrices juveniles en los
 
 ```{r tab_macro_ridg,echo=FALSE,warning=FALSE,message=FALSE}
 Dp_U_Ma%>% kbl() %>%kable_classic(full_width = F, html_font = "Cambria")
+
+
 ```
 
 Los detritívoros <u>Blattodeos</u> (Tabla 4.5) fueron más pequeños en el sistema agrícola; los detritívoros <u>Diplópodos</u> ("milpies") fueron impotantes en términos de biomasa en el sistema agrícola aunque los animales más pesados se observaron en el pastizal; las <u>larvas de los dípteros</u> son importantes detritívoros en el suelo estos animales ocurren con mayor densidad en el sistema agrícola donde tambien se observaron las larvas más pesadas; las <u>larvas de scarabeidos</u> ("gusanos blancos") son también importantes detritívoros, los animales de mayor tamaño se observaron en el sistema agrícola donde pesaron 490 mg; los <u>Oniscoidea</u> ("Bichos bolita") tienen la mayor biomasa en la Reserva; las <u>larvas de los dípteros Sciaridae</u> forman parte de la macrofauna **microfitófaga** estos ocurrieron en los tres sistemas de uso del suelo y su biomasa fue mayor en la reserva donde el peso corporal promedio fué el más alto.
@@ -614,7 +624,6 @@ baseU$Sitio <- factor(baseU$sitio,labels=c("A","P","R"))
 #guild
 baseU %>%  ggplot( aes(y=log(Tbiomass),x=Gremio, col=Gremio, fill=NA)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5) +  geom_jitter(alpha=0.4, col=as.numeric(baseU$Sitio))  +stat_summary(fun = "mean",geom = "point",color = "yellow", size=3)+scale_color_manual(values = scales::hue_pal()(length(unique(baseU$Gremio))), guide = "none")+
   labs(subtitle="A)",y=expression(paste("Biomasa","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2), x=NULL))+ scale_fill_viridis_d(guide="none")+theme_classic()
-
 
 
 ```
@@ -1113,7 +1122,10 @@ pg <- plot_grid(prow, legend_b, nrow = 2, rel_heights = c(1, .1))
 
 ```{r aj, echo=FALSE, warning=FALSE, message=FALSE}
 pgU
+
 pg
+
+
 ```
 
 En ambas localidades y entre los diferentes sistemas de uso los pesos corporales de todo el conjunto de datos ajustan a la distribución logarítmica normal conocida también como log-normal, esto tiene sentido si, se considera que cada especie tiene una distribución aproximadamente normal de sus pesos corporales pero cuyos valores no pueden ser menores o iguales que cero y también si, se considera la contribución multiplicativa de cada especie en el total de la comunidad. (.\@.log en biologia; .\@.potapov, sus bichos estaban distribuidos log normal.)
@@ -1198,6 +1210,8 @@ por Benjamini-Hochberg para evitar considerar comparaciones con error tipo I.
 emms_B_U1 <- emmeans::emmeans(mU_p, ~ gremio)
 pairwise_comparisons_B_U1 <- contrast(emms_B_U1, method = "pairwise", adjust = "BH")
 summary(pairwise_comparisons_B_U1)
+
+
 ```
 
 **Diferencias de medias, sistemas de uso de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**

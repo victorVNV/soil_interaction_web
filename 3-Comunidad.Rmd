@@ -1,5 +1,5 @@
 ---
-title: "Capítulo 3"
+title: "Capítulo 3. Análisis de la composición de la comunidad de la edafofauna en suelos Argiudoles con distinta intensidad de uso antrópico"
 output:
   html_document: default
 bibliography: referencias/TesisC3.bib
@@ -7,7 +7,9 @@ bibliography: referencias/TesisC3.bib
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(comment = NA)
 loadNamespace('printr')
+set.seed(167)
 options("digits"=3)
 ```
 
@@ -128,11 +130,6 @@ las muestras de suelo fueron trasladadas al laboratorio, manteniendo el suelo in
 
 Para muestrear la <u>mesofauna del suelo<\u>, se tomaron la hojarasca y el suelo hasta la profundidad de 10 cm. Se tomó toda la hojarasca que se encontraba sobre la superficie que cubría el monolito de 625 cm^2^, para luego extraer la mesofauna, además el suelo del monolito de los primeros 10 centímetros de profundidad fue desagregado, mezclado y homogeneizado para tomar tres submuestras de suelo con un volumen de 100 cm³, previo a la toma de muestras el suelo fue disminuido en volumen mediante la técnica del cuarteo, lo que asegura la representatividad de las fracciones submuestreadas. Las submuestras de la mesofauna edáfica fueron sometidas al método de flotación y tamizado [@vargas2007], estas se desagregan en agua en relación 1:6 de suelo:agua, se agita enérgicamente durante 2 min, se deja reposar la solución durante unos minutos y luego se vuelca la mezcal a través del juego de tamices de 4 mm, 2mm, 1mm, 500 μm, 250 μm y 170 μm; la mesofauna se colecta de lo que queda atrapado en los tamices desde los 1000 μm hasta las 170 μm. Los animales colectados se almacenaron en alcohol 96º, luego se contaron e identificaron los taxones en diferentes rangos taxonómicos hasta familias utilizando claves taxonómicas de: @krantz2009; @momo2009; @janssens; @balogh1988; @burges1967; @evans1979; @dindal1990.
 
-```{=html}
-<!-- Este procedimiento de estratificación se llevó adelante con la intención de conocer la
-diversidad de organismos de la mesofauna edáfica según el estrato de suelo considerando
-este procedimiento como proxi del hábitat más probable. -->
-```
 
 Con el suelo de los primeros 10 cm de profundidad se llevó adelante la técnica para estimar la respiración heterotófica [@frioni1999], en esta profundidad se desarrolla la mayor actividad 
 respiratoria de la microbiota [@pankhurst1997] que es el constituyente principal de la respiración heterotrófica del suelo. Esta técnica consiste en homogeneizar y pesar 10 g de suelo por submuestra, ubicar cada muestra en frascos de incubación, humedecer el suelo con agua destilada, colocar la trampa de álcali (NaOH 0,1 M), llevar a estufa el frasco bien cerrado a incubar durante 7 a 10 días a temperatura de 30ºC, pasado el tiempo se titula la trampa de álcali con una solución ácida (HCl 0,1M) apoyado con fenolftaleína como indicador de la reacción de neutralización, mismo procedimiento para frascos de incubación sin suelo que serán "blancos" y dan cuenta del CO~2~ contenido en el aire, por lo tanto la diferencia en mililitros de ácido consumido entre blancos y muestras refiere a la respiración heterotrófica en mg CO~2~.g suelo^-1^.día^-1^.

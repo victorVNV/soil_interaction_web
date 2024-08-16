@@ -1,0 +1,587 @@
+---
+title: "Apéndice"
+output: html_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(comment = NA)
+loadNamespace('printr')
+set.seed(167)
+options("digits"=3)
+```
+
+```{r lib, include=FALSE}
+{require(tidyverse); require(kableExtra); require(quantreg);require(lubridate);
+  require(kSamples);require(ggridges);require(gridExtra);require(emmeans)}
+```
+
+# Apéndice del capítulo 2
+
+## Apéndice 2.1. 
+### Descripción sobre Material Suplementario
+
+Material suplementario electrónico I ([ESM I](https://doi.org/10.1016/j.heliyon.2023.e20439)): Lista completa de las fuentes 
+bibligráficas que relaciona los taxones de microartrópodos edáficos con uno o más recursos tróficos.
+Biblioteca disponible en [Zotero](https://www.zotero.org/groups/4674099/trophicresourcesedaphicmicroarthropods)
+<https://www.zotero.org/groups/4674099/trophicresourcesedaphicmicroarthropods>
+
+Material suplementario electrónico II ([ESM II](https://doi.org/10.1016/j.heliyon.2023.e20439)): Lista completa con 2717 taxones y los recursos tróficos asignados a ellos.
+
+Material suplementario electrónico III ([ESM III](https://doi.org/10.1016/j.heliyon.2023.e20439)): Diagrama de flujo sobre los criterios utilizados en la búsqueda y selección bibliográfica.
+
+
+https://github.com/EcoComplex/TrophicResources.git
+https://zenodo.org/records/8086711
+
+Publcado en Heliyon https://doi.org/10.1016/j.heliyon.2023.e20439
+Repositorio CONICET http://hdl.handle.net/11336/229316
+Preimpresión https://doi.org/10.1101/2021.02.06.430061
+
+
+# Apéndice del capítulo 4
+
+## Apéndice 4.1. 
+
+### Ecuaciones morfométricas para estimar el peso corporal de la fauna edáfica
+
+Ecuaciones morfométricas que relacionan el largo y el ancho corporal para estimar el peso corporal de los taxones de la fauna edáfica según su forma característica. Se aclaran las unidades de medidas de peso, largo y ancho para cada caso en particular, se deja en claro el coeficiente de peso seco utilizado.
+
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+| Autor                   | Taxón                                 | Ecuación                                           | Coeficiente de peso seco                | Observaciones                                                               |
++=========================+=======================================+====================================================+=========================================+=============================================================================+
+| Tanaka (1970)           | Hipogastruridae                       | log P = 2,78 \* log L + 0,71                       | expresado en peso seco                  | P (peso en ug) = 10 ^log P^                                                 |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | L (largo en mm)                                                             |
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+| Tanaka (1970)           | Isotomidae                            | log P = 2,55 \* log L + 0,99                       | expresado en peso seco                  | P (peso en ug) = 10 ^log P^                                                 |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | L (largo en mm)                                                             |
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+| Tanaka (1970)           | Onychiuridae                          | log P = 2,75 \* log L + 0,63                       | expresado en peso seco                  | P (peso en ug) = 10 ^log P^                                                 |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | L (largo en mm)                                                             |
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+| Tanaka (1970)           | Entomobriidae                         | log P = 2,5 \* log L + 1,07                        | expressed as dry biomass                | P (peso en ug) = 10 ^log P^                                                 |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | L (largo en mm)                                                             |
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+| Petersen (1975)         | Symphypleona                          | log P = log 39,6278 + 0,83 \* log L                | expressed as dry biomass                | P (peso en ug) = 10 ^log P^                                                 |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | L (largo en mm)                                                             |
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+| Lebrum Philippe (1971)  | Achipteriforme                        | log P = 2,09 log L + 0,93 log l – 6,67             | 0,4                                     | P (peso en ug) = 10 ^log P^                                                 |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | L (largo en um)                                                             |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | l (ancho en um)                                                             |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | \*coef según Persson and Lohm, (1977); Fórmulas Oribátidos según Morfología |
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+| Lebrum Philippe (1971)  | Nothriforme                           | log P = 2,09 log L + 0,84 log l – 6,44             | 0,4                                     | P (peso en ug) = 10 ^log P^                                                 |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | L (largo en um)                                                             |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | l (ancho en um)                                                             |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | \*coef según Persson and Lohm, (1977); Fórmulas Oribátidos según Morfología |
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+| Lebrum Philippe (1971)  | Carabodiforme                         | log P = 1,62 log L + 1,40 log l – 6,56             | 0,4                                     | P (peso en ug) = 10 ^log P^                                                 |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | L (largo en um)                                                             |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | l (ancho en um)                                                             |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | \*coef según Persson and Lohm, (1977); Fórmulas Oribátidos según Morfología |
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+| Lebrum Philippe (1971)  | Forma general utilizada en la tabla 9 | Log P = 1,53 log L + 1,53 log l – 6,67             | 0,4                                     | P (peso en ug) = 10 ^log P^                                                 |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | L (largo en um)                                                             |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | l (ancho en um)                                                             |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | \*coef según Persson and Lohm, (1977); Fórmulas Oribátidos según Morfología |
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+| Persson and Lohm (1977) | Trombidiformes                        | W = (0,00387\* L)^3^                               | 0,4                                     | P (peso en ug)                                                              |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | L (largo en um)                                                             |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | l (ancho en um)                                                             |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | \*coef según Persson and Lohm, (1977)                                       |
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+| Persson and Lohm (1977) | Mesostigmatas                         | P = 0,85 \* ( L ^2,09^ \* l ^0,84^ \* 10 ^-6,44^ ) | 0,4                                     | P (peso en ug)                                                              |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | L (largo en um)                                                             |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | l (ancho en um)                                                             |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | \* coef según Persson and Lohm, (1977)                                      |
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+| Ganihar (1997)          | Aracnida                              | ln P = -3,2105 + 2,4681 \* L                       | expresado en peso seco                  | P (peso en mg) = e ^ln P^                                                   |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | L (Largo en mm)                                                             |
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+| Ganihar (1997)          | Coleoptera adulto                     | ln P = -3,2689 + 2,4625 \* L                       | expresado en peso seco                  | P (peso en mg) = e ^ln P^                                                   |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | L (Largo en mm)                                                             |
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+| Ganihar (1997)          | Coleoptera larva                      | ln P = -7,1392 + 0,8095 \* L                       | expresado en peso seco                  | P (peso en mg) = e ^ln P^                                                   |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | L (Largo en mm)                                                             |
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+| Ganihar (1997)          | Díptera                               | ln P = -3,4294 + 2,5943 \* L                       | expresado en peso seco                  | P (peso en mg) = e ^ln P^                                                   |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | L (Largo en mm)                                                             |
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+| Ganihar (1997)          | Formicidae                            | ln P = -3,1415 + 2,3441 \* L                       | expresado en peso seco                  | P (peso en mg) = e ^ln P^                                                   |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | L (Largo en mm)                                                             |
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+| Hawkins et al. (1997)   | Gasterópoda                           | P = 0,172\* L^1,688^                               | expresado en peso seco                  | P (peso en mg)                                                              |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | L (largo en mm)                                                             |
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+| Ganihar (1997)          | Isopoda                               | ln P = -1,1167 + 0,4762\*L                         | expresado en peso seco                  | P (peso en mg) = e ^ln P^                                                   |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | L (Largo en mm)                                                             |
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+| Coulis & Joly (2017)    | Diplopoda Miriapoda                   | ln P = 2,38\* ln(L)-2,77                           | 0,45                                    | P (peso en mg) = e ^ln P^                                                   |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | L (Largo en mm)                                                             |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | \*Según Edwards 1967 en Lebrum Philippe. (1971)                             |
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+| Ganihar (1997)          | Pauropoda                             | ln P = -1,8749 + 2,3002 \* L                       | expresado en peso seco                  | P (peso en mg) = e ^ln P^                                                   |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | L (Largo en mm)                                                             |
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+| Ganihar (1997)          | Chilopoda                             | ln P = -6,7041 + 2,8420 \* L                       | expresado en peso seco                  | P (peso en mg) = e ^ln P^                                                   |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | L (Largo en mm)                                                             |
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+| Persson and Lohm (1977) | Symphyla, Protura, Diplura            | P=(1,20+L)^3^                                      | 0,2                                     | P (peso en um)                                                              |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | L (Largo en um)                                                             |
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+| Ganihar (1997)          | Ortóptera                             | ln P = -3,5338 + 2,4619 \* L                       | expresado en peso seco                  | P (peso en mg) = e ^ln P^                                                   |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | L (Largo en mm)                                                             |
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+| Tita et al. (1999)      | Nematoda                              | P = ((530 \* L \* l^2^)\*1,084) \*0.25             | expresado en peso seco                  | P (peso en ug)                                                              |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | L (Largo en um)                                                             |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | l (Ancho en um)                                                             |
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+| Hale et al. (1999)      | Crassiclitellata                      | ln (P~af~) = 2.6365\*ln(L)-12,6                    | expresado en peso seco libre de cenizas | P~af~ (Peso en miligramos)                                                  |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | L (Largo en mm)                                                             |
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+| Greiner et al. (2010)   | Enquitreidos                          | ln (P~af~) = 1.10\*ln(L)-8,22                      | expresado en peso seco libre de cenizas | P~af~ (Peso en miligramos)                                                  |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | L (Largo en mm)                                                             |
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+| Hallas y Yeates (1972)  | Tardigrado                            | P = L^3^\*9.076x10^-7^                             | expresado en peso seco                  | P (peso en ug)                                                              |
+|                         |                                       |                                                    |                                         |                                                                             |
+|                         |                                       |                                                    |                                         | L (Largo en um)                                                             |
++-------------------------+---------------------------------------+----------------------------------------------------+-----------------------------------------+-----------------------------------------------------------------------------+
+
+```{r carga_datos, include=FALSE}
+baseU<-read.csv("scripts/database/baseU.txt", sep="")
+base<-read.csv("scripts/database/base.txt", sep="")
+body_unlu<-read.csv("scripts/database/body_unlu.txt", sep="")
+meso<-read.csv("scripts/database/meso.txt", sep="")
+
+```
+
+\newpage
+
+## Apéndice 4.2. 
+
+### Distribución de los pesos corporales de la fauna edáfica
+
+La **curva de distribución acumulada inversa** permite comparar la distribución de los datos observados con distribuciones teóricas.
+
+Los datos observados, que se corresponden con cada uno de los pesos corporales, son los puntos que se acumulan desde  mayor a menor en función de la frecuencia acumulada, como puede observarse en
+la figura debajo.
+
+```{r pwrU, include=FALSE}
+
+# Ajuste espectro con paquete Power Law
+# Ajuste con paquete poweRlaw con Xmin ajustado
+
+require(poweRlaw)
+source("scripts/R/functions.r")
+
+# Ajuste a partir del minimo de los datos, esto es, considerando que 
+# el valor mínimo se encuentra dentro de los datos
+
+dist_manejoU <- body_unlu %>% group_by(sitio) %>% summarise(evaluate_distr(body_mass,est_xmin=FALSE))
+
+dist_manejoU %>% filter(min(AICc)==AICc) %>% mutate(moda=exp(expo))
+
+# Plots usando ggplot
+#
+dist_plotU <- body_unlu %>% group_by(sitio) %>% summarise(gplot=list(evaluate_distr(body_mass,est_xmin=FALSE,returnOBJ=TRUE)))
+
+# Estimación para todos los datos
+
+dist_totalU <- evaluate_distr(body_unlu$body_mass,est_xmin=FALSE)
+dist_totalU %>% filter(min(AICc)==AICc) %>% mutate(moda=exp(expo))
+
+dist_plot_totU <- evaluate_distr(body_unlu$body_mass,est_xmin=FALSE,returnOBJ = TRUE) 
+
+###########
+#ROSANA
+# Ajuste a partir del minimo de los datos, esto es, considerando que 
+# el valor mínimo se encuentra dentro de los datos
+
+dist_manejo <- meso %>% group_by(system) %>% summarise(evaluate_distr(biomass,est_xmin=FALSE))
+
+dist_manejo %>% filter(min(AICc)==AICc) %>% mutate(moda=exp(expo))
+
+# Plots usando ggplot
+#
+dist_plot <- meso %>% group_by(system) %>% summarise(gplot=list(evaluate_distr(biomass,est_xmin=FALSE,returnOBJ=TRUE)))
+
+# Estimación para todos los datos
+
+dist_total <- evaluate_distr(meso$biomass,est_xmin=FALSE)
+dist_total %>% filter(min(AICc)==AICc) %>% mutate(moda=exp(expo))
+
+dist_plot_tot <- evaluate_distr(meso$biomass,est_xmin=FALSE,returnOBJ = TRUE) 
+
+
+require(cowplot)
+
+prowU <- plot_grid(
+  dist_plotU$gplot[1][[1]] + xlab("Peso corporal")  + theme(legend.position="none")+ theme(axis.text.x = element_text(angle = 50, hjust = 1)) + ylab(NULL), 
+  dist_plotU$gplot[2][[1]] + xlab("Peso corporal")  + theme(legend.position="none") + theme(axis.text.x = element_text(angle = 50, hjust = 1)) + ylab(NULL),
+  dist_plotU$gplot[3][[1]]  + xlab("Peso corporal") + theme(legend.position="none") + theme(axis.text.x = element_text(angle = 50, hjust = 1)) + ylab(NULL),
+  dist_plot_totU  + xlab("Peso corporal") + theme(legend.position="none") + theme(axis.text.x = element_text(angle = 50, hjust = 1)) + ylab(NULL),
+  align = 'vh',
+  nrow = 2,
+  labels = c('A', 'P','R','T' )
+  )
+legend_b <- get_legend(
+  dist_plotU$gplot[3][[1]] +
+    guides(color = guide_legend(nrow = 2)) +
+    theme(legend.position = "bottom")
+)
+pgU <- plot_grid(prowU, legend_b, nrow = 2, rel_heights = c(1, .1))
+
+#save_plot("Figures/BodySizeSpectra_Landuses.png",pg,base_width=8,base_height=6,dpi=600)
+#dist_plot$gplot[1][[1]] + xlab("Peso corporal")
+
+
+prow <- plot_grid(
+  dist_plot$gplot[1][[1]] + xlab("Peso corporal")  + theme(legend.position="none")+ theme(axis.text.x = element_text(angle = 50, hjust = 1))+ylab(NULL), 
+  dist_plot$gplot[2][[1]] + xlab("Peso corporal")  + theme(legend.position="none") + theme(axis.text.x = element_text(angle = 50, hjust = 1)) + ylab(NULL),
+  dist_plot$gplot[3][[1]]  + xlab("Peso corporal") + theme(legend.position="none") + theme(axis.text.x = element_text(angle = 50, hjust = 1)) + ylab(NULL),
+  dist_plot_tot  + xlab("Peso corporal") + theme(legend.position="none") + theme(axis.text.x = element_text(angle = 50, hjust = 1)) + ylab(NULL),
+  align = 'vh',
+  nrow = 2,
+  labels = c('A', 'G','N','T' )
+  )
+legend_b <- get_legend(
+  dist_plot$gplot[3][[1]] +
+    guides(color = guide_legend(nrow = 2)) +
+    theme(legend.position = "bottom")
+)
+pg <- plot_grid(prow, legend_b, nrow = 2, rel_heights = c(1, .1))
+
+
+
+
+```
+
+```{r aj, echo=FALSE, warning=FALSE, message=FALSE}
+pgU
+
+pg
+
+
+```
+
+
+La distribución acumulada inversa se contrastaron con las distribuciones teóricas exponencial, potencial exponencial, potencial exponencial truncada y logarítmica normal.
+
+
+En ambas localidades y entre los diferentes sistemas de uso los pesos corporales de todo el conjunto de datos ajustan a la distribución logarítmica normal conocida también como log-normal, esto tiene sentido si, se considera que cada especie tiene una distribución aproximadamente normal de sus pesos corporales pero cuyos valores no pueden ser menores o iguales que cero y también si, se considera la contribución multiplicativa de cada especie en el total de la comunidad. (.\@.log en biologia; .\@.potapov, sus bichos estaban distribuidos log normal.)
+
+```{r tab_lg, echo=FALSE,warning=FALSE,message=FALSE}
+
+dist_manejo1<-dist_manejo
+
+names(dist_manejo1)<-c("sitio","type","expo","rate","xmin","AICc","range")
+tbl_pln<-rbind(dist_manejoU %>% filter(min(AICc)==AICc) %>% mutate(moda=exp(expo)),dist_manejo1 %>% filter(min(AICc)==AICc) %>% mutate(moda=exp(expo)))
+
+t<-as.data.frame(tbl_pln[,c("sitio","type","AICc","moda","rate","expo","xmin")])
+
+t
+
+
+```
+
+Esta distribución logarítmica normal ajusta a los datos de distribución empírica en todos los sistemas de uso del suelo.
+
+\newpage
+
+
+## Apéndice 4.3. 
+
+### Reducción del modelo y verificación paramétrica de los modelos parsimoniosos de las relaciones entre biomasas medias de los taxones de los gremios en cada sistema de uso del suelo
+
+**Algoritmo "step"**
+
+El algoritmo "step" consiste en quitar secuencialmente el término más complejo del modelo completo,
+aquél que contiene todas las interacciones, y comparar su valor de Akaike (AIC) con el del modelo original,
+este procedimiento se realiza quitando los términos complejos uno a la vez y el procedimiento se detiene cuando el modelo ya no baja en su valor de AIC. 
+De esta manera se tienen 3 situaciones, quedarse con el modelo completo (incluye todas las interacciones), llegar al modelo nulo (solo se queda con el intercepto y las pendientes) o quedarse con un modelo intermedio (con algunos términos ya sean interaciones, efectos o covarianzas).
+Se considera que el modelo parsimonioso es aquel que tiene el menor valor de AIC, y este corresponde a un modelo con la mayor capacidad predictiva y a la vez con el menor número de parámetros.
+
+**Modelo multifactorial, algoritmo "step": Biomasa media de la comunidad edáfica de suelos argiudoles de Luján**
+
+```{r step_luján, echo=FALSE, warning=FALSE, message=FALSE}
+
+#B.UNLU######
+baseU<-baseU%>%mutate(Tbiomass=D*bio.ind)
+#modelo completo
+mU_p<-lm(log(Tbiomass) ~ sitio * gremio ,data = baseU)
+
+step(lm(log(Tbiomass) ~ sitio * gremio ,data = baseU))
+
+
+
+```
+
+**Modelo multifactorial, gráficos de verificación paramétrica: Biomasa media de la comunidad edáfica de suelos argiudoles de Luján**
+
+```{r plot_luján, echo=FALSE, warning=FALSE, message=FALSE, fig.align='center'}
+par(mfrow=c(2,2))
+plot(lm(log(Tbiomass) ~ sitio * gremio ,data = baseU))
+par(mfrow=c(1,1))
+```
+
+
+**Modelo multifactorial, algoritmo "step": Biomasa media de la comunidad de microartrópodos edáficos de suelos argiudoles de Chivilcoy y Navarro**
+
+```{r step_chivilcoy, echo=FALSE, warning=FALSE, message=FALSE}
+step(lm(log(Tbiomass) ~ system * guild, data = base))
+mR_c<-lm(log(Tbiomass) ~ system * guild, data = base)
+```
+
+**Modelo multifactorial, gráficos de verificación paramétrica: Biomasa media de la comunidad de microartrópodos edáficos de suelos argiudoles de Chivilcoy y Navarro**
+
+
+```{r plot_chivilcoy,echo=FALSE, warning=FALSE, message=FALSE, fig.align='center'}
+par(mfrow=c(2,2))
+plot(lm(log(Tbiomass) ~ system * guild, data = base))
+par(mfrow=c(1,1))
+
+```
+
+\newpage
+
+### Prueba de a pares entre factores del modelo multifactorial que relaciona la respuesta de la biomasa media de la comunidad de la fauna edáfica con los gremios tróficos en diferentes sistemas de uso en suelos argiudoles de la Pampa Ondulada.
+
+**Comparación entre pares**
+
+Para las interacciones y los factores en los diferentes modelos se procedió a la comparacion 
+entre pares, "diferencia de medias", se consideraron las medias marginales y 
+los valores de probabilidad fueron corregidos
+por Benjamini-Hochberg para evitar considerar comparaciones con error tipo I.
+
+**Diferencias de medias, gremios tróficos de la comunidad edáfica en suelos de Luján**
+
+
+```{r pair_gremio_L,echo=FALSE, warning=FALSE, message=FALSE}
+gremio_U<-read.csv("scripts/database/sum-pairwise_comparisons_B_U1.txt", sep="")
+gremio_U%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
+```
+
+
+**Diferencias de medias, sistemas de uso de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
+
+
+
+```{r pair_sistema_CN,echo=FALSE, warning=FALSE, message=FALSE}
+pair_sistema_CN<-read.csv("scripts/database/sum-pairwise_comparisons_B_RO2.txt", sep="")
+pair_sistema_CN%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
+```
+
+**Diferencias de medias, gremios tróficos de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
+
+
+```{r pair_gremio_CN,echo=FALSE, warning=FALSE, message=FALSE}
+pair_gremio_CN<-read.csv("scripts/database/sum-pairwise_comparisons_B_RO3.txt", sep="")
+pair_gremio_CN%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
+```
+
+
+**Diferencias de medias, interacción sistemas de uso - gremios tróficos de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
+
+
+
+```{r pair_gremio:sistema_CN,echo=FALSE, warning=FALSE, message=FALSE}
+pair_gremiosistema_CN<-read.csv("scripts/database/sum-pairwise_comparisons_B_RO1.txt", sep="")
+pair_gremiosistema_CN%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
+```
+\newpage
+
+## Apéndice 4.4. 
+
+### Reducción del modelo de regresión de quartiles ($\tau=0.75$) que relaciona la densidad media y el peso corporal medio de los gremios tróficos de la comunidad edáfica en diferentes sistemas de uso en suelos argiudoles de la Pampa Ondulada.
+
+**Reducción del modelo de regresión de cuartiles, algoritmo "step", de la comunidad edáfica del suelo de Luján**
+
+```{r qq_red_luj, echo=FALSE, warning=FALSE, message=FALSE}
+rq0<-rq(log(D) ~ (sitio+gremio+log(bio.ind))^3, tau = .75, data = baseU)
+step(rq0)
+
+```
+
+
+**Reducción del modelo de regresión de cuartiles, algoritmo "step", de la comunidad de microartópodos edáficos de suelos de Chivilcoy y Navarro**
+
+```{r qq_apendice, echo=FALSE, warning=FALSE, message=FALSE}
+rq1<-rq(log(abundance) ~ (system+guild+log(bio.ind))^3, tau = .75, data = base)
+step(rq1)
+#modelo Ro
+
+```
+
+\newpage
+
+### Prueba de a pares entre factores del modelo de regresión de quartiles ($\tau=0.75$) que relaciona la densidad media y el peso corporal medio de los gremios tróficos de la comunidad edáfica en diferentes sistemas de uso en suelos argiudoles de la Pampa Ondulada.
+
+**Diferencias del 3er quantil, sobre el intercepto, entre sistemas de uso de la comunidad de fauna edáfica en suelos de Luján**
+
+
+```{r r L_qq1, echo=FALSE, warning=FALSE, message=FALSE}
+L_qq1<-read.csv("scripts/database/sum-pairwise_comparisons_U1.txt", sep="")
+L_qq1%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
+```
+
+
+**Diferencias del 3er quantil, sobre el intercepto, entre gremios de la comunidad de fauna edáfica en suelos de Luján**
+
+```{r L_qq2, echo=FALSE, warning=FALSE, message=FALSE}
+L_qq2<-read.csv("scripts/database/sum-pairwise_comparisons_U2.txt", sep="")
+L_qq2%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
+```
+
+
+**Diferencias del 3er quantil, sobre el intercepto, entre sistemas de uso y gremios de la comunidad de fauna eáfica en suelos de Luján**
+
+
+
+```{r L_qq3, echo=FALSE, warning=FALSE, message=FALSE}
+L_qq3<-read.csv("scripts/database/sum-pairwise_comparisons_U3.txt", sep="")
+L_qq3%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
+```
+
+**Diferencias del 3er quantil, sobre la pendiente, entre gremios de la comunidad de fauna eáfica en suelos de Luján**
+
+
+
+```{r L_qq4, echo=FALSE, warning=FALSE, message=FALSE}
+L_qq4<-read.csv("scripts/database/sum-pairwise_comparisons_U4.txt", sep="")
+L_qq4%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
+```
+
+
+**Diferencias del 3er quantil, sobre la pendiente, entre gremios de la comunidad observados entre sistemas de uso de fauna edáfica en suelos de Luján**
+
+
+
+```{r L_qq5, echo=FALSE, warning=FALSE, message=FALSE}
+L_qq5<-read.csv("scripts/database/sum-pairwise_comparisons_U5.txt", sep="")
+L_qq5%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
+```
+
+\newpage
+
+**Diferencias del 3er quantil, sobre el intercepto, entre sistemas de uso de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
+
+
+```{r R_qq1, echo=FALSE, warning=FALSE, message=FALSE}
+R_qq1<-read.csv("scripts/database/sum-pairwise_comparisons_RO5.txt", sep="")
+R_qq1%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
+```
+
+
+**Diferencias del 3er quantil, sobre el intercepto, entre gremios tróficos de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
+
+
+
+```{r R_qq2, echo=FALSE, warning=FALSE, message=FALSE}
+R_qq2<-read.csv("scripts/database/sum-pairwise_comparisons_RO6.txt", sep="")
+R_qq2%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
+```
+
+
+**Diferencias del 3er quantil, sobre el intercepto, entre sistemas de uso y gremios tróficos de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
+
+
+
+```{r R_qq3, echo=FALSE, warning=FALSE, message=FALSE}
+R_qq3<-read.csv("scripts/database/sum-pairwise_comparisons_RO4.txt", sep="")
+R_qq3%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
+```
+
+
+**Diferencias del 3er quantil, sobre la pendiente, entre gremios de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
+
+
+
+```{r R_qq4, echo=FALSE, warning=FALSE, message=FALSE}
+R_qq4<-read.csv("scripts/database/sum-pairwise_comparisons_RO1.txt", sep="")
+R_qq4%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
+```
+
+
+**Diferencias del 3er quantil, sobre la pendiente, entre sistemas de uso de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
+
+
+```{r R_qq5, echo=FALSE, warning=FALSE, message=FALSE}
+R_qq5<-read.csv("scripts/database/sum-pairwise_comparisons_RO2.txt", sep="")
+R_qq5%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
+```
+
+
+**Diferencias del 3er quantil, sobre la pendiente, entre sistemas de uso y gremios de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
+
+
+```{r R_qq6, echo=FALSE, warning=FALSE, message=FALSE}
+R_qq6<-read.csv("scripts/database/sum-pairwise_comparisons_RO7.txt", sep="")
+R_qq6%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
+```
+
+
+
+\newpage
+
+# Apéndice del capítulo 5
+## Apéndice 5.1. 
+### Matriz de adyacencia de la fauna del suelo
+```{r apendice1, echo=FALSE, message=FALSE,error=FALSE,warning=FALSE}
+mG <- read.csv("scripts/database/mG.txt", sep="")
+
+t(mG)
+```
+
+\newpage
+
+## Apéndice 5.2. 
+### Lista de identidad de los nodos de las redes tróficas
+
+```{r apendice2, echo=FALSE, message=FALSE,error=FALSE,warning=FALSE}
+tabla_nombre <- read.csv("scripts/database/tabla_nombre.txt", sep="")
+
+tabla_nombre
+```
+
+

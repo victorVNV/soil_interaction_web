@@ -1,0 +1,16 @@
+"Taxón" "Sistema" "Peso corporal" "Densidad" "Biomasa"
+"1" "Bacterivoro" "Agrícola" 2,1 488922 385,8
+"2" "Bacterivoro" "Pastizal" 0,9 1038962 279,7
+"3" "Bacterivoro" "Reserva" 2,6 1385283 1229,9
+"4" "Fitofago" "Agrícola" 1,2 201680 78,8
+"5" "Fitofago" "Pastizal" 0,9 541888 80,9
+"6" "Fitofago" "Reserva" 1,4 1342502 516,3
+"7" "Fungivoro" "Agrícola" 7,8 444105 1494,2
+"8" "Fungivoro" "Pastizal" 2,6 922842 692,1
+"9" "Fungivoro" "Reserva" 6,2 2053479 3678,1
+"10" "Omnivoro" "Agrícola" 16,8 330022 2475,8
+"11" "Omnivoro" "Pastizal" 8,1 470588 1294,4
+"12" "Omnivoro" "Reserva" 20,6 360580 2818,1
+"13" "Predador" "Agrícola" 4,1 230200 378,7
+"14" "Predador" "Pastizal" 2,6 291315 291,8
+"15" "Predador" "Reserva" 6,7 244461 623,4

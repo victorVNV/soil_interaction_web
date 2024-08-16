@@ -1533,7 +1533,7 @@ plot_PCA_ro
 
 Observando los centroides de los taxones estudiados en los suelos de Chivilcoy y Navarro de menor a mayor a lo largo de la primera dimensión, observamos a las lombrices de tierra, estas a la vez se correlacionan levemente con el lado negativo del segundo eje de coordenadas lado que explica el agrupamiento del pastizal naturalizado. Luego se ubican los ácaros predadores del suelo (Mesostigmatas) sin una relación aparente con algún sistema de uso del suelo. Los ácaros prostigmatas y los ácaros oribátidos se ubican cercanos en un valor similar del primer eje de coordenadas pero separandosé levemente sobre el sentido positivo del segundo eje de coordenadas, a la vez se encuentran relacionandose a los ácaros Prostigmata con los sitios del sistema agrícola intensivo y a los ácaros Oribatida con el sistema mixto agrícola ganadero. Más alejado se ubica el centroide que corresponde a los colémbolos, en una situación intermedia entre el sistema Mixto y el Agrícola Intensivo pero más cercano al sistema agrícola.
 
-# Conclusión
+# Discusión
 
 Las caracterizaciones químicas y biológicas de los suelos se correlacionan entre sí con mayor grado a medida que aumentan el número de observaciones, este fenómeno, refleja la complejidad de asociaciones que ocurren en el ecosistema del suelo.
 
