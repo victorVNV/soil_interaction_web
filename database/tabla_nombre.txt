@@ -1,0 +1,113 @@
+"Nombre" "Identificador"
+"1" "Hojarasca" 1
+"2" "Carroña de invertebrados" 2
+"3" "Tejido Vegetal" 3
+"4" "Humus" 4
+"5" "isoptera" 5
+"6" "crotonioidea" 6
+"7" "Octalasion lacteum" 7
+"8" "Microscolex dubius" 8
+"9" "Eukerria stagnalis" 9
+"10" "brachychthonioidea" 10
+"11" "oribatido" 11
+"12" "alycidae" 12
+"13" "ameroseidae" 13
+"14" "anthribidae" 14
+"15" "anystidae" 15
+"16" "aphidoidea" 16
+"17" "Aporrectodea caliginosa" 17
+"18" "Aporrectodea rosea" 18
+"19" "Aporrectodea trapezoides" 19
+"20" "arctacaridae" 20
+"21" "astigmata" 21
+"22" "bac" 22
+"23" "bdelloidea" 23
+"24" "Bimastos beddardi sophiae" 24
+"25" "Bimastos parvus" 25
+"26" "blattodea" 26
+"27" "carabidae" 27
+"28" "ceratozetoidea" 28
+"29" "cicadidae" 29
+"30" "coccinelidae" 30
+"31" "coleoptera suctor herbivoro" 31
+"32" "cryptophagidae" 32
+"33" "cunaxide" 33
+"34" "dermanisoidea" 34
+"35" "diplopoda" 35
+"36" "diplura" 36
+"37" "elateriforme" 37
+"38" "embrioptera" 38
+"39" "enchytraeida" 39
+"40" "entomobridae" 40
+"41" "epilhomanioidea" 41
+"42" "eremobelbidae" 42
+"43" "Eukerria halophila" 43
+"44" "eupodoidea" 44
+"45" "eupthiracaroidea" 45
+"46" "eviphididae" 46
+"47" "formicidae" 47
+"48" "Hongos" 48
+"49" "galumnidae" 49
+"50" "gasteropoda" 50
+"51" "geophylomorpha" 51
+"52" "Glossoscolex sp." 52
+"53" "grillopalpidae" 53
+"54" "hemiptero" 54
+"55" "hipogastruridae" 55
+"56" "ichtyostomatogasteridae" 56
+"57" "isotomidae" 57
+"58" "juvenil de lombrices de tierra" 58
+"59" "laelapidae" 59
+"60" "larva carabidae" 60
+"61" "larva coleoptero" 61
+"62" "larva curculionidae" 62
+"63" "larva diptera" 63
+"64" "larva elateridae" 64
+"65" "larva scarabidae" 65
+"66" "larva sciaridae" 66
+"67" "larva tenebrionidae" 67
+"68" "limnozetidae" 68
+"69" "linyphiidae" 69
+"70" "lycosidae" 70
+"71" "macropilina" 71
+"72" "mesostigmata" 72
+"73" "Microscolex phosphoreus" 73
+"74" "nemátodo bacterivoro" 74
+"75" "nemátodo fitofago" 75
+"76" "nemátodo fungivoro" 76
+"77" "nemátodo omnivoro" 77
+"78" "nemátodo predador" 78
+"79" "nematomorpha" 79
+"80" "Octalasion cyaneum" 80
+"81" "Octolasion tyrtaeum" 81
+"82" "ologamasidae" 82
+"83" "onichiuridae" 83
+"84" "oniscidea" 84
+"85" "oppioidea" 85
+"86" "oribatulidae" 86
+"87" "oripodidae" 87
+"88" "ortoptero" 88
+"89" "parasitidae" 89
+"90" "penthalidae" 90
+"91" "protozoos" 91
+"92" "protura" 92
+"93" "pseudoscorpionida" 93
+"94" "ptilidae" 94
+"95" "pupa diptera" 95
+"96" "rhagidiidae" 96
+"97" "rhodacarioidea" 97
+"98" "scheloribatidae" 98
+"99" "staphiliniidae" 99
+"100" "symphyla" 100
+"101" "symphypleona" 101
+"102" "tardigrado" 102
+"103" "tarsonemidae" 103
+"104" "tenebrionidae" 104
+"105" "teneriffidae" 105
+"106" "terebrantia" 106
+"107" "thysanoptera" 107
+"108" "trogossitidae" 108
+"109" "trombidiidae" 109
+"110" "tydeioidea" 110
+"111" "uropodoidea" 111
+"112" "veigaioidea" 112

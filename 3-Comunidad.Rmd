@@ -107,7 +107,7 @@ De manera complementaria se estimaron la respiración heterotrófica, la proporc
 En cada sitio se ubicaron 3 réplicas de un metro cuadrado de superficie separadas 50 metros entre sí 
 y separadas 10 metros de los bordes de parcelas [@moreira2012; @potapov2022a].
 
-Para muestrear los <u>nemátodos de vida libre del suelo<\u> se tomaron 4 submuestras por cada réplica 
+Para muestrear los <u>nemátodos de vida libre del suelo</u> se tomaron 4 submuestras por cada réplica 
 muestral, en puntos al azar dentro de un área muestral de un metro cuadrado previamente delimitada, con 
 sacadocados de 5 cm diámetro y 10 cm de profundidad. Las submuestras fueron almacenadas evitando la 
 compactación, la pérdida de humedad y el sobrecalentamiento para luego llevarlas al laboratorio donde 
@@ -122,13 +122,13 @@ formalina 4% [@moreira2012] o alcohol 96º [@potapov2022a] hasta el conteo bajo 
 identificación en grupos tróficos siguiendo la morfología del aparato bucal [@momo2009; @yeates1971; 
 @mondino2010] con ayuda de montajes temporales y observación bajo microscopio óptico.
 
-Para muestrear la <u>macrofauna del suelo<\u> se trabajó en 2 etapas una a campo y otra en el laboratorio, en ambos casos los animales se capturaban directamente utilizando pinzas y pinceles y se los almacenaba directamente en alcohol de 96º (*"a ojo desnudo"* o en inglés: *"Hand shorting"*), hasta su posterior conteo e identificación [@potapov2022a]). En el campo se delimitó dentro del área de muestreo de un metro cuadrado una sub-parcela, ubicada al azar, de 25 x 25 cm y se excavó el suelo hasta los 20 cm de profundidad, esta muestra se trabajó de manera estratificada para facilitar la exploración y captura de 
+Para muestrear la <u>macrofauna del suelo</u> se trabajó en 2 etapas una a campo y otra en el laboratorio, en ambos casos los animales se capturaban directamente utilizando pinzas y pinceles y se los almacenaba directamente en alcohol de 96º (*"a ojo desnudo"* o en inglés: *"Hand shorting"*), hasta su posterior conteo e identificación [@potapov2022a]). En el campo se delimitó dentro del área de muestreo de un metro cuadrado una sub-parcela, ubicada al azar, de 25 x 25 cm y se excavó el suelo hasta los 20 cm de profundidad, esta muestra se trabajó de manera estratificada para facilitar la exploración y captura de 
 la fauna, separando en hojarasca, suelo hasta los 10 cm y suelo hasta los 20 cm de profundidad. Luego,
 las muestras de suelo fueron trasladadas al laboratorio, manteniendo el suelo intacto y cuidando que no pierda la humedad natural para evitar la deshidratación de la macrofauna hasta que el culmine el proceso de exploración y extracción de los animales, proceso que llevo aproximadamente una semana. Cada muestra de suelo fue desagregada minusiosamente, sobre un fondo blanco bajo luz blanca y con el apoyo de lupa, prestando atención al movimiento de los animales de la macrofauna, lo que permite capturar más animales que los que permite la exploración a campo donde solo es factible observar aquellos animales ágiles o de gran tamaño, tales como, lombrices de tierra, arañas lobo, bichos bolita, milpies, cienpies, entre otros [@moreira2012; @potapov2022a]. Los animales capturados son almacenados en alcohol 96º hasta su identificación taxonómica, para la identificación se utilizaron claves taxonómicas que separan en grandes grupos taxonómicos [@vargas2014]. Las lombrices de tierra (Oligochaeta: Crassiclitellata) fueron identificadas hasta especies [@reynolds1996; @satchell1983; @demichis1999] y la macrofauna restante fué separada en diferentes rangos taxonómicos desde órdenes hasta familias [@choate1999; @claps2020; @klimaszewiski1997; @dindal1990; @zhang2011; @vargas2014].
 
  <!--anexo tal vez:(Fig 3.x)[Fig 3.x colocar mosaico de imágenes donde estamos suelo lupa y balanza]-->
 
-Para muestrear la <u>mesofauna del suelo<\u>, se tomaron la hojarasca y el suelo hasta la profundidad de 10 cm. Se tomó toda la hojarasca que se encontraba sobre la superficie que cubría el monolito de 625 cm^2^, para luego extraer la mesofauna, además el suelo del monolito de los primeros 10 centímetros de profundidad fue desagregado, mezclado y homogeneizado para tomar tres submuestras de suelo con un volumen de 100 cm³, previo a la toma de muestras el suelo fue disminuido en volumen mediante la técnica del cuarteo, lo que asegura la representatividad de las fracciones submuestreadas. Las submuestras de la mesofauna edáfica fueron sometidas al método de flotación y tamizado [@vargas2007], estas se desagregan en agua en relación 1:6 de suelo:agua, se agita enérgicamente durante 2 min, se deja reposar la solución durante unos minutos y luego se vuelca la mezcal a través del juego de tamices de 4 mm, 2mm, 1mm, 500 μm, 250 μm y 170 μm; la mesofauna se colecta de lo que queda atrapado en los tamices desde los 1000 μm hasta las 170 μm. Los animales colectados se almacenaron en alcohol 96º, luego se contaron e identificaron los taxones en diferentes rangos taxonómicos hasta familias utilizando claves taxonómicas de: @krantz2009; @momo2009; @janssens; @balogh1988; @burges1967; @evans1979; @dindal1990.
+Para muestrear la <u>mesofauna del suelo</u>, se tomaron la hojarasca y el suelo hasta la profundidad de 10 cm. Se tomó toda la hojarasca que se encontraba sobre la superficie que cubría el monolito de 625 cm^2^, para luego extraer la mesofauna, además el suelo del monolito de los primeros 10 centímetros de profundidad fue desagregado, mezclado y homogeneizado para tomar tres submuestras de suelo con un volumen de 100 cm³, previo a la toma de muestras el suelo fue disminuido en volumen mediante la técnica del cuarteo, lo que asegura la representatividad de las fracciones submuestreadas. Las submuestras de la mesofauna edáfica fueron sometidas al método de flotación y tamizado [@vargas2007], estas se desagregan en agua en relación 1:6 de suelo:agua, se agita enérgicamente durante 2 min, se deja reposar la solución durante unos minutos y luego se vuelca la mezcal a través del juego de tamices de 4 mm, 2mm, 1mm, 500 μm, 250 μm y 170 μm; la mesofauna se colecta de lo que queda atrapado en los tamices desde los 1000 μm hasta las 170 μm. Los animales colectados se almacenaron en alcohol 96º, luego se contaron e identificaron los taxones en diferentes rangos taxonómicos hasta familias utilizando claves taxonómicas de: @krantz2009; @momo2009; @janssens; @balogh1988; @burges1967; @evans1979; @dindal1990.
 
 
 Con el suelo de los primeros 10 cm de profundidad se llevó adelante la técnica para estimar la respiración heterotófica [@frioni1999], en esta profundidad se desarrolla la mayor actividad 
@@ -182,225 +182,8 @@ pero con características biológicas específicas del taxón.
 
 ## Resultados
 
-```{r carga_variablesFQB, include=FALSE, warning=FALSE}
 
-fyq_unlu <- read.delim("database/fyq_unlu.txt")
-
-####
-# Respiración heterotrófica
-# Valores expresados en miligramos de CO2/h/100g suelo
-
-resp.b<-c( 0.131588785046729,0.14803738317757,0.14803738317757, #Pastizal
-           0.188187372708758,0.15234215885947,0.170264765784114, #Reserva
-           0.066236559139785,0.0851612903225806,0.0946236559139785) #Agrícola
-
-
-# Relación de hongos : bacterias
-
-#pasar las relaciones decimales a fracción
-ratio.hb<-c( 11/8, 11/6, 7/6, #Pastizal
-            2.42857142857143, 11/6, 3.5, #Reserva
-                       3.25, 14/3, 5/6) #Agrícola
-
-#Agrícola, corrección de 14 por 4.66 (como? usando la biomasa residual)
-# en agrícola existe un valor atípico de 14 y lo corregi a 1.4
-
-#hojarasca g/m2
-h<-c(
-  160.59*0.5*16, #P
-147.55*0.5*16,
-144.48*0.5*16,
-
-200.324*0.55*16, #R
-77.736*0.55*16,
-135.25*0.55*16,
-
-173.93*0.3*16, #A
-81.38*0.3*16,
-259.77*0.3*16)*0.3
-
-
-
-
-
-#########
-# matrices fisicoquimicas
-fyq.box<-fyq_unlu%>%mutate(
-  sistema=substr(Sitio, 3, 3),
-                       estrato=substr(Sitio, 1, 2),
-                       replica=substr(Sitio, 4, 4),
- )
-names(fyq.box)<-c("nombre","muestra","CE","pH","MO","C","P","N","TOC","D_TOC_C","C_TOC","sitio","estrato","replica")
-#se eligen las variables de interés
-
-fyq.box<-fyq.box[,c(1,12,14,13,3,4,5,8,7)]
-
-fqb.box<-data.frame(resp.b,ratio.hb,h,sitio=c(rep("P",3),rep("R",3),rep("A",3)),estrato=rep(10,9))
-
-```
-
-```{r carga_variables_fqb_RO, include=FALSE, warning=FALSE}
-#Anális de datos de ROSANA
-#Carga de datos
-
-RO <-RO <- read_excel("database/soil_networks.xlsx", sheet = "Ro_web")
-RO[is.na(RO)]<-0
-
-#Filtrar la macrofauna, razon, el diseño de muestreo no lo contempla
-
-RO_f<-RO %>% filter(class!="macrofauna")%>%
-  mutate(nombre=paste(system,
-                                    substr(site,1,3),
-                                    substr(year,3,4),
-                                    substr(month,1,3)))%>%
-  group_by(nombre,
-           system,site,year,month,season,
-           order,guild,specie) %>%
-  summarise(abundance=n(), peso.ind=median(biomass), 
-            bmicro=(median(bm)), 
-            res.mec=median((RM5+RM10)/2),DAP=median(DAP),HR=median(HR),
-            pH=median(Ph),CE=median(CE),
-            MO=median(MO),N=median(N),P=median(P),K=median(K),
-            Ca=median(Ca),Mg=median(Mg),Na=median(Sodio),respH=mean(RESP))%>%
-  distinct(specie,.keep_all=TRUE)
-
-#Llevando abundancias a densidad####
-
-sup.bocado <- 1/(pi*2.5^2/10000)
-sup.monolito <- 1/(0.25*0.25)
-
-
-RO_full<-RO_f%>%mutate(D=floor(case_when(
-  order=="crassiclitellata"~sup.monolito*abundance,
-  order!="crassiclitellata"~sup.bocado*abundance)
-  ),BT=D*peso.ind)
-
-
-#Matriz de comunidad####
-
-abund_RO<-RO_full[,c("nombre","system","site","specie","abundance","D")] %>% 
-  pivot_wider(names_from = specie,
-              values_from = c(abundance,D),
-              values_fill = 0,
-              values_fn = sum)%>%
-  distinct(nombre,.keep_all=TRUE)
-
-#Matriz fisico quimica#########
-fq_RO<-RO_full%>%group_by(nombre,
-           system,site,year,month,season,
-           )%>%
-  summarise(res.mec=mean(res.mec),DAP=mean(DAP),HR=mean(HR),
-            pH=mean(pH),CE=mean(CE),
-            MO=mean(MO),N=mean(N),P=mean(P),K=mean(K),
-            Ca=mean(Ca),Mg=mean(Mg),Sodio=mean(Na),rH=mean(respH))%>%
-  distinct(nombre,.keep_all=TRUE)
-#Asignar número de réplica según la tesis de Rosana. pp53 tabla 2.1.
-#En el espectro de tamaños esto se encuentra con sus nombres.
-fq_RO$replica
-fq_RO[fq_RO$site=="triangulo","replica"]<-1
-fq_RO[fq_RO$site=="L27","replica"]<-1
-fq_RO[fq_RO$site=="molino","replica"]<-1
-
-fq_RO[fq_RO$site=="festuca","replica"]<-2
-fq_RO[fq_RO$site=="L24","replica"]<-2
-fq_RO[fq_RO$site=="manga","replica"]<-2
-
-fq_RO[fq_RO$site=="romina","replica"]<-3
-fq_RO[fq_RO$site=="L25","replica"]<-3
-fq_RO[fq_RO$site=="casuarina","replica"]<-3
-
-#En esta matriz de datos completa se encuentra la réplica, no se incluye
-# los pesos corporales, será trabajada en la próxima sección
-# cada sitio con sus variables FyQ y con las especies con densidad y abundancias
-
-RO_db_full <- merge(fq_RO, abund_RO, by = "nombre", all = TRUE)
-name.RO_db_full<-c(names(RO_db_full))
-
-names(RO_db_full)<-c("nombre","system","site",name.RO_db_full[-c(1:3)])
-
-```
-
-```{r matriz_pca, include=FALSE}
-
-fyq.pca<-fyq_unlu%>%mutate(sitio=substr(Sitio, 3, 3),
-                       estrato=substr(Sitio, 1, 2),
-                       replica=substr(Sitio, 4, 4),
-                       nombre=paste(sitio,replica))%>%
-  group_by(sitio,replica,nombre)%>%
-  summarise(CE=mean(CE..Ms.,na.rm=TRUE),CE.sd=sd(CE..Ms.,na.rm=TRUE),
-            pH=mean(PH,na.rm=TRUE),pH.sd=sd(PH,na.rm=TRUE),
-            MO=mean(MATERIA.ORGÁNICA,na.rm=TRUE),MO.sd=sd(MATERIA.ORGÁNICA,na.rm=TRUE),
-            C=mean(CARBONO,na.rm=TRUE),C.sd=sd(CARBONO,na.rm=TRUE),
-            TOC=mean(TOC,na.rm=TRUE),TOC.sd=sd(TOC,na.rm=TRUE),
-            N=mean(NITRÓGENO,na.rm=TRUE),N.sd=sd(NITRÓGENO,na.rm=TRUE),
-            P=mean(FÓSFORO,na.rm=TRUE),P.sd=sd(FÓSFORO,na.rm=TRUE))%>%
-  distinct(nombre,.keep_all=TRUE)
-
-#agrego respiración en CO2/h/g
-fyq.pca$resp.b<-c(0.066236559139785,0.0851612903225806,0.0946236559139785,
-                    0.131588785046729,0.14803738317757,0.14803738317757,
-                    0.188187372708758,0.15234215885947,0.170264765784114)
-#agrego relación Hongo-Bacterias
-fyq.pca$ratio.hb<-c(3.25, 1.400000000001, 0.833333333333333,
-                       1.375, 1.83333333333333, 1.16666666666667,
-                       2.42857142857143, 1.83333333333333, 3.5)
-#Valores expresados en microgramos de C-biomasa/g suelo
-fyq.pca$ug_biom_x_g<-c(1.80305376344086, 2.14417204301075, 1.70559139784947,
-3.78435845213849, 3.50745417515275, 3.87665987780041, 2.62601869158878,
-3.4731214953271, 2.37188785046729)*1000
-
-
-# con la idea de tener la cantidad de hongos y bacterias
-# densidad aparente 1,47 g/cm3 (sacado del promedio pastura, agricola, reserva, tesina
-#Veronica)
-# suelo a 5 cm en un m2 son 50k cm3 aprox 0.5m3, esto es, 73500 g en 0.5m3 suelo 
-# más factor 1e6 para microgramos
-
-
-fyq.pca$bio.micro<-fyq.pca$ug_biom_x_g*73500
-
-
-fyq.pca$fungi<-round(fyq.pca$bio.micro*(fyq.pca$ratio.hb/(fyq.pca$ratio.hb+1)),4)
-fyq.pca$bacteria<-round((fyq.pca$bio.micro-fyq.pca$fungi),4)
-hj<-c(80.6664*16, 46.009*16, 104.421*16,#A
-  70.85*16,44.15*16,60.9*16,#P
-48.81*16,64.319*16,54.13*16 #R
-) 
-fyq.pca$hojarasca<-hj
-
-#write.table(unlu_merg[,c(1,2,3,4,6,8,10,12,14,16,258:263,20:138)],"matrizunlu.txt")
-
-```
-
-```{r corFQB_unlu, echo=FALSE}
-fq1<-fyq.pca[,c(6,8,14,16,18,19,24)]
-fq1<-as.data.frame(fq1)
-row.names(fq1)<-fyq.pca$nombre
-
-corr_fqb_unlu<-Hmisc::rcorr(as.matrix(fq1),type = "spearman");
-p_unlu<-(round(as.matrix(corr_fqb_unlu$P),2))
-r_unlu<-(round(as.matrix(corr_fqb_unlu$r),2))
-
-corr_unlu <- matrix(NA, nrow = ncol(fq1), ncol = ncol(fq1), dimnames = list(c("pH","% MO","% N", "P (ppm)", "Resp. Heterotrófica", "Hongos/Bacterias", "Hojarasca"),c("pH","% MO","% N", "P (ppm)", "Resp. Heterotrófica", "Hongos/Bacterias", "Hojarasca")))
-corr_unlu[upper.tri(corr_unlu, diag = FALSE)] <- p_unlu[upper.tri(p_unlu, diag = FALSE)]
-corr_unlu[lower.tri(corr_unlu,diag = TRUE)] <- r_unlu[lower.tri(r_unlu,diag = TRUE)]
-
-corrRO<-Hmisc::rcorr(as.matrix(RO_db_full[,c(10,12:14,19)]),type = "spearman")
-
-p_ro<-(round(as.matrix(corrRO$P),2))
-r_ro<-(round(as.matrix(corrRO$r),2))
-
-corr_ro <- matrix(NA, nrow = ncol(RO_db_full[,c(10,12:14,19)]), ncol = ncol(RO_db_full[,c(10,12:14,19)]), dimnames = list(c("pH","% MO","% N", "P (ppm)", "Resp. Heterotrófica"),c("pH","% MO","% N", "P (ppm)", "Resp. Heterotrófica")))
-corr_ro[upper.tri(corr_ro)] <- p_ro[upper.tri(p_ro)]
-corr_ro[lower.tri(corr_ro,diag = TRUE)] <- r_ro[lower.tri(r_ro,diag = TRUE)]
-
-#corrplot::corrplot(cor(fq1),tl.pos="t",type = "upper",tl.col = "black",tl.cex = .8,bg="brown4",diag=FALSE)
-#col=col3(100),
-
-# PerformanceAnalytics::chart.Correlation(as.matrix(fq1), histogram = TRUE, method = "spearman")
-```
-
-### Caracterización química y biológica de los suelos Argiudoles típicos de la Pampa Ondulada bajo diferentes formas de uso
+### Caracterización química - biológica de los suelos Argiudoles típicos de la Pampa Ondulada bajo diferentes formas de uso
 
 **Correlaciones de Spearman entre pares de variables en suelos Argiudoles típicos**
 
@@ -420,17 +203,24 @@ esos macro-nutrientes la disponibilidad de nutrientes disminuiría la actividad 
 
 **A)**
 
-```{r corrFQB_unlu, echo=FALSE, message=FALSE,warning=FALSE}
-corr_unlu
 
+```{r tab3.2A, echo=FALSE, message=FALSE,warning=FALSE}
+tab3.2A <- read.csv("scripts/database/corr_unlu.txt", sep="")
+colnames(tab3.2A)<-c("pH", "% MO", "% N", "P (ppm)", "Resp. Heterotrófica", "Hongos/Bacterias", "Hojarasca")
+tab3.2A%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
 ```
+
 
 **B)**
 
-```{r corrFQB_ro, echo=FALSE, message=FALSE,warning=FALSE}
 
-corr_ro
+```{r tab3.2B, echo=FALSE, message=FALSE,warning=FALSE}
+tab3.2B <- read.csv("scripts/database/corr_ro.txt", sep="")
+colnames(tab3.2B)<-c("pH", "% MO", "% N", "P (ppm)", "Resp. Heterotrófica")
+tab3.2B%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
+
 ```
+
 
 En los suelos Argiudoles de Chivilcoy y Navarro (Tabla 3.2) el pH se correlacionó significativamente con el nitrógeno, el fósforo y la respiración heterotrófica, las correlaciones fueron negativas entre el pH y el nitrógeno y el fósforo. Entonces si el aumento en la cantidad de Nitrógeno se relaciona con la disminución del pH, esta disminución del pH favorece el aumento del fósforo disponible. En cambio, la correlación fué positiva entre el pH y la respiración heterotrófica, por lo que la actividad biológica aumenta cuando el medio es más alcalino.
 
@@ -446,153 +236,14 @@ El fósforo no muestra correlación significativa con la respiración heterotró
 
 Los valores del pH (Tabla 3.3), en los suelos argiudoles de Luján, no mostraron diferencias significativas (K-W p:H\<0.1) entre los sitios. En los suelos de Chivilcoy y Navarro existió diferencias significativas entre grupos (K-W p:H\<0.1) en los cuáles, es el pastizal naturalizado el suelo más alcalino quién se diferencia de los demás sistemas de usos, siendo los sistemas mixto y agrícola intensivo similares en valores de acidez.
 
-```{r fq.tab,include=FALSE,message=FALSE,warning=FALSE}
-#tabla fq######
-
-fq.tab<-data.frame(Sitio=c("R","P","A","N","G","A"),
-                   pH=c(
-                     paste(sep=" ",
-                        round(mean(fyq.box[fyq.box$sitio=="R","pH"],na.rm=TRUE),1),
-                        "±",
-                        round(sd(fyq.box[fyq.box$sitio=="R","pH"],na.rm=TRUE),2)),
-                     paste(sep=" ",
-                        round(mean(fyq.box[fyq.box$sitio=="P","pH"],na.rm=TRUE),1),
-                        "±",
-                        round(sd(fyq.box[fyq.box$sitio=="P","pH"],na.rm=TRUE),2)),
-                     paste(sep=" ",
-                        round(mean(fyq.box[fyq.box$sitio=="A","pH"],na.rm=TRUE),1),
-                        "±",
-                        round(sd(fyq.box[fyq.box$sitio=="A","pH"],na.rm=TRUE),2)),
-                     paste(sep=" ",
-                       round(mean(RO_db_full[RO_db_full$system=="N","pH"],na.rm=TRUE),1),
-                        "±",
-                        round(sd(RO_db_full[RO_db_full$system=="N","pH"],na.rm=TRUE),2),"a"),
-                     paste(sep=" ",
-                       round(mean(RO_db_full[RO_db_full$system=="G","pH"],na.rm=TRUE),1),
-                        "±",
-                        round(sd(RO_db_full[RO_db_full$system=="G","pH"],na.rm=TRUE),2),"b"),
-                     paste(sep=" ",
-                       round(mean(RO_db_full[RO_db_full$system=="A","pH"],na.rm=TRUE),1),
-                        "±",
-                        round(sd(RO_db_full[RO_db_full$system=="A","pH"],na.rm=TRUE),2),"b")
-                     ),
-                     
-                     MO=c(
-                     paste(sep=" ",
-                        round(mean(fyq.box[fyq.box$sitio=="R","MO"],na.rm=TRUE),1),
-                        "±",
-                        round(sd(fyq.box[fyq.box$sitio=="R","MO"],na.rm=TRUE),2)),
-                     paste(sep=" ",
-                        round(mean(fyq.box[fyq.box$sitio=="P","MO"],na.rm=TRUE),1),
-                        "±",
-                        round(sd(fyq.box[fyq.box$sitio=="P","MO"],na.rm=TRUE),2)),
-                     paste(sep=" ",
-                        round(mean(fyq.box[fyq.box$sitio=="A","MO"],na.rm=TRUE),1),
-                        "±",
-                        round(sd(fyq.box[fyq.box$sitio=="A","MO"],na.rm=TRUE),2)),
-                     paste(sep=" ",
-                       round(mean(RO_db_full[RO_db_full$system=="N","MO"],na.rm=TRUE),1),
-                        "±",
-                        round(sd(RO_db_full[RO_db_full$system=="N","MO"],na.rm=TRUE),2)),
-                     paste(sep=" ",
-                       round(mean(RO_db_full[RO_db_full$system=="G","MO"],na.rm=TRUE),1),
-                        "±",
-                        round(sd(RO_db_full[RO_db_full$system=="G","MO"],na.rm=TRUE),2)),
-                     paste(sep=" ",
-                       round(mean(RO_db_full[RO_db_full$system=="A","MO"],na.rm=TRUE),1),
-                        "±",
-                        round(sd(RO_db_full[RO_db_full$system=="A","MO"],na.rm=TRUE),2))
-),
-                N=c(
-                     paste(sep=" ",
-                        round(mean(fyq.box[fyq.box$sitio=="R","N"],na.rm=TRUE),1),
-                        "±",
-                        round(sd(fyq.box[fyq.box$sitio=="R","N"],na.rm=TRUE),2)),
-                     paste(sep=" ",
-                        round(mean(fyq.box[fyq.box$sitio=="P","N"],na.rm=TRUE),1),
-                        "±",
-                        round(sd(fyq.box[fyq.box$sitio=="P","N"],na.rm=TRUE),2)),
-                     paste(sep=" ",
-                        round(mean(fyq.box[fyq.box$sitio=="A","N"],na.rm=TRUE),1),
-                        "±",
-                        round(sd(fyq.box[fyq.box$sitio=="A","N"],na.rm=TRUE),2)),
-                     paste(sep=" ",
-                       round(mean(RO_db_full[RO_db_full$system=="N","N"],na.rm=TRUE),1),
-                        "±",
-                        round(sd(RO_db_full[RO_db_full$system=="N","N"],na.rm=TRUE),2),"a"),
-                     paste(sep=" ",
-                       round(mean(RO_db_full[RO_db_full$system=="G","N"],na.rm=TRUE),1),
-                        "±",
-                        round(sd(RO_db_full[RO_db_full$system=="G","N"],na.rm=TRUE),2),"b"),
-                     paste(sep=" ",
-                       round(mean(RO_db_full[RO_db_full$system=="A","N"],na.rm=TRUE),1),
-                        "±",
-                        round(sd(RO_db_full[RO_db_full$system=="A","N"],na.rm=TRUE),2),"a")
-),
-                                   P=c(
-                     paste(sep=" ",
-                        round(mean(fyq.box[fyq.box$sitio=="R","P"],na.rm=TRUE),1),
-                        "±",
-                        round(sd(fyq.box[fyq.box$sitio=="R","P"],na.rm=TRUE),2),"b"),
-                     paste(sep=" ",
-                        round(mean(fyq.box[fyq.box$sitio=="P","P"],na.rm=TRUE),1),
-                        "±",
-                        round(sd(fyq.box[fyq.box$sitio=="P","P"],na.rm=TRUE),2),"b"),
-                     paste(sep=" ",
-                        round(mean(fyq.box[fyq.box$sitio=="A","P"],na.rm=TRUE),1),
-                        "±",
-                        round(sd(fyq.box[fyq.box$sitio=="A","P"],na.rm=TRUE),2),"a"),
-                     paste(sep=" ",
-                       round(mean(RO_db_full[RO_db_full$system=="N","P"],na.rm=TRUE),1),
-                        "±",
-                        round(sd(RO_db_full[RO_db_full$system=="N","P"],na.rm=TRUE),2)),
-                     paste(sep=" ",
-                       round(mean(RO_db_full[RO_db_full$system=="G","P"],na.rm=TRUE),1),
-                        "±",
-                        round(sd(RO_db_full[RO_db_full$system=="G","P"],na.rm=TRUE),2)),
-                     paste(sep=" ",
-                       round(mean(RO_db_full[RO_db_full$system=="A","P"],na.rm=TRUE),1),
-                        "±",
-                        round(sd(RO_db_full[RO_db_full$system=="A","P"],na.rm=TRUE),2))
-)
-)
-
-#lista KW####
-kw_fq<-list(kruskal.test(pH ~ sitio, data = fyq.box),
-            pairwise.wilcox.test(fyq.box$pH, fyq.box$sitio,data=fyq.box,
-                                          p.adjust.method = "BH",exact=FALSE),
-kruskal.test(pH ~ system, data = RO_db_full),
-pairwise.wilcox.test(RO_db_full$pH, RO_db_full$sitio,data=RO_db_full,
-                                          p.adjust.method = "BH",exact=FALSE),
-kruskal.test(MO ~ sitio, data = fyq.box),
-pairwise.wilcox.test(fyq.box$MO, fyq.box$sitio,data=fyq.box,
-                     p.adjust.method = "BH",exact=FALSE),
-kruskal.test(MO ~ system, data = RO_db_full),
-pairwise.wilcox.test(RO_db_full$MO, RO_db_full$system,data=RO_db_full,
-                                          p.adjust.method = "BH",exact=FALSE),
-kruskal.test(N ~ sitio, data = fyq.box),
-pairwise.wilcox.test(fyq.box$N, fyq.box$sitio,data=fyq.box,
-                     p.adjust.method = "BH",exact=FALSE),
-kruskal.test(N ~ system, data = RO_db_full),
-pairwise.wilcox.test(RO_db_full$N, RO_db_full$system,data=RO_db_full,
-                                          p.adjust.method = "BH",exact=FALSE),
-kruskal.test(P ~ sitio, data = fyq.box),
-pairwise.wilcox.test(fyq.box$P, fyq.box$sitio,data=fyq.box,
-                     p.adjust.method = "BH",exact=FALSE),
-kruskal.test(P ~ system, data = RO_db_full),
-pairwise.wilcox.test(RO_db_full$P, RO_db_full$system,data=RO_db_full,
-                                          p.adjust.method = "BH",exact=FALSE)
-)
-
-
-```
-
 **Tabla 3.3.** Variables químicas de suelos Argiudoles típicos. Valores promedio y desvío estandar del pH, el porcentaje de materia orgánica (MO), el porcentaje de nitrógeno (N) y el fósforo asimilable (p.p.m.). Las letras representan diferencias significativas evaluadas mediante la prueba de Kruskall-Wallis. Los sitios se corresponden con los sistemas de uso del suelo, en Luján: R = Reserva, P = pastizal, A = agrícola; en Chivilcoy y Navarro: N = pastizal naturalizado, G = sistema mixto agrícola ganadero, A = agrícola intensivo.
 
-```{r fq.tabA,echo=FALSE,message=FALSE,warning=FALSE}
-#mostrar tab####
-fq.tab
+```{r Tab3.3,,echo=FALSE,message=FALSE,warning=FALSE}
+tab3.3 <- read.csv("scripts/database/Tab3-3.txt", sep="")
+
+tab3.3%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
 ```
+
 
 El patrón general muestra que en sistemas agrícolas los suelos son más ácidos y su valor de pH 
 varía menos en estos usos, esto podría explicarse con el hecho de que la aplicación de 
@@ -608,91 +259,14 @@ significativamente (K-W H: p\<0.1) la amplitud en la variación del valor del f�
 debidas al efecto de la fertilización, ya que como este nutriente es poco móvil lugares con mayores cantidades de fósforo reflejan puntos de fertilización con el nutriente. 
 Por su parte, en los suelos argiudoles de Chivilcoy y Navarro, la variación del fósforo entre los sistemas de uso del suelo no mostraron diferencias significativas (K-W H:p\>0.05).
 
-```{r resp.tab,include=FALSE,message=FALSE,warning=FALSE}
-#tabla respiracion####
-resp.tab<-data.frame(Sitio=c("R","P","A","N","G","A"),
-                   resp=c(    paste(sep=" ",
-                        round(mean(fqb.box[fqb.box$sitio=="R","resp.b"],na.rm=TRUE),3),
-                        "±",
-                        round(sd(fqb.box[fqb.box$sitio=="R","resp.b"],na.rm=TRUE),3),"a"),
-                     paste(sep=" ",
-                        round(mean(fqb.box[fqb.box$sitio=="P","resp.b"],na.rm=TRUE),3),
-                        "±",
-                        round(sd(fqb.box[fqb.box$sitio=="P","resp.b"],na.rm=TRUE),3),"b"),
-                     paste(sep=" ",
-                        round(mean(fqb.box[fqb.box$sitio=="A","resp.b"],na.rm=TRUE),3),
-                        "±",
-                        round(sd(fqb.box[fqb.box$sitio=="A","resp.b"],na.rm=TRUE),3),"c"),
-                     paste(sep=" ",
-                       round(mean(RO_db_full[RO_db_full$system=="N","rH"],na.rm=TRUE),3),
-                        "±",
-                        round(sd(RO_db_full[RO_db_full$system=="N","rH"],na.rm=TRUE),3),"a"),
-                     paste(sep=" ",
-                       round(mean(RO_db_full[RO_db_full$system=="G","rH"],na.rm=TRUE),3),
-                        "±",
-                        round(sd(RO_db_full[RO_db_full$system=="G","rH"],na.rm=TRUE),3),"a"),
-                     paste(sep=" ",
-                       round(mean(RO_db_full[RO_db_full$system=="A","rH"],na.rm=TRUE),3),
-                        "±",
-                        round(sd(RO_db_full[RO_db_full$system=="A","rH"],na.rm=TRUE),3),"b")
-                 ),
-                 H_B=c(    paste(sep=" ",
-                        round(mean(fqb.box[fqb.box$sitio=="R","ratio.hb"],na.rm=TRUE),2),
-                        "±",
-                        round(sd(fqb.box[fqb.box$sitio=="R","ratio.hb"],na.rm=TRUE),2)),
-                     paste(sep=" ",
-                        round(mean(fqb.box[fqb.box$sitio=="P","ratio.hb"],na.rm=TRUE),2),
-                        "±",
-                        round(sd(fqb.box[fqb.box$sitio=="P","ratio.hb"],na.rm=TRUE),2)),
-                     paste(sep=" ",
-                        round(mean(fqb.box[fqb.box$sitio=="A","ratio.hb"],na.rm=TRUE),2),
-                        "±",
-                        round(sd(fqb.box[fqb.box$sitio=="A","ratio.hb"],na.rm=TRUE),2)),
-                     paste(sep=" ","-"),
-                     paste(sep=" ","-"),
-                     paste(sep=" ","-")
-                 ),
-                 Hoj=c(    paste(sep=" ",
-                        round(mean(fqb.box[fqb.box$sitio=="R","h"],na.rm=TRUE),2),
-                        "±",
-                        round(sd(fqb.box[fqb.box$sitio=="R","h"],na.rm=TRUE),2)),
-                     paste(sep=" ",
-                        round(mean(fqb.box[fqb.box$sitio=="P","h"],na.rm=TRUE),2),
-                        "±",
-                        round(sd(fqb.box[fqb.box$sitio=="P","h"],na.rm=TRUE),2)),
-                     paste(sep=" ",
-                        round(mean(fqb.box[fqb.box$sitio=="A","h"],na.rm=TRUE),2),
-                        "±",
-                        round(sd(fqb.box[fqb.box$sitio=="A","h"],na.rm=TRUE),2)),
-                     paste(sep=" ","-"),
-                     paste(sep=" ","-"),
-                     paste(sep=" ","-")
-                 )
-                     ,row.names = NULL)
-#lista kw####
-kw_resp<-list(kruskal.test(resp.b ~ sitio, data = fqb.box),
-            pairwise.wilcox.test(fqb.box$resp.b, fqb.box$sitio,data=fyq.box,
-                                          p.adjust.method = "BH",exact=FALSE),
-            kruskal.test(rH ~ system, data = RO_db_full),
-pairwise.wilcox.test(RO_db_full$rH, RO_db_full$system,data=RO_db_full,
-                                          p.adjust.method = "BH",exact=FALSE),
-kruskal.test(ratio.hb ~ sitio, data = fqb.box),
-            pairwise.wilcox.test(fqb.box$ratio.hb, fqb.box$sitio,data=fqb.box,
-                                          p.adjust.method = "BH",exact=FALSE),
-kruskal.test(h ~ sitio, data = fqb.box),
-            pairwise.wilcox.test(fqb.box$h, fqb.box$sitio,data=fqb.box,
-                                          p.adjust.method = "BH",exact=FALSE))
-
-```
 
 **Tabla 3.4** Variables biológicas de suelos Argiudoles típicos. Valores promedio y desvío estandar de la respiración heterotrófica edáfica en mg C-CO~2~/gr~suelo~.día, la relación hongos:bacterias, biomasa de hojarasca en gramos. Las letras representan diferencias significativas evaluadas mediante la prueba de Kruskall-Wallis. Los sitios se corresponden con los sistemas de uso del suelo, en Luján: R = Reserva, P = Pastizal, A = Agrícola; en Chivilcoy y Navarro: N = pastizal naturalizado, G = mixto agrícola ganadero, A = agrícola intensivo.
 
-```{r resp.tabB,echo=FALSE,message=FALSE,warning=FALSE}
-#print####
-colnames(resp.tab)<-c("Sitio", "Respiración heterotrófica", "Hongo:Bacteria", "Hojarasca")
-resp.tab
+```{r Tab3.4,,echo=FALSE,message=FALSE,warning=FALSE}
+tab3.4 <- read.csv("scripts/database/Tab3-4.txt", sep="")
+colnames(tab3.4)<-c("Sitio", "Respiración heterotrófica", "Hongo/Bacteria", "Hojarasca")
+tab3.4%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
 ```
-
 Se observan diferencias significativas (K-W H:p\<0.1) en la respiración heterotrófica en los diferentes sistemas de uso del suelo. En suelos de Luján, en el sistema de la Reserva muestra una mayor actividad respiratoria, en estos suelos la disponibilidad de materia orgánica suceptible a la descomposición (broza u hojarasca) se distribuye sobre la superficie con un gran volumen y es más constante a lo largo del año, en cambio en suelos agrícola donde la  actividad respiratoria fué menor la hojarasca sobre el suelo es puntual y estacional 
 
 En los argiudoles de Chivilcoy y Navarro, la respiración heterotrófica fué menor en el sistema agrícola y en los sistemas pastizal naturalizado y mixto fueron similares entre sí.
@@ -706,33 +280,16 @@ los sitios de estudios en los suelos argiudoles de Luján indica que las primera
 poseen autovalores mayores a 1 y a la vez estas dimensiones acumulan el 80% de la variabilidad 
 ocurrida entre variables.
 
-```{r PCA, include=FALSE, warning=FALSE}
-names(fq1)<-c("pH","MO","N", "P", "R-H", "H/B", "Hoj")
-  
-#c("pH","% MO","% N", "P (ppm)", "Resp. Heterotrófica", "Hongos/Bacterias", "Hojarasca")
-
-#No se transformará solo dejar para las comunidades
-unlu_pcaFQB<-PCA(fq1, scale.unit = TRUE, graph = FALSE)
-
-print(summary(unlu_pcaFQB))
-
-#print(unlu_pcaFQB$eig)
-
-print(unlu_pcaFQB$eig[1:4, c(1,3)])
-
-print(round(unlu_pcaFQB$var$cor[,1:3],3))
 
 
-```
 
-```{r biplot_UNLu, echo=FALSE, warning=FALSE}
-#Biplot
-sit<-c(rep("L", 3), rep("P", 3), rep("R", 3))
-fviz_pca_biplot(unlu_pcaFQB, axes = c(1,2),  col.ind=sit, label = "var")
+<p style="text-align: center;">
+  <img id="fig3.2" src="scripts/database/Fig3-2.png" alt="Figura 3.2">
+  <br>
+  **Figura 3.2.** Biplot de coordenadas principales de las variables químicas y biológicas en suelos Argiudoles típicos de Luján. Los vectores representan las variables químicas y biológicas. pH = potencial de hidrogeniones. MO = porcentaje de materia orgánica. N = porcentaje de nitrógeno. P = fósforo asimilable en partes por millón. R-H = respiración heterotrófica en mg C-CO~2~/gr~suelo~.día. H/B = relación hongos/bacterias. Hoj = biomasa de hojarasca en g/m^2^. Los puntos indican los sitios de muestreos, los puntos de mayor tamaño indican el centroide que resume las características de los sistemas de uso del suelo. R: Reserva, P: Pastizal, L: Agrícola.
+</p>
 
-```
 
-**Figura 3.2.** Biplot de coordenadas principales de las variables químicas y biológicas en suelos Argiudoles típicos de Luján. Los vectores representan las variables químicas y biológicas. pH = potencial de hidrogeniones. MO = porcentaje de materia orgánica. N = porcentaje de nitrógeno. P = fósforo asimilable en partes por millón. R-H = respiración heterotrófica en mg C-CO~2~/gr~suelo~.día. H/B = relación hongos/bacterias. Hoj = biomasa de hojarasca en g/m^2^. Los puntos indican los sitios de muestreos, los puntos de mayor tamaño indican el centroide que resume las características de los sistemas de uso del suelo. R: Reserva, P: Pastizal, L: Agrícola.
 
 Las primeras 2 dimensiones del ordenamiento de componentes principales (Fig. 3.2) 
 resume el 64,77 % de la variabilidad entre las variables ambientales abordadas y los sitios de estudio.
@@ -750,29 +307,12 @@ pH y relación Hongos:Bacterias, su correlación es medianamente fuerte (r \< 0,
 
 La respiración heterotrófica tiene una fuerte correlación negativa con la primera dimensión (r \< \|-0,9\|) y una correlacion mediana (r \< 0,5) con la tercera dimensión, el vector de esta variable se encuentra entre los centroides del sistema de la Reserva y del Pastizal aunque más cercano con el centroide de la Reserva. 
 
-```{r pcaFQ_RO,include=FALSE, warning=FALSE}
 
-f_pca<-PCA(RO_db_full[,c(10,12:14,19)], scale.unit = TRUE, graph = FALSE)
-
-print(summary(f_pca))
-
-#autovalores
-#print(f_pca$eig)
-print(f_pca$eig[1:4, c(1,3)])
-#correlaciones
-print(round(f_pca$var$cor[,1:4],3))
-
-```
-
-```{r biplot_RO, echo=FALSE, warning=FALSE}
-#Biplot
-sit<-RO_db_full$system
-fviz_pca_biplot(f_pca, axes = c(1,2),  col.ind=sit, label = "var")
-#fviz_pca_biplot(f_pca, axes = c(1,3),  col.ind=sit, label = "var")
-#fviz_pca_biplot(f_pca, axes = c(2,3),  col.ind=sit, label = "var")
-```
-
-**Figura 3.3.** Biplot de coordenadas principales de las variables químicas y biológicas en suelos Argiudoles típicos de Chivilcoy y Navarro. Los vectores representan las variables químicas y biológicas. pH = potencial de hidrogeniones. MO = porcentaje de materia orgánica. N = porcentaje de nitrógeno. P = fósforo asimilable en partes por millón. rH = respiración heterotrófica en mg C-CO~2~/gr~suelo~.día. Los puntos indican los sitios de muestreos, los puntos de mayor tamaño indican que centroide que resume las características de los sistemas de uso del suelo. N: Pastizal naturalizado, G: Mixto agrícola ganadero, A: Agrícola intensivo.
+<p style="text-align: center;">
+  <img id="fig3.3" src="scripts/database/Fig3-3.png" alt="Figura 3.3">
+  <br>
+  **Figura 3.3.** Biplot de coordenadas principales de las variables químicas y biológicas en suelos Argiudoles típicos de Chivilcoy y Navarro. Los vectores representan las variables químicas y biológicas. pH = potencial de hidrogeniones. MO = porcentaje de materia orgánica. N = porcentaje de nitrógeno. P = fósforo asimilable en partes por millón. rH = respiración heterotrófica en mg C-CO~2~/gr~suelo~.día. Los puntos indican los sitios de muestreos, los puntos de mayor tamaño indican que centroide que resume las características de los sistemas de uso del suelo. N: Pastizal naturalizado, G: Mixto agrícola ganadero, A: Agrícola intensivo.
+</p>
 
 Para los suelos argiudoles de Chivilcoy y Navarro las primeras dos dimensiones de los componentes 
 principales tienen autovalores mayores a 1 a la vez que resumen el 60% de la variabilidad 
@@ -790,233 +330,27 @@ Los vectores que resumen la variabilidad de la materia orgánica y la respiraci�
 
 ### Diversidad de las comunidades de la fauna edáfica que habitan los suelos Argiudoles típicos de la Pampa Ondulada bajo diferente formas de uso
 
-```{r mat_D_unlu,include=FALSE, warning=FALSE}
 
-ab_bulk <- read.csv("database/ab_bulk.txt", sep="")
-ab_bulk[ab_bulk$sitio == "L", "sitio"] <- "A"
-###########
-#Llevando abundancias a densidad
-
-#microfauna (se contaron los nemátodos de 4 sacabocados)
-sup.bocado.micro <- (1/(pi*2.5^2/10000))*4
-#mesofauna (se contaron y extrajeron de 3 frasquitos homojeneizados del monolito)
-sup.bocado.meso <- (1/(pi*2.5^2/10000))*3
-#macrofauna (superficie estandar 25 x 25)
-sup.monolito <- 1/(0.25*0.25)
-
-unlu_full<-ab_bulk%>%
-  mutate(nombre=paste(sitio,replica))%>%
-           mutate(
-             D=floor(case_when(
-  class=="macrofauna"~sup.monolito*abundance,
-  class=="mesofauna"~sup.bocado.meso*abundance,
-  class=="microfauna"~sup.bocado.micro*abundance)
-  )
-  )
-
-####################
-#Matriz comunidad
-
-unlu_ab<-unlu_full[,c("nombre","sitio","replica","taxon","D","abundance")] %>% 
-  pivot_wider(names_from = taxon,
-              values_from = c(D,abundance),
-              values_fill = 0,
-              values_fn = sum)%>%
-  distinct(nombre,.keep_all=TRUE)
-
-
-##############
-# variables microbiológicas adjuntas a la matriz de datos
-unlu_merg<-unlu_ab
-#agrego respiración en CO2/h/g
-unlu_merg$resp.b<-c(0.066236559139785,0.0851612903225806,0.0946236559139785,
-                    0.131588785046729,0.14803738317757,0.14803738317757,
-                    0.188187372708758,0.15234215885947,0.170264765784114)
-#agrego relación Hongo-Bacterias
-unlu_merg$ratio.hb<-c(3.25, 14/3, 5/6, #agrícola
-                       1.375, 11/6, 7/6,#pastizal
-                       2.42857142857143, 11/6, 3.5) #reserva
-
-
-#Valores expresados en microgramos de C-biomasa/g suelo
-
-unlu_merg$ug_biom_x_g<-c(1.80305376344086, 2.14417204301075, 1.70559139784947,
-3.78435845213849, 3.50745417515275, 3.87665987780041, 2.62601869158878,
-3.4731214953271, 2.37188785046729)
-
-# con la idea de tener la cantidad de hongos y bacterias
-# densidad aparente 1,27 g/cm3 (sacado del promedio pastura, agricola, reserva, tesina
-#Veronica)
-# suelo a 5 cm en un m2 son 50k cm3 aprox 0.5m3, esto es, 73500 g en 0.5m3 suelo 
-
-
-unlu_merg$bio.micro<-unlu_merg$ug_biom_x_g*63500
-
-
-unlu_merg$fungi<-round(unlu_merg$bio.micro*(unlu_merg$ratio.hb/(unlu_merg$ratio.hb+1)),4)
-unlu_merg$bacteria<-round((unlu_merg$bio.micro-unlu_merg$fungi),4)
-
-#write.table(unlu_merg[,c(1,2,3,4,6,8,10,12,14,16,258:263,20:138)],"matrizunlu.txt")
-
-
-```
 
 **Diversidad alfa (α) en suelos Argiudoles: Riqueza de unidades taxonómicas**
 
-```{r S, include=FALSE}
-#S Luján####
-D<-unlu_merg[,c(4:122,2)]
-# son 118 taxones, siquisiera poner nombre a todos...
-#colnames(ab)<-spc.colector
 
-rownames(D)<-unlu_merg$nombre
-
-S_unlu <- read.delim(
-  "database/unlu_ab_mass_mean_web.txt"
-  )
-
-ab_unlu<-S_unlu[,c("sitio","replica","estrato","taxa","abundance")] %>% 
-  pivot_wider(names_from = taxa,
-              values_from = c(abundance),
-              values_fill = 0,
-              values_fn = sum)
-
-Sitios<-unlu_merg$nombre
-Riqueza<-specnumber(ab_unlu[,colnames(ab_unlu)!=c("sitio","replica","estrato")],groups = ab_unlu$sitio) #Riqueza[["R"]]
-Riqueza_nematodos<-specnumber(ab_unlu[,colnames(ab_unlu)%in%c("nem_fitofago","nem_bacterivoro","nem_fungivoro","nem_omnivor","nem_predador")],groups = ab_unlu$sitio)
-Riqueza_lombrices<-specnumber(ab_unlu[,colnames(ab_unlu)%in%c(
-  "Aporrectodea caliginosa","Octolasion tyrtaeum","Glossoscolex sp.","Octalasion cyaneum",
-  "Bimastos beddardi sophiae","Aporrectodea rosea","juvenil","Aporrectodea trapezoides",
-  "Eukerria halophila","Microscolex phosphoreus","Bimastos parvus"
-)],groups = ab_unlu$sitio)
-
-Riqueza_sarcoptiformes<-specnumber(ab_unlu[,colnames(ab_unlu)%in%c(
-  "oripodidae", "galumnidae", "eupthiracaroidea", "limnozetidae","macropilina","eremobelbidae",
-  "eupthiracaroidea","epilhomanioidea","ceratozetoidea","astigmata","oribatulidae","scheloribatidae",
-  "oppioidea","astigmata"
-)],groups = ab_unlu$sitio)
-Riqueza_mesostigmata<-specnumber(ab_unlu[,colnames(ab_unlu)%in%c(
- "ichtyostomatogasteridae","veigaioidea","ologamasidae","ameroseidae","mesostigmata","uropodoidea",
- "parasitidae","dermanisoidea", "laelapidae","eviphididae","arctacaridae","rhodacarioidea"
-)],groups = ab_unlu$sitio)
-Riqueza_prostigmata<-specnumber(ab_unlu[,colnames(ab_unlu)%in%c(
- "tarsonemidae","trombidiidae","cunaxide","anystidae","rhagidiidae","penthalidae","bdelloidea","tydeioidea",
- "teneriffidae","alycidae","eupodoidea"
-)],groups = ab_unlu$sitio)
-Riqueza_collembola<-specnumber(ab_unlu[,colnames(ab_unlu)%in%c(
- "entomobridae","isotomidae","symphypleona","onichiuridae"
-)],groups = ab_unlu$sitio)
-Riqueza_otra_mesofauna<-specnumber(ab_unlu[,colnames(ab_unlu)%in%c(
- "tardigrado","diplura","symphyla","enchytraeida"
-)],groups = ab_unlu$sitio)
-Riqueza_macrofauna<-specnumber(ab_unlu[,colnames(ab_unlu)%in%c(
- "larva_scarabidae","lycosidae","grillopalpidae","cicadidae","oniscidea","gasteropoda",
- "diplopoda","larva_carabidae","tenebrionidae","ortoptero","larva_sciaridae","anthribidae","hemiptero",
- "geophylomorpha","linyphiidae","carabidae","trogossitidae","larva_diptera","blattodea","coccinelidae",
- "larva_curculionidae","pupa_diptera","larva_coleoptero","larva_elateridae","larva_tenebrionidae",
- "staphiliniidae","nematomorpha","elateriforme","ptilidae","cryptophagidae","formicidae",
- "embrioptera","pseudoscorpionida","aphidoidea","terebrantia","thysanoptera","coleoptera_suctor"
-)],groups = ab_unlu$sitio)
-
-S_UNLu<-data.frame(siti= c("R", "P", "A"),
-                   S=c(Riqueza[["R"]],Riqueza[["P"]],Riqueza[["L"]]),
-                   S_lombrices=c(Riqueza_lombrices[["R"]],
-                         Riqueza_lombrices[["P"]],Riqueza_lombrices[["L"]]),
-                   S_collembola=c(Riqueza_collembola[["R"]],
-                                  Riqueza_collembola[["P"]],Riqueza_collembola[["L"]]),
-           S_sarcoptiformes=c(Riqueza_sarcoptiformes[["R"]],
-                              Riqueza_sarcoptiformes[["P"]],Riqueza_sarcoptiformes[["L"]]),
-           S_mesostigmata=c(Riqueza_mesostigmata[["R"]],
-                            Riqueza_mesostigmata[["P"]],Riqueza_mesostigmata[["L"]]),
-           S_prostigmata=c(Riqueza_prostigmata[["R"]],
-                           Riqueza_prostigmata[["P"]],Riqueza_prostigmata[["L"]]),
-           S_otra_mesofauna=c(Riqueza_otra_mesofauna[["R"]],
-                              Riqueza_otra_mesofauna[["P"]],Riqueza_otra_mesofauna[["L"]]),
-           S_macrofauna=c(Riqueza_macrofauna[["R"]],
-                          Riqueza_macrofauna[["P"]],Riqueza_macrofauna[["L"]]),
-           row.names = NULL)
-
-#S Chyvilcoy####
-#Lista de especie agrupadas según el colector
-#De los datos brutos de RO
-#Arrastrado a partir de los agrupamientos y pivoteo en ancho
-#Nombres tomados de la columnas de abun_RO y "reformateados"
-spc.colector<-c("Apo_cal","Apo_tra", "Mic_dub",
-                "lom_juv","isotomidae",  "epilohmannioidea",
-                "euphthiracaroidea","oripodoidea","oppioidea",
-                "onychiuridae","Apo_ros",
-                "parasitoidea","ceratozetoidea",
-                "brachychthonioidea","crotonioidea","hypogastruridae",
-                "eupodoidea","veigaioidea",
-                "entomobroidea","rhodacaroidea",
-                "galumnioidea","symphypleona",
-               "octala","bdelloidea",
-                "dermanyssoidea","trombidioidea",
-                "octacy","acaroidea",
-                "tydeoidea","uropodoidea","mesostigmata",
-                "euker","oribatida","Mic_pho")
-
-ab<-RO_db_full[,c(23:56,2,3)]
-colnames(ab)<-c(spc.colector,"system","site")
-
-Riq<-specnumber(ab[,-c(35,36)],groups=ab$system)
-
-Riq_lombrices<-specnumber(ab[,c("Apo_cal","Apo_tra", "Mic_dub",
-                "lom_juv","Apo_ros","octala","octacy","euker","Mic_pho")],groups=ab$system)
-
-Riq_sarcoptiformes<-specnumber(ab[,c("epilohmannioidea",
-                "euphthiracaroidea","oripodoidea","oppioidea",
-               "ceratozetoidea", "brachychthonioidea","crotonioidea",
-                "galumnioidea","acaroidea",
-                "oribatida")],groups=ab$system)
-Riq_prostigmata<-specnumber(ab[,c("eupodoidea","bdelloidea",
-                                      "trombidioidea","tydeoidea")],groups=ab$system)
-
-Riq_mesostigmata<-specnumber(ab[,c("parasitoidea","veigaioidea",
-                "rhodacaroidea","dermanyssoidea","uropodoidea",
-                "mesostigmata")],groups=ab$system)
-
-Riq_collembola<-specnumber(ab[,c("isotomidae", "onychiuridae","hypogastruridae",
-                "entomobroidea","symphypleona")],groups=ab$system)
-
-
-#Sitios.r<-levels(as.factor(ab$system))
-#Sitios.r <- factor(Sitios.r, levels = c("N", "G", "A"))
-
-
-
-S_RO<-data.frame(siti=c("N", "G", "A"),
-                 S=c(Riq[["N"]],Riq[["G"]],Riq[["A"]]),
-                  S_lombrices=c(Riq_lombrices[["N"]],
-                                Riq_lombrices[["G"]],Riq_lombrices[["A"]]),
-                 S_collembola=c(Riq_collembola[["N"]],
-                                Riq_collembola[["G"]],Riq_collembola[["A"]]),
-                 S_sarcoptiformes=c(Riq_sarcoptiformes[["N"]],
-                                    Riq_sarcoptiformes[["G"]],Riq_sarcoptiformes[["A"]]),
-                 S_mesostigmata=c(Riq_mesostigmata[["N"]],
-                                  Riq_mesostigmata[["G"]],Riq_mesostigmata[["A"]]),
-                 S_prostigmata=c(Riq_prostigmata[["N"]],
-                                 Riq_prostigmata[["G"]],Riq_prostigmata[["A"]]),
-                 S_otra_mesofauna=c(rep("-",times=3)),
-                 S_macrofauna=c(rep("-",times=3)),
-                 row.names = NULL)
-```
-
-En los suelos de la Luján el máximo valor de la riqueza (Tabla 3.4) en unidades taxonómicas se halló en suelos del pastizal, en suelos de Chivilcoy y Navarro la máxima riqueza de unidades taxonómicas es similar en los sistemas agrícola intensivo y mixto agrícola-ganadero.
+En los suelos de la Luján el máximo valor de la riqueza (Tabla 3.5) en unidades taxonómicas se halló en suelos del pastizal, en suelos de Chivilcoy y Navarro la máxima riqueza de unidades taxonómicas es similar en los sistemas agrícola intensivo y mixto agrícola-ganadero.
 
 El número de taxones de colémbolos (Hexapoda: Collembolla) en los suelos argiudoles de Luján fué menor que la hallada en suelos de Chivilcoy y Navarro.
 
 Las lombrices de tierra (Oligochaeta: Crassiclitellata) expresan una mayor riqueza en los suelos de Chivilcoy y Navarro, con el valor máximo en el sistema del pastizal naturalizado. En suelos de Luján, el sistema agrícola presenta la menor riqueza de lombrices.
 
-**Tabla 3.4.** Número de unidades taxonómicas ocurridas en suelos Argiudoles típicos en suelos con diferentes formas de uso. Sitios: argiudoles de Luján R = Reserva, P = pastizal, A = agrícola; argiudoles de Chivilcoy y Navarro N = pastizal naturalizado, G = mixto agrícola ganadero, A = agrícola intensivo. Las columnas indican el número de taxones diferentes como riqueza total (S) y por grupo taxonómico.
+**Tabla 3.5.** Número de unidades taxonómicas ocurridas en suelos Argiudoles típicos en suelos con diferentes formas de uso. Sitios: argiudoles de Luján R = Reserva, P = pastizal, A = agrícola; argiudoles de Chivilcoy y Navarro N = pastizal naturalizado, G = mixto agrícola ganadero, A = agrícola intensivo. Las columnas indican el número de taxones diferentes como riqueza total (S) y por grupo taxonómico.
 
-```{r Riqueza, echo=FALSE, warning=FALSE}
 
-S<-rbind(S_UNLu,S_RO)
-colnames(S)<-c("Sitios", "S", "Lombrices", "Colémbolos", "Sarcoptiformes", "Mesostigmatas", "Prostigmatas",
+```{r Tab3.5,echo=FALSE, warning=FALSE}
+Tab3.5 <- read.csv("scripts/database/Tab3-5.txt", sep="")
+colnames(Tab3.5)<-c("Sitios", "S", "Lombrices", "Colémbolos", "Sarcoptiformes", "Mesostigmatas", "Prostigmatas",
                "Mesofauna, otra", "Macrofauna")
-(S)
+Tab3.5%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
 ```
+
 
 Observando el número de unidades taxonómicas de ácaros oribátidos (Acari: Sarcoptiformes) los mayores valores se observaron en suelos de Luján con una riqueza máxima de 12 en el sistema del pastizal. En los suelos de Chivilcoy y Navarro la presencia de más taxones se observó en los sistemas antropizados.
 
@@ -1032,497 +366,15 @@ En suelos de la Reserva se observaron más taxones de macrofauna, luego el pasti
 
 El índice de diversidad de Shanon-Wiener (Tabla 3.5) no mostró diferencias significativas ($H : p_{_{valor}} < 0.1$) entre las comunidades en los diferentes sistemas de uso del suelo, ni en suelos de Luján ni en suelos de Chivilcoy y Navarro.
 
-```{r H_general_UNLu_RO, include=FALSE}
-#Shanon general unlu####
-#Matriz de densidades de UNLu
-H<-vegan::diversity(D[,-120], index="shannon")
-diversidad<-round(H,3)
-Muestras<-Sitios
-g_H<-data.frame(Muestras,diversidad,row.names = NULL)
-g_H$sitio<-substr(g_H$Muestras,1,1)
-g_H$replica<-substr(g_H$Muestras,3,3)
-#data frame global de unlu
-g_H.sum<-data.frame(
-  Sitio=c("R","P","A"),
-  
-  Promedio=c(paste(sep=" ",round(mean(g_H[g_H$sitio=="R","diversidad"]),2),
-      "±",
-      round(sd(g_H[g_H$sitio=="R","diversidad"]),2)),
-      paste(sep=" ",round(mean(g_H[g_H$sitio=="P","diversidad"]),2),
-      "±",
-      round(sd(g_H[g_H$sitio=="P","diversidad"]),2)),
-      paste(sep=" ",round(mean(g_H[g_H$sitio=="A","diversidad"]),2),
-      "±",
-      round(sd(g_H[g_H$sitio=="A","diversidad"]),2))),
-  Mediana=c(
-             round(median(g_H[g_H$sitio=="A","diversidad"]),2),
-             round(median(g_H[g_H$sitio=="P","diversidad"]),2),
-             round(median(g_H[g_H$sitio=="R","diversidad"]),2)
-                         )
-  ,row.names = NULL
-  )
-#test kw unlu total
-kruskal.test(diversidad ~ sitio, data = g_H)
-#Shanon general ro####
-# Diversidad Total Rosana se trabaja con densidad
 
-mtxRO_D<-RO_db_full[,c(20:22,57:90)]
-mtxRO_D$nombre<-paste(mtxRO_D$system.x,mtxRO_D$replica)
 
-H_RO.D<-as.matrix(mtxRO_D[,-c(1:3,38)])
-row.names(H_RO.D)<-mtxRO_D$nombre
+**Tabla 3.6.** Índice de Diversidad de Shannon (H') en suelos Argiudoles típicos con diferentes formas de uso. Sitios: argiudoles de Luján R = Reserva, P = pastizal, A = agrícola; argiudoles de Chivilcoy y Navarro N = pastizal naturalizado, G = mixto agrícola ganadero, A = agrícola intensivo. Total: refiere al índice de diversidad de toda la comunidad de la fauna edáfica; Lombrices, Mesofauna, Macrofauna, Microfauna, refiere a la diversidad calculada para grupos de la fauna edáfica clasificados según su rango de tamaños. X̅ ± σ: valor promedio más el desvío estandar de la diversidad del componente, X̂: valor de la mediana de la diversidad del componente.
 
-H_RO<-vegan::diversity(H_RO.D, index="shannon")
 
-#matriz de diversidad
-RO_div<-mtxRO_D[,c(1:3,38)]
-
-RO_div$diversidad<-H_RO
-names(RO_div)<-c("replica","sitio","n_sit","nombre","diversidad")
-#dataframe total H
-g_H.ro<-data.frame(Sitio=c("N","G","A"),
-                 Promedio=c(paste(sep=" ",round(mean(as.matrix(RO_div[RO_div$sitio=="N","diversidad"])),2),
-      "±",
-      round(sd(as.matrix(RO_div[RO_div$sitio=="N","diversidad"])),2)),
-      paste(sep=" ",round(mean(as.matrix(RO_div[RO_div$sitio=="G","diversidad"])),2),
-      "±",
-      round(sd(as.matrix(RO_div[RO_div$sitio=="G","diversidad"])),2)),
-      paste(sep=" ",round(mean(as.matrix(RO_div[RO_div$sitio=="A","diversidad"])),2),
-      "±",
-      round(sd(as.matrix(RO_div[RO_div$sitio=="A","diversidad"])),2))),
-                 Mediana=c(round(median(as.matrix(RO_div[RO_div$sitio=="N","diversidad"])),2),
-                        round(median(as.matrix(RO_div[RO_div$sitio=="G","diversidad"])),2),
-                        round(median(as.matrix(RO_div[RO_div$sitio=="A","diversidad"])),2)
-                        ),
-                row.names = NULL)
-#prueba kw para total
-kruskal.test(diversidad ~ sitio, data = RO_div)
-
-RO_div1<-RO_div[,c("sitio","replica","diversidad")]
-
-g_H1<-g_H[,c("sitio","replica","diversidad")]
-g_H1[g_H1$sitio == "A", "sitio"] <- "L"
-#prueba kw entre todos los sitios en conjunto
-hT<-rbind(g_H1,RO_div1)
-
-kruskal.test(diversidad ~ sitio, data = hT)
-
-pairwise.wilcox.test(hT$diversidad, hT$sitio,data=hT,
-                     p.adjust.method = "BH",exact=FALSE)
-
-#Shanon mesofauna unlu####
-#carga mesofauna unlu
-mesoH <- read.delim("database/mesofauna_diversityH.txt")
-
-#reasignar nombre a agrícola
-
-mesoH[mesoH$sitio == "L", "sitio"] <- "A"
-
-mesoH$hab[mesoH$estrato %in% c("fragmentado","hoja","humus")] <- "H"
-mesoH$hab[mesoH$estrato %in% c("10")] <- "10"
-#
-#Matriz comunidad
-
-mesoH$nombre<-paste(mesoH$sitio,mesoH$replica,mesoH$hab)
-
-meso_abH<-mesoH[,c("nombre","sitio","replica","estrato","hab","taxon","conteo")] %>% 
-  pivot_wider(names_from = taxon,
-              values_from = conteo,
-              values_fill = 0,
-              values_fn = sum)
-
-H_meso_unlu<-as.matrix(meso_abH[,-c(1:5)])
-row.names(H_meso_unlu)<-meso_abH$nombre
-
-H_meso_unlu<-vegan::diversity(H_meso_unlu, index="shannon")
-#matriz de diversidad
-mesoabH<-meso_abH[,1:5]
-
-mesoabH$diversidad<-H_meso_unlu
-
-#meso global unlu
-H_unlu_meso<-data.frame(habitats=c("R","P","A"),
-                 mean=c(paste(sep=" ",round(mean(as.matrix(mesoabH[mesoabH$sitio=="R", "diversidad"])),2),
-                        "±",
-                        round(sd(as.matrix(mesoabH[mesoabH$sitio=="R","diversidad"])),2)),
-                        paste(sep=" ",round(mean(as.matrix(mesoabH[mesoabH$sitio=="P","diversidad"])),2),
-                        "±",
-                        round(sd(as.matrix(mesoabH[mesoabH$sitio=="P","diversidad"])),2)),
-                        paste(sep=" ",round(mean(as.matrix(mesoabH[mesoabH$sitio=="A","diversidad"])),2),
-                        "±",
-                        round(sd(as.matrix(mesoabH[mesoabH$sitio=="A","diversidad"])),2))),
-                        
-                        mediana=c(
-                   round(median(as.matrix(mesoabH[mesoabH$sitio=="R","diversidad"])),2),
-                   round(median(as.matrix(mesoabH[mesoabH$sitio=="P","diversidad"])),2),
-                   round(median(as.matrix(mesoabH[mesoabH$sitio=="A","diversidad"])),2)),row.names = NULL)
-
-#meso estrato unlu
-meso_H_UNLu<-data.frame(habitats=c("R H","P H","A H","R 10","P 10","A 10"),
-                 mean=c(paste(sep=" ",round(mean(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$hab=="H","diversidad"])),2),
-                        "±",
-                        round(sd(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$hab=="H","diversidad"])),2)),
-                        paste(sep=" ",round(mean(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$hab=="H","diversidad"])),2),
-                        "±",
-                        round(sd(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$hab=="H","diversidad"])),2)),
-                        paste(sep=" ",round(mean(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$hab=="H","diversidad"])),2),
-                        "±",
-                        round(sd(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$hab=="H","diversidad"])),2)),
-                        
-                        paste(sep=" ",round(mean(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$hab=="10","diversidad"])),2),
-                        "±",
-                        round(sd(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$hab=="10","diversidad"])),2)),
-                        
-                        paste(sep=" ",round(mean(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$hab=="10","diversidad"])),2),
-                        "±",
-                        round(sd(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$hab=="10","diversidad"])),2)),
-                        
-                 paste(sep=" ",round(mean(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$hab=="10","diversidad"])),2),
-                        "±",
-                        round(sd(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$hab=="10","diversidad"])),2))),
-                        
-                        mediana=c(
-                   median(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$hab=="H","diversidad"])),
-                   median(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$hab=="H","diversidad"])),
-                   median(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$hab=="H","diversidad"])),
-                   median(as.matrix(mesoabH[mesoabH$sitio=="R" & mesoabH$hab=="10","diversidad"])),
-                   median(as.matrix(mesoabH[mesoabH$sitio=="P" & mesoabH$hab=="10","diversidad"])),
-                   median(as.matrix(mesoabH[mesoabH$sitio=="A" & mesoabH$hab=="10","diversidad"]))),row.names = NULL)
-                
-
-kruskal.test(diversidad ~ sitio, data = mesoabH, subset=mesoabH$hab=="H")
-kruskal.test(diversidad ~ sitio, data = mesoabH, subset=mesoabH$hab=="10")
-
-
-#shanon meso RO####
-
-spc.colector<-c("Apo_cal","Apo_tra", "Mic_dub",
-                "lom_juv","isotomidae",  "epilohmannioidea",
-                "euphthiracaroidea","oripodoidea","oppioidea",
-                "onychiuridae","Apo_ros",
-                "parasitoidea","ceratozetoidea",
-                "brachychthonioidea","crotonioidea","hypogastruridae",
-                "eupodoidea","veigaioidea",
-                "entomobroidea","rhodacaroidea",
-                "galumnioidea","symphypleona",
-               "octala","bdelloidea",
-                "dermanyssoidea","trombidioidea",
-                "octacy","acaroidea",
-                "tydeoidea","uropodoidea","mesostigmata",
-                "euker","oribatida","Mic_pho")
-
-mtxRO_D<-RO_db_full[,c(20:22,57:90)]
-
-mtxRO_D$nombre<-paste(mtxRO_D$system.y,mtxRO_D$replica)
-
-lomb<-c("D_Apo_cal","D_Apo_tra", "D_Mic_dub","D_lom_juv","D_Apo_ros","D_octala","D_octacy","D_euker","D_Mic_pho")
-l.par<-mtxRO_D[,!colnames(mtxRO_D)%in%lomb]
-#mtxRO_D[,!colnames(mtxRO_D)%in%"D_Apo_tra"]
-#H_RO.D.meso<-as.matrix(mtxRO_D[,-c(1:3,38,4:7,14,26,30,35,37)])
-H_RO.D.meso<-as.matrix(l.par[,-c(1:3,29)])
-row.names(H_RO.D.meso)<-mtxRO_D$nombre
-
-H_RO.D.meso[is.na(H_RO.D.meso)]<-0
-
-H_RO.meso<-vegan::diversity(H_RO.D.meso, index="shannon")
-
-#matriz de diversidad
-RO_div.meso<-mtxRO_D[,c(1:3,38)]
-
-RO_div.meso$diversidad<-H_RO.meso
-names(RO_div.meso)<-c("replica","sitio","n_sit","nombre","diversidad")
-
-#data frame H Ro
-g_H.ro.meso<-data.frame(Sitio=c("N","G","A"),
-                 Promedio=c(
-                    paste(sep=" ",round(mean(mean(as.matrix(RO_div.meso[RO_div.meso$sitio=="N","diversidad"]))),2),
-                        "±",
-                        round(sd(as.matrix(RO_div.meso[RO_div.meso$sitio=="N","diversidad"])),2)),
-                    paste(sep=" ",round(mean(mean(as.matrix(RO_div.meso[RO_div.meso$sitio=="G","diversidad"]))),2),
-                        "±",
-                        round(sd(as.matrix(RO_div.meso[RO_div.meso$sitio=="G","diversidad"])),2)),
-                    paste(sep=" ",round(mean(mean(as.matrix(RO_div.meso[RO_div.meso$sitio=="A","diversidad"]))),2),
-                        "±",
-                        round(sd(as.matrix(RO_div.meso[RO_div.meso$sitio=="A","diversidad"])),2))
-                 ),
-                 Mediana=c(round(median(as.matrix(RO_div.meso[RO_div.meso$sitio=="N","diversidad"])),2),
-                        round(median(as.matrix(RO_div.meso[RO_div.meso$sitio=="G","diversidad"])),2),
-                        round(median(as.matrix(RO_div.meso[RO_div.meso$sitio=="A","diversidad"])),2)
-                        ),
-                row.names = NULL)
-
-kruskal.test(diversidad ~ sitio, data = RO_div.meso)
-
-
-#shanon macro RO####
-#lombrices_ro
-mtxRO_D<-RO_db_full[,c(20:22,57:90)]
-mtxRO_D$nombre<-paste(mtxRO_D$system.y,mtxRO_D$replica)
-H_RO.D.lom<-as.matrix(mtxRO_D[,c(4:7,14,26,30,35,37)])
-row.names(H_RO.D.lom)<-mtxRO_D$nombre
-
-H_RO.lom<-vegan::diversity(H_RO.D.lom, index="shannon")
-
-#matriz de diversidad
-RO_div.meso.lom<-mtxRO_D[,c(1:3,38)]
-
-RO_div.meso.lom$diversidad<-H_RO.lom
-names(RO_div.meso.lom)<-c("replica","sitio","n_sit","nombre","diversidad")
-#data frame lombrices ro
-g_H.ro.lomb<-data.frame(Sitio=c("N","G","A"),
-                 Promedio=c(
-                   paste(sep=" ",round(mean(as.matrix(RO_div.meso.lom[RO_div.meso.lom$sitio=="N","diversidad"])),2),
-                        "±",
-                        round(sd(as.matrix(RO_div.meso.lom[RO_div.meso.lom$sitio=="N","diversidad"])),2)),
-                   paste(sep=" ",round(mean(as.matrix(RO_div.meso.lom[RO_div.meso.lom$sitio=="G","diversidad"])),2),
-                        "±",
-                        round(sd(as.matrix(RO_div.meso.lom[RO_div.meso.lom$sitio=="G","diversidad"])),2)),
-                   paste(sep=" ",round(mean(as.matrix(RO_div.meso.lom[RO_div.meso.lom$sitio=="A","diversidad"])),2),
-                        "±",
-                        round(sd(as.matrix(RO_div.meso.lom[RO_div.meso.lom$sitio=="A","diversidad"])),2))
-                 ),
-                 Mediana=c(round(median(as.matrix(RO_div.meso.lom[RO_div.meso.lom$sitio=="N","diversidad"])),2),
-                        round(median(as.matrix(RO_div.meso.lom[RO_div.meso.lom$sitio=="G","diversidad"])),2),
-                        round(median(as.matrix(RO_div.meso.lom[RO_div.meso.lom$sitio=="A","diversidad"])),2)
-                        ),
-                row.names = NULL)
-
-kruskal.test(diversidad ~ sitio, data = RO_div.meso.lom)
-
-#H' macro lujan#######
-#macro luján
-macroH <- read.delim("database/macrofauna_diversityH.txt")
-
-#reasignar nombre a agrícola
-
-macroH[macroH$sitio == "L", "sitio"] <- "A"
-
-#
-#Matriz comunidad
-
-macroH$nombre<-paste(macroH$sitio,macroH$replica,macroH$estrato)
-
-macro_abH<-macroH[,c("nombre","sitio","replica","estrato","taxon","abundance")] %>% 
-  pivot_wider(names_from = taxon,
-              values_from = abundance,
-              values_fill = 0,
-              values_fn = sum)%>%
-  distinct(nombre,.keep_all=TRUE)
-
-#lombrices = ,20:23,30,44:46,49
-H_macro_unlu<-as.matrix(macro_abH[,-c(1:4,15,20:23,30,44:46,49)]) #toda la macro sin lombrices
-row.names(H_macro_unlu)<-macro_abH$nombre
-#selección solo lomb unlu
-H_lom_unlu<-as.matrix(macro_abH[,c(20:23,30,44:46,49)])
-row.names(H_lom_unlu)<-macro_abH$nombre
-#calculo shanon macro
-H_macro_unlu<-vegan::diversity(H_macro_unlu, index="shannon")
-#calculo shanon lomb
-H_lom_unlu<-vegan::diversity(H_lom_unlu, index="shannon")
-
-#matriz de diversidad macro total
-macroabH<-macro_abH[,1:4]
-macroabH$diversidad<-H_macro_unlu
-
-#matrizz diversidad unlu lomb 
-macroabH_l<-macro_abH[,1:4]
-macroabH_l$diversidad<-H_lom_unlu
-
-#tabla diversidad macro por estrato
-macro_H_U<-data.frame(habitats=levels(as.factor(paste(macroabH$sitio,macroabH$estrato))),
-                 mean=c(
-                   mean(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="10","diversidad"])),
-                   mean(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="20","diversidad"])),
-                   mean(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="H","diversidad"])),
-                   mean(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="10","diversidad"])),
-                   mean(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="20","diversidad"])),
-                   mean(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="H","diversidad"])),
-                   mean(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="10","diversidad"])),
-                   mean(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="20","diversidad"])),
-                   mean(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="H","diversidad"]))),
-                 desvio_std=c(
-                   sd(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="10","diversidad"])),
-                   sd(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="20","diversidad"])),
-                   sd(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="H","diversidad"])),
-                   sd(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="10","diversidad"])),
-                   sd(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="20","diversidad"])),
-                   sd(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="H","diversidad"])),
-                   sd(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="10","diversidad"])),
-                   sd(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="20","diversidad"])),
-                   sd(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="H","diversidad"]))),
-                 mediana=c(
-                   median(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="10","diversidad"])),
-                   median(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="20","diversidad"])),
-                   median(as.matrix(macroabH[macroabH$sitio=="A" & macroabH$estrato=="H","diversidad"])),
-                   median(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="10","diversidad"])),
-                   median(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="20","diversidad"])),
-                   median(as.matrix(macroabH[macroabH$sitio=="P" & macroabH$estrato=="H","diversidad"])),
-                   median(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="10","diversidad"])),
-                   median(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="20","diversidad"])),
-                   median(as.matrix(macroabH[macroabH$sitio=="R" & macroabH$estrato=="H","diversidad"]))),
-                row.names = NULL)
-
-#macro por sitio sin estrato
-macro_H_U_t<-data.frame(Sitios=levels(as.factor(macroabH$sitio)),
-                 Promedio=c(
-                   paste(sep=" ",round(mean(as.matrix(macroabH[macroabH$sitio=="R","diversidad"])),2),
-                        "±",
-                        round(sd(as.matrix(macroabH[macroabH$sitio=="R","diversidad"])),2)),
-                   paste(sep=" ",round(mean(as.matrix(macroabH[macroabH$sitio=="P","diversidad"])),2),
-                        "±",
-                        round(sd(as.matrix(macroabH[macroabH$sitio=="P","diversidad"])),2)),
-                   paste(sep=" ",round(mean(as.matrix(macroabH[macroabH$sitio=="A","diversidad"])),2),
-                        "±",
-                        round(sd(as.matrix(macroabH[macroabH$sitio=="A","diversidad"])),2))
-                 ),
-                 Mediana=c(
-                   round(median(as.matrix(macroabH[macroabH$sitio=="R","diversidad"])),2),
-                   round(median(as.matrix(macroabH[macroabH$sitio=="P","diversidad"])),2),
-                   round(median(as.matrix(macroabH[macroabH$sitio=="A","diversidad"])),2)),
-                row.names = NULL)
-
-
-kruskal.test(diversidad ~ sitio, data = macroabH, subset=macroabH$estrato=="H")
-kruskal.test(diversidad ~ sitio, data = macroabH, subset=macroabH$estrato=="10")
-kruskal.test(diversidad ~ sitio, data = macroabH, subset=macroabH$estrato=="20")
-
-kruskal.test(diversidad ~ sitio, data = macroabH)
-
-#Diversidad lombrices por estrato
-
-kruskal.test(diversidad ~ sitio, data = macroabH_l, subset=macroabH_l$estrato=="H")
-kruskal.test(diversidad ~ sitio, data = macroabH_l, subset=macroabH_l$estrato=="10")
-kruskal.test(diversidad ~ sitio, data = macroabH_l, subset=macroabH_l$estrato=="20")
-
-kruskal.test(diversidad ~ sitio, data = macroabH_l)
-
-#data frame lombrices estrato unlu
-lomb_H_U<-data.frame(sitio=levels(as.factor(paste(macroabH_l$sitio,macroabH_l$estrato))),
-                 mean=c(
-                   mean(as.matrix(macroabH_l[macroabH_l$sitio=="A" & macroabH_l$estrato=="10","diversidad"])),
-                   mean(as.matrix(macroabH_l[macroabH_l$sitio=="A" & macroabH_l$estrato=="20","diversidad"])),
-                   mean(as.matrix(macroabH_l[macroabH_l$sitio=="A" & macroabH_l$estrato=="H","diversidad"])),
-                   mean(as.matrix(macroabH_l[macroabH_l$sitio=="P" & macroabH_l$estrato=="10","diversidad"])),
-                   mean(as.matrix(macroabH_l[macroabH_l$sitio=="P" & macroabH_l$estrato=="20","diversidad"])),
-                   mean(as.matrix(macroabH_l[macroabH_l$sitio=="P" & macroabH_l$estrato=="H","diversidad"])),
-                   mean(as.matrix(macroabH_l[macroabH_l$sitio=="R" & macroabH_l$estrato=="10","diversidad"])),
-                   mean(as.matrix(macroabH_l[macroabH_l$sitio=="R" & macroabH_l$estrato=="20","diversidad"])),
-                   mean(as.matrix(macroabH_l[macroabH_l$sitio=="R" & macroabH_l$estrato=="H","diversidad"]))),
-                 desvio_std=c(
-                   sd(as.matrix(macroabH_l[macroabH_l$sitio=="A" & macroabH_l$estrato=="10","diversidad"])),
-                   sd(as.matrix(macroabH_l[macroabH_l$sitio=="A" & macroabH_l$estrato=="20","diversidad"])),
-                   sd(as.matrix(macroabH_l[macroabH_l$sitio=="A" & macroabH_l$estrato=="H","diversidad"])),
-                   sd(as.matrix(macroabH_l[macroabH_l$sitio=="P" & macroabH_l$estrato=="10","diversidad"])),
-                   sd(as.matrix(macroabH_l[macroabH_l$sitio=="P" & macroabH_l$estrato=="20","diversidad"])),
-                   sd(as.matrix(macroabH_l[macroabH_l$sitio=="P" & macroabH_l$estrato=="H","diversidad"])),
-                   sd(as.matrix(macroabH_l[macroabH_l$sitio=="R" & macroabH_l$estrato=="10","diversidad"])),
-                   sd(as.matrix(macroabH_l[macroabH_l$sitio=="R" & macroabH_l$estrato=="20","diversidad"])),
-                   sd(as.matrix(macroabH_l[macroabH_l$sitio=="R" & macroabH_l$estrato=="H","diversidad"]))),
-                 mediana=c(
-                   median(as.matrix(macroabH_l[macroabH_l$sitio=="A" & macroabH_l$estrato=="10","diversidad"])),
-                   median(as.matrix(macroabH_l[macroabH_l$sitio=="A" & macroabH_l$estrato=="20","diversidad"])),
-                   median(as.matrix(macroabH_l[macroabH_l$sitio=="A" & macroabH_l$estrato=="H","diversidad"])),
-                   median(as.matrix(macroabH_l[macroabH_l$sitio=="P" & macroabH_l$estrato=="10","diversidad"])),
-                   median(as.matrix(macroabH_l[macroabH_l$sitio=="P" & macroabH_l$estrato=="20","diversidad"])),
-                   median(as.matrix(macroabH_l[macroabH_l$sitio=="P" & macroabH_l$estrato=="H","diversidad"])),
-                   median(as.matrix(macroabH_l[macroabH_l$sitio=="R" & macroabH_l$estrato=="10","diversidad"])),
-                   median(as.matrix(macroabH_l[macroabH_l$sitio=="R" & macroabH_l$estrato=="20","diversidad"])),
-                   median(as.matrix(macroabH_l[macroabH_l$sitio=="R" & macroabH_l$estrato=="H","diversidad"]))),
-                row.names = NULL)
-
-#data frame lombrices general unlu
-lomb_H_U_t<-data.frame(sitio=c("R","P","A"),
-                 mean=c(
-                   paste(sep=" ",round(mean(as.matrix(macroabH_l[macroabH_l$sitio=="R","diversidad"])),2),
-                        "±",
-                        round(sd(as.matrix(macroabH_l[macroabH_l$sitio=="R","diversidad"])),2)),
-                   paste(sep=" ",round(mean(as.matrix(macroabH_l[macroabH_l$sitio=="P","diversidad"])),2),
-                        "±",
-                        round(sd(as.matrix(macroabH_l[macroabH_l$sitio=="P","diversidad"])),2)),
-                   paste(sep=" ",round(mean(as.matrix(macroabH_l[macroabH_l$sitio=="A","diversidad"])),2)
-                   ,"±", round(sd(as.matrix(macroabH_l[macroabH_l$sitio=="A","diversidad"])),2))),
-                 mediana=c(
-                   round(median(as.matrix(macroabH_l[macroabH_l$sitio=="R","diversidad"])),2),
-                   round(median(as.matrix(macroabH_l[macroabH_l$sitio=="P","diversidad"])),2),
-                   round(median(as.matrix(macroabH_l[macroabH_l$sitio=="A","diversidad"])),2)),
-                row.names = NULL)
-
-#nematodos lujan####
-microH <- read.delim("database/nematofauna_diversityH.txt")
-
-microH$sitio<-substr(microH$nombre,3,3)
-microH$replica<-substr(microH$nombre,4,4)
-
-microH[microH$sitio == "L", "sitio"] <- "A"
-
-micro_abH<-microH[,c("nombre","sitio","replica","taxon","abundance")] %>% 
-  pivot_wider(names_from = taxon,
-              values_from = abundance,
-              values_fill = 0,
-              values_fn = sum)%>%
-  distinct(nombre,.keep_all=TRUE)
-
-
-H_micro_unlu<-as.matrix(micro_abH[,-c(1:3)])
-row.names(H_micro_unlu)<-micro_abH$nombre
-
-H_micro_unlu<-vegan::diversity(H_micro_unlu, index="shannon")
-
-#matriz de diversidad
-microabH<-micro_abH[,1:3]
-microabH$diversidad<-H_micro_unlu
-
-#data frame nematodos
-H_nem<-data.frame(Sitios=c("R","P","A"),
-                 Promedio=c(
-                    paste(sep=" ",round(mean(as.matrix(microabH[microabH$sitio=="R","diversidad"])),2),
-                        "±",
-                        round(sd(as.matrix(microabH[microabH$sitio=="R","diversidad"])),2)),
-                    paste(sep=" ",round(mean(as.matrix(microabH[microabH$sitio=="P","diversidad"])),2),
-                        "±",
-                        round(sd(as.matrix(microabH[microabH$sitio=="P","diversidad"])),2)),
-                    paste(sep=" ",round(mean(as.matrix(microabH[microabH$sitio=="A","diversidad"])),2),
-                        "±",
-                        round(sd(as.matrix(microabH[microabH$sitio=="A","diversidad"])),2))
-                 ),
-                 Mediana=c(
-                   round(median(as.matrix(microabH[microabH$sitio=="R","diversidad"])),2),
-                                         round(median(as.matrix(microabH[microabH$sitio=="P","diversidad"])),2),
-                        round(median(as.matrix(microabH[microabH$sitio=="A","diversidad"])),2)
-                        ),
-                row.names = NULL)
-
-kruskal.test(diversidad ~ sitio, data = microabH)
-
-#todas las pruebas de kw para sitios, no por estratos
-kw_all_com<-list(kruskal.test(diversidad ~ sitio, data = g_H),kruskal.test(diversidad ~ sitio, data = RO_div),kruskal.test(diversidad ~ sitio, data = mesoabH),kruskal.test(diversidad ~ sitio, data = RO_div.meso),kruskal.test(diversidad ~ sitio, data = macroabH),kruskal.test(diversidad ~ sitio, data = RO_div.meso.lom),kruskal.test(diversidad ~ sitio, data = macroabH_l),kruskal.test(diversidad ~ sitio, data = microabH))
-
-#unir todos los datos y crear tabla####
-Hg<-rbind(g_H.sum,g_H.ro)
-names(H_unlu_meso)<-c("Sitio","Promedio","Mediana")
-Hme<-rbind(H_unlu_meso,g_H.ro.meso)
-names(lomb_H_U_t)<-c("Sitio","Promedio","Mediana")
-Hl<-rbind(lomb_H_U_t,g_H.ro.lomb)
-names(macro_H_U_t)<-c("Sitio","Promedio","Mediana")
-Hma<-rbind(macro_H_U_t, data_frame(Sitio=c("N","G","A"),Promedio=c("-","-","-"),
-                                   Mediana=c("-","-","-")))
-names(H_nem)<-c("Sitio","Promedio","Mediana")
-Hne<-rbind(H_nem, data_frame(Sitio=c("N","G","A"),Promedio=c("-","-","-"),
-                                   Mediana=c("-","-","-")))
-H<-cbind(Hg,Hl,Hme,Hma,Hne)
-H<-H[,-c(4,7,10,13)]
-
-#paste("X̅ ± σ",";","X̂")
-H<-rbind(c("","X̅ ± σ","X̂","X̅ ± σ","X̂","X̅ ± σ","X̂","X̅ ± σ","X̂","X̅ ± σ","X̂"), H)
-
-colnames(H)<-c("Sitios","Total","  ","Lombrices","   ","Mesofauna","    ","Macrofauna","     ","Microfauna","         ")
-
-```
-
-**Tabla 3.5.** Índice de Diversidad de Shannon (H') en suelos Argiudoles típicos con diferentes formas de uso. Sitios: argiudoles de Luján R = Reserva, P = pastizal, A = agrícola; argiudoles de Chivilcoy y Navarro N = pastizal naturalizado, G = mixto agrícola ganadero, A = agrícola intensivo. Total: refiere al índice de diversidad de toda la comunidad de la fauna edáfica; Lombrices, Mesofauna, Macrofauna, Microfauna, refiere a la diversidad calculada para grupos de la fauna edáfica clasificados según su rango de tamaños. X̅ ± σ: valor promedio más el desvío estandar de la diversidad del componente, X̂: valor de la mediana de la diversidad del componente.
-
-```{r tabla_Shannon, echo=FALSE, warning=FALSE}
-H
+```{r Tab3.6,echo=FALSE, warning=FALSE}
+Tab3.6 <- read.csv("scripts/database/Tab3-6.txt", sep="")
+colnames(Tab3.6)<-c("Sitios", "Total"," ", "Lombrices"," ", "Mesofauna"," ", "Macrofauna"," ","Microfauna"," ")
+Tab3.6%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
 ```
 
 El índice de diversidad observado a través de la composición de los taxones según su clasificación en diferentes clases de tamaño (microfauna, mesofauna, macrofauna) en comparación con los diferentes sistemas de uso del suelo, no mostró diferencias significativas ($H : p_{_{valor}} < 0.1$), ni en suelos argiudoles de Luján ni en suelos argiudoles de Chivilcoy y Navarro.
@@ -1531,126 +383,24 @@ El índice de diversidad observado a través de la composición de los taxones s
 
 El análisis de similitudes (ANOSIM) nos indica que existen disimilaridades estadísticamente significativas ($R: p_{valor}<0.05$) entre las comunidades que pertenecen a diferentes sistemas de uso del suelo, tanto en los suelos de Luján como en los suelos de Chivilcoy y Navarro.
 
-```{r anosim_unlu, include=FALSE, warning=FALSE}
 
-tb_D_anosim<-D
-row.names(tb_D_anosim)<-unlu_merg$nombre
-tb_D_anosim1<-tb_D_anosim
-tb_D_anosim1$sitio<-unlu_merg$sitio
-tb_Duni_anosim<-decostand(tb_D_anosim1[,!colnames(tb_D_anosim1)%in%"sitio"],"log")
-#col_sp<-colnames(tb_D)
 
-D_unlu_anosim<-vegan::anosim(tb_Duni_anosim, 
-              as.matrix(tb_D_anosim1[,"sitio"]), 
-              permutations = 1670, 
-              distance = "bray")
-print("Resumen del ANOSIM para los datos de densidad log +1 transformados")
-summary(D_unlu_anosim)
-
-r_unlu_anosim<-D_unlu_anosim[["statistic"]]
-
-#Rosana
-
-#Densidad nro ind/m2
-#Se utiliará la transformación "log" = (log x) + 1 si x > 0 o 0 si x = 0
-#Especies ocasionales, no muestreados correctamente
-#En total 18 especies, 
-
-spe.no<-c(6,13,20,22,24,27,28,29,30,31,33,36,40,42,46,50,51,52)
-
-#Listado completo de especies
-D_anosim<-RO_db_full[,c(1,2,3,20,57:90)]
-colnames(D_anosim)<-c("nombre","system","site","replica",spc.colector)
-
-tb_D<-decostand(D_anosim[,-c(1:4)],"log")
-
-Den_anosim<-vegan::anosim(tb_D, 
-              as.matrix(D_anosim[,"system"]), 
-              permutations = 1670, 
-              distance = "bray")
-print("Resumen del ANOSIM para los datos de densidad log +1 transformados")
-summary(Den_anosim)
-r_RO_anosim<-Den_anosim[["statistic"]]
-
-```
-
-Respectivamente, `r r_unlu_anosim` (Luján) y `r r_RO_anosim` (Chivilcoy y Navarro), son los valores del estadístico que indican la proporción de disimilitud existente entre los grupos, es decir, la separación de las comunidades halladas en los diferentes sistemas de uso del suelo en cada región de estudio. En los suelos de Luján las comunidades de la fauna edáfica muestran importantes separaciones entre los sistemas de uso del suelo, por su parte, las comunidades de microartrópodos y lombrices de suelos de Chivilcoy y Navarro también se separan entre los diferentes sistemas de uso del suelo aunque con menos fuerza.
+Respectivamente, 0,786 (Luján) y 0,11 (Chivilcoy y Navarro), , son los valores del estadístico que indican la proporción de disimilitud existente entre los grupos, es decir, la separación de las comunidades halladas en los diferentes sistemas de uso del suelo en cada región de estudio. En los suelos de Luján las comunidades de la fauna edáfica muestran importantes separaciones entre los sistemas de uso del suelo, por su parte, las comunidades de microartrópodos y lombrices de suelos de Chivilcoy y Navarro también se separan entre los diferentes sistemas de uso del suelo aunque con menos fuerza.
 
 La diferencia en el grado del estadístico R del análisis de similitudes entre las zonas de estudio puede deberse a los diferentes grupos estudiados, por ejemplo, en los suelos de Luján la composición taxonómica del grupo de la macrofauna puede ser más heterogéneo debido a diferentes unidades taxonómicas en cada sistema de uso del suelo y con abundancias bajas de estos taxones. Las comunidades en ambos sitios de estudios muestran diferencias significativas que indican que los sistemas de uso de suelo en términos de composición de la comunidad son diferentes.
 
-```{r Beta_div, include=FALSE, warning=FALSE}
-
-#uso matriz de abundancias UNLU
-#4:122 Densidad | 123:241 abundancias
-beta_u<-unlu_merg[,4:122]
-row.names(beta_u)<-unlu_merg$"nombre"
-#método 8 es el índice de wilson
-#beta_div_u<-betadiver(beta_u, method=8)
-beta_div_u<-vegdist(beta_u, method="bray")
-#beta_div_u<-betadiver(beta_u, method=8)
-#vegdist(beta_u, method="bray")
-div.beta.unlu<-hclust(beta_div_u,method = "average")
-
-#ROSANA
-D_site<-RO_full[,c("system","site","specie","D")] %>% 
-  pivot_wider(names_from = specie,
-              values_from = D,
-              values_fill = 0,
-              values_fn = sum)%>%
-  distinct(system,.keep_all=TRUE)
-D_site<-as.data.frame(D_site)
-D_site$replica
-D_site[D_site$site=="triangulo","replica"]<-1
-D_site[D_site$site=="L27","replica"]<-1
-D_site[D_site$site=="molino","replica"]<-1
-
-D_site[D_site$site=="festuca","replica"]<-2
-D_site[D_site$site=="L24","replica"]<-2
-D_site[D_site$site=="manga","replica"]<-2
-
-D_site[D_site$site=="romina","replica"]<-3
-D_site[D_site$site=="L25","replica"]<-3
-D_site[D_site$site=="casuarina","replica"]<-3
-
-row.names(D_site)<-paste(D_site$system,D_site$replica)
-
-######
-# Disimilitudd entre los sitios
-betaBK_ro<-vegdist(D_site[,-c(1,2,55)], method="bray")
-  #vegdist(D_site[,-c(1,2,55)], method="bray")
-  #betadiver(D_site[,-c(1,2,55)],method=8)
-  
-div.beta<-hclust(betaBK_ro,method = "average") #average
-
-
-#######
-# Índice de Beta Diveridad
-#beta<-betadiver(D_site[,-c(1,2)], method=8)
-#div.beta<-hclust(beta,method = "mcquitty")
-#plot(div.beta,cex=0.6,main="Agrupamiento según índice Wilson",sub="Diversidad Beta entre sitios",ylab="Índice de Wilson",xlab="")
 
 
 
-```
 
-```{r Beta, echo=FALSE, warning=FALSE, message=FALSE, fig.align='center'}
-par(mfrow=c(1,2))
-#UNLu
-plot(div.beta.unlu,cex=0.6,main="Luján",
-     sub="Agrupamiento jerárquico promedio",
-     ylab="Índice de Bray Curtis",xlab="Disimilitud entre sistemas de uso")
-#linea de corte
-#abline(h = 0.29, lty = 2, col = "black")
-#Rosana
-plot(div.beta,cex=0.6,main="Chivilcoy y Navarro",
-     sub="Agrupamiento jerárquico promedio",
-     ylab="Índice de Bray Curtis",xlab="Disimilitud entre sistemas de uso")
-par(mfrow=c(1,1))
-```
 
-**Figura 3.3.** Dendrogramas de similitud entre sistemas de usos de suelos que ocurren en suelos Argiudoles típicos. En el eje vertical se indica el valor del índice de Bray-Curtis, valores altos indican sitios más disímiles en contra parte valores bajos del índice expresan una mayor similitud entre grupos. Las letras representan a los sistemas de uso: argiudoles de Luján R = Reserva, P = pastizal, A = agrícola; argiudoles de Chivilcoy y Navarro N = pastizal naturalizado, G = mixto agrícola ganadero, A = agrícola intensivo. Los números que acompañan a las letras indican la réplica dentro de un mismo sistema de uso del suelo
+<p style="text-align: center;">
+  <img id="fig3.4" src="scripts/database/Fig3-4.png" alt="Figura 3.4">
+  <br>
+  **Figura 3.4.** Dendrogramas de similitud entre sistemas de usos de suelos que ocurren en suelos Argiudoles típicos. En el eje vertical se indica el valor del índice de Bray-Curtis, valores altos indican sitios más disímiles en contra parte valores bajos del índice expresan una mayor similitud entre grupos. Las letras representan a los sistemas de uso: argiudoles de Luján R = Reserva, P = pastizal, A = agrícola; argiudoles de Chivilcoy y Navarro N = pastizal naturalizado, G = mixto agrícola ganadero, A = agrícola intensivo. Los números que acompañan a las letras indican la réplica dentro de un mismo sistema de uso del suelo.
+</p>
 
-Los dendrogramas (Fig 3.3) muestran la similitud de las comunidades de cada sistema de uso del suelo en cada localidad según Bray Curtis, se observa que: **a)** en los suelos de Luján existe un claro agrupamiento entre los sitios que corresponden al sistema de uso Agrícola, a la vez, se forman dos grupos separados entre el sistema del Pastizal y el sistema de la Reserva y una situación de proximidad entre sitios del Pastizal y la Reserva; **b)** en los suelos de Chivilcoy y Navarro no se observan claras asociaciones vinculadas con los sistemas de uso el suelo, lo que explicaría el bajo valor del estadístico R del análisis de similitudes (`r r_RO_anosim`), un cierto grado de similitud existe entre dos de los sitios del sistema del pastizal naturalizado, por otra parte, en valor del grado de similitud el sistema agrícola intensivo muestra menores valores del índice de Bray-Curtis y aunque estos no se agrupen jerárquicamente resultan en comunidades más similares que aquellas que se encuentran en el sistema mixto agrícola ganadero.
+Los dendrogramas (Fig 3.4) muestran la similitud de las comunidades de cada sistema de uso del suelo en cada localidad según Bray Curtis, se observa que: **a)** en los suelos de Luján existe un claro agrupamiento entre los sitios que corresponden al sistema de uso Agrícola, a la vez, se forman dos grupos separados entre el sistema del Pastizal y el sistema de la Reserva y una situación de proximidad entre sitios del Pastizal y la Reserva; **b)** en los suelos de Chivilcoy y Navarro no se observan claras asociaciones vinculadas con los sistemas de uso el suelo, lo que explicaría el bajo valor del estadístico R del análisis de similitudes (0,11), un cierto grado de similitud existe entre dos de los sitios del sistema del pastizal naturalizado, por otra parte, en valor del grado de similitud el sistema agrícola intensivo muestra menores valores del índice de Bray-Curtis y aunque estos no se agrupen jerárquicamente resultan en comunidades más similares que aquellas que se encuentran en el sistema mixto agrícola ganadero.
 
 **Análisis de Componentes Principales (PCA) de las comunidades que ocurren en suelos argiudoles típicos bajo diferentes sistemas de uso**
 
@@ -1659,123 +409,32 @@ Las primeras dos dimensiones del análisis de coordenadas principales resumen el
 Para ambas zonas de estudio, a lo largo del primer eje se resume la diversidad de taxones que se hallan en las comunidades edáficas por lo que se observa que este eje relaciona la abundancia de los taxones ubicándo más hacia la izquierda los taxones menos abundantes y más hacia la derecha los taxones abundantes, por ej, en suelos Argiudoles de Luján la macrofauna se ubica en el extremo izquierdo 
 y hacia el extremo derecho los nemátodos. A través del segundo eje de las coordenadas se explican la similitud, en términos de la composición de la comunidad, que se encuentra entre los sistemas de uso del suelo.
 
-```{r pca_tb, include=FALSE,warning=FALSE}
-#hellinger
-tb_D_U<-decostand(D[,!colnames(D)%in%c("sitio","D_insecta_egg","D_crisalida_insecto")],"log")
-row.names(tb_D_U)<-unlu_merg$"nombre"
-col_sp<-colnames(tb_D_U)
 
-col.sp.unlu<-c("macro_herb","ing","ing","ing","ast","macro_pred","macro_fun",
-               "macro_det","pros","macro_det","enchy","art","macro_omn","macro_pred",
-               "macro_herb","art","macro_pred","meso","ing","macro_det","macro_herb",
-               "macro_pred","no.art","macro_det","macro_herb","meso","pros","meso",
-               "orib","pros","orib","art","macro_pred","macro_herb","macro_det",
-               "macro_fun","macro_det","macro_det","meso","nem_bac","nem_fit",
-               "nem_fung","nem_omn","nem_pre","meso","art","orib","orib","orib",
-               "orib","meso","pros","pros","macro_det","pros","meso","orib","pros",
-               "pros","macro_pred","ing","macro_det","macro_pred","orib","orib",
-               "meso","art","meso","macro_det","macro_herb","macro_herb","macro_pred",
-               "macro_parasi","macro_det","pros","tardi","macro_pred",
-               "no.art","macro_pred","pros","pros","macro_herb","macro_herb","orib",
-               "macro_det","ing","ing","ing","macro_det","macro_det","macro_pred",
-               "ing","macro_det","orib","meso","meso","ing","ing","macro_det",
-               "macro_det","meso","orib","no.art","orib","orib",
-               "orib","orib","art","orib","macro_fun","macro_det","pros","meso",
-               "orib","orib","macro_pred","macro_herb")
-col.sp.unlu[col.sp.unlu=="ing"]<-"lom"
-col.sp.unlu[col.sp.unlu=="macro_parasi"]<-"macro_pred"
-col.sp.unlu[col.sp.unlu=="art"]<-"col"
-col.sp.unlu[col.sp.unlu=="no.art"]<-"mesof"
-#col.sp.unlu[col.sp.unlu=="tardi"]<-"mesof"
-#col.sp.unlu[col.sp.unlu=="enchy"]<-"mesof"
-
-#Matriz transpuesta
-tb_U_D_pca<-PCA(t(tb_D_U), scale.unit = TRUE, graph = FALSE)
-summary(tb_U_D_pca)
-
-#tb_U_D_pca[["var"]][["cor"]][,1]
-#tb_U_D_pca[["var"]][["cor"]][,2]
-
-##corelaciones
-f_pca_cor<-round(tb_U_D_pca$var$cor[,1:4],3)
-#Biplot
-sit<-c(rep("A", 3), rep("P", 3), rep("R", 3))
-
-plot_PCA_unlu<-fviz_pca_biplot(tb_U_D_pca, axes = c(1,2), col.var = "black", #as.factor(sit),
-                col.ind =  as.factor(col.sp.unlu),
-                alpha.ind=0.2,
-                alpha.var=0.4,
-                label = "var",
-                repel=TRUE) +
-  theme(legend.position = "bottom")
-  
-#####
-#Rosana
-
-tb_D<-decostand(D_site[,-c(1,2,37)],"log")
-sit<-c(rep("A", 3), rep("G", 3), rep("N", 3))
-
-pch<-c(1,1,1,1,9,5,5,5,5,9,1,6,5,5,5,9,7,6,
-         9,6,5,10,1,7,6,7,1,5,
-           7,6,6,1,5,1)
-col.sp<-pch
-col.sp <- case_when(
-  col.sp == 1 ~ "lom",
-  col.sp == 5 ~ "ori",
-  col.sp == 6 ~ "mes",
-  col.sp == 7 ~ "pro",
-  col.sp == 9 ~ "col", #art
-  col.sp == 10 ~ "col", #no.art
-  TRUE ~ as.character(col.sp)
-)
-
-#lombrices=1=lom; macro=3=macro; acaros_orib= 5=ori; ac_meso= 6=mes
-#ac_prost=7=pro; artropleona=9=art; no_artropleona=10=no.art
+<p style="text-align: center;">
+  <img id="fig3.5" src="scripts/database/Fig3-5.png" alt="Figura 3.5">
+  <br>
+  **Figura 3.5.** Biplot de coordenadas principales de las unidades taxonómicas de la comunidad de la fauna edáfica ocurridas en suelos Argiudoles típicos de Luján bajo diferentes sistemas de uso del suelo. Los vectores representan los sistemas de uso del suelo R = Reserva, P = pastizal, A = agrícola, los números que los acompañan indican la réplica. Los puntos claros indican cada uno de los diferentes taxones hallados en estos suelos, los puntos fuertes representa el centroide de los grupos taxonómicos cuyo símbolo y color representa a un grupo particular en función de una clasificación que refiere al tamaño, al taxón y a hábitos tróficos característicos. ast = astigmatas, col = colémbolos, enchy= enquitreidos, lom= lombrices de tierra, macro_det= macrofauna detritívora, macro_fun= macrofauna microfitófaga, macro_herb= macrofauna herbívora, macro_omn= macrofauna omnívora, macro_pred= macrofauna predadora, meso= mesostigmatas, mesof= mesofauna diferente de ácaros o colémbolos, nem_bac= nemátodos bacterívoros, nem_fit= nemátodos fitófagos, nem_fung= nemátdos fungívoros, nem_omn= nemátodos omnívoros, nem_pre= nemátodos predadores, orib= sarcoptiformes, pros= prostigmatas, tardi= tardígrados.
+</p>
 
 
 
-####################
-#con Densidades standarizadas por log(ab)+1
-
-std_ab_pca<-PCA(t(tb_D), scale.unit = TRUE, graph = FALSE)
-
-summary(std_ab_pca)
-#correlaciones
-std_ab_pca_cor<-round(std_ab_pca$var$cor[,1:5],3)
-
-#fviz_pca_var(std_ab_pca, col.var=sit,repel = TRUE, label="none")
-
-#fviz_pca_ind(std_ab_pca, col.ind=col.sp,label="none",repel = TRUE)
-
-plot_PCA_ro<-fviz_pca_biplot(std_ab_pca, axes = c(1,2) , col.ind=col.sp,
-                col.var = "black", alpha.var=0.6,#as.factor(sit),
-                alpha.ind=0.3,
-                repel = TRUE,label = "var")+
-  theme(legend.position = "bottom")
-
-
-```
-
-```{r plot_pca_U, echo=FALSE, warning=FALSE,message=FALSE,fig.align='center'}
-plot_PCA_unlu
-```
-
-**Fig 3.4.** Biplot de coordenadas principales de las unidades taxonómicas de la comunidad de la fauna edáfica ocurridas en suelos Argiudoles típicos de Luján bajo diferentes sistemas de uso del suelo. Los vectores representan los sistemas de uso del suelo R = Reserva, P = pastizal, A = agrícola, los números que los acompañan indican la réplica. Los puntos claros indican cada uno de los diferentes taxones hallados en estos suelos, los puntos fuertes representa el centroide de los grupos taxonómicos cuyo símbolo y color representa a un grupo particular en función de una clasificación que refiere al tamaño, al taxón y a hábitos tróficos característicos. ast = astigmatas, col = colémbolos, enchy= enquitreidos, lom= lombrices de tierra, macro_det= macrofauna detritívora, macro_fun= macrofauna microfitófaga, macro_herb= macrofauna herbívora, macro_omn= macrofauna omnívora, macro_pred= macrofauna predadora, meso= mesostigmatas, mesof= mesofauna diferente de ácaros o colémbolos, nem_bac= nemátodos bacterívoros, nem_fit= nemátodos fitófagos, nem_fung= nemátdos fungívoros, nem_omn= nemátodos omnívoros, nem_pre= nemátodos predadores, orib= sarcoptiformes, pros= prostigmatas, tardi= tardígrados.
-
-En los suelos de Luján (Fig 3.4) la separación del sistema agrícola de los demás sistemas de uso del suelo es clara dirigiéndose hacia el lado negativo del segundo eje de coordenadas. El sistema de la reserva se posiciona en el nivel superior del segundo eje y el sistema del pastizal se muestra entre ambos. Por lo que podría interpretarse una situación de gradiente con respecto a la composición de las comunidades del suelo.
+En los suelos de Luján (Fig 3.5) la separación del sistema agrícola de los demás sistemas de uso del suelo es clara dirigiéndose hacia el lado negativo del segundo eje de coordenadas. El sistema de la reserva se posiciona en el nivel superior del segundo eje y el sistema del pastizal se muestra entre ambos. Por lo que podría interpretarse una situación de gradiente con respecto a la composición de las comunidades del suelo.
 
 Al observar los principales grupos taxonómicos, se forma un agrupamiento entre los nemátodos, los enquitreidos y los astigmatas en el extremo positivo de la primera dimensión de las coordenadas principales. En el extremo opuesto, se agrupan los taxones que corresponden principalmente a la macrofauna, de mayor a menor serían las lombrices de tierra, herbívoros, detritívoros, predadores y fungívoros.
 
 Entre los dos grupos conformados en los extremos del primer eje de coordenadas, descritos anteriormente, se dan situaciones particulares, los ácaros prostigmatas se ubican sobre el brazo negativo del segundo eje correlacionandose con los sistemas de uso del suelo agrícola. Los ácaros mesostigmatas, ácaros predadores del suelo, se encuentran en una situación cercana al centro de coordenadas (0,0) lo que indica que su variabilidad no se encuentra bien representada por estas dimensiones. Los ácaros oribátidos muestran con una leve relación con los vectores de los sitios que corresponden al suelo de la Reserva, en esta situación también se hallan los macroartrópodos omnívoros con una mayor relación con el suelo de la Reserva, los tardígrados se hallan fuertemente relacionados con el sistema de la Reserva indicando la presencia de retención y saturación de humedad en el suelo. Los colémbolos se relacionan con los argiudoles del sistema del pastizal.
 
-En los suelos argiudoles de Chivilcoy y Navarro (Fig 3.5) se observa una clara separación del sistema de uso del suelo mixto agrícola ganadero ubicándose en el nivel superior de la mitad derecha del plano de componentes principales, en el nivel inferior se ubica al sistema del pastizal naturalizado, el sistema agrícola intensivo se ubica entre ambos sitios pero con una proximidad aparente con el sistema del pastizal naturalizado en una situación intermedia.
+En los suelos argiudoles de Chivilcoy y Navarro (Fig 3.6) se observa una clara separación del sistema de uso del suelo mixto agrícola ganadero ubicándose en el nivel superior de la mitad derecha del plano de componentes principales, en el nivel inferior se ubica al sistema del pastizal naturalizado, el sistema agrícola intensivo se ubica entre ambos sitios pero con una proximidad aparente con el sistema del pastizal naturalizado en una situación intermedia.
 
-```{r plot_pca_Ro, echo=FALSE, warning=FALSE,fig.align='center'}
 
-plot_PCA_ro
-```
 
-**Fig 3.5.** Biplot de coordenadas principales de las unidades taxonómicas de la comunidad de la fauna edáfica ocurridas en suelos Argiudoles típicos de Chivilcoy y Navarro bajo diferentes sistemas de uso del suelo. Los vectores representan los sistemas de uso del suelo N = Pastizal naturalizado, G = mixto agrícola-ganadero, A = agrícola intensivo, los números que los acompañan marcan la réplica. Los puntos claros indican cada uno de los taxones diferentes hallados en estos suelos, los puntos fuertes representa el centroide de los grupos taxonómicos cuyo símbolo y color representa a un grupo particular en función de una clasificación que refiere al tamaño, al taxón y a hábitos tróficos característicos. col = colémbolos, lom = lombrices de tierra, mes = mesostigmatas, ori = sarcoptiformes, pros = prostigmatas.
+<p style="text-align: center;">
+  <img id="fig3.6" src="scripts/database/Fig3-6.png" alt="Figura 3.6">
+  <br>
+  **Figura 3.6.** Biplot de coordenadas principales de las unidades taxonómicas de la comunidad de la fauna edáfica ocurridas en suelos Argiudoles típicos de Chivilcoy y Navarro bajo diferentes sistemas de uso del suelo. Los vectores representan los sistemas de uso del suelo N = Pastizal naturalizado, G = mixto agrícola-ganadero, A = agrícola intensivo, los números que los acompañan marcan la réplica. Los puntos claros indican cada uno de los taxones diferentes hallados en estos suelos, los puntos fuertes representa el centroide de los grupos taxonómicos cuyo símbolo y color representa a un grupo particular en función de una clasificación que refiere al tamaño, al taxón y a hábitos tróficos característicos. col = colémbolos, lom = lombrices de tierra, mes = mesostigmatas, ori = sarcoptiformes, pros = prostigmatas.
+
+</p>
+
 
 Observando los centroides de los taxones estudiados en los suelos de Chivilcoy y Navarro de menor a mayor a lo largo de la primera dimensión, observamos a las lombrices de tierra, estas a la vez se correlacionan levemente con el lado negativo del segundo eje de coordenadas lado que explica el agrupamiento del pastizal naturalizado. Luego se ubican los ácaros predadores del suelo (Acari: Mesostigmata) sin una relación aparente con algún sistema de uso del suelo. Los ácaros prostigmatas y los ácaros oribátidos se ubican cercanos en un valor similar del primer eje de coordenadas pero separándose levemente sobre el sentido positivo del segundo eje de coordenadas, a la vez se encuentran relacionandose a los ácaros Prostigmata con los sitios del sistema agrícola intensivo y a los ácaros Oribatida con el sistema mixto agrícola ganadero. Más alejado se ubica el centroide que corresponde a los colémbolos, en una situación cercana al sistema agrícola.
 
@@ -1784,7 +443,7 @@ Observando los centroides de los taxones estudiados en los suelos de Chivilcoy y
 Las correlaciones entre variables ambientales refleja la complejidad de relaciones 
 que ocurren en el ecosistema del suelo. Sin embargo, los sistemas de uso del suelo en 
 ambos sitios de estudio se enmarcaron dentro de ciertos valores en
-cuanto a su composición química y biológica. Es así que, resulta clara la separación 
+cuanto a su composición química - biológica. Es así que, resulta clara la separación 
 de los sitios cuyas prácticas de manejo conyevan objetivos de uso agrícola,
 en particular en estos sistemas se aportan macronutrientes (nitrógeno y fósforo)
 y el medio ambiente resulta más ácido, por otra parte, la actividad respiratoria del suelo en 
@@ -1801,7 +460,7 @@ mantuvo similar a pesar de los efectos que la actividad antrópica pudiera tener
 las caracterísiticas del ambiente edáfico. El hecho de que no existan diferencias claras 
 en la diversidad del índice de Shannon 
 puede estar relacionado con la redundancia funcional 
-característica del sistema edáfico [@anderson1978], la redundancia funcional 
+que caracteriza al sistema edáfico [@anderson1978], la redundancia funcional 
 implica que para diferentes funciones ecológicas tales como, el control de poblaciones de la microflora, 
 la fragmentación de la hojarasca, la herbivoría, la formación de canales a través del suelo, entre otros, 
 existe un número de taxones que ocuparían el lugar ecológico de los taxones perdidos por 
@@ -1841,50 +500,5 @@ además conocer la diversidad y la similitud en las comunidades de la fauna edá
 suelos con diferentes sistemas de uso.
 
 
-Esta diferencia se relaciona con los procesos que ocurren sobre el ambiente debidas a las prácticas de manejo.
-
-Por lo tanto, los suelos Argiudoles típicos de la Pampa Ondulada comparten caracterísiticas similares en cuanto a la composición química y biológica y a la composición de las comunidades de la fauna edáfica inclusive a grandes distancias y a frecuencia de muestreo y las variaciones que existen en estas características se relacionan con el tiempo de uso y con la forma de uso que se realiza sobre el suelo.
-
-La reducción de dimensiones además 
-permitío ver grupos taxonómicos vinculados con ciertos sistemas El ordenamiento de También existen relaciones 
-
-Esta diferencia se relaciona con los procesos que ocurren sobre el ambiente debidas a las prácticas de manejo.
-
-ecosistema edáficoen el que 
-los taxones ocupan 
-Si se observan cambios en la composición de las comunidades siendo entre diferentes sistemas de 
-manejo 
-
-
-
-
-por lo que el resultado de estsistema resultes en general más resiliente.
-
-
-vinculados mediante su actividad biológica a las funciones ecológicas, 
-por ej. la pérdida de especies de colémbolos microfitofagos nocon los procesosque ocurren en el ecosistema del 
-suelo existen múltiples taxones que caracteriza al ecosistema edáfico, esta
-redundancia de taxones implica también redundancia de funciones 
-y puede la resiliencia del sistema al momento de mantener 
-los diferentes procesos ecologícos a la vez para diferentes funciones ecológicas claves[@anderson1978], tales como, el control de poblaciones de la microflora, la fragmentación de la hojarasca, la herbivoría, la formación de canales a través del suelo, etc.
-
-, sin embargo, las comunidades que habitan en los diferentes sistemas de uso del suelo difieren en composición
-por ello es que encontramos separaciones de las comunidades edáficas 
-entre los diferentes sistemas de uso y similitudes dentro del sistemas de uso.  existen diferencias claras en la diversidad beta y se puden reconocer asociaciones entre ciertos taxones y los sistemas de uso del suelo.
-
-<!-- 
-
-***El índice de Shanonn separa sitios :Luján tiene mayor diversidad que Chivil+ Navarro. Estos últimos tienen más de 50 años bajo producción.
-No hay diferencias en la diversdad calculada para cada uso.
-NO se calcula la beta diversidad, sin embargo me suege la pregunta estan anidadas las comunidades? Luján contiene a todas los taxones de Chivil+Navarro?
-Sin embargo la riqueza de taxones  y su composición varian con el uso del suelo respuesta de la intensidad del disturbio asociado a las caracteristica de la vegetación--> 
-
-
-El hecho de que no existan diferencias claras en la diversidad alfa puede relacionarse con el hecho de que la fauna del suelo posee una gran redundancia de taxones para diferentes funciones ecológicas claves[@anderson1978], tales como, el control de poblaciones de la microflora, la fragmentación de la hojarasca, la herbivoría, la formación de canales a través del suelo, etc.
-<!--Si bien la riqueza son similares se diferencian en la composición de especies y en sus abundancias.
-Esto se puede relacionar con la dinámica y caracterización de la redes-->
-Si se reflejan en cambios en la diversidad Beta, es decir, cambios entre los actores y sus abundancias que componen las comunidades de suelos halladas en diferentes sistemas de uso del suelo. Esta diferencia se relaciona con los procesos que ocurren sobre el ambiente debidas a las prácticas de manejo.
-
-Por lo tanto, los suelos Argiudoles típicos de la Pampa Ondulada comparten caracterísiticas similares en cuanto a la composición química y biológica y a la composición de las comunidades de la fauna edáfica inclusive a grandes distancias y a frecuencia de muestreo y las variaciones que existen en estas características se relacionan con el tiempo de uso y con la forma de uso que se realiza sobre el suelo.
 
 # Referencias

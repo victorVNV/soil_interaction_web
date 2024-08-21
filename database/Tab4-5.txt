@@ -1,0 +1,104 @@
+"Taxón" "Sistema" "Peso corporal" "Densidad" "Biomasa"
+"1" "Aphidoidea" "Agrícola" 501,2 336 27
+"2" "Aphidoidea" "Pastizal" 287,5 144 11,6
+"3" "Aphidoidea" "Reserva" 66,1 48 1,1
+"4" "Anthribidae" "Pastizal" 14600 64 934,4
+"5" "Aporrectodea caliginosa" "Agrícola" 83175 48 1982,4
+"6" "Aporrectodea caliginosa" "Reserva" 54375 32 870
+"7" "Aporrectodea rosea" "Agrícola" 48000 16 768
+"8" "Aporrectodea rosea" "Pastizal" 22500 16 360
+"9" "Aporrectodea rosea" "Reserva" 28650 16 458,4
+"10" "Aporrectodea trapezoides" "Agrícola" 118800 16 1900,8
+"11" "Aporrectodea trapezoides" "Pastizal" 70725 32 1131,6
+"12" "Aporrectodea trapezoides" "Reserva" 36600 32 1171,2
+"13" "Arannae" "Agrícola" 400 16 6,4
+"14" "Arannae" "Reserva" 150,1 16 2,4
+"15" "Bimastos beddardi sophiae" "Reserva" 51637,5 64 3304,8
+"16" "Bimastos parvus" "Reserva" 3450 16 55,2
+"17" "Blattodea" "Agrícola" 306,8 16 4,9
+"18" "Blattodea" "Pastizal" 5466,7 48 87,5
+"19" "Blattodea" "Reserva" 5200 16 83,2
+"20" "Carabidae" "Agrícola" 577,2 48 16,2
+"21" "Carabidae" "Pastizal" 2338,1 224 110,8
+"22" "Carabidae" "Reserva" 6844,6 96 110,9
+"23" "Cicadidae" "Agrícola" 427,8 48 6,8
+"24" "Cicadidae" "Pastizal" 892,6 32 28,6
+"25" "Cicadidae" "Reserva" 92200 112 10326,4
+"26" "Coccinelidae" "Pastizal" 6800 16 108,8
+"27" "Coleoptera" "Pastizal" 5500 64 352
+"28" "Cryptophagidae" "Agrícola" 3600 16 57,6
+"29" "Diplopoda" "Agrícola" 11421,6 912 1601,5
+"30" "Diplopoda" "Pastizal" 26133,3 80 746,7
+"31" "Diplopoda" "Reserva" 23428,6 144 433,4
+"32" "Diptera" "Reserva" 22400 16 358,4
+"33" "Elateriformia" "Reserva" 4400 16 70,4
+"34" "Eukerria halophila" "Pastizal" 6225 32 99,6
+"35" "Formicidae" "Agrícola" 602 128 18,4
+"36" "Formicidae" "Pastizal" 821 400 28,7
+"37" "Formicidae" "Reserva" 1425,7 1200 284,3
+"38" "Gasteropoda" "Reserva" 29267,6 400 991,7
+"39" "Geophilomorpha" "Agrícola" 1315,4 32 21
+"40" "Geophilomorpha" "Pastizal" 7600 32 243,2
+"41" "Geophilomorpha" "Reserva" 7357,3 224 402,1
+"42" "Grillopalpidae" "Agrícola" 117400 32 1878,4
+"43" "Hemiptera" "Agrícola" 1192 16 19,1
+"44" "Hemiptera" "Pastizal" 7122,7 32 114
+"45" "Hemiptera" "Reserva" 345,6 32 5,5
+"46" "Juvenil, lombriz" "Agrícola" 39420 112 1960,3
+"47" "Juvenil, lombriz" "Pastizal" 19983,4 640 2615,7
+"48" "Juvenil, lombriz" "Reserva" 10446,9 1568 2913,7
+"49" "Carabidae, larva" "Agrícola" 4838 32 77,4
+"50" "Carabidae, larva" "Reserva" 37856,8 48 605,7
+"51" "Coleoptera larva" "Agrícola" 4207,4 48 98,6
+"52" "Coleoptera larva" "Pastizal" 4421,1 112 118,1
+"53" "Coleoptera larva" "Reserva" 5054,1 32 80,9
+"54" "Curculionidae larva" "Reserva" 6600 32 211,2
+"55" "Diptera larva" "Agrícola" 2018,2 448 50,5
+"56" "Diptera larva" "Pastizal" 316,5 176 14,3
+"57" "Diptera larva" "Reserva" 1926,4 160 32,6
+"58" "Elateridae larva" "Agrícola" 1800 32 57,6
+"59" "Elateridae larva" "Reserva" 3066,7 64 64
+"60" "Scarabaeidae larva" "Agrícola" 488400 16 7814,4
+"61" "Scarabaeidae larva" "Pastizal" 405783,3 144 8818,1
+"62" "Scarabaeidae larva" "Reserva" 11200 16 179,2
+"63" "Sciaridae larva" "Agrícola" 1115,9 432 40
+"64" "Sciaridae larva" "Pastizal" 1733,8 48 40,4
+"65" "Sciaridae larva" "Reserva" 7138,1 320 315,9
+"66" "Staphylinidae larva" "Pastizal" 19200 16 307,2
+"67" "Tenebrionidae larva" "Agrícola" 4100 48 89,6
+"68" "Linyphiidae" "Agrícola" 7400 32 118,4
+"69" "Linyphiidae" "Pastizal" 4241,3 128 145,6
+"70" "Linyphiidae" "Reserva" 3400 32 54,4
+"71" "Lycosidae" "Agrícola" 53549,3 240 1385,2
+"72" "Lycosidae" "Pastizal" 30000 16 480
+"73" "Lycosidae" "Reserva" 5592,7 288 194,3
+"74" "Microscolex phosphoreus" "Pastizal" 4837,5 48 114
+"75" "Nematomorpha" "Agrícola" 7200 16 115,2
+"76" "Nematomorpha" "Reserva" 16200 32 259,2
+"77" "Octolasion cyaneum" "Agrícola" 58200 16 931,2
+"78" "Octolasion tyrtaeum" "Pastizal" 63825 32 1021,2
+"79" "Oniscoidea" "Agrícola" 19285,7 160 527,5
+"80" "Oniscoidea" "Pastizal" 9029,6 2256 1788,9
+"81" "Oniscoidea" "Reserva" 11898,6 2576 3250,7
+"82" "Ortoptera" "Agrícola" 16800 16 268,8
+"83" "Pseudoscorpionida" "Reserva" 832,6 16 13,3
+"84" "Psocoptera" "Pastizal" 92,5 16 1,5
+"85" "Psocoptera" "Reserva" 141,3 16 2,3
+"86" "Ptilidae" "Pastizal" 2170,1 64 103
+"87" "Ptilidae" "Reserva" 1702,9 16 27,2
+"88" "Ptinidae" "Reserva" 2000 16 32
+"89" "Diptera pupa" "Agrícola" 3245,7 1232 455,5
+"90" "Diptera pupa" "Pastizal" 2537,2 16 40,6
+"91" "Diptera pupa" "Reserva" 3364,4 48 161,5
+"92" "Pythidae" "Agrícola" 197400 32 3158,4
+"93" "Staphylinidae" "Agrícola" 1395,5 400 108,1
+"94" "Staphylinidae" "Pastizal" 3074,4 464 176,4
+"95" "Staphylinidae" "Reserva" 2476,9 112 57,5
+"96" "Tenebrionidae" "Agrícola" 21600 16 345,6
+"97" "Tenebrionidae" "Pastizal" 12266,7 48 196,3
+"98" "Thysanoptera" "Agrícola" 153,1 336 4,8
+"99" "Thysanoptera" "Pastizal" 304,1 256 7,5
+"100" "Thysanoptera" "Reserva" 183,6 32 5,9
+"101" "Trogossitidae" "Agrícola" 3600 16 57,6
+"102" "Trogossitidae" "Pastizal" 894,9 32 14,3
+"103" "Trogossitidae" "Reserva" 8400 16 134,4

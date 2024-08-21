@@ -1,0 +1,7 @@
+"siti" "S" "S_lombrices" "S_collembola" "S_sarcoptiformes" "S_mesostigmata" "S_prostigmata" "S_otra_mesofauna" "S_macrofauna"
+"1" "R" 75 6 4 11 9 5 "4" "29"
+"2" "P" 79 7 3 12 9 11 "4" "26"
+"3" "A" 68 5 4 10 8 7 "3" "25"
+"4" "N" 29 8 5 8 4 4 "-" "-"
+"5" "G" 30 7 5 9 5 4 "-" "-"
+"6" "A" 30 7 5 9 5 4 "-" "-"

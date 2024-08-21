@@ -405,7 +405,7 @@ R <- read.csv("scripts/database/R.txt", sep="")
 N <- read.csv("scripts/database/N.txt", sep="")
 G <- read.csv("scripts/database/G.txt", sep="")
 A <- read.csv("scripts/database/A.txt", sep="")
-mG <- read.csv("scripts/database/mG.txt", sep="")
+mG <- read.csv("scripts/database/mG1.txt", sep="")
 
 T_net<-graph_from_adjacency_matrix(t(as.matrix(mG)),mode=c("directed"),weighted = TRUE )
 V(T_net)$id <- seq_along(V(T_net))
