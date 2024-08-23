@@ -29,13 +29,17 @@ set.seed(167)
 
 ```
 
-# Construcción y modelado de las redes tróficas de la comunidad de la fauna edáfica que habitan suelos Argiudoles típicos de la Pampa Ondulada para interpretar el funcionamiento y el estado de conservación del ecosistema edáfico.
+# Construcción y modelado de las redes tróficas de la comunidad de la fauna edáfica que habitan suelos Argiudoles típicos de la Pampa Ondulada para interpretar el funcionamiento y el estado de conservación del ecosistema edáfico
+
+\newpage
+
+\newpage
 
 # Resumen
 
 2000 palabras maximo
 
-**Resumen en inglés**
+**Abstrac**
 
 500 palabras
 
@@ -2691,7 +2695,10 @@ tabla5.1 <- read.csv("database/tabla5.1.txt", sep="")
 names(tabla5.1)<-c("Sistema","Tamaño","nº enlaces","Tope","% Omnivoría","Nivel de Omnivoría",
                    "Nivel trófico","Nivel trófico promedio","Conectancia","Densidad de enlaces",
                    "Clustering","Vulnerabilidad","Generalidad")
-tabla5.1%>%kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
+tabla5.1[,c("Sistema","Tamaño","nº enlaces","Tope","% Omnivoría","Nivel de Omnivoría",
+                   "Nivel trófico","Nivel trófico promedio")]%>%kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
+tabla5.1[,c("Sistema","Conectancia","Densidad de enlaces",
+                   "Clustering","Vulnerabilidad","Generalidad")]%>%kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
 
 ```
 
@@ -2723,7 +2730,10 @@ cada metrica, en materiales -->
 tabla5.2 <- read.csv("database/tabla5.2.txt", sep="")
 names(tabla5.2)<-c("Sistema","Tamaño","nº enlaces","Tope","% Omnivoría","Nivel de Omnivoría",
                    "Nivel trófico","Nivel trófico promedio","Conectancia","Densidad de enlaces","Clustering","Vulnerabilidad","Generalidad")
-tabla5.2%>%kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
+tabla5.2[,c("Sistema","Tamaño","nº enlaces","Tope","% Omnivoría","Nivel de Omnivoría",
+                   "Nivel trófico","Nivel trófico promedio")]%>%kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
+tabla5.2[,c("Sistema","Conectancia","Densidad de enlaces",
+                   "Clustering","Vulnerabilidad","Generalidad")]%>%kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
 ```
 El porcentaje de omnivoría y el nivel de omnivoría (Table 5.2) muestran valores 
 próximos entre sistemas. El máximo nivel trófico y el nivel trófico medio fué mayor en el 
@@ -3194,6 +3204,10 @@ más relacionada a los cambios que ocurren sobre la composición de la vegetaci�
 
 ::: {#refs}
 :::
+
+\newpage
+
+# Publicaciones
 
 \newpage
 
@@ -3774,6 +3788,3 @@ tabla_nombre <- read.csv("database/tabla_nombre.txt", sep="")
 tabla_nombre
 ```
 
-
-
-# Publicaciones
