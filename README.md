@@ -1,20 +1,23 @@
-# soilinteractionnetworks
+# Redes tróficas detritívoras de la fauna edáfica de los suelos de la Pampa Ondulada. Argentina.
 
 En este proyecto se desarrolla la tesis para la opción a Doctor en Ciencias Aplicadas (UNLu-Argentina) del Ing. Zootecnista Velazco, Victor Nicolás.
 
 El título de la tesis es: 
 
-  Construcción y modelado de las redes tróficas de la comunidad de la fauna edáfica que habitan suelos Argiudoles típicos de la Pampa Ondulada para interpretar el funcionamiento y el estado de conservación del ecosistema edáfico. 
+  **Construcción y modelado de las redes tróficas de la comunidad de la fauna edáfica que habitan suelos Argiudoles típicos de la Pampa Ondulada para interpretar el funcionamiento y el estado de conservación del ecosistema edáfico.** 
  
  
 El objetivo general:
   Estudiar las redes tróficas de la comunidad de la fauna edáfica que ocurren en suelos Argiudoles típicos de la Pampa 
 Ondulada, suelos de gran importancia para la producción de commodities y en los cuáles se basa gran parte de la economía 
-Argentina. Las redes tróficas serán construidas considerando el máximo nivel taxonómico posible de manera de determinar
-la diversidad y rasgos funcionales de la comunidad de modo de obtener información que caracterice la funcionalidad de 
-los ecosistemas con un buen nivel de precisión y evaluar el estado de conservación de los suelos. 
+Argentina. 
+  Las redes tróficas serán construidas considerando el máximo nivel taxonómico posible de manera de determinar
+la diversidad y rasgos funcionales de la comunidad de modo de obtener información que caracterice la funcionalidad del
+sistema detritívoro de los ecosistemas edáficos bajos diferentes intensidades en el uso del suelo
+con un buen nivel de precisión y evaluar el estado de conservación de los suelos. 
 
 Los objetivos particulares son: 
+
   Recopilar la información disponible sobre la biología trófica de los organismos edáficos de modo 
 de abordar sobre los recursos tróficos típicos y el uso que hacen de los mismos de manera de 
 determinar los posibles gremios tróficos,

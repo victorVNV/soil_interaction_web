@@ -39,6 +39,12 @@ Publcado en Heliyon https://doi.org/10.1016/j.heliyon.2023.e20439
 Repositorio CONICET http://hdl.handle.net/11336/229316
 Preimpresión https://doi.org/10.1101/2021.02.06.430061
 
+\newpage
+# Apéndice del capítulo 3
+
+mosaico del muestreo
+
+\newpage
 
 # Apéndice del capítulo 4
 

@@ -7,12 +7,12 @@
 
 body {
     font-family: "Arial", sans-serif;
-    font-size: 11pt;
+    font-size: 12pt;
     line-height: 2; /* Interlineado doble */
-    margin-left: 2.54cm;
-    margin-right: 2.54cm;
-    margin-top: 2.54cm;
-    margin-bottom: 2.54cm;
+    margin-left: 0cm;
+    margin-right: 0cm;
+    margin-top: 0cm;
+    margin-bottom: 0cm;
     text-align: left; /* Alineación a la izquierda */
 }
 
@@ -21,10 +21,10 @@ body {
 /* Nivel 1 - Título centrado, negrita, cada palabra en mayúscula */
 h1 {
     font-family: "Arial", sans-serif;
-    font-size: 11pt;
+    font-size: 12pt;
     font-weight: bold;
     text-align: center;
-    text-transform: capitalize;
+    /*text-transform: capitalize; esta funcion hace que todo el texto sea con mayusculas*/
     margin-top: 2em;
     margin-bottom: 1em;
 }
@@ -32,10 +32,10 @@ h1 {
 /* Nivel 2 - Título alineado a la izquierda, negrita, cada palabra en mayúscula */
 h2 {
     font-family: "Arial", sans-serif;
-    font-size: 11pt;
+    font-size: 12pt;
     font-weight: bold;
     text-align: left;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     margin-top: 2em;
     margin-bottom: 1em;
 }
@@ -43,11 +43,11 @@ h2 {
 /* Nivel 3 - Título alineado a la izquierda, negrita, cursiva, cada palabra en mayúscula */
 h3 {
     font-family: "Arial", sans-serif;
-    font-size: 11pt;
+    font-size: 12t;
     font-weight: bold;
     font-style: italic;
     text-align: left;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     margin-top: 2em;
     margin-bottom: 1em;
 }
@@ -55,10 +55,10 @@ h3 {
 /* Nivel 4 - Título alineado a la izquierda, negrita, cada palabra en mayúscula, con sangría y punto final */
 h4 {
     font-family: "Arial", sans-serif;
-    font-size: 11pt;
+    font-size: 12pt;
     font-weight: bold;
     text-align: left;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     text-indent: 1.27cm;  /* Sangría de 1.27 cm */
     margin-top: 1.5em;
     margin-bottom: 0.5em;
@@ -71,11 +71,11 @@ h4::after {
 /* Nivel 5 - Título alineado a la izquierda, negrita, cursiva, cada palabra en mayúscula, con sangría y punto final */
 h5 {
     font-family: "Arial", sans-serif;
-    font-size: 11pt;
+    font-size: 12pt;
     font-weight: bold;
     font-style: italic;
     text-align: left;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     text-indent: 1.27cm;  /* Sangría de 1.27 cm */
     margin-top: 1.5em;
     margin-bottom: 0.5em;
@@ -89,7 +89,7 @@ h5::after {
 /* Configuración para párrafos */
 p {
     font-family: "Arial", sans-serif;
-    font-size: 11pt;
+    font-size: 12pt;
     line-height: 2; /* Interlineado doble */
     text-align: left; /* Alineación a la izquierda */
     text-indent: 1.27cm; /* Sangría de la primera línea */
@@ -119,7 +119,7 @@ p {
 
 .descripcion {
   text-align: left; /* Alinea la descripción a la izquierda */
-  margin-top: 10px; /* Espacio entre la imagen y la descripción */
+  margin-top: 15px; /* Espacio entre la imagen y la descripción */
   line-height: 1; /* Establece interlineado simple */
 
 }
