@@ -2032,7 +2032,7 @@ La interacción entre el sistema de uso del suelo y los gremios tróficos ($C_2^
 Los herbívoros difirieron significativamente ($>|\;t\;| : p_{value}<0.1$) entre sistemas,
 en la reserva tuvieron un mayor valor del intercepto (Fig 4.8), 
 en comparación con el intercepto del sistema agrícola y el sistema del pastizal con valores 
-similares
+similares.
 
 Con respecto a los microfitófagos (Fig 4.8) aquellos ubicados en la reserva y el pastizal tuvieron valores de interceptos similares, si difieren significativamente ($>|\;t\;| : p_{value}<0.1$) del sistema agrícola que posee un menor valor sobre el intercepto. 
 
@@ -2106,55 +2106,66 @@ El espectro de pesos corporales de la comunidad edáfica abarca desde pequeños 
 nemátodos fitófagos hasta las grandes larvas de coleópteros Scarabeidos por lo que el rango del 
 espectro alcanza aproximadamente 13 ordenes de magnitud.
 
-Las distribuciones del peso corporal en general fueron unimodales para los taxones más abundantes.
-Esto implica que los pesos promedios de los taxones son suficientemente representativos
-de la respuesta de estos ante las variaciones en las condiciones del nicho.
+Las distribuciones del peso corporal unimodales 
+indican un valor de peso corporal más probable para el taxón, en general, 
+la unimodalidad estuvo vinculada con una importante abundancia del taxón. 
+Las distribuciones multimodales indican la presencia de más 
+de una clase de tamaño en importancia para el taxón, esto puede ser
+debido a la presencia de diferentes morfoespecies o estadíos de desarrollo,
+y además a la baja abundancia del taxón 
+configurando así más de una moda de tamaño en la distribución.
 
-<!-- No me queda claro la implicancia, deberias explicar porque son representativos de la respuesta a las variaciones. Esto para mi tiene que ver con que las especies dentro del taxon pueden presentarse como picos en las distribuciones, si hay una especie muy abundante se observa unimodalidad, si hay mas multimodalidad. Ademas depende del uso, en algunos casos son multimodales en un uso y unimodales en otro. -->
-
-Al considerar parámetros que reflejan 
-mecanismos de respuestas a las variaciones en las condiciones 
-ambientales o del nicho debidas a las prácticas de manejo atribuidas a los
-diferentes sistemas de uso del suelo
-los taxones responderán mediante cambios en la densidad, 
+Los disturbios asociados con las prácticas de manejo en los 
+diferentes sistemas de uso del suelo, se relacionan con cambios en las 
+condiciones ambientales y ante cambios en el ambiente 
+los taxones responden mediante cambios en la densidad, 
 mediante disminuciones o aumentos en los pesos corporales, o mediante variaciones en la biomasa 
-media. 
+media.
 
 Aquí se observaron respuestas heterogéneas en los valores promedios del 
-peso corporal, sus densidades y sus biomasas medias, al ser comparados 
+peso corporal, densidad y biomasa, al ser comparados 
 entre sistemas de uso del suelo. 
 
 Algunos taxones tuvieron pesos corporales medios, 
 densidades y biomasas medias mayores en un mismo sistema edáfico 
 por lo tanto esto es una 
 respuesta integral que indica condiciones ambientales que favorecen al taxón.
-Otros taxones responden con biomasas medias y densidades mayores pero con pesos corporales 
-menores en un determinado ambiente, esto indica un incremento numérico de organismos pequeños
+
+Otros taxones en un ambiente responden con biomasas medias y densidades mayores pero con pesos corporales 
+menores en otro, esto indica un incremento numérico de organismos pequeños
 dentro del taxón en el ambiente pero a la vez nos dice que si bien el peso corporal 
 podría ser más alto existe alguna restricción para que ello suceda. 
 <!--Esto si es claramente una adaptacion al ambiente, menor biomasa corporal generalmente se asocia a aumento de temperatura, habria que discutir si hay otros estudios que muestran eso.-->
-En general para que un taxón llegue a valores de pesos 
-corporales medios más altos requerirá de un mayor tiempo de crecimiento y desarrollo, a la vez 
-para que sean numéricamente más altos requerirán de condiciones que disminuya la competencia por 
-recursos y refugios ante la predación.
 
-La biomasa media de los gremios tróficos de la fauna edáfica sigue una regularidad 
+En general para que un taxón llegue a valores de pesos 
+corporales medios más altos requerirá de condiciones ambientales 
+cercanas al rango óptimo y de la disponibilidad de recursos tróficos 
+que cubra sus requerimientos, sumando a esto el tiempo de desarrollo que es especie-específico.
+Además para que un taxón sean numéricamente más alto requerirá de condiciones que disminuyan
+la competencia por los recursos y de la disponibilidad disponibilidad de refugios 
+u estrategias para escapar de la depredación.
+
+Sobre la biomasa media de la comunidad de la fauna edáfica
+no se refleja un impacto directo relacionado con el impacto 
+que las prácticas de manejo pudieran tener sobre las condiciones 
+ambientales debidas a las diferentes formas de uso
+del los suelos. Esto parece estar indicando la resiliencia de la 
+comunidad edáfica conservando la cantidad de materia que es capaz de regular 
+y retener el sistema de la red trófica de detritívoros del suelo. 
+
+Estas comunidades edáficas sí fueron diferentes en biomasa media a través 
+de los gremios tróficos y de esta se deduce una regularidad 
 tal como una pirámide de biomasa. Los organismos detritívoros forman 
-la base con los mayores valores de biomasa, siguen los microfitófagos, omnívoros y predadores, 
+la base con los mayores valores de biomasa, siguen los microfitófagos, omnívoros y predadores,
+que con valores de biomasas próximos conforman el nivel intermedio
 y finalmente los herbívoros con la menor biomasa. 
-Esta regularidad está en línea con el sistema detritívoro del ecosistema 
+Esta pirámide de biomasa media está en línea con el sistema detritívoro del ecosistema 
 edáfico [@lavelle2006; @lavelle2003] en el cuál los recursos tróficos bases son
 el tejido vegetal en proceso de fragmentación y descomposición, 
 la materia orgánica del suelo y la microbiota saprótrofa.
 
-La manera en como se utiliza el suelo en los diferentes sistemas evaluados 
-no se refleja como un impacto directo sobre la biomasa media de la comunidad de 
-la fauna edáfica, esto parece estár indicando la resistencia de la comunidad edáfica al conservar  
-la cantidad de materia que es capaz de regular y retener el sistema detritívoro del 
-suelo. 
-
-Los microartrópodos omnívoros y detritívoros dan indicios de aumentos en la 
-biomasa en sistemas antropizados, tal vez, 
+Por su parte, los microartrópodos omnívoros y detritívoros dan indicios de aumentos en la 
+biomasa media en sistemas antropizados, tal vez, 
 como respuestas al enriquecimiento debidas al aumento de 
 nutrientes en el suelo, sean estos por la fertilización, 
 por la mineralización de la materia orgánica del suelo u otras fuentes 
@@ -2162,7 +2173,7 @@ de nutrientes como las excretas del ganado. El enriquecimiento de nutrientes en 
 se ha relacionado con el aumento del flujo de energía a través del canal de los 
 bacterívoros en la red trófica edáfica [@kardol2016; @potapov2019; @zhou2022]
 
-Potapov et al. [-@potapov2021a] deduce que en las redes detritívoras del suelo, 
+<!--Potapov et al. [-@potapov2021a] deduce que en las redes detritívoras del suelo, 
 las relaciones entre 
 los niveles tróficos y la biomasa no siguen las relaciones predador - presa clásicas, 
 en las cuales 
@@ -2187,48 +2198,78 @@ cambios en los regímenes que determinan la estabilidad del sistema.
 
 Turnbull [-@turnbull2014] indica que el análisis de curvas de regresión pueden servir como puntos 
 de referencia para comparar comunidades y para entender los efectos vinculados 
-con disturbios sobre el hábitat. 
+con disturbios sobre el hábitat. -->
 
-Existió una regularidad en las pendientes de regresión densidad-peso, 
-la pediente de los omnívoros adáficos tiende a ser positiva, 
-los demás gremios tienen pendientes negativas que de mayor a menor 
-se ubican los detritívoros, los microfitófagos, los predadores y los herbívoros. 
 
-También se presentó una disyuntiva al observar las pendientes,
-por un lado, en suelos de Chivilcoy y Navarro los detritívoros
+Considerando el efecto que los sistemas de uso 
+del suelo pudieran tener sobre las comunidades, evaluada 
+mediante el modelo de espectro de tamaños,
+resultó en valores de pendientes que no difirieron estadísticamente, entre sí.
+Se asume entonces que, dada pendientes similares entre sí,
+no existe evidencia de un efecto directo de las perturbaciones
+vinculadas con las diferentes intensidades de usos en estos 
+suelos Argiudoles típicos.
+
+Existió una regularidad en las pendientes de regresión densidad-peso
+en función de los gremios tróficos. 
+La pendiente de los omnívoros edáficos tiende a ser positiva, 
+indicando la presencia de un taxón de mayor peso con 
+una densidad importante en relación a los omnívoros de menor tamaño. 
+Los demás gremios tróficos muestran sus pendientes negativas, 
+ajustándose a lo esperable para esta relación, 
+de mayor valor de pendiente a menor se ubican 
+los detritívoros, los microfitófagos, los predadores y los herbívoros. 
+Las pendientes menos negativas, en los detritívoros y microfitófagos, 
+nos indican la mayor probabilidad de encontrar organismos
+con gran peso corporal en comparación con aquellos 
+gremios con pendientes más negativas. 
+
+Como el sistema detritívoro del 
+suelo depende de la materia orgánica como recurso trófico base, 
+entonces observar pendientes menos pronunciadas en gremios que 
+aprovechan este recurso refleja el potencial de mantener 
+una mayor abundancia de organismos de mayor peso corporal.
+Viceversa, los depredadores que dependen de la disponibilidad de 
+sus presas en este ambiente críptico y además 
+con presas con diferentes estrategias de evitación de consumo (p.e. colémbolos que salta, ácaros 
+que liberan repelente, etc.), tienen menos chances de sostener 
+una mayor abundancia de depedadores de gran tamaño.
+
+<!--  Esta tendencia positiva puede estar relacionada con su capacidad para consumir una amplia variedad de recursos, lo que les permite adaptarse mejor a diferentes condiciones ambientales y aprovechar diversas fuentes de alimento 
+Los omnívoros tienden a aprovechar una mayor diversidad de recursos alimenticios, lo que les permite crecer y mantener mayores densidades poblacionales a diferentes tamaños corporales. Esto sugiere que estos organismos pueden tener una flexibilidad trófica que les permite adaptarse mejor a fluctuaciones en los recursos del suelo.-->
+
+
+Particularmente, se presentó una disyuntiva al observar las pendientes
+de los gremios tróficos entre los sistemas de uso del suelo.
+Por un lado, en suelos de Chivilcoy y Navarro los detritívoros
 en los sistemas antropizados tuvieron pendientes más cercanas a cero,
-lo que implica que los animales detritívoros más pesados pueden sobrevivir en estos ambientes,
-que en comparación con el pastial naturalizado se encuentran más perturbados. Por otro lado,
+lo que implica que los animales detritívoros más pesados pueden sobrevivir 
+en estos ambientes perturbados. Por otro lado,
 en suelos de Luján, los gremios microfitófagos y hervívoros tuvieron valores de pendientes 
 más alejados de cero en el sistema agrícola lo 
 que implica la mayor abundancia de animales de menor peso corporal y la menor chance de encontrar 
 animales de gran peso en estos gremios, coincidiendo con la predicción de que 
 ambientes perturbados se relacionan con pendientes más negativas. 
 
-Los valores de pendientes considerando solo el efecto de los sistemas de uso del suelo
-resultó en valores de pendientes que no difirieron estadísticamente por lo que
-se asumen que fueron similares entre sí y por lo tanto no 
-existe indicios de un efecto directo de las diferentes prácticas agropecuarias sobre las 
-relaciones densidad-peso corporal de la comunidad edáfica como un todo sino solo a 
-través de algún gremio trófico.
 
-Estos hallazgos sugieren que la relación entre el espectro de tamaños de la fauna edáfica y el uso que se hace de los suelos Argiudoles de la Pampa Ondulada no sigue una respuesta que vincule efectos fuertes debido a las perturbaciones en detrimento de la comunidad [@potapov2019; @zhou2022; @sechi2017]. Dado que la biomasa media y las relaciones de pendientes se mantuvieron similares entre sistemas de uso, podemos interpretar que la comunidad de la fauna edáfica, ante las perturbaciones debidas a las prácticas de manejo, resiste a los cambios en el ambiente edáfico,
-otra interpretación implica considerar que las prácticas de manejo sobre estos suelos
-mantiene cercanos entre sí los atributos estudiados en la comunidad de la fauna edáfica.
+Estos hallazgos sugieren que la relación entre el espectro de tamaños de la fauna edáfica y el uso que se hace de los suelos Argiudoles de la Pampa Ondulada no sigue una respuesta que vincule efectos fuertes debido a las perturbaciones en detrimento de la comunidad [@potapov2019; @zhou2022; @sechi2017]. 
 
-La diversidad de taxones en las comunidades y las funciones biológicas vinculadas con ellos, 
-permite relacionar la biomasa por unidad de superficie directamente con la cantidad de materia
-acumulada e indirectamente con la energía que circula a través de la red de interacciones del
-sistema detritívoro del suelo. 
-Esto refleja de manera integral la respuesta de la red trófica edáfica a los 
-disturbios [@jonsson2005] y constituye un indicador integrador de los procesos a nivel de la 
-comunidad [@turnbull2014] que permite relacionar las asimetrías en los flujos de energía 
-con la forma en como se modulan la resistencia y resiliencia ante las perturbaciones [@zhou2022].
+Dado que la biomasa media y las relaciones de pendientes se mantuvieron similares entre sistemas de uso, podemos interpretar que la comunidad de la fauna edáfica, ante las perturbaciones debidas a las prácticas de manejo, 
+es resiliente a los cambios que se producen en el ambiente edáfico debidas a las prácticas de manejo.
+
+De ello se puede deducir que 
+las prácticas de manejo sobre estos suelos
+Argiudoles aún mantiene cercanos entre sí los atributos estudiados 
+en la comunidad de la fauna edáfica.
 
 Finalmente, resulta interesante continuar con investigaciones para comprender mejor la respuesta 
-del espectro de tamaños ante las variaciones en el ambiente edáfico
-de modo que retroalimente las buenas prácticas agropecuarias con objetivos de lograr el 
-equilibrio entre el uso del suelo, su estabilidad y la conservación del mismo.
+del espectro de tamaños ante las variaciones en el ambiente edáfico. También 
+es necesario conocer como será la respuesta del espectro de tamaños 
+con otras formas de uso, otros ambientes y regímenes climáticos.  
+Los resultados sobre este aspecto retroalimentarán las buenas prácticas agropecuarias con el 
+objetivo de lograr el equilibrio entre el uso del suelo, el mantenimiento de la estabilidad 
+y el funcionamiento de la comunidad edáfica y por lo tanto la conservación del ecosistema edáfico
+
 
 \newpage
 
