@@ -1,5 +1,23 @@
 # Redes tróficas detritívoras de la fauna edáfica de los suelos de la Pampa Ondulada. Argentina.
 
+#Abstract
+
+Although the physical and chemical properties of soils are well-documented, knowledge about soil biodiversity, which represents approximately 59% of global biodiversity, remains limited. Soil biodiversity plays a fundamental role in the formation, structure, maintenance, and functioning of soils through interactions between organisms and their environment. These processes are crucial for understanding the impacts of anthropogenic disturbances on soil sustainability, ecosystem services, and resource availability.
+
+Soil fauna, occupying the intricate matrix of soil pores, primarily live in the uppermost centimeters and are classified into micro-, meso-, and macro-fauna based on size. They contribute significantly to soil functioning at various spatial and temporal scales by processing organic matter, transporting bacteria and fungi, and regulating populations. These functions are essential for broader ecosystem services, including carbon, nutrient, and water cycling, organic matter dynamics, and maintaining soil fertility.
+
+With over 54 million hectares, Argentina's central plains are among the most extensive and fertile agricultural soils in the world, of which the Pampa Ondulada covers around 6.6 million hectares.
+
+Soil fauna responds to disturbances, both natural and anthropogenic, with structural and functional changes, which modify the properties of food webs. Understanding these food webs is particularly relevant to Argentina's Pampa Ondulada and ensuring the stability of these ecological systems is vital to preserving ecosystem services such as soil fertility, carbon sequestration, agricultural productivity and biodiversity.
+
+This thesis investigates the food webs of edaphic fauna in argiudal soils under varying levels of anthropogenic impact in the Pampa Ondulada. The objective was to construct food webs to analyze the influence of diversity, interactions, and functional traits on the topology, energy flows, and stability of the detritivore system. This allows inferences about the soil's functionality and conservation status.
+
+The study revealed that despite anthropogenic disturbances, the soil fauna communities exhibited resilience. Across different levels of soil use, the communities maintained similar diversity indices, size spectra, and topological and stability measures. However, intensive agricultural practices caused soil acidification, reduced respiration rates, and altered the taxonomic composition of the communities, resulting in a marked reduction in energy flow through the food webs.
+
+In conclusion, the evaluated attributes demonstrate that soil fauna communities form a robust biological system. It is likely that these ecosystems have adapted to current management practices, maintaining a stable regime. Nevertheless, decreased energy flows through the food web may compromise ecosystem processes, particularly biogeochemical cycles. Therefore, it is imperative to implement and promote sustainable management practices to preserve the functionality of the argiudal soil ecosystem.
+
+
+
 En este proyecto se desarrolla la tesis para la opción a Doctor en Ciencias Aplicadas (UNLu-Argentina) del Ing. Zootecnista Velazco, Victor Nicolás.
 
 El título de la tesis es: 
