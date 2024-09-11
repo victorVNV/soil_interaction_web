@@ -54,9 +54,18 @@ Hipótesis:
 del suelo orgánico-mineral (incluye la hojarasca que se acumula en superficie, la hojarasca fragmentada y descompuesta, el 
 humus y el suelo mineral) es el hábitat de la mayor diversidad de la fauna del suelo. El impacto del uso del suelo será 
 mayor en prácticas intensivas como las dirigidas por prácticas agrícolas afectando diferentes propiedades de la comunidad:
-a) disminuirán los valores de diversidad, b) las comunidades serán más disímiles, 
-c) el impacto sobre el espectro de tamaño será 
-relevante favoreciendo animales de menor tamaño con una mayor abundancia y reduciendo o eliminando las 
-especies de menor tamaño, d) los gremios tróficos también responderán de manera similar en suelos con un mayor impacto reflejando el aumento de la competencia por recursos, e) la estructura de la red trófica será diferente debida a las variaciones en la diversidad, f) los flujos de energía serán menores que en hábitats con mayor disponibilidad de recursos, g) estos cambios en los flujos de energía también serán observables a través de los diferentes canales de energía que recorren estas redes tróficas, h) el valor de estabilidad indicará un sistema más estable en suelos sin impacto antrópico,
-i) el estado de conservación del suelo será determinado mediante la multiplicidad de factores aquí evaluados.
-
+a) disminuirán los valores de diversidad y las comunidades serán disímiles, 
+b) el impacto sobre el espectro de tamaño será 
+relevante, con pendientes más negativas, es decir, serán favorecidos los
+animales de menor peso corporal con una mayor abundancia y se reducirán o eliminarán
+la fauna mayor peso corporal, 
+c) los gremios tróficos también responderán de manera similar, con pendientes del 
+espectro de tamaños más negativas, en suelos con un mayor impacto 
+reflejando el aumento de la competencia por recursos, d) la estructura de la red trófica 
+será diferente entre usos del suelo debida a las 
+variaciones en la diversidad, e) los flujos de energía serán menores que en hábitats
+más perturbados debido a la menor disponibilidad de recursos, 
+f) estos cambios en los flujos de energía serán observables a través de los canales de 
+energía que recorren estas redes tróficas, g) el valor de estabilidad indicará un 
+sistema más estable en suelos sin impacto antrópico, h) el estado de conservación
+del suelo será determinado mediante la multiplicidad de factores aquí evaluados.
