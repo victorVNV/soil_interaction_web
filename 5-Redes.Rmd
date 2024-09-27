@@ -1,6 +1,9 @@
 ---
-title: "Capítulo 5. Análisis comparativo de la estructura, topología y estabilidad de las redes tróficas de la edafofauna bajo distinta intensidad de uso"
-output: html_document
+title: Capítulo 5. Análisis comparativo de la estructura, topología y estabilidad
+  de las redes tróficas de la edafofauna bajo distinta intensidad de uso
+output:
+  pdf_document: default
+  html_document: default
 bibliography: referencias/TesisC5.bib
 ---
 
