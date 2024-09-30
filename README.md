@@ -22,7 +22,7 @@ En este proyecto se desarrolla la tesis para la opción a Doctor en Ciencias Apl
 
 El título de la tesis es: 
 
-  **Construcción y modelado de las redes tróficas de la comunidad de la fauna edáfica que habitan suelos Argiudoles típicos de la Pampa Ondulada para interpretar el funcionamiento y el estado de conservación del ecosistema edáfico.** 
+  **Construcción y modelado de las redes tróficas de la comunidad de la fauna edáfica que habitan suelos Argiudoles típicos de la Pampa Ondulada para interpretar el funcionamiento y el estado de conservación del ecosistema edáfico**
  
  
 El objetivo general:

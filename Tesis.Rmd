@@ -1,8 +1,8 @@
 ---
 output:
-  pdf_document: default
   html_document:
     css: database/estilos.css
+  pdf_document: default
 bibliography: referencias/Tesis_final.bib
 csl: database/apa.csl
 ---
@@ -888,22 +888,22 @@ adelante en el campo experimental de la Universidad Nacional de Luján [@sfeir19
 
 | Sitio                     | Latitud     | Longitud    | Localidad           |
 |---------------------------|-------------|-------------|---------------------|
-| reserva (R)               | 34°35'34"S  | 59°04'16"O  | Luján               |
+| Reserva (R)               | 34°35'34"S  | 59°04'16"O  | Luján               |
 |                           | 34°35'35"S  | 59°04'18"O  |                     |
 |                           | 34°35'36"S  | 59°04'20"O  |                     |
-| pastizal (P)              | 34°35'38"S  | 59°04'22"O  |                     |
+| Pastizal (P)              | 34°35'38"S  | 59°04'22"O  |                     |
 |                           | 34°35'38"S  | 59°04'23"O  |                     |
 |                           | 34°35'38"S  | 59°04'25"O  |                     |
-| agrícola (A)              | 34°35'22"S  | 59°04'05"O  |                     |
+| Agrícola (A)              | 34°35'22"S  | 59°04'05"O  |                     |
 |                           | 34°35'22"S  | 59°04'09"O  |                     |
 |                           | 34°35'22"S  | 59°04'12"O  |                     |
-| pastizal naturalizado (N) | 35°03'28''S | 59°41'03''O | Chivilcoy y Navarro |
+| Pastizal naturalizado (N) | 35°03'28''S | 59°41'03''O | Chivilcoy y Navarro |
 |                           | 35°03'31''S | 59°41'03''O |                     |
 |                           | 34°51'05''S | 60°01'74''O |                     |
-| agrícola-ganadero (G)     | 34°17'17''S | 59°10'31''O |                     |
+| Mixto agrícola-ganadero (G)     | 34°17'17''S | 59°10'31''O |                     |
 |                           | 34°49'25''S | 59°10'25''O |                     |
 |                           | 34°49'30''S | 59°10'16''O |                     |
-| agrícola Intensivo (A)    | 35°03'20''S | 59°41'18''O |                     |
+| Agrícola intensivo (A)    | 35°03'20''S | 59°41'18''O |                     |
 |                           | 35°03'15''S | 59°41'09''O |                     |
 |                           | 35°05'22''S | 59°38'70''O |                     |
 
@@ -944,7 +944,7 @@ Para muestrear la <u>mesofauna del suelo</u>, se tomaron la hojarasca y el suelo
 se tomaron tres submuestras de suelo con un volumen de 100 cm³. Previo a la toma de muestras el suelo fue disminuido en volumen mediante la técnica del cuarteo, lo que asegura la representatividad de las fracciones submuestreadas. Las submuestras de la mesofauna edáfica fueron sometidas al método de flotación y tamizado [@vargas2007]. Estas se desagregan en agua en relación 1:6 de suelo:agua, se agitan enérgicamente durante 2 min, se deja reposar la solución durante unos minutos y luego se vuelca la mezcla a través del juego de tamices de 4 mm, 2mm, 1mm, 500 μm, 250 μm y 170 μm; la mesofauna se colecta de los tamices desde los 1000 μm hasta las 170 μm. Los animales colectados se almacenaron en alcohol 96º, luego se contaron e identificaron los taxones en diferentes rangos taxonómicos hasta familias utilizando claves taxonómicas de: @krantz2009; @momo2009; @janssens; @balogh1988; @burges1967; @evans1979; @dindal1990.
 
 
-Adicionalmente se estimó la respiración heterotófica [@frioni1999] con el suelo de los 
+Adicionalmente se estimó la respiración heterotrófica [@frioni1999] con el suelo de los 
 primeros 10 cm de profundidad, que es donde se desarrolla la mayor actividad 
 respiratoria de la microbiota [@pankhurst1997] que es el constituyente principal de la respiración heterotrófica del suelo. Esta técnica consiste en homogeneizar y pesar 10 g de suelo por submuestra, ubicar cada muestra en frascos de incubación, humedecer el suelo con agua destilada, colocar la trampa de álcali (NaOH 0,1 M), llevar a estufa el frasco bien cerrado a incubar durante 7 a 10 días a temperatura de 30ºC, pasado el tiempo se titula la trampa de álcali con una solución ácida (HCl 0,1M) apoyado con fenolftaleína como indicador de la reacción de neutralización, mismo procedimiento para frascos de incubación sin suelo que serán "blancos" y dan cuenta del CO~2~ contenido en el aire, por lo tanto la diferencia en mililitros de ácido consumido entre blancos y muestras refiere a la respiración heterotrófica en mg CO~2~.g suelo^-1^.día^-1^.
 
@@ -3347,12 +3347,17 @@ Cabe destacar, por último que, en comunidades de la fauna edáfica observar sol
 \newpage
 
 \newpage
+
 # Apéndice
 
 # Apéndice del capítulo 2
 
 ## Apéndice 2.1
+
+
 ### Descripción sobre Material Suplementario
+
+
 
 Material suplementario electrónico I ([ESM I](https://doi.org/10.1016/j.heliyon.2023.e20439)): Lista completa de las fuentes 
 bibligráficas que relaciona los taxones de microartrópodos edáficos con uno o más recursos tróficos.
@@ -3377,13 +3382,31 @@ Preimpresión https://doi.org/10.1101/2021.02.06.430061
 
 mosaico del muestreo
 
+Historia de uso del suelo del Lote Agrícola. (Generado con IA.) 
+
+La historia de uso del suelo del Potrero 2, de 8 hectáreas, muestra una intensa actividad agrícola y ganadera desde 1984 hasta 2022. Durante este período, se realizaron múltiples labores de preparación del suelo, tales como arado, rastra, cincel y disco, a menudo combinadas con fertilización y pulverización con herbicidas. Se sembraron diversos cultivos, incluyendo moha, alfalfa, trébol blanco, trébol rojo, festuca, maíz, avena y raigrás, junto con algunos ciclos de pastoreo intensivo.
+
+Desde 1984, las rotaciones y cultivos fueron variadas, con un enfoque en pasturas, maíz para silo, y avena, con la inclusión de fertilizantes como FDA, urea y SPT para mejorar la productividad. A partir de 1999, se observa la implementación de técnicas de siembra directa y un manejo más enfocado en cultivos forrajeros como raigrás y alfalfa. Durante los últimos años, se continuó con la fertilización y el uso de herbicidas para controlar malezas y optimizar los rendimientos. La rotación de cultivos y la fertilización con urea y SPT fueron constantes a lo largo de los últimos años, asegurando una adecuada productividad y conservación del suelo.
+
+En resumen, la gestión del suelo incluyó un manejo intensivo que combinó prácticas de cultivo y pastoreo con técnicas de fertilización y control de malezas, con el objetivo de mantener la productividad y la calidad del suelo a largo plazo.
+
 \newpage
 -->
 
+
+\newpage
+
+\newpage
+
+
 # Apéndice del capítulo 4
+
+
 <!-- Definición y Concepto
 Los rasgos funcionales son atributos morfológicos, fisiológicos o fenológicos de los organismos que afectan su demografía, es decir, su establecimiento, crecimiento, supervivencia y fecundidad 
 . Estos rasgos determinan la eficacia biológica de los organismos y su éxito bajo determinadas condiciones ambientales -->
+
+
 ## Apéndice 4.1
 
 ### Ecuaciones morfométricas para estimar el peso corporal de la fauna edáfica
@@ -3537,6 +3560,7 @@ body_unlu<-read.csv("database/body_unlu.txt", sep="")
 meso<-read.csv("database/meso.txt", sep="")
 
 ```
+
 
 \newpage
 
@@ -3909,12 +3933,17 @@ R_qq6%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
 \newpage
 
 # Apéndice del capítulo 5
+
+
 ## Apéndice 5.1
+
+
 ### Matriz de adyacencia de la fauna del suelo
+
 ```{r apendice1, echo=FALSE, message=FALSE,error=FALSE,warning=FALSE}
 mG <- read.csv("database/mG.txt", sep="")
 
-t(mG)
+t(mG)%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
 ```
 
 \newpage
@@ -3925,6 +3954,6 @@ t(mG)
 ```{r apendice2, echo=FALSE, message=FALSE,error=FALSE,warning=FALSE}
 tabla_nombre <- read.csv("database/tabla_nombre.txt", sep="")
 
-tabla_nombre
+tabla_nombre%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
 ```
 
