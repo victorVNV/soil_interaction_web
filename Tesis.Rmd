@@ -1,10 +1,18 @@
 ---
+title: "Construcción y modelado de las redes tróficas de la comunidad de la fauna edáfica que habitan suelos Argiudoles típicos de la Pampa Ondulada para interpretar el funcionamiento y el estado de conservación del ecosistema edáfico"
 output:
+<<<<<<< HEAD
+=======
+  pdf_document: 
+    latex_engine: xelatex  
+    toc: true
+>>>>>>> 8a3cc3a9599c19f4b527ef5e59f4b78321f8f3b7
   html_document:
     css: database/estilos.css
   pdf_document: default
 bibliography: referencias/Tesis_final.bib
 csl: database/apa.csl
+lang: es 
 ---
 
 
@@ -20,7 +28,7 @@ options("digits"=3)
 ```{r lib, include=FALSE, warning=FALSE}
 #Carga paquetes
 {library("tidyverse");library("readxl");library("ade4");library("Hmisc");
-library("vegan");library("cluster");library("BiodiversityR") 
+library("vegan");library("cluster");#library("BiodiversityR") 
 library("FactoMineR");library("factoextra"); library("kableExtra");require(tidyverse); require(kableExtra); require(quantreg);require(lubridate);
   require(kSamples);require(ggridges);require(gridExtra);require(emmeans);
   library(statnet);library(network);
