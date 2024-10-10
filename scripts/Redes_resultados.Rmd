@@ -1300,11 +1300,17 @@ adj_ks_p_val_lu <- p.adjust(p_values_ks.lu, method = "BH")
 
 ```{r flux, include=FALSE}
 
-flux_L<-fluxing(t(mG[c(L$taxa,"litter","carrion","tej_veg","hummus"),c(L$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_L, losses =  t_metL, efficiencies =  ef_L,ef.level = "pred")
+flux_L<-fluxing(t(mG[c(L$taxa,"litter","carrion","tej_veg","hummus"),
+                     c(L$taxa,"litter","carrion","tej_veg","hummus")]) ,
+                biomasses = bm_L, losses =  t_metL, efficiencies =  ef_L,ef.level = "pred")
 
-flux_R<-fluxing(t(mG[c(R$taxa,"litter","carrion","tej_veg","hummus"),c(R$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_R, losses =  t_metR, efficiencies =  ef_R,ef.level = "pred")
+flux_R<-fluxing(t(mG[c(R$taxa,"litter","carrion","tej_veg","hummus"),
+                     c(R$taxa,"litter","carrion","tej_veg","hummus")]) ,
+                biomasses = bm_R, losses =  t_metR, efficiencies =  ef_R,ef.level = "pred")
 
-flux_P<-fluxing(t(mG[c(P$taxa,"litter","carrion","tej_veg","hummus"),c(P$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_P, losses =  t_metP, efficiencies =  ef_P,ef.level = "pred")
+flux_P<-fluxing(t(mG[c(P$taxa,"litter","carrion","tej_veg","hummus"),
+                     c(P$taxa,"litter","carrion","tej_veg","hummus")]) ,
+                biomasses = bm_P, losses =  t_metP, efficiencies =  ef_P,ef.level = "pred")
 
 ### flujo Ro
 flux_N<-fluxing(t(mG[c(N$specie,"litter","carrion","tej_veg"),
@@ -1322,11 +1328,20 @@ flux_A<-fluxing(t(mG[c(A$specie,"litter","carrion","tej_veg"),
 
 #Reducción de redes####
 #a acaros colembolos
-flux_R.r<-fluxing(t(mG[c(Rf.r$taxa,"litter","carrion","tej_veg","hummus"),c(Rf.r$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_Rf.r, losses =  t_metRf.r, efficiencies =  ef_Rf.r,ef.level = "pred")
+flux_R.r<-fluxing(t(mG[c(Rf.r$taxa,"litter","carrion","tej_veg","hummus"),
+                       c(Rf.r$taxa,"litter","carrion","tej_veg","hummus")]) ,
+                  biomasses = bm_Rf.r, losses =  t_metRf.r, 
+                  efficiencies =  ef_Rf.r,ef.level = "pred")
 
-flux_P.r<-fluxing(t(mG[c(Pf.r$taxa,"litter","carrion","tej_veg","hummus"),c(Pf.r$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_Pf.r, losses =  t_metPf.r, efficiencies =  ef_Pf.r,ef.level = "pred")
+flux_P.r<-fluxing(t(mG[c(Pf.r$taxa,"litter","carrion","tej_veg","hummus"),
+                       c(Pf.r$taxa,"litter","carrion","tej_veg","hummus")]) ,
+                  biomasses = bm_Pf.r, losses =  t_metPf.r, 
+                  efficiencies =  ef_Pf.r,ef.level = "pred")
 
-flux_L.r<-fluxing(t(mG[c(Lf.r$taxa,"litter","carrion","tej_veg","hummus"),c(Lf.r$taxa,"litter","carrion","tej_veg","hummus")]) ,biomasses = bm_Lf.r, losses =  t_metLf.r, efficiencies =  ef_Lf.r,ef.level = "pred")
+flux_L.r<-fluxing(t(mG[c(Lf.r$taxa,"litter","carrion","tej_veg","hummus"),
+                       c(Lf.r$taxa,"litter","carrion","tej_veg","hummus")]) ,
+                  biomasses = bm_Lf.r, losses =  t_metLf.r, 
+                  efficiencies =  ef_Lf.r,ef.level = "pred")
 ```
 
 ```{r flujos_multicanal, include=FALSE, message=FALSE,warning=FALSE}
@@ -1451,6 +1466,7 @@ F_omn_L.r<-sum(flux_L.r[!rownames(flux_L.r) %in%(c("bac","fungi","litter","hummu
 ```
 
 ```{r flujos_multicanal_print, include=FALSE, message=FALSE,warning=FALSE}
+
 F_mc_lu<-data.frame(sitio=c("Reserva","Pastizal","Agrícola"),
                     total=c(paste(round(sum(flux_R)/1e6,2),"a"),paste(round(sum(flux_P)/1e6,2),"a"),
                             paste(round(sum(flux_L)/1e6,2),"b")
@@ -1482,8 +1498,47 @@ F_mc_lu
 
 ```
 
+```{r flujos_multicnl_%_print, echo=FALSE, message=FALSE,warning=FALSE}
+
+F_mc_lu1<-data.frame(sitio=c("Reserva","Pastizal","Agrícola"),
+                    total=c(paste(round(sum(flux_R)/1e6,2),"a"),paste(round(sum(flux_P)/1e6,2),"a"),
+                            paste(round(sum(flux_L)/1e6,2),"b")
+                               ),
+           biotransformación=c(paste(round(F_mo_R,2)/sum(flux_R),
+                                     " ","[",round(100-F_mo_RMF,1),"]",sep = ""),
+                               paste(round(F_mo_P,2)/sum(flux_P),
+                                     " ","[",round(100-F_mo_PMF,1),"]",sep = ""),
+                               paste(round(F_mo_L,2)/sum(flux_L),
+                                     " ","[",round(100-F_mo_LMF,1),"]",sep = "")
+                               ),
+           detritivoria=c(paste(round(F_det_R,2)/sum(flux_R),
+                                " ","[",round(100-F_det_RMF,1),"]",sep = ""),
+                               paste(round(F_det_P,2)/sum(flux_P),
+                                     " ","[",round(100-F_det_PMF,1),"]",sep = ""),
+                               paste(round(F_det_L,2)/sum(flux_L),
+                                     " ","[",round(100-F_det_LMF,1),"]",sep = "")
+                               ),
+           microfitofagia=c(F_mic_R/sum(flux_R),F_mic_P/sum(flux_P),F_mic_L/sum(flux_L)),
+           predación=c(F_pred_R/sum(flux_R),F_pred_P/sum(flux_P),F_pred_L/sum(flux_L)),
+           omnivoría=c(F_omn_R/sum(flux_R),F_omn_P/sum(flux_P),F_omn_L/sum(flux_L)),
+           herbivoría=c(paste(round(F_herb_R,2)/sum(flux_R),
+                              " ","[",round(100-F_herb_RMF,1),"]",sep = ""),
+                               paste(round(F_herb_P,2)/sum(flux_P),
+                                     " ","[",round(100-F_herb_PMF,1),"]",sep = ""),
+                               paste(round(F_herb_L,2)/sum(flux_L),
+                                     " ","[",round(100-F_herb_LMF,1),"]",sep = "")
+                               ),
+           row.names = NULL)
+
+F_mc_lu1
+```
+
+
+
 ```{r flujos_multicanal_print1, include=FALSE, message=FALSE,warning=FALSE}
 F_mc_total<-data.frame(sitio=c("Naturalizado","Mixto","Agrícola","Reserva","Pastizal","Agrícola"),
+                       total=c(sum(flux_N),sum(flux_G),sum(flux_A),
+                               sum(flux_R.r),sum(flux_P.r),sum(flux_L.r)),
            biotransformación=c(paste(sep="",round((F_mo_N))," ","(",round((F_mo_N/sum(flux_N))*100,2),")","[",100-round(F_mo_NMF,1),"]"),
                                paste(sep="",round((F_mo_G))," ","(",round((F_mo_G/sum(flux_G))*100,2),")","[",100-round(F_mo_GMF,1),"]"),
                                paste(sep="",round((F_mo_A))," ","(",round((F_mo_A/sum(flux_A))*100,2),")","[",100-round(F_mo_AMF,1),"]"),

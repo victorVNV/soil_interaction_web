@@ -258,6 +258,19 @@ Como se mencionó anteriormente, los organismos presentes en el ecosistema edáf
 
 El enfoque que integra la diversidad de especies en una comunidad, las interacciones interespecíficas, las relaciones con el ambiente, la redundancia funcional, el papel de las especies clave y los múltiples canales de flujo de materia y energía en los ecosistemas es el estudio de **redes de interacciones** [@creamer2022; @briones2014; @potapov2022; @barrios2007]. Este enfoque permite modelar y simplificar la complejidad de las interacciones, conectándolas con propiedades emergentes del estudio de comunidades y ecosistemas, lo que facilita evaluar el estado del sistema y la toma de decisiones [@delmas2019; @zotero-1438; @Hooper2005].
 
+<!-- Potapov et al Multiple Dimension
+While Elton (1927) [27] established the node (species) and link
+(feeding) approach of trophic interactions (Figs. 2 and 3), the game
+changer in food-web ecology came from Lindeman’s (1942; published
+posthumously) [28] conceptualised understanding that trophic in­
+teractions represented flows of energy and nutrients, and that this
+transfer of energy and nutrients from one species to another is an inef­
+ficient process. The revelation of trophic transfer efficiency had major
+implications for understanding predator-prey relationships, but also for
+the cycling of energy and nutrients in food-web structures [29], linking
+this cycling to what we now call ‘ecosystem functions’.
+-->
+
 <!--
 ::: imagen-contenedor
 <img src="Figures/chap1_digel2014.png" alt="Figura 1.4" id="fig1.4" width="600" height="400"/>
@@ -766,7 +779,7 @@ Esta información será luego utilizada para la construcción de la red de inter
 
 ### Sitios de estudio y diseño de muestreo
 
-Las comunidades de la fauna del suelo ocurren en suelos Argiudoles típicos de la Pampa Ondulada. Estas comunidades provienen de dos conjuntos de datos, a saber, fauna edáfica tomada en suelos del partido de Luján y fauna edáfica pertenecientes a suelos de los partidos de Chivilcoy y Navarro (Tabla 3.1), estas distancias en la Pampa Ondulada implican características similares en términos de clima y elevación. En ambos casos se tomaron muestras en suelos con diferentes formas de uso y se consideraron estos como diferentes grados en la intensidad de perturbación sobre el suelo.
+Las comunidades de la fauna del suelo ocurren en suelos Argiudoles típicos de la Pampa Ondulada. Estas comunidades provienen de dos conjuntos de datos, a saber, fauna edáfica tomada en suelos del partido de Luján y fauna edáfica pertenecientes a suelos de los partidos de Chivilcoy - Navarro (Tabla 3.1), estas distancias en la Pampa Ondulada implican características similares en términos de clima y elevación. En ambos casos se tomaron muestras en suelos con diferentes formas de uso y se consideraron estos como diferentes grados en la intensidad de perturbación sobre el suelo.
 
 Los suelos de Argiudoles típicos de Luján fueron muestreados en el año 2022. El muestreo se llevó adelante en el campo experimental de la Universidad Nacional de Luján [@sfeir1998], con la intención de colectar la fauna edáfica que pasa todo su ciclo de vida en el suelo [@momo2009; @wallwork1970] denominados como **geobiontes**. Los geobiontes incluyen tres rangos de tamaño [@swift1979]: la **microfauna** constituida por los nemátodos (ancho corporal menor a 200 μm), la **mesofauna** en el que se incluyen los microartrópodos y otros invertebrados cuyo diametro corporal es menor a 2 mm y la **macrofauna**.
 
@@ -799,7 +812,7 @@ Los suelos de Argiudoles típicos de Luján fueron muestreados en el año 2022. 
 +-----------------------------+--------------+--------------+---------------------+
 |                             | 34°35'22"S   | 59°04'12"O   |                     |
 +-----------------------------+--------------+--------------+---------------------+
-| Pastizal naturalizado (N)   | 35°03'28''S  | 59°41'03''O  | Chivilcoy y Navarro |
+| Pastizal naturalizado (N)   | 35°03'28''S  | 59°41'03''O  | Chivilcoy - Navarro |
 +-----------------------------+--------------+--------------+---------------------+
 |                             | 35°03'31''S  | 59°41'03''O  |                     |
 +-----------------------------+--------------+--------------+---------------------+
@@ -836,7 +849,7 @@ Además, se realizó la técnica de respiración inducida por sustrato en conjun
 
 De manera complementaria se obtuvieron, a través del servicio del Laboratorio del Campo de la Universidad Nacional de Luján, los valores para el porcentaje de materia orgánica, el porcentaje de nitrógeno, la cantidad de fósforo extractable en partes por millón y el valor del potencial de hidrogeniones en escala de pH.
 
-Los suelos ubicados en los partidos de Chivilcoy y Navarro fueron muestreados por Sandler [-@sandler2019]. Los sitios de muestreo se corresponden con suelos Argiudoles con intervención agrícola intensiva (A) durante más de 50 años, suelos con sistema de producción mixto con actividad agrícola y ganadera (G) y suelos con pastizales naturalizados (N) sin intervención antrópica por más de 50 años. Este conjunto de datos incluye a) el conteo y la clasificación de los taxas de Arachnida: Acari, Hexapoda: Collembola, extraídas mediante la técnica de tamizado y flotación, b) la clasificación de Oligochaetta: Crassiclitelata colectadas a campo a ojo desnudo, c) la respiración heterotrófica en mg CO~2~.g suelo^-1^.día^-1^ y d) la determinación de variables ambientales [@duhour2023; @velazco2023a].
+Los suelos ubicados en los partidos de Chivilcoy - Navarro fueron muestreados por Sandler [-@sandler2019]. Los sitios de muestreo se corresponden con suelos Argiudoles con intervención agrícola intensiva (A) durante más de 50 años, suelos con sistema de producción mixto con actividad agrícola y ganadera (G) y suelos con pastizales naturalizados (N) sin intervención antrópica por más de 50 años. Este conjunto de datos incluye a) el conteo y la clasificación de los taxas de Arachnida: Acari, Hexapoda: Collembola, extraídas mediante la técnica de tamizado y flotación, b) la clasificación de Oligochaetta: Crassiclitelata colectadas a campo a ojo desnudo, c) la respiración heterotrófica en mg CO~2~.g suelo^-1^.día^-1^ y d) la determinación de variables ambientales [@duhour2023; @velazco2023a].
 
 ### Análisis de datos
 
@@ -875,7 +888,7 @@ La correlación entre el fósforo y el nitrógeno podría vincularse con el apor
 
 
 
-**Tabla 3.2.** Matriz de correlaciones de Spearman en suelos Argiudoles. A) Argiudoles de Luján, B) Argiudoles de Chivilcoy y Navarro. Significatividades en el triángulo superior, valor de correlación $\rho$ de Spearman en triángulo inferior de la matriz
+**Tabla 3.2.** Matriz de correlaciones de Spearman en suelos Argiudoles. A) Argiudoles de Luján, B) Argiudoles de Chivilcoy - Navarro. Significatividades en el triángulo superior, valor de correlación $\rho$ de Spearman en triángulo inferior de la matriz
 
 **A)**
 
@@ -909,7 +922,7 @@ tab3.2B %>%
 
 
 
-En los suelos Argiudoles de Chivilcoy y Navarro (Tabla 3.2) el pH se correlacionó significativamente con el nitrógeno, el fósforo y con la respiración heterotrófica, las correlaciones fueron negativas entre el pH y el nitrógeno y el fósforo. Entonces si el aumento en la cantidad de Nitrógeno se relaciona con la disminución del pH, esta disminución del pH favorece el aumento del fósforo disponible. En cambio, la correlación fue positiva entre el pH y la respiración heterotrófica, por lo que la actividad biológica aumenta cuando el medio es más alcalino.
+En los suelos Argiudoles de Chivilcoy - Navarro (Tabla 3.2) el pH se correlacionó significativamente con el nitrógeno, el fósforo y con la respiración heterotrófica, las correlaciones fueron negativas entre el pH y el nitrógeno y el fósforo. Entonces si el aumento en la cantidad de Nitrógeno se relaciona con la disminución del pH, esta disminución del pH favorece el aumento del fósforo disponible. En cambio, la correlación fue positiva entre el pH y la respiración heterotrófica, por lo que la actividad biológica aumenta cuando el medio es más alcalino.
 
 La materia orgánica, se relacionó significativamente con el nitrógeno, el fósforo y la respiración heterotrófica. Con el fósforo extractable la correlación es negativa lo que puede relacionarse con el hecho de que la materia orgánica humificada forma complejos con el fósforo. En cambio con la respiración heterotrófica y el nitrógeno las correlaciones fueron positivas.
 
@@ -919,11 +932,11 @@ El fósforo no muestra correlación significativa con la respiración heterotró
 
 #### Relaciones de las variables químicas y biológicas en los diferentes sistemas de uso en suelos Argiudoles típicos
 
-Los valores del pH (Tabla 3.3), en los suelos Argiudoles de Luján, no mostraron diferencias significativas (K-W p:H\<0.1) entre los sitios. En los suelos de Chivilcoy y Navarro existieron diferencias significativas entre grupos (K-W p:H\<0.1) en los cuáles, es el pastizal naturalizado el suelo más alcalino quién se diferencia de los demás sistemas de usos, siendo los sistemas mixto y agrícola intensivo similares en valores de acidez.
+Los valores del pH (Tabla 3.3), en los suelos Argiudoles de Luján, no mostraron diferencias significativas (K-W p:H\<0.1) entre los sitios. En los suelos de Chivilcoy - Navarro existieron diferencias significativas entre grupos (K-W p:H\<0.1) en los cuáles, es el pastizal naturalizado el suelo más alcalino quién se diferencia de los demás sistemas de usos, siendo los sistemas mixto y agrícola intensivo similares en valores de acidez.
 
 
 
-**Tabla 3.3.** Variables químicas de suelos Argiudoles típicos. Valores promedio y desvío estandar del pH, el porcentaje de materia orgánica (MO), el porcentaje de nitrógeno (N) y el fósforo asimilable (p.p.m.). Las letras representan diferencias significativas evaluadas mediante la prueba de Kruskall-Wallis. Los sitios se corresponden con los sistemas de uso del suelo, en Luján: R = reserva, P = pastizal, A = agrícola; en Chivilcoy y Navarro: N = pastizal naturalizado, G = sistema mixto agrícola ganadero, A = agrícola intensivo
+**Tabla 3.3.** Variables químicas de suelos Argiudoles típicos. Valores promedio y desvío estandar del pH, el porcentaje de materia orgánica (MO), el porcentaje de nitrógeno (N) y el fósforo asimilable (p.p.m.). Las letras representan diferencias significativas evaluadas mediante la prueba de Kruskall-Wallis. Los sitios se corresponden con los sistemas de uso del suelo, en Luján: R = reserva, P = pastizal, A = agrícola; en Chivilcoy - Navarro: N = pastizal naturalizado, G = sistema mixto agrícola ganadero, A = agrícola intensivo
 
 
 
@@ -942,11 +955,11 @@ El patrón general muestra que en sistemas agrícolas los suelos son más ácido
 
 En los suelos Argiudoles los porcentajes de materia orgánica y de nitrógeno no fueron diferentes significativamente (K-W H:p\<0.1), \underline{entre} sitios dentro de una misma localidad, aunque si se reportan valores diferentes para cada zona de estudio.
 
-En los suelos Argiudoles de Luján con respecto al fósforo solo el sistema agrícola difirió significativamente (K-W H: p\<0.1) la amplitud en la variación del valor del fósforo puede ser debida al efecto de la fertilización, ya que como este nutriente es poco móvil lugares con mayores cantidades de fósforo reflejan puntos de fertilización con el nutriente. Por su parte, en los suelos Argiudoles de Chivilcoy y Navarro, la variación del fósforo entre los sistemas de uso del suelo no mostraron diferencias significativas (K-W H:p\>0.05).
+En los suelos Argiudoles de Luján con respecto al fósforo solo el sistema agrícola difirió significativamente (K-W H: p\<0.1) la amplitud en la variación del valor del fósforo puede ser debida al efecto de la fertilización, ya que como este nutriente es poco móvil lugares con mayores cantidades de fósforo reflejan puntos de fertilización con el nutriente. Por su parte, en los suelos Argiudoles de Chivilcoy - Navarro, la variación del fósforo entre los sistemas de uso del suelo no mostraron diferencias significativas (K-W H:p\>0.05).
 
 <p class="interlineado-simple">
 
-**Tabla 3.4** Variables biológicas de suelos Argiudoles típicos. Valores promedio y desvío estandar de la respiración heterotrófica edáfica en mg C-CO~2~/gr~suelo~.día, la relación hongos:bacterias, biomasa de hojarasca en gramos. Las letras representan diferencias significativas evaluadas mediante la prueba de Kruskall-Wallis. Los sitios se corresponden con los sistemas de uso del suelo, en Luján: R = reserva, P = pastizal, A = agrícola; en Chivilcoy y Navarro: N = pastizal naturalizado, G = mixto agrícola ganadero, A = agrícola intensivo
+**Tabla 3.4** Variables biológicas de suelos Argiudoles típicos. Valores promedio y desvío estandar de la respiración heterotrófica edáfica en mg C-CO~2~/gr~suelo~.día, la relación hongos:bacterias, biomasa de hojarasca en gramos. Las letras representan diferencias significativas evaluadas mediante la prueba de Kruskall-Wallis. Los sitios se corresponden con los sistemas de uso del suelo, en Luján: R = reserva, P = pastizal, A = agrícola; en Chivilcoy - Navarro: N = pastizal naturalizado, G = mixto agrícola ganadero, A = agrícola intensivo
 
 </p>
 
@@ -962,7 +975,7 @@ tab3.4 %>%
 
 Se observan diferencias significativas (K-W H:p\<0.1) en la respiración heterotrófica en los diferentes sistemas de uso del suelo. En suelos de Luján, en el sistema de la reserva muestra una mayor actividad respiratoria. En estos suelos la disponibilidad de materia orgánica susceptible a la descomposición (broza u hojarasca) se distribuye sobre la superficie con un gran volumen y es más constante a lo largo del año, en cambio en suelos agrícolas donde la actividad respiratoria fue menor la hojarasca sobre el suelo es puntual y estacional
 
-En los Argiudoles de Chivilcoy y Navarro, la respiración heterotrófica fue menor en el sistema agrícola y en los sistemas pastizal naturalizado y mixto fueron similares entre sí.
+En los Argiudoles de Chivilcoy - Navarro, la respiración heterotrófica fue menor en el sistema agrícola y en los sistemas pastizal naturalizado y mixto fueron similares entre sí.
 
 En suelos de Luján no se encontraron diferencias entre los sistemas de uso del suelo, ni en la relación de hongos/bacterias ni en la cantidad de hojarasca en superficie.
 
@@ -1002,7 +1015,7 @@ La respiración heterotrófica tiene una fuerte correlación negativa con la pri
 
 <p class="descripcion">
 
-**Figura 3.3.** Biplot de coordenadas principales de las variables químicas y biológicas en suelos Argiudoles típicos de Chivilcoy y Navarro. Los vectores representan las variables químicas y biológicas. pH = potencial de hidrogeniones. MO = porcentaje de materia orgánica. N = porcentaje de nitrógeno. P = fósforo asimilable en partes por millón. rH = respiración heterotrófica en mg C-CO~2~/gr~suelo~.día. Los puntos indican los sitios de muestreos, los puntos de mayor tamaño indican que centroide que resume las características de los sistemas de uso del suelo. N: pastizal naturalizado, G: Mixto agrícola ganadero, A: agrícola intensivo
+**Figura 3.3.** Biplot de coordenadas principales de las variables químicas y biológicas en suelos Argiudoles típicos de Chivilcoy - Navarro. Los vectores representan las variables químicas y biológicas. pH = potencial de hidrogeniones. MO = porcentaje de materia orgánica. N = porcentaje de nitrógeno. P = fósforo asimilable en partes por millón. rH = respiración heterotrófica en mg C-CO~2~/gr~suelo~.día. Los puntos indican los sitios de muestreos, los puntos de mayor tamaño indican que centroide que resume las características de los sistemas de uso del suelo. N: pastizal naturalizado, G: Mixto agrícola ganadero, A: agrícola intensivo
 
 </p>
 :::
@@ -1010,9 +1023,9 @@ La respiración heterotrófica tiene una fuerte correlación negativa con la pri
 
 ![](Figures/Fig3-3.png){width=600 heigth=800}
 
-**Figura 3.3.** Biplot de coordenadas principales de las variables químicas y biológicas en suelos Argiudoles típicos de Chivilcoy y Navarro. Los vectores representan las variables químicas y biológicas. pH = potencial de hidrogeniones. MO = porcentaje de materia orgánica. N = porcentaje de nitrógeno. P = fósforo asimilable en partes por millón. rH = respiración heterotrófica en mg C-CO~2~/gr~suelo~.día. Los puntos indican los sitios de muestreos, los puntos de mayor tamaño indican que centroide que resume las características de los sistemas de uso del suelo. N: pastizal naturalizado, G: Mixto agrícola ganadero, A: agrícola intensivo
+**Figura 3.3.** Biplot de coordenadas principales de las variables químicas y biológicas en suelos Argiudoles típicos de Chivilcoy - Navarro. Los vectores representan las variables químicas y biológicas. pH = potencial de hidrogeniones. MO = porcentaje de materia orgánica. N = porcentaje de nitrógeno. P = fósforo asimilable en partes por millón. rH = respiración heterotrófica en mg C-CO~2~/gr~suelo~.día. Los puntos indican los sitios de muestreos, los puntos de mayor tamaño indican que centroide que resume las características de los sistemas de uso del suelo. N: pastizal naturalizado, G: Mixto agrícola ganadero, A: agrícola intensivo
 
-Para los suelos Argiudoles de Chivilcoy y Navarro las primeras dos dimensiones de los componentes principales tienen autovalores mayores a 1 a la vez que resumen el 60% de la variabilidad multidimensional.
+Para los suelos Argiudoles de Chivilcoy - Navarro las primeras dos dimensiones de los componentes principales tienen autovalores mayores a 1 a la vez que resumen el 60% de la variabilidad multidimensional.
 
 En el biplot (Fig. 3.2) se observa una clara separación a lo largo de la primera dimensión del centroide del sistema del pastizal naturalizado sobre el lado positivo del eje de coordenadas. Los centroides de los sistemas antropizados se ubican hacia el lado opuesto y en posiciones similares sobre primer eje dimensional. Estos se diferencian por su ubicación con relación al segundo eje de coordenadas ya que el centroide del sistema mixto agrícola ganadero se ubica sobre el lado positivo y el sistema de uso agrícola intensivo se ubica sobre el sentido negativo del segundo eje dimensional.
 
@@ -1024,15 +1037,15 @@ Los vectores que resumen la variabilidad de la materia orgánica y la respiraci�
 
 #### Diversidad alfa (α) en suelos Argiudoles: Riqueza de unidades taxonómicas
 
-En los suelos de la Luján el máximo valor de la riqueza (Tabla 3.5) en unidades taxonómicas se halló en suelos del pastizal, en suelos de Chivilcoy y Navarro la máxima riqueza de unidades taxonómicas es similar en los sistemas agrícola intensivo y mixto agrícola-ganadero.
+En los suelos de la Luján el máximo valor de la riqueza (Tabla 3.5) en unidades taxonómicas se halló en suelos del pastizal, en suelos de Chivilcoy - Navarro la máxima riqueza de unidades taxonómicas es similar en los sistemas agrícola intensivo y mixto agrícola-ganadero.
 
-El número de taxones de colémbolos (Hexapoda: Collembolla) en los suelos Argiudoles de Luján fue menor que la hallada en suelos de Chivilcoy y Navarro.
+El número de taxones de colémbolos (Hexapoda: Collembolla) en los suelos Argiudoles de Luján fue menor que la hallada en suelos de Chivilcoy - Navarro.
 
-Las lombrices de tierra (Oligochaeta: Crassiclitellata) expresan una mayor riqueza en los suelos de Chivilcoy y Navarro, con el valor máximo en el sistema del pastizal naturalizado. En suelos de Luján, el sistema agrícola presenta la menor riqueza de lombrices.
+Las lombrices de tierra (Oligochaeta: Crassiclitellata) expresan una mayor riqueza en los suelos de Chivilcoy - Navarro, con el valor máximo en el sistema del pastizal naturalizado. En suelos de Luján, el sistema agrícola presenta la menor riqueza de lombrices.
 
 <p class="interlineado-simple">
 
-**Tabla 3.5.** Número de unidades taxonómicas ocurridas en suelos Argiudoles típicos en suelos con diferentes formas de uso. Sitios: Argiudoles de Luján R = reserva, P = pastizal, A = agrícola; Argiudoles de Chivilcoy y Navarro N = pastizal naturalizado, G = mixto agrícola ganadero, A = agrícola intensivo. Las columnas indican el número de taxones diferentes como riqueza total (S) y por grupo taxonómico
+**Tabla 3.5.** Número de unidades taxonómicas ocurridas en suelos Argiudoles típicos en suelos con diferentes formas de uso. Sitios: Argiudoles de Luján R = reserva, P = pastizal, A = agrícola; Argiudoles de Chivilcoy - Navarro N = pastizal naturalizado, G = mixto agrícola ganadero, A = agrícola intensivo. Las columnas indican el número de taxones diferentes como riqueza total (S) y por grupo taxonómico
 
 </p>
 
@@ -1050,21 +1063,21 @@ Tab3.5 %>%
 
 ```
 
-Observando el número de unidades taxonómicas de ácaros oribátidos (Acari: Sarcoptiformes) los mayores valores se observaron en suelos de Luján con una riqueza máxima de 12 en el sistema del pastizal. En los suelos de Chivilcoy y Navarro la mayorriqueza se observó en los sistemas antropizados.
+Observando el número de unidades taxonómicas de ácaros oribátidos (Acari: Sarcoptiformes) los mayores valores se observaron en suelos de Luján con una riqueza máxima de 12 en el sistema del pastizal. En los suelos de Chivilcoy - Navarro la mayorriqueza se observó en los sistemas antropizados.
 
-En los suelos de Luján, la riqueza de ácaros mesostigmatas (Acari: Mesostigmata) fue más alta y se observa el mayor valor tanto en el sistema de la reserva como en el sistema del pastizal. En Chivilcoy y Navarro se hallaron hasta 5 taxones en los sistemas con uso de suelo antropizado.
+En los suelos de Luján, la riqueza de ácaros mesostigmatas (Acari: Mesostigmata) fue más alta y se observa el mayor valor tanto en el sistema de la reserva como en el sistema del pastizal. En Chivilcoy - Navarro se hallaron hasta 5 taxones en los sistemas con uso de suelo antropizado.
 
-En los suelos de Luján se observó un mayor número de taxones de ácaros prostigmatas (Acari: Prostigmata) que en suelos de Civilcoy y Navarro. En estos suelos el sistema del pastizal muestra el mayor número de taxones en suelos de Luján. En los suelos de Chivilcoy y Navarro la riqueza fue la misma entre sistemas.
+En los suelos de Luján se observó un mayor número de taxones de ácaros prostigmatas (Acari: Prostigmata) que en suelos de Civilcoy y Navarro. En estos suelos el sistema del pastizal muestra el mayor número de taxones en suelos de Luján. En los suelos de Chivilcoy - Navarro la riqueza fue la misma entre sistemas.
 
 En suelos de la reserva se observó la mayor riqueza de macrofauna, seguida del pastizal y luego el sistema agrícola.
 
 #### Diversidad alfa (α) en suelos Argiudoles: Índice de Shannon-Wiener
 
-El índice de diversidad de Shanon-Wiener (Tabla 3.5) no mostró diferencias significativas ($H : p_{_{valor}} < 0.1$) entre las comunidades en los diferentes sistemas de uso del suelo, ni en suelos de Luján ni en suelos de Chivilcoy y Navarro.
+El índice de diversidad de Shanon-Wiener (Tabla 3.5) no mostró diferencias significativas ($H : p_{_{valor}} < 0.1$) entre las comunidades en los diferentes sistemas de uso del suelo, ni en suelos de Luján ni en suelos de Chivilcoy - Navarro.
 
 
 
-**Tabla 3.6.** Índice de Diversidad de Shannon (H') en suelos Argiudoles típicos con diferentes formas de uso. Sitios: Argiudoles de Luján R = reserva, P = pastizal, A = agrícola; Argiudoles de Chivilcoy y Navarro N = pastizal naturalizado, G = mixto agrícola ganadero, A = agrícola intensivo. Total: refiere al índice de diversidad de toda la comunidad de la fauna edáfica; Lombrices, Mesofauna, Macrofauna, Microfauna, refiere a la diversidad calculada para grupos de la fauna edáfica clasificados según su rango de tamaños. X̅ ± σ: valor promedio más el desvío estandar de la diversidad del componente, X̂: valor de la mediana de la diversidad del componente
+**Tabla 3.6.** Índice de Diversidad de Shannon (H') en suelos Argiudoles típicos con diferentes formas de uso. Sitios: Argiudoles de Luján R = reserva, P = pastizal, A = agrícola; Argiudoles de Chivilcoy - Navarro N = pastizal naturalizado, G = mixto agrícola ganadero, A = agrícola intensivo. Total: refiere al índice de diversidad de toda la comunidad de la fauna edáfica; Lombrices, Mesofauna, Macrofauna, Microfauna, refiere a la diversidad calculada para grupos de la fauna edáfica clasificados según su rango de tamaños. X̅ ± σ: valor promedio más el desvío estandar de la diversidad del componente, X̂: valor de la mediana de la diversidad del componente
 
 ```{r Tab3.6,echo=FALSE, warning=FALSE}
 Tab3.6 <- read.csv("database/Tab3-6.txt", sep="")
@@ -1076,13 +1089,13 @@ Tab3.6 %>%
    kable_styling(latex_options = c("hold_position", "basic"))
 ```
 
-El índice de diversidad observado a través de la composición de los taxones según su clasificación en diferentes clases de tamaño (microfauna, mesofauna, macrofauna) en comparación con los diferentes sistemas de uso del suelo, no mostró diferencias significativas ($H : p_{_{valor}} < 0.1$), ni en suelos Argiudoles de Luján ni en suelos Argiudoles de Chivilcoy y Navarro.
+El índice de diversidad observado a través de la composición de los taxones según su clasificación en diferentes clases de tamaño (microfauna, mesofauna, macrofauna) en comparación con los diferentes sistemas de uso del suelo, no mostró diferencias significativas ($H : p_{_{valor}} < 0.1$), ni en suelos Argiudoles de Luján ni en suelos Argiudoles de Chivilcoy - Navarro.
 
 #### Análisis de similitudes de las comunidades que ocurren en suelos Argiudoles típicos suelos con diferentes sistemas de uso
 
-El análisis de similitudes (ANOSIM) nos indica que existen disimilaridades estadísticamente significativas ($R: p_{valor}<0.05$) entre las comunidades que pertenecen a diferentes sistemas de uso del suelo, tanto en los suelos de Luján como en los suelos de Chivilcoy y Navarro.
+El análisis de similitudes (ANOSIM) nos indica que existen disimilaridades estadísticamente significativas ($R: p_{valor}<0.05$) entre las comunidades que pertenecen a diferentes sistemas de uso del suelo, tanto en los suelos de Luján como en los suelos de Chivilcoy - Navarro.
 
-Respectivamente, 0,786 (Luján) y 0,11 (Chivilcoy y Navarro), , son los valores del estadístico que indican la proporción de disimilitud existente entre los grupos, es decir, la separación de las comunidades halladas en los diferentes sistemas de uso del suelo en cada región de estudio. En los suelos de Luján las comunidades de la fauna edáfica muestran importantes separaciones entre los sistemas de uso del suelo, por su parte, las comunidades de microartrópodos y lombrices de suelos de Chivilcoy y Navarro también se separan entre los diferentes sistemas de uso del suelo aunque con menos fuerza.
+Respectivamente, 0,786 (Luján) y 0,11 (Chivilcoy - Navarro), , son los valores del estadístico que indican la proporción de disimilitud existente entre los grupos, es decir, la separación de las comunidades halladas en los diferentes sistemas de uso del suelo en cada región de estudio. En los suelos de Luján las comunidades de la fauna edáfica muestran importantes separaciones entre los sistemas de uso del suelo, por su parte, las comunidades de microartrópodos y lombrices de suelos de Chivilcoy - Navarro también se separan entre los diferentes sistemas de uso del suelo aunque con menos fuerza.
 
 <!--
 ::: imagen-contenedor
@@ -1090,20 +1103,20 @@ Respectivamente, 0,786 (Luján) y 0,11 (Chivilcoy y Navarro), , son los valores 
 
 <p class="descripcion">
 
-**Figura 3.4.** Dendrogramas de similitud entre sistemas de usos de suelos que ocurren en suelos Argiudoles típicos. En el eje vertical se indica el valor del índice de Bray-Curtis, valores altos indican sitios más disímiles en contra parte valores bajos del índice expresan una mayor similitud entre grupos. Las letras representan a los sistemas de uso: Argiudoles de Luján R = reserva, P = pastizal, A = agrícola; Argiudoles de Chivilcoy y Navarro N = pastizal naturalizado, G = mixto agrícola ganadero, A = agrícola intensivo. Los números que acompañan a las letras indican la réplica dentro de un mismo sistema de uso del suelo
+**Figura 3.4.** Dendrogramas de similitud entre sistemas de usos de suelos que ocurren en suelos Argiudoles típicos. En el eje vertical se indica el valor del índice de Bray-Curtis, valores altos indican sitios más disímiles en contra parte valores bajos del índice expresan una mayor similitud entre grupos. Las letras representan a los sistemas de uso: Argiudoles de Luján R = reserva, P = pastizal, A = agrícola; Argiudoles de Chivilcoy - Navarro N = pastizal naturalizado, G = mixto agrícola ganadero, A = agrícola intensivo. Los números que acompañan a las letras indican la réplica dentro de un mismo sistema de uso del suelo
 
 </p>
 :::
 -->
 ![](Figures/Fig3-4.png){width=600 heigth=800}
 
-**Figura 3.4.** Dendrogramas de similitud entre sistemas de usos de suelos que ocurren en suelos Argiudoles típicos. En el eje vertical se indica el valor del índice de Bray-Curtis, valores altos indican sitios más disímiles en contra parte valores bajos del índice expresan una mayor similitud entre grupos. Las letras representan a los sistemas de uso: Argiudoles de Luján R = reserva, P = pastizal, A = agrícola; Argiudoles de Chivilcoy y Navarro N = pastizal naturalizado, G = mixto agrícola ganadero, A = agrícola intensivo. Los números que acompañan a las letras indican la réplica dentro de un mismo sistema de uso del suelo
+**Figura 3.4.** Dendrogramas de similitud entre sistemas de usos de suelos que ocurren en suelos Argiudoles típicos. En el eje vertical se indica el valor del índice de Bray-Curtis, valores altos indican sitios más disímiles en contra parte valores bajos del índice expresan una mayor similitud entre grupos. Las letras representan a los sistemas de uso: Argiudoles de Luján R = reserva, P = pastizal, A = agrícola; Argiudoles de Chivilcoy - Navarro N = pastizal naturalizado, G = mixto agrícola ganadero, A = agrícola intensivo. Los números que acompañan a las letras indican la réplica dentro de un mismo sistema de uso del suelo
 
-Los dendrogramas (Fig 3.4) muestran la similitud de las comunidades de cada sistema de uso del suelo en cada localidad según Bray Curtis, se observa que: **a)** en los suelos de Luján existe un claro agrupamiento entre los sitios que corresponden al sistema de uso agrícola, a la vez, se forman dos grupos separados entre el sistema del pastizal y el sistema de la reserva y una situación de proximidad entre sitios del pastizal y la reserva; **b)** en los suelos de Chivilcoy y Navarro no se observan claras asociaciones vinculadas con los sistemas de uso el suelo, lo que explicaría el bajo valor del estadístico R del análisis de similitudes (0,11), un cierto grado de similitud existe entre dos de los sitios del sistema del pastizal naturalizado, por otra parte, en valor del grado de similitud el sistema agrícola intensivo muestra menores valores del índice de Bray-Curtis y aunque estos no se agrupen jerárquicamente resultan en comunidades más similares que aquellas que se encuentran en el sistema mixto agrícola ganadero.
+Los dendrogramas (Fig 3.4) muestran la similitud de las comunidades de cada sistema de uso del suelo en cada localidad según Bray Curtis, se observa que: **a)** en los suelos de Luján existe un claro agrupamiento entre los sitios que corresponden al sistema de uso agrícola, a la vez, se forman dos grupos separados entre el sistema del pastizal y el sistema de la reserva y una situación de proximidad entre sitios del pastizal y la reserva; **b)** en los suelos de Chivilcoy - Navarro no se observan claras asociaciones vinculadas con los sistemas de uso el suelo, lo que explicaría el bajo valor del estadístico R del análisis de similitudes (0,11), un cierto grado de similitud existe entre dos de los sitios del sistema del pastizal naturalizado, por otra parte, en valor del grado de similitud el sistema agrícola intensivo muestra menores valores del índice de Bray-Curtis y aunque estos no se agrupen jerárquicamente resultan en comunidades más similares que aquellas que se encuentran en el sistema mixto agrícola ganadero.
 
 #### Análisis de Componentes Principales (PCA) de las comunidades que ocurren en suelos Argiudoles típicos bajo diferentes sistemas de uso
 
-La reducción de la variabilidad multidimencional entre la composición de las comunidad edáficas y los diferentes sistemas de uso del suelo, se resumen con las primeras dos dimensiones del análisis de coordenadas principales. Estas dos dimensiones resumen, respectivamente, el 74,8 y el 77,1 por ciento de la variabilidad tanto en suelos de Luján como en suelos de Chivilcoy y Navarro.
+La reducción de la variabilidad multidimencional entre la composición de las comunidad edáficas y los diferentes sistemas de uso del suelo, se resumen con las primeras dos dimensiones del análisis de coordenadas principales. Estas dos dimensiones resumen, respectivamente, el 74,8 y el 77,1 por ciento de la variabilidad tanto en suelos de Luján como en suelos de Chivilcoy - Navarro.
 
 Para ambas zonas de estudio, a lo largo del primer eje se resume la diversidad de taxones que se hallan en las comunidades edáficas por lo que se observa que este eje relaciona la abundancia de los taxones ubicándo más hacia la izquierda los taxones menos abundantes y más hacia la derecha los taxones abundantes, por ej, en suelos Argiudoles de Luján la macrofauna se ubica en el extremo izquierdo y hacia el extremo derecho los nemátodos. A través del segundo eje de las coordenadas se explican la similitud, en términos de la composición de la comunidad, que se encuentra entre los sistemas de uso del suelo.
 
@@ -1130,7 +1143,7 @@ Al observar centroides de los principales grupos taxonómicos, se observa un agr
 
 Entre los dos grupos conformados en los extremos del primer eje de coordenadas, descritos anteriormente, se dan situaciones particulares, los ácaros prostigmatas se ubican sobre el brazo negativo del segundo eje correlacionándose con los sistemas de uso del suelo agrícola. Los ácaros mesostigmatas, ácaros depredadores del suelo, se encuentran en una situación cercana al centro de coordenadas (0,0) lo que indica que su variabilidad no se encuentra bien representada por estas dimensiones. Los ácaros oribátidos muestran con una leve relación con los vectores de los sitios que corresponden al suelo de la reserva, en esta situación también se hallan los macroartrópodos omnívoros con una mayor relación con el suelo de la reserva, los tardígrados se hallan fuertemente relacionados con el sistema de la reserva indicando la presencia de retención y saturación de humedad en el suelo. Los colémbolos se relacionan con los Argiudoles del sistema del pastizal.
 
-En los suelos Argiudoles de Chivilcoy y Navarro (Fig 3.6) se observa una clara separación del sistema de uso del suelo mixto agrícola ganadero ubicándose en el nivel superior de la mitad derecha del plano de componentes principales, en el nivel inferior se ubica al sistema del pastizal naturalizado, el sistema agrícola intensivo se ubica entre ambos sitios pero con una proximidad aparente con el sistema del pastizal naturalizado en una situación intermedia.
+En los suelos Argiudoles de Chivilcoy - Navarro (Fig 3.6) se observa una clara separación del sistema de uso del suelo mixto agrícola ganadero ubicándose en el nivel superior de la mitad derecha del plano de componentes principales, en el nivel inferior se ubica al sistema del pastizal naturalizado, el sistema agrícola intensivo se ubica entre ambos sitios pero con una proximidad aparente con el sistema del pastizal naturalizado en una situación intermedia.
 
 <!--
 ::: imagen-contenedor
@@ -1138,7 +1151,7 @@ En los suelos Argiudoles de Chivilcoy y Navarro (Fig 3.6) se observa una clara s
 
 <p class="descripcion">
 
-**Figura 3.6.** Biplot de coordenadas principales de las unidades taxonómicas de la comunidad de la fauna edáfica ocurridas en suelos Argiudoles típicos de Chivilcoy y Navarro bajo diferentes sistemas de uso del suelo. Los vectores representan los sistemas de uso del suelo N = pastizal naturalizado, G = mixto agrícola-ganadero, A = agrícola intensivo, los números que los acompañan marcan la réplica. Los puntos claros indican cada uno de los taxones diferentes hallados en estos suelos, los puntos fuertes representa el centroide de los grupos taxonómicos cuyo símbolo y color representa a un grupo particular en función de una clasificación que refiere al tamaño, al taxón y a hábitos tróficos característicos. col = colémbolos, lom = lombrices de tierra, mes = mesostigmatas, ori = sarcoptiformes, pros = prostigmatas
+**Figura 3.6.** Biplot de coordenadas principales de las unidades taxonómicas de la comunidad de la fauna edáfica ocurridas en suelos Argiudoles típicos de Chivilcoy - Navarro bajo diferentes sistemas de uso del suelo. Los vectores representan los sistemas de uso del suelo N = pastizal naturalizado, G = mixto agrícola-ganadero, A = agrícola intensivo, los números que los acompañan marcan la réplica. Los puntos claros indican cada uno de los taxones diferentes hallados en estos suelos, los puntos fuertes representa el centroide de los grupos taxonómicos cuyo símbolo y color representa a un grupo particular en función de una clasificación que refiere al tamaño, al taxón y a hábitos tróficos característicos. col = colémbolos, lom = lombrices de tierra, mes = mesostigmatas, ori = sarcoptiformes, pros = prostigmatas
 
 </p>
 :::
@@ -1146,11 +1159,11 @@ En los suelos Argiudoles de Chivilcoy y Navarro (Fig 3.6) se observa una clara s
 
 ![](Figures/Fig3-6.png){width=600 heigth=800}
 
-**Figura 3.6.** Biplot de coordenadas principales de las unidades taxonómicas de la comunidad de la fauna edáfica ocurridas en suelos Argiudoles típicos de Chivilcoy y Navarro bajo diferentes sistemas de uso del suelo. Los vectores representan los sistemas de uso del suelo N = pastizal naturalizado, G = mixto agrícola-ganadero, A = agrícola intensivo, los números que los acompañan marcan la réplica. Los puntos claros indican cada uno de los taxones diferentes hallados en estos suelos, los puntos fuertes representa el centroide de los grupos taxonómicos cuyo símbolo y color representa a un grupo particular en función de una clasificación que refiere al tamaño, al taxón y a hábitos tróficos característicos. col = colémbolos, lom = lombrices de tierra, mes = mesostigmatas, ori = sarcoptiformes, pros = prostigmatas
+**Figura 3.6.** Biplot de coordenadas principales de las unidades taxonómicas de la comunidad de la fauna edáfica ocurridas en suelos Argiudoles típicos de Chivilcoy - Navarro bajo diferentes sistemas de uso del suelo. Los vectores representan los sistemas de uso del suelo N = pastizal naturalizado, G = mixto agrícola-ganadero, A = agrícola intensivo, los números que los acompañan marcan la réplica. Los puntos claros indican cada uno de los taxones diferentes hallados en estos suelos, los puntos fuertes representa el centroide de los grupos taxonómicos cuyo símbolo y color representa a un grupo particular en función de una clasificación que refiere al tamaño, al taxón y a hábitos tróficos característicos. col = colémbolos, lom = lombrices de tierra, mes = mesostigmatas, ori = sarcoptiformes, pros = prostigmatas
 
 
 
-Observando los centroides de los taxones estudiados en los suelos de Chivilcoy y Navarro de menor a mayor a lo largo de la primera dimensión, observamos a las lombrices de tierra, estas a la vez se correlacionan levemente con el lado negativo del segundo eje de coordenadas lado que explica el agrupamiento del pastizal naturalizado. Luego se ubican los ácaros depredadores del suelo (Acari: Mesostigmata) sin una relación aparente con algún sistema de uso del suelo. Los ácaros prostigmatas y los ácaros oribátidos se ubican cercanos en un valor similar del primer eje de coordenadas pero separándose levemente sobre el sentido positivo del segundo eje de coordenadas, a la vez se encuentran relacionandose a los ácaros Prostigmata con los sitios del sistema agrícola intensivo y a los ácaros Oribatida con el sistema mixto agrícola ganadero. Más alejado se ubica el centroide que corresponde a los colémbolos, en una situación cercana al sistema agrícola.
+Observando los centroides de los taxones estudiados en los suelos de Chivilcoy - Navarro de menor a mayor a lo largo de la primera dimensión, observamos a las lombrices de tierra, estas a la vez se correlacionan levemente con el lado negativo del segundo eje de coordenadas lado que explica el agrupamiento del pastizal naturalizado. Luego se ubican los ácaros depredadores del suelo (Acari: Mesostigmata) sin una relación aparente con algún sistema de uso del suelo. Los ácaros prostigmatas y los ácaros oribátidos se ubican cercanos en un valor similar del primer eje de coordenadas pero separándose levemente sobre el sentido positivo del segundo eje de coordenadas, a la vez se encuentran relacionandose a los ácaros Prostigmata con los sitios del sistema agrícola intensivo y a los ácaros Oribatida con el sistema mixto agrícola ganadero. Más alejado se ubica el centroide que corresponde a los colémbolos, en una situación cercana al sistema agrícola.
 
 ## Discusión
 
@@ -1164,11 +1177,33 @@ Entre los diferentes sistemas de manejo las comunidades fueron disímiles entre 
 
 En resumen, los suelos Argiudoles típicos de la Pampa Ondulada en el marco de su composición química y biológica dan cuenta de las diferencias entre los diferentes sistemas de uso del suelo. Las comunidades de la fauna edáfica en estos suelos Argiudoles aunque separadas por grandes distancias en la Pampa Ondulada mantienen valores de diversidad similares entre los diferentes usos del suelo por lo que podemos hipotetizar que su resistencia a la antropización es importante. A su vez las comunidades son diferentes en su composición y esto es el reflejo de las variaciones a las que se someten los suelos con diferentes grado de antropización tales como el tiempo de uso y la forma en la que se utilizan los servicios ecosistémicos provistos por el suelo. Desde el punto de vista de las redes de interacciones tróficas la comunidad de la fauna edáfica al diferir en su composición pero no en su diversidad mantendría las funciones ecológicas pero a la vez podría observarse diferencias relacionadas con la estrutura de la red trófica como con las vías por las cuales discurre la materia y la energía, que en última instancia podría relacionarse a los diferentes procesos ecológicos vinculados con el ecosistema del suelo, es decir, cambios en los ciclos de los nutrientes y la energía.
 
-Es interesante el notar que en los suelos de Lujan, el PCA muestra que las unidades taxonómicas separan claramente un gradiente de intensidad de uso. Esto no resulta tan claro en los suelos de Chivilcoy y Navarro, donde el uso ganadero sí se separa claramente del agrícola intensivo y del pastizal naturalizado pero estos últimos no se separan entre si con claridad. El resultado obtenido para suelos de Lujan implica que la estructura de las comunidades edaficas reflejan la intensidad de uso e impacto antrópico. Por otro lado, suelos sometidos a labranza mínima durante años como los de Chivilvoy y Navarro, con acumulación constante de material vegetal en superficie mantienen condiciones que comunidades con alta resiliencia como las estudiadas no parecen distinguir entre sí.
+Es interesante el notar que en los suelos de Lujan, el PCA muestra que las unidades taxonómicas separan claramente un gradiente de intensidad de uso. Esto no resulta tan claro en los suelos de Chivilcoy - Navarro, donde el uso ganadero sí se separa claramente del agrícola intensivo y del pastizal naturalizado pero estos últimos no se separan entre si con claridad. El resultado obtenido para suelos de Lujan implica que la estructura de las comunidades edaficas reflejan la intensidad de uso e impacto antrópico. Por otro lado, suelos sometidos a labranza mínima durante años como los de Chivilvoy y Navarro, con acumulación constante de material vegetal en superficie mantienen condiciones que comunidades con alta resiliencia como las estudiadas no parecen distinguir entre sí.
 
 Desde el punto de vista de las redes de interacciones tróficas la comunidad de la fauna edáfica al diferir en su composición pero no en su diversidad mantendría las funciones ecológicas pero a la vez podría observarse diferencias relacionadas con la estructura de la red trófica como con las vías por las cuales discurre la materia y la energía, que en última instancia podría relacionarse a los diferentes procesos ecológicos vinculados con el ecosistema del suelo, es decir con cambios en los ciclos de los nutrientes y la energía.
 
 La información brindada en este capítulo junto con la provista en el siguiente, respecto de la distribución de tamaños y biomasa de la comunidad edáfica servirá para la construcción de la red de interacciones tróficas, que será el centro de atención del capítulo 5 de la tesis.
+
+<!--Indicator Value of Species in Communities
+The species composition of a community may be summarized using various
+statistical parameters, often expressed as diversity indices. Sheehan et al. (1984)
+provided a list of 18 parametric and non-parametric diversity indices, and discus-
+sed their application in studies of pollution. Despite their obvious appeal, divers-
+ity indices of microarthropod communities have not proven to be very useful.
+An example is the study of Siepel and Van de Bund (1988), who studied the
+influence of various management practices (fertilization, mowing, grazing) on
+the community structure of Collembola and Oribatida in grasslands. An effect
+of management on the microarthropod community could not be detected by
+means of the diversity indices of Simpson and Shannon-Wiener, while more
+sophisticated multivariate analysis revealed clear effects. Kuznetzova (1994)
+also criticized the use of the Shannon-Wiener diversity index, which did not
+give a good picture of Collembola communities in disturbed urban habitats in
+Moscow city, compared to natural forests.
+The main reason for the failure of diversity indices to indicate disturbance
+seems to be that they are not sensitive to the nature of the species; if species A
+is replaced by an equal number of individuals of species B, there is no change
+of diversity. The following sections will therefore attempt to analyse how
+information on the ecology of the species can be exploited to optimize the indic-
+ator value of the microarthropod community. Pankurrst1997 Biological soil indicator -->
 
 \newpage
 
@@ -1220,15 +1255,15 @@ Las comunidades de la fauna del suelo fueron muestreadas en suelos Argiudoles t�
 
 Se tomaron muestras de la comunidad de la fauna edáfica en el partido de Luján durante el año 2022, en suelos con manejo agrícola intensivo, un sistema de pastizal con pastoreo poco frecuente y una clausura de más de 30 años sin uso antrópico, y de ella se obtuvieron la microfauna, la mesofauna y la macrofauna.
 
-Además se utilizó el set de datos y los organismos microartrópodos de la mesofauna obtenidos de suelos de Chivilcoy y Navarro durante los años 2008 y 2009, en suelos con manejo agrícola intensivo, manejo mixto agrícola ganadero y pastizales naturalizados sin uso antrópico por más de 50 años.
+Además se utilizó el set de datos y los organismos microartrópodos de la mesofauna obtenidos de suelos de Chivilcoy - Navarro durante los años 2008 y 2009, en suelos con manejo agrícola intensivo, manejo mixto agrícola ganadero y pastizales naturalizados sin uso antrópico por más de 50 años.
 
 Más detalles sobre los sitios de estudios y sus características, sobre el diseño de muestreo y sobre la extracción de la fauna edáfica se desarrollaron en el capítulo 3 de esta tesis.
 
 ### Estimación del peso corporal individual de los organismos de la fauna edáfica
 
-La fauna edádica fue separada e identificada en taxones y posteriormente fue estimado el peso corporal en base seca de las diferentes unidades taxonómicas. El peso corporal de los organismos de la fauna edáfica se estimó a partir de la organismos colectados en suelos Argiudoles de Luján en el cuál se incluyen microfauna, mesofauna y macrofauna. También se cuantificó el peso corporal de los microartrópodos edáficos ocurridos en suelos de Chivilcoy y Navarro [@velazco2023; @velazco2023a].
+La fauna edádica fue separada e identificada en taxones y posteriormente fue estimado el peso corporal en base seca de las diferentes unidades taxonómicas. El peso corporal de los organismos de la fauna edáfica se estimó a partir de la organismos colectados en suelos Argiudoles de Luján en el cuál se incluyen microfauna, mesofauna y macrofauna. También se cuantificó el peso corporal de los microartrópodos edáficos ocurridos en suelos de Chivilcoy - Navarro [@velazco2023; @velazco2023a].
 
-La macrofauna edáfica, con tamaños superiores a 1 cm de longitud, se secó en estufa a 60 ºC hasta alcanzar un peso constante, que se estimó mediante una balanza analítica con una precisión de 1 mg. Para la fauna edáfica con longitudes corporales menores a 1 cm, se tomaron fotografías de cada individuo colectado, los cuales fueron montados temporalmente. La fauna edáfica fotografiada proveniente de los suelos de Luján incluyó 4260 individuos, de los cuales 775 eran nemátodos y 3485 mesofauna. En los suelos de Chivilcoy y Navarro, la fauna edáfica fotografiada consistió en 7208 ácaros y colémbolos
+La macrofauna edáfica, con tamaños superiores a 1 cm de longitud, se secó en estufa a 60 ºC hasta alcanzar un peso constante, que se estimó mediante una balanza analítica con una precisión de 1 mg. Para la fauna edáfica con longitudes corporales menores a 1 cm, se tomaron fotografías de cada individuo colectado, los cuales fueron montados temporalmente. La fauna edáfica fotografiada proveniente de los suelos de Luján incluyó 4260 individuos, de los cuales 775 eran nemátodos y 3485 mesofauna. En los suelos de Chivilcoy - Navarro, la fauna edáfica fotografiada consistió en 7208 ácaros y colémbolos
 
 Las fotografías se realizaron con un esteroscopio Leica (S8AP0) con cámara fotográfica incluida y escala de referencia integrada (Leica Application Suite V4.4).
 
@@ -1428,9 +1463,9 @@ Entre los ácaros mesostigmata (Tabla 4.3) el taxón de mayor peso corporal fue 
 
 Entre los ácaros prostigmatas (Tabla 4.3) destaca \underline{Cunaxidae} con el mayor peso corporal que solo fue registrado en el sistema agrícola. Los \underline{Bdelloidea} en el sistema del pastizal muestran los mayores valores de peso, densidad y biomasa. Los \underline{Eupodoidea} mostraron biomasas medias similares en los tres sistemas y fueron más abundantes en el sistema agrícola. Los \underline{pentalidos} de la reserva fueron los más pesados y los \underline{rhagididos} del pastizal fueron los más pesados. Los \underline{tydeidos} en el suelo de la reserva fueron los de mayor peso y biomasa.
 
-#### Microartrópodos edáficos de suelos Argiudoles de Chivilcoy y Navarro
+#### Microartrópodos edáficos de suelos Argiudoles de Chivilcoy - Navarro
 
-En los suelos de Chivilcoy y Navarro (Fig 4.4) los microartrópodos tienen un espectro de tamaños corporales de 8 órdenes de magnitud, con pesos corporales desde $e^{-3} = 0,05 \mu g$ hasta $e^{4} \approx 60 \mu g$.
+En los suelos de Chivilcoy - Navarro (Fig 4.4) los microartrópodos tienen un espectro de tamaños corporales de 8 órdenes de magnitud, con pesos corporales desde $e^{-3} = 0,05 \mu g$ hasta $e^{4} \approx 60 \mu g$.
 <!--
 ::: imagen-contenedor
 <img src="Figures/Fig4-4.png" alt="Figura 4.4" id="fig4.4"/>
@@ -1455,7 +1490,7 @@ Entre los ácaros oribátidos detritívoros (Tabla 4.4) la superfamilia \underli
 
 
 
-**Tabla 4.4.** Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) para los microartrópodos de suelos Argiudoles de Chivilcoy y Navarro
+**Tabla 4.4.** Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) para los microartrópodos de suelos Argiudoles de Chivilcoy - Navarro
 
 
 ```{r Tab4.4,echo=FALSE,warning=FALSE,message=FALSE}
@@ -1556,7 +1591,7 @@ Los gremios tróficos (Fig 4.6) fueron diferentes significativamente entre sí (
 
 Por otra parte, la biomasa media de la comunidad de la fauna edáfica que ocurre en suelos Argiudoles de Luján se mantiene alrededor de ≈163 mg~p.s.~.m^-2^ aunque la comunidad de la fauna edáfica se encuentre bajo diferentes formas de uso del suelo.
 
-En los suelos Argiudoles de Chivilcoy y Navarro la biomasa media de los microartrópodos edáficos se explicaron por los efectos del sistema de uso del suelo, por el efecto de los gremios tróficos y por interacciones entre los gremios tróficos y los sistemas de uso.
+En los suelos Argiudoles de Chivilcoy - Navarro la biomasa media de los microartrópodos edáficos se explicaron por los efectos del sistema de uso del suelo, por el efecto de los gremios tróficos y por interacciones entre los gremios tróficos y los sistemas de uso.
 
 $$B_{ij} = \mu_0 + \text{S}_i + \text{G}_j + \text({S x G})_{ij} + \epsilon_i$$
 
@@ -1669,7 +1704,7 @@ Todos los gremios difirieron significativamente entre sí sobre la pendiente (Ap
 
 Las pendientes \underline{dentro} de los gremios tróficos en comparación con los diferentes sistemas de uso del suelo (Apéndice 4.4) no difirieron en los gremios de omnínoros, detritívoros ni depredadores. Si se encontraron diferencias en los microfitófagos y los herbívoros (Apéndice 4.4). En el caso de los microfitófagos las pendientes de los sistemas reserva y pastizal no difirieron pero si hubo diferencias con la pendiente del sistema agrícola que resultó ser menor. Para el caso de los herbívoros las pendientes del sistema agrícola y el pastizal fue similar y de menor valor difiriendo de la reserva que resultó en un mayor valor.
 
-La regresión de quantiles evaluada entre la densidad y el peso medio de los taxones de \underline{microartrópodos edáficos}, que ocurrieron en suelos de Chivilcoy y Navarro, indica que existen interacciones con efecto sobre la pendiente debidas al sistema de uso del suelo y a los gremios tróficos, además existen interacciones sobre el intercepto debidas a los sistemas de uso del suelo y a los gremios tróficos.
+La regresión de quantiles evaluada entre la densidad y el peso medio de los taxones de \underline{microartrópodos edáficos}, que ocurrieron en suelos de Chivilcoy - Navarro, indica que existen interacciones con efecto sobre la pendiente debidas al sistema de uso del suelo y a los gremios tróficos, además existen interacciones sobre el intercepto debidas a los sistemas de uso del suelo y a los gremios tróficos.
 
 $$ D_{jk}^{\;\;\tau} = \beta_0^{\;\;\tau} + \beta_i^{\;\;\tau} + \beta_iS_j^{\;\;\tau} + \beta_iG_k^{\;\;\tau} + \beta_0S_j^{\;\;\tau} + \beta_0G_k^{\;\;\tau} + \beta_0(S\,x\,G)_{jk}^{\;\;\tau} + \beta_i(S\,x\,G)_{jk}^{\;\;\tau} +  \epsilon^{\;\;\tau} $$
 
@@ -1696,7 +1731,7 @@ Con excepción de los depredadores cuya densidad es baja ($y<e^{\,9}\,\approx810
 
 <p class="descripcion">
 
-**Figura 4.9.** Regresión de cuantiles ($\tau$ = 0,75) entre el peso corporal y la densidad de los taxones de gremios tróficos de microartrópodos ocurridos en diferentes sistemas de uso en suelos Argiudoles de Chivilcoy y Navarro. Los ejes de coordenadas expresan los valores de peso corporal (ug\~peso seco\~) y de la densidad (nº individuos/m^2^) en logaritmo natural. Se dibuja un plano de coordenadas (cada subdivisión del gráfico) por gremio trófico. Se dibuja una línea de regresión por cada sistema de uso del suelo. Los colores de los puntos indican diferentes taxones
+**Figura 4.9.** Regresión de cuantiles ($\tau$ = 0,75) entre el peso corporal y la densidad de los taxones de gremios tróficos de microartrópodos ocurridos en diferentes sistemas de uso en suelos Argiudoles de Chivilcoy - Navarro. Los ejes de coordenadas expresan los valores de peso corporal (ug\~peso seco\~) y de la densidad (nº individuos/m^2^) en logaritmo natural. Se dibuja un plano de coordenadas (cada subdivisión del gráfico) por gremio trófico. Se dibuja una línea de regresión por cada sistema de uso del suelo. Los colores de los puntos indican diferentes taxones
 
 </p>
 :::
@@ -1704,7 +1739,7 @@ Con excepción de los depredadores cuya densidad es baja ($y<e^{\,9}\,\approx810
 
 ![](Figures/Fig4-9.png){width=600 heigth=800}
 
-**Figura 4.9.** Regresión de cuantiles ($\tau$ = 0,75) entre el peso corporal y la densidad de los taxones de gremios tróficos de microartrópodos ocurridos en diferentes sistemas de uso en suelos Argiudoles de Chivilcoy y Navarro. Los ejes de coordenadas expresan los valores de peso corporal (ug\~peso seco\~) y de la densidad (nº individuos/m^2^) en logaritmo natural. Se dibuja un plano de coordenadas (cada subdivisión del gráfico) por gremio trófico. Se dibuja una línea de regresión por cada sistema de uso del suelo. Los colores de los puntos indican diferentes taxones
+**Figura 4.9.** Regresión de cuantiles ($\tau$ = 0,75) entre el peso corporal y la densidad de los taxones de gremios tróficos de microartrópodos ocurridos en diferentes sistemas de uso en suelos Argiudoles de Chivilcoy - Navarro. Los ejes de coordenadas expresan los valores de peso corporal (ug\~peso seco\~) y de la densidad (nº individuos/m^2^) en logaritmo natural. Se dibuja un plano de coordenadas (cada subdivisión del gráfico) por gremio trófico. Se dibuja una línea de regresión por cada sistema de uso del suelo. Los colores de los puntos indican diferentes taxones
 
 La variación de cada gremio trófico sobre el intercepto (Apéndice 4.4) fue diferente significativamente ($>|\;t\;| : p_{value}<0.1$), los detritívoros y omnívoros comparten valores de interceptos similares y con el mayor valor, siguen a estos los microfitófagos y los depredadores.
 
@@ -1776,7 +1811,7 @@ Como el sistema detritívoro del suelo depende de la materia orgánica como recu
 <!--  Esta tendencia positiva puede estar relacionada con su capacidad para consumir una amplia variedad de recursos, lo que les permite adaptarse mejor a diferentes condiciones ambientales y aprovechar diversas fuentes de alimento 
 Los omnívoros tienden a aprovechar una mayor diversidad de recursos alimenticios, lo que les permite crecer y mantener mayores densidades poblacionales a diferentes tamaños corporales. Esto sugiere que estos organismos pueden tener una flexibilidad trófica que les permite adaptarse mejor a fluctuaciones en los recursos del suelo.-->
 ```
-Particularmente, se presentó una disyuntiva al observar las pendientes de los gremios tróficos entre los sistemas de uso del suelo. Por un lado, en suelos de Chivilcoy y Navarro los detritívoros en los sistemas antropizados tuvieron pendientes más cercanas a cero, lo que implica que los animales detritívoros más pesados pueden sobrevivir en estos ambientes perturbados. Por otro lado, en suelos de Luján, los gremios microfitófagos y hervívoros tuvieron valores de pendientes más alejados de cero en el sistema agrícola lo que implica la mayor abundancia de animales de menor peso corporal y la menor chance de encontrar animales de gran peso en estos gremios, coincidiendo con la predicción de que ambientes perturbados se relacionan con pendientes más negativas.
+Particularmente, se presentó una disyuntiva al observar las pendientes de los gremios tróficos entre los sistemas de uso del suelo. Por un lado, en suelos de Chivilcoy - Navarro los detritívoros en los sistemas antropizados tuvieron pendientes más cercanas a cero, lo que implica que los animales detritívoros más pesados pueden sobrevivir en estos ambientes perturbados. Por otro lado, en suelos de Luján, los gremios microfitófagos y hervívoros tuvieron valores de pendientes más alejados de cero en el sistema agrícola lo que implica la mayor abundancia de animales de menor peso corporal y la menor chance de encontrar animales de gran peso en estos gremios, coincidiendo con la predicción de que ambientes perturbados se relacionan con pendientes más negativas.
 
 Estos hallazgos sugieren que la relación entre el espectro de tamaños de la fauna edáfica y el uso que se hace de los suelos Argiudoles de la Pampa Ondulada no sigue una respuesta que vincule efectos fuertes debido a las perturbaciones en detrimento de la comunidad [@potapov2019; @zhou2022; @sechi2017].
 
@@ -1844,39 +1879,50 @@ El objetivo de este capítulo es utilizar la teoría de las redes tróficas para
 Se muestrearon comunidades de la fauna del suelo en suelos Argiudoles típicos de la Pampa Ondulada, provenientes de dos conjuntos de datos:
 
 1.  Fauna edáfica de suelos del partido de Luján, incluyendo nemátodos, mesofauna y macrofauna.
-2.  Fauna edáfica de suelos de los partidos de Chivilcoy y Navarro, incluyendo microartrópodos y lombrices.
+2.  Fauna edáfica de suelos de los partidos de Chivilcoy - Navarro, incluyendo microartrópodos y lombrices.
 
 En ambos casos, se tomaron muestras en suelos bajo diferentes formas de uso, considerados como diferentes grados de intensidad de perturbación:
 
-Suelos de Luján: - Sistema de referencia (R): Área clausurada por más de 30 años. - Sistema con baja intensidad de uso (P): Pastizal con baja presión de pastoreo. - Sistema con alta intensidad de uso (A): Área agrícola con labranza mínima y aplicación de fertilizantes.
+Suelos de Luján: 
+  -    Sistema de referencia (R): Área clausurada por más de 30 años. 
+  -    Sistema con baja intensidad de uso (P): Pastizal con baja presión de pastoreo. 
+  -    Sistema con alta intensidad de uso (A): Área agrícola con labranza mínima y aplicación de fertilizantes.
 
-Suelos de Chivilcoy y Navarro: - Sistema sin uso (N): Relictos de pastizal naturalizado. - Sistema con intensidad de uso intermedio (G): Sistemas mixtos de producción de forraje y pastoreo. - Sistema con alta intensidad de uso (A): Áreas con cultivos agrícolas por más de 50 años.
+Suelos de Chivilcoy - Navarro: 
+  -    Sistema sin uso (N): Relictos de pastizal naturalizado. 
+  -    Sistema con intensidad de uso intermedio (G): Sistemas mixtos de producción de forraje y pastoreo. 
+  -    Sistema con alta intensidad de uso (A): Áreas con cultivos agrícolas por más de 50 años.
 
 De esta manera, se contó con un gradiente de intensidad de uso del suelo, desde sistemas de referencia sin uso, hasta sistemas con uso agrícola intensivo, que permitirá analizar el efecto de la perturbación sobre la estructura y estabilidad de las redes tróficas de la edafofauna.
 
-Para construir y modelar la red de interacciones tróficas de la fauna del suelo, es necesario conocer las comunidades que habitan los diferentes ambientes, los recursos tróficos que forman la base energética de la red, y los hábitos alimenticios de los nodos que la componen, con el fin de modelar la matriz de interacciones tróficas [@delmas2019]. A esta matriz se le pueden añadir atributos a los nodos, como el peso corporal y la densidad de los taxones involucrados [@laigle2018], lo que permite calcular las fuerzas de interacción [@deruiter1995] o los flujos de energía entre nodos (enlaces). Con esta información, es posible entender qué sucede a través de la red trófica [@potapov2022; @barnes2018] y determinar un valor de estabilidad de los sistemas estudiados [@moore2012; @gauzens2019; @allesina2008].
+Para construir y modelar la red de interacciones tróficas de la fauna del suelo, es necesario conocer las comunidades que habitan los diferentes ambientes, los recursos tróficos que forman la base energética de la red, y los hábitos alimenticios de los nodos que la componen, con el fin de modelar la matriz de interacciones tróficas [@delmas2019]. A esta matriz se le pueden añadir atributos a los nodos, estos atributos son variables numéricas, nominales o categóricas, tales como el peso corporal y la densidad de los taxones involucrados [@laigle2018], lo que permite calcular las fuerzas de interacción [@deruiter1995] o los flujos de energía entre nodos (enlaces). Con esta información, es posible entender qué sucede a través de la red trófica [@potapov2022; @barnes2018] y determinar un valor de estabilidad de los sistemas estudiados [@moore2012; @gauzens2019; @allesina2008].
+
 
 ### Construcción de la red trófica: definición de la matriz de interacciones y de los atributos de nodos
 
-A partir de las comunidades encontradas en los suelos Argiudoles de Luján, Chivilcoy y Navarro, y considerando los distintos usos del suelo, se construyó una matriz de adyacencia para representar las interacciones tróficas. En esta matriz, las filas y columnas corresponden a la identidad de los taxones de la fauna edáfica hallados en los muestreos (n=105). Además, se incluyeron bacterias, hongos, protozoos y los recursos tróficos base: hojarasca, humus (materia orgánica del suelo), carroña de invertebrados y tejido vegetal (raíces y sus exudados). La matriz de adyacencia (Apéndice 5.1) contiene todos los nodos de la red trófica edáfica (n=112). Si los elementos de la matriz son distintos de cero, indican una interacción trófica potencial, donde el nodo en la columna (consumidor) se alimenta del nodo en la fila (recurso). A cada interacción se le asignaron preferencias de consumo de acuerdo con la siguiente escala: alta - moderada alta - moderada - moderada baja - baja - muy baja, con valores de 0.9 - 0.7 - 0.5 - 0.4 - 0.25 - 0.1, respectivamente [@moore2012].
+A partir de las comunidades encontradas en los suelos Argiudoles de Luján, Chivilcoy - Navarro, y considerando los distintos usos del suelo, se construyó una matriz de adyacencia para representar las interacciones tróficas. En esta matriz, las filas y columnas (nodos) corresponden a la identidad de los taxones de la fauna edáfica hallados en los muestreos (n=105). Además, se incluyeron bacterias, hongos, protozoos y los recursos tróficos base: hojarasca, humus (materia orgánica del suelo), carroña de invertebrados y tejido vegetal (raíces y sus exudados). La matriz de adyacencia (Apéndice 5.1) contiene todos los nodos de la red trófica edáfica (n=112). Si los elementos de la matriz son distintos de cero, indican una interacción trófica potencial, donde el nodo en la columna (consumidor) se alimenta del nodo en la fila (recurso). A cada interacción se le asignaron preferencias de consumo de acuerdo con la siguiente escala: alta - moderada alta - moderada - moderada baja - baja - muy baja, con valores de 0.9 - 0.7 - 0.5 - 0.4 - 0.25 - 0.1, respectivamente [@moore2012].
 
 Estas interacciones tróficas y sus valores fueron tomadas de la revisión bibliográfica desarrollada en el capítulo 2 de la tesis. A partir de la matriz de interacciones, se seleccionaron los nodos correspondientes a cada comunidad en particular, definiendo de esta manera las redes tróficas presentes en cada localidad y uso del suelo.
 
-Se utilizaron como atributos de los nodos aquellos valores numéricos, nominales o categóricos que describen una característica específica de cada nodo. Estos atributos incluyen los pesos corporales, las biomasas medias y las densidades medias correspondientes a cada taxón o nodo.
+Se utilizaron como atributos de los nodos los pesos corporales medios, las biomasas medias y las densidades medias correspondientes a cada nodo. Para la fauna edáfica las variables para estos atributos fueron tratados en detalle en el capítulo 4.
 
-Se asumieron algunos parámetros para los nodos que corresponden a recursos tróficos base [@velazco2023b; @potapov2022], basados en evidencia bibliográfica. Estos nodos no han sido medidos en algunos casos, como en los datos de comunidades edáficas de los suelos Argiudoles de Chivilcoy y Navarro, o debido a su complejidad, son difíciles de cuantificar.
+Por otra parte, se asumieron algunos atributos para los nodos que corresponden a recursos tróficos base [@velazco2023b; @potapov2022], basados en evidencia bibliográfica, dado que estos atributos no han sido medidos en algunos casos, como en los datos de comunidades edáficas de los suelos Argiudoles de Chivilcoy - Navarro, o debido a su complejidad, son difíciles de cuantificar.
 
-En cuanto al nodo "humus", se consideró que el 50% de la materia orgánica es un proxy de la biomasa de este nodo para suelos Argiudoles de la Pampa Ondulada [@alvarez2006; @pankhurst1997; @kononova1975]. Para calcular su biomasa, se refiere a la superficie en metros cuadrados, utilizando una densidad aparente promedio de los suelos (DAP = 1,2 g.cm^-2^), hasta los 10 centímetros de profundidad, zona en la que se encuentra la mayor proporción de materia orgánica y la mayor actividad biológica.
+En cuanto al nodo "humus", se consideró que el 50% de la materia orgánica es un proxy del atributo biomasa media de este nodo para suelos Argiudoles de la Pampa Ondulada [@alvarez2006; @pankhurst1997; @kononova1975]. Para calcular su biomasa, se refiere a la superficie en metros cuadrados, utilizando una densidad aparente promedio de los suelos (DAP = 1,2 g.cm^-2^), hasta los 10 centímetros de profundidad, zona en la que se encuentra la mayor proporción de materia orgánica y la mayor actividad biológica. El peso corporal y la densidad de este fué asignado como 1.
 
-Para los organismos de la microflora y la microfauna se tomaron valores obtenido por Digel [-@digel2014], quien evaluó las características topológicas de decenas de redes de diferentes ecosistemas y las comparó con redes tróficas de los suelos de bosques de la región Paleártica, el indica que el peso promedio de las bacterias del suelo es 9,5x10^-16^ g, indica también el peso promedio de cada uno de los principales grupos de protozoos del suelo, tardígrados, rotíferos y otra microfauna y de los cuáles consideramos el valor promedio que resultó en 1,1121x10^-10^ g como el valor para el nodo "microfauna". El peso promedio de los hongos por metro lineal de hifas se tomó de Pilar et al. [-@andres2016] resultando en un valor de 2,3x10^-7^ g.m^-1^.
+Para los nodos de "bacterias" se tomaron los pesos corporales medios obtenidos por Digel [-@digel2014], quien evaluó las características topológicas de decenas de redes de diferentes ecosistemas y las comparó con redes tróficas de los suelos de bosques de la región Paleártica, el indica que el peso promedio de las bacterias del suelo es 9,5x10^-16^ g. Digel [-@digel2014] indica también el peso promedio de cada uno de los principales grupos de la microfauna no nemátoda del suelo, estos son, protozoos, tardígrados, rotíferos y otra microfauna y de los cuáles consideramos el valor promedio 1,1121x10^-10^ g como el valor para el nodo "protozoos". El peso promedio de los hongos por metro lineal de hifas se tomó de Pilar et al. [-@andres2016] resultando en un valor de 2,3x10^-7^ g.m^-1^.
 
-Las biomasas de bacterias, hongos y microfauna no nemátoda, son aproximadas a partir de la respiración de los heterótrofos, considerando que 1 mgCO~2~/g~suelo~.h = 0.206 mgC~biomasa~/g~suelo~ [@zabala2010; @west1986], de esta biomasa media se considera que el 50% es el recurso efectivamente disponible para los consumidores debido a las restricciones de accesibilidad y palatabilidad que existen en el sistema poroso del suelo [@coleman2011; @Thakur2020]. Entonces, para ambos suelos Argiudoles se consideró que el 2 % de la biomasa media de los heterótrofos corresponde a la microfauna no nemátoda [@persson1980; @persson1977; @hale1971]. Para \underline{suelos de Luján} se utilizó la relación de hongos y bacterias para calcular su biomasa sobre el 48% de la biomasa media de los heterótrofos, en los \underline{suelos de Chivilcoy y Navarro} se consideró el 45% de la respiración para calcular las biomasas de bacterias y hongos dado que el 3% será utilizado para estimar la biomasa de nemátodos y el 2% para microfauna no nemátoda, en sistemas agrícolas intensivos se asumió 35% de bacterias, en el sistema mixto agrícola ganadero se asumió 30% de bacterias y para el pastizal naturalizado se asumió una contribución de bacterias del 25% [@pankhurst1997; @hunt1987; @lavelle2003; @moore2012]
+Las biomasas medias de bacterias, hongos y microfauna no nemátoda ("protozoos"), son aproximadas a partir de la respiración de los heterótrofos (Capítulo 3. Tabla 3.4), este se aproxima considerando que 1 mgCO~2~/g~suelo~.h = 0.206 mgC~biomasa~/g~suelo~ [@zabala2010; @west1986], de esta biomasa media se considera que el 50% es el recurso efectivamente disponible para los consumidores debido a las restricciones de accesibilidad y palatabilidad que existen en el sistema poroso del suelo [@erktan2020]. 
+Entonces, para ambos suelos Argiudoles se consideró que el 2 % de la biomasa media
+estimada por la respiración de los heterótrofos corresponde al valor 
+de la biomasa media del nodo "protozoos" [@persson1980; @persson1977; @hale1971]. 
+Para \underline{suelos de Luján} se utilizó la relación de hongos y bacterias (Capítulo 3. Tabla 3.4) para estimar la biomasa media de dichos nodos sobre el 45% de la biomasa media estimada a partir de la respiración de los heterótrofos. En los \underline{suelos de Chivilcoy - Navarro} se consideró el 45% de la biomasa media estimada a partir de la respiración de los heterótrofos para calcular las biomasas medias de bacterias y hongos, a partir de esta se consideró que el 35 - 30 - 25 % corresponde a la biomasa medias de bacterias en los sistemas agrícola intensivo, mixto agrícol ganadero y pastizal naturalizado respectivamente [@pankhurst1997; @hunt1987; @lavelle2003; @moore2012]. El 3% de la biomasa media de la respiración de heterótrofos se utiliza para estimar la biomasa media de los nemátodos.
 
-Para el caso de los nemátodos de vida libre del suelo para el conjunto de datos de los suelos Argiudoles de Luján se utilizaron los valores de abundancia y peso medio a partir de los muestreos realizados. En cambio, para los Argiudoles de Chivilcoy y Navarro se utilizaron las relaciones de proporción promedio de nemátodos observados en los suelos de Luján, por lo tanto, nemátodos fungívoros, bacteríofagos, fitófagos, omnívoros y depredadores, fueron referidos al 40 - 30 - 14 - 8 y 8 % respectivamente, a la vez se consideró el peso medio de los nemátodos de cada categoría trófica a partir del peso medio general obtenidos en suelos de Luján, por lo tanto, nemátodos fungívoros, bacteríofagos, fitófagos, omnívoros y depredadores, pesaron 3,2 - 1,8 - 1,02 - 8 - 6 microgramos respectivamente.
+Los nemátodos de vida libre del suelo conforman 5 nodos: nemátodos bacterívoros, fungívoros, depredadores, omnívoros y fitófagos. Para el conjunto de datos de los suelos Argiudoles de Luján se utilizaron los valores de densidad y peso medio a partir de los muestreos realizados. En cambio, para los Argiudoles de Chivilcoy - Navarro se utilizaron las relaciones de proporción promedio de nemátodos observados en los suelos de Luján, por lo tanto, nemátodos fungívoros, bacteríofagos, fitófagos, omnívoros y depredadores, fueron referidos al 40 - 30 - 14 - 8 y 8 % respectivamente, a la vez se consideró el peso medio de los nemátodos de cada categoría trófica a partir del peso medio general obtenidos en suelos de Luján, por lo tanto, nemátodos fungívoros, bacteríofagos, fitófagos, omnívoros y depredadores, pesaron 3,2 - 1,8 - 1,02 - 8 - 6 microgramos respectivamente.
 
-En cuanto a la biomasa de los recursos tróficos base se estimaron la biomasa para el humus que fue calculado para ambas localidades como se ha descrito más arriba, la biomasa para la carroña que fue estimada a partir del peso de todos los invertebrados presente en los diferentes sistemas de uso y que pueden dejar carroña, considerando que un 5% de la biomasa de invertebrados es igual a la biomasa de la carroña. Para la biomasa de la hojarasca se tienen valores para suelos de Luján pero no para Chivilcoy y Navarro y la biomasa del tejido vegetal que incluye raíces y exudados no fue determinado.
+En cuanto a la biomasa de los recursos tróficos base se estimaron la biomasa para el humus que fue calculado para ambas localidades como se ha descrito más arriba. La biomasa para la carroña fue estimada a partir del peso de todos los invertebrados presente en los diferentes sistemas de uso y que pueden dejar carroña, considerando que el 5% de la biomasa de estos invertebrados es igual a la biomasa media de la carroña. Para la biomasa de la hojarasca se tienen valores para suelos de Luján pero no para Chivilcoy - Navarro y la biomasa del tejido vegetal que incluye raíces y exudados no fue determinado en ninguno de los suelos.
 
-Los valores de la densidad y el peso para el humus, hojarasca, carroña y tejido vegetal fueron asignados con el valor 1, también se asigno el valor 1 para la biomasa de la hojarasca de los suelos de Chivilcoy y Navarro y para la biomasa del tejido vegetal de manera de poder realizar cálculos de fuerzas de interacción y flujos de energía [@allesina2008; @pawar2009; @gauzens2019] <!-- densidad y peso 1 g/m2??? habria que hacer una tabla para ver todos los "nodos" que se 
+Los valores de la densidad y el peso para el humus, hojarasca, carroña y tejido vegetal fueron asignados con el valor 1, también se asigno el valor 1 para la biomasa de la hojarasca de los suelos de Chivilcoy - Navarro y para la biomasa del tejido vegetal de manera de poder realizar cálculos de fuerzas de interacción y flujos de energía [@allesina2008; @pawar2009; @gauzens2019] <!-- densidad y peso 1 g/m2??? habria que hacer una tabla para ver todos los "nodos" que se 
 midieron y los que se asumieron -->
 
 ### Métricas de la red trófica: índices topológicos, flujos de energía y valor de estabilidad
@@ -1885,20 +1931,21 @@ A partir de la matriz de interacciones, se calcularon los índices topológicos 
 
 Como medidas de complejidad del sistema calculamos el **tamaño de la red** que indica el número de nodos que conforman la red. El **número de enlaces** que es la cantidad de interacciones tróficas que ocurren en la red. La **densidad de enlaces** indica el número medio de interacciones por nodo referidas al total y da una idea del nivel de especialización entre los nodos de la red trófica. La **conectancia** es la proporción de enlaces efectivamente realizados en la red trófica en relación al total de conexiones potenciales del grafo con el mismo tamaño y es un valor que da una idea de la probabilidad de que dos nodos de la red sean un par que tengan una interacción trófica. Como medidas de estructura de la red trófica tenemos el valor de **agrupamiento o clustering** cuantifica el grado de cohesión local en la red, indicando la tendencia de los nodos a formar triadas o grupos fuertemente interconectados. Matemáticamente, el coeficiente de clustering se define como la proporción de triángulos presentes en la red respecto al número total de triángulos posibles, reflejando la densidad de conexiones en los vecindarios locales de los nodos.
 
-Entre las métricas que atienden a las características tróficas de los nodos dentro de una red trófica se encuentra el **nivel trófico**, que define la posición de un nodo en la red en función de los nodos de los cuales se alimenta. Como valores de resumen, se considera el **nivel trófico medio**, que es el promedio de los niveles tróficos de todos los nodos de la red, y el **nivel trófico máximo**, que representa el nivel más alto alcanzado por algún nodo en la red.
+Entre las métricas que atienden a las características tróficas de los nodos dentro de una red trófica se encuentra el **nivel o posición trófica**, que define la posición de un nodo en la red en función de los nodos de los cuales se alimenta. Como valores de resumen, se considera el **nivel trófico medio** que es el promedio de los niveles tróficos de todos los nodos de la red y el **nivel trófico máximo** que representa el nivel más alto alcanzado por algún nodo en la red.
 
-Por su posición en la red, se calculan el número de nodos **basales**, que corresponde a aquellos nodos que no consumen a otros, es decir, no dependen de recursos tróficos, y el número de nodos **tope**, que son aquellos que no son consumidos por otros nodos de la red trófica modelada. Además, se calcula la **omnivoría**, definida como la proporción de especies omnívoras, es decir, nodos que se alimentan de presas en más de un nivel trófico. El **nivel de omnivoría**, por su parte, es una medida que indica la variabilidad de los niveles tróficos de las presas de un consumidor, calculando el promedio de los diferentes niveles tróficos sobre los cuales se alimentan los nodos omnívoros, reflejando así la amplitud de su dieta. Desde el punto de vista de los nodos tróficos se miden la **vulnerabilidad** que implican el número de consumidores que en promedio se alimentan de un nodo y la **generalidad** que es el número medio de recursos que consume en promedio un nodos tróficos en la red. Estas métricas calculadas para las redes tróficas de suelos bajo diferentes intensidades de uso permitirá ver diferencias estructurales tanto a nivel de la red como en promedio al nivel de los nodos que constituyen la red. <!-- que aportan las metricas en relacion al nuestra hipotesis, 
+Por su posición en la red, se calculan el número de nodos **basales**, que corresponde a aquellos nodos que no consumen a otros, es decir, no dependen de recursos tróficos, en estas redes por su construcción es igual a 4 (humus, hojarasca, tejido vegetal, carroña) y el número de nodos **tope**, que son aquellos que no son consumidos por otros nodos en la red trófica. Además, se calcula la **omnivoría**, definida como la proporción de nodos omnívoros, es decir, nodos que se alimentan de recursos ubicados en más de un nivel trófico. El **nivel de omnivoría**, por su parte, es una medida que indica la variabilidad de los niveles tróficos de las presas de un consumidor, calculando el promedio de los diferentes niveles tróficos sobre los cuales se alimentan los nodos omnívoros, reflejando así la amplitud de su dieta. Desde el punto de vista de los nodos tróficos se miden la **vulnerabilidad** que implican el número de consumidores que en promedio se alimentan de un nodo y la **generalidad** que es el número medio de recursos que consume en promedio un nodos tróficos en la red. Estas métricas calculadas para las redes tróficas de suelos bajo diferentes intensidades de uso permitirá ver diferencias estructurales tanto a nivel de la red como en promedio al nivel de los nodos que constituyen la red. <!-- que aportan las metricas en relacion al nuestra hipotesis, 
 que significado ecologico tienen -->
 
-Se calcularon los flujos de energía entre los nodos de la red asumiendo que el balance energético es cero [@barnes2018; @gauzens2019], es decir, que las pérdidas energéticas son compensadas con las ganancias energéticas. Para el cálculo es necesario conocer los pesos corporales medios y las biomasas medias de los nodos de la red trófica. <!-- falta algo aca --> Se debe estimar la tasa metabólica en función del peso corporal, utilizando la fórmula: tasa metabólica = 17.17 peso^-0.29^[@gauzens2019]. Además, es necesario establecer los coeficientes de asimilación para diferentes grupos tróficos: detritívoros, microfitófago, depredadores, omnívoros y herbívoros, con valores de 0,35-0,25-0,4-0,7-0,25-0,125, respectivamente [@coleman2004; @moore2012].
+Se calcularon los flujos de energía entre los nodos de la red asumiendo que el balance energético es cero [@barnes2018; @gauzens2019], es decir, que las pérdidas energéticas son compensadas con las ganancias energéticas. Para el cálculo es necesario conocer los pesos corporales medios y las biomasas medias de los nodos de la red trófica. Se debe estimar la tasa metabólica en función del peso corporal, utilizando la fórmula: tasa metabólica = 17.17 peso^-0.29^ [@gauzens2019]. Además, es necesario establecer los coeficientes de asimilación para diferentes grupos tróficos: detritívoros, microfitófago, depredadores, omnívoros y herbívoros, con valores de 0,35-0,25-0,4-0,7-0,25-0,125, respectivamente [@coleman2004; @moore2012].
 
-Con los flujos de energía entre los nodos y considerando una la clasificación por formas de alimentación se determinó un sentido funcional que indirectamente dan cuenta de los cambios en procesos ecológicos relacionados con el efecto de las perturbaciones en los diferentes sistemas de uso, se observaron las formas de alimentación tales como la microbivoría que implica la regulación de la biomasa de bacterias y hongos, la detritivoría que se relaciona con los procesos de descomposición de la materia orgánica, la zoofagia que es la regulación de poblaciones de la fauna edáfica y la biotransforación que es el uso del humus como fuente de alimento y que se relaciona con la estructura física y química del suelo orgánico mineral. Estos flujos de energía son expresados en Joules/año y son comparados de manera relativa entre sistemas con relación al flujo total de energía que es el valor de todos los flujos de energía entre los nodos [@gauzens2019; @moore2012].
+Con los flujos de energía entre los nodos y considerando la clasificación por formas de alimentación se determinó un sentido funcional que indirectamente dan cuenta de los cambios en procesos ecológicos relacionados con el efecto de las perturbaciones en los diferentes sistemas de uso, se observaron las formas de alimentación tales como la microbivoría que implica la regulación de la biomasa de bacterias y hongos, la detritivoría que se relaciona con los procesos de descomposición de la materia orgánica, la zoofagia que es la regulación de poblaciones de la fauna edáfica y la biotransforación que es el uso del humus como fuente de alimento y que se relaciona con la estructura física y química del suelo orgánico mineral. Estos flujos de energía son expresados en Joules/año y son comparados de manera relativa entre sistemas con relación al flujo total de energía que es el valor de todos los flujos de energía entre los nodos [@gauzens2019; @moore2012; @potapov2022].
 
-Para comparar los flujos de energía entre redes tróficas, además, se redujeron las redes tróficas de los suelos Argiudoles ubicados en Luján a nodos que incluyan taxones similares a aquellos que ocurren en los suelos Argiudoles de Chivilcoy y Navarro de modo de poder comparar diferencias en los flujos de energía y vincularlos las diferencias con los efectos debidos a los sistemas de usos de suelos. Las redes parciales así establecidas se conforman de taxones de ácaros, colémbolos, lombrices, microfauna, microflora y recursos base.
+Para comparar los flujos de energía entre redes tróficas, además, se redujeron las redes tróficas de los suelos Argiudoles ubicados en Luján a nodos que incluyan nodos similares a aquellos que ocurren en los suelos Argiudoles de Chivilcoy - Navarro de modo de poder comparar diferencias en los flujos de energía y vincularlos las diferencias con los efectos debidos a los sistemas de usos de suelos. Las redes parciales así establecidas se conforman de taxones de ácaros, colémbolos, lombrices, microfauna, microflora y recursos base.
 
-También se calcularon las fuerzas de interacción entre los nodos de la red trófica utilizando el método de Pawar [-@pawar2012], para posteriormente emplearlas en el cálculo de la estabilidad de la red trófica. Para ello, se consideraron los pesos corporales y las densidades de los recursos. Es necesario tener en cuenta la dimensionalidad del espacio de búsqueda de los predadores; siguiendo la clasificación de Pawar [-@pawar2012] esto corresponde a una dimensionalidad "2D" en el sistema detritívoro del suelo, donde el depredador busca y captura a la presa directamente en la superficie. En este caso, el área de búsqueda abarca la superficie entre los agregados, los poros y los canales en el suelo orgánico-mineral. El valor de la fuerza de interacción cuantifica el efecto de los consumidores (depredadores) sobre la biomasa de los recursos (presas) y se expresa como el efecto por unidad de biomasa del consumidor Pawar [-@pawar2012].
+También se calcularon las fuerzas de interacción entre los nodos de la red trófica utilizando el método de Pawar [-@pawar2012], para posteriormente emplearlas en el cálculo de la estabilidad de la red trófica. Para ello, se consideraron los pesos corporales y las densidades de los recursos. Es necesario tener en cuenta la dimensionalidad del espacio de búsqueda de los predadores; siguiendo la clasificación de Pawar [-@pawar2012] esto corresponde a una dimensionalidad "2D" en el sistema detritívoro del suelo, donde el depredador busca y captura a la presa directamente sobre la superficie. En este caso, el área de búsqueda abarca la superficie entre los agregados, los poros y los canales en el suelo orgánico-mineral [@erktan2020]. El valor de la fuerza de interacción cuantifica el efecto de los consumidores (depredadores) sobre la biomasa de los recursos (presas) y se expresa como el efecto por unidad de biomasa del consumidor Pawar [-@pawar2012].
 
-Para calcular el valor de **estabilidad de quasi-signo** [@allesina2008], se sigue el siguiente procedimiento:
+Para calcular el valor de **estabilidad de quasi-signo** [@allesina2008] (*Quasi
+Sign-Stability*), se sigue el siguiente procedimiento:
 
 -   Cálculo de la matriz Jacobiana: Se construye la matriz Jacobiana, que representa el efecto neto de las interacciones entre pares de nodos, utilizando las fuerzas de interacción previamente calculadas.
 
@@ -1917,9 +1964,58 @@ Se utilizó el paquete ["multiweb"](https://github.com/lsaravia/multiweb) [@lsar
 
 ## Resultados
 
-Las redes tróficas de los suelos Argiudoles se configuraron con 4 recursos tróficos que son los nodos basales en estas redes, estos son, el tejido vegetal que incluye tanto a las raíces como a sus sus exudados, la hojarasca que es el tejido vegetal muerto que se acumula sobre el suelo y que se encuentra en proceso de fragmentación y descomposición e incorporación a la materia orgánica del suelo, el humus que es la materia orgánica en avanzado estado de descomposición, con una estructura molecular estable y que forma enlaces con la fracción mineral de los coloides de la arcilla del suelo y la carroña que proviene de los tejidos de la fauna edáfica, todas estas diferentes fuentes son denominados genéricamente en conjunto como detritos.
+Se muestran las redes tróficas "completas" (Fig. 4.1) que incluyen las tres clases de tamaños de la fauna 
+edáfica (micro- meso- macro- fauna) y las redes tróficas "parciales" (Fig. 4.2) que incluyen a 
+microartrópodos y lombrices, configuradas a partir de los diferentes sistemas de uso del suelo. 
 
-El tamaño de la red trófica en suelos de Luján fue mayor en el sistema del pastizal con un mayor número y densidad de enlaces (Tabla 5.1), seguidos por la reserva. A pesar del mayor número de nodos en el pastizal, el número de nodos tope fue el menor como así también el porcentaje de omnivoría que para ambos parámetros el mayor valor se observa en la reserva. Un mayor número de nodos topes implica una mayor presión de depredadores sobre sus presas y un mayor número en el porcentaje de omnivoría indica una mayor complejidad trófica.
+**Tabla 5.1.** Tabla de índices topológicos de las redes tróficas de los diferentes sistemas de uso en suelos de Luján
+
+
+
+```{r tab5.1, echo=FALSE, message=FALSE, warning=FALSE}
+tabla5.1 <- read.csv("database/tabla5.1.txt", sep="")
+names(tabla5.1)<-c("Sistema","Tamaño","nº enlaces","Tope","% Omnivoría","Nivel de Omnivoría",
+                   "Nivel trófico","Nivel trófico promedio","Conectancia","Densidad de enlaces",
+                   "Clustering","Vulnerabilidad","Generalidad")
+
+#tabla5.1[,c("Sistema","Conectancia","Densidad de enlaces",
+ #                  "Clustering","Vulnerabilidad","Generalidad")]%>%kbl() %>%kable_classic(full_width = F, #html_font = "Times New Roman")
+
+tabla5.1[,c("Sistema","Tamaño","nº enlaces","Conectancia","Densidad de enlaces","Clustering")] %>%
+  kbl(booktabs = TRUE) %>%  # Activar booktabs para PDF
+  kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
+   kable_styling(latex_options = c("hold_position", "basic"))
+
+tabla5.1[,c("Sistema","Tope","Nivel trófico promedio","Nivel trófico",
+            "% Omnivoría","Nivel de Omnivoría")] %>%
+  kbl(booktabs = TRUE) %>%  # Activar booktabs para PDF
+  kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
+   kable_styling(latex_options = c("hold_position", "basic"))
+
+```
+
+En ambas redes (Fig. 4.1 y Fig. 4.2) se observan claramente el primer nivel trófico, 
+en el cual se ubican los nodos basales
+que corresponden a los recursos tróficos base del sistema detritívoro del suelo y que 
+son los nodos por los cuales ingresan la materia y la energía a estas redes tróficas. 
+Se observa también en ambas redes tróficas el segundo nivel trófico, 
+es decir los consumidores que solo se alimentan de alguno de los nodos basales. 
+A partir del segundo nivel trófico no se observa un clara separación 
+en niveles tróficos y por lo tanto los nodos se ubican 
+en el continuo entre niveles tróficos. 
+
+En suelos de Luján (Tabla 5.1), las redes tróficas con un impacto leve en el uso del suelo (pastizal)
+tuvo los mayores valores en el tamaño de la red y en el número y densidad de los enlaces. 
+
+La conectancia y el coeficiente de *clustering* fueron menores en la red trófica para suelos
+sin impacto antrópico (reserva) lo que implica una menor complejidad en la estructura de la red
+en comparación con las redes tróficas de sistemas antropizados.
+
+A pesar del mayor número de nodos en el pastizal, 
+el número de nodos tope fue el menor como así también el porcentaje de omnivoría.
+
+Una mayor presión de depredadores sobre sus presas y una mayor complejidad trófica mediada por los 
+omnívoros son observados en la estructura de la red sin uso antrópico del suelo.
 
 \newpage
 
@@ -1958,49 +2054,31 @@ V(L_net)$name<-V(L_net)$id
 plot_troph_level(L_net,modules=FALSE,vertexLabel = TRUE, tk = FALSE,main="agrícola",ylab="Nivel Trófico")
 ```
 
-<p class="interlineado-simple">
+<!--<p class="interlineado-simple">-->
 
 **Figura 5.1** Representación de las redes tróficas de la comunidad detritívora de la fauna edáfica de suelos Argiudoles típicos de Luján para cada sistema de uso del suelo. El tamaño de los nodos representa al grado del nodo, los colores forman un gradiente desde el verde hacia el rojo para indicar nodos base hacia nodos tope respectivamente. La distribución de los nodos a lo largo del eje horizontal sigue un patrón aleatorio por lo tanto no se vincula a características del nodo en particular. Sobre el eje vertical se indica el nivel trófico. La numeración de los nodos refiere a los taxones a los que representa el nodo para ver el número del taxón ver Apéndice 5.2.
 
-</p>
+<!--</p>-->
 
 \newpage
 
-El sistema de uso del pastizal donde el uso del suelo es de intensidad "leve" muestra (Tabla 5.1) los valores más altos del nivel trófico máximo, el nivel trófico medio y el nivel de omnivoría, por lo que los nodos tróficos pueden explorar recursos en más niveles que los que ocurren entre los sistemas agrícola y de la reserva.
+Con respecto a la ecología trófica en estas redes
+los valores del nivel trófico medio y máximo fueron próximos entre sí, 
+aunque los valores en el sistema del pastizal son los mayores.
+
+La amplitud de la dieta en los tres sistemas de uso del suelo en redes tróficas "completas"
+(Tabla 5.1) fue similar considerando la proximidad del valor del nivel de omnivoría entre estos.
+
+En los suelos de Chivilcoy - Navarro (redes tróficas "parciales")
+tanto el tamaño de la red como el número y densidad de enlaces fue mayor en el sistema con
+alto impacto en el uso del suelo (Tabla 5.2). 
+
+La complejidad de las redes (Tabla 5.2) fue relativamente menor en el sistema sin uso antrópico
+(pastizal naturalizado) en relación con los suelos antropizados, 
+tal como se observa por sus valores de conectancia y *clustering*. 
 
 
-**Tabla 5.1.** Tabla de índices topológicos de las redes tróficas de los diferentes sistemas de uso en suelos de Luján
-
-
-
-```{r tab5.1, echo=FALSE, message=FALSE, warning=FALSE}
-tabla5.1 <- read.csv("database/tabla5.1.txt", sep="")
-names(tabla5.1)<-c("Sistema","Tamaño","nº enlaces","Tope","% Omnivoría","Nivel de Omnivoría",
-                   "Nivel trófico","Nivel trófico promedio","Conectancia","Densidad de enlaces",
-                   "Clustering","Vulnerabilidad","Generalidad")
-
-#tabla5.1[,c("Sistema","Conectancia","Densidad de enlaces",
- #                  "Clustering","Vulnerabilidad","Generalidad")]%>%kbl() %>%kable_classic(full_width = F, #html_font = "Times New Roman")
-
-tabla5.1[,c("Sistema","Tamaño","nº enlaces","Tope","% Omnivoría","Nivel de Omnivoría",
-                   "Nivel trófico","Nivel trófico promedio")] %>%
-  kbl(booktabs = TRUE) %>%  # Activar booktabs para PDF
-  kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
-   kable_styling(latex_options = c("hold_position", "basic"))
-
-tabla5.1[,c("Sistema","Conectancia","Densidad de enlaces","Clustering","Vulnerabilidad","Generalidad")] %>%
-  kbl(booktabs = TRUE) %>%  # Activar booktabs para PDF
-  kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
-   kable_styling(latex_options = c("hold_position", "basic"))
-
-```
-
-La densidad de enlaces, la conectancia y el coeficiente de clustering fueron mayores en el sistema del pastizal, el mismo patrón se observa con los valores de Generalidad y Vulnerabilidad. Este mayor valor en el pastizal está relacionado con el mayor tamaño de la red y el mayor número de enlaces en la red del sistema del pastizal. En cambio en el sistema agrícola el tamaño de la red fue más pequeño pero su conectancia fue mayor que el del sistema de la reserva, lo que explica valores próximos entre estos sistemas.
-
-El tamaño de la red en suelos de Chivilcoy y Navarro (Tabla 5.2) fue mayor en el sistema agrícola intensivo y menor en el sistema mixto. La cantidad de interacciones tróficas fue mayor sistema agrícola intensivo y menor en el pastizal naturalizado. La conectancia fue menor en el pastizal naturalizado por lo que su complejidad es menor que la observada en el sistema agrícola intensivo y mixto agrícola ganadero. En el pastizal naturalizado existió un mayor número de especies tope, por lo que existe una mayor presión de depredadores en dicho sistema. 
-
-
-**Tabla 5.2.** Tabla de índices topológicos de las redes tróficas de los diferentes sistemas de uso de los suelos Argiudoles típicos de la Pampa Ondulada ocurridos en suelos de Chivilcoy y Navarro
+**Tabla 5.2.** Tabla de índices topológicos de las redes tróficas de los diferentes sistemas de uso de los suelos Argiudoles típicos de la Pampa Ondulada ocurridos en suelos de Chivilcoy - Navarro
 
 
 ```{r tab5.2, echo=FALSE, message=FALSE, warning=FALSE}
@@ -2009,38 +2087,28 @@ names(tabla5.2)<-c("Sistema","Tamaño","nº enlaces","Tope","% Omnivoría","Nive
                    "Nivel trófico","Nivel trófico promedio","Conectancia","Densidad de enlaces","Clustering","Vulnerabilidad","Generalidad")
 #tabla5.2[,c("Sistema","Tamaño","nº enlaces","Tope","% Omnivoría","Nivel de Omnivoría",
  #                  "Nivel trófico","Nivel trófico promedio")]%>%kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
-tabla5.2[,c("Sistema","Tamaño","nº enlaces","Tope","% Omnivoría","Nivel de Omnivoría",
-               "Nivel trófico","Nivel trófico promedio")]%>%
+tabla5.2[,c("Sistema","Tamaño","nº enlaces","Conectancia","Densidad de enlaces","Clustering")]%>%
   kbl(booktabs = TRUE) %>%  # Activar booktabs para PDF
   kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
    kable_styling(latex_options = c("hold_position", "basic"))
 
-tabla5.2[,c("Sistema","Conectancia","Densidad de enlaces","Clustering","Vulnerabilidad","Generalidad")]%>%
+tabla5.2[,c("Sistema","Tope","Nivel trófico promedio","Nivel trófico","% Omnivoría","Nivel de Omnivoría")]%>%
   kbl(booktabs = TRUE) %>%  # Activar booktabs para PDF
   kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
    kable_styling(latex_options = c("hold_position", "basic"))
 ```
 
 
+Con respecto a la estructura trófica (Tabla 5.2) de las redes tróficas "parciales",
+los valores del nivel trófico medio y máximo, el porcentaje de omnívoría y el nivel de omnivoría
+fueron próximos entre sí entre los diferentes sistemas de uso del suelo.
 
-El porcentaje de omnivoría y el nivel de omnivoría (Table 5.2) muestran valores próximos entre sistemas. El máximo nivel trófico y el nivel trófico medio fue mayor en el sistema mixto agrícola ganadero.
+En general, se observó que la complejidad de las redes fue mayor en suelos antropizados.
+Se observa además que se mantienen similares las características tróficas de las redes a pesar de las 
+diferentes prácticas de manejo que ocurren sobre el suelo, esto es un indicio de que la 
+estructura trófica de las redes se mantiene independiente de las prácticas de manejo que ocurren sobre
+estos suelos. 
 
-Hubo un mayor número de interacciones en el sistema agrícola intensivo y muestra un mayor valor en la densidad de enlaces. El valor de vulnerabilidad en el sistema agrícola intensivo fue más alto por lo que los nodos de esta red sufren una mayor presión de consumo por parte de otros nodos tróficos. La conectancia y el clustering fueron mayores en el sistema mixto agrícola ganadero por lo que implica una mayor cantidad de interacciones en relación a todas las potenciales interacciones y una estructura de la red más compleja que en otros sistemas. El valor de la generalidad también fue más alto en el sistema mixto por lo que indica que en general los nodos de la red se enlazan a más recursos que los nodos de los demás sistemas.
-
-<!--  Sugerencia General para las métricas topológicas. 30/9
-Dado que los valores presentados en las tablas carecen de variabilidad estadística y no permiten realizar comparaciones robustas entre los diferentes sistemas de uso del suelo, el análisis de los resultados debe centrarse en la interpretación cualitativa de las tendencias observadas. 
-Conectancia y densidad de enlaces:
-En ambos conjuntos de datos (Luján y Chivilcoy-Navarro), los sistemas agrícolas intensivos muestran una densidad de enlaces relativamente alta, lo que sugiere que estas redes tróficas tienden a estar más conectadas.
-Sin embargo, la conectancia varía ligeramente entre los sistemas, y las diferencias podrían reflejar las variaciones en la estructura trófica y la organización del ecosistema bajo diferentes manejos de uso de suelo.
-Omnivoría y nivel trófico:
-El porcentaje de omnivoría y el nivel de omnivoría parecen mantenerse relativamente constantes entre los diferentes sistemas. Aunque estas métricas no muestran gran variabilidad, sugiere que la capacidad de los organismos para consumir en distintos niveles tróficos se mantiene independiente del sistema de manejo, lo que podría indicar una relativa estabilidad en la estructura de las redes.
-El nivel trófico promedio es ligeramente mayor en los sistemas más intensivos (agrícola intensivo), lo cual podría interpretarse como una indicación de que estos sistemas presentan una mayor complejidad trófica o una mayor proporción de organismos en niveles tróficos superiores.
-Clustering:
-El coeficiente de clustering es consistentemente mayor en los sistemas mixtos y pastizales naturalizados en ambos sitios. Este patrón podría interpretarse como una indicación de que las especies en estos sistemas tienden a agruparse en interacciones más locales, lo que podría ser una señal de una mayor modularidad en la red trófica. Por otro lado, los sistemas agrícolas intensivos muestran un clustering ligeramente inferior, lo que sugiere una red más distribuida.
-Vulnerabilidad y Generalidad:
-La vulnerabilidad y la generalidad son consistentemente más bajas en los sistemas de pastizal naturalizado, lo que indica que estos ecosistemas podrían tener una menor capacidad de resistencia o adaptabilidad frente a disturbios. En contraste, los sistemas mixtos agrícolas ganaderos presentan los valores más altos, lo que podría sugerir una mayor diversidad funcional en estos ecosistemas.
-En resumen, aunque no se pueden hacer comparaciones estadísticas, se pueden identificar tendencias generales que sugieren diferencias en la organización y estructura trófica entre los sistemas, lo que podría ser relevante para la gestión y conservación de estos ecosistemas.
--->
 
 \newpage
 
@@ -2063,7 +2131,7 @@ plot_troph_level(A_net,modules=FALSE,vertexLabel = TRUE, tk = FALSE,main="agríc
 
 <p class="interlineado-simple">
 
-**Figura 5.2** Representación de las redes tróficas de suelos Argiudoles típicos de Chivilcoy y Navarro para cada sistema de uso del suelo cuya comunidad se conforma de microartrópodos edáficos y lombrices de tierra. El tamaño de los nodos representa al grado del nodo, los colores forman un gradiente desde el verde hacia el rojo para indicar especies base hacia especies tope respectivamente. La distribución de los nodos a lo largo del eje horizontal sigue un patrón aleatorio por lo tanto no se vincula a caracteristicas del nodo en particular. Sobre el eje vertical se indica el nivel trófico. La numeración de los nodos refiere a los taxones a los que representa el nodo para ver el número del taxón ver Apéndice 5.2.
+**Figura 5.2** Representación de las redes tróficas de suelos Argiudoles típicos de Chivilcoy - Navarro para cada sistema de uso del suelo cuya comunidad se conforma de microartrópodos edáficos y lombrices de tierra. El tamaño de los nodos representa al grado del nodo, los colores forman un gradiente desde el verde hacia el rojo para indicar especies base hacia especies tope respectivamente. La distribución de los nodos a lo largo del eje horizontal sigue un patrón aleatorio por lo tanto no se vincula a caracteristicas del nodo en particular. Sobre el eje vertical se indica el nivel trófico. La numeración de los nodos refiere a los taxones a los que representa el nodo para ver el número del taxón ver Apéndice 5.2.
 
 </p>
 
@@ -2071,15 +2139,27 @@ plot_troph_level(A_net,modules=FALSE,vertexLabel = TRUE, tk = FALSE,main="agríc
 
 ### Flujos de energía a través de las redes tróficas
 
-El flujo de energía total, que atraviesa las redes tróficas detritívoras en suelos Argiudoles de Luján fue mayor en la comunidad de la fauna edáfica de la reserva, seguida por la comunidad en el pastizal y el sistema agrícola intensivo con el menor flujo de energía, siendo estos de 2,50 - 2,16 - 1,33 MJ.año^-1^ respectivamente. Por lo que el flujo total de energía indica un importante efecto sobre la comunidad de la fauna que habita el sistema de uso intensivo del suelo.
+El flujo de energía total, que atraviesa las redes tróficas detritívoras en suelos Argiudoles de 
+Luján (Tabla 5.3) fue mayor en el suelo sin uso antrópico, además se observa una importante caída 
+del flujo total de la energía en el sistema con un alto impacto en el uso del suelo.
+Esta disminución estuvo mediada principalmente por la 
+disminución de la biomasa media en los nodos de la microflora 
+y su efecto se mantiene a lo largo de los diferentes canales de energía.
 
-La cantidad de energía ligada a la \underline{biotransformación} del suelo (Tabla 5.3), es decir, el canal de energía relacionado con el consumo de la materia orgánica humificada del suelo, ocupa una gran importancia en el sistema edáfico del suelo, pudiendo representar hasta un 69% de la cantidad total de energía que atraviesa el sistema.
+El flujo total de la energía indica la importancia que tiene 
+el sistema de uso del suelo sobre la comunidad de la fauna 
+que habita el sistema de uso intensivo del suelo.
 
-En la reserva se observa el mayor valor de energía ligada con el uso de la materia orgánica del suelo (1,7 MJ.año^-1^) y con respecto al sistema de la reserva el sistema agrícola se aleja con una diferencia de 0,88 MJ.año^-1^.
+La cantidad de energía ligada a la \underline{biotransformación} del suelo (Tabla 5.3), 
+es decir, el canal de energía relacionado con el consumo de la materia orgánica 
+humificada del suelo ("humifagia"), ocupa una gran importancia en el sistema edáfico del suelo.
+Este canal representa el ≈ 69% del total de la energía en la reserva y el pastizal 
+y el ≈ 63% en el sistema con alto impacto en el uso del suelo. 
+Por lo tanto, la participación de la fauna edáfica en la 
+humifagia fué del ≈ 25% en el sistema agrícola
+aumentando su participación en comparación con los sistemas de bajo y nulo impacto sobre el suelo
+donde la fauna contribuyó con este canal de energía con el ≈ 19,5%. 
 
-El consumo del humus del suelo por parte de la fauna edáfica se estimó alrededor del 22 ± 3 % en estos sistemas.
-
-La menor participación de la microflora en el consumo de la materia orgánica del suelo se observó en el sistema agrícola (Tabla 5.3).
 
 <p class="interlineado-simple">
 
@@ -2096,49 +2176,127 @@ tabla5.3%>%
    kable_styling(latex_options = c("hold_position", "basic"))
 ```
 
-La detritivoría y la microfitofagia fueron mayores (Tabla 5.3) en valor absoluto en la reserva. En términos relativos la detritivoría fue mayor en el sistema agrícola (≈ 30%) y fue similar tanto en el pastizal como en la reserva (≈ 25,5%). A la vez (Tabla 5.3) la participación de la microflora en el consumo de la hojarasca\
-en descomposición en el sistema del pastizal fue de mayor importancia, en la otra cara, la participación de la fauna edáfica en el consumo de este recurso fue mayor en el sistema agrícola.
+La detritivoría es el segundo canal de energía en importancia en las redes tróficas "completas" 
+construida para la fauna edáfica. Este canal de energía fue mas importante en el sistema 
+agrícola con una importancia del ≈ 31,5%, en comparación los sistemas sin uso y con uso leve
+tienen una importancia del ≈ 25,5%. La microflora en este canal de energía es el 
+principal consumidor con importancias del 86%, 88% y 93%, ocurridos
+en el sistema con alto impacto, impacto nulo y pastizal respectivamente. 
 
-En todos los sistemas el consumo de bacterias y hongos, \underline{microfitofagia/microviboría}, conllevan flujos de energía menores al 4,9% con relación al del flujo total de energía que atraviesa estos suelos, en los suelos de la reserva la microviboría fue ligeramente mayor, seguidas por el sistema del pastizal y el sistema agrícola intensivo.
+La herbivoría, en relación al flujo total de energía fué más alto en el sistema 
+agrícola intensivo y la importancia de la microflora en este sistema fué el más bajo
+en comparación con los demás sistemas de uso del suelo. Por lo tanto, nos da una 
+idea de una mayor participación (≈ 97%) de animales herbívoros en el sistema con 
+alto impacto en el uso del suelo. 
 
-<!-- explicacion de zoofagia a metodos, poner valores en tablas y aqui mencionar tendencias generales con % -->
+Se observa entonces que cuando disminuye la contribución de la microflora en 
+el flujo de energía la fauna edáfica crece en importancia relativa en los diferentes canales 
+de energía.
 
-El consumo de la fauna, la \underline{zoofagia}, se estima como la suma de la energía que pasa por los depredadores "verdaderos" y por la cantidad de energía ligada al consumo de fauna del que se alimentan los omnívoros, este contabiliza ≈ 0,64% del flujo total de energía. Por su parte, la contribución de los omnívoros a los canales de la microfitofagia y detritivoria se halla contabilizada en el canal en cuestión.
 
-La zoofagia, en términos absolutos, fue mayor en el pastizal (≈15,3 kJ.año^-1^) y menor en el sistema agrícola (≈9 kJ.año^-1^). Referidas al total la importancia de la zoofagia fue cercana entre el pastizal y el sistema agrícola alrededor del 0,69% y menor en la reserva con una importancia del 0,54%. La cantidad de energía que llega a los depredadores verdaderos es el de menor importancia relativa por debajo del 0,3% del flujo total, en los suelos de la reserva la cantidad de energía a través de estos fue el más bajo destacando la participación de los omnívoros en la regulación de las poblaciones de la fauna edáfica en el sistema de la reserva. La zoofagia por parte de los omnívoros es de gran importancia en estos sistemas a través de estos nodos tróficos llega aproximadamente 60% del flujo energético relacionado con el consumo de zooplasma, en la reserva la contribución de los omnívoros fue mayor que en sistemas antropizados. Estos resultados sobre la zoofagia marcan la importancia de los omnívoros en los sistemas edáficos para el control de poblaciones de la fauna edáfica.
+La \underline{microfitofagia} (o "microviboría"), implica el consumo de bacteria y 
+hongos. Este corresponde al tercer canal de energía en importancia
+en redes tróficas "completas". Con relación al flujo total de energía,
+su importancia relativa fue de ≈ 5 - 4,3 y 4,1 % en los suelos sin uso, uso leve y uso intensivo 
+respectvamente. Esto muestra una disminución de la participación de la fauna microfitófaga
+a lo largo del gradiente de impacto sobre el suelo.
+
+El consumo de la fauna, la \underline{zoofagia}, se estima como la suma de la energía que pasa por los depredadores "verdaderos" y por la cantidad de energía ligada al consumo de fauna del que se alimentan los omnívoros, este contabiliza < 0,71% del flujo total de energía. <!--0.5374R;0,7057P;0,6718A-->
+
+La zoofagia, en términos absolutos (Tabla 5.3), fue mayor en el pastizal (≈ 15,3 kJ.año^-1^) y menor en el sistema agrícola (≈ 9 kJ.año^-1^). Relativas al total la importancia de la zoofagia
+fue cercana entre el pastizal y el sistema agrícola alrededor del 0,69% y menor en la reserva con una importancia del 0,54%. La cantidad de energía que llega a los depredadores verdaderos
+fue menor que la contribución de los omnívoros a este canal. 
+En los suelos de la reserva la cantidad de energía a través de los depredadores
+fue el más bajo, participando solo con el 22% de la energía que llega a través del
+canal de la zoofagia, destacando la participación de los omnívoros en la regulación 
+de las poblaciones de la fauna edáfica en el sistema de la reserva. 
+Estos resultados sobre la zoofagia marcan la importancia de los omnívoros 
+en los sistemas edáficos para el control de poblaciones de la fauna edáfica.
 
 <p class="interlineado-simple">
 
-**Tabla 5.4** Flujos de energía en Joule/año, en entre paréntesis el porcentaje del flujo de energía en relación al flujo total y entre corchetes el porcentaje del flujo de energía que llega a la microflora. Las columnas corresponden a los diferentes canales de energía vinculados a las funciones biológicas que ocurren en las redes tróficas de las comunidades de microartrópodos edáficos y lombrices de tierra de suelos Argiudoles de Chivilcoy y Navarro y suelos Argiudoles de Luján
+**Tabla 5.4** Flujos de energía de redes tróficas "parciales". El flujo total de enegía 
+en Joule/año. Para los canales de energía se indica el porcentaje de la contribución 
+del canal en relación al flujo total y entre paréntesis la participación 
+de la microflora. Las columnas corresponden a los diferentes canales de energía vinculados a las funciones biológicas que ocurren en las redes tróficas de las comunidades de microartrópodos edáficos y lombrices de tierra de suelos Argiudoles de Chivilcoy - Navarro y suelos Argiudoles de Luján
 
 </p>
 
 ```{r flujos_multicanal_show, echo=FALSE, message=FALSE,warning=FALSE}
 tabla5.4 <- read.csv("database/tabla5.4.txt", sep="")
 #tabla5.4%>%kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
+
 tabla5.4%>%
   kbl(booktabs = TRUE) %>%  # Activar booktabs para PDF
   kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
    kable_styling(latex_options = c("hold_position", "basic"))
 ```
 
-En los suelos de Chivilcoy y Navarro, (Tabla 5.4) los flujos de energía alcanzan un máximo de 37,74 kJ.año^-1^ en los suelos con actividad agrícola ganadera, seguidos por el sistema agrícola intensivo que suma 37,4 kJ.año^-1^ y el pastizal naturalizado con 37,2 kJ.año^-1^.
+La tabla 5.4 muestra los flujos de energía para las redes tróficas "parciales",
+esta incluye los recursos tróficos bases (Capítulo 2) y la contribución de 
+ácaros, colémbolos y lombrices de tierra.
 
-En la red trófica parcial en los suelos Argiudoles de Luján en promedio el flujo total de energía fue de 1,73 MJ.año^-1^, es decir, que a través de la red trófica de Luján se estimó un flujo de energía 46 veces mayor, esta diferencia puede deberse a diferencias en los valores de biomasa en los recursos tróficos base estimados entre localidades.
+En los suelos de Chivilcoy - Navarro, (Tabla 5.4) el flujo total de energía
+fue cercano entre sistemas de uso del suelo con valores alrededor de 37,5kJ.año^-1^.
+En comparación, en la red trófica parcial en los suelos Argiudoles de Luján, 
+se estimó un flujo total de la energía 46 veces mayor, 
+esta diferencia puede deberse a diferencias en los valores de biomasa en los recursos tróficos base 
+estimados entre localidades. Además, en suelos de Luján,
+se mantiene el efecto de la disminución de la biomasa media 
+de la microflora en el sistema con alto impacto en el uso del suelo.
 
-El canal vinculado al consumo del humus en el suelo, \underline{biotransformación}, fue el de mayor importancia superando el 95% de la contribución al flujo total de energía en todas las redes tróficas.
+El canal vinculado al consumo del humus en el suelo, \underline{biotransformación}, fue el de mayor 
+importancia superando el 95% de la contribución al flujo total de energía en las redes tróficas 
+parciales. En términos relativos la contribución de la microflora a este canal de energía
+fue mayor al 80% y se mantuvieron con valores cercanos entre sistemas en las diferentes localidades.
+Particularmente, la contribución relativa 
+de la fauna edáfica fue ligeramente mayor en los suelos de Chivilcoy - Navarro en comparación 
+con los suelos de Luján.
 
-En suelos Argiudoles de Chivilcoy y Navarro, en términos relativos (Tabla 5.4) los tres sistemas poseen valores del flujo de energía a través del canal de la biotransformación próximos entre sí, siendo ligeramente mayor el flujo de energía en el sistema del pastizal naturalizado. Con respecto a la participación de la microflora en el uso de la materia orgánica del suelo, en términos relativos fue mayor en el sistema mixto agrícola ganadero seguidos por el pastizal naturalizado.
+La detritivoría en las redes tróficas parciales pasa a un tercer lugar de importancia 
+comparando la importancia relativa de este canal de energía con
+las redes tróficas "totales" (Tabla 5.3). 
+Esto muestra la contribución energética
+de la macrofauna en el proceso de la fragmentación y consumo de los detritos del suelo.
 
-En suelos de Luján para este mismo canal de energía también se observan (Tabla 5.4) valores relativos próximos entre sí, con los mayores valores en el sistema agrícola y la reserva, por su parte, la contribución de la microflora fue mayor en el pastizal seguidos por la reserva.
+Se observa además variaciones porcentuales importantes en la contribución del canal de la 
+detritivoría entre localidades y sistemas de uso del suelo. A la vez,
+una mayor valor porcentual en la detritivoría se acompaña de 
+una menor contribución porcentual de la microflora,
+es decir, donde la detritivoría fue relativamente más importante esta fue mediada por 
+la fauna edáfica. 
 
-La detritivoría (Tabla 5.4) en suelos de Chivilcoy y Navarro fue menor en el pastizal naturalizado con una gran participación de la microflora en el consumo de la hojarasca, a la vez la detritivoría fue mayor en el sistema agrícola intensivo con una participación importante de la fauna en el consumo del material vegetal en descomposición. Por su parte en suelos de Luján es en la reserva donde se da una mayor proporción del flujo de energía vinculado con la detritivoría y donde la participación de la fauna es mayor en comparación con los demás sistemas de uso del suelo.
+El canal de energía ligada a la \underline{microfitofagia}, se posiciona 
+como el segundo canal de energía en importancia relativa en estas redes tróficas parciales,
+indicando la importante contribución de los microartrópodos edáficos en el consumo
+de bacterias y hongos, actividad trófica relacionado con el control de las poblaciones
+de estos y a la vez con el transporte de sus propágulos a través de la matriz 
+porosa del suelo orgánico-mineral.
 
-El canal de energía de la \underline{microfitofagia} relacionado al control de poblaciones de la microflora, en suelos de Chivilcoy y Navarro fue de menor importancia en el pastizal naturalizado separandose casi 0,2 puntos porcentuales de los que ocurren en sistemas antropizados cuyos valores fueron similares entre sí; en suelos de Luján la microfitofagia fue mayor en el sistema del pastizal y menor en el sistema agrícola.
+Se observa una diferencia de hasta 3 puntos porcentuales en la contribución
+relativa de la microfitofagia entre diferentes localidades. 
+En suelos de Luján la contribución fue en promedio del ≈ 3,8 % con valores entre sistemas de uso
+próximos entre sí. En suelos de Chivilcoy - Navarro el canal de la microfitofagia 
+fue en promedio solo del ≈ 0,8 %, a la vez que en el suelo sin uso antrópico
+la fauna edáfica tuvo una menor participación en este canal de energía. 
 
-La zoofagia, en suelos de Chivilcoy y Navarro, contabiliza valores similares del flujo de energía entre el pastizal naturalizado y el sistema agrícola intensivo (≈32 J.año^-1^), aunque la contribución de la predación por omnívoros es mayor en el sistema agrícola intensivo. En valor absoluto solo un Joule por debajo fue el flujo de energía vinculado a la zoofagia en el sistema mixto agrícola ganadero. Tanto en el pastial naturalizado como en el sistema mixto agrícola gandero la contribución de los depredadores "verdaderos" a la zoofagia fue mayor que la zoofagia por parte de los omnívoros. Indicando que en sistemas con alta intensidad de uso la regulación de poblaciones de la fauna edáfica queda bajo el control de omnívoros más que de taxones de depredadores edáficos.
+La \underline{zoofagia} fue porcentualmente diferente en estas 
+redes parciales, fueron como máximo 0,09% y 0,6% en los suelos de Chivilcoy - Navarro 
+y Luján respectivamente.
+La contribución de los depredadores "verdaderos" fue más importante en los suelos de 
+Chivilcoy - Navarro con un aumento de la participación de los omnívoros en la zoofagia 
+en las redes del suelo con un con alto impacto.
 
-En suelos de Luján la contribución a la zoofagia por parte de los omnívoros es mayor que la participación de los depredadores "verdaderos", en términos relativos y fue un patrón general entre sistemas pero en la reserva la participación de los omnívoros en la regulación de poblaciones fue más importante en comparación con los demás sistemas de uso del suelo.
+En los suelos de Luján se mantuvieron las relaciones verdaderos depredadores - omnívoros zoofagos,
+como los observados más arriba, esto es, los omnívoros contribuyen más a la zoofagia
+que los verdaderos depredadores. Entonces, son los microartrópodos zoófagos
+quienes estructuran este fenómeno en el canal de la energía de la redes tróficas detritívoras del 
+suelo. Por otra parte, si se pueden calcular variaciones en entre las
+relaciones depredadores:omnívoros en comparación con las redes 
+tróficas "completas", lo que nos indica que las contribuciones varían 
+al considerar los zoófagos de la micro- y macro- fauna edáfica.
+
+
 
 ### Estabilidad de las redes tróficas en suelos Argiudoles
 
@@ -2159,10 +2317,16 @@ Q_median_L<-median(log(QSS.final$maxreL))
 
 ```
 
-En los suelos Argiudoles, en redes tróficas edáficas completas aquellas que ocurrieron en suelos de Luján,\
-la distribución de la parte real del máximo autovalor (λ) de las matrices de quasi-signo (QSS) de las redes de interacciones tróficas (Fig. 5.3) se movió en un rango entre 1x10^-2^ y 5.
+En los suelos Argiudoles, en redes tróficas edáficas "completas" construidas 
+para los diferentes sistemas de uso que reciben los suelos de Luján,
+las distribuciones del índice de estabilidad QSS (la parte real del máximo autovalor, λ )
+fueron diferentes según la prueba del Anderson-Darling $AD: p_{\,valor} < 0.05$), 
+indicando independencia entre las distribuciones. 
 
-La distribución de los valores de estabilidad de cuasi-signo (QSS) producto de las iteraciones del algoritmo realizadas sobre las redes tróficas de detritívoros edáficos que ocurren en los diferentes sistemas de uso del suelo, se hallaron diferencias significativas entre los tres sistemas de uso según la prueba de Anderson-Darling $AD: p_{\,valor} < 0.05$.
+En la figura 5.3 se observa que estas distribuciones son simétricas, 
+que sus modas y valores de centralidad se encuentran dentro del rango intercuantílico y
+que los valores de tendencia central se hallan alrededor de e^-1^ ≈ 0,368. 
+
 
 ```{r plot_QSS_IS,echo=FALSE,message=FALSE,warning=FALSE,fig.align='center'}
 par(mfrow=c(1,3))
@@ -2195,17 +2359,40 @@ par(mfrow=c(1,1))
 
 </p>
 
-**Figura 5.3** Histogramas del valor de estabilidad. En el eje horizontal, se expresa el valor del máximo autovalor de la matriz Jacobiana obtenidas a partir del algoritmo de quasi-signo (Alesina et al 2015) expresado en logaritmo natural, se muestran mil iteraciones. Eje vertical valor de frecuencia del intervalo. Como líneas verticales se dibujan, el promedio en color amarillo, la mediana en color rojo, y los cuantiles primero y tercero como líneas más finas
+**Figura 5.3** Distribución del autovalor del índice *Quasi-Sing (QSS)*. En el eje horizontal, se
+se muestran mil iteraciones del máximo autovalor de la matriz Jacobiana obtenidas a partir del algoritmo del índice *Quasi-Sing (QSS)* [@allesina2008] expresado en underline{logaritmo natural}, . Eje vertical valores de frecuencia. Como líneas verticales se dibujan, el promedio en color amarillo, la mediana en color rojo, y los cuantiles primero y tercero como líneas más finas.
 
 </p>
 
-Por lo tanto, la distribución de los valores de estabilidad en los tres sistemas de uso son diferentes entre sí. El promedio e intervalo de confianza de la distribución de parte real del máximo autovalor en los suelos de la comunidad de la reserva fue de `r exp(Q_med_R)` (0,419 - 0,472), en el sistema del pastizal fue de `r exp(Q_med_P)` (0,349 - 0,398) y el sistema agrícola agrícola fue de `r exp(Q_med_L)` (0,31 - 0,361).
+El promedio e intervalo de confianza del 95% de la parte real del máximo autovalor
+(λ del QSS) en los suelos de la comunidad de la reserva fue de `r exp(Q_med_R)` 
+(0,419 - 0,472)<!--0.445-->, en el sistema del pastizal fue de `r exp(Q_med_P)` 
+(0,349 - 0,398)<!--0.373--> y el sistema agrícola agrícola fue de `r exp(Q_med_L)`
+(0,31 - 0,361) <!--0.334-->.
 
-La distribución de los valores λ del QSS en escala de logaritmos naturales (Fig 5.3) se asemejan a los de una campana simétrica, el valor más probable, es decir, la moda de la distribución, se halla cercana a los valores de tendencia centrales en los diferentes sistemas de uso del suelo.
 
-En los diferentes sistemas de uso del suelo la mediana y la moda fueron `r exp(Q_median_R)`-`r exp(Q_moda_R)`; `r exp(Q_median_P)`-`r exp(Q_moda_P)`; `r exp(Q_median_L)`-`r exp(Q_moda_L)` para los sistemas de uso del suelo de la reserva, el pastizal y el agrícola intensivo respectivamente.
+En los diferentes sistemas de uso del suelo la mediana y la moda fueron 
+`r exp(Q_median_R)`-`r exp(Q_moda_R)`; 
+`r exp(Q_median_P)`-`r exp(Q_moda_P)`; 
+`r exp(Q_median_L)`-`r exp(Q_moda_L)` para los sistemas de uso del suelo de 
+con intensidad nula (reserva), intensidad leve (pastizal) e intensidad alta 
+(agrícola intensivo) respectivamente.
 
-Estos datos nos muestran que en sistemas antropizados, cuya cobertura vegetal es más parecida a la vegetación original de la Pampa Ondulada, se obtuvieron valores del λ del quasi-signo más cercanos a cero por lo tanto resultan en sistemas más estables.
+Teóricamente, las redes tróficas con el índice QSS más cercano a cero 
+indican que las comunidades edáficas requieren de una menor autoregulación
+para llegar a la situación de estabilidad local. 
+Estos datos nos muestran que en los sistemas antropizados, cuyos intervalos de 
+confianza son más próximos, se obtuvieron valores 
+del λ del índice *Quasi-Sing* más cercanos a cero por lo tanto indicando 
+sistemas más estables
+que los que ocurren en el suelo sin uso.
+
+Por otra parte, considerando que los valores centrales de estas distribuciones son próximos 
+a cero en los tres sistemas, las diferencias observadas pueden relacionarse más con la cobertura 
+vegetal que con el impacto debido al uso del suelo. 
+Dado que los suelos antropizados son pastizales, asemejándose con aquellas de la 
+vegetación original de la Pampa Ondulada, mientras que el suelo en la reserva 
+soporta vegetación arbórea, por lo tanto con dinámicas en la autoregulación de las comunidades diferentes. 
 
 ## Discusión
 
@@ -2270,26 +2457,42 @@ Por otro lado, el elevado porcentaje de omnivoría (>70%) que caracteriza a las 
 La conectancia de estas redes, aunque ligeramente mayor que la observada en redes tróficas de ecosistemas terrestres o acuáticos, se sitúa dentro de los valores hallados en suelos de bosques templados [@digel2014], lo que sugiere que se encuentra dentro de los rangos esperados para redes tróficas ecológicas. Este valor de conectancia refleja las conexiones realizadas sobre todas las posibles en una red de interacciones y es un indicativo de la complejidad de estas redes. Al considerar únicamente los grupos de microartrópodos y lombrices de tierra, se observa un incremento en este valor, resaltando la gran cantidad de conexiones tróficas potenciales entre estos grupos faunísticos.
 El coeficiente de agrupamiento ("clustering"), que indica la probabilidad de que diferentes especies tróficas estén cercanamente interconectadas debido al solapamiento de sus dietas o depredadores, fue moderado en las redes tróficas de suelos Argiudoles típicos (C.C. > 0.4). Según Digel et al. [-@digel2014], en suelos de redes tróficas de detritívoros se registró un valor del coeficiente de agrupamiento más alto que el de otras redes ecológicas, como aquellas que ocurren en ecosistemas terrestres basados en plantas o en ecosistemas acuáticos. Sin embargo, el valor calculado para estos suelos de la Pampa Ondulada fue más del doble que el estimado por esos autores.
 
+En general, si bien existen configuraciones que varían entre los sistemas de uso del
+suelo debidas al número de nodos y enlaces, los valores de los parámetros topológicos 
+entre los diferentes sistemas de uso del suelo fueron próximos entre sí. 
+Esto se observa tanto en redes tróficas edáficas "parciales" como aquellas abordadas para suelos de 
+Chivilcoy - Navarro conformadas por los taxones que dominan la composición de las comunidades de 
+la fauna edáfica como en redes tróficas más abarcativas con los taxones de 
+la micro-, meso- y macro- fauna en el cual se incluyen tanto taxones raros 
+como taxones dominantes.
+
+Se observó que la red trófica "completa" en suelos con impacto antrópico leve
+tuvo un mayor tamaño y estuvo más conectada que en suelos con un alto nivel de impacto.
+Ambos sistemas ocurren sobre suelos con cobertura vegetal de pastizal 
+por lo tanto podría pensarse como similares a la comunidad vegetal tipo de la Pampa Ondulada.
+La actividad de pastoreo podría influir sobre la estructura de la red trófica edáfica 
+mediante un fenómeno tipo *botom-up*, 
+ya que podría aumentar la disponibilidad de recursos tróficos base para los 
+descomponedores al dejar el ganado tras su paso heces, vegetación pisoteada en mayor contacto
+con el suelo y el aumento de tejido de raíces susceptibles 
+para la descomposición dado que la vegetación al
+rebrotar utilizará las reservas disponibles en ellos. En efecto el flujo de 
+energía en el pastizal estuvo cercano a los valores máximos registrados por el suelo
+sin uso antrópico alejándose de lo observado en el sistema con alto impacto. Las variaciones
+en el flujo total de la energía entre estos sistemas de uso del suelo 
+estuvieron mediados por el efecto de la biomasa media de la microflora a través de la red.
 
 
-Tanto los valores de vulnerabilidad como los de generalidad fueron similares dentro de las redes tróficas en un mismo sistema de uso del suelo como entre sistemas de uso del suelo esto implica que las diferentes especies tróficas consumen y son consumidos aproximadamente con un mismo número, es decir, si una especie trófica consume 4 especies tróficas entonces la misma será consumida por otras 4 especies tróficas, esto refleja la redundancia de especies tróficas que existe en las redes tróficas del sistema detritívoro edáfico.
-
-En general los valores de los parámetros topológicos entre los diferentes sistemas de uso del suelo fueron próximos entre sí, y esto se observa tanto en redes tróficas edáficas parciales como aquellas abordadas para suelos de Chivilcoy y Navarro conformadas por taxones de ácaros, colémbolos y lombrices taxones que dominan la composición de las comunidades del suelo como en redes tróficas más abarcativas con los taxones de la micro-, meso- y macro- fauna en el cual existen tanto taxones raros como taxones dominantes tal como los enquitreidos que son poco estudiados en los suelos argentinos.
-
-Si existen configuraciones que varían entre los sistemas de uso del suelo debidas la riqueza de especies tróficas como al número de interacciones con el que participan lo que determinó la variabilidad entre parámetros.
-
-Se observó que la red trófica fue más diversa y estuvo más conectada en el sistema con baja intensidad de uso donde la actividad de pastoreo ocurre sobre una comunidad vegetal de pastizal, que es la comunidad vegetal tipo de la Pampa Ondulada. Esta actividad de pastoreo podría influir sobre la estructura de la red trófica edáfica mediante un fenómeno tipo botom-up, ya que podría aumentar la disponibilidad de recursos tróficos base para los descomponedores al dejar el ganado tras su paso heces, vegetación pisoteada en mayor contacto con el suelo y el aumento de tejido de raices susceptibles para la descomposición dado que la vegetación al rebrotar utilizará las reservas disponibles en ellos.
-
-En estas redes solo se observó una diferencia en la magnitud del flujo de energía total que ocurre en el sistema agrícola en suelos de Luján lo que implica que en el sistema agrícola circuló una menor cantidad de energía en estas condiciones, pero esta importante diferencia entre sistemas no repitió con respecto los flujos totales de energía calculado en redes parciales de Chivilcoy y Navarro.
-
-
-El flujo de energía en las redes detritívoras del suelo circuló predominantemente a través del canal basado en el humus, vinculado a la materia orgánica del suelo, con la microflora como principal usuaria de este recurso. El canal que se basa en la utilización de recursos recalcitrantes, como la hojarasca y la carroña, ocupa el segundo lugar en importancia con respecto al flujo energético total; en este canal, se observa una mayor variabilidad en la participación de la fauna, particularmente en los sistemas agrícolas, donde la fauna desempeña un papel relevante en el procesamiento de la hojarasca acumulada sobre el suelo. En las redes parciales, el segundo canal en términos de flujo energético está relacionado con el consumo de bacterias y hongos, recurso clave para los descomponedores de segundo nivel, quienes influyen indirectamente en la descomposición al ejercer presión de consumo sobre los descomponedores primarios [@coleman2004; @hunt1987]. Este patrón se alinea con la composición de las redes tróficas parciales, dominadas principalmente por microartrópodos edáficos que se alimentan mayoritariamente de hongos y bacterias. La zoofagia en las redes edáficas tiene un flujo energético relativamente bajo, lo cual está ligado a la baja eficiencia energética de los niveles tróficos superiores, donde solo una pequeña fracción de la energía disponible en los primeros niveles llega a los más altos. Además, la zoofagia en estas redes detritívoras es ejercida mayormente por omnívoros, lo que subraya nuevamente la tendencia hacia la alimentación generalista en estas redes. Sin embargo, en las redes tróficas reducidas de Chivilcoy y Navarro, la zoofagia cobra mayor relevancia a través de verdaderos depredadores, como los ácaros mesostigmatas y prostigmatas. En contraste, en las redes de Luján, el patrón de zoofagia predominante sigue siendo el de los omnívoros, con un dominio de los ácaros prostigmatas sobre los mesostigmatas en este canal de depredación.
+El flujo de energía en las redes detritívoras del suelo circuló predominantemente a través del canal basado en el humus, vinculado a la materia orgánica del suelo, con la microflora como principal usuaria de este recurso. El canal que se basa en la utilización de recursos recalcitrantes, como la hojarasca y la carroña, ocupa el segundo lugar en importancia con respecto al flujo energético total; en este canal, se observa una mayor variabilidad en la participación de la fauna, particularmente en los sistemas agrícolas, donde la fauna desempeña un papel relevante en el procesamiento de la hojarasca acumulada sobre el suelo. En las redes parciales, el segundo canal en términos de flujo energético está relacionado con el consumo de bacterias y hongos, recurso clave para los descomponedores de segundo nivel, quienes influyen indirectamente en la descomposición al ejercer presión de consumo sobre los descomponedores primarios [@coleman2004; @hunt1987]. Este patrón se alinea con la composición de las redes tróficas parciales, dominadas principalmente por microartrópodos edáficos que se alimentan mayoritariamente de hongos y bacterias. La zoofagia en las redes edáficas tiene un flujo energético relativamente bajo, lo cual está ligado a la baja eficiencia energética de los niveles tróficos superiores, donde solo una pequeña fracción de la energía disponible en los primeros niveles llega a los más altos. Además, la zoofagia en estas redes detritívoras es ejercida mayormente por omnívoros, lo que subraya nuevamente la tendencia hacia la alimentación generalista en estas redes. Sin embargo, en las redes tróficas reducidas de Chivilcoy - Navarro, la zoofagia cobra mayor relevancia a través de verdaderos depredadores, como los ácaros mesostigmatas y prostigmatas. En contraste, en las redes de Luján, el patrón de zoofagia predominante sigue siendo el de los omnívoros, con un dominio de los ácaros prostigmatas sobre los mesostigmatas en este canal de depredación.
 
 Aunque la fracción de energía que recae sobre la fauna edáfica representa solo un pequeño porcentaje del metabolismo total del suelo [@persson1980; @persson1977; @hale1971], esta fauna desempeña un papel crucial en los mecanismos que afectan la distribución espacial y temporal de la microflora edáfica [@butcher1971]. Por lo tanto, los cambios en la comunidad de la fauna edáfica pueden derivar en alteraciones significativas en los procesos ecológicos y biogeoquímicos del suelo [@potapov2023; @potapov2022], como se observa en la disminución del flujo de energía en los sistemas agrícolas intensivos en los suelos de Luján.
 
 El análisis de estas redes tróficas edáficas revela que las diferentes prácticas de manejo influyen significativamente en la topología, los flujos de energía y la estabilidad de las redes que configuran las comunidades del suelo bajo distintos usos del suelo. Los cálculos de estabilidad muestran que las redes sometidas a diferentes niveles de perturbación están cerca de una estabilidad local [@allesina2008; @pimm1991], y que los sistemas con cierto grado de antropización requieren menos autoregulación para alcanzar esta estabilidad. La estabilidad más alta observada en la red trófica del sistema agrícola intensivo sugiere que dicha comunidad edáfica podría estar en equilibrio con las prácticas implementadas, lo que podría implicar una adaptación de las comunidades detritívoras a estas prácticas.
 
-
+<!--Real populations can persist also out of a local equilibrium
+(e.g., limit cycle and chaotic attractors) and a system that is not stable
+in the neighbourhood of a local equilibrium might nevertheless persist
+when faced with perturbations over relatively long-­time scales. 10.1002/ece3.8278 de Castro et al (2021)-->
 \newpage
 
 \newpage
@@ -2348,6 +2551,11 @@ En cuanto a la conservación del suelo, esta tesis ha estudiado a fondo las comu
 El valor de estabilidad en las redes con uso agrícola estuvo más cerca del valor de estabilidad local. Esto probablemente esté relacionado con la proximidad de estas comunidades a un estado estable con comunidades de la fauna edáfica adaptadas a las estrategias de manejo que ocurren sobre el suelo, tanto a la composición de la vegetación como al ingreso externo de nutrientes pero con una menor cantidad de energía procesada por las redes. En cambio, la comunidad del pastizal aunque con pastoreo periódico es un ambiente similar a las comunidades prístinas de la Pampa Ondulada, topológicamente resulto más diversa y conectada además también con valores de estabilidad próximos a comunidades localmente estables.
 
 Cabe destacar, finalmente, que en las comunidades de la fauna edáfica, centrarse únicamente en parámetros como la diversidad o la biomasa podría ocultar los efectos de los disturbios debido a la resiliencia inherente de estas comunidades. En cambio, el análisis de los parámetros topológicos y los flujos de energía a través de las redes tróficas ofrece información más relevante y detallada sobre el comportamiento y funcionamiento de los ecosistemas, permitiendo una evaluación más precisa de los impactos derivados de las diferentes prácticas de manejo.
+
+<!--Ecosystem function refers to the actual functioning of ecosystems, including energy fluxes and nutrient recycling, as well as the benefits obtained by humans from ecosystems.
+
+AI generated definition based on: 
+Biological Conservation, 2007 (https://www.sciencedirect.com/topics/earth-and-planetary-sciences/ecosystem-function)-->
 
 \newpage
 
@@ -2754,14 +2962,14 @@ plot(lm(log(Tbiomass) ~ sitio * gremio ,data = baseU))
 par(mfrow=c(1,1))
 ```
 
-**Modelo multifactorial, algoritmo "step": Biomasa media de la comunidad de microartrópodos edáficos de suelos Argiudoles de Chivilcoy y Navarro**
+**Modelo multifactorial, algoritmo "step": Biomasa media de la comunidad de microartrópodos edáficos de suelos Argiudoles de Chivilcoy - Navarro**
 
 ```{r step_chivilcoy, echo=FALSE, warning=FALSE, message=FALSE}
 step(lm(log(Tbiomass) ~ system * guild, data = base))
 mR_c<-lm(log(Tbiomass) ~ system * guild, data = base)
 ```
 
-**Modelo multifactorial, gráficos de verificación paramétrica: Biomasa media de la comunidad de microartrópodos edáficos de suelos Argiudoles de Chivilcoy y Navarro**
+**Modelo multifactorial, gráficos de verificación paramétrica: Biomasa media de la comunidad de microartrópodos edáficos de suelos Argiudoles de Chivilcoy - Navarro**
 
 ```{r plot_chivilcoy,echo=FALSE, warning=FALSE, message=FALSE, fig.align='center'}
 par(mfrow=c(2,2))
@@ -2789,7 +2997,7 @@ gremio_U%>%
 #gremio_U%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
 ```
 
-**Diferencias de medias, sistemas de uso de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
+**Diferencias de medias, sistemas de uso de la comunidad de microartrópodos edáficos en suelos de Chivilcoy - Navarro**
 
 ```{r pair_sistema_CN,echo=FALSE, warning=FALSE, message=FALSE}
 pair_sistema_CN<-read.csv("database/sum-pairwise_comparisons_B_RO2.txt", sep="")
@@ -2801,7 +3009,7 @@ pair_sistema_CN%>%
 
 ```
 
-**Diferencias de medias, gremios tróficos de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
+**Diferencias de medias, gremios tróficos de la comunidad de microartrópodos edáficos en suelos de Chivilcoy - Navarro**
 
 ```{r pair_gremio_CN,echo=FALSE, warning=FALSE, message=FALSE}
 pair_gremio_CN<-read.csv("database/sum-pairwise_comparisons_B_RO3.txt", sep="")
@@ -2812,7 +3020,7 @@ pair_gremio_CN%>%
    kable_styling(latex_options = c("hold_position", "basic"))
 ```
 
-**Diferencias de medias, interacción sistemas de uso - gremios tróficos de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
+**Diferencias de medias, interacción sistemas de uso - gremios tróficos de la comunidad de microartrópodos edáficos en suelos de Chivilcoy - Navarro**
 
 ```{r pair_gremio:sistema_CN,echo=FALSE, warning=FALSE, message=FALSE}
 pair_gremiosistema_CN<-read.csv("database/sum-pairwise_comparisons_B_RO1.txt", sep="")
@@ -2837,7 +3045,7 @@ step(rq0)
 
 ```
 
-**Reducción del modelo de regresión de cuantiles, algoritmo "step", de la comunidad de microartópodos edáficos de suelos de Chivilcoy y Navarro**
+**Reducción del modelo de regresión de cuantiles, algoritmo "step", de la comunidad de microartópodos edáficos de suelos de Chivilcoy - Navarro**
 
 ```{r qq_apendice, echo=FALSE, warning=FALSE, message=FALSE}
 rq1<-rq(log(abundance) ~ (system+guild+log(bio.ind))^3, tau = .75, data = base)
@@ -2912,7 +3120,7 @@ column_spec(1, width = "5cm")
 
 \newpage
 
-**Diferencias del 3er quantil, sobre el intercepto, entre sistemas de uso de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
+**Diferencias del 3er quantil, sobre el intercepto, entre sistemas de uso de la comunidad de microartrópodos edáficos en suelos de Chivilcoy - Navarro**
 
 ```{r R_qq1, echo=FALSE, warning=FALSE, message=FALSE}
 R_qq1<-read.csv("database/sum-pairwise_comparisons_RO5.txt", sep="")
@@ -2924,7 +3132,7 @@ R_qq1%>%
 
 ```
 
-**Diferencias del 3er quantil, sobre el intercepto, entre gremios tróficos de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
+**Diferencias del 3er quantil, sobre el intercepto, entre gremios tróficos de la comunidad de microartrópodos edáficos en suelos de Chivilcoy - Navarro**
 
 ```{r R_qq2, echo=FALSE, warning=FALSE, message=FALSE}
 R_qq2<-read.csv("database/sum-pairwise_comparisons_RO6.txt", sep="")
@@ -2935,7 +3143,7 @@ R_qq2%>%
    kable_styling(latex_options = c("hold_position", "basic"))
 ```
 
-**Diferencias del 3er quantil, sobre el intercepto, entre sistemas de uso y gremios tróficos de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
+**Diferencias del 3er quantil, sobre el intercepto, entre sistemas de uso y gremios tróficos de la comunidad de microartrópodos edáficos en suelos de Chivilcoy - Navarro**
 
 ```{r R_qq3, echo=FALSE, warning=FALSE, message=FALSE}
 R_qq3<-read.csv("database/sum-pairwise_comparisons_RO4.txt", sep="")
@@ -2946,7 +3154,7 @@ R_qq3%>%
    kable_styling(latex_options = c("hold_position", "basic"))
 ```
 
-**Diferencias del 3er quantil, sobre la pendiente, entre gremios de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
+**Diferencias del 3er quantil, sobre la pendiente, entre gremios de la comunidad de microartrópodos edáficos en suelos de Chivilcoy - Navarro**
 
 ```{r R_qq4, echo=FALSE, warning=FALSE, message=FALSE}
 R_qq4<-read.csv("database/sum-pairwise_comparisons_RO1.txt", sep="")
@@ -2957,7 +3165,7 @@ R_qq4%>%
    kable_styling(latex_options = c("hold_position", "basic"))
 ```
 
-**Diferencias del 3er quantil, sobre la pendiente, entre sistemas de uso de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
+**Diferencias del 3er quantil, sobre la pendiente, entre sistemas de uso de la comunidad de microartrópodos edáficos en suelos de Chivilcoy - Navarro**
 
 ```{r R_qq5, echo=FALSE, warning=FALSE, message=FALSE}
 R_qq5<-read.csv("database/sum-pairwise_comparisons_RO2.txt", sep="")
@@ -2968,7 +3176,7 @@ R_qq5%>%
    kable_styling(latex_options = c("hold_position", "basic")) 
 ```
 
-**Diferencias del 3er quantil, sobre la pendiente, entre sistemas de uso y gremios de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
+**Diferencias del 3er quantil, sobre la pendiente, entre sistemas de uso y gremios de la comunidad de microartrópodos edáficos en suelos de Chivilcoy - Navarro**
 
 ```{r R_qq6, echo=FALSE, warning=FALSE, message=FALSE}
 R_qq6<-read.csv("database/sum-pairwise_comparisons_RO7.txt", sep="")
