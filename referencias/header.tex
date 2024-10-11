@@ -1,0 +1,37 @@
+
+% Numeración de páginas
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt} % Elimina la línea en la cabecera
+
+
+\usepackage{geometry}
+\geometry{margin=2.54cm} % Margen de 1.27 cm
+
+\usepackage{fontspec}
+\setmainfont{Arial} % Establece la fuente Arial
+
+\usepackage{setspace}
+\onehalfspacing % Interlineado 1.5 (puedes usar \doublespacing para interlineado doble)
+
+\raggedright
+% Configuración de títulos
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\fontsize{12}{14}\bfseries\centering}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\fontsize{12}{14}\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont\fontsize{12}{14}\bfseries\itshape}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}{\normalfont\fontsize{12}{14}\bfseries\itshape}{\theparagraph}{1em}{\hspace{1.27cm}} % Sangría para párrafos
+
+% Configuración de listas
+\usepackage{enumitem}
+\setlist[itemize]{left=1.27cm, label={--}} % Sangría para listas
+
+% Configuración de imágenes
+\usepackage{graphicx}
+\usepackage{caption}
+\captionsetup{justification=raggedright, singlelinecheck=false} % Alineación de descripciones de imágenes
+
+
+
