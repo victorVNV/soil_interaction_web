@@ -617,13 +617,13 @@ Los nemátodos poseen una serie de adaptaciones a diferentes hábitos tróficos 
 
 Estas adaptaciones se relacionan con su modo principal de alimentación y por lo que las partes bucales permiten definir grupos tróficos y cuya clasificación es corroborada por la evidencia empírica más reciente [@Potapov2022].
 
-Los grupo tróficos de nemátodos de vida libre del suelo son: los nemátodos bacteríofagos, los nemátodos fungívoros, que se encuentran vinculados funcionalmente con la regulación poblacional de las comunidades de la microflora. Los nemátodos depredadores que predan sobre protozoos, tardígrados, y otros nemátodos, mientras que los nemátodos omnívoros regulan las poblaciones de la microfauna y son importantes en el control de poblaciones fitófagas. Finalmente, los nemátodos fitófagos que parasitan las raices y tejidos vegetales y que resultan de interés productivo por su potencial efecto nocivo sobre especies de interés agronómico [@yeates1971; @momo2009; @yeates1993].
+Los grupo tróficos de nemátodos de vida libre del suelo son: los nemátodos bacteríofagos, los nemátodos fungívoros, que se encuentran vinculados funcionalmente con la regulación poblacional de las comunidades de la microflora. Los nemátodos depredadores que predan sobre protozoos, tardígrados, y otros nemátodos, mientras que los nemátodos omnívoros regulan las poblaciones de la microfauna y son importantes en el control de poblaciones fitófagas. Finalmente, los nemátodos fitófagos que parasitan las raíces y tejidos vegetales y que resultan de interés productivo por su potencial efecto nocivo sobre especies de interés agronómico [@yeates1971; @momo2009; @yeates1993].
 
 ## Mesofauna
 
 ### Oligochaeta: Enchytraeidae
 
-Los enquitreidos son una familia de anélidos oligoquetos que se encuentran en hábitat terrestres, litorales y acuáticos. Son gusanos segmentados cuyo largo no supera los 15 mm y en general su cuerpo es de color pálido blancuzco. Estos animales se relacionan con la formación del suelo mediante su papel en la fragmentación de la materia orgánica, su mezcla con la fracción mineral del suelo y la deposición de capsulas fecales (“pellets fecales”) sobre el suelo a medida que van abriendo canales a través del suelo [@oconnor1967]. Dash [-@dash1990] comenta que los enquitreidos consumen remanentes vegetales, sílice, grandes cantidades de hifas de hongos, algas unicelulares, bacterias y nemátodos fitófagos. Además, los enquitreidos muestran preferencia por los hongos y por material vegetal en descomposición con una gran cantidad de hifas de hongos y además consumen las heces de los colémbolos junto con la hojarasca fragmentada.
+Los enquitreidos son una familia de anélidos oligoquetos que se encuentran en hábitat terrestres, litorales y acuáticos. Son gusanos segmentados cuyo largo no supera los 15 mm y en general su cuerpo es de color pálido blancuzco. Estos animales se relacionan con la formación del suelo mediante su papel en la fragmentación de la materia orgánica, su mezcla con la fracción mineral del suelo sy la deposición de capsulas fecales (“pellets fecales”) sobre el suelo a medida que van abriendo canales a través del suelo [@oconnor1967]. Dash [-@dash1990] comenta que los enquitreidos consumen remanentes vegetales, sílice, grandes cantidades de hifas de hongos, algas unicelulares, bacterias y nemátodos fitófagos. Además, los enquitreidos muestran preferencia por los hongos y por material vegetal en descomposición con una gran cantidad de hifas de hongos y además consumen las heces de los colémbolos junto con la hojarasca fragmentada.
 
 ### Myriapoda: Pauropoda
 
@@ -1118,21 +1118,9 @@ La reducción de la variabilidad multidimencional entre la composición de las c
 
 Para ambas zonas de estudio, a lo largo del primer eje se resume la diversidad de taxones que se hallan en las comunidades edáficas por lo que se observa que este eje relaciona la abundancia de los taxones ubicándo más hacia la izquierda los taxones menos abundantes y más hacia la derecha los taxones abundantes, por ej, en suelos Argiudoles de Luján la macrofauna se ubica en el extremo izquierdo y hacia el extremo derecho los nemátodos. A través del segundo eje de las coordenadas se explican la similitud, en términos de la composición de la comunidad, que se encuentra entre los sistemas de uso del suelo.
 
-<!--
-::: imagen-contenedor
-<img src="Figures/Fig3-5.png" alt="Figura 3.5" id="fig3.5"/>
-
-<p class="descripcion">
-
-**Figura 3.5.** Biplot de coordenadas principales de las unidades taxonómicas de la comunidad de la fauna edáfica ocurridas en suelos Argiudoles típicos de Luján bajo diferentes sistemas de uso del suelo. Los vectores representan los sistemas de uso del suelo R = reserva, P = pastizal, A = agrícola, los números que los acompañan indican la réplica. Los puntos claros indican cada uno de los diferentes taxones hallados en estos suelos, los puntos fuertes representa el centroide de los grupos taxonómicos cuyo símbolo y color representa a un grupo particular en función de una clasificación que refiere al tamaño, al taxón y a hábitos tróficos característicos. ast = astigmatas, col = colémbolos, enchy= enquitreidos, lom= lombrices de tierra, macro_det= macrofauna detritívora, macro_fun= macrofauna microfitófaga, macro_herb= macrofauna herbívora, macro_omn= macrofauna omnívora, macro_pred= macrofauna predadora, meso= mesostigmatas, mesof= mesofauna diferente de ácaros o colémbolos, nem_bac= nemátodos bacterívoros, nem_fit= nemátodos fitófagos, nem_fung= nemátdos fungívoros, nem_omn= nemátodos omnívoros, nem_pre= nemátodos depredadores, orib= sarcoptiformes, pros= prostigmatas, tardi= tardígrados
-
-</p>
-:::
--->
-
 ![](Figures/Fig3-5.png){width=600 heigth=800}
 
-**Figura 3.5.** Biplot de coordenadas principales de las unidades taxonómicas de la comunidad de la fauna edáfica ocurridas en suelos Argiudoles típicos de Luján bajo diferentes sistemas de uso del suelo. Los vectores representan los sistemas de uso del suelo R = reserva, P = pastizal, A = agrícola, los números que los acompañan indican la réplica. Los puntos claros indican cada uno de los diferentes taxones hallados en estos suelos, los puntos fuertes representa el centroide de los grupos taxonómicos cuyo símbolo y color representa a un grupo particular en función de una clasificación que refiere al tamaño, al taxón y a hábitos tróficos característicos. ast = astigmatas, col = colémbolos, enchy= enquitreidos, lom= lombrices de tierra, macro_det= macrofauna detritívora, macro_fun= macrofauna microfitófaga, macro_herb= macrofauna herbívora, macro_omn= macrofauna omnívora, macro_pred= macrofauna predadora, meso= mesostigmatas, mesof= mesofauna diferente de ácaros o colémbolos, nem_bac= nemátodos bacterívoros, nem_fit= nemátodos fitófagos, nem_fung= nemátdos fungívoros, nem_omn= nemátodos omnívoros, nem_pre= nemátodos depredadores, orib= sarcoptiformes, pros= prostigmatas, tardi= tardígrados
+**Figura 3.5.** Biplot de coordenadas principales de las unidades taxonómicas de la comunidad de la fauna edáfica ocurridas en suelos Argiudoles típicos de Luján bajo diferentes sistemas de uso del suelo. Los vectores representan los sistemas de uso del suelo R = reserva, P = pastizal, A = agrícola, los números que los acompañan indican la réplica. Los puntos claros indican cada uno de los diferentes taxones hallados en estos suelos, los puntos fuertes representa el centroide de los grupos taxonómicos cuyo símbolo y color representa a un grupo particular en función de una clasificación que refiere al tamaño, al taxón y a hábitos tróficos característicos. ast = astigmatas, col = colémbolos, enchy= enquitreidos, lom= lombrices de tierra, macro_det= macrofauna detritívora, macro_fun= macrofauna microfitófaga, macro_herb= macrofauna herbívora, macro_omn= macrofauna omnívora, macro_pred= macrofauna depredadora, meso= mesostigmatas, mesof= mesofauna diferente de ácaros o colémbolos, nem_bac= nemátodos bacterívoros, nem_fit= nemátodos fitófagos, nem_fung= nemátdos fungívoros, nem_omn= nemátodos omnívoros, nem_pre= nemátodos depredadores, orib= sarcoptiformes, pros= prostigmatas, tardi= tardígrados
 
 
 En los suelos de Luján (Fig 3.5) la separación del sistema agrícola de los demás sistemas de uso del suelo es clara dirigiéndose hacia el lado negativo del segundo eje de coordenadas. El sistema de la reserva se posiciona en el nivel superior del segundo eje y el sistema del pastizal se muestra entre ambos. Estos resultados indican la situación de un gradiente en la composición de las comunidades del suelo respecto de la intensidad de uso.
@@ -1215,11 +1203,11 @@ Los organismos que viven en el suelo ocupan los espacios formados entre la hojar
 
 La fauna edáfica, aunque muy diversa y abundante, representan una pequeña fracción de la biomasa total del suelo ya que esta recae sobre la microbiota edáfica [@hale1971]. Sin embargo, debido a su amplio rango de pesos corporales, a sus mecanismos de alimentación y al modo y uso que hacen de los recursos en el ecosistema edáfico la fauna edáfica desempeña un papel fundamental en el funcionamiento edáfico.
 
-La actividad biológica de la edafofauna se relaciona a una multiplicidad de procesos [@creamer2022]. La edafofauna consume y fracciona la materia orgánica, consume la microbiota y transporta sus propágulos, por lo que cumplen un papel crucial en la estimulación de la actividad microbiana a través el control de poblaciones y el transporte hacia potenciales nuevas fuentes de recursos para la microbiota[@briones2014; @creamer2022]. Además a lo largo de la red trófica, la fauna edáfica consume otra fauna edáfica y son los recursos tróficos de otros organismos \underline{zoófagos} [@Potapov2022]. También, la fauna edáfica media transformaciones biológicas sobre la estructura órgano-mineral del suelo (**bioturbación o biotransformación**), modificando las características físicas y químicas del microambiente con el cual están interactuando [@butcher1971].
+La actividad biológica de la edafofauna se relaciona con una multiplicidad de procesos [@creamer2022]. La edafofauna consume y fracciona la materia orgánica, consume la microbiota y transporta sus propágulos, por lo que cumplen un papel crucial en la estimulación de la actividad microbiana a través el control de poblaciones y el transporte hacia potenciales nuevas fuentes de recursos para la microbiota[@briones2014; @creamer2022]. Además a lo largo de la red trófica, la fauna edáfica consume otra fauna edáfica y son los recursos tróficos de otros organismos \underline{zoófagos} [@Potapov2022]. También, la fauna edáfica media transformaciones biológicas sobre la estructura órgano-mineral del suelo (**bioturbación o biotransformación**), modificando las características físicas y químicas del microambiente con el cual están interactuando [@butcher1971].
 
 Estas funciones, a su vez, contribuyen a servicios ecosistémicos más amplios afectando la dinámica del ciclo del carbono, de los nutrientes y el agua, la regulación de la materia orgánica del suelo y la fertilidad química y física del suelo [@brussaard2012; @wurst2012].
 
-La fauna edáfica se caracteriza por formar una comunidad con una importante redundancia funcional debido a su gran abundancia, a la disponibilidad de microhábitats y a sus hábitos tróficos generalistas [@hattenschwiler2005; @walker1992]. Estos factores ambientales y biológicas configuran el \underline{nicho ecológico} de los taxones adaptados a la vida en la red de poros del suelo, es decir, configuran las características que condicionan la existencia de estos en el entorno edáfico [@vandermeer1972].
+La fauna edáfica se caracteriza por formar una comunidad con una importante redundancia funcional debido a su gran abundancia, a la disponibilidad de microhábitats y a sus hábitos tróficos generalistas [@hattenschwiler2005; @walker1992]. Estos factores ambientales y biológicos configuran el \underline{nicho ecológico} de los taxones adaptados a la vida en la red de poros del suelo, es decir, configuran las características que condicionan la existencia de estos en el entorno edáfico [@vandermeer1972].
 
 El estudio de la biodiversidad de la fauna del suelo mediante la identificación taxonómica de las comunidades que habitan la red de poros del suelo se dificulta debido a la gran diversidad taxonómica, en constante actualización y revisión, y al pequeño tamaño corporal de la criptofauna [@briones2014].
 
@@ -1233,15 +1221,15 @@ La fauna edáfica es sensible a las perturbaciones que ocurren sobre el suelo, l
 
 El \underline{tamaño corporal} de los organismos edáficos se estima mediante el \underline{peso corporal}. Este rasgo funcional permite relacionar una respuesta fisiológica como la adaptación a los cambios en el ambiente [@pey2014; @white2007; @turnbull2014]. La distribución del peso corporal y su relación con la densidad configuran el \underline{espectro de tamaños} y esta forma de análisis puede realizarse a través de los taxones o grupos funcionales para analizar la respuesta de la comunidad a los cambios en el ambiente [@white2007; @allen2006].
 
-Por ello es factible establecer relaciones entre el peso corporal y la densidad de los taxones o grupos funcionales que componen la comunidad. Este enfoque es conocido como "Relaciones Peso - Densidad a nivel Local" (**LSDR**, en inglés Local Size-Density Relationchips). Este modelo permite observar las relaciones lineales entre el peso corporal y la densidad en las comunidades bajo estudio, además al espectro de tamaños pueden relacionarse con diferentes aspectos de importancia ecológica, tales como, variaciones del espectro de tamaños en los gremios tróficos o en grupos funcionales, o cambios en el espectro que ocurren en diferentes (micro-) hábitats o variaciones del espectro en función de las posiciones de los taxones en la red trófica, entre otras [@edwards2020].
+Por ello es factible establecer relaciones entre el peso corporal y la densidad de los taxones o grupos funcionales que componen la comunidad. Este enfoque es conocido como "Relaciones Peso - Densidad a nivel Local" (**LSDR**, en inglés Local Size-Density Relationships). Este modelo permite observar las relaciones entre el peso corporal y la densidad en las comunidades bajo estudio, además al espectro de tamaños pueden relacionarse con diferentes aspectos de importancia ecológica, tales como, variaciones del espectro de tamaños en los gremios tróficos o en grupos funcionales, o cambios en el espectro que ocurren en diferentes (micro-) hábitats o variaciones del espectro en función de las posiciones de los taxones en la red trófica, entre otras [@edwards2020].
 
-El análisis del modelo LSDR implica identificar cómo cambian las pendientes de regresión, si las pendientes son más pronunciadas, es decir, se tornan más negativas, entonces existe un impacto fuerte del factor analizado sobre el taxón o grupo funcional bajo estudio [@briones2014]. Entonces, si establecen factores ambientes como el uso del suelo los cambios en la pendiente estarán asociados a los disturbios por el uso del suelo, en cambio si el análisis se realiza dentro de grupos funcionales cambios en las pendientes indican el efecto de la competencia entre estos [@white2007].
+El análisis del modelo LSDR implica identificar cómo cambian las pendientes de regresión, si las pendientes son más pronunciadas, es decir, se tornan más negativas, entonces existe un impacto fuerte del factor analizado sobre el taxón o grupo funcional bajo estudio [@briones2014]. Entonces, si establecen factores ambientales como el uso del suelo los cambios en la pendiente estarán asociados a los disturbios por el uso del suelo, en cambio si el análisis se realiza dentro de grupos funcionales cambios en las pendientes indican el efecto de la competencia entre estos [@white2007].
 
 Los cambios en la distribución del tamaño corporal de los organismos en una comunidad reflejan variaciones en los procesos ecológicos, ya sea por cambios en el ambiente o en la red de interacciones biológicas [@pey2014; @white2007]. Estos cambios, junto con la biomasa media, que mide la cantidad de materia orgánica retenida y se vincula con el metabolismo y el flujo de energía en la red [@gauzens2019], conectan la historia de vida de los organismos y sus respuestas individuales con las presiones ambientales, la estructura y dinámica de las comunidades y el funcionamiento del ecosistema [@sechi2017; @moretti2017; @blanchard2017; @jonsson2005; @peters1986]. Observar estas variables permite conocer los efectos diferenciales de las perturbaciones, especialmente aquellas asociadas al uso antrópico del suelo.
 
 El objetivo de este capítulo es conocer cómo varían la biomasa media y el espectro de tamaños de de la fauna edáfica que habitan suelos Argiudoles típicos de la Pampa Ondulada sometidos a diferentes sistemas de manejo.
 
-Para conocer la respuesta diferencial de las comunidades edáficas de estos suelo es necesario determinar la variabilidad en la distribución de los pesos corporales debida a la escasez de datos sobre pesos corporales de la criptofauna en la región. Con esta estrategia construir el espectro de tamaños de la comunidad de la edafofauna y sus gremios tróficos permitirá analizar los efectos del manejo antrópico debidas a los usos del suelo.
+Para conocer la respuesta diferencial de las comunidades edáficas de estos suelos es necesario determinar la variabilidad en la distribución de los pesos corporales debida a la escasez de datos sobre pesos corporales de la criptofauna en la región. Con esta estrategia construir el espectro de tamaños de la comunidad de la edafofauna y sus gremios tróficos permitirá analizar los efectos del manejo antrópico debidas a los usos del suelo.
 
 Se espera que la fauna responda con cambios en la biomasa y en el espectro de tamaños debido a los efectos que tienen el uso del suelo sobre las comunidades y que los efectos se vean reflejados sobre los gremios tróficos de la fauna edáfica.
 
@@ -1259,13 +1247,13 @@ Más detalles sobre los sitios de estudios y sus características, sobre el dise
 
 ### Estimación del peso corporal individual de los organismos de la fauna edáfica
 
-La fauna edádica fue separada e identificada en taxones y posteriormente fue estimado el peso corporal en base seca de las diferentes unidades taxonómicas. El peso corporal de los organismos de la fauna edáfica se estimó a partir de la organismos colectados en suelos Argiudoles de Luján en el cuál se incluyen microfauna, mesofauna y macrofauna. También se cuantificó el peso corporal de los microartrópodos edáficos ocurridos en suelos de Chivilcoy - Navarro [@velazco2023; @velazco2023a].
+La fauna edáfica fue separada e identificada en taxones y posteriormente fue estimado el peso corporal en base seca de las diferentes unidades taxonómicas. El peso corporal de los organismos de la fauna edáfica se estimó a partir de la organismos colectados en suelos Argiudoles de Luján en el cuál se incluyen microfauna, mesofauna y macrofauna. También se cuantificó el peso corporal de los microartrópodos edáficos ocurridos en suelos de Chivilcoy - Navarro [@velazco2023; @velazco2023a].
 
 La macrofauna edáfica, con tamaños superiores a 1 cm de longitud, se secó en estufa a 60 ºC hasta alcanzar un peso constante, que se estimó mediante una balanza analítica con una precisión de 1 mg. Para la fauna edáfica con longitudes corporales menores a 1 cm, se tomaron fotografías de cada individuo colectado, los cuales fueron montados temporalmente. La fauna edáfica fotografiada proveniente de los suelos de Luján incluyó 4260 individuos, de los cuales 775 eran nemátodos y 3485 mesofauna. En los suelos de Chivilcoy - Navarro, la fauna edáfica fotografiada consistió en 7208 ácaros y colémbolos
 
 Las fotografías se realizaron con un esteroscopio Leica (S8AP0) con cámara fotográfica incluida y escala de referencia integrada (Leica Application Suite V4.4).
 
-Mediante el software ImageJ se tomaron las longitudes del largo y ancho corporal que permite estimar el peso corporal corporal utilizando ecuaciones morfométricas [@rasband2018; @newton2013] estas son ecuaciones lineales que consideran la forma general del taxón y su relaciones con el largo y el ancho corporal [@velazco2023]. Las ecuaciones utilizadas son presentadas en el Apéndice 4.1.
+Mediante el software ImageJ se tomaron las longitudes del largo y ancho corporal que permite estimar el peso corporal utilizando ecuaciones morfométricas [@rasband2018; @newton2013] estas son ecuaciones lineales que consideran la forma general del taxón y su relaciones con el largo y el ancho corporal [@velazco2023]. Las ecuaciones utilizadas son presentadas en el Apéndice 4.1.
 
 A partir de los pesos corporales, expresados en logaritmo natural del peso seco en microgramos ($\mu g_ {\;p.s.}$), se graficó la distribución de los pesos corporales individuales registrados para los organismos dentro de un taxón.
 
@@ -1275,27 +1263,24 @@ Se calcularon los valores de densidad de cada taxón ($no. ind/m^{2}$) extrapola
 
 Se calculó la biomasa total media expresada en $\mu g_{p.s.}/m^{2}$, a partir de la suma de los pesos corporales individuales del taxón y en función del marco de muestreo se llevó su valor a la unidad de superficie.
 
-Además cada taxón se ubicó en una categoría de gremio trófico en función del uso que hacen de los recursos tróficos [@velazco2023b; @simberloff2022] tema que fue desarrollado en la sección correspondiente al capítulo 2 de la tesis. En resumen los gremios tróficos son: **detritívoros** animales cuya dieta se basa principalemente en el consumo de la hojarasca que se acumula sobre el suelo (tejido vegetal en descomposición), **microfitófagos** animales que consumen preferentemente bacterias y hongos del suelo, **depredadores** que son los animales que se alimentan de otros animales de la fauna edáfica denominados también como "\underline{zoofagos}", **omnívoros** son los animales de la fauna edáfica que consumen tanto animales como microflora, materia orgánica, etc. y los **herbívoros** que basan su dieta en el tejido vegetal vivo que se encuentra en el suelo, es decir, las raices y sus exudados.
+Además cada taxón se ubicó en una categoría de gremio trófico en función del uso que hacen de los recursos tróficos [@velazco2023b; @simberloff2022] tema que fue desarrollado en la sección correspondiente al capítulo 2 de la tesis. En resumen los gremios tróficos son: **detritívoros** animales cuya dieta se basa principalmente en el consumo de la hojarasca que se acumula sobre el suelo (tejido vegetal en descomposición), **microfitófagos** animales que consumen preferentemente bacterias y hongos del suelo, **depredadores** que son los animales que se alimentan de otros animales de la fauna edáfica denominados también como "\underline{zoofagos}", **omnívoros** son los animales de la fauna edáfica que consumen tanto animales como microflora, materia orgánica, etc. y los **herbívoros** que basan su dieta en el tejido vegetal vivo que se encuentra en el suelo, es decir, las raíces y sus exudados.
 
 ### Análisis de datos
 
-Se grafican las distribuciones del peso corporal de los diferentes taxones de la fauna edáfica en comparación con los sistemas de uso del suelo.
-
-Se resumen los valores medio del peso corporal, de la densidad y de la biomasa media para cada taxón en relación con cada sistema de manejo.
-
-Esto permite ver las diferencias de estas variables para cada taxón de la fauna edáfica en relación con el impacto del uso del suelo en los diferentes sistemas de manejo.
+Para ver las diferencias en las distribuciones del peso corporal de los diferentes taxones de la fauna edáfica según los sistemas de uso del suelo, se grafican estas distribuciones. Además, se resumen los valores medios del peso corporal, la densidad y la biomasa para cada taxón en relación con cada sistema de manejo. Esto permite identificar cómo el uso del suelo impacta estas variables en los distintos sistemas de manejo.
 
 ### Análisis de la biomasa media
 
-Para cada comunidad se analizó la respuesta de la **biomasa media** de cada gremio trófico vinculado con el efecto de los sistemas de manejo.
+Para el análisis de la respuesta de la **biomasa media** de cada gremio trófico en relación con los sistemas de manejo, se utilizó un modelo lineal multifactorial. El análisis siguió estos pasos: 1) se aplicó el algoritmo “step” para simplificar el modelo completo (Apéndice 4.3), eliminando interacciones hasta obtener un modelo parsimonioso, seleccionando el de menor valor según el criterio de Akaike (AIC); 2) se contrastaron las interacciones relevantes, es decir, comparaciones de un mismo gremio entre diferentes sistemas de uso, como los cambios en la biomasa de los detritívoros en sistemas de mayor intensidad de uso frente a los de menor o nulo uso; 3) se realizaron pruebas a pares, corregidas mediante el método de \underline{Benjamini-Hochberg}, para determinar el nivel de significancia de las interacciones, considerando un p~valor~ menor a 0.1.
 
-El análisis se realizó utilizando un modelo lineal multifactorial: 1) se utilizó el algoritmo "step" para reducir el modelo completo (Apéndice 4.3), este va quitando interacciones hasta lograr un modelo parsimonioso, para ello se selecciona el modelo con el menor valor según el criterio Akaike (AIC), 2) se contrastaron las interacciones relevantes, es decir, aquellas de un mismo gremio entre diferentes sistemas de uso por ej. cambios en la biomasa de los detritívoros en el sistema con mayor intensidad de uso en comparación con la biomasa de los detritívoros en el sistema sin uso, 3) mediante pruebas de a pares corregidas por \underline{Benjamini-Hochberg} para determinar el nivel de significancia de las interacciones considerando p~valor~ menores a 0.1
 
 ### Análisis del espectro de tamaños
 
 Para analizar, el espectro de tamaños, mediante las relaciones entre el peso corporal y la densidad de los taxones (LSDR), como primer paso se analizó la curva de acumulación inversa de los pesos corporales que ocurren en las diferentes comunidades edáficas en contraste con las siguientes distribuciones teóricas: distribución exponencial, potencial exponencial, potencial exponencial truncada y logarítmica normal (Apéndice 4.2).
 
-Como la distribución de los pesos corporales no ajustaron al modelo potencial, entonces las relaciones entre los pesos corporales medios y las densidades se abordaron mediante el uso de la **regresión de cuantiles** [@white2007], que permite obtener una relación de regresión sin realizar supuestos sobre la distribución de las variables.
+
+Las relaciones entre los pesos corporales medios y las densidades se analizaron mediante  **regresión de cuantiles** [@white2007], ya que este enfoque permite modelar la relación sin hacer supuestos sobre la distribución de las variables. Además, es especialmente útil cuando múltiples factores pueden estar influyendo en la relación, permitiendo una evaluación más robusta de los patrones subyacentes.
+
 
 Se utilizó la regresión sobre el \underline{tercer cuantil} ($\tau$ = 0,75) porque disminuye el efecto de las especies raras y permite centrarse en los valores más probables del peso adulto de los invertebrados edáficos [@cade2003; @turnbull2014]. Se relacionó el peso corporal medio (eje x) versus la densidad (eje y) bajo el efecto de dos factores: los gremios tróficos y los sistemas de uso del suelo.
 
@@ -1311,19 +1296,7 @@ Todos los análisis se realizaron R 4.2.1 [@clauset2009; @crawley2013].
 
 #### Nemátodos edáficos de vida libre de suelos Argiudoles de Luján
 
-Los nemátodos de vida libre del suelo, hallados en los suelos Argiudoles de Luján, mostraron un rango de pesos corporales (Fig 4.1) de 9 órdenes de magnitud, estos van desde pesos mínimos de $e^{-3}\,= 5\;\,10^{-2}\mu g$ hasta pesos máximos de $e^{5,7}\,= 299\,\mu g$.
-
-<!--
-::: imagen-contenedor
-<img src="Figures/Fig4-1.png" alt="Figura 4.1" id="fig4.1"/>
-
-<p class="descripcion">
-
-**Figura 4.1.** Distribución del peso corporal de nemátodos edáficos de vida libre ocurridos en suelos Argiudoles de Luján, en cada sistema de uso del suelo. Se muestra sobre el eje horizontal la escala en logaritmo natural del peso corporal en microgramos de peso seco. Sobre el eje vertical se indica el gremio trófico
-
-</p>
-:::
--->
+Los nemátodos de vida libre del suelo, hallados en los suelos Argiudoles de Luján, mostraron un rango de pesos corporales (Fig 4.1) de 9 órdenes de magnitud, estos van desde pesos mínimos de $e^{-4}\,= 0,02\,\mu g$ hasta pesos máximos de $e^{5,7}\,= 299\,\mu g$.
 
 
 ![](Figures/Fig4-1.png){width=600 heigth=800}
@@ -1362,24 +1335,13 @@ Los nemátodos fungívoros (Tabla 4.1) fueron de bajo peso en promedio en el sis
 
 Los nemátodos bacterívoros (Tabla 4.1) muestran valores medios máximos para cada parámetro en el sistema de la reserva de manera similar se observan valores máximos de cada parámetro para los nemátodos fitófagos en el sistema de la reserva.
 
-#### Mesofauna edáfica \underline{no predadora} de suelos Argiudoles de Luján
+#### Mesofauna edáfica \underline{no depredadora} de suelos Argiudoles de Luján
 
-La mesofauna del suelo no predadora de los suelos Argiudoles de Luján (Fig 4.2) se distribuyeron entre los $0,4\mu g$ hasta los $4 \;mg$ de peso corporal.
+La mesofauna del suelo no depredadora de los suelos Argiudoles de Luján (Fig 4.2) se distribuyeron entre los $0,4\mu g$ hasta los $4 \;mg$ de peso corporal.
 
 La distribución de pesos corporales (Fig 4.2) de la mayoría de los taxones son unimodales y con una forma en general de tipo campana.
 
 Entre los detritívoros, por la distribución de pesos corporales, destacan los enquitreidos por ser los de mayor tamaño con un rango de distribución entre los 350 y los 4400 $\mu g$ de peso corporal.
-<!--
-::: imagen-contenedor
-<img src="Figures/Fig4-2.png" alt="Figura 4.2" id="fig4.2"/>
-
-<p class="descripcion">
-
-**Figura 4.2.** Distribución del peso corporal de la mesofauna edáfica excluyendo a depredadores ocurridos en suelos Argiudoles de Luján. Se muestra sobre el eje horizontal la escala en logaritmo natural del peso corporal en microgramos de peso seco. Sobre el eje vertical se indica el taxón. Los colores de las distribuciones indican el gremio al que pertenecen
-
-</p>
-:::
--->
 
 ![](Figures/Fig4-2.png){width=600 heigth=800}
 
@@ -1387,13 +1349,7 @@ Entre los detritívoros, por la distribución de pesos corporales, destacan los 
 
 
 Los enquitreidos son animales con función ecológica similar a la de las lombrices de tierra pero debido a su tamaño corporal operan a menor escala, tanto en la modificación de la estructura del suelo como en la cantidad de hojarasca que ellos procesan. Este taxón muestra (Tabla 4.2) el mayor peso corporal medio, la mayor densidad y la mayor biomasa media en el suelo agrícola.
-<!--
-<p class="interlineado-simple">
 
-**Tabla 4.2.** Valores de peso corporal medio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) para la mesofauna no depredadora de suelos Argiudoles de Luján
-
-</p>
--->
 
 **Tabla 4.2.** Valores de peso corporal medio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) para la mesofauna no depredadora de suelos Argiudoles de Luján
 
@@ -1412,9 +1368,9 @@ Los ácaros \underline{Astigmatas} tuvieron el mayor peso corporal medio, la may
 
 Entre los ácaros oribátidos detritívoros (Tabla 4.2), aquellos con una preferencia por recursos como la hojarasca y tallos con un mayor contenido de compuestos estructurales, los \underline{Oripodidae} fueron más pesados, más abundantes y con mayor biomasa en el sistema del pastizal. Los \underline{Ceratozetoidea} tuvieron la mayor biomasa en el suelo de la reserva pero con el mayor peso corporal medio en el suelo agrícola y la mayor densidad en el sistema del pastizal. La familia \underline{Scheloribates} registra el mayor peso corporal medio en la reserva pero la mayor densidad y biomasa media en el pastizal. \underline{Eupthiracaroidea y Epilomannioidea} ocurrieron solo en suelos del pastizal y la reserva, ambos taxones se alimentan dentro de los haces vasculares, los mayores pesos medios, densidad y biomasa se observaron en los suelos de la reserva.
 
-Dentro de los ácaros oribátidos microfitófagos (Tabla 4.2), aquellos que consumen hifas de hongos, bacterias y otra microbiota, los \underline{Oppioidea} son la familia con la estructura corporal más pequeña, en los tres sistemas de uso su peso corporal medio fue de aprox. 12 $\mu g$ y la mayor biomasa media se dio en el suelo de la reserva. La familia \underline{Oribatulidae} muestra el mayor peso corporal medio y la mayor biomasa media en los suelos agrícolas. La familia \underline{Galumnidae} posee una estructura corporal en compración con los demás oribátidos de mayor tamaño, estos fueron más pesados en el suelo de pastizal pero más abundantes en el suelo de la reserva. La familia \underline{Eremobelbidae} no se observó en el sistema agrícola, su peso corporal medio fue mayor en la reserva donde también muestra la mayor biomasa media.
+Dentro de los ácaros oribátidos microfitófagos (Tabla 4.2), aquellos que consumen hifas de hongos, bacterias y otra microbiota, los \underline{Oppioidea} son la familia con la estructura corporal más pequeña, en los tres sistemas de uso su peso corporal medio fue de aprox. 12 $\mu g$ y la mayor biomasa media se dio en el suelo de la reserva. La familia \underline{Oribatulidae} muestra el mayor peso corporal medio y la mayor biomasa media en los suelos agrícolas. La familia \underline{Galumnidae} posee una estructura corporal en comparación con los demás oribátidos de mayor tamaño, estos fueron más pesados en el suelo de pastizal pero más abundantes en el suelo de la reserva. La familia \underline{Eremobelbidae} no se observó en el sistema agrícola, su peso corporal medio fue mayor en la reserva donde también muestra la mayor biomasa media.
 
-Entre los colémbolos (Tabla 4.2) destaca la familia \underline{Hipogastruridae} que por consumir nemátodos y carroña de invertebrados a demás de la microflora, por lo que son omnívoros. Para esta familia se observó el mayor peso medio y la mayor densidad en el sistema agrícola.
+Entre los colémbolos (Tabla 4.2) destaca la familia \underline{Hipogastruridae} que por consumir nemátodos y carroña de invertebrados además de la microflora, por lo que son omnívoros. Para esta familia se observó el mayor peso medio y la mayor densidad en el sistema agrícola.
 
 Los colémbolos \underline{Isotomidae} en el suelo de la reserva tuvieron el mayor peso corporal medio y biomasa media, aunque en el suelo agrícola tuvieron la mayor densidad. Los \underline{Symphypleona} no se observaron en el sistema del pastizal, tuvieron la mayor densidad en el sistema agrícola donde registra la mayor biomasa media pero registraron el mayor peso corporal medio en la reserva. Estos dos últimos taxones de colémbolos se consideran de hábitos tróficos detritívoros.
 
@@ -1422,29 +1378,18 @@ Los }entomóbridos y los oniquiüridos} son taxones microfitófagos. La superfam
 
 #### Mesofauna edáfica depredadora de suelos Argiudoles de Luján
 
-<!--
-::: imagen-contenedor
-<img src="Figures/Fig4-3.png" alt="Figura 4.3" id="fig4.3"/>
-
-<p class="descripcion">
-
-**Figura 4.3.** Distribución del peso corporal de los depredadores de la mesofauna edáfica ocurridos en suelos Argiudoles de Luján. Se muestra sobre el eje horizontal la escala en logaritmo natural del peso corporal en microgramos de peso seco. Sobre el eje vertical se indica el taxón
-
-</p>
-:::
--->
 
 ![](Figures/Fig4-3.png){width=600 heigth=800}
 
 **Figura 4.3.** Distribución del peso corporal de los depredadores de la mesofauna edáfica ocurridos en suelos Argiudoles de Luján. Se muestra sobre el eje horizontal la escala en logaritmo natural del peso corporal en microgramos de peso seco. Sobre el eje vertical se indica el taxón
 
-La mesofauna predadora (Fig 4.3) muestra un rango de pesos corporales entre 0,7 $\mu g$ hasta los 250 $\mu g$. La mesofauna predadora de los suelos Argiudoles de Luján se conforma de ácaros mesostigmatas, ácaros prostigmatas, de dipluros y tardígrados.
+La mesofauna depredadora (Fig 4.3) muestra un rango de pesos corporales entre 0,7 $\mu g$ hasta los 250 $\mu g$. La mesofauna depredadora de los suelos Argiudoles de Luján se conforma de ácaros mesostigmatas, ácaros prostigmatas, de dipluros y tardígrados.
 
-Estos animales con excepción de los tardígrados son poco abundantes en comparación con la mesofauna "no-predadora", por ello la distribución de sus pesos corporales se observa en muchos casos multimodal (Fig. 4.3), esto podría deberse tanto a las diferencias en tamaños que ocurren dentro de la jerarquía taxonómica considerada aquí, es decir, el nivel taxonómico de "Familias" como a la ocurrencia de individuos en diferentes etapas de vida, es decir, ninfas y adultos.
+Estos animales con excepción de los tardígrados son poco abundantes en comparación con la mesofauna "no-depredadora", por ello la distribución de sus pesos corporales se observa en muchos casos multimodal (Fig. 4.3), esto podría deberse tanto a las diferencias en tamaños que ocurren dentro de la jerarquía taxonómica considerada aquí, es decir, el nivel taxonómico de "Familias" como a la ocurrencia de individuos en diferentes etapas de vida, es decir, ninfas y adultos.
 
 
 
-**Tabla 4.3.** Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) para la mesofauna predadora de suelos Argiudoles de Luján
+**Tabla 4.3.** Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) para la mesofauna depredadora de suelos Argiudoles de Luján
 
 
 ```{r Tab4.3,echo=FALSE,warning=FALSE,message=FALSE}
@@ -1464,19 +1409,10 @@ Entre los ácaros prostigmatas (Tabla 4.3) destaca \underline{Cunaxidae} con el 
 #### Microartrópodos edáficos de suelos Argiudoles de Chivilcoy - Navarro
 
 En los suelos de Chivilcoy - Navarro (Fig 4.4) los microartrópodos tienen un espectro de tamaños corporales de 8 órdenes de magnitud, con pesos corporales desde $e^{-3} = 0,05 \mu g$ hasta $e^{4} \approx 60 \mu g$.
-<!--
-::: imagen-contenedor
-<img src="Figures/Fig4-4.png" alt="Figura 4.4" id="fig4.4"/>
 
-<p class="descripcion">
 
-**Figura 4.4.** Distribución del peso corporal de los microartrópodos edáficos ocurridos en suelos Argiudoles de Chyvilcoy y Navarro. Se muestra sobre el eje horizontal la escala en logaritmo natural del peso corporal en microgramos de peso seco. Sobre el eje vertical se indica el taxón. Los colores representan al gremio trófico al cual pertenece el taxón
-
-</p>
-:::
--->
 ![](Figures/Fig4-4.png){width=600 heigth=800}
-**Figura 4.4.** Distribución del peso corporal de los microartrópodos edáficos ocurridos en suelos Argiudoles de Chyvilcoy y Navarro. Se muestra sobre el eje horizontal la escala en logaritmo natural del peso corporal en microgramos de peso seco. Sobre el eje vertical se indica el taxón. Los colores representan al gremio trófico al cual pertenece el taxón
+**Figura 4.4.** Distribución del peso corporal de los microartrópodos edáficos ocurridos en suelos Argiudoles de Chivilcoy y Navarro. Se muestra sobre el eje horizontal la escala en logaritmo natural del peso corporal en microgramos de peso seco. Sobre el eje vertical se indica el taxón. Los colores representan al gremio trófico al cual pertenece el taxón
 
 
 
@@ -1512,17 +1448,7 @@ Los ácaros prostigmatas (Tabla 4.4) \underline{Bdelloidea} tuvieron el mayor pe
 #### Macrofauna edáfica de suelos Argiudoles de Luján
 
 La macrofauna edáfica (Fig 4.5) en suelos Argiudoles de Luján tiene una distribución de tamaños de 10 órdenes de magnitud con pesos corporales en un rango entre los $12 \mu g$ hasta los $270 \;mg$, la forma del espectro de tamaños de este grupo de la fauna edáfica en general no es unimodal y esto está relacionado principalmente con la baja abundancia de la mayoría de los taxones observados pero también con la jerarquía taxonómica considerada, por ejemplo, nivel de órdenes.
-<!--
-::: imagen-contenedor
-<img src="Figures/Fig4-5.png" alt="Figura 4.5" id="fig4.5"/>
 
-<p class="descripcion">
-
-**Figura 4.5.** Distribución del peso corporal de la macrofauna edáfica ocurridos en suelos Argiudoles de Luján. Se muestra sobre el eje horizontal la escala en logaritmo natural del peso corporal en microgramos de peso seco. Sobre el eje vertical se indica el taxón. Los colores representan al gremio trófico al cual pertenece el taxón
-
-</p>
-:::
--->
 
 ![](Figures/Fig4-5.png){width=600 heigth=800}
 
@@ -1549,17 +1475,22 @@ Tab4.5 %>%
    kable_styling(latex_options = c("hold_position", "basic"))
 ```
 
-Los detritívoros \underline{Blattodeos} (Tabla 4.5) fueron de menor peso corporal en el sistema agrícola. Los detritívoros \underline{Diplópodos} ("milpies") fueron impotantes en términos de biomasa en el sistema agrícola aunque los animales con mayor peso corporal medio se observaron en el pastizal. Las \underline{larvas de los dípteros} son detritívoros con una importante abundancia numérica en comparación a otros detritívoros de la macrofauna. En el suelo estos animales ocurren con mayor densidad en el sistema agrícola donde tambien se observaron las larvas más pesadas. Las \underline{larvas de scarabeidos} ("gusanos blancos") son detritívoros fácilmente identificables al momento de explorar un monolito de suelo, la mayor biomasa media se observó en el sistema del pastizal y el mayor peso corporal medio se observó en el sistema agrícola donde pesaron 490 mg. Los \underline{Oniscoidea} ("Bichos bolita") muestran la menor densidad en suelos bajo sistema agrícola, la mayor biomasa media se observó en la reserva. Las \underline{larvas de los dípteros Sciaridae} forman parte de la macrofauna microfitófaga estos ocurrieron en los tres sistemas de uso del suelo y su biomasa fue mayor en la reserva donde el peso corporal medio fue el más alto.
+Los detritívoros \underline{Blattodeos} (Tabla 4.5) fueron de menor peso corporal en el sistema agrícola. Los detritívoros \underline{Diplópodos} ("milpies") fueron importantes en términos de biomasa en el sistema agrícola aunque los animales con mayor peso corporal medio se observaron en el pastizal. Las \underline{larvas de los dípteros} son detritívoros con una importante abundancia numérica en comparación a otros detritívoros de la macrofauna. En el suelo estos animales ocurren con mayor densidad en el sistema agrícola donde también se observaron las larvas más pesadas. Las \underline{larvas de scarabeidos} ("gusanos blancos") son detritívoros fácilmente identificables al momento de explorar un monolito de suelo, la mayor biomasa media se observó en el sistema del pastizal y el mayor peso corporal medio se observó en el sistema agrícola donde pesaron 490 mg. Los \underline{Oniscoidea} ("Bichos bolita") muestran la menor densidad en suelos bajo sistema agrícola, la mayor biomasa media se observó en la reserva. Las \underline{larvas de los dípteros Sciaridae} forman parte de la macrofauna microfitófaga estos ocurrieron en los tres sistemas de uso del suelo y su biomasa fue mayor en la reserva donde el peso corporal medio fue el más alto.
 
-Los \underline{carábidos}, son coleópteros depredadores, su biomasa fue similar en la reserva y en el pastizal y en promedio los carábidos más pesados ocurrieron en la reserva. Los \underline{staphylinidos}, son coleópteros depredadores, tuvieron una mayor biomasa y un mayor peso corporal en el pastizal. Los miriapodos \underline{Geophilomorpha} ("cienpies") fueron importantes en biomasa y peso corporal en los suelos de la reserva. Entre las arañas se observaron \underline{Lycosidae} con mayores biomasas en el sistema agrícola y \underline{Linyphiidae} con la mayor biomasa en el suelo del pastizal. Los \underline{formicidos}, en los suelos actúan como depredadores generalistas, estos tuvieron la mayor biomasa y el mayor peso corporal en la reserva.
+Los \underline{carábidos} son coleópteros depredadores, su biomasa fue similar en la reserva y en el pastizal y en promedio los carábidos más pesados ocurrieron en la reserva. Los \underline{staphylinidos}, son coleópteros depredadores, tuvieron una mayor biomasa y un mayor peso corporal en el pastizal. Los miriapodos \underline{Geophilomorpha} ("cienpies") fueron importantes en biomasa y peso corporal en los suelos de la reserva. Entre las arañas se observaron \underline{Lycosidae} con mayores biomasas en el sistema agrícola y \underline{Linyphiidae} con la mayor biomasa en el suelo del pastizal. Los \underline{formicidos}, en los suelos actúan como depredadores generalistas, estos tuvieron la mayor biomasa y el mayor peso corporal en la reserva.
 
 En los suelos también se observaron macrofauna con hábitos tróficos hervíboros, entre estos: los \underline{áfidos} importantes en términos de biomasa en el sistema agrícola, los \underline{Thysanoptera} ("trips") con los pesos corporales y la biomasa más altos en el pastizal y los caracoles geófilos que solo se observaron en la reserva.
 
 ### Análisis de la Biomasa Media de los gremios tróficos de las comunidades de la fauna edáfica de suelos Argiudoles típicos de la Pampa Ondulada
 
+#### Suelos de Luján
+
 En los suelos de Luján las diferencias de la biomasa media en la comunidad de la fauna edáfica se explicaron por las diferencias que ocurren debidas al efecto de cada gremio trófico.
 
-Los sistemas de uso del suelo, sin embargo, no son relevantes para el modelo por lo que entre sistemas de uso del suelo los valores de biomasa media son similares.
+El sistema de uso del suelo, sin embargo, no representó un factor 
+de importancia en la variación de la biomasa media de la comunidad edáfica (algoritmo *step* Apéndice 4.3). 
+Por ello, se considera que los 
+valores de biomasa media entre sistemas de uso del suelo son similares.
 
 $$B_i = \mu_0 +  \text{G}_i + \epsilon_i$$
 
@@ -1570,26 +1501,18 @@ Donde:
 -   $\text{G}$ captura el efecto del i-esimo gremio trófico en la biomasa.
 -   $\epsilon$ error aleatorio.
 
-<!--
-::: imagen-contenedor
-<img src="Figures/Fig4-6.png" alt="Figura 4.6" id="fig4.6"/>
-
-<p class="descripcion">
-
-**Figura 4.6.** Diagrama de violines de la distribución de la biomasa media de los gremios tróficos de la fauna edáfica hallados en suelos Argiudoles típicos de Luján. El eje vertical expresa el valor de biomasa media en logaritmo natural. Sobre los violines se dibuja el promedio como un punto amarillo y la mediana como una línea horizontal. Los puntos pequeños representan el puntual de biomasa media de los taxones hallados en diferentes muestras, los colores de los puntos indican los sistemas de uso del suelo. La distribución de los puntos es aleatoria (tipo ruido blanco, en inglés: *"jitter"*) no indica frecuencia y su valor solo expresa la biomasa media ubicada sobre el eje vertical
-
-</p>
-::: -->
-
 ![](Figures/Fig4-6.png){width=600 heigth=800}
 
-**Figura 4.6.** Diagrama de violines de la distribución de la biomasa media de los gremios tróficos de la fauna edáfica hallados en suelos Argiudoles típicos de Luján. El eje vertical expresa el valor de biomasa media en logaritmo natural. Sobre los violines se dibuja el promedio como un punto amarillo y la mediana como una línea horizontal. Los puntos pequeños representan el puntual de biomasa media de los taxones hallados en diferentes muestras, los colores de los puntos indican los sistemas de uso del suelo. La distribución de los puntos es aleatoria (tipo ruido blanco, en inglés: *"jitter"*) no indica frecuencia y su valor solo expresa la biomasa media ubicada sobre el eje vertical
+**Figura 4.6.** Diagrama de violines de la distribución de la biomasa media de los gremios tróficos de la fauna edáfica hallados en suelos Argiudoles típicos de Luján. El eje vertical expresa el valor de biomasa media en logaritmo natural. Sobre los violines se dibuja el promedio como un punto amarillo y la mediana como una línea horizontal. Los puntos pequeños representan la biomasa media de los taxones hallados en diferentes muestras, los colores de los puntos indican los sistemas de uso del suelo. La distribución de los puntos es aleatoria (tipo ruido blanco, en inglés: *"jitter"*) no indica frecuencia y su valor sólo expresa la biomasa media ubicada sobre el eje vertical
 
-Los gremios tróficos (Fig 4.6) fueron diferentes significativamente entre sí ($q :p_{valor}<0.05$). El gremios de omnívoros, microfitófagos y depredadores no se diferencian entre sí por lo que comparten valores de biomasa media similares (Apéndice 4.3). Entonces los detritívoros son el gremio con la mayor biomasa media (≈4,6x10^5^ µg~p.s.~.m^-2^), luego los microfitófagos, omnívoros y depredadores con su valor de biomasa (≈1,1x10^5^ µg~p.s.~.m^-2^) similar entre sí y por último los herbívoros (≈1,4x10^4^ µg~p.s.~.m^-2^) con el menor valor de biomasa media.
+Los gremios tróficos (Fig 4.6) fueron diferentes significativamente entre sí ($p_{valor}<0.05$). Los gremios de omnívoros, microfitófagos y depredadores no se diferencian entre sí por lo que comparten valores de biomasa media similares (Apéndice 4.3). Entonces los detritívoros son el gremio con la mayor biomasa media (≈4,6x10^5^ µg~p.s.~.m^-2^), luego los microfitófagos, omnívoros y depredadores con su valor de biomasa (≈1,1x10^5^ µg~p.s.~.m^-2^) similar entre sí y por último los herbívoros (≈1,4x10^4^ µg~p.s.~.m^-2^) con el menor valor de biomasa media.
 
 Por otra parte, la biomasa media de la comunidad de la fauna edáfica que ocurre en suelos Argiudoles de Luján se mantiene alrededor de ≈163 mg~p.s.~.m^-2^ aunque la comunidad de la fauna edáfica se encuentre bajo diferentes formas de uso del suelo.
 
-En los suelos Argiudoles de Chivilcoy - Navarro la biomasa media de los microartrópodos edáficos se explicaron por los efectos del sistema de uso del suelo, por el efecto de los gremios tróficos y por interacciones entre los gremios tróficos y los sistemas de uso.
+#### Suelos de Chivilcoy - Navarro
+
+En los suelos Argiudoles de Chivilcoy - Navarro la biomasa media de los microartrópodos edáficos se explicaron por los efectos del sistema de uso del suelo, por el efecto de los gremios tróficos y por interacciones entre los gremios tróficos y los sistemas de uso
+(algoritmo *step* Apéndice 4.3).
 
 $$B_{ij} = \mu_0 + \text{S}_i + \text{G}_j + \text({S x G})_{ij} + \epsilon_i$$
 
@@ -1601,37 +1524,28 @@ Donde:
 -   $\text{S x G}$ representan las interacciones entre sistema de uso y gremios tróficos.
 -   $\epsilon$ error aleatorio.
 
-Al nivel de las interacciones (Fig 4.7), analizando las diferencias \underline{dentro} de un mismo gremio trófico en comparación con diferentes sistemas de uso del suelo (Apendice 4.3), se observa que la biomasa media de los detritívoros de los sistemas agrícola intensivo y mixto agrícola ganadero no se diferenciaron entre sí (≈5,4x10^4^ µg~p.s.~.m^-2^), se observaron diferencias significativas ($q :p_{valor}<0.1$) de estos dos grupos en comparación con los detritívoros del sistema del pastizal naturalizado siendo los detritívoros del pastizal naturalizado (≈3,6x10^4^ µg~p.s.~.m^-2^) aquellos con una menor biomasa media.
+Al nivel de las interacciones (Fig 4.7), analizando las diferencias \underline{dentro} de un mismo gremio trófico en comparación con diferentes sistemas de uso del suelo (Apendice 4.3), se observa que la biomasa media de los detritívoros de los sistemas agrícola intensivo y mixto agrícola ganadero no se diferenciaron entre sí (≈5,4x10^4^ µg~p.s.~.m^-2^), se observaron diferencias significativas ($p_{valor}<0.1$) de estos dos grupos en comparación con los detritívoros del sistema del pastizal naturalizado siendo los detritívoros del pastizal naturalizado (≈3,6x10^4^ µg~p.s.~.m^-2^) aquellos con una menor biomasa media.
 
-Los omnívoros fueron similares en el valor promedio de biomasa entre el sistema del pastizal naturalizado y el sistema agrícola (≈1,6x10^4^ µg~p.s.~.m^-2^) y difirieron significativamente ($q :p_{valor}<0.05$) de la biomasa media de los omnívoros del sistema mixto agrícola ganadero (≈3,6x10^4^ µg~p.s.~.m^-2^).
+Los omnívoros fueron similares en el valor promedio de biomasa entre el sistema del pastizal naturalizado y el sistema agrícola (≈1,6x10^4^ µg~p.s.~.m^-2^) y difirieron significativamente ($p_{valor}<0.05$) de la biomasa media de los omnívoros del sistema mixto agrícola ganadero (≈3,6x10^4^ µg~p.s.~.m^-2^).
 
 El gremio de los microfitófagos fue similar en todos los sistemas de uso del suelo al igual que lo fue la biomasa media del gremio de los depredadores, ambos con biomasas medias alrededor de 2,4x10^4^ µg~p.s.~.m^-2^.
 
-Además, existen diferencias significativas ($q :p_{valor}<0.1$) en otras combinaciones dadas \underline{entre} diferentes gremios tróficos y diferentes sistemas de uso del suelo.
+Además, existen diferencias significativas ($p_{valor}<0.1$) en otras combinaciones dadas \underline{entre} diferentes gremios tróficos y diferentes sistemas de uso del suelo.
 
-<!--
-::: imagen-contenedor
-<img src="Figures/Fig4-7.png" alt="Figura 4.7" id="fig4.7"/>
-
-<p class="descripcion">
-
-**Figura 4.7.** Diagrama de violines de la distribución de la biomasa media de los gremios tróficos de microartrópodos edáficos hallados en los diferentes sistemas de uso del suelo en los suelos Argiudoles típicos de Chyvilcoy y Navarro. El eje vertical expresa el valor de biomasa media en logaritmo natural. Sobre los violines se dibuja el promedio como un punto amarillo y la mediana como una línea horizontal. Los puntos pequeños representan el valor puntual de biomasa media de diferentes taxones en diferentes muestras. La distribución de los puntos es aleatoria (tipo ruido blanco, en inglés: *"jitter"*) no indica frecuencia y su valor solo expresa la biomasa media ubicada sobre el eje vertical
-
-</p>
-:::
--->
 
 ![](Figures/Fig4-7.png){width=600 heigth=800}
 
-**Figura 4.7.** Diagrama de violines de la distribución de la biomasa media de los gremios tróficos de microartrópodos edáficos hallados en los diferentes sistemas de uso del suelo en los suelos Argiudoles típicos de Chyvilcoy y Navarro. El eje vertical expresa el valor de biomasa media en logaritmo natural. Sobre los violines se dibuja el promedio como un punto amarillo y la mediana como una línea horizontal. Los puntos pequeños representan el valor puntual de biomasa media de diferentes taxones en diferentes muestras. La distribución de los puntos es aleatoria (tipo ruido blanco, en inglés: *"jitter"*) no indica frecuencia y su valor solo expresa la biomasa media ubicada sobre el eje vertical
+**Figura 4.7.** Diagrama de violines de la distribución de la biomasa media de los gremios tróficos de microartrópodos edáficos hallados en los diferentes sistemas de uso del suelo en los suelos Argiudoles típicos de Chivilcoy y Navarro. El eje vertical expresa el valor de biomasa media en logaritmo natural. Sobre los violines se dibuja el promedio como un punto amarillo y la mediana como una línea horizontal. Los puntos pequeños representan el valor puntual de biomasa media de diferentes taxones en diferentes muestras. La distribución de los puntos es aleatoria (tipo ruido blanco, en inglés: *"jitter"*) no indica frecuencia y su valor sólo expresa la biomasa media ubicada sobre el eje vertical
 
-Las biomasas medias del gremio de los detritívoros fue mayor significativamente que los microfitófagos, depredadores y omnívoros gremios tróficos que comparten un valor de biomasa media similar.
+La biomasa media del gremio de los detritívoros fue mayor significativamente que los microfitófagos, depredadores y omnívoros, gremios tróficos que comparten un valor de biomasa media similar.
 
 Entre los sistemas de uso del suelo la biomasa media de la comunidad de microartrópodos edáficos no mostró diferencias significativas, es decir, la biomasa media en los diferentes sistemas de uso del suelo se mantienen alrededor de 3,1x10^4^ µg~p.s.~.m^-2^.
 
 ### Relaciones entre el peso corporal medio y la densidad de los taxones de los gremios tróficos de las comunidades edáficas que habitan suelos con diferentes intensidades de uso en suelos Argiudoles típicos de la Pampa Ondulada
 
 La regresión de cuantiles (Apéndice 4.4) permitió establecer relaciones entre el peso corporal medio y la densidad de los taxones y entre los gremios tróficos y los sistemas de uso del suelo.
+
+#### Suelos de Luján
 
 En los suelos Argiudoles de Luján el modelo indica que existe un efecto significativo entre los gremios tróficos y los sistemas de uso del suelo sobre el intercepto. También indica que existe efecto de los gremios tróficos sobre la variación de las pendientes de regresión. En cambio los sistemas de uso del suelo no tuvieron efecto sobre cambios en la pendiente.
 
@@ -1661,48 +1575,38 @@ En la figura 4.8 se observan los diferentes gremios tróficos con las regresione
 
 Se observan (Fig 4.8) diferentes rangos de distribución de los pesos corporales medios (\underline{eje x}). Los omnívoros son la categoría trófica con el menor rango de distribución del peso corporal medio. Los taxones de mayor peso corporal medio ocurrieron en la categoría de los detritívoros en el que se encuentran las lombrices de tierra y los coleópteros scarabeidos, los gremios tróficos con los taxones de menor peso son los microfitófagos y los herbívoros ya que aquellos incluyen a los nemátodos (microfauna).
 
-Se observa (Fig 4.8) que tanto los nemátodos omnívoros como los microartrópodos omnívoros tienen relaciones de densidad y de pesos corporales solapadas entre sí.
+Se observa que tanto los nemátodos omnívoros como los microartrópodos omnívoros tienen relaciones de densidad y de pesos corporales solapadas entre sí  (Fig 4.8).
 
-<!--
-
-::: imagen-contenedor
-<img src="Figures/Fig4-8.png" alt="Figura 4.8" id="fig4.8"/>
-
-<p class="descripcion">
-
-**Figura 4.8.** Regresión de cuantiles ($\tau = 0,75$) entre el peso corporal y la densidad de los taxones de gremios tróficos ocurridos en diferentes sistemas de uso en suelos Argiudoles de Luján. Los ejes de coordenadas expresan los valores de peso corporal (µg\~peso seco\~) y de la densidad (nº individuos/m^2^) en logaritmo natural. Se dibuja un plano de coordenadas (cada subdivisión del gráfico) para cada gremio trófico. Se dibuja una línea de regresión por cada sistema de uso del suelo. La forma de los puntos indica la categoría de tamaños al que pertenece el taxón: cruces = microfauna, triángulos = mesofauna, círculos = macrofauna. Los colores de los puntos indican diferentes taxas
-
-</p>
-:::
--->
 ![](Figures/Fig4-8.png){width=600 heigth=800}
 
-**Figura 4.8.** Regresión de cuantiles ($\tau = 0,75$) entre el peso corporal y la densidad de los taxones de gremios tróficos ocurridos en diferentes sistemas de uso en suelos Argiudoles de Luján. Los ejes de coordenadas expresan los valores de peso corporal (µg\~peso seco\~) y de la densidad (nº individuos/m^2^) en logaritmo natural. Se dibuja un plano de coordenadas (cada subdivisión del gráfico) para cada gremio trófico. Se dibuja una línea de regresión por cada sistema de uso del suelo. La forma de los puntos indica la categoría de tamaños al que pertenece el taxón: cruces = microfauna, triángulos = mesofauna, círculos = macrofauna. Los colores de los puntos indican diferentes taxas
+**Figura 4.8.** Regresión de cuantiles ($\tau = 0,75$) entre el peso corporal y la densidad de los taxones de gremios tróficos ocurridos en diferentes sistemas de uso en suelos Argiudoles de Luján. Los ejes de coordenadas expresan los valores de peso corporal (µg~peso seco~) y de la densidad (nº individuos/m^2^) en logaritmo natural. Se dibuja un plano de coordenadas (cada subdivisión del gráfico) para cada gremio trófico. Se dibuja una línea de regresión por cada sistema de uso del suelo. La forma de los puntos indica la categoría de tamaños al que pertenece el taxón: cruces = microfauna, triángulos = mesofauna, círculos = macrofauna. Los colores de los puntos indican diferentes taxas
 
 
 El gremio de los detritívoros (Fig 4.8) no tiene taxones de nemátodos debido a sus hábitos tróficos. para este gremio se observa que las densidades de la mesofauna y de la macrofauna se separan a lo largo del \underline{eje y} indicando mayores densidades para la categoría de la mesofauna, aunque en términos de pesos corporales promedios (\underline{eje x}) se observan pesos superpuestos entre organismos de la mesofauna de mayor peso corporal y la macrofauna de menor peso corporal.
 
 El gremio de los microfitófagos, a lo largo del \underline{eje y} muestra una estructura escalonada (Fig 4.8), con los nemátodos siendo los de mayor abundancia, seguidos por la mesofauna y luego de una "brecha" sobre el eje de las densidades siguen los microfitófagos de la macrofauna.
 
-Los depredadores de la fauna del suelo tienen un rango de tamaños similar al de los microfitófagos (Fig 4.8). Se observaron entre los depredadores de menor peso corporal animales de la mesofauna con pesos corporales menores al de los nemátodos (microfauna), esto se explica porque existen formas juveniles de la mesofauna predadora que solapan su peso corporal con el peso corporal de los nemátodos depredadores. Por otra parte, los depredadores de la macrofauna y los depredadores de la mesofauna no se solaparon sobre \underline{el eje x}, estableciéndose así, una separación clara de la macrofauna predadora respecto de las categorías de menor tamaño.
+Los depredadores de la fauna del suelo tienen un rango de tamaños similar al de los microfitófagos (Fig 4.8). Se observaron entre los depredadores de menor peso corporal animales de la mesofauna con pesos corporales menores al de los nemátodos (microfauna), esto se explica porque existen formas juveniles de la mesofauna depredadora que solapan su peso corporal con el peso corporal de los nemátodos depredadores. Por otra parte, los depredadores de la macrofauna y los depredadores de la mesofauna no se solaparon sobre \underline{el eje x}, estableciéndose así, una separación clara de la macrofauna depredadora respecto de las categorías de menor tamaño.
 
 Los herbívoros (Fig 4.8) solo tuvieron taxones en la microfauna y en la macrofauna.
 
-La interacción entre el sistema de uso del suelo y los gremios tróficos ($C_2^5=105$ combinaciones) marcan un efecto sobre el intercepto del modelo (Apéndice 4.4).
+La interacción entre el sistema de uso del suelo y los gremios tróficos marcan un efecto sobre el intercepto del modelo (Apéndice 4.4).
 
-Los herbívoros difirieron significativamente ($>|\;t\;| : p_{value}<0.1$) entre sistemas, en la reserva tuvieron un mayor valor del intercepto (Fig 4.8), en comparación con el intercepto del sistema agrícola y el sistema del pastizal con valores similares.
+Los herbívoros difirieron significativamente ($ p_{value}<0.1$) entre sistemas, en la reserva tuvieron un mayor valor del intercepto (Fig 4.8), en comparación con el intercepto del sistema agrícola y el sistema del pastizal con valores similares.
 
-Con respecto a los microfitófagos (Fig 4.8) aquellos ubicados en la reserva y el pastizal tuvieron valores de interceptos similares, si difieren significativamente ($>|\;t\;| : p_{value}<0.1$) del sistema agrícola que posee un menor valor sobre el intercepto.
+Con respecto a los microfitófagos (Fig 4.8) aquellos ubicados en la reserva y el pastizal tuvieron valores de interceptos similares, si difieren significativamente ($ p_{value}<0.1$) del sistema agrícola que posee un menor valor sobre el intercepto.
 
 Por otra parte, ni los detritívoros, ni los depredadores, ni los omnívoros, difirieron en su efecto sobre el intercepto entre diferentes sistemas de uso del suelo (Apéndice 4.4).
 
-Las pendientes de los gremios tróficos en general tuvieron valores negativos (Apéndice 4.4), correspondiéndose con el hecho de que los organismos más abundantes son aquellos taxones con el menor peso corporal medio. Sin embargo, la categoría del gremio de los omnívoros presentaron valores de pendientes positivos ($>|\;t\;| : p_{value}<0.05$) esto implica que los omnívoros tengan mayores densidades a mayor peso, aunque esta relación se encuentra truncada a valores de peso corporal por debajo de $e^5 \approx 150 \mu g$.
+Las pendientes de los gremios tróficos en general tuvieron valores negativos (Apéndice 4.4), correspondiéndose con el hecho de que los organismos más abundantes son aquellos taxones con el menor peso corporal medio. Sin embargo, la categoría del gremio de los omnívoros presentaron valores de pendientes positivos ($ p_{value}<0.05$) esto implica que los omnívoros tengan mayores densidades a mayor peso, aunque esta relación se encuentra truncada a valores de peso corporal por debajo de $\approx 150 \mu g$.
 
 Todos los gremios difirieron significativamente entre sí sobre la pendiente (Apéndice 4.4). Los valores de las pendientes para cada gremio trófico conforma un gradiente, de mayor a menor, resulta en: omnívoros con pendiente positiva ($m \approx 0.73$), detritívoros ($m \approx -0.77$), microfitófagos ($m \approx -0.85$), depredadores ($m \approx -0.87$) y los herbívoros ($m \approx-1.15$) con las pendientes más pronunciadas.
 
-Las pendientes \underline{dentro} de los gremios tróficos en comparación con los diferentes sistemas de uso del suelo (Apéndice 4.4) no difirieron en los gremios de omnínoros, detritívoros ni depredadores. Si se encontraron diferencias en los microfitófagos y los herbívoros (Apéndice 4.4). En el caso de los microfitófagos las pendientes de los sistemas reserva y pastizal no difirieron pero si hubo diferencias con la pendiente del sistema agrícola que resultó ser menor. Para el caso de los herbívoros las pendientes del sistema agrícola y el pastizal fue similar y de menor valor difiriendo de la reserva que resultó en un mayor valor.
+Las pendientes \underline{dentro} de los gremios tróficos en comparación con los diferentes sistemas de uso del suelo (Apéndice 4.4) no difirieron en los gremios de omnínoros, detritívoros ni depredadores. Si se encontraron diferencias en los microfitófagos y los herbívoros (Apéndice 4.4). En el caso de los microfitófagos las pendientes de los sistemas reserva y pastizal no difirieron, pero si hubo diferencias con la pendiente del sistema agrícola que resultó ser menor. Para el caso de los herbívoros las pendientes del sistema agrícola y el pastizal fue similar y de menor valor difiriendo de la reserva que resultó en un mayor valor.
 
-La regresión de quantiles evaluada entre la densidad y el peso medio de los taxones de \underline{microartrópodos edáficos}, que ocurrieron en suelos de Chivilcoy - Navarro, indica que existen interacciones con efecto sobre la pendiente debidas al sistema de uso del suelo y a los gremios tróficos, además existen interacciones sobre el intercepto debidas a los sistemas de uso del suelo y a los gremios tróficos.
+#### Suelos de Chivilcoy - Navarro
+
+La regresión de cuantiles evaluada entre la densidad y el peso medio de los taxones de \underline{microartrópodos edáficos}, que ocurrieron en suelos de Chivilcoy - Navarro, indica que existen interacciones con efecto sobre la pendiente debidas al sistema de uso del suelo y a los gremios tróficos, además existen interacciones sobre el intercepto debidas a los sistemas de uso del suelo y a los gremios tróficos.
 
 $$ D_{jk}^{\;\;\tau} = \beta_0^{\;\;\tau} + \beta_i^{\;\;\tau} + \beta_iS_j^{\;\;\tau} + \beta_iG_k^{\;\;\tau} + \beta_0S_j^{\;\;\tau} + \beta_0G_k^{\;\;\tau} + \beta_0(S\,x\,G)_{jk}^{\;\;\tau} + \beta_i(S\,x\,G)_{jk}^{\;\;\tau} +  \epsilon^{\;\;\tau} $$
 
@@ -1720,48 +1624,40 @@ $$ D_{jk}^{\;\;\tau} = \beta_0^{\;\;\tau} + \beta_i^{\;\;\tau} + \beta_iS_j^{\;\
 
 Los microartrópodos microfitófagos (Fig 4.9) exiben el mayor rango de tamaños corporales (eje x) de al menos 6 órdenes de magnitud, en esta categoría se observaron en el sistema del pastizal naturalizado los taxones con el menor peso corporal medio.
 
-Los detritívoros y depredadores muestran un rango de pesos corporales similar (Fig 4.9) entre $e^{-2}\approx0,15\,\mu g$ y $e^{3,5}\approx35\,\mu g$.
+Los detritívoros y depredadores muestran un rango de pesos corporales similar (Fig 4.9) entre $\approx0,15\,\mu g$ y $\approx35\,\mu g$.
 
-Con excepción de los depredadores cuya densidad es baja ($y<e^{\,9}\,\approx8100\,ind/m^2$) en todos los sistemas de uso del suelo la densidad de los gremios tróficos se movió alrededor de 6 órdenes de magnitud entre $e^{6}\approx405\,ind/m^2$ y $e^{12}\approx163000\,ind/m^2$.
-<!--
-::: imagen-contenedor
-<img src="Figures/Fig4-9.png" alt="Figura 4.9" id="fig4.9"/>
-
-<p class="descripcion">
-
-**Figura 4.9.** Regresión de cuantiles ($\tau$ = 0,75) entre el peso corporal y la densidad de los taxones de gremios tróficos de microartrópodos ocurridos en diferentes sistemas de uso en suelos Argiudoles de Chivilcoy - Navarro. Los ejes de coordenadas expresan los valores de peso corporal (ug\~peso seco\~) y de la densidad (nº individuos/m^2^) en logaritmo natural. Se dibuja un plano de coordenadas (cada subdivisión del gráfico) por gremio trófico. Se dibuja una línea de regresión por cada sistema de uso del suelo. Los colores de los puntos indican diferentes taxones
-
-</p>
-:::
--->
+Con excepción de los depredadores cuya densidad es baja ($8100\,ind/m^2$) en todos los sistemas de uso del suelo la densidad de los gremios tróficos se movió alrededor de 6 órdenes de magnitud entre $\approx405\,ind/m^2$ y $\approx163000\,ind/m^2$.
 
 ![](Figures/Fig4-9.png){width=600 heigth=800}
 
-**Figura 4.9.** Regresión de cuantiles ($\tau$ = 0,75) entre el peso corporal y la densidad de los taxones de gremios tróficos de microartrópodos ocurridos en diferentes sistemas de uso en suelos Argiudoles de Chivilcoy - Navarro. Los ejes de coordenadas expresan los valores de peso corporal (ug\~peso seco\~) y de la densidad (nº individuos/m^2^) en logaritmo natural. Se dibuja un plano de coordenadas (cada subdivisión del gráfico) por gremio trófico. Se dibuja una línea de regresión por cada sistema de uso del suelo. Los colores de los puntos indican diferentes taxones
+**Figura 4.9.** Regresión de cuantiles ($\tau$ = 0,75) entre el peso corporal y la densidad de los taxones de gremios tróficos de microartrópodos ocurridos en diferentes sistemas de uso en suelos Argiudoles de Chivilcoy - Navarro. Los ejes de coordenadas expresan los valores de peso corporal (ug~peso seco~) y de la densidad (nº individuos/m^2^) en logaritmo natural. Se dibuja un plano de coordenadas (cada subdivisión del gráfico) por gremio trófico. Se dibuja una línea de regresión por cada sistema de uso del suelo. Los colores de los puntos indican diferentes taxones
 
-La variación de cada gremio trófico sobre el intercepto (Apéndice 4.4) fue diferente significativamente ($>|\;t\;| : p_{value}<0.1$), los detritívoros y omnívoros comparten valores de interceptos similares y con el mayor valor, siguen a estos los microfitófagos y los depredadores.
+La variación de cada gremio trófico sobre el intercepto (Apéndice 4.4) fue diferente significativamente ($ p_{value}<0.1$), los detritívoros y omnívoros comparten valores de interceptos similares y con el mayor valor, siguen a estos los microfitófagos y los depredadores.
 
 La variación de los sistemas de uso del suelo sobre el intercepto no resultó diferente significativamente.
 
-Al nivel de las interacciones sobre el intercepto, esto es combinaciones sistemas de uso del suelo - gremios ($C_2^{12} = 66$), y considerando variaciones \underline{dentro} de los gremios tróficos \underline{entre sitios}, solo se reportan (Apéndice 4.4) diferencias estadísticamente significativas ($>|\;t\;| : p_{value}<0.1$) para el gremio de los detritívoros. Los microartrópodos detritívoros del sistema agrícola y del sistema mixto comparten interceptos similares ($e^{9,15}\approx9414\,ind/m^2$) y se diferenciaron del sistema del pastizal naturalizado cuyo intercepto resultó menor ($dif \approx\,1,16$).
+Al nivel de las interacciones sobre el intercepto, esto es combinaciones sistemas de uso del suelo - gremios, y considerando variaciones \underline{dentro} de los gremios tróficos \underline{entre sitios}, solo se reportan (Apéndice 4.4) diferencias estadísticamente significativas ($ p_{value}<0.1$) para el gremio de los detritívoros. Los microartrópodos detritívoros del sistema agrícola y del sistema mixto comparten interceptos similares ($9414\,ind/m^2$) y se diferenciaron del sistema del pastizal naturalizado cuyo intercepto resultó menor ($dif \approx\,1,16$).
 
 Entre los sistemas de uso del suelo no se observan efectos significativos sobre la pendiente de la regresión de cuantiles (Apéndice 4.4). Con respecto a los gremios tróficos existieron diferencias significativas del efecto de los gremios sobre las pendientes ordenándose de mayor a menor valor de pendiente como omnívoros, detritívoros, microfitófagos y depredadores.
 
-Al nivel de las interacciones ($C_2^{12} = 66$) y observando (Apéndice 4.5) solo aquellas que ocurren \underline{dentro} de los gremios tróficos de microartrópodos edáficos \underline{entre} los diferentes sistemas de uso del suelo se observó, para el gremio de los detritívoros del sistema agrícola y del sistema mixto, que a la vez no se diferenciaron entre sí, valores negativos ($>|\;t\;| : p_{value}<0.05$), por lo que comparten un valor similar de pendiente de ($m = -0.55$) y el valor de la pendiente de los detritívoros ubicados en la reserva no se diferenció de la constante ($m=0$). Para el gremio de los microfitófagos ($>|\;t\;| : p_{value}<0.05$) las pendientes fueron negativas en todos los sistemas de uso del suelo y entre los sistemas de uso del suelo estos no se diferenciaron significativamente (Apéndice 4.5) por lo que comparten un valor de pendiente similar de $m \approx-0.4$. En el caso de los omnívoros aquellos que se hallaron en el sistema mixto agrícola-ganadero (Fig. 4.9) muestran una pendiente positiva ($m = 0.65$), por lo que omnívoros de mayor peso son más abundante en el sistema mixto, para los demás sistemas de uso las pendientes no se diferenciaron de la constante (Apéndice 4.4) por lo que diferentes pesos corporales comparten densidades similares. Los depredadores en cada sistema de uso del suelo no expresaron pendientes diferentes significativamente de cero, lo que implica que las abundancias de los depredadores es similar para cada peso corporal medio en cada sistema de uso del suelo.
+Al nivel de las interacciones  y observando (Apéndice 4.5) solo aquellas que ocurren \underline{dentro} de los gremios tróficos de microartrópodos edáficos \underline{entre} los diferentes sistemas de uso del suelo se observó, para el gremio de los detritívoros del sistema agrícola y del sistema mixto, que a la vez no se diferenciaron entre sí, valores negativos ($ p_{value}<0.05$), por lo que comparten un valor similar de pendiente de ($m = -0.55$) y el valor de la pendiente de los detritívoros ubicados en la reserva no se diferenció de la constante ($m=0$). Para el gremio de los microfitófagos ($ p_{value}<0.05$) las pendientes fueron negativas en todos los sistemas de uso del suelo y entre los sistemas de uso del suelo estos no se diferenciaron significativamente (Apéndice 4.5) por lo que comparten un valor de pendiente similar de $m \approx-0.4$. En el caso de los omnívoros aquellos que se hallaron en el sistema mixto agrícola-ganadero (Fig. 4.9) muestran una pendiente positiva ($m = 0.65$), por lo que omnívoros de mayor peso son más abundante en el sistema mixto, para los demás sistemas de uso las pendientes no se diferenciaron de la constante (Apéndice 4.4) por lo que diferentes pesos corporales comparten densidades similares. Los depredadores en cada sistema de uso del suelo no expresaron pendientes diferentes significativamente de cero, lo que implica que las abundancias de los depredadores es similar para cada peso corporal medio en cada sistema de uso del suelo.
 
 ## Discusión
 
 El espectro de pesos corporales de la comunidad edáfica abarca desde pequeños organismos como los nemátodos fitófagos hasta las grandes larvas de coleópteros Scarabeidos por lo que el rango del espectro alcanza aproximadamente 13 órdenes de magnitud.
 
-Las distribuciones del peso corporal unimodales indican un valor de peso corporal más probable para el taxón, en general, la unimodalidad estuvo vinculada con una importante abundancia del taxón. Las distribuciones multimodales indican la presencia de más de una clase de tamaño en importancia para el taxón, esto puede ser debido a la presencia de diferentes morfoespecies o estadíos de desarrollo, y además a la baja abundancia del taxón configurando así más de una moda de tamaño en la distribución.
+Las distribuciones del peso corporal unimodales indican un valor de peso corporal más probable para el taxón, en general, la unimodalidad estuvo vinculada con una importante abundancia del taxón. Las distribuciones multimodales están vinculadas a bajas abundancias e indican la presencia de más de una clase de tamaño en importancia para el taxón, esto puede ser debido a la presencia de diferentes morfoespecies o estadíos de desarrollo. Esto implica que en altas abundancias puede haber mayor dominancia de especies/morfoespecies o estadios de desarrollo.
 
 Los disturbios asociados con las prácticas de manejo en los diferentes sistemas de uso del suelo, se relacionan con cambios en las condiciones ambientales y ante cambios en el ambiente los taxones responden mediante cambios en la densidad, mediante disminuciones o aumentos en los pesos corporales, o mediante variaciones en la biomasa media.
 
 Aquí se observaron respuestas heterogéneas en los valores promedios del peso corporal, densidad y biomasa, al ser comparados entre sistemas de uso del suelo.
 
-Algunos taxones tuvieron pesos corporales medios, densidades y biomasas medias mayores en un mismo sistema edáfico por lo tanto esto es una respuesta integral que indica condiciones ambientales que favorecen al taxón.
+Algunos taxones tuvieron los valores más altos de pesos corporales medios, densidades y biomasas medias mayores en suelos bajo un mismo sistema de uso, por lo tanto esto es una respuesta integral del 
+taxón que indica condiciones ambientales que favorecen al mismo.
 
-Otros taxones en un ambiente responden con biomasas medias y densidades mayores pero con pesos corporales menores en otro, esto indica un incremento numérico de organismos pequeños dentro del taxón en el ambiente pero a la vez nos dice que si bien el peso corporal podría ser más alto existe alguna restricción para que ello suceda. <!--Esto si es claramente una adaptacion al ambiente, menor biomasa corporal generalmente se asocia a aumento de temperatura, habria que discutir si hay otros estudios que muestran eso.-->
+Otros taxones responden con biomasas medias y densidades mayores
+en un uso del suelo pero con pesos corporales medios más bajos que en otro uso del suelo. Esto indica un incremento numérico de organismos pequeños dentro del taxón en un uso del suelo 
+pero a la vez nos dice que si bien el peso corporal podría ser más alto existe alguna restricción para que ello suceda. <!--Esto si es claramente una adaptacion al ambiente, menor biomasa corporal generalmente se asocia a aumento de temperatura, habria que discutir si hay otros estudios que muestran eso.-->
 
 En general para que un taxón llegue a valores de pesos corporales medios más altos requerirá de condiciones ambientales cercanas al rango óptimo y de la disponibilidad de recursos tróficos que cubra sus requerimientos, sumando a esto el tiempo de desarrollo que es especie-específico. Además para que un taxón sea numéricamente más alto requerirá de condiciones que disminuyan la competencia por los recursos y de la disponibilidad disponibilidad de refugios u estrategias para escapar de la depredación.
 
@@ -1771,62 +1667,25 @@ Estas comunidades edáficas sí fueron diferentes en biomasa media a través de 
 
 Por su parte, los microartrópodos omnívoros y detritívoros dan indicios de aumentos en la biomasa media en sistemas antropizados, tal vez, como respuestas al enriquecimiento debidas al aumento de nutrientes en el suelo, sean estos por la fertilización, por la mineralización de la materia orgánica del suelo u otras fuentes de nutrientes como las excretas del ganado. El enriquecimiento de nutrientes en el suelo se ha relacionado con el aumento del flujo de energía a través del canal de los bacterívoros en la red trófica edáfica [@kardol2016; @potapov2019; @zhou2022]
 
-```{=html}
-<!--Potapov et al. [-@potapov2021a] deduce que en las redes detritívoras del suelo, 
-las relaciones entre 
-los niveles tróficos y la biomasa no siguen las relaciones predador - presa clásicas, 
-en las cuales 
-los depredadores en niveles tróficos superiores son más grandes que las presas,
-sino que los depredadores dentro de su propia clase de tamaño buscarán 
-presas de menor tamaño, por ej. los 
-mesostigmatas buscarán capturar nemátodos, colémbolos pequeños, etc. 
-También explica que existe compartimentalización de los canales de energía 
-que atraviesan las redes tróficas del suelo en el cuál los consumidores primarios 
-(detritívoros y microfitófagos) tendran espectro de tamaños y densidades mayores 
-que los los predadores, tal como se observó en 
-las biomasas medias y en el espectro de tamaños 
-de las comunidades de la fauna edáfica en los suelos Argiudoles típicos.
+Considerando el efecto que los sistemas de uso del suelo pudieran tener sobre las comunidades, evaluado mediante el modelo de espectro de tamaños, se obtuvieron valores de pendientes que no difirieron estadísticamente entre sí. Sin embargo, esta falta de evidencia de un efecto directo podría deberse a combinaciones de factores que enmascaran estas diferencias. A pesar de haber utilizado regresiones de cuantiles, diseñadas específicamente para estos casos, sería recomendable verificar los resultados con otros métodos para confirmar esta conclusión en suelos Argiudoles típicos.
 
-Las relaciones entre los pesos corporales y las densidades permiten visualizar las respuestas 
-de los diferentes taxones de una comunidad en función de gremios tróficos, 
-grupos funcionales u otras categorizaciones, con la respuesta a las variaciones ambientales 
-asociadas con el efecto que tienen las perturbaciones sobre los ecosistemas bajo estudio [@potapov2022; @zhou2022]. Además, Antunes y colaboradores [-@antunes2023] explican que las fluctuaciones en la composición taxonómica, en los pesos corporales y en la densidad de las taxones que conforman las comunidades del suelo afectarán al flujo de energía que atraviesa la red trófica edáfica 
-y a la multiplicidad de funciones asociada con ellos, explica también que, estas variaciones se 
-interpretan a través de las variaciones en las pendientes entre la densidad y el peso corporal y que si los cambios en las pendientes son importantes en magnitud indican que el efecto de las perturbaciones estará vinculado con variaciones en el funcionamiento del ecosistema y 
-cambios en los regímenes que determinan la estabilidad del sistema.
+Al analizar los espectros por gremios la pendiente de los omnívoros edáficos tiende a ser positiva, indicando la presencia de un taxón de mayor peso con una densidad importante en relación a los omnívoros de menor tamaño. Los demás gremios tróficos muestran sus pendientes negativas, ajustándose a lo esperable para esta relación, de mayor valor de pendiente a menor se ubican los detritívoros, los microfitófagos, los depredadores y los herbívoros. Las pendientes menos negativas, en los detritívoros y microfitófagos, nos indican la mayor probabilidad de encontrar organismos con gran peso corporal en comparación con aquellos gremios con pendientes más negativas.
 
-Turnbull [-@turnbull2014] indica que el análisis de curvas de regresión pueden servir como puntos 
-de referencia para comparar comunidades y para entender los efectos vinculados 
-con disturbios sobre el hábitat. -->
-```
-Considerando el efecto que los sistemas de uso del suelo pudieran tener sobre las comunidades, evaluada mediante el modelo de espectro de tamaños, resultó en valores de pendientes que no difirieron estadísticamente, entre sí. Se asume entonces que, dada pendientes similares entre sí, no existe evidencia de un efecto directo de las perturbaciones vinculadas con las diferentes intensidades de usos en estos suelos Argiudoles típicos.
-
-Existió una regularidad en las pendientes de regresión densidad-peso en función de los gremios tróficos. La pendiente de los omnívoros edáficos tiende a ser positiva, indicando la presencia de un taxón de mayor peso con una densidad importante en relación a los omnívoros de menor tamaño. Los demás gremios tróficos muestran sus pendientes negativas, ajustándose a lo esperable para esta relación, de mayor valor de pendiente a menor se ubican los detritívoros, los microfitófagos, los depredadores y los herbívoros. Las pendientes menos negativas, en los detritívoros y microfitófagos, nos indican la mayor probabilidad de encontrar organismos con gran peso corporal en comparación con aquellos gremios con pendientes más negativas.
-
-Como el sistema detritívoro del suelo depende de la materia orgánica como recurso trófico base, entonces observar pendientes menos pronunciadas en gremios que aprovechan este recurso refleja el potencial de mantener una mayor abundancia de organismos de mayor peso corporal. Viceversa, los depredadores que dependen de la disponibilidad de sus presas en este ambiente críptico y además con presas con diferentes estrategias de evitación de consumo (p.e. colémbolos que salta, ácaros que liberan repelente, etc.), tienen menos chances de sostener una mayor abundancia de depedadores de gran tamaño.
+Como el sistema detritívoro del suelo depende de la materia orgánica como recurso trófico base, entonces observar pendientes menos pronunciadas en gremios que aprovechan este recurso refleja el potencial de mantener una mayor abundancia de organismos de mayor peso corporal. Viceversa, los depredadores que dependen de la disponibilidad de sus presas en este ambiente críptico y además con presas con diferentes estrategias de evitación de consumo (p.e. colémbolos que saltan, ácaros que liberan repelentes, etc.), tienen menos chances de sostener una mayor abundancia de depredadores de gran tamaño.
 
 ```{=html}
 <!--  Esta tendencia positiva puede estar relacionada con su capacidad para consumir una amplia variedad de recursos, lo que les permite adaptarse mejor a diferentes condiciones ambientales y aprovechar diversas fuentes de alimento 
 Los omnívoros tienden a aprovechar una mayor diversidad de recursos tróficos, lo que les permite crecer y mantener mayores densidades poblacionales a diferentes tamaños corporales. Esto sugiere que estos organismos pueden tener una flexibilidad trófica que les permite adaptarse mejor a fluctuaciones en los recursos del suelo.-->
 ```
-Particularmente, se presentó una disyuntiva al observar las pendientes de los gremios tróficos entre los sistemas de uso del suelo. Por un lado, en suelos de Chivilcoy - Navarro los detritívoros en los sistemas antropizados tuvieron pendientes más cercanas a cero, lo que implica que los animales detritívoros más pesados pueden sobrevivir en estos ambientes perturbados. Por otro lado, en suelos de Luján, los gremios microfitófagos y hervívoros tuvieron valores de pendientes más alejados de cero en el sistema agrícola lo que implica la mayor abundancia de animales de menor peso corporal y la menor chance de encontrar animales de gran peso en estos gremios, coincidiendo con la predicción de que ambientes perturbados se relacionan con pendientes más negativas.
+Particularmente, se presentó una disyuntiva al observar las pendientes de los gremios tróficos entre los sistemas de uso del suelo. Por un lado, en suelos de Chivilcoy - Navarro los detritívoros en los sistemas antropizados tuvieron pendientes más cercanas a cero, lo que implica que los animales detritívoros más pesados pueden sobrevivir en estos ambientes perturbados. Por otro lado, en suelos de Luján, los gremios microfitófagos y herbívoros tuvieron valores de pendientes más alejados de cero en el sistema agrícola lo que implica la mayor abundancia de animales de menor peso corporal y la menor chance de encontrar animales de gran peso en estos gremios, coincidiendo con la predicción de que ambientes perturbados se relacionan con pendientes más negativas.
 
-Estos hallazgos sugieren que la relación entre el espectro de tamaños de la fauna edáfica y el uso que se hace de los suelos Argiudoles de la Pampa Ondulada no sigue una respuesta que vincule efectos fuertes debido a las perturbaciones en detrimento de la comunidad [@potapov2019; @zhou2022; @sechi2017].
 
-Dado que la biomasa media y las relaciones de pendientes se mantuvieron similares entre sistemas de uso, podemos interpretar que la comunidad de la fauna edáfica, ante las perturbaciones debidas a las prácticas de manejo, es resiliente a los cambios que se producen en el ambiente edáfico debidas a las prácticas de manejo.
+Sechi et al [-@sechi2017] encontró diferencias en las relaciones de biomasas y del espectro de tamaños de la fauna edáfica en suelos bajo agricultura convencional en contraste con los bordes que funcionan como corredores biológicos, las respuestas de la comunidad edáfica reflejó por un lado los efectos del enriquecimiento en los suelos manejados y por el otro las diferencias en la estructura de los gremios tróficos asociados con los suelos de los bordes relacionándolo con la estabilidad en los sitios no perturbados. También Zhao et al. [-@zhao2015]
+quienes evaluaron la aplicabilidad del análisis de la pendiente del espectro de tamaños sobre la comunidad de la microfauna del suelo encontraron pendientes del espectros más negativas en suelos 
+con mayor nivel de intensidad de manejo. Mulder et al. [-@mulder2009] quiénes investigaron, con un enfoque estequiométrico, comunidades del suelo bajo diferentes prácticas de manejo, encontraron una respuesta de tipo "bottom-up" en la que la pendiente del espectro de tamaño es mayor en sistemas con mayor
+disponibilidad de fósforo.
 
-<!--Mulder and Elser 2009 [@mulder2009] encontró que un mayor contenido de fósforo asociado con el manejo agrícola con fertilización se relaciona con pendientes del espectro menos pronunciadas 
-sechi et al [@sechi2017] encontro que las biomasas de la fauna edáfica tambien diferian entre practicas convencionales de aquellos sitios que se dejaban como carredores o márgenes
-Zhao et al 2015 [@zhao2015] utilizó el enfoque del espectro de tamaños solo sobre nematodos y pudo separar diferentes prácticas de manejo en el uso del suelo-->
-
-De ello se puede deducir que las prácticas de manejo sobre estos suelos Argiudoles aún mantiene cercanos entre sí los atributos estudiados en la comunidad de la fauna edáfica.
-
-Finalmente, resulta interesante continuar con investigaciones para comprender mejor la respuesta del espectro de tamaños ante las variaciones en el ambiente edáfico. También es necesario conocer cómo será la respuesta del espectro de tamaños con otras formas de uso, otros ambientes y regímenes climáticos.\
-Los resultados sobre este aspecto retroalimentarán las buenas prácticas agropecuarias con el objetivo de lograr el equilibrio entre el uso del suelo, el mantenimiento de la estabilidad y el funcionamiento de la comunidad edáfica y por lo tanto la conservación del ecosistema edáfico
-
-<!-- nicosia2020 comenta que existen diferencias estructurales
-en la mesofauna del suelo pero que las buenas prácticas agrícolas 
-mantienen caracterísiticas de comunidades no perturbadas-->
+En contraste, en estos suelos argiudoles, la biomasa media y las relaciones de pendientes se mantuvieron similares entre sistemas de uso, podemos interpretar que la comunidad de la fauna edáfica, ante las perturbaciones debidas a las prácticas de manejo, es resiliente a los cambios que se producen en el ambiente edáfico debidas a las prácticas de manejo.  
 
 \newpage
 
@@ -1836,25 +1695,9 @@ mantienen caracterísiticas de comunidades no perturbadas-->
 
 # Análisis comparativo de la estructura, topología y estabilidad de las redes tróficas de la edafofauna bajo distinta intensidad de uso
 
-```{=html}
-<!-- Hay que ir de lo general a lo particular, una guia general para escribir la introducción es:
 
-1. Qué se sabe
-2. Qué no se sabe
-3. Limitaciones y lagunas en estudios previos
-4. Tu pregunta clave
-5. Tu enfoque experimental
-6. Por qué tu enfoque experimental es nuevo, diferente e importante (llena las lagunas)
 
--->
-```
-```{=html}
-<!--Although it is easy enough to describe in theory the functioning of any
-community in terms of simple linear food chains, with herbivore feeding on
-primary producer, carnivore feeding on herbivore, etc., in practice, the interrelationships between populations are so complex that they can be considered more
-accurately as a web, rather than a chain. Wallwork 1970-->
-```
-En los ecosistemas los organismos se relacionan entre sí y con el medio ambiente de múltiple maneras y estas relaciones configuran complejas redes de interacciones [@sole2001].
+En los ecosistemas los organismos se relacionan entre sí y con el medio ambiente de múltiples maneras y estas relaciones configuran complejas redes de interacciones [@sole2001].
 
 Las redes de interacciones se apoyan en la teoría de grafos, esta permite representar los elementos de cualquier sistema como nodos y a sus interacciones como enlaces, de este modo es factible representar matemáticamente al mismo tiempo múltiples características de los nodos y de sus enlaces brindando así un marco para el estudio de la complejidad que subyace a el sistema [@newman2010].
 
@@ -1862,19 +1705,31 @@ Ecológicamente, este enfoque permite integrar la diversidad de las comunidades 
 
 Es posible simplificar todas las posibles formas en las que los organismos pueden interactuar al representar las redes en función de los diferentes tipos de interacciones, describiendo así redes tróficas, redes de competidores, redes mutualistas, entre otras [@delmas2019; @kefi2012; @sole2001; @labrador2008].
 
-Las redes tróficas en particular analizan las interacciones de alimentación entre los nodos, en estas las interacciones son dirigidas desde los nodos que representan el recurso hacia los nodos que lo consumen. Las redes tróficas son ampliamente utilizados en ecología porque describen los canales por los cuales se mueve la materia y la energía [@barnes2018], dan cuenta del efecto de los consumidores sobre sus recursos, permiten asignar parámetros y variables tanto a nodos como a sus enlaces, y mediante el análisis topológico se reconoce el papel de nodos o estructuras claves relacionados con el funcionamiento, la dinámica y la estabilidad del ecosistema [@gitay1997; @quevreux2023; @sole2001; @labrador2008].
+Las redes tróficas en particular analizan las interacciones de alimentación entre los nodos, en estas las interacciones son dirigidas desde los nodos que representan el recurso hacia los nodos que lo consumen. Las redes tróficas son ampliamente utilizadas en ecología porque describen los canales a través de los cuales se mueve la materia y la energía [@barnes2018]. Además, permiten comprender el efecto de los consumidores sobre sus recursos, y facilitan la asignación de parámetros y variables tanto a los nodos como a sus enlaces. El análisis topológico de estas redes, que estudia la disposición y organización de nodos (especies o taxones) e interacciones tróficas (enlaces), permite identificar el papel de nodos o estructuras clave en relación con el funcionamiento, la dinámica y la estabilidad del ecosistema [@gitay1997; @quevreux2023; @sole2001; @labrador2008].
+
+
 
 En los suelos las comunidades edáficas están influenciadas por **factores de largo plazo** tales como el clima, las características edáficas regionales y locales, la disponibilidad de recursos para los organismos que en él habitan, las influencias biogeográficas sobre las comunidades y por **factores de corto plazo** como las perturbaciones antrópicas [@kardol2016] por ejemplo aquellas que ocurren debidas al manejo del suelo con fines agropecuarios, por lo que resulta de particular interés describir la respuesta de la estructura de las redes ante los distintos tipos de disturbios y su relación con el funcionamiento del ecosistema del suelo [@sabatte2021].
 
-Como la estructura de las redes ecológicas condiciona el funcionamiento intrínseco de un ecosistema [@labrador2008; @martin-lopez2007] la complejidad del entramado de la red trófica edáfica es un factor clave en la estabilidad de los procesos del suelo [@wardle1995; @sabatte2021], si bien el concepto de estabilidad de los sistemas ecológicos posee muchas aristas, podemos entender este como la capacidad del sistema edáfico, luego de ser sometido a perturbaciones, de mantener las funciones ecológicas dentro de un régimen de procesos que mantienen al sistema en equilibrio [@landi2018]. Esta capacidad dependerá de la estructura de las comunidades, de sus interacciones y de los flujos de materia y energía que atraviesan el ecosistema edáfico.
+Como la estructura de las redes ecológicas condiciona el funcionamiento intrínseco de un ecosistema [@labrador2008; @martin-lopez2007] la complejidad del entramado de la red trófica edáfica es un factor clave en la estabilidad de los procesos del suelo [@wardle1995; @sabatte2021].Si bien el concepto de estabilidad en los sistemas ecológicos presenta múltiples dimensiones, puede entenderse como la capacidad del sistema edáfico para, después de una perturbación, mantener sus funciones dentro de un régimen de procesos que conserva el equilibrio del sistema [@landi2018]. Esta capacidad depende de la estructura de las comunidades, sus interacciones, y los flujos de materia y energía que atraviesan el ecosistema edáfico.
 
-En el ecosistema del suelo los organismos pueden agruparse en grupos funcionales [@martin-lopez2007], con hábitos tróficos generalistas y que ocupan diferentes microhábitats configurados a través de la red de poros en el suelo [@digel2014], estos grupos funcionales permiten una mayor capacidad de respuesta ante las perturbaciones asegurando el mantenimiento de la estructura, el funcionamiento y los mecanismos de autorregulación del ecosistema [@martin-lopez2007, @delmas2019; @pimm1991; @sole2001] aunque la desaparición de especies puede desencadenar extinciones secundarias, fragmentaciones de la red [@sole2001] o reducciones en el flujo de energía, lo que podría afectar la dinámica de la descomposición de la materia orgánica, el ciclo de nutrientes, el control de poblaciones, la formación de estructuras biogénicas, etc. y estos efectos podrían ligarse a las fuerzas de las perturbaciones que ocurren debidas al uso que se da al suelo [@delmas2019; @maggiotto2019].
+
+En el ecosistema del suelo los organismos pueden agruparse en grupos funcionales [@martin-lopez2007], con hábitos tróficos generalistas y que ocupan diferentes microhábitats configurados a través de la red de poros en el suelo [@digel2014]. Estos grupos funcionales proporcionan una mayor capacidad de respuesta ante perturbaciones, asegurando el mantenimiento de la estructura, el funcionamiento y los mecanismos de autorregulación del ecosistema [@martin-lopez2007, @delmas2019; @pimm1991; @sole2001]. Sin embargo, la desaparición de especies puede desencadenar extinciones secundarias, fragmentación de la red [@sole2001 o reducciones en el flujo de energía, afectando la dinámica de la descomposición de la materia orgánica, el ciclo de nutrientes, el control de poblaciones, y la formación de estructuras biogénicas. Estos efectos pueden estar relacionados con la intensidad de las perturbaciones, como el uso del suelo [@delmas2019; @maggiotto2019].
+
 
 Digel et al. [-@digel2014] y Maggioto et al. [-@maggiotto2019] utilizaron el análisis de las redes tróficas para estudiar la estructura y la topología de las redes tróficas detritívoras de los suelos. Digel et al. [-@digel2014] hipotetizaba que las redes de los suelos serían estructuralmente diferentes a las redes de otros sistemas ecológicos como por ej. aquellas que ocurren sobre el suelo, en arroyos o en sistemas marinos, y también aseguraba que las redes tróficas de los suelos de bosques serían diferentes de los que ocurren en suelos bajo sistemas productivos, este autor encontró que lo primero fue cierto pero no halló diferencias consistentes con su segunda hipótesis. Maggioto et al. [-@maggiotto2019] sugirió que la estructura de las redes tróficas edáficas cambiarían debido a cambios en la composición de la hojarasca que forma la base energética de las redes tróficas detritívoras del suelo pero encontró que la respuesta de estas redes tróficas fue resistente a los cambios en la estructura de la red trófica. En ambos casos el análisis de la estructura de las redes fue realizado comparando diferentes comunidades y manejos del suelo, hallando características particulares para cada comunidad y coinciden en que la estructura general de las redes no varía considerablemente según el uso del suelo, aunque en estos estudios no realizaron análisis sobre los flujos de energía o cálculo de métricas de estabilidad de las redes tróficas.
 
 Es posible mediante las redes tróficas modelar los flujos de energía para cada interacción, asumiendo que el sistema se encuentra en equilibrio [@quevreux2023]. Basados en los recursos bases en la red trófica es posible recorrer los flujos a través de los canales de energía e identificar funciones ligadas a los taxones dentro de grupos funcionales y relacionarlos con diferentes funciones ecológicas que ocurren en una comunidad. Mediante este enfoque en el ecosistema edáfico se podrán determinar los efectos que tienen las perturbaciones sobre diferentes grupos en las comunidades, relacionar cuantitativamente la magnitud de los flujos de energía con cambios cambios debidas a las perturbaciones o también determinar la importancia de los grupos sobre determinadas funciones ecológicas [@barnes2018].
 
 A través de los flujos de energía es posible determinar la cantidad de energía que circula entre los diferentes gremios tróficos, otorgando así un sentido funcional a la magnitud de dichos flujos. De manera indirecta, estos flujos reflejan los procesos ecológicos relacionados con diversas formas de alimentación, tales como la microbivoría, que regula la biomasa de bacterias y hongos; la detritivoría, que está vinculada con los procesos de descomposición de materia orgánica; la zoofagia, que regula las poblaciones de la fauna edáfica; y la biotransformación, que implica el uso del humus como fuente de alimento, afectando tanto la estructura física como química del suelo orgánico-mineral.
+
+Una aproximación alternativa es la estimación de las fuerzas de interacción. Las fuerzas de interacción en redes tróficas representan la intensidad con la que un organismo (por ejemplo, un depredador) afecta a otro (como una presa). Estas fuerzas describen cuán fuerte es el impacto de una especie sobre la tasa de crecimiento poblacional de otra, y son claves para entender la estabilidad y dinámica de los ecosistemas. En términos generales, las fuerzas de interacción se cuantifican como las tasas de consumo de presas o las tasas de cambio de biomasa entre depredadores y presas.
+
+
+Para estimar estas fuerzas, se utilizan modelos alométricos que relacionan características fisiológicas de los organismos, como el tamaño corporal y las tasas metabólicas, con sus interacciones tróficas. El tamaño corporal es un determinante crucial de la ecología trófica porque influye en las tasas de captura, el tiempo de manejo de presas y las tasas de consumo energético.
+El enfoque propuesto por Pawar et al. [@pawar2012] es particularmente relevante para estimar estas fuerzas, ya que introduce la dimensionalidad del espacio de búsqueda del consumidor como un factor clave. El modelo plantea que los depredadores y las presas interactúan en entornos con diferentes dimensionalidades (por ejemplo, en un espacio bidimensional como el suelo o tridimensional como el agua) y que esta dimensionalidad afecta la tasa de encuentros entre ellos. El modelo de Pawar utiliza ecuaciones alométricas para vincular el tamaño corporal con la velocidad de búsqueda y captura de las presas.
+
+A partir de las fuerzas de interacción, se puede estimar la estabilidad local de un sistema, que mide su capacidad para amplificar o disminuir pequeñas perturbaciones. Este cálculo involucra la matriz de la comunidad o Jacobiano, que describe cómo los cambios en la densidad de una especie afectan a otra. El máximo autovalor de esta matriz indica si la desviación del estado normal ante una perturbación se amplifica o se disipa, siendo este un indicador clave de la estabilidad local [@may1972]. Utilizando los valores de la intensidad de interacción, se pueden estimar los componentes del Jacobiano y, por ende, la estabilidad local. Dado que los valores de la matriz pueden fluctuar debido a condiciones ambientales, realizamos una aleatorización de la intensidad de interacción, lo que permite calcular una distribución del máximo autovalor, conocida como estabilidad de cuasi-signo (QSS) [@allesina2008], que captura la variabilidad de la estabilidad local.
 
 Los suelos de la Pampa Ondulada son suelos con una importante historia de uso con fines de producción agrícola y ganadera debida a sus bondades climáticas, pedológicas y de fertilidad edáfica [@morello2000], la comprensión de la estructura y topología de la red trófica aplicada sobre comunidades de la fauna edáfica que habitan en suelos Argiudoles de la Pampa Ondulada nos permitirá describir y cuantificar la complejidad del ecosistema, conocer los flujos de energía ligados a funciones del ecosistema y la estabilidad de las comunidades de la fauna edáfica ante las perturbaciones debidas al manejo del suelo [@delmas2019; @maggiotto2019] por ello, la hipótesis es que en suelos sometidos a gran intensidad de uso tendrán diferencias estructurales en la conformación de la red trófica edáfica que modificarían las fuerzas de interacciones y los flujos de energía entre los nodos y el valor de estabilidad intrínseca de la red trófica, en relación con suelos con una intensidad de uso baja o sin uso.
 
@@ -1899,7 +1754,7 @@ Suelos de Chivilcoy - Navarro:
   -    Sistema con intensidad de uso intermedio (G): Sistemas mixtos de producción de forraje y pastoreo. 
   -    Sistema con alta intensidad de uso (A): Áreas con cultivos agrícolas por más de 50 años.
 
-De esta manera, se contó con un gradiente de intensidad de uso del suelo, desde sistemas de referencia sin uso, hasta sistemas con uso agrícola intensivo, que permitirá analizar el efecto de la perturbación sobre la estructura y estabilidad de las redes tróficas de la edafofauna.
+De esta manera, se contó con un gradiente de intensidad de uso del suelo, desde sistemas de referencia sin uso, hasta sistemas con uso agrícola intensivo, que permitirá analizar el efecto de la perturbación sobre la estructura y estabilidad de las redes tróficas de la edafofauna. Para más detalles de las zonas de estudio y métodos de muestreo ver el capítulo 3.
 
 Para construir y modelar la red de interacciones tróficas de la fauna del suelo, es necesario conocer las comunidades que habitan los diferentes ambientes, los recursos tróficos que forman la base energética de la red, y los hábitos tróficos de los nodos que la componen, con el fin de modelar la matriz de interacciones tróficas [@delmas2019]. A esta matriz se le pueden añadir atributos a los nodos, estos atributos son variables numéricas, nominales o categóricas, tales como el peso corporal y la densidad de los taxones involucrados [@laigle2018], lo que permite calcular las fuerzas de interacción [@deruiter1995] o los flujos de energía entre nodos (enlaces). Con esta información, es posible entender qué sucede a través de la red trófica [@potapov2022; @barnes2018] y determinar un valor de estabilidad de los sistemas estudiados [@moore2012; @gauzens2019; @allesina2008].
 
@@ -1914,9 +1769,9 @@ Se utilizaron como atributos de los nodos los pesos corporales medios, las bioma
 
 Por otra parte, se asumieron algunos atributos para los nodos que corresponden a recursos tróficos base [@velazco2023b; @potapov2022], basados en evidencia bibliográfica, dado que estos atributos no han sido medidos en algunos casos, como en los datos de comunidades edáficas de los suelos Argiudoles de Chivilcoy - Navarro, o debido a su complejidad, son difíciles de cuantificar.
 
-En cuanto al nodo "humus", se consideró que el 50% de la materia orgánica es un proxy del atributo biomasa media de este nodo para suelos Argiudoles de la Pampa Ondulada [@alvarez2006; @pankhurst1997; @kononova1975]. Para calcular su biomasa, se refiere a la superficie en metros cuadrados, utilizando una densidad aparente promedio de los suelos (DAP = 1,2 g.cm^-2^), hasta los 10 centímetros de profundidad, zona en la que se encuentra la mayor proporción de materia orgánica y la mayor actividad biológica. El peso corporal y la densidad de este fué asignado como 1.
+En cuanto al nodo "humus", se consideró que el 50% de la materia orgánica es un proxy del atributo biomasa media de este nodo para suelos Argiudoles de la Pampa Ondulada [@alvarez2006; @pankhurst1997; @kononova1975]. Para calcular su biomasa, se refiere a la superficie en metros cuadrados, utilizando una densidad aparente promedio de los suelos (DAP = 1,2 g.cm^-2^), hasta los 10 centímetros de profundidad, zona en la que se encuentra la mayor proporción de materia orgánica y la mayor actividad biológica. <!--El peso corporal y la densidad de este fue asignado como 1.-->
 
-Para los nodos de "bacterias" se tomaron los pesos corporales medios obtenidos por Digel [-@digel2014], quien evaluó las características topológicas de decenas de redes de diferentes ecosistemas y las comparó con redes tróficas de los suelos de bosques de la región Paleártica, el indica que el peso promedio de las bacterias del suelo es 9,5x10^-16^ g. Digel [-@digel2014] indica también el peso promedio de cada uno de los principales grupos de la microfauna no nemátoda del suelo, estos son, protozoos, tardígrados, rotíferos y otra microfauna y de los cuáles consideramos el valor promedio 1,1121x10^-10^ g como el valor para el nodo "protozoos". El peso promedio de los hongos por metro lineal de hifas se tomó de Pilar et al. [-@andres2016] resultando en un valor de 2,3x10^-7^ g.m^-1^.
+Para los nodos de "bacterias" se tomaron los pesos corporales medios obtenidos por Digel [-@digel2014], quien evaluó las características topológicas de decenas de redes de diferentes ecosistemas y las comparó con redes tróficas de los suelos de bosques de la región Paleártica, el indica que el peso promedio de las bacterias del suelo es 9,5x10^-16^ g. Digel [-@digel2014] indica también el peso promedio de cada uno de los principales grupos de la microfauna no nematoda del suelo, estos son, protozoos, tardígrados, rotíferos y otra microfauna y de los cuáles consideramos el valor promedio 1,1121x10^-10^ g como el valor para el nodo "protozoos". El peso promedio de los hongos por metro lineal de hifas se tomó de Pilar et al. [-@andres2016] resultando en un valor de 2,3x10^-7^ g.m^-1^.
 
 Las biomasas medias de bacterias, hongos y microfauna no nemátoda ("protozoos"), son aproximadas a partir de la respiración de los heterótrofos (Capítulo 3. Tabla 3.4), este se aproxima considerando que 1 mgCO~2~/g~suelo~.h = 0.206 mgC~biomasa~/g~suelo~ [@zabala2010; @west1986], de esta biomasa media se considera que el 50% es el recurso efectivamente disponible para los consumidores debido a las restricciones de accesibilidad y palatabilidad que existen en el sistema poroso del suelo [@erktan2020]. 
 Entonces, para ambos suelos Argiudoles se consideró que el 2 % de la biomasa media
@@ -1928,29 +1783,30 @@ Los nemátodos de vida libre del suelo conforman 5 nodos: nemátodos bacterívor
 
 En cuanto a la biomasa de los recursos tróficos base se estimaron la biomasa para el humus que fue calculado para ambas localidades como se ha descrito más arriba. La biomasa para la carroña fue estimada a partir del peso de todos los invertebrados presente en los diferentes sistemas de uso y que pueden dejar carroña, considerando que el 5% de la biomasa de estos invertebrados es igual a la biomasa media de la carroña. Para la biomasa de la hojarasca se tienen valores para suelos de Luján pero no para Chivilcoy - Navarro y la biomasa del tejido vegetal que incluye raíces y exudados no fue determinado en ninguno de los suelos.
 
-Los valores de la densidad y el peso para el humus, hojarasca, carroña y tejido vegetal fueron asignados con el valor 1, también se asigno el valor 1 para la biomasa de la hojarasca de los suelos de Chivilcoy - Navarro y para la biomasa del tejido vegetal de manera de poder realizar cálculos de fuerzas de interacción y flujos de energía [@allesina2008; @pawar2009; @gauzens2019] <!-- densidad y peso 1 g/m2??? habria que hacer una tabla para ver todos los "nodos" que se 
+<!--
+Los valores de la densidad y el peso para el humus, hojarasca, carroña y tejido vegetal fueron asignados con el valor 1, también se asigno el valor 1 para la biomasa de la hojarasca de los suelos de Chivilcoy - Navarro y para la biomasa del tejido vegetal de manera de poder realizar cálculos de fuerzas de interacción y flujos de energía [@allesina2008; @pawar2009; @gauzens2019]  densidad y peso 1 g/m2??? habria que hacer una tabla para ver todos los "nodos" que se 
 midieron y los que se asumieron -->
 
 ### Métricas de la red trófica: índices topológicos, flujos de energía y valor de estabilidad
 
 A partir de la matriz de interacciones, se calcularon los índices topológicos para cada red trófica. Estos índices, que describen la red tanto matemática como ecológicamente, se refieren a medidas calculadas a partir de la arquitectura de la red, ya sea como características globales de la red o como propiedades específicas de los nodos.
 
-Como medidas de complejidad del sistema calculamos el **tamaño de la red** que indica el número de nodos que conforman la red. El **número de enlaces** que es la cantidad de interacciones tróficas que ocurren en la red. La **densidad de enlaces** indica el número medio de interacciones por nodo referidas al total y da una idea del nivel de especialización entre los nodos de la red trófica. La **conectancia** es la proporción de enlaces efectivamente realizados en la red trófica en relación al total de conexiones potenciales del grafo con el mismo tamaño y es un valor que da una idea de la probabilidad de que dos nodos de la red sean un par que tengan una interacción trófica. Como medidas de estructura de la red trófica tenemos el valor de **agrupamiento o clustering** cuantifica el grado de cohesión local en la red, indicando la tendencia de los nodos a formar triadas o grupos fuertemente interconectados. Matemáticamente, el coeficiente de clustering se define como la proporción de triángulos presentes en la red respecto al número total de triángulos posibles, reflejando la densidad de conexiones en los vecindarios locales de los nodos.
+Como medidas de complejidad del sistema calculamos el **tamaño de la red** que indica el número de nodos que conforman la red. El **número de enlaces** es la cantidad de interacciones tróficas que ocurren en la red. La **densidad de enlaces** indica el número medio de interacciones por nodo referidas al total y da una idea del nivel de especialización entre los nodos de la red trófica. La **conectancia** es la proporción de enlaces reales en la red trófica en relación con el número total de conexiones potenciales para un sistema de ese tamaño. Este valor indica la probabilidad de que dos nodos en la red interactúen tróficamente, es decir, que exista una relación de consumidor-recurso entre ellos. La conectancia proporciona una visión sobre la complejidad y la redundancia de las interacciones, influyendo en la estabilidad y resiliencia del ecosistema frente a perturbaciones. Como medidas de estructura de la red trófica tenemos el valor de **agrupamiento o clustering** cuantifica el grado de cohesión local en la red, indicando la tendencia de los nodos a formar triadas o grupos fuertemente interconectados. Matemáticamente, el coeficiente de clustering se define como la proporción de triángulos presentes en la red respecto al número total de triángulos posibles, reflejando la densidad de conexiones en los vecindarios locales de los nodos.
 
 Entre las métricas que atienden a las características tróficas de los nodos dentro de una red trófica se encuentra el **nivel o posición trófica**, que define la posición de un nodo en la red en función de los nodos de los cuales se alimenta. Como valores de resumen, se considera el **nivel trófico medio** que es el promedio de los niveles tróficos de todos los nodos de la red y el **nivel trófico máximo** que representa el nivel más alto alcanzado por algún nodo en la red.
 
-Por su posición en la red, se calculan el número de nodos **basales**, que corresponde a aquellos nodos que no consumen a otros, es decir, no dependen de recursos tróficos, en estas redes por su construcción es igual a 4 (humus, hojarasca, tejido vegetal, carroña) y el número de nodos **tope**, que son aquellos que no son consumidos por otros nodos en la red trófica. Además, se calcula la **omnivoría**, definida como la proporción de nodos omnívoros, es decir, nodos que se alimentan de recursos ubicados en más de un nivel trófico. El **nivel de omnivoría**, por su parte, es una medida que indica la variabilidad de los niveles tróficos de las presas de un consumidor, calculando el promedio de los diferentes niveles tróficos sobre los cuales se alimentan los nodos omnívoros, reflejando así la amplitud de su dieta. Desde el punto de vista de los nodos tróficos se miden la **vulnerabilidad** que implican el número de consumidores que en promedio se alimentan de un nodo y la **generalidad** que es el número medio de recursos que consume en promedio un nodos tróficos en la red. Estas métricas calculadas para las redes tróficas de suelos bajo diferentes intensidades de uso permitirá ver diferencias estructurales tanto a nivel de la red como en promedio al nivel de los nodos que constituyen la red. <!-- que aportan las metricas en relacion al nuestra hipotesis, 
-que significado ecologico tienen -->
+Por su posición en la red, se calculan el número de nodos **basales**, que corresponde a aquellos nodos que no consumen a otros, es decir, no dependen de otros recursos tróficos, en estas redes por su construcción es igual a 4 (humus, hojarasca, tejido vegetal, carroña) y el número de nodos **tope**, que son aquellos que no son consumidos por otros nodos en la red trófica. Además, se calcula la **omnivoría**, definida como la proporción de nodos omnívoros, es decir, nodos que se alimentan de recursos ubicados en más de un nivel trófico. Estas métricas calculadas para las redes tróficas de suelos bajo diferentes intensidades de uso permitirá ver diferencias estructurales tanto a nivel de la red como en promedio al nivel de los nodos que constituyen la red. 
 
 Se calcularon los flujos de energía entre los nodos de la red asumiendo que el balance energético es cero [@barnes2018; @gauzens2019], es decir, que las pérdidas energéticas son compensadas con las ganancias energéticas. Para el cálculo es necesario conocer los pesos corporales medios y las biomasas medias de los nodos de la red trófica. Se debe estimar la tasa metabólica en función del peso corporal, utilizando la fórmula: tasa metabólica = 17.17 peso^-0.29^ [@gauzens2019]. Además, es necesario establecer los coeficientes de asimilación para diferentes grupos tróficos: detritívoros, microfitófago, depredadores, omnívoros y herbívoros, con valores de 0,35-0,25-0,4-0,7-0,25-0,125, respectivamente [@coleman2004; @moore2012].
 
-Con los flujos de energía entre los nodos y considerando la clasificación por formas de alimentación se determinó un sentido funcional que indirectamente dan cuenta de los cambios en procesos ecológicos relacionados con el efecto de las perturbaciones en los diferentes sistemas de uso, se observaron las formas de alimentación tales como la microbivoría que implica la regulación de la biomasa de bacterias y hongos, la detritivoría que se relaciona con los procesos de descomposición de la materia orgánica, la zoofagia que es la regulación de poblaciones de la fauna edáfica y la biotransforación que es el uso del humus como fuente de alimento y que se relaciona con la estructura física y química del suelo orgánico mineral. Estos flujos de energía son expresados en Joules/año y son comparados de manera relativa entre sistemas con relación al flujo total de energía que es el valor de todos los flujos de energía entre los nodos [@gauzens2019; @moore2012; @potapov2022].
+Con los flujos de energía entre los nodos y considerando la clasificación por formas de alimentación se determinó un sentido funcional que indirectamente dan cuenta de los cambios en procesos ecológicos relacionados con el efecto de las perturbaciones en los diferentes sistemas de uso, se observaron las formas de alimentación tales como la microbivoría que implica la regulación de la biomasa de bacterias y hongos, la detritivoría que se relaciona con los procesos de descomposición de la materia orgánica, la zoofagia que es la regulación de poblaciones de la fauna edáfica y la biotransformación que es el uso del humus como fuente de alimento y que se relaciona con la estructura física y química del suelo orgánico mineral. Estos flujos de energía son expresados en Joules/año y son comparados de manera relativa entre sistemas con relación al flujo total de energía que es el valor de todos los flujos de energía entre los nodos [@gauzens2019; @moore2012; @potapov2022].
 
-Para comparar los flujos de energía entre redes tróficas, además, se redujeron las redes tróficas de los suelos Argiudoles ubicados en Luján a nodos que incluyan nodos similares a aquellos que ocurren en los suelos Argiudoles de Chivilcoy - Navarro de modo de poder comparar diferencias en los flujos de energía y vincularlos las diferencias con los efectos debidos a los sistemas de usos de suelos. Las redes parciales así establecidas se conforman de taxones de ácaros, colémbolos, lombrices, microfauna, microflora y recursos base.
+Con el fin de comparar las diferencias en los flujos de energía entre redes tróficas, se simplificaron las redes de los suelos Argiudoles de Luján para incluir nodos similares a los encontrados en los suelos de Chivilcoy-Navarro. Esto permite identificar variaciones en los flujos energéticos y vincular dichas variaciones con los efectos de los diferentes usos del suelo. Las redes parciales así generadas incluyen taxones como ácaros, colémbolos, lombrices, microfauna, microflora y recursos base. Se calcularon los flujos para las redes completas y parciales.
+
 
 También se calcularon las fuerzas de interacción entre los nodos de la red trófica utilizando el método de Pawar [-@pawar2012], para posteriormente emplearlas en el cálculo de la estabilidad de la red trófica. Para ello, se consideraron los pesos corporales y las densidades de los recursos. Es necesario tener en cuenta la dimensionalidad del espacio de búsqueda de los predadores; siguiendo la clasificación de Pawar [-@pawar2012] esto corresponde a una dimensionalidad "2D" en el sistema detritívoro del suelo, donde el depredador busca y captura a la presa directamente sobre la superficie. En este caso, el área de búsqueda abarca la superficie entre los agregados, los poros y los canales en el suelo orgánico-mineral [@erktan2020]. El valor de la fuerza de interacción cuantifica el efecto de los consumidores (depredadores) sobre la biomasa de los recursos (presas) y se expresa como el efecto por unidad de biomasa del consumidor Pawar [-@pawar2012].
 
-Para calcular el valor de **estabilidad de quasi-signo** [@allesina2008] (*Quasi
+Para calcular el valor de **estabilidad de Cuasi-signo** [@allesina2008] (*Quasi
 Sign-Stability Index* QSS), se sigue el siguiente procedimiento:
 
 -   Cálculo de la matriz Jacobiana: Se construye la matriz Jacobiana, que representa el efecto neto de las interacciones entre pares de nodos, utilizando las fuerzas de interacción previamente calculadas.
@@ -1963,18 +1819,14 @@ Sign-Stability Index* QSS), se sigue el siguiente procedimiento:
 
 -   Repetición del Procedimiento: Este proceso se repite 1000 veces para obtener una distribución de autovalores.
 
-El valor de estabilidad del sistema se determina a partir de la distribución de los autovalores, siendo más estables las distribuciones centradas en valores cercanos o menores que cero. 
-A fines de la interpretación, or un lado, 
-si el valor del índice QSS es positivo, indica la cantidad de autoregulación necesaria 
-para que la red trófica alcance el valor de estabilidad local, la misma será mediada 
-mediante cambios en la composición de especies, en sus densidades o biomasas medias
-(estructura de la comunidad), o, mediante cambios en las fuerzas de interacción 
-o los flujos de energía (interacciones interespecíficas). Por el otro lado, si el 
-valor del índice del QSS es negativo, indica redes tróficas estables y la magnitud del
-mismo da una idea del tiempo de recuperación de la red trófica ante una perturbación.
+
+El valor de estabilidad del sistema se determina a partir de la distribución de los autovalores, siendo estables aquellas distribuciones centradas en valores menores a cero. Como no se conocen los valores de la diagonal de la matriz jacobiana, que representan el efecto de cada especie sobre sí misma (autorregulación), se espera que todos los valores sean positivos, lo que sugiere inestabilidad. No obstante, para fines de interpretación, suponemos que estas redes tróficas, al existir en la naturaleza en el estado en que fueron muestreadas, son estables. Si el valor del índice QSS es positivo, indica la cantidad de autorregulación necesaria para que la red trófica alcance estabilidad local. Por otro lado, si el valor del índice del QSS fuera negativo, indicaría redes tróficas estables sin autorregulación, lo cual no es imposible pero tendría una probabilidad muy baja de ocurrencia [@barabas2017].
+
+
+
 
 Para determinar si las diferencias en las distribuciones del índice de estabilidad son significativas se comparan las distribuciones del máximo autovalor mediante la prueba de Anderson-Darling [@scholz2023].
-Se utilizó el paquete ["multiweb"](https://github.com/lsaravia/multiweb) [@lsaravia2023] para calcular las métricas de topología, las fuerzas de interacciones y el la distribución de estabilidad de quasi-signo de las redes tróficas, además se utilizó el paquete ["fluxweb"](https://bit.ly/2OC0uKF) [@gauzens2018a] para calcular los flujos de energía y también se utilizaron paquetes complementarios para manejo de datos y la comparación estadística de los parámetros calculados, todos ellos implementados en R. <!--(El código fuente se encuentra en …… )-->
+Se utilizó el paquete ["multiweb"](https://github.com/lsaravia/multiweb) [@saravia2023] para calcular las métricas de topología, las fuerzas de interacciones y el la distribución del QSS de las redes tróficas, además se utilizó el paquete ["fluxweb"](https://bit.ly/2OC0uKF) [@gauzens2018a] para calcular los flujos de energía y también se utilizaron paquetes complementarios para manejo de datos y la comparación estadística de los parámetros calculados, todos ellos implementados en R. <!--(El código fuente se encuentra en …… )-->
 
 ## Resultados
 
@@ -2504,7 +2356,7 @@ ya que podría aumentar la disponibilidad de recursos tróficos base para los
 descomponedores al dejar el ganado tras su paso heces, vegetación pisoteada en mayor contacto
 con el suelo y el aumento de tejido de raíces susceptibles 
 para la descomposición dado que la vegetación al
-rebrotar utilizará las reservas disponibles en ellos dejando raices muertas en la matriz del suelo. 
+rebrotar utilizará las reservas disponibles en ellos dejando raíces muertas en la matriz del suelo. 
 
 En efecto el flujo de 
 energía en el pastizal estuvo cercano a los valores máximos registrados por el suelo
