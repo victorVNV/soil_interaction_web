@@ -1,14 +1,14 @@
 ---
 output:
-  word_document:
-    toc: false
-  html_document:
-    css: database/estilos.css
   pdf_document:
     latex_engine: xelatex
     toc: false
     includes:
       in_header: referencias/header.tex
+  html_document:
+    css: database/estilos.css
+  word_document:
+    toc: false
 bibliography: referencias/Tesis_final.bib
 csl: database/apa.csl
 lang: es
@@ -1826,13 +1826,12 @@ El valor de estabilidad del sistema se determina a partir de la distribución de
 
 
 Para determinar si las diferencias en las distribuciones del índice de estabilidad son significativas se comparan las distribuciones del máximo autovalor mediante la prueba de Anderson-Darling [@scholz2023].
-Se utilizó el paquete ["multiweb"](https://github.com/lsaravia/multiweb) [@saravia2023] para calcular las métricas de topología, las fuerzas de interacciones y el la distribución del QSS de las redes tróficas, además se utilizó el paquete ["fluxweb"](https://bit.ly/2OC0uKF) [@gauzens2018a] para calcular los flujos de energía y también se utilizaron paquetes complementarios para manejo de datos y la comparación estadística de los parámetros calculados, todos ellos implementados en R. <!--(El código fuente se encuentra en …… )-->
+Se utilizó el paquete ["multiweb"](https://github.com/lsaravia/multiweb) [@saravia2022] para calcular las métricas de topología, las fuerzas de interacciones y el la distribución del QSS de las redes tróficas, además se utilizó el paquete ["fluxweb"](https://bit.ly/2OC0uKF) [@gauzens2018a] para calcular los flujos de energía y también se utilizaron paquetes complementarios para manejo de datos y la comparación estadística de los parámetros calculados, todos ellos implementados en R. <!--(El código fuente se encuentra en …… )-->
 
 ## Resultados
 
-Se muestran las redes tróficas "completas" (Fig. 4.1) que incluyen las tres clases de tamaños de la fauna 
-edáfica (micro- meso- macro- fauna) y las redes tróficas "parciales" (Fig. 4.2) que incluyen a 
-microartrópodos y lombrices, configuradas a partir de los diferentes sistemas de uso del suelo. 
+Las redes tróficas “completas” (Fig. 4.1), que incluyen las tres clases de tamaños de la fauna edáfica (micro-, meso- y macrofauna), y las redes tróficas “parciales” (Fig. 4.2), que consideran solo a microartrópodos y lombrices, fueron configuradas a partir de los diferentes sistemas de uso del suelo. Estos gráficos permiten una comparación cualitativa en la que se observa que, si bien los niveles tróficos se mantienen en los mismos rangos, la densidad de nodos y enlaces es menor en las redes parciales. 
+
 
 **Tabla 5.1.** Tabla de índices topológicos de las redes tróficas de los diferentes sistemas de uso en suelos de Luján
 
@@ -1841,7 +1840,7 @@ microartrópodos y lombrices, configuradas a partir de los diferentes sistemas d
 ```{r tab5.1, echo=FALSE, message=FALSE, warning=FALSE}
 tabla5.1 <- read.csv("database/tabla5.1.txt", sep="")
 names(tabla5.1)<-c("Sistema","Tamaño","nº enlaces","Tope","% Omnivoría","Nivel de Omnivoría",
-                   "Nivel trófico","Nivel trófico promedio","Conectancia","Densidad de enlaces",
+                   "Nivel trófico máximo","Nivel trófico promedio","Conectancia","Densidad de enlaces",
                    "Clustering","Vulnerabilidad","Generalidad")
 
 #tabla5.1[,c("Sistema","Conectancia","Densidad de enlaces",
@@ -1852,28 +1851,20 @@ tabla5.1[,c("Sistema","Tamaño","nº enlaces","Conectancia","Densidad de enlaces
   kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
    kable_styling(latex_options = c("hold_position", "basic"))
 
-tabla5.1[,c("Sistema","Tope","Nivel trófico promedio","Nivel trófico",
-            "% Omnivoría","Nivel de Omnivoría")] %>%
+tabla5.1[,c("Sistema","Tope","Nivel trófico promedio","Nivel trófico máximo",
+            "% Omnivoría")] %>%
   kbl(booktabs = TRUE) %>%  # Activar booktabs para PDF
   kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
    kable_styling(latex_options = c("hold_position", "basic"))
 
 ```
 
-En ambas redes (Fig. 4.1 y Fig. 4.2) se observan claramente el primer nivel trófico, 
-en el cual se ubican los nodos basales
-que corresponden a los recursos tróficos base del sistema detritívoro del suelo y que 
-son los nodos por los cuales ingresan la materia y la energía a estas redes tróficas. 
-Se observa también en ambas redes tróficas el segundo nivel trófico, 
-es decir los consumidores que solo se alimentan de alguno de los nodos basales. 
-A partir del segundo nivel trófico no se observa un clara separación 
-en niveles tróficos y por lo tanto los nodos se ubican 
-en el continuo entre niveles tróficos. 
+
 
 En suelos de Luján (Tabla 5.1), las redes tróficas con un impacto leve en el uso del suelo (pastizal)
-tuvo los mayores valores en el tamaño de la red y en el número y densidad de los enlaces. 
+tuvieron los mayores valores en el tamaño de la red y en el número y densidad de los enlaces. 
 
-La conectancia y el coeficiente de *clustering* fueron menores en la red trófica para suelos
+La conectancia y el coeficiente de *clustering* fue menor en la red trófica para suelos
 sin impacto antrópico (reserva) lo que implica una menor complejidad en la estructura de la red
 en comparación con las redes tróficas de sistemas antropizados.
 
@@ -1950,7 +1941,7 @@ tal como se observa por sus valores de conectancia y *clustering*.
 ```{r tab5.2, echo=FALSE, message=FALSE, warning=FALSE}
 tabla5.2 <- read.csv("database/tabla5.2.txt", sep="")
 names(tabla5.2)<-c("Sistema","Tamaño","nº enlaces","Tope","% Omnivoría","Nivel de Omnivoría",
-                   "Nivel trófico","Nivel trófico promedio","Conectancia","Densidad de enlaces","Clustering","Vulnerabilidad","Generalidad")
+                   "Nivel trófico máximo","Nivel trófico promedio","Conectancia","Densidad de enlaces","Clustering","Vulnerabilidad","Generalidad")
 #tabla5.2[,c("Sistema","Tamaño","nº enlaces","Tope","% Omnivoría","Nivel de Omnivoría",
  #                  "Nivel trófico","Nivel trófico promedio")]%>%kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
 tabla5.2[,c("Sistema","Tamaño","nº enlaces","Conectancia","Densidad de enlaces","Clustering")]%>%
@@ -1958,7 +1949,7 @@ tabla5.2[,c("Sistema","Tamaño","nº enlaces","Conectancia","Densidad de enlaces
   kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
    kable_styling(latex_options = c("hold_position", "basic"))
 
-tabla5.2[,c("Sistema","Tope","Nivel trófico promedio","Nivel trófico","% Omnivoría","Nivel de Omnivoría")]%>%
+tabla5.2[,c("Sistema","Tope","Nivel trófico promedio","Nivel trófico máximo","% Omnivoría")]%>%
   kbl(booktabs = TRUE) %>%  # Activar booktabs para PDF
   kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
    kable_styling(latex_options = c("hold_position", "basic"))
@@ -1966,8 +1957,7 @@ tabla5.2[,c("Sistema","Tope","Nivel trófico promedio","Nivel trófico","% Omniv
 
 
 Con respecto a la estructura trófica (Tabla 5.2) de las redes tróficas "parciales",
-los valores del nivel trófico medio y máximo, el porcentaje de omnívoría y el nivel de omnivoría
-fueron próximos entre sí entre los diferentes sistemas de uso del suelo.
+los valores del nivel trófico medio y máximo, el porcentaje de omnivoría fueron próximos entre sí entre los diferentes sistemas de uso del suelo.
 
 En general, se observó que la complejidad de las redes fue mayor en suelos antropizados.
 Se observa además que se mantienen similares las características tróficas de las redes a pesar de las 
@@ -1997,7 +1987,7 @@ plot_troph_level(A_net,modules=FALSE,vertexLabel = TRUE, tk = FALSE,main="agríc
 
 <p class="interlineado-simple">
 
-**Figura 5.2** Representación de las redes tróficas de suelos Argiudoles típicos de Chivilcoy - Navarro para cada sistema de uso del suelo cuya comunidad se conforma de microartrópodos edáficos y lombrices de tierra. El tamaño de los nodos representa al grado del nodo, los colores forman un gradiente desde el verde hacia el rojo para indicar especies base hacia especies tope respectivamente. La distribución de los nodos a lo largo del eje horizontal sigue un patrón aleatorio por lo tanto no se vincula a caracteristicas del nodo en particular. Sobre el eje vertical se indica el nivel trófico. La numeración de los nodos refiere a los taxones a los que representa el nodo para ver el número del taxón ver Apéndice 5.2.
+**Figura 5.2** Representación de las redes tróficas de suelos Argiudoles típicos de Chivilcoy - Navarro para cada sistema de uso del suelo cuya comunidad se conforma de microartrópodos edáficos y lombrices de tierra. El tamaño de los nodos representa al grado del nodo, los colores forman un gradiente desde el verde hacia el rojo para indicar especies base hacia especies tope respectivamente. La distribución de los nodos a lo largo del eje horizontal sigue un patrón aleatorio por lo tanto no se vincula a características del nodo en particular. Sobre el eje vertical se indica el nivel trófico. La numeración de los nodos refiere a los taxones a los que representa el nodo para ver el número del taxón ver Apéndice 5.2.
 
 </p>
 
@@ -2012,9 +2002,6 @@ Esta disminución estuvo mediada principalmente por la
 disminución de la biomasa media en los nodos de la microflora 
 y su efecto se mantiene a lo largo de los diferentes canales de energía.
 
-El flujo total de la energía indica la importancia que tiene 
-el sistema de uso del suelo sobre la comunidad de la fauna 
-que habita el sistema de uso intensivo del suelo.
 
 La cantidad de energía ligada a la \underline{biotransformación} del suelo (Tabla 5.3), 
 es decir, el canal de energía relacionado con el consumo de la materia orgánica 
@@ -2027,11 +2014,9 @@ aumentando su participación en comparación con los sistemas de bajo y nulo imp
 donde la fauna contribuyó con este canal de energía con el ≈ 19,5%. 
 
 
-<p class="interlineado-simple">
 
-**Tabla 5.3** Flujos de energía en Joule/año (flujo total en MJ/año) que atraviesan los diferentes canales de energía vinculados a funciones biológicas que ocurren en las redes tróficas de la comunidades de suelos Argiudoles de Luján. Entre corchetes el porcentaje del flujo de energía con el que participa la microflora
+**Tabla 5.3** Flujos de energía en kJ/año que atraviesan los diferentes canales de energía vinculados a funciones biológicas que ocurren en las redes tróficas de la comunidades de suelos Argiudoles de Luján. Entre paréntesis el porcentaje del flujo de energía con el que participa la microflora
 
-</p>
 
 ```{r flujos_multicnl_print, echo=FALSE, message=FALSE,warning=FALSE}
 tabla5.3 <- read.csv("database/tabla5.3.txt", sep="")
@@ -2043,7 +2028,7 @@ tabla5.3%>%
 ```
 
 La detritivoría es el segundo canal de energía en importancia en las redes tróficas "completas" 
-construida para la fauna edáfica. Este canal de energía fue mas importante en el sistema 
+construida para la fauna edáfica. Este canal de energía fue más importante en el sistema 
 agrícola con una importancia del ≈ 31,5%, en comparación los sistemas sin uso y con uso leve
 tienen una importancia del ≈ 25,5%. La microflora en este canal de energía es el 
 principal consumidor con importancias del 86%, 88% y 93%, ocurridos
@@ -2060,14 +2045,14 @@ el flujo de energía la fauna edáfica crece en importancia relativa en los dife
 de energía.
 
 
-La \underline{microfitofagia} (o "microviboría"), implica el consumo de bacteria y 
+La \underline{microfitofagia} (o "microviboría"), implica el consumo de bacterias y 
 hongos. Este corresponde al tercer canal de energía en importancia
 en redes tróficas "completas". Con relación al flujo total de energía,
-su importancia relativa fue de ≈ 5 - 4,3 y 4,1 % en los suelos sin uso, uso leve y uso intensivo 
-respectvamente. Esto muestra una disminución de la participación de la fauna microfitófaga
+su importancia relativa fue de ≈ 5; 4,3 y 4,1 % en los suelos sin uso, uso leve y uso intensivo 
+respectivamente. Esto muestra una disminución de la participación de la fauna microfitófaga
 a lo largo del gradiente de impacto sobre el suelo.
 
-El consumo de la fauna, la \underline{zoofagia}, se estima como la suma de la energía que pasa por los depredadores "verdaderos" y por la cantidad de energía ligada al consumo de fauna del que se alimentan los omnívoros, este contabiliza < 0,71% del flujo total de energía. <!--0.5374R;0,7057P;0,6718A-->
+El consumo de la fauna, la \underline{zoofagia}, se estima como la suma de la energía que pasa por los depredadores "verdaderos" y por la cantidad de energía ligada al consumo de fauna del que se alimentan los omnívoros, este contabiliza 0,71% del flujo total de energía. <!--0.5374R;0,7057P;0,6718A-->
 
 La zoofagia, en términos absolutos (Tabla 5.3), fue mayor en el pastizal (≈ 15,3 kJ.año^-1^) y menor en el sistema agrícola (≈ 9 kJ.año^-1^). Relativas al total la importancia de la zoofagia
 fue cercana entre el pastizal y el sistema agrícola alrededor del 0,69% y menor en la reserva con una importancia del 0,54%. La cantidad de energía que llega a los depredadores verdaderos
@@ -2081,8 +2066,8 @@ en los sistemas edáficos para el control de poblaciones de la fauna edáfica.
 
 <p class="interlineado-simple">
 
-**Tabla 5.4** Flujos de energía de redes tróficas "parciales". El flujo total de enegía 
-en Joule/año. Para los canales de energía se indica el porcentaje de la contribución 
+**Tabla 5.4** Flujos de energía de redes tróficas "parciales". El flujo total de energía 
+en kJ/año. Para los canales de energía se indica el porcentaje de la contribución 
 del canal en relación al flujo total y entre paréntesis la participación 
 de la microflora. Las columnas corresponden a los diferentes canales de energía vinculados a las funciones biológicas que ocurren en las redes tróficas de las comunidades de microartrópodos edáficos y lombrices de tierra de suelos Argiudoles de Chivilcoy - Navarro y suelos Argiudoles de Luján
 
@@ -2123,9 +2108,9 @@ La detritivoría en las redes tróficas parciales pasa a un tercer lugar de impo
 comparando la importancia relativa de este canal de energía con
 las redes tróficas "totales" (Tabla 5.3). 
 Esto muestra la contribución energética
-de la macrofauna en el proceso de la fragmentación y consumo de los detritos del suelo.
+de la macrofauna en el proceso de la fragmentación y consumo de los detritos del suelo. Al asumir el balance energético si no se incluye un compartimento el resultado es que cambian los flujos relativos.
 
-Se observa además variaciones porcentuales importantes en la contribución del canal de la 
+Se observan además variaciones porcentuales importantes en la contribución del canal de la 
 detritivoría entre localidades y sistemas de uso del suelo. A la vez,
 una mayor valor porcentual en la detritivoría se acompaña de 
 una menor contribución porcentual de la microflora,
@@ -2151,12 +2136,12 @@ redes parciales, fueron como máximo 0,09% y 0,6% en los suelos de Chivilcoy - N
 y Luján respectivamente.
 La contribución de los depredadores "verdaderos" fue más importante en los suelos de 
 Chivilcoy - Navarro con un aumento de la participación de los omnívoros en la zoofagia 
-en las redes del suelo con un con alto impacto.
+en las redes del suelo con un alto impacto.
 
 En los suelos de Luján se mantuvieron las relaciones verdaderos depredadores - omnívoros zoofagos,
 como los observados más arriba, esto es, los omnívoros contribuyen más a la zoofagia
 que los verdaderos depredadores. Entonces, son los microartrópodos zoófagos
-quienes estructuran este fenómeno en el canal de la energía de la redes tróficas detritívoras del 
+quienes estructuran este fenómeno en el canal de la energía de las redes tróficas detritívoras del 
 suelo. Por otra parte, si se pueden calcular variaciones en entre las
 relaciones depredadores:omnívoros en comparación con las redes 
 tróficas "completas", lo que nos indica que las contribuciones varían 
@@ -2186,12 +2171,12 @@ Q_median_L<-median(log(QSS.final$maxreL))
 En los suelos Argiudoles, en redes tróficas edáficas "completas" construidas 
 para los diferentes sistemas de uso que reciben los suelos de Luján,
 las distribuciones del índice de estabilidad QSS (la parte real del máximo autovalor, λ )
-fueron diferentes según la prueba del Anderson-Darling $AD: p_{\,valor} < 0.05$), 
+fueron diferentes según la prueba del Anderson-Darling $p_{\,valor} < 0.05$), 
 indicando independencia entre las distribuciones. 
 
-En la figura 5.3 se observa que estas distribuciones son simétricas, 
+<!-- En la figura 5.3 se observa que estas distribuciones son simétricas, 
 que sus modas y valores de centralidad se encuentran dentro del rango intercuantílico y
-que los valores de tendencia central se hallan alrededor de e^-1^ ≈ 0,368. 
+que los valores de tendencia central se hallan alrededor de e^-1^ ≈ 0,368. -->
 
 
 ```{r plot_QSS_IS,echo=FALSE,message=FALSE,warning=FALSE,fig.align='center'}
@@ -2223,12 +2208,11 @@ par(mfrow=c(1,1))
 
 <p id="fig5.3">
 
-</p>
 
-**Figura 5.3** Distribución del autovalor del índice *Quasi-Sing (QSS)*. En el eje horizontal, se
-se muestran mil iteraciones del máximo autovalor de la matriz Jacobiana obtenidas a partir del algoritmo del índice *Quasi-Sing (QSS)* [@allesina2008] expresado en underline{logaritmo natural}, . Eje vertical valores de frecuencia. Como líneas verticales se dibujan, el promedio en color amarillo, la mediana en color rojo, y los cuantiles primero y tercero como líneas más finas.
 
-</p>
+**Figura 5.3** Distribución del autovalor del índice *Cuasi-Signo (QSS)*. En el eje horizontal, se
+se muestran mil iteraciones del máximo autovalor de la matriz Jacobiana obtenidas a partir del algoritmo del índice *Cuasi-Signo (QSS)* [@allesina2008] expresado en underline{logaritmo natural}. Eje vertical valores de frecuencia. Como líneas verticales se dibujan, el promedio en color amarillo, la mediana en color rojo, y los cuantiles primero y tercero como líneas más finas.
+
 
 El promedio e intervalo de confianza del 95% de la parte real del máximo autovalor
 (λ del QSS) en los suelos de la comunidad de la reserva fue de `r exp(Q_med_R)` 
@@ -2262,63 +2246,13 @@ soporta vegetación arbórea, por lo tanto con dinámicas en la autoregulación 
 
 ## Discusión
 
-```{=html}
-<!--
-Estructura general de conclusiones
-
-- Responde a la pregunta planteada.
-- Sustenta tu conclusión (tus datos, datos de otros).
-- Defiende tu conclusión (anticipa críticas).
-- Da el mensaje principal o conclusión general.
-
-En mas detalle
-
-Hallazgo clave (respuesta a la(s) pregunta(s) planteada(s) en la Introducción)
-
-* Comienza con: "HEMOS ENCONTRADO QUE..." (o algo similar)
-* Explica qué significan los datos (visión general)
-* Indica si los hallazgos son novedosos
-
-Describe Hallazgos secundarios clave
-
-Proporciona Contexto
-• Proporcionar posibles mecanismos o vías
-• Comparar sus resultados con los resultados de otras personas
-• Discutir cómo sus hallazgos apoyan o desafían el paradigma
-
-Describe Fortalezas y limitaciones
-• Anticipe las preguntas/críticas de los lectores
-• Explique por qué sus resultados son sólidos
-
-Ahora Qué sigue
-• Estudios confirmatorios recomendados ("necesita ser confirmado")
-• Señalar preguntas sin responder y direcciones futuras
-
-Implica, especula, recomienda
-• Proporciona las implicaciones generales (ecologicas) de los hallazgos científicos básicos
-• Dile a los lectores por qué deberían interesarse
-
-Conclusión sólida
-• Reafirme su hallazgo principal.
-• Dé un mensaje final para recordar
-
--->
-```
-```{=html}
-<!-- ESTE PARRAFO SOBRE LA IMPORTANCIA DE LAS REDES ES UN POCO REDUNDANTE quizas moverlo hacia abajo
-
- Los estudios sobre el flujo de energía y materia en el ecosistema edáfico, agrupan a los organismos edáficos en gremios funcionales para comprender las relaciones entre la estructura de la biota del suelo y el funcionamiento del ecosistema. Sin embargo, este enfoque deja de lado la comprensión de cómo los cambios en la comunidad influyen en el funcionamiento del ecosistema (Thompson et al., 2012; Wall y Moore, 1999). Thompson et. al. (2012) sugieren abordar este problema desde el punto de vista de las redes tróficas, que podrían vincular el flujo de materia y energía y la diversidad de una comunidad. Así, estudiando la estructura de las redes tróficas, podemos comprender mejor el papel de la biodiversidad en el funcionamiento del ecosistema.
-
--->
-```
 
 Las redes tróficas de los suelos Argiudoles de la Pampa Ondulada revelan un entramado complejo de 
-interacciones que evidencian la intricada estructura de las redes edáficas. 
+interacciones que evidencian la intrincada estructura de las redes edáficas. 
 
-Un aspecto destacado es el alto porcentaje de omnivoría, lo que indica que muchos taxones se 
-alimentan de más de un nivel trófico, tal como lo describen Digel et al. [-@digel2014]
-quienes caracterizan a la fauna edáfica como consumidores oportunistas con un bajo nivel de 
-especialización dietaria.
+Un aspecto destacado es el alto porcentaje de omnivoría, lo que indica que muchos taxones se alimentan de más de un nivel trófico, tal como lo describen Digel et al. [-@digel2014] quienes caracterizan a la fauna edáfica como consumidores oportunistas con un bajo nivel de especialización dietaria. En este contexto, un porcentaje más alto de omnivoría indica una mayor diversidad en las fuentes alimenticias de los organismos, lo que contribuye a la estabilidad de la red trófica al proporcionar redundancia funcional y permitir la adaptación a fluctuaciones en la disponibilidad de recursos [@thompson2007; @stouffer2011]. Comparados con otras redes, estos valores son relativamente altos. En redes marinas y de agua dulce, los niveles de omnivoría suelen rondar entre el 50% y el 60% [@williams2004]. En ecosistemas terrestres, el porcentaje es más variable, pero niveles similares se encuentran en sistemas agrícolas o pastoriles, donde la omnivoría está relacionada con la diversidad de recursos [@polis1996]. El mayor porcentaje de omnivoría en sistemas sin uso antrópico sugiere una mayor diversidad de interacciones tróficas, asociada con mayor estabilidad frente a perturbaciones externas, como se observa en redes naturales [@thompson2007]. Por otro lado, el elevado porcentaje de omnivoría (>70%) en redes detritívoras está vinculado a la alimentación oportunista y a la redundancia funcional de la fauna edáfica. Por ejemplo, los omnívoros zoófagos pueden alimentarse de microfauna, descomponedores secundarios o microflora. Los depredadores generalistas también consumen recursos en más de un nivel trófico; por ejemplo, algunos miriápodos pueden depredar tanto nemátodos grandes como mesofauna y macrofauna más pequeña.
+
+
 
 En estas redes tróficas se identifican hasta cuatro niveles tróficos, un patrón también observado en otros sistemas ecológicos [@pimm1991; @quevreux2023]. Estas redes pueden estructurarse en función de los recursos base, que son principalmente consumidos por bacterias y hongos, los cuales poseen un aparato enzimático especializado para descomponer la materia orgánica y son los descomponedores primarios. Luego, se encuentra la fauna edáfica, que utiliza la microflora como principal recurso debido a su mayor calidad nutritiva [@Nielsen2018] en comparación con los detritos, estos 
 son los descomponedores secundarios, como tal, estos fragmentan la materia orgánica y transportan propágulos de microflora a través de la matriz de poros del suelo, regulando la dinámica 
@@ -2329,8 +2263,8 @@ sino que se estructuran con múltiples canales de energía donde la fauna edáfi
 con las lombrices de tierra que como los ácaros oribátidos consumen la hojarasca [@quevreux2023; @potapov2021a].
 
 
-Por otro lado, el elevado porcentaje de omnivoría (>70%) que caracteriza a las redes detritívoras está vinculado con la alimentación oportunista y con la redundancia funcional de los taxones 
-de la fauna edáfica. Por ejemplo, los omnívoros zoófagos pueden alimentarse tanto de microfauna como de descomponedores secundarios o de la microflora. Asimismo, los depredadores "verdaderos", gracias a su alimentación generalista, también consumen recursos en más de un nivel trófico; por ejemplo, algunos miriápodos con adaptaciones para desplazarse por los poros del suelo pueden depredar tanto nemátodos de gran tamaño como mesofauna y macrofauna de menor tamaño.
+<!--Por otro lado, el elevado porcentaje de omnivoría (>70%) que caracteriza a las redes detritívoras está vinculado con la alimentación oportunista y con la redundancia funcional de los taxones 
+de la fauna edáfica. Por ejemplo, los omnívoros zoófagos pueden alimentarse tanto de microfauna como de descomponedores secundarios o de la microflora. Asimismo, los depredadores "verdaderos", gracias a su alimentación generalista, también consumen recursos en más de un nivel trófico; por ejemplo, algunos miriápodos con adaptaciones para desplazarse por los poros del suelo pueden depredar tanto nemátodos de gran tamaño como mesofauna y macrofauna de menor tamaño.-->
 
 La conectancia de estas redes, aunque ligeramente mayor que la observada en redes tróficas de ecosistemas terrestres o acuáticos, se sitúa dentro de los valores hallados en suelos de bosques templados [@digel2014], lo que sugiere que se encuentra dentro de los rangos esperados para redes tróficas ecológicas. Este valor de conectancia refleja las conexiones realizadas sobre todas las posibles en una red de interacciones y es un indicativo de la complejidad de estas redes. Al considerar únicamente los grupos de microartrópodos y lombrices de tierra, se observa un incremento en este valor, resaltando la gran cantidad de conexiones tróficas potenciales entre estos grupos faunísticos.
 
@@ -2394,8 +2328,8 @@ mantuvo el dominio de los omnívoros por sobre los depredadores.
 
 Aunque la fracción de energía que recae sobre la fauna edáfica representa solo un pequeño porcentaje del metabolismo total del suelo [@persson1980; @persson1977; @hale1971], esta fauna desempeña un papel crucial en los mecanismos que afectan la distribución espacial y temporal de la microflora edáfica [@butcher1971]. Por lo tanto, los cambios en la comunidad de la fauna edáfica pueden derivar en alteraciones significativas en los procesos ecológicos y biogeoquímicos del suelo [@potapov2023; @potapov2022], como se observa en la disminución del flujo de energía en los sistemas agrícolas intensivos en los suelos de Luján.
 
-El análisis de estas redes tróficas edáficas muestra que las diferentes prácticas de manejo
-influyen sobre la topología, los flujos de energía y la estabilidad de las redes que configuran las comunidades del suelo bajo distintos usos del suelo. 
+<!--El análisis de estas redes tróficas edáficas muestra que las diferentes prácticas de manejo
+influyen sobre la topología, los flujos de energía y la estabilidad de las redes que configuran las comunidades del suelo bajo distintos usos del suelo.--> 
 
 El valor de estabilidad en las redes con uso agrícola estuvo más cerca de la estabilidad local, 
 esto probablemente se relacione con comunidades adaptadas a las prácticas de manejo 
@@ -2404,7 +2338,7 @@ como metabolitos secundarios derivados del insumos agrícolas)
 que procesan a la vez una menor cantidad de energía.
 La red trófica del pastizal bajo pastoreo periódico poco frecuente, que
 podría asumirse como un ambiente con cobertura similar a las de una comunidad
-vegetal prístina de la Pampa Ondulada, topológicamente resulto más diversa y conectada, 
+vegetal prístina de la Pampa Ondulada, topológicamente resultó más diversa y conectada, 
 procesó un mayor flujo de energía y mostró un valor de estabilidad próximos a 
 la estabilidad local. El suelo sin uso, con cobertura vegetal arbórea, en cambio,
 mostró un valor de estabilidad ligeramente más lejano que sus contraparte con vegetación herbácea,
@@ -2438,7 +2372,7 @@ Entender la complejidad de los sistemas ecológicos es una cuestión clave para 
 
 Los suelos de la Pampa Ondulada son destinados casi exclusivamente a la producción agropecuaria debido al clima templado y la fertilidad edáfica, además son el principal generador de divisas de la Nación. Por lo que resulta primordial comprender cómo funcionan estos sistemas ecológicos de modo lograr la conservación de las características del suelo.
 
-El estudio de las redes tróficas de la fauna edáfica permite diagramar, modelar y entender la complejidad del sistema. Las relaciones de alimentación en la fauna edáfica dirigen importantes procesos ecológicos como el ciclo del carbono, de los nutrientes y el agua y el control de las poblaciones. En las redes tróficas se integran la diversidad de las comunidades ecológicas, las interacciones interespecíficas, las interacciones con el ambiente, la redundancia funcional, la multiplicidad de canales de materia y energía y la dinámica de los sistemas.
+<!--El estudio de las redes tróficas de la fauna edáfica permite diagramar, modelar y entender la complejidad del sistema. Las relaciones de alimentación en la fauna edáfica dirigen importantes procesos ecológicos como el ciclo del carbono, de los nutrientes y el agua y el control de las poblaciones. En las redes tróficas se integran la diversidad de las comunidades ecológicas, las interacciones interespecíficas, las interacciones con el ambiente, la redundancia funcional, la multiplicidad de canales de materia y energía y la dinámica de los sistemas.-->
 
 El conocimiento sobre la biología trófica de los organismos de la fauna edáfica que habitan los diferentes suelos en el mundo es muy escaso y se limita sobre todo a los grupos más numerosos o conspicuos del suelo y principalmente de suelos europeos.
 
@@ -2462,7 +2396,7 @@ El análisis del espectro de tamaños mostró también que las comunidades de la
 Estos hallazgos, refuerzan que las comunidades de la edafofauna son una comunidad con una alta resiliencia, conservando la cantidad de materia y energía que es capaz de procesar, regular y retener en el sistema detritívoro del suelo.
 
 Se encontraron diferencias en algunas de las pendientes del espectro de tamaños a través de los gremios tróficos entre sistemas. Se encontró que la pendiente de regresión de omnívoros y detritívoros en el sitio con uso agrícola fue más alta, respuesta que podría vincularse con el efecto del enriquecimiento en estos suelos, por otra parte, se encontró pendientes mayores para los microfitófagos y herbívoros en sitios con intensidad de uso bajo y nula, respuesta que indica que en el sistema agrícola el ambiente limita el número de animales de mayor peso. Estos hallazgos 
-sugieren que es necesario seguir explorando como responden los gremios tróficos 
+sugieren que es necesario seguir explorando cómo responden los gremios tróficos 
 con las prácticas de manejo lo que potencialmente podría resultar en indicadores 
 factibles de indicar el estado de la salud del suelo [@pankhurst1997].
 
@@ -2483,7 +2417,7 @@ usos del suelo no indican cambios sustanciales en sus valores.
 Sin embargo, se observó una particularidad topológica para el uso del suelo con intensidad baja.
 Esta red de pastizal bajo pastoreo tuvo un mayor tamaño y número de interacciones, 
 es decir, una mayor riqueza 
-de taxones de la fauna edáfica y más una red estructuralamente más compleja.
+de taxones de la fauna edáfica y una red estructuralmente más compleja.
 Esta estructura topológica
 podría estar relacionada con un efecto Bottom-up en los pastizales
 con pastoreo de baja frecuencia al aumentar potencialmente
@@ -2910,7 +2844,7 @@ Esta distribución logarítmica normal ajusta a los datos de distribución empí
 
 **Algoritmo "step"**
 
-El algoritmo "step" consiste en quitar secuencialmente el término más complejo del modelo completo, aquél que contiene todas las interacciones, y comparar su valor de Akaike (AIC) con el del modelo original, este procedimiento se realiza quitando los términos complejos uno a la vez y el procedimiento se detiene cuando el modelo ya no baja en su valor de AIC. De esta manera se tienen 3 situaciones, quedarse con el modelo completo (incluye todas las interacciones), llegar al modelo nulo (solo se queda con el intercepto y las pendientes) o quedarse con un modelo intermedio (con algunos términos ya sean interaciones, efectos o covarianzas). Se considera que el modelo parsimonioso es aquel que tiene el menor valor de AIC, y este corresponde a un modelo con la mayor capacidad predictiva y a la vez con el menor número de parámetros.
+El algoritmo "step" consiste en quitar secuencialmente el término más complejo del modelo completo, aquél que contiene todas las interacciones, y comparar su valor de Akaike (AIC) con el del modelo original, este procedimiento se realiza quitando los términos complejos uno a la vez y el procedimiento se detiene cuando el modelo ya no baja en su valor de AIC. De esta manera se tienen 3 situaciones, quedarse con el modelo completo (incluye todas las interacciones), llegar al modelo nulo (solo se queda con el intercepto y las pendientes) o quedarse con un modelo intermedio (con algunos términos ya sean interacciones, efectos o covarianzas). Se considera que el modelo parsimonioso es aquel que tiene el menor valor de AIC, y este corresponde a un modelo con la mayor capacidad predictiva y a la vez con el menor número de parámetros.
 
 **Modelo multifactorial, algoritmo "step": Biomasa media de la comunidad edáfica de suelos Argiudoles de Luján**
 
@@ -2923,6 +2857,17 @@ mU_p<-lm(log(Tbiomass) ~ sitio * gremio ,data = baseU)
 
 step(lm(log(Tbiomass) ~ sitio * gremio ,data = baseU))
 
+```
+
+**Resumen de resultados del modelo final. Biomasa media de la comunidad edáfica de suelos Argiudoles de Luján**
+
+
+
+```{r sum_step_luján, echo=FALSE, warning=FALSE, message=FALSE}
+
+
+summary(lm(formula = log(Tbiomass) ~ gremio, data = baseU)
+)
 
 
 ```
@@ -2940,6 +2885,14 @@ par(mfrow=c(1,1))
 ```{r step_chivilcoy, echo=FALSE, warning=FALSE, message=FALSE}
 step(lm(log(Tbiomass) ~ system * guild, data = base))
 mR_c<-lm(log(Tbiomass) ~ system * guild, data = base)
+```
+
+**Resumen de resultados del modelo final. Biomasa media de la comunidad edáfica de suelos Argiudoles de Chivilcoy - Navarro**
+
+```{r sum_step_chivilcoy, echo=FALSE, warning=FALSE, message=FALSE}
+
+summary(lm(formula = log(Tbiomass) ~ system * guild, data = base))
+
 ```
 
 **Modelo multifactorial, gráficos de verificación paramétrica: Biomasa media de la comunidad de microartrópodos edáficos de suelos Argiudoles de Chivilcoy - Navarro**
@@ -3018,149 +2971,35 @@ step(rq0)
 
 ```
 
+**Resumen del modelo final regresión de cuantiles de la comunidad edáfica del suelo de Luján**
+
+```{r sum_qq_red_luj, echo=FALSE, warning=FALSE, message=FALSE}
+summary(rq(formula = log(D) ~ sitio + gremio + log(bio.ind) + sitio:gremio + 
+    gremio:log(bio.ind), tau = 0.75, data = baseU))
+```
+
+
+
+
 **Reducción del modelo de regresión de cuantiles, algoritmo "step", de la comunidad de microartópodos edáficos de suelos de Chivilcoy - Navarro**
 
 ```{r qq_apendice, echo=FALSE, warning=FALSE, message=FALSE}
 rq1<-rq(log(abundance) ~ (system+guild+log(bio.ind))^3, tau = .75, data = base)
 step(rq1)
-#modelo Ro
 
+```
+
+
+**Resumen del modelo final regresión de cuantiles de la comunidad edáfica del suelo de Chivilcoy - Navarro**
+
+```{r sum_qq_apendice, echo=FALSE, warning=FALSE, message=FALSE}
+summary(rq(formula = log(abundance) ~ (system + guild + log(bio.ind))^3, 
+    tau = 0.75, data = base))
 ```
 
 \newpage
 
-### Prueba de a pares entre factores del modelo de regresión de quartiles ($\tau=0.75$) que relaciona la densidad media y el peso corporal medio de los gremios tróficos de la comunidad edáfica en diferentes sistemas de uso en suelos Argiudoles de la Pampa Ondulada.
 
-**Diferencias del 3er quantil, sobre el intercepto, entre sistemas de uso de la comunidad de fauna edáfica en suelos de Luján**
-
-```{r r L_qq1, echo=FALSE, warning=FALSE, message=FALSE}
-L_qq1<-read.csv("database/sum-pairwise_comparisons_U1.txt", sep="")
-#L_qq1%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
-L_qq1%>%
-  kbl(booktabs = TRUE, longtable = TRUE) %>%  # Activar booktabs para PDF
-  kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
-   kable_styling(latex_options = c("hold_position", "basic"))
-```
-
-**Diferencias del 3er quantil, sobre el intercepto, entre gremios de la comunidad de fauna edáfica en suelos de Luján**
-
-```{r L_qq2, echo=FALSE, warning=FALSE, message=FALSE}
-L_qq2<-read.csv("database/sum-pairwise_comparisons_U2.txt", sep="")
-#L_qq2%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
-L_qq2%>%
-  kbl(booktabs = TRUE, longtable = TRUE) %>%  # Activar booktabs para PDF
-  kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
-   kable_styling(latex_options = c("hold_position", "basic"))
-
-```
-
-**Diferencias del 3er quantil, sobre el intercepto, entre sistemas de uso y gremios de la comunidad de fauna eáfica en suelos de Luján**
-
-```{r L_qq3, echo=FALSE, warning=FALSE, message=FALSE}
-L_qq3<-read.csv("database/sum-pairwise_comparisons_U3.txt", sep="")
-#L_qq3%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
-L_qq3%>%
-  kbl(booktabs = TRUE, longtable = TRUE) %>%  # Activar booktabs para PDF
-  kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
-   kable_styling(latex_options = c("hold_position", "basic"))
-
-```
-
-**Diferencias del 3er quantil, sobre la pendiente, entre gremios de la comunidad de fauna edáfica en suelos de Luján**
-
-```{r L_qq4, echo=FALSE, warning=FALSE, message=FALSE}
-L_qq4<-read.csv("database/sum-pairwise_comparisons_U4.txt", sep="")
-#L_qq4%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
-L_qq4%>%
-  kbl(booktabs = TRUE) %>%  # Activar booktabs para PDF
-  kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
-   kable_styling(latex_options = c("hold_position", "basic"))
-
-```
-
-**Diferencias del 3er quantil, sobre la pendiente, entre gremios de la comunidad observados entre sistemas de uso de fauna edáfica en suelos de Luján**
-
-```{r L_qq5, echo=FALSE, warning=FALSE, message=FALSE}
-L_qq5<-read.csv("database/sum-pairwise_comparisons_U5.txt", sep="")
-#L_qq5%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
-L_qq5%>%
-  kbl(booktabs = TRUE, longtable = TRUE) %>%  # Activar booktabs para PDF
-  kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
-   kable_styling(latex_options = c("hold_position", "basic"))%>%
-column_spec(1, width = "5cm")
-
-```
-
-\newpage
-
-**Diferencias del 3er quantil, sobre el intercepto, entre sistemas de uso de la comunidad de microartrópodos edáficos en suelos de Chivilcoy - Navarro**
-
-```{r R_qq1, echo=FALSE, warning=FALSE, message=FALSE}
-R_qq1<-read.csv("database/sum-pairwise_comparisons_RO5.txt", sep="")
-#R_qq1%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
-R_qq1%>%
-  kbl(booktabs = TRUE, longtable = TRUE) %>%  # Activar booktabs para PDF
-  kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
-   kable_styling(latex_options = c("hold_position", "basic"))
-
-```
-
-**Diferencias del 3er quantil, sobre el intercepto, entre gremios tróficos de la comunidad de microartrópodos edáficos en suelos de Chivilcoy - Navarro**
-
-```{r R_qq2, echo=FALSE, warning=FALSE, message=FALSE}
-R_qq2<-read.csv("database/sum-pairwise_comparisons_RO6.txt", sep="")
-#R_qq2%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
-R_qq2%>%
-  kbl(booktabs = TRUE, longtable = TRUE) %>%  # Activar booktabs para PDF
-  kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
-   kable_styling(latex_options = c("hold_position", "basic"))
-```
-
-**Diferencias del 3er quantil, sobre el intercepto, entre sistemas de uso y gremios tróficos de la comunidad de microartrópodos edáficos en suelos de Chivilcoy - Navarro**
-
-```{r R_qq3, echo=FALSE, warning=FALSE, message=FALSE}
-R_qq3<-read.csv("database/sum-pairwise_comparisons_RO4.txt", sep="")
-#R_qq3%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
-R_qq3%>%
-  kbl(booktabs = TRUE, longtable = TRUE) %>%  # Activar booktabs para PDF
-  kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
-   kable_styling(latex_options = c("hold_position", "basic"))
-```
-
-**Diferencias del 3er quantil, sobre la pendiente, entre gremios de la comunidad de microartrópodos edáficos en suelos de Chivilcoy - Navarro**
-
-```{r R_qq4, echo=FALSE, warning=FALSE, message=FALSE}
-R_qq4<-read.csv("database/sum-pairwise_comparisons_RO1.txt", sep="")
-#R_qq4%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
-R_qq4%>%
-  kbl(booktabs = TRUE) %>%  # Activar booktabs para PDF
-  kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
-   kable_styling(latex_options = c("hold_position", "basic"))
-```
-
-**Diferencias del 3er quantil, sobre la pendiente, entre sistemas de uso de la comunidad de microartrópodos edáficos en suelos de Chivilcoy - Navarro**
-
-```{r R_qq5, echo=FALSE, warning=FALSE, message=FALSE}
-R_qq5<-read.csv("database/sum-pairwise_comparisons_RO2.txt", sep="")
-#R_qq5%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
-R_qq5%>%
-  kbl(booktabs = TRUE) %>%  # Activar booktabs para PDF
-  kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
-   kable_styling(latex_options = c("hold_position", "basic")) 
-```
-
-**Diferencias del 3er quantil, sobre la pendiente, entre sistemas de uso y gremios de la comunidad de microartrópodos edáficos en suelos de Chivilcoy - Navarro**
-
-```{r R_qq6, echo=FALSE, warning=FALSE, message=FALSE}
-R_qq6<-read.csv("database/sum-pairwise_comparisons_RO7.txt", sep="")
-#R_qq6%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
-R_qq6%>%
-  kbl(booktabs = TRUE, longtable = TRUE) %>%  # Activar booktabs para PDF
-  kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
-   kable_styling(latex_options = c("hold_position", "basic"))  %>% column_spec(1, width = "5cm")
-```
-
-\newpage
 
 # Apéndice del capítulo 5
 
@@ -3181,6 +3020,7 @@ mG <- read.csv("database/mG.txt", sep="")
 mG_adj<-graph_from_adjacency_matrix(t(mG),mode=c("directed"),weighted = TRUE )
 edg_mG <- as_data_frame(mG_adj, what = "edges")
 
+
 #t(mG)%>% kbl() %>%kable_classic(full_width = F, html_font = "Times New Roman")
 edg_mG%>%
  kbl(booktabs = TRUE, longtable = TRUE) %>%  # Activar booktabs para PDF
@@ -3195,10 +3035,16 @@ mG <- read.csv("database/mG.txt", sep="")
 mG_adj<-graph_from_adjacency_matrix(t(mG),mode=c("directed"),weighted = TRUE )
 edg_mG <- as_data_frame(mG_adj, what = "edges")
 
+colnames(edg_mG)<-c("Recurso","Consumidor","Preferencia")
+
+
 edg_mG%>%
  kbl(booktabs = TRUE, longtable = TRUE) %>%  # Activar booktabs para PDF
 kable_classic(full_width = F, latex_options = "scale_down") %>%  
 kable_styling(latex_options = c("hold_position", "basic"))
+
+
+
 ```
 \newpage
 
@@ -3216,3 +3062,43 @@ tabla_nombre%>%
   kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
    kable_styling(latex_options = c("hold_position", "basic"))
 ```
+
+
+## Apéndice 5.3
+
+### Método para determinar la intensidad de interacciones
+
+La fuerza de cada interacción por pares en la red trófica se estima considerando la masa corporal del consumidor (depredador) y del recurso (presa), así como la dimensionalidad de la interacción (DI) [@pawar2012]. Primero, se recopila la información sobre la masa corporal de los recursos y consumidores. Luego, la DI se clasifica en 2D o 3D, según el espacio y hábitat de movimiento de las especies. Se asignó 2D cuando tanto el depredador como la presa se mueven en 2D, o si un depredador se mueve en 3D y la presa en 2D. La DI se clasificó como 3D cuando tanto el depredador como la presa se mueven en 3D o cuando el depredador se mueve en 2D y la presa en 3D [@pawar2012].
+
+
+La ecuación principal utilizada para estimar la fuerza de interacción (IS) es:
+
+$$ IS = \frac{\alpha . x_R . m_R}{m_C}$$
+
+donde: 
+$\alpha$ es la tasa de búsqueda, 
+$x_R$ es la densidad del recurso,
+$m_R$ es la masa corporal del recurso, 
+$m_C$ es la masa corporal del consumidor (Pawar et al., 2012).
+
+Se emplearon las estimaciones de la tasa de búsqueda ($\alpha$) obtenidas por Pawar et al. [-@pawar2012], utilizando diferentes coeficientes para ambos espacios de búsqueda dimensional (2D y 3D), determinados mediante regresión de mínimos cuadrados ordinarios en relación con la masa de los consumidores. Se asumió el escenario en el que los recursos son escasos, ya que refleja mejor las condiciones de campo (ver Figura 3.e y f y Ecuación 3 de Pawar et al., [-@pawar2012]). 
+
+La tasa de búsqueda para interacciones en 2D se calcula como:
+$$\alpha = \alpha_{2D} . m_{C}^{0.68\,\pm\,0.12}$$
+
+Para interacciones en 3D, se calcula como:
+
+$$\alpha = \alpha_{3D} . m_{C}^{1.05\pm0.08}$$
+
+Donde: $-\alpha_{2D}=10^{−3.08}$, $-\alpha_{3D}=10^{−1.77}$,
+son los interceptos para cada dimensionalidad de las interacciones.
+Cuando estuvo disponible, se utilizó el dato empírico de la densidad de los recursos ($x_R$). De lo contrario, se estimó según la ecuación S18 y las figuras complementarias 2.i y j (individuos/m² – m³) de Pawar et al. [-@pawar2012]:
+
+
+$$x_R=x_0\,.\,m_R^{−p_x}$$
+donde $p_x$ es $−0.79\pm0.08$ para 2D y $−0.86\pm0.07$ para 3D.
+
+Para recursos como productores primarios y detritos, donde la masa y/o densidad corporal son independientes del consumidor, se asignó un valor de 1 a mR y mC. De esta manera, la fuerza de la interacción dependía únicamente de la biomasa del consumidor [@pawar2012].
+
+
+

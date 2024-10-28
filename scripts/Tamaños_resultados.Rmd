@@ -872,6 +872,13 @@ summary(pairwise_comparisons_B_U1)
 
 ```
 
+Coefficients:
+        (Intercept)      gremioherbivoro  gremiomicrofitofago       gremioomnivoro  
+              13.03                -3.55                -1.16                -1.49  
+     gremiopredador  
+              -1.56  
+
+
 **Diferencias de medias, sistemas de uso de la comunidad de microartrópodos edáficos en suelos de Chivilcoy y Navarro**
 
 ```{r pair_sistema_CN,echo=FALSE, warning=FALSE, message=FALSE}
@@ -1085,7 +1092,7 @@ summary(pairwise_comparisons_RO4)
 
 ```{r R_qq4, echo=FALSE, warning=FALSE, message=FALSE}
 
-emms_RO1 <- emmeans::emmeans(rqRO, ~ system:log(bio.ind))
+emms_RO1 <- emmeans::emmeans(rqRO, ~ guild:log(bio.ind))
 pairwise_comparisons_RO1 <- contrast(emms_RO1, method = "pairwise", adjust = "BH")
 summary(pairwise_comparisons_RO1)
 
@@ -1095,7 +1102,7 @@ summary(pairwise_comparisons_RO1)
 
 ```{r R_qq5, echo=FALSE, warning=FALSE, message=FALSE}
 
-emms_RO2 <- emmeans::emmeans(rqRO, ~ guild:log(bio.ind))
+emms_RO2 <- emmeans::emmeans(rqRO, ~ system:log(bio.ind))
 pairwise_comparisons_RO2 <- contrast(emms_RO2, method = "pairwise", adjust = "BH")
 summary(pairwise_comparisons_RO2)
 
