@@ -10,7 +10,7 @@ output:
     css: referencias/estilos.css
   word_document:
     toc: false
-bibliography: referencias/Tesis_final.bib
+bibliography: referencias/Tesisfinal.bib
 csl: referencias/apa.csl
 lang: es
 ---
@@ -658,7 +658,16 @@ a suelos de los partidos de Chivilcoy - Navarro (Tabla 3.1).
 En ambos casos se tomaron muestras en suelos con diferentes formas de uso y se consideraron estas 
 como diferentes grados en la intensidad de perturbación sobre el suelo.
 
-Los suelos de  de Luján fueron muestreados en el año 2022. El muestreo se llevó adelante en el campo experimental de la Universidad Nacional de Luján, se eligieron suelos con características edáficas similares basados en el trabajo de Sfeir [-@sfeir1998] y se colectaron los nemátodos, la mesofauna y la macrofauna. De manera complementaria se obtuvieron, a través del servicio del Laboratorio del Campo de la Universidad Nacional de Luján, los valores para el porcentaje de materia orgánica, el porcentaje de nitrógeno, la cantidad de fósforo extractable en partes por millón y el valor del potencial de hidrogeniones en escala de pH.
+Los suelos de  de Luján fueron muestreados en el año 2022. El muestreo se llevó adelante en el campo experimental de la Universidad Nacional de Luján, se eligieron suelos con características edáficas similares basados en el trabajo de Sfeir [-@sfeir1998]. Se colectaron los nemátodos, la mesofauna y la macrofauna. De manera complementaria se obtuvieron, a través del servicio del Laboratorio del Campo de la Universidad Nacional de Luján, los valores para el porcentaje de materia orgánica, el porcentaje de nitrógeno, la cantidad de fósforo extractable en partes por millón y el valor del potencial de hidrogeniones en escala de pH.
+
+Para los muestreos de Luján, se eligieron 3 sitios (Tabla 3.1) con diferentes usos del suelo: a) un lote agrícola (A) sobre el cuál se practica la agricultura convencional con labranza para la producción forrajera de alfalfa *Medicago sativa* para pastoreo de bovinos en producción lechera; b) un área de pastizal (P) con dominancia de Sorgo de Alepo *Sorghum halepense* y Cardo mariano *Silybum marianum*, áreas que reciben baja presión de pastoreo por los bovinos lecheros con descanso semanales entre pastoreos y c) un área clausurada por más de 30 años considerada 
+como reserva (R) cuya vegetación característica es de tipo arbórea dominada 
+por Ligustro *Ligustrum lucidum* y Acacia *Acacia melanoxylon*.
+
+Los suelos ubicados en los partidos de Chivilcoy - Navarro fueron muestreados por Sandler [-@sandler2019]. Los sitios de muestreo se corresponden con suelos con intervención agrícola intensiva (A) durante más de 50 años, suelos con sistema de producción mixto con actividad agrícola y ganadera (G) y suelos con pastizales naturalizados (N) sin intervención antrópica por más de 50 años.
+Para cada intensidad de uso se tomaron muestras en tres réplicas en cada estación del año durante 2 años. 
+Este conjunto de datos incluye a) la clasificación y el conteo de los taxones de Arachnida: Acari, Hexapoda: Collembola, extraídas mediante la técnica de tamizado y flotación, b) la clasificación y contéo
+de Oligochaetta: Crassiclitelata colectadas a campo a ojo desnudo, c) la respiración heterotrófica en mg CO~2~.g suelo^-1^.día^-1^ y d) la determinación de variables ambientales [@duhour2023; @velazco2023a].
 
 
 <!--con respecto al hecho de tmar reeticiones en un mismo lugar: En cada lote se tomaron varias muestras distantes entre sí al menos diez metros por lo que pueden considerarse estadísticamente independientes (es decir que no presentan pseudorreplicación) ya que, como está ampliamente demostrado en el caso de estos suelos, las distancias entre muestras exceden ampliamente las distancias de autocorrelación, con lo cual los datos son estadísticamente independientes aunque estén tomados en el mismo campo (Conti et al. 1980; Giuffré et al. 1998; M. Massobrio, comunicación personal, tomado del paper de monica | Artrópodos del suelo: Relaciones entre la composición faunística y la intensificación agropecuaria-->
@@ -708,12 +717,7 @@ Los suelos de  de Luján fueron muestreados en el año 2022. El muestreo se llev
 |                             | 35°03'13,65"S  | 59°41'11,88"O  |                     |
 +-----------------------------+--------------+--------------+---------------------+
 
-Para los muestreos de Luján, se eligieron 3 sitios (Tabla 3.1) con diferentes usos del suelo: a) un lote agrícola (A) sobre el cuál se practica la agricultura convencional con labranza para la producción forrajera de alfalfa *Medicago sativa* para pastoreo de bovinos en producción lechera; b) un área de pastizal (P) con dominancia de Sorgo de Alepo *Sorghum halepense* y Cardo mariano *Silybum marianum*, áreas que reciben baja presión de pastoreo por los bovinos lecheros con descanso semanales entre pastoreos y c) un área clausurada por más de 30 años considerada 
-como reserva (R) cuya vegetación característica es de tipo arbórea dominada 
-por Ligustro *Ligustrum lucidum* y Acacia *Acacia melanoxylon*.
 
-Los suelos ubicados en los partidos de Chivilcoy - Navarro fueron muestreados por Sandler [-@sandler2019]. Los sitios de muestreo se corresponden con suelos con intervención agrícola intensiva (A) durante más de 50 años, suelos con sistema de producción mixto con actividad agrícola y ganadera (G) y suelos con pastizales naturalizados (N) sin intervención antrópica por más de 50 años. Este conjunto de datos incluye a) el conteo y la clasificación de los taxas de Arachnida: Acari, Hexapoda: Collembola, extraídas mediante la técnica de tamizado y flotación, b) la clasificación y contéo
-de Oligochaetta: Crassiclitelata colectadas a campo a ojo desnudo, c) la respiración heterotrófica en mg CO~2~.g suelo^-1^.día^-1^ y d) la determinación de variables ambientales [@duhour2023; @velazco2023a].
 
 ### Métodos de muestreo y extracción de la fauna edáfica
 
