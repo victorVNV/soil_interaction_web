@@ -496,8 +496,7 @@ La caracterización de la porción anterior del tracto digestivo en estos animal
 permite clasificarlos en grupos tróficos como fungívoros, bacteriófagos, depredadores, omnívoros y fitófagos.
 Estos grupos tróficos regulan las comunidades de la microflora y de la microfauna. En particular,
 los nemátodos fitófagos pueden ser de vida libre o parásitos de raíces y tejidos vegetales, estos intervienen
-entonces en la regulación de poblaciones de plantas y resultan de interés económico por su efecto nocivo 
-sobre especies de interés agronómico [@yeates1971; @momo2009; @yeates1993].
+entonces en la regulación de poblaciones de plantas y resultan de interés económico por su efecto sobre especies de interés agronómico [@yeates1971; @momo2009; @yeates1993].
 
 ## Mesofauna
 
@@ -644,9 +643,8 @@ mencionan que los indicadores biológicos integran a la gran cantidad de factore
 y su calidad. Por ello es que Socarras [-@socarras2013] menciona que conocer el número de los diferentes taxones, su abundancia y el balance entre estos permite evaluar y predecir el impacto de los diferentes métodos de producción ocurridos en sistemas con condiciones edáficas y climáticas similares.
 
 Bajo este contexto, este capítulo describe las diferencias ambientales y las diferencias en la diversidad biológica de las comunidades edáficas halladas en suelos de la Pampa Ondulada bajo diferentes intensidades de uso. 
-Se espera que las características del hábitat en suelos bajo diferentes intensidades de uso sean diferentes 
-y que la diversidad de las comunidades sea cada vez menor en suelos perturbados en comparación
-con los sistemas sin uso productivo (sistemas de referencias). Esta información será la base para construir la red trófica.
+Se espera suelos bajo diferente intensidades de uso tengan características ambientales diferentes entre sí y que la diversidad de la fauna edáfica disminuya con la intensidad
+de uso. 
 
 ## Materiales y métodos
 
@@ -676,46 +674,26 @@ de Oligochaetta: Crassiclitelata colectadas a campo a ojo desnudo, c) la respira
 
 **Tabla 3.1.** Ubicación de los puntos de muestreo en los sitios con diferentes intensidades de uso en suelos  de la Pampa Ondulada. Coordenadas geográficas en el sistema de referencia WGS84 expresadas en grados, minutos y segundos
 
-
-+-----------------------------+--------------+--------------+---------------------+
-| Sitio                       | Latitud      | Longitud     | Localidad           |
-+=============================+==============+==============+=====================+
-| Reserva (R)                 | 34°35'34"S   | 59°04'16"O   | Luján               |
-+-----------------------------+--------------+--------------+---------------------+
-|                             | 34°35'35"S   | 59°04'18"O   |                     |
-+-----------------------------+--------------+--------------+---------------------+
-|                             | 34°35'36"S   | 59°04'20"O   |                     |
-+-----------------------------+--------------+--------------+---------------------+
-| Pastizal (P)                | 34°35'38"S   | 59°04'22"O   |                     |
-+-----------------------------+--------------+--------------+---------------------+
-|                             | 34°35'38"S   | 59°04'23"O   |                     |
-+-----------------------------+--------------+--------------+---------------------+
-|                             | 34°35'38"S   | 59°04'25"O   |                     |
-+-----------------------------+--------------+--------------+---------------------+
-| Agrícola (A)                | 34°35'22"S   | 59°04'05"O   |                     |
-+-----------------------------+--------------+--------------+---------------------+
-|                             | 34°35'22"S   | 59°04'09"O   |                     |
-+-----------------------------+--------------+--------------+---------------------+
-|                             | 34°35'22"S   | 59°04'12"O   |                     |
-+-----------------------------+--------------+--------------+---------------------+
-| Pastizal naturalizado (N)   | 35°03'18,84"S  | 59°41'00,25"O  | Chivilcoy - Navarro |
-+-----------------------------+--------------+--------------+---------------------+
-|                             | 35°03'02,63"S  | 59°41'02,63"O  |                     |
-+-----------------------------+--------------+--------------+---------------------+
-|                             | 34°51'08,68"S  | 60°01'43,05"O  |                     |
-+-----------------------------+--------------+--------------+---------------------+
-| Mixto agrícola-ganadero (G) | 34°49'27,40"S  | 59°10'30,53"O  |                     |
-+-----------------------------+--------------+--------------+---------------------+
-|                             | 34°49'29,20"S  | 59°10'26,33"O  |                     |
-+-----------------------------+--------------+--------------+---------------------+
-|                             | 34°49'21,27"S  | 59°10'34,01"O  |                     |
-+-----------------------------+--------------+--------------+---------------------+
-| Agrícola intensivo (A)      | 35°03'58,41"S  | 59°38'31,43"O  |                     |
-+-----------------------------+--------------+--------------+---------------------+
-|                             | 35°03'07,43"S  | 59°41'05,85"O  |                     |
-+-----------------------------+--------------+--------------+---------------------+
-|                             | 35°03'13,65"S  | 59°41'11,88"O  |                     |
-+-----------------------------+--------------+--------------+---------------------+
+| Sitio                       | Latitud       | Longitud      | Localidad  |
+|-----------------------------|---------------|---------------|------------|
+| Reserva (R)                 | 34°35'34"S    | 59°04'16"O    | Luján      |
+|                             | 34°35'35"S    | 59°04'18"O    |            |
+|                             | 34°35'36"S    | 59°04'20"O    |            |
+| Pastizal (P)                | 34°35'38"S    | 59°04'22"O    |            |
+|                             | 34°35'38"S    | 59°04'23"O    |            |
+|                             | 34°35'38"S    | 59°04'25"O    |            |
+| Agrícola (A)                | 34°35'22"S    | 59°04'05"O    |            |
+|                             | 34°35'22"S    | 59°04'09"O    |            |
+|                             | 34°35'22"S    | 59°04'12"O    |            |
+| Pastizal naturalizado (N)   | 35°03'18,84"S | 59°41'00,25"O | Chivilcoy- |
+|                             | 35°03'02,63"S | 59°41'02,63"O | Navarro    |
+|                             | 34°51'08,68"S | 60°01'43,05"O |            |
+| Mixto agrícola-ganadero (G) | 34°49'27,40"S | 59°10'30,53"O |            |
+|                             | 34°49'29,20"S | 59°10'26,33"O |            |
+|                             | 34°49'21,27"S | 59°10'34,01"O |            |
+| Agrícola intensivo (A)      | 35°03'58,41"S | 59°38'31,43"O |            |
+|                             | 35°03'07,43"S | 59°41'05,85"O |            |
+|                             | 35°03'13,65"S | 59°41'11,88"O |            |
 
 
 
@@ -780,6 +758,8 @@ $$ BC = \frac{\sum |x_i - y_i|}{\sum (x_i + y_i)} $$
 
 Para describir las relación entre los taxones y los sitios de muestreo se realizó el análisis de los componentes principales (PCA) de las comunidades en modo R (esto es, los sitios muestrales como columnas en la matriz de entrada de datos) con los valores de la abundancia de los taxones previamente transformados con $\log_bx + 1$ [@legendre2012]. El modo de análisis R se eligió porque permite observar a los sitios en función de los taxones. Entonces, en el gráfico biplót los sitios son vectores y los taxones son puntos en el espacio de ordenamiento de los componentes principales resumidos a través de centroides. Para los centroides se agruparon de manera arbitraria para indicar taxones con características taxonómicas y biológicas similares.
 
+\newpage
+
 ## Resultados
 
 ### Caracterización química - biológica de los suelos de la Pampa Ondulada bajo diferentes intensidades de uso
@@ -788,7 +768,7 @@ Para describir las relación entre los taxones y los sitios de muestreo se reali
 
 En los suelos de Luján las variables (Tabla 3.2.A) estuvieron poco correlacionadas entre si, con excepción del nitrógeno que se correlacionó negativamente con la respiración heterotrófica ($\rho$: p~valor~ \< 0,1).
 
-También el fósforo se correlacionó negativamente con la respiración heterotrófica aunque representó una situación marginal (p-valor igual a $\rho$: p~valor~ = 0,1). Se observó correlación positiva entre el fośforo y el nitrógeno $\rho$ = 0,57 pero el nivel de significancia estuvo un punto por arriba de la situación marginal $\rho$: p~valor~ = 0,11.
+También el fósforo se correlacionó negativamente con la respiración heterotrófica aunque representó una situación marginal ($\rho$: p~valor~ = 0,1). Se observó correlación positiva entre el fośforo y el nitrógeno $\rho$ = 0,57 pero el nivel de significancia estuvo un punto por arriba de la situación marginal $\rho$: p~valor~ = 0,11.
 
 En los suelos de Chivilcoy - Navarro (Tabla 3.2.B) el pH se correlacionó significativamente con el nitrógeno, el fósforo y con la respiración heterotrófica. Las correlaciones fueron negativas entre el pH y el nitrógeno y el fósforo. En cambio, la correlación fue positiva entre el pH y la respiración heterotrófica, por lo que la actividad biológica aumenta cuando el medio es más alcalino.
 
@@ -851,8 +831,6 @@ en la misma localidad. Los sitios se corresponden con las intensidades de uso de
 | Chivilcoy\- | N     | 7,5 ± 0,97^a^ | 4 ± 1,35   | 0,3 ± 0,06 | 10,5 ± 8,02     |
 | Navarro   | G     | 6 ± 0,47^b^   | 4,3 ± 1,29 | 0,3 ± 0,06 | 15,5 ± 12       |
 |           | A     | 5,8 ± 0,44^b^ | 4,3 ± 1,53 | 0,3 ± 0,05 | 15,6 ± 12,33    |
-
-
 \scriptsize
 Las valores sin letras indican que no se observaron diferencias significativas
 para la variable entre intensidades de usos del suelo.
@@ -882,8 +860,6 @@ para las mismas localidades. Los sitios se corresponden con los sistemas de uso 
 | Chivilcoy\- | N     | 0,086 ± 0,049^a^          | \-             | \-              |
 | Navarro   | G     | 0,07 ± 0,038 ^a^          | \-             | \-              |
 |           | A     | 0,051 ± 0,038^b^          | \-             | \-              |
-
-
 \scriptsize
 Las valores sin letras indican que no se observaron diferencias significativas
 para las mismas entre intensidades de usos del suelo.
@@ -993,7 +969,6 @@ Tab3.6 %>%
   kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
    kable_styling(latex_options = c("hold_position", "basic"))
 ```
-
 \scriptsize
 Cada columna indica el valor promedio más el desvío estándar de la diversidad del componente y el  valor de la mediana de la diversidad del componente
 \normalsize
@@ -1063,42 +1038,84 @@ agrícola intensivo se correlacionaron los ácaros Prostigmata y los ácaros Sar
 
 ## Discusión
 
-La correlación entre el fósforo y el nitrógeno podría vincularse con el aporte de la fertilización exógena con compuestos que poseen ambos componentes. La relación inversa de estos nutrientes con la respiración heterotrófica podría estar reflejando un mecanismo de retroalimentacion negativa ya que si consideramos que el papel de la microbiota está ligada a la descomposición y mineralización de estos macro-nutrientes la disponibilidad de nutrientes disminuiría la actividad respiratoria de los descomponedores.
-
-( En chivilcoy Navarro ) Entonces si el aumento en la cantidad de Nitrógeno se relaciona con la disminución del pH, esta disminución del pH favorece el aumento del fósforo disponible. 
-En cambio, la correlación fue positiva entre el pH y la respiración heterotrófica, por lo que la actividad biológica aumenta cuando el medio es más alcalino. Con el fósforo la correlación fue negativa lo que puede relacionarse con el hecho de que la materia orgánica humificada forma complejos con el fósforo. A medida que aumenta el contenido de MO en el suelo la concentracion de P disminuye, la relacion c/P aumenta. [@alvarez_steinbach_2009]
-
-Sobre las diferencias con KW : 
-El patrón general muestra que en sistemas agrícolas los suelos son más ácidos y su valor de pH varía menos en estos usos. Esto podría explicarse por el hecho de que la aplicación de fertilizantes, que podrían disminuir el pH, lo distribuye de manera homogénea sobre el lote con el objetivo de aumentar la disponibilidad de los nutrientes en la superficie agrícola.
-
-
-en luján la amplitud en la variación del valor del fósforo puede ser debida al efecto de la fertilización, ya que como este nutriente es poco móvil lugares con mayores cantidades de fósforo reflejan puntos de fertilización con el nutriente.
-
-En suelos de Luján, en el sistema de la reserva se observó
-una mayor actividad respiratoria. En estos suelos la disponibilidad de materia orgánica susceptible a la descomposición (broza u hojarasca) se distribuye sobre la superficie con un gran volumen y es más constante a lo largo del año, en cambio en suelos agrícolas donde la actividad respiratoria fue menor la hojarasca sobre el suelo es puntual y estacional. En suelos de Luján no se encontraron diferencias entre los sistemas de uso del suelo, ni en la relación de hongos/bacterias ni en la cantidad de hojarasca en superficie.
-
-Los ácaros sarcoptiformes mostraron una correlación con los vectores del suelo de la reserva, 
-en esta situación también se hallan los macroartrópodos omnívoros y
-los tardígrados. , estos animales indicando la presencia de retención y saturación de humedad en el suelo. Los colémbolos se relacionan con el sistema del pastizal.
-
-#########
-
-Las correlaciones entre variables ambientales refleja la complejidad de relaciones que ocurren en el ecosistema del suelo. Sin embargo, los sistemas de uso del suelo en ambos sitios de estudio se enmarcaron dentro de ciertos valores en cuanto a su composición química - biológica. Es así que, resulta clara la separación de los sitios cuyas prácticas de manejo conllevan objetivos de uso agrícola. En particular en estos sistemas se aportan macronutrientes (nitrógeno y fósforo) y el medio ambiente resulta más ácido. Por otra parte, la actividad respiratoria del suelo en ambientes con usos agrícolas fue más baja y esto parece reflejar ya sea una respuesta fisiológica por parte de la microbiota del suelo al aumento de la acidez o es el resultado de un mecanismo de retroalimentación negativa en el que el aumento de la disponibilidad de nutrientes implica la disminución de la actividad de los descomponedores y mineralizadores de esos macronutrientes [@zhang2018; @solis2004; @ramirez2010].
+Las características químicas y biológicas de estos
+suelos muestran que los suelos antropizados 
+difieren de los suelos sin uso directo. Las principales variables
+que diferencian a estos ambientes son el pH y la respiración heterotrófica,
+con valores bajos en suelos bajo uso intensivo y viceversa. 
+Las variables antes mencionadas se relacionan inversamente 
+con los contenidos de nitrógeno y fósforo del suelo,
+en suelos bajo producción existe el aporte externo 
+de esos nutrientes y en estos es donde el suelo tiende a acidificarse. 
+Con relación a la actividad respiratoria del suelo, en ambientes 
+con usos agrícolas su valor fue más bajo y esto parece reflejar, ya sea, una respuesta fisiológica por parte de la microbiota del suelo al aumento de la acidez o 
+es el resultado de un mecanismo de retroalimentación negativa en el que el aumento de la disponibilidad de nutrientes implica la disminución de la actividad de los descomponedores y mineralizadores de esos macronutrientes [@Dinc2022; @zhang2018; @solis2004; @ramirez2010; @Chen2022; @sabir2021].
 
 <!-- In a virtuous circle, low levels of nitrogen and phosphorus stimulate biological activity in order to recirculate more organic matter. Therefore, care must be taken when providing "easy nutrition" with fertilizers, because they can inhibit interactions. Soil health ultimately determines the quality of food generated from plants. "Men, therefore, is responsible for recovering, caring for and managing the resource with intensification, crop diversification and monitoring its biology along the way," he summarized. Luis Wall en un blog de Apresid https://www.aapresid.org.ar/blog/soil-biology-why-is-it-important-and-how-do-we-take-care-of-it -->
 
-La diversidad de las comunidades edáficas halladas en estos suelos  se mantuvo similar a pesar de los efectos que la actividad antrópica pudiera tener sobre las características del ambiente edáfico. El hecho de que no existan diferencias claras en la diversidad del índice de Shannon podría estar relacionado con la redundancia funcional que caracteriza al sistema edáfico [@anderson1978]. La redundancia funcional implica que para diferentes funciones ecológicas tales como, el control de poblaciones de la microflora, la fragmentación de la hojarasca, la herbivoría, la formación de canales a través del suelo, entre otros, existe un número de taxones que ocuparían el lugar ecológico de los taxones perdidos por el efecto de las perturbaciones recibidas. Esto confiere al ecosistema edáfico una alta resiliencia a los cambios en el ambiente preservando las funciones ecológicas.
+Las comunidades de la fauna edáfica resultaron similares en 
+suelos bajo la misma intensidad de uso   
+diferenciándose de los suelos bajo otras intensidades de uso. 
+Esta separación entre comunidades también fue 
+registrada por Nicosia et al. [-@nicosia2020] y 
+Cassanni et al. [-@cassani2020] para comunidades de la mesofauna del suelo,
+mostrando la separación entre suelos sin uso y suelos bajo
+diferentes intensidades de uso. Esta disimilitud entre comunidades
+refleja la adaptación de la fauna edáfica a las características del suelo
+en el que habitan. 
 
-Entre los diferentes sistemas de manejo las comunidades fueron disímiles entre sí, es decir que existen diferentes taxones que conforman las diferentes comunidades o variaciones en las abundancias de un mismo taxón entre comunidades. Estas diferencias se vinculan con las prácticas de manejo que se aplican sobre el suelo. Por otra parte, la separación entre las comunidades refuerza la idea planteada anteriormente sobre la redundancia funcional que existe en la comunidad de la fauna edáfica. Es más, en comunidades donde solo se colectaron microartrópodos y lombrices, el grado de disimilitud entre comunidades fue menor, al contrario que en las comunidades que incluyen la macrofauna edáfica.
 
-En resumen, los suelos  de la Pampa Ondulada en el marco de su composición química y biológica dan cuenta de las diferencias entre los diferentes sistemas de uso del suelo. Las comunidades de la fauna edáfica en estos suelos  aunque separadas por grandes distancias en la Pampa Ondulada mantienen valores de diversidad similares entre los diferentes usos del suelo por lo que podemos hipotetizar que su resistencia a la antropización es importante. A su vez las comunidades son diferentes en su composición y esto es el reflejo de las variaciones a las que se someten los suelos con diferentes grado de antropización tales como el tiempo de uso y la forma en la que se utilizan los servicios ecosistémicos provistos por el suelo. 
+Estudios globales indican que las prácticas intensivas de manejo tienen 
+efectos negativos sobre las diversidad de la fauna del suelo principalmente 
+afectando a las abundancias [@Yin2020; @Chiappero2024]. Esta reducción 
+en las abundancias de los taxones de la fauna ante la intensidad 
+de uso del suelo también parece ser una respuesta general 
+de la fauna edáfica en los suelos de la región Pampeana [@Bedano2016]. 
+Aunque, en este capítulo, no se analizaron los cambios en la 
+abundancia de los taxones bajo diferentes intensidades de uso, si se comparó el índice de diversidad entre estos.
+Sin embargo, contrario a lo esperado, no se observaron diferencias 
+en la diversidad ni en toda la fauna ni en sus clases de tamaños.
+El hecho de que no existan diferencias claras en la diversidad del 
+índice de Shannon, entre intensidades de uso,
+podría estar relacionado con la redundancia funcional 
+que caracteriza al sistema edáfico [@Van1997]. Esto implica que las funciones ecológicas, como el control de poblaciones, la fragmentación de la hojarasca o la bioturbación del suelo, 
+ante la pérdida de especies se mantendría mediada por el 
+reemplazo por especies que participan con procesos similares. 
+Este fenómeno confiere a las comunidades edáficas resiliencia ante 
+los cambios en el ambiente 
+preservando las funciones ecológicas [@walker1992; @ganin2012]. 
+Aunque, en este punto hay que considerar 
+que las comparaciones se realizaron con categorías taxonómicas 
+heterogéneas, vinculadas más con sus características tróficas y de tamaño,
+por lo cuál sería interesante explorar la diversidad especie-específica para 
+determinar el efecto de las prácticas de manejo sobre la diversidad de las comunidades.
 
-Es interesante notar que en los suelos de Luján, el PCA muestra que las unidades taxonómicas separan claramente un gradiente de intensidad de uso. Esto no resulta tan claro en los suelos de Chivilcoy - Navarro, donde el uso ganadero sí se separa claramente del agrícola intensivo y del pastizal naturalizado pero estos últimos no se separan entre sí con claridad. El resultado obtenido para suelos de Luján implica que la estructura de las comunidades edáficas reflejan la intensidad de uso e impacto antrópico. Por otro lado, suelos sometidos a labranza mínima durante años como los de Chivilvoy - Navarro, con una acumulación constante de material vegetal en la superficie, mantienen condiciones que comunidades con alta resiliencia, como las estudiadas, no parecen diferenciar entre sí.
+En resumen, en estos suelos de la Pampa Ondulada las prácticas productivas
+condujeron a la acidificación, a la disminución de la actividad respiratoria, y a la 
+estructuración de comunidades adaptadas a las perturbaciones. 
+Si bien las comunidades mantuvieron valores de diversidad similares 
+entre los diferentes usos del suelo, 
+desde el punto de vista de las redes tróficas [@Vries2013],  
+las comunidades de la fauna edáfica al diferir en su composición 
+pero no en su diversidad, podrían cambiar en la estructura y complejidad de las redes
+cuyos efectos alterarían los flujos de materia y energía y la estabilidad de las
+comunidades que intervienen en los procesos y las funciones del ecosistema.
+
+
 
 <!--Desde el punto de vista de las redes de interacciones tróficas la comunidad de la fauna edáfica al diferir en su composición pero no en su diversidad mantendría las funciones ecológicas pero a la vez podría observarse diferencias relacionadas con la estructura de la red trófica como con las vías por las cuales discurre la materia y la energía, que en última instancia podría relacionarse a los diferentes procesos ecológicos vinculados con el ecosistema del suelo, es decir con cambios en los ciclos de los nutrientes y la energía.-->
 
-La información brindada en este capítulo junto con la provista en el siguiente, respecto de la distribución de tamaños y biomasa de la comunidad edáfica servirá para la construcción de la red de interacciones tróficas, que será el centro de atención del capítulo 5 de la tesis.
+<!-- The reason for this lack of definite conclusions is that this area has been given less attention
+than in other parts of the world; the response of soil fauna to agricultural practices is complex and
+taxa-dependent; and there is a wide variety of practices in the main types of agricultural systems,
+making generalizations difficult. A review of the existing studies on soil meso- and macrofauna
+in agroecosystems, revealed that (a) agricultural soils, regardless of farming system, are strongly
+modified in biological aspects compared to the same soils without human interventions; (b) there
+are no conclusive results about no-till benefits compared to reduced tillage or conventional tillage;
+(c) agricultural managements that are alternative to the traditional conventional systems are very
+poorly represented in research. Bedano et al 2006-->
 
+<!--The high species richness of individual taxocenes in combination with a high topic association in the distribution of closely related and ecologically similar species suggests the absence of competitive exclusion. It has been demonstrated that this phenomenon is determined, on the one hand, by rich resource reserves and their spatial differentiation in the soil-litter stratum and, on the other, by spatial-temporal segregation and dense packing of ecological niches, decreasing competition. [@ganin2012]-->
 <!--Indicator Value of Species in Communities
 The species composition of a community may be summarized using various
 statistical parameters, often expressed as diversity indices. Sheehan et al. (1984)
