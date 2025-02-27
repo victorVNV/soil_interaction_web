@@ -509,7 +509,7 @@ print(round(unlu_pcaFQB$var$cor[,1:3],3))
 
 ```{r biplot_UNLu, echo=FALSE, warning=FALSE}
 #Biplot
-sit<-c(rep("L", 3), rep("P", 3), rep("R", 3))
+sit<-c(rep("A", 3), rep("P", 3), rep("R", 3))
 fviz_pca_biplot(unlu_pcaFQB, axes = c(1,2),  col.ind=sit, label = "var")
 
 ```
@@ -1451,7 +1451,7 @@ std_ab_pca_cor<-round(std_ab_pca$var$cor[,1:5],3)
 #fviz_pca_var(std_ab_pca, col.var=sit,repel = TRUE, label="none")
 
 #fviz_pca_ind(std_ab_pca, col.ind=col.sp,label="none",repel = TRUE)
-
+          
 plot_PCA_ro<-fviz_pca_biplot(std_ab_pca, axes = c(1,2) , col.ind=col.sp,
                 col.var = "black", alpha.var=0.6,#as.factor(sit),
                 alpha.ind=0.3,
