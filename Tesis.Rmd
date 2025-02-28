@@ -221,7 +221,7 @@ Para construir y modelar las reded tróficas de la fauna del suelo es necesario,
 En este contexto, el objetivo de esta tesis es construir y modelar las redes de interacciones tróficas la fauna del suelo y  analizar sus métricas para evaluar el estado de conservación del suelo. En particular, busca caracterizar la diversidad de las comunidades edáficas, las variaciones del peso corporal y de la densidad de los taxones que definen al espectro de tamaños [@petchey2010], y comparar la estructura de las redes tróficas en suelos  de la Pampa Ondulada bajo diferentes intensidades de uso. El estudio se centra en comunidades de la fauna que habita suelos sometidos a distintas estrategias de uso, como una aproximación a las diferentes intensidades de perturbación: a) suelos sin uso agropecuario, como pastizales naturalizados sin intervención por más de 50 años o lotes clausurados por más de 30 años, que servirán como sistemas de *referencia*; b) suelos de uso pastoril destinados al forraje para ganado, considerados de uso *intermedio* o leve; y c) suelos con actividad agrícola continua, caracterizados por una *alta* intensidad de uso.
 
 Como las prácticas de manejo producen disturbios en los primeros centímetros del suelo órgano-mineral, hábitat de la mayor biodiversidad edáfica, la hipótesis es que el impacto de las prácticas de manejo afectarán diferencialmente propiedades de la comunidad relacionadas con el funcionamiento ecosistémico, el efecto sobre estas propiedades será mayor en función de la intensidad de uso. En particular, los suelos a) serán menos diversos, b) el valor de la pendiente del espectro del tamaño será menor
-indicando el efecto de los disturbios sobre las comunidades edáficas y sus gremios tróficos. d) La estructura de la red trófica será menos compleja por el menor tamaño y número de enlaces y e) los flujos de energía disminuirán en toda la red y en los canales de energía. El estado de conservación del suelo estará en función de la multiplicidad de
+indicando que los disturbios afectan a las comunidades edáficas y a sus gremios tróficos. d) La estructura de la red trófica será menos compleja por el menor tamaño y número de enlaces y e) los flujos de energía disminuirán en toda la red y en los canales de energía. El estado de conservación del suelo estará en función de la multiplicidad de
 factores evaluados al considerar la diversidad y de la capacidad de mantener los procesos en la red trófica.
 
 
@@ -234,6 +234,15 @@ como los gremios tróficos responda con disminuciones en la biomasa y
 con pendientes del espectro de tamaño menores. Entonces sistemas de referencia donde la intensidad
 de uso del suelo es nula, las comunidades y sus gremios tróficos tendrán biomasas medias mayores
 y la pendiente del espectro de tamaños, con valores más cercanos a cero.
+
+CAP: 5 Por ello se plantea para este capítulo, la hipótesis que las redes tróficas de la fauna edáfica en
+los suelos sometidos a gran intensidad de uso 
+tendrán diferencias estructurales tornándolas menos complejas con un
+menor tamaño y número de enlaces, los flujos de energía disminuirán en toda la red
+y en los canales de energía y se modificarán las fuerzas de interacciones 
+afectando el valor de estabilidad intrínseca de la red trófica indicando de manera 
+integral el efecto de la intensidad de uso del suelo en relación con suelos sin uso.
+
 
 \newpage
 
@@ -1675,19 +1684,21 @@ las grandes larvas de coleópteros Scarabeidos por
 lo que el rango del espectro alcanzó aproximadamente 13 órdenes de magnitud.
 
 Se observaron distribuciones de los peso corporal individuales unimodales y multimodales
-que variaron de con relación a los taxones. En general, la unimodalidad se observó 
+que variaron con relación a los taxones. En general, la unimodalidad se observó 
 en taxones abundantes y los taxones poco abundantes se mostraron multimodales.
-Los taxones con distribuciones unimodales muestran la frecuencia de los pesos corporales
+Los taxones con distribuciones unimodales muestran 
+la frecuencia de los pesos corporales
 alrededor de un valor particular que podría ser relacionado con la dominancia 
 de especies o estadíos de desarrollo dentro el taxón. En cambio, 
 las distribuciones multimodales indican que existen varios pesos 
-corporales con una frecuencia importante, indicando la presencia de diferentes especies 
-ó estadíos de desarrollo.
+corporales con una frecuencia importante, indicando la presencia de diferentes 
+especies o estadíos de desarrollo.
 
 Los disturbios asociados con las prácticas de manejo en los diferentes sistemas de uso del suelo, se relacionan con cambios en las condiciones ambientales y ante cambios en el ambiente los taxones 
 responden mediante cambios en la densidad, mediante disminuciones o aumentos en los pesos corporales, o mediante variaciones en la biomasa media [@Yin2020; @pey2014; @white2007]. 
-Se esperaba que en suelos bajo alta intensidad de uso, los pesos corporales medios, 
-las densidades y las biomasa medias para cada taxón tengan los valores más bajos
+Se esperaba que los pesos corporales medios, 
+las densidades y las biomasa medias de cada taxón tengan los valores más bajos
+en suelos bajo alta intensidad de uso
 como respuesta a los disturbios sobre el hábitat. Sin embargo, 
 aquí se encontraron respuestas heterogéneas de estas variables entre sistemas de uso del suelo. 
 
@@ -1785,7 +1796,7 @@ sus enlaces brindando así un marco para el estudio de la complejidad que subyac
 
 Ecológicamente, este enfoque permite integrar la diversidad de las comunidades ecológicas, las interacciones interespecíficas, las interacciones con el ambiente, la redundancia funcional, el papel de las especies clave, los cambios en el tiempo y la multiplicidad de canales de materia y energía, por lo que brinda un marco para el estudio de la complejidad de las interacciones y conecta con diferentes parámetros emergentes del estudio de los ecosistemas [@potapov2022; @barrios2007; @briones2014; @Hooper2005; @delmas2019].
 
-Es posible simplificar todas las diferentes formas en las que los organismos pueden interactuar al representar las redes en función de los diferentes tipos de interacciones, describiendo así redes tróficas, redes de competidores, redes mutualistas, entre otras [@delmas2019; @kefi2012; @sole2001; @labrador2008].
+Es posible simplificar las diferentes formas en las que los organismos pueden interactuar al representar las redes en función de los diferentes tipos de interacciones, describiendo así redes tróficas, redes de competidores, redes mutualistas, entre otras [@delmas2019; @kefi2012; @sole2001; @labrador2008].
 
 Las redes tróficas en particular analizan las interacciones de alimentación entre los nodos, en estas las interacciones son dirigidas desde los nodos que representan el recurso hacia los nodos que lo consumen. Las redes tróficas son ampliamente utilizadas en ecología porque describen los canales a través de los cuales se mueve la materia y la energía [@barnes2018]. Además, permiten comprender el efecto de los consumidores sobre sus recursos, y facilitan la asignación de parámetros y variables tanto a los nodos como a sus enlaces. El análisis topológico de estas redes, que estudia la disposición y organización de nodos (especies o taxones) e interacciones tróficas (enlaces), permite identificar el papel de nodos o estructuras clave en relación con el funcionamiento, la dinámica y la estabilidad del ecosistema [@gitay1997; @quevreux2023; @sole2001; @labrador2008].
 
@@ -1793,29 +1804,69 @@ Las redes tróficas en particular analizan las interacciones de alimentación en
 
 En los suelos las comunidades edáficas están influenciadas por **factores de largo plazo** tales como el clima, las características edáficas regionales y locales, la disponibilidad de recursos para los organismos que en él habitan, las influencias biogeográficas sobre las comunidades y por **factores de corto plazo** como las perturbaciones antrópicas [@kardol2016] por ejemplo aquellas que ocurren debidas al manejo del suelo con fines agropecuarios, por lo que resulta de particular interés describir la respuesta de la estructura de las redes ante los distintos tipos de disturbios y su relación con el funcionamiento del ecosistema del suelo [@sabatte2021].
 
-Como la estructura de las redes ecológicas condiciona el funcionamiento intrínseco de un ecosistema [@labrador2008; @martin-lopez2007] la complejidad del entramado de la red trófica edáfica es un factor clave en la estabilidad de los procesos del suelo [@wardle1995; @sabatte2021].Si bien el concepto de estabilidad en los sistemas ecológicos presenta múltiples dimensiones, puede entenderse como la capacidad del sistema edáfico para, después de una perturbación, mantener sus funciones dentro de un régimen de procesos que conserva el equilibrio del sistema [@landi2018]. Esta capacidad depende de la estructura de las comunidades, sus interacciones, y los flujos de materia y energía que atraviesan el ecosistema edáfico.
+Como la estructura de las redes ecológicas condiciona el funcionamiento intrínseco de un ecosistema [@labrador2008; @martin-lopez2007], la complejidad del entramado de la red trófica edáfica es un factor clave en la estabilidad de los procesos del suelo [@wardle1995; @sabatte2021]. Si bien el concepto de estabilidad en los sistemas ecológicos presenta múltiples dimensiones, puede entenderse como la capacidad del sistema edáfico para, después de una perturbación, mantener sus funciones dentro de un régimen de procesos que conserva el equilibrio del sistema [@landi2018]. Esta capacidad depende de la estructura de las comunidades, sus interacciones, y los flujos de materia y energía que atraviesan el ecosistema edáfico.
+
+En el ecosistema del suelo los organismos pueden agruparse en grupos funcionales [@martin-lopez2007], con hábitos tróficos generalistas y que ocupan diferentes microhábitats configurados a través de la red de poros en el suelo [@digel2014]. Estos grupos funcionales proporcionan una mayor capacidad de respuesta ante perturbaciones, asegurando el mantenimiento de la estructura, el funcionamiento y los mecanismos de autorregulación del ecosistema [@martin-lopez2007; @delmas2019; @pimm1991; @sole2001]. Sin embargo, la desaparición de especies puede desencadenar extinciones secundarias, fragmentación de la red [@sole2001] o reducciones en el flujo de energía, afectando la dinámica de la descomposición de la materia orgánica, el ciclo de nutrientes, el control de poblaciones, y la formación de estructuras biogénicas. Estos efectos pueden estar relacionados con la intensidad de las perturbaciones, como el uso del suelo [@delmas2019; @maggiotto2019].
 
 
-En el ecosistema del suelo los organismos pueden agruparse en grupos funcionales [@martin-lopez2007], con hábitos tróficos generalistas y que ocupan diferentes microhábitats configurados a través de la red de poros en el suelo [@digel2014]. Estos grupos funcionales proporcionan una mayor capacidad de respuesta ante perturbaciones, asegurando el mantenimiento de la estructura, el funcionamiento y los mecanismos de autorregulación del ecosistema [@martin-lopez2007, @delmas2019; @pimm1991; @sole2001]. Sin embargo, la desaparición de especies puede desencadenar extinciones secundarias, fragmentación de la red [@sole2001] o reducciones en el flujo de energía, afectando la dinámica de la descomposición de la materia orgánica, el ciclo de nutrientes, el control de poblaciones, y la formación de estructuras biogénicas. Estos efectos pueden estar relacionados con la intensidad de las perturbaciones, como el uso del suelo [@delmas2019; @maggiotto2019].
+Digel et al. [-@digel2014] y Maggioto et al. [-@maggiotto2019] utilizaron el análisis de las redes tróficas para estudiar la estructura y la topología de las redes tróficas detritívoras de los suelos. Digel et al. [-@digel2014] hipotetizaron que las redes de los suelos serían estructuralmente diferentes a las redes de otros sistemas ecológicos como por ej. aquellas que ocurren sobre el suelo, sustrato de arroyos o de sistemas marinos, y también aseguraban que las redes tróficas de los suelos de bosques serían diferentes de las que ocurren en suelos bajo sistemas productivos. Estos autores comprobaron la primera hipótesis pero no hallaron diferencias consistentes con su segunda hipótesis. Maggioto et al. [-@maggiotto2019] sugirieron que la estructura de las redes tróficas edáficas cambiarían debido a cambios en la composición de la hojarasca que forma la base energética de las redes tróficas detritívoras del suelo pero encontraron que la respuesta de estas redes tróficas fue resistente a los cambios en la estructura de la red trófica. En ambos casos el análisis de la estructura de las redes fue realizado comparando diferentes comunidades y manejos del suelo, hallando características particulares para cada comunidad y coinciden en que la estructura general de las redes no varía considerablemente según el uso del suelo, aunque en estos estudios no realizaron análisis sobre los flujos de energía o cálculo de métricas de estabilidad de las redes tróficas.
 
+Es posible mediante las redes tróficas modelar los flujos de energía para cada interacción, asumiendo que el sistema se encuentra en equilibrio. A partir de los flujos 
+de energía desde los recursos hacia los consumidores se pueden identificar compartimientos 
+de interés, denominados como canales de energía, que se relacionan con diferentes 
+las funciones ecológicas en la comunidad [@barnes2018; @moore2012]. 
+A través de los flujos de energía es posible determinar la cantidad 
+de energía que circula entre los diferentes gremios tróficos, 
+otorgando así un sentido funcional a la magnitud de dichos flujos. 
+De manera indirecta, estos flujos reflejan los procesos ecológicos 
+relacionados con diversas formas de alimentación, tales como la microbivoría, que regula la biomasa de bacterias y hongos; la detritivoría, que está vinculada con los procesos de fragmentación y 
+descomposición de materia orgánica; 
+la zoofagia, que regula las poblaciones de la fauna edáfica; 
+y la biotransformación, que implica el uso del humus como fuente de alimento, 
+afectando tanto la estructura física como química del suelo orgánico-mineral. 
+Mediante este enfoque se pueden determinar los 
+efectos que tienen las perturbaciones sobre diferentes grupos en las comunidades en el ecosistema 
+edáfico, relacionar cuantitativamente la magnitud de los flujos de energía con cambios 
+debidos a las perturbaciones o también determinar la importancia de los grupos sobre determinadas 
+funciones ecológicas [@barnes2018; @potapov2022].
 
-Digel et al. [-@digel2014] y Maggioto et al. [-@maggiotto2019] utilizaron el análisis de las redes tróficas para estudiar la estructura y la topología de las redes tróficas detritívoras de los suelos. Digel et al. [-@digel2014] hipotetizaba que las redes de los suelos serían estructuralmente diferentes a las redes de otros sistemas ecológicos como por ej. aquellas que ocurren sobre el suelo, sustrato de arroyos o de sistemas marinos, y también aseguraba que las redes tróficas de los suelos de bosques serían diferentes de los que ocurren en suelos bajo sistemas productivos, este autor encontró que lo primero fue cierto pero no halló diferencias consistentes con su segunda hipótesis. Maggioto et al. [-@maggiotto2019] sugirió que la estructura de las redes tróficas edáficas cambiarían debido a cambios en la composición de la hojarasca que forma la base energética de las redes tróficas detritívoras del suelo pero encontró que la respuesta de estas redes tróficas fue resistente a los cambios en la estructura de la red trófica. En ambos casos el análisis de la estructura de las redes fue realizado comparando diferentes comunidades y manejos del suelo, hallando características particulares para cada comunidad y coinciden en que la estructura general de las redes no varía considerablemente según el uso del suelo, aunque en estos estudios no realizaron análisis sobre los flujos de energía o cálculo de métricas de estabilidad de las redes tróficas.
-
-Es posible mediante las redes tróficas modelar los flujos de energía para cada interacción, asumiendo que el sistema se encuentra en equilibrio [@quevreux2023]. Basados en los recursos bases en la red trófica es posible recorrer los flujos a través de los canales de energía e identificar funciones ligadas a los taxones dentro de grupos funcionales y relacionarlos con diferentes funciones ecológicas que ocurren en una comunidad. Mediante este enfoque en el ecosistema edáfico se podrán determinar los efectos que tienen las perturbaciones sobre diferentes grupos en las comunidades, relacionar cuantitativamente la magnitud de los flujos de energía con cambios cambios debidas a las perturbaciones o también determinar la importancia de los grupos sobre determinadas funciones ecológicas [@barnes2018].
-
-A través de los flujos de energía es posible determinar la cantidad de energía que circula entre los diferentes gremios tróficos, otorgando así un sentido funcional a la magnitud de dichos flujos. De manera indirecta, estos flujos reflejan los procesos ecológicos relacionados con diversas formas de alimentación, tales como la microbivoría, que regula la biomasa de bacterias y hongos; la detritivoría, que está vinculada con los procesos de descomposición de materia orgánica; la zoofagia, que regula las poblaciones de la fauna edáfica; y la biotransformación, que implica el uso del humus como fuente de alimento, afectando tanto la estructura física como química del suelo orgánico-mineral.
-
-Una aproximación alternativa es la estimación de las fuerzas de interacción. Las fuerzas de interacción en redes tróficas representan la intensidad con la que un organismo (por ejemplo, un depredador) afecta a otro (como una presa). Estas fuerzas describen cuán fuerte es el impacto de una especie sobre la tasa de crecimiento poblacional de otra, y son claves para entender la estabilidad y dinámica de los ecosistemas. En términos generales, las fuerzas de interacción se cuantifican como las tasas de consumo de presas o las tasas de cambio de biomasa entre depredadores y presas.
-
+Una aproximación alternativa para evaluar la importancia de las interacciones 
+en las redes tróficas es la estimación de las fuerzas de interacción. 
+Las fuerzas de interacción representan la intensidad 
+con la que un organismo (por ejemplo, un depredador) 
+afecta a otro (su presa). Estas fuerzas describen cuán fuerte es 
+el impacto de una especie sobre la tasa de crecimiento poblacional de otra, y son claves para entender la estabilidad y dinámica de los ecosistemas. En términos 
+generales, las fuerzas de interacción se cuantifican como las tasas 
+de consumo de presas o las tasas de cambio de biomasa entre 
+depredadores y presas [@paine1980; @berlow2004]. 
 
 Para estimar estas fuerzas, se utilizan modelos alométricos que relacionan características fisiológicas de los organismos, como el tamaño corporal y las tasas metabólicas, con sus interacciones tróficas. El tamaño corporal es un determinante crucial de la ecología trófica porque influye en las tasas de captura, el tiempo de manejo de presas y las tasas de consumo energético.
-El enfoque propuesto por Pawar et al. [@pawar2012] es particularmente relevante para estimar estas fuerzas, ya que introduce la dimensionalidad del espacio de búsqueda del consumidor como un factor clave. El modelo plantea que los depredadores y las presas interactúan en entornos con diferentes dimensionalidades (por ejemplo, en un espacio bidimensional como el suelo o tridimensional como el agua) y que esta dimensionalidad afecta la tasa de encuentros entre ellos. El modelo de Pawar utiliza ecuaciones alométricas para vincular el tamaño corporal con la velocidad de búsqueda y captura de las presas.
+El enfoque propuesto por Pawar et al. [-@pawar2012] es particularmente relevante para estimar estas fuerzas, ya que introduce la dimensionalidad del espacio de búsqueda del consumidor como un factor clave. El modelo plantea que los depredadores y las presas interactúan 
+con diferentes dimensionalidades en relación con su entorno 
+y que esta dimensionalidad afecta la tasa de encuentros entre ellos. El modelo de Pawar utiliza ecuaciones alométricas para vincular el tamaño corporal con la velocidad de búsqueda y captura de las presas.
 
-A partir de las fuerzas de interacción, se puede estimar la estabilidad local de un sistema, que mide su capacidad para amplificar o disminuir pequeñas perturbaciones. Este cálculo involucra la matriz de la comunidad o Jacobiano, que describe cómo los cambios en la densidad de una especie afectan a otra. El máximo autovalor de esta matriz indica si la desviación del estado normal ante una perturbación se amplifica o se disipa, siendo este un indicador clave de la estabilidad local [@may1972]. Utilizando los valores de la intensidad de interacción, se pueden estimar los componentes del Jacobiano y, por ende, la estabilidad local. Dado que los valores de la matriz pueden fluctuar debido a condiciones ambientales, realizamos una aleatorización de la intensidad de interacción, lo que permite calcular una distribución del máximo autovalor, conocida como estabilidad de cuasi-signo (QSS) [@allesina2008], que captura la variabilidad de la estabilidad local.
+A partir de las fuerzas de interacción, se puede estimar la estabilidad local de un sistema, que mide su capacidad para amplificar o disminuir pequeñas perturbaciones. Este cálculo involucra la matriz de la comunidad o Jacobiano, que describe cómo los cambios en la densidad de una especie afectan a otra. El máximo autovalor de esta matriz indica si la desviación del estado normal ante una perturbación se amplifica o se disipa, siendo este un indicador clave de la estabilidad local [@may1972]. Utilizando los valores de la intensidad de interacción, se pueden estimar los componentes del Jacobiano y, por ende, la estabilidad local. Dado que los valores de la matriz pueden fluctuar debido a condiciones ambientales, al realizarse aleatorizaciones de la intensidad de interacción permite calcular una distribución del máximo autovalor, conocida como estabilidad de cuasi-signo (QSS) [@allesina2008], que captura la variabilidad de la estabilidad local.
 
-Los suelos de la Pampa Ondulada son suelos con una importante historia de uso con fines de producción agrícola y ganadera debida a sus bondades climáticas, pedológicas y de fertilidad edáfica [@morello2000], la comprensión de la estructura y topología de la red trófica aplicada sobre comunidades de la fauna edáfica que habitan en suelos  de la Pampa Ondulada nos permitirá describir y cuantificar la complejidad del ecosistema, conocer los flujos de energía ligados a funciones del ecosistema y la estabilidad de las comunidades de la fauna edáfica ante las perturbaciones debidas al manejo del suelo [@delmas2019; @maggiotto2019] por ello, la hipótesis es que en suelos sometidos a gran intensidad de uso tendrán diferencias estructurales en la conformación de la red trófica edáfica que modificarían las fuerzas de interacciones y los flujos de energía entre los nodos y el valor de estabilidad intrínseca de la red trófica, en relación con suelos con una intensidad de uso baja o sin uso.
+Los suelos de la Pampa Ondulada tienen una importante historia de uso 
+con fines de producción agrícola y ganadera debido
+a sus bondades climáticas, pedológicas y de fertilidad edáfica [@morello2000]. 
+Estudiar las redes tróficas de la fauna de estos suelos permitirá comprender
+la complejidad de estos sistemas, conocer como son los flujos de energía 
+ligados a funciones del ecosistema e inferir sobre la estabilidad de las comunidades ante
+los disturbios generados por el manejo del suelo [@delmas2019; @maggiotto2019]. 
+Por ello se plantea para este capítulo, la hipótesis que las redes tróficas de la fauna edáfica en
+los suelos sometidos a gran intensidad de uso 
+tendrán diferencias estructurales tornándolas menos complejas con un
+menor tamaño y número de enlaces, los flujos de energía disminuirán en toda la red
+y en los canales de energía y se modificarán las fuerzas de interacciones 
+afectando el valor de estabilidad intrínseca de la red trófica indicando de manera 
+integral el efecto de la intensidad de uso del suelo en relación con suelos sin uso.
 
-El objetivo de este capítulo es utilizar la teoría de las redes tróficas para describir la estructura y la topología de la red trófica de la fauna edáfica, calcular la magnitud de los flujos de energía con sentido funcional que ocurren en estas redes tróficas y determinar el valor de la estabilidad estructural de las redes tróficas detritívoras de las comunidades edáficas halladas en suelos  de la Pampa Ondulada con distintas estrategias en el uso del suelo, como aproximación a distintas intensidades de perturbación: a) suelos sin uso agropecuario, tales como un pastizal naturalizado sin uso por más de 50 años o un lote clausurado sin uso por más de 30 años, que servirán como sistema de referencia; b) suelos con uso pastoril con forraje implantado para el ganado considerados como sistemas con intensidad de uso intermedio o leve; y c) suelos con actividad agrícola continua con labranza mínima o labranza cero considerado como sistema con intensidad de uso alta.
+
+El objetivo de este capítulo es utilizar la teoría de las redes tróficas para describir la estructura y la topología, calcular la magnitud de los flujos de energía con sentido funcional 
+y determinar el valor de la estabilidad estructural intrínseca 
+de las redes tróficas de las comunidades edáficas halladas en suelos
+de la Pampa Ondulada bajo diferentes intensidades en el uso.
 
 ## Metodología
 
@@ -1836,34 +1887,36 @@ Suelos de Chivilcoy - Navarro:
   -    Sistema con intensidad de uso intermedio (G): Sistemas mixtos de producción de forraje y pastoreo. 
   -    Sistema con alta intensidad de uso (A): Áreas con cultivos agrícolas por más de 50 años.
 
-De esta manera, se contó con un gradiente de intensidad de uso del suelo, desde sistemas de referencia sin uso, hasta sistemas con uso agrícola intensivo, que permitirá analizar el efecto de la perturbación sobre la estructura y estabilidad de las redes tróficas de la edafofauna. Para más detalles de las zonas de estudio y métodos de muestreo ver el capítulo 3.
+De esta manera, se contó con un gradiente de intensidad de uso del suelo, desde sistemas de referencia sin uso, hasta sistemas con uso agrícola intensivo, que permitió analizar el efecto de la perturbación sobre la estructura y estabilidad de las redes tróficas de la edafofauna. Para más detalles de las zonas de estudio y métodos de muestreo ver el capítulo 3.
 
 Para construir y modelar la red de interacciones tróficas de la fauna del suelo, es necesario conocer las comunidades que habitan los diferentes ambientes, los recursos tróficos que forman la base energética de la red, y los hábitos tróficos de los nodos que la componen, con el fin de modelar la matriz de interacciones tróficas [@delmas2019]. A esta matriz se le pueden añadir atributos a los nodos, estos atributos son variables numéricas, nominales o categóricas, tales como el peso corporal y la densidad de los taxones involucrados [@laigle2018], lo que permite calcular las fuerzas de interacción [@deruiter1995] o los flujos de energía entre nodos (enlaces). Con esta información, es posible entender qué sucede a través de la red trófica [@potapov2022; @barnes2018] y determinar un valor de estabilidad de los sistemas estudiados [@moore2012; @gauzens2019; @allesina2008].
 
 
 ### Construcción de la red trófica: definición de la matriz de interacciones y de los atributos de nodos
 
-A partir de las comunidades encontradas en los suelos  de Luján, Chivilcoy - Navarro, y considerando los distintos usos del suelo, se construyó una matriz de adyacencia para representar las interacciones tróficas. En esta matriz, las filas y columnas (nodos) corresponden a la identidad de los taxones de la fauna edáfica hallados en los muestreos (n=105). Además, se incluyeron bacterias, hongos, protozoos y los recursos tróficos base: hojarasca, humus (materia orgánica del suelo), carroña de invertebrados y tejido vegetal (raíces y sus exudados). La matriz de adyacencia (Apéndice 5.1) contiene todos los nodos de la red trófica edáfica (n=112). Si los elementos de la matriz son distintos de cero, indican una interacción trófica potencial, donde el nodo en la columna (consumidor) se alimenta del nodo en la fila (recurso). A cada interacción se le asignaron preferencias de consumo de acuerdo con la siguiente escala: alta - moderada alta - moderada - moderada baja - baja - muy baja, con valores de 0.9 - 0.7 - 0.5 - 0.4 - 0.25 - 0.1, respectivamente [@moore2012].
+A partir de las comunidades encontradas en los suelos de Luján, Chivilcoy - Navarro, 
+y considerando los distintos usos del suelo, se construyó una matriz de adyacencia 
+para representar las interacciones tróficas. En esta matriz, las filas y columnas (nodos) corresponden a la identidad de los taxones de la fauna edáfica hallados en los muestreos (n=105). Además, se incluyeron como nodos a las bacterias, hongos, protozoos y a los recursos tróficos base: hojarasca, humus (materia orgánica del suelo), carroña de invertebrados y tejido vegetal (raíces y sus exudados). 
 
-Estas interacciones tróficas y sus valores fueron tomadas de la revisión bibliográfica desarrollada en el capítulo 2 de esta tesis. A partir de la matriz de interacciones, se seleccionaron los nodos correspondientes a cada comunidad en particular, definiendo de esta manera las redes tróficas presentes en cada localidad y uso del suelo.
 
-Se utilizaron como atributos de los nodos los pesos corporales medios, las biomasas medias y las densidades medias correspondientes a cada nodo. Para la fauna edáfica las variables para estos atributos fueron tratados en detalle en el capítulo 4.
+La matriz de adyacencia (Apéndice 5.1) contiene todos los nodos de la red trófica edáfica (n=112). Si los elementos de la matriz son distintos de cero, indican una interacción trófica potencial, donde el nodo en la columna (consumidor) se alimenta del nodo en la fila (recurso). A cada interacción se le asignaron preferencias de consumo de acuerdo con la siguiente escala: alta - moderada alta - moderada - moderada baja - baja - muy baja, con valores de 0.9 - 0.7 - 0.5 - 0.4 - 0.25 - 0.1, respectivamente [@moore2012]. Estas interacciones tróficas y sus valores fueron tomadas de la revisión bibliográfica desarrollada en el capítulo 2 de esta tesis. A partir de la matriz de interacciones, se seleccionaron los nodos correspondientes a cada comunidad en particular, definiendo de esta manera las redes tróficas presentes en cada localidad y uso del suelo.
 
-Por otra parte, se asumieron algunos atributos para los nodos que corresponden a recursos tróficos base [@velazco2023b; @potapov2022], basados en evidencia bibliográfica, dado que estos atributos no han sido medidos en algunos casos, como en los datos de comunidades edáficas de los suelos  de Chivilcoy - Navarro, o debido a su complejidad, son difíciles de cuantificar.
+Se utilizaron como atributos de los nodos los pesos corporales medios, 
+las biomasas medias y las densidades medias correspondientes a cada nodo. Para la fauna edáfica las variables para estos atributos fueron tratados en detalle en el capítulo 4. Por otra parte, se asumieron algunos atributos para los nodos que corresponden a recursos tróficos base, basados en evidencia bibliográfica, dado que estos atributos no han sido medidos en algunos casos, como en los datos de comunidades edáficas de los suelos  de Chivilcoy - Navarro, o debido a su complejidad, son difíciles de cuantificar.
 
-En cuanto al nodo "humus", se consideró que el 50% de la materia orgánica es un proxy del atributo biomasa media de este nodo para suelos  de la Pampa Ondulada [@alvarez2006; @pankhurst1997; @kononova1975]. Para calcular su biomasa, se refiere a la superficie en metros cuadrados, utilizando una densidad aparente promedio de los suelos (DAP = 1,2 g.cm^-2^), hasta los 10 centímetros de profundidad, zona en la que se encuentra la mayor proporción de materia orgánica y la mayor actividad biológica. <!--El peso corporal y la densidad de este fue asignado como 1.-->
+En cuanto al nodo "humus", se consideró que el 50% de la materia orgánica es un valor aproximado del atributo de biomasa media para suelos de la Pampa Ondulada [@alvarez2006; @pankhurst1997; @kononova1975]. Para calcular su biomasa, se refiere a la superficie en metros cuadrados, utilizando una densidad aparente promedio de los suelos (DAP = 1,2 g.cm^-2^), hasta los 10 centímetros de profundidad, zona en la que se encuentra la mayor proporción de materia orgánica y la mayor actividad biológica. 
 
 Para los nodos de "bacterias" se tomaron los pesos corporales medios obtenidos por Digel [-@digel2014], quien evaluó las características topológicas de decenas de redes de diferentes ecosistemas y las comparó con redes tróficas de los suelos de bosques de la región Paleártica. Este autor indica que el peso promedio de las bacterias del suelo es 9,5x10^-16^ g. Digel [-@digel2014] indica también el peso promedio de cada uno de los principales grupos de la microfauna no nematoda del suelo, estos son, protozoos, tardígrados, rotíferos y otra microfauna y de los cuáles consideramos el valor promedio 1,1121x10^-10^ g como el valor para el nodo "protozoos". El peso promedio de los hongos por metro lineal de hifas se tomó de Pilar et al. [-@andres2016] resultando en un valor de 2,3x10^-7^ g.m^-1^.
 
-Las biomasas medias de bacterias, hongos y microfauna no nemátoda ("protozoos"), son aproximadas a partir de la respiración de los heterótrofos (Capítulo 3. Tabla 3.4), este se aproxima considerando que 1 mgCO~2~/g~suelo~.h = 0.206 mgC~biomasa~/g~suelo~ [@zabala2010; @west1986], de esta biomasa media se considera que el 50% es el recurso efectivamente disponible para los consumidores debido a las restricciones de accesibilidad y palatabilidad que existen en el sistema poroso del suelo [@erktan2020]. 
+Las biomasas medias de los nodos de bacterias, hongos y "protozoos", son aproximadas a partir de la respiración de los heterótrofos (Capítulo 3. Tabla 3.4). Esta se aproximó considerando que 1 mgCO~2~/g~suelo~.h = 0.206 mgC~biomasa~/g~suelo~ [@zabala2010; @west1986], de esta biomasa media se considera que el 50% es el recurso efectivamente disponible para los consumidores debido a las restricciones de accesibilidad y palatabilidad que existen en el sistema poroso del suelo [@erktan2020]. 
 Entonces, para ambos suelos  se consideró que el 2 % de la biomasa media
 estimada por la respiración de los heterótrofos corresponde al valor 
 de la biomasa media del nodo "protozoos" [@persson1980; @persson1977; @hale1971]. 
-Para \underline{suelos de Luján} se utilizó la relación de hongos y bacterias (Capítulo 3. Tabla 3.4) para estimar la biomasa media de dichos nodos sobre el 45% de la biomasa media estimada a partir de la respiración de los heterótrofos. En los \underline{suelos de Chivilcoy - Navarro} se consideró el 45% de la biomasa media estimada a partir de la respiración de los heterótrofos para calcular las biomasas medias de bacterias y hongos, a partir de esta se consideró que el 35 - 30 - 25 % corresponde a la biomasa medias de bacterias en los sistemas agrícola intensivo, mixto agrícol ganadero y pastizal naturalizado respectivamente [@pankhurst1997; @hunt1987; @lavelle2003; @moore2012]. El 3% de la biomasa media de la respiración de heterótrofos se utiliza para estimar la biomasa media de los nemátodos.
+Para suelos de Luján se utilizó la relación de hongos y bacterias (Capítulo 3. Tabla 3.4) para estimar la biomasa media de dichos nodos sobre el 45% de la biomasa media estimada a partir de la respiración de los heterótrofos. En los suelos de Chivilcoy - Navarro se consideró el 45% de la biomasa media estimada a partir de la respiración de los heterótrofos para calcular las biomasas medias de bacterias y hongos, a partir de esta se consideró que el 35 - 30 - 25 % corresponde a la biomasa medias de bacterias en los sistemas agrícola intensivo, mixto agrícola ganadero y pastizal naturalizado respectivamente [@pankhurst1997; @hunt1987; @lavelle2003; @moore2012]. El 3% de la biomasa media de la respiración de heterótrofos se utilizó para estimar la biomasa media de los nemátodos.
 
-Los nemátodos de vida libre del suelo conforman 5 nodos: nemátodos bacterívoros, fungívoros, depredadores, omnívoros y fitófagos. Para el conjunto de datos de los suelos  de Luján se utilizaron los valores de densidad y peso medio a partir de los muestreos realizados. En cambio, para los  de Chivilcoy - Navarro se utilizaron las relaciones de proporción promedio de nemátodos observados en los suelos de Luján, por lo tanto, nemátodos fungívoros, bacteríofagos, fitófagos, omnívoros y depredadores, fueron referidos al 40 - 30 - 14 - 8 y 8 % respectivamente, a la vez se consideró el peso medio de los nemátodos de cada categoría trófica a partir del peso medio general obtenidos en suelos de Luján, por lo tanto, nemátodos fungívoros, bacteríofagos, fitófagos, omnívoros y depredadores, pesaron 3,2 - 1,8 - 1,02 - 8 - 6 microgramos respectivamente.
+Los nemátodos de vida libre del suelo conforman 5 nodos: bacterívoros, fungívoros, depredadores, omnívoros y fitófagos. Para el conjunto de datos de los suelos  de Luján se utilizaron los valores de densidad y peso medio a partir de los muestreos realizados. En cambio, para los  de Chivilcoy - Navarro se utilizaron las relaciones de proporción promedio de nemátodos observados en los suelos de Luján. Por lo tanto, fungívoros, bacteríofagos, fitófagos, omnívoros y depredadores, fueron referidos al 40 - 30 - 14 - 8 y 8 % respectivamente, a la vez se consideró el peso medio de los nemátodos de cada categoría trófica a partir del peso medio general obtenidos en suelos de Luján, por lo tanto, fungívoros, bacteríofagos, fitófagos, omnívoros y depredadores, pesaron 3,2 - 1,8 - 1,02 - 8 - 6 microgramos respectivamente.
 
-En cuanto a la biomasa de los recursos tróficos base se estimaron la biomasa para el humus que fue calculado para ambas localidades como se ha descrito más arriba. La biomasa para la carroña fue estimada a partir del peso de todos los invertebrados presente en los diferentes sistemas de uso y que pueden dejar carroña, considerando que el 5% de la biomasa de estos invertebrados es igual a la biomasa media de la carroña. Para la biomasa de la hojarasca se tienen valores para suelos de Luján pero no para Chivilcoy - Navarro y la biomasa del tejido vegetal que incluye raíces y exudados no fue determinado en ninguno de los suelos.
+En cuanto a la biomasa de los recursos tróficos base se estimó la biomasa para el humus que fue calculado para ambas localidades como se ha descrito más arriba. La biomasa para la carroña fue estimada a partir del peso de todos los invertebrados presente en los diferentes sistemas de uso y que pueden dejar carroña, considerando que el 5% de la biomasa de estos invertebrados es igual a la biomasa media de la carroña. Para la biomasa de la hojarasca se tienen valores para suelos de Luján pero no para Chivilcoy - Navarro y la biomasa del tejido vegetal que incluye raíces y exudados no fue determinado en ninguno de los suelos.
 
 <!--
 Los valores de la densidad y el peso para el humus, hojarasca, carroña y tejido vegetal fueron asignados con el valor 1, también se asigno el valor 1 para la biomasa de la hojarasca de los suelos de Chivilcoy - Navarro y para la biomasa del tejido vegetal de manera de poder realizar cálculos de fuerzas de interacción y flujos de energía [@allesina2008; @pawar2009; @gauzens2019]  densidad y peso 1 g/m2??? habria que hacer una tabla para ver todos los "nodos" que se 
@@ -1871,9 +1924,9 @@ midieron y los que se asumieron -->
 
 ### Métricas de la red trófica: índices topológicos, flujos de energía y valor de estabilidad
 
-A partir de la matriz de interacciones, se calcularon los índices topológicos para cada red trófica. Estos índices, que describen la red tanto matemática como ecológicamente, se refieren a medidas calculadas a partir de la arquitectura de la red, ya sea como características globales de la red o como propiedades específicas de los nodos.
+A partir de la matriz de interacciones, se calcularon los índices topológicos para cada red trófica. Estos índices, que describen la red tanto matemática como ecológicamente, se refieren a medidas calculadas a partir de la arquitectura de la red, ya sea como características globales de la red o como propiedades específicas de los nodos [@bersier2002; @pimm1984; @may1983; @martinez1992; @warren1994; @solow1998; @saravia2022].
 
-Como medidas de complejidad del sistema calculamos el **tamaño de la red** que indica el número de nodos que conforman la red. El **número de enlaces** es la cantidad de interacciones tróficas que ocurren en la red. La **densidad de enlaces** indica el número medio de interacciones por nodo referidas al total y da una idea del nivel de especialización entre los nodos de la red trófica. La **conectancia** es la proporción de enlaces reales en la red trófica en relación con el número total de conexiones potenciales para un sistema de ese tamaño. Este valor indica la probabilidad de que dos nodos en la red interactúen tróficamente, es decir, que exista una relación de consumidor-recurso entre ellos. La conectancia proporciona una visión sobre la complejidad y la redundancia de las interacciones, influyendo en la estabilidad y resiliencia del ecosistema frente a perturbaciones. Como medidas de estructura de la red trófica tenemos el valor de **agrupamiento o clustering** cuantifica el grado de cohesión local en la red, indicando la tendencia de los nodos a formar triadas o grupos fuertemente interconectados. Matemáticamente, el coeficiente de clustering se define como la proporción de triángulos presentes en la red respecto al número total de triángulos posibles, reflejando la densidad de conexiones en los vecindarios locales de los nodos.
+Como medidas de complejidad del sistema se calculó el **tamaño de la red** que indica el número de nodos que conforman la red. El **número de enlaces** es la cantidad de interacciones tróficas que ocurren en la red. La **densidad de enlaces** indica el número medio de interacciones por nodo referidas al total y da una idea del nivel de especialización entre los nodos de la red trófica. La **conectancia** es la proporción de enlaces reales en la red trófica en relación con el número total de conexiones potenciales para un sistema de ese tamaño. Este valor indica la probabilidad de que dos nodos en la red interactúen tróficamente, es decir, que exista una relación de consumidor-recurso entre ellos. La conectancia proporciona una visión sobre la complejidad y la redundancia de las interacciones, influyendo en la estabilidad y resiliencia del ecosistema frente a perturbaciones. Como medidas de estructura de la red trófica tenemos el valor de **agrupamiento** que cuantifica el grado de cohesión local en la red, indicando la tendencia de los nodos a formar triadas o grupos fuertemente interconectados. Matemáticamente, el coeficiente de agrupamiento se define como la proporción de triángulos presentes en la red respecto al número total de triángulos posibles, reflejando la densidad de conexiones en los vecindarios locales de los nodos .
 
 Entre las métricas que atienden a las características tróficas de los nodos dentro de una red trófica se encuentra el **nivel o posición trófica**, que define la posición de un nodo en la red en función de los nodos de los cuales se alimenta. Como valores de resumen, se considera el **nivel trófico medio** que es el promedio de los niveles tróficos de todos los nodos de la red y el **nivel trófico máximo** que representa el nivel más alto alcanzado por algún nodo en la red.
 
@@ -1883,10 +1936,9 @@ Se calcularon los flujos de energía entre los nodos de la red asumiendo que el 
 
 Con los flujos de energía entre los nodos y considerando la clasificación por formas de alimentación se determinó un sentido funcional que indirectamente da cuenta de los cambios en procesos ecológicos relacionados con el efecto de las perturbaciones en los diferentes sistemas de uso, se observaron las formas de alimentación tales como la microbivoría que implica la regulación de la biomasa de bacterias y hongos, la detritivoría que se relaciona con los procesos de descomposición de la materia orgánica, la zoofagia que es la regulación de poblaciones de la fauna edáfica y la biotransformación que es el uso del humus como fuente de alimento y que se relaciona con la estructura física y química del suelo orgánico mineral. Estos flujos de energía son expresados en Joules/año y son comparados de manera relativa entre sistemas con relación al flujo total de energía que es el valor de todos los flujos de energía entre los nodos [@gauzens2019; @moore2012; @potapov2022].
 
-Con el fin de comparar las diferencias en los flujos de energía entre redes tróficas, se simplificaron las redes de los suelos  de Luján para incluir nodos similares a los encontrados en los suelos de Chivilcoy-Navarro. Esto permite identificar variaciones en los flujos energéticos y vincular dichas variaciones con los efectos de los diferentes usos del suelo. Las redes parciales así generadas incluyen taxones como ácaros, colémbolos, lombrices, microfauna, microflora y recursos base. Se calcularon los flujos para las redes completas y parciales.
+Con el fin de comparar las diferencias en los flujos de energía entre redes tróficas, se simplificaron las redes de los suelos de Luján para incluir nodos similares a los encontrados en los suelos de Chivilcoy-Navarro. Esto permite identificar variaciones en los flujos energéticos y vincular dichas variaciones con los efectos de los diferentes usos del suelo. Las redes parciales así generadas incluyen taxones como ácaros, colémbolos, lombrices, microfauna, microflora y recursos base. Se calcularon los flujos para las redes completas y parciales.
 
-
-También se calcularon las fuerzas de interacción entre los nodos de la red trófica utilizando el método de Pawar [-@pawar2012], para posteriormente emplearlas en el cálculo de la estabilidad de la red trófica. Para ello, se consideraron los pesos corporales y las densidades de los recursos. Es necesario tener en cuenta la dimensionalidad del espacio de búsqueda de los predadores; siguiendo la clasificación de Pawar [-@pawar2012] esto corresponde a una dimensionalidad "2D" en el sistema detritívoro del suelo, donde el depredador busca y captura a la presa directamente sobre la superficie. En este caso, el área de búsqueda abarca la superficie entre los agregados, los poros y los canales en el suelo orgánico-mineral [@erktan2020]. El valor de la fuerza de interacción cuantifica el efecto de los consumidores (depredadores) sobre la biomasa de los recursos (presas) y se expresa como el efecto por unidad de biomasa del consumidor Pawar [-@pawar2012].
+También se calcularon las fuerzas de interacción entre los nodos de la red trófica utilizando el método de Pawar [-@pawar2012], para posteriormente emplearlas en el cálculo de la estabilidad de la red trófica (Apéndice 5.3). Para ello, se consideraron los pesos corporales y las densidades de los recursos. Es necesario tener en cuenta la dimensionalidad del espacio de búsqueda de los predadores; siguiendo la clasificación de Pawar [-@pawar2012] esto corresponde a una dimensionalidad "2D" en el sistema detritívoro del suelo, donde el depredador busca y captura a la presa directamente sobre la superficie. En este caso, el área de búsqueda abarca la superficie entre los agregados, los poros y los canales en el suelo orgánico-mineral [@erktan2020]. El valor de la fuerza de interacción cuantifica el efecto de los consumidores (depredadores) sobre la biomasa de los recursos (presas) y se expresa como el efecto por unidad de biomasa del consumidor Pawar [-@pawar2012].
 
 Para calcular el valor de **estabilidad de Cuasi-signo** [@allesina2008] (*Quasi
 Sign-Stability Index* QSS), se sigue el siguiente procedimiento:
@@ -1905,56 +1957,19 @@ Sign-Stability Index* QSS), se sigue el siguiente procedimiento:
 El valor de estabilidad del sistema se determina a partir de la distribución de los autovalores, siendo estables aquellas distribuciones centradas en valores menores a cero. Como no se conocen los valores de la diagonal de la matriz jacobiana, que representan el efecto de cada especie sobre sí misma (autorregulación), se espera que todos los valores sean positivos, lo que sugiere inestabilidad. No obstante, para fines de interpretación, suponemos que estas redes tróficas, al existir en la naturaleza en el estado en que fueron muestreadas, son estables. Si el valor del índice QSS es positivo, indica la cantidad de autorregulación necesaria para que la red trófica alcance estabilidad local. Por otro lado, si el valor del índice del QSS fuera negativo, indicaría redes tróficas estables sin autorregulación, lo cual no es imposible pero tendría una probabilidad muy baja de ocurrencia [@barabas2017].
 
 
-
-
 Para determinar si las diferencias en las distribuciones del índice de estabilidad son significativas se comparan las distribuciones del máximo autovalor mediante la prueba de Anderson-Darling [@scholz2023].
-Se utilizó el paquete ["multiweb"](https://github.com/lsaravia/multiweb) [@saravia2022] para calcular las métricas de topología, las fuerzas de interacciones y el la distribución del QSS de las redes tróficas, además se utilizó el paquete ["fluxweb"](https://bit.ly/2OC0uKF) [@gauzens2018a] para calcular los flujos de energía y también se utilizaron paquetes complementarios para manejo de datos y la comparación estadística de los parámetros calculados, todos ellos implementados en R. <!--(El código fuente se encuentra en …… )-->
+Se utilizó el paquete ["multiweb"](https://github.com/lsaravia/multiweb) [@saravia2022] para calcular las métricas de topología, las fuerzas de interacciones y el la distribución del QSS de las redes tróficas, además se utilizó el paquete ["fluxweb"](https://bit.ly/2OC0uKF) [@gauzens2018a] para calcular los flujos de energía y también se utilizaron paquetes complementarios para manejo de datos y la comparación estadística de los parámetros calculados, todos ellos implementados en R. 
 
 ## Resultados
 
-Las redes tróficas “completas” (Fig. 4.1), que incluyen las tres clases de tamaños de la fauna edáfica (micro-, meso- y macrofauna), y las redes tróficas “parciales” (Fig. 4.2), que consideran solo a microartrópodos y lombrices, fueron configuradas a partir de los diferentes sistemas de uso del suelo. Estos gráficos permiten una comparación cualitativa en la que se observa que, si bien los niveles tróficos se mantienen en los mismos rangos, la densidad de nodos y enlaces es menor en las redes parciales. 
+### Representación 
 
+Fueron representadas las redes tróficas, tanto completas (Luján) como parciales
+(Chivilcoy - Navarro),
+con una gran cantidad de conexiones entre taxones (nodos) y
+estas redes, además, comparten niveles tróficos similares 
+a pesar de estar constituidas por diferentes clases de tamaños (Fig. 5.1 y 5.2). 
 
-**Tabla 5.1.** Tabla de índices topológicos de las redes tróficas de los diferentes sistemas de uso en suelos de Luján
-
-
-
-```{r tab5.1, echo=FALSE, message=FALSE, warning=FALSE}
-tabla5.1 <- read.csv("database/tabla5.1.txt", sep="")
-names(tabla5.1)<-c("Sistema","Tamaño","nº enlaces","Tope","% Omnivoría","Nivel de Omnivoría",
-                   "Nivel trófico máximo","Nivel trófico promedio","Conectancia","Densidad de enlaces",
-                   "Clustering","Vulnerabilidad","Generalidad")
-
-#tabla5.1[,c("Sistema","Conectancia","Densidad de enlaces",
- #                  "Clustering","Vulnerabilidad","Generalidad")]%>%kbl() %>%kable_classic(full_width = F, #html_font = "Times New Roman")
-
-tabla5.1[,c("Sistema","Tamaño","nº enlaces","Conectancia","Densidad de enlaces","Clustering")] %>%
-  kbl(booktabs = TRUE) %>%  # Activar booktabs para PDF
-  kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
-   kable_styling(latex_options = c("hold_position", "basic"))
-
-tabla5.1[,c("Sistema","Tope","Nivel trófico promedio","Nivel trófico máximo",
-            "% Omnivoría")] %>%
-  kbl(booktabs = TRUE) %>%  # Activar booktabs para PDF
-  kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
-   kable_styling(latex_options = c("hold_position", "basic"))
-
-```
-
-
-
-En suelos de Luján (Tabla 5.1), las redes tróficas con un impacto leve en el uso del suelo (pastizal)
-tuvieron los mayores valores en el tamaño de la red y en el número y densidad de los enlaces. 
-
-La conectancia y el coeficiente de *clustering* fue menor en la red trófica para suelos
-sin impacto antrópico (reserva) lo que implica una menor complejidad en la estructura de la red
-en comparación con las redes tróficas de sistemas antropizados.
-
-A pesar del mayor número de nodos en el pastizal, 
-el número de nodos tope fue el menor como así también el porcentaje de omnivoría.
-
-Una mayor presión de depredadores sobre sus presas y una mayor complejidad trófica mediada por los 
-omnívoros son observados en la estructura de la red sin uso antrópico del suelo.
 
 \newpage
 
@@ -1993,31 +2008,110 @@ V(L_net)$name<-V(L_net)$id
 plot_troph_level(L_net,modules=FALSE,vertexLabel = TRUE, tk = FALSE,main="agrícola",ylab="Nivel Trófico")
 ```
 
-<!--<p class="interlineado-simple">-->
 
-**Figura 5.1** Representación de las redes tróficas de la comunidad detritívora de la fauna edáfica de suelos  de Luján para cada sistema de uso del suelo. El tamaño de los nodos representa al grado del nodo, los colores forman un gradiente desde el verde hacia el rojo para indicar nodos base hacia nodos tope respectivamente. La distribución de los nodos a lo largo del eje horizontal sigue un patrón aleatorio por lo tanto no se vincula a características del nodo en particular. Sobre el eje vertical se indica el nivel trófico. La numeración de los nodos refiere a los taxones a los que representa el nodo para ver el número del taxón ver Apéndice 5.2.
 
-<!--</p>-->
+**Figura 5.1** Representación de las redes tróficas de la fauna edáfica de suelos de Luján
+para cada sistema de uso del suelo. El tamaño de los nodos representa el grado del nodo, los colores forman un gradiente desde el verde hacia el rojo para indicar desde los 
+nodos base hacia los nodos tope respectivamente. La distribución de los nodos a lo largo del eje horizontal sigue un patrón aleatorio por lo tanto no se vincula a características del nodo en particular. Sobre el eje vertical se indica el nivel trófico. La numeración de los nodos
+se corresponde con los taxones para consultas ver Apéndice 5.2.
+
 
 \newpage
 
-Con respecto a la ecología trófica en estas redes
-los valores del nivel trófico medio y máximo fueron próximos entre sí, 
-aunque los valores en el sistema del pastizal son los mayores.
 
-La amplitud de la dieta en los tres sistemas de uso del suelo en redes tróficas "completas"
-(Tabla 5.1) fue similar considerando la proximidad del valor del nivel de omnivoría entre estos.
+```{r r plot_redes2, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.height=8,fig.width=8}
 
-En los suelos de Chivilcoy - Navarro (redes tróficas "parciales")
+V(N_net)$nameid <- V(N_net)$name
+V(N_net)$name<-V(N_net)$id
+plot_troph_level(N_net,modules=FALSE,vertexLabel = TRUE, tk = FALSE,main="pastizal",ylab="Nivel Trófico")
+
+V(G_net)$nameid <- V(G_net)$name
+V(G_net)$name<-V(G_net)$id
+plot_troph_level(G_net,modules=FALSE,vertexLabel = TRUE, tk = FALSE,main="Mixto",ylab="Nivel Trófico")
+
+
+V(A_net)$nameid <- V(A_net)$name
+V(A_net)$name<-V(A_net)$id
+plot_troph_level(A_net,modules=FALSE,vertexLabel = TRUE, tk = FALSE,main="agrícola",ylab="Nivel Trófico")
+
+```
+
+
+
+**Figura 5.2** Representación de las redes tróficas de suelos de Chivilcoy - Navarro para cada sistema de uso del suelo. El tamaño de los nodos representa al grado del nodo, los colores forman un gradiente desde el verde hacia el rojo para indicar desde las especies base hacia las especies tope respectivamente. La distribución de los nodos a lo largo del eje horizontal sigue un patrón aleatorio por lo tanto no se vincula a características del nodo en particular. Sobre el eje vertical se indica el nivel trófico. La numeración de los nodos se corresponde con los taxones para consultas ver Apéndice 5.2.
+
+
+
+\newpage
+
+### Índices topológicos
+
+En suelos de Luján (Tabla 5.1), las redes tróficas con un impacto leve en 
+el uso del suelo (pastizal)
+tuvieron los mayores valores en el tamaño de la red y 
+en el número y densidad de los enlaces, estos fueron menores en suelos bajo uso intensivo.
+La conectancia y 
+el coeficiente de *agrupamiento* fue menor en la red trófica para suelos
+sin impacto antrópico (reserva), 
+lo que implica una menor complejidad en la estructura de la red
+en comparación con las redes tróficas de sistemas antropizados.
+
+A pesar del mayor número de nodos en el pastizal, una mayor presión de depredadores 
+sobre sus presas y una mayor complejidad trófica mediada por los 
+omnívoros fueron observados en la estructura de la red sin uso antrópico del suelo.
+Con respecto a la ecología trófica de estas redes
+los valores del nivel trófico medio y máximo fueron próximos entre sistemas de uso del suelo, 
+aunque los valores en el sistema del pastizal fueron más altos. El porcentaje de 
+de omnivoría, que indica sobre la amplitud de la dieta, 
+mostró valores próximos entre usos del suelo (Tabla 5.1).
+
+
+**Tabla 5.1.** Índices topológicos de las redes tróficas bajo diferentes intensidades
+de uso en suelos de Luján.
+
+
+```{r tab5.1, echo=FALSE, message=FALSE, warning=FALSE}
+tabla5.1 <- read.csv("database/tabla5.1.txt", sep="")
+names(tabla5.1)<-c("Sistema","Tamaño","nº enlaces","Tope","% Omnivoría","Nivel de Omnivoría",
+                   "Nivel trófico máximo","Nivel trófico promedio","Conectancia","Densidad de enlaces",
+                   "Clustering","Vulnerabilidad","Generalidad")
+
+#tabla5.1[,c("Sistema","Conectancia","Densidad de enlaces",
+ #                  "Clustering","Vulnerabilidad","Generalidad")]%>%kbl() %>%kable_classic(full_width = F, #html_font = "Times New Roman")
+
+tabla5.1[,c("Sistema","Tamaño","nº enlaces","Conectancia","Densidad de enlaces","Clustering")] %>%
+  kbl(booktabs = TRUE) %>%  # Activar booktabs para PDF
+  kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
+   kable_styling(latex_options = c("hold_position", "basic"))
+
+tabla5.1[,c("Sistema","Tope","Nivel trófico promedio","Nivel trófico máximo",
+            "% Omnivoría")] %>%
+  kbl(booktabs = TRUE) %>%  # Activar booktabs para PDF
+  kable_classic(full_width = F, latex_options = "scale_down") %>%  # Opción específica para PDF
+   kable_styling(latex_options = c("hold_position", "basic"))
+
+
+```
+
+
+En los suelos de Chivilcoy - Navarro
 tanto el tamaño de la red como el número y densidad de enlaces fue mayor en el sistema con
-alto impacto en el uso del suelo (Tabla 5.2). 
+alto impacto en el uso del suelo. La complejidad de las redes 
+fue menor en el sistema sin uso antrópico en relación con los suelos antropizados, 
+tal como se observa por sus valores de conectancia y el coeficiente de agrupamiento (Tabla 5.2).
 
-La complejidad de las redes (Tabla 5.2) fue relativamente menor en el sistema sin uso antrópico
-(pastizal naturalizado) en relación con los suelos antropizados, 
-tal como se observa por sus valores de conectancia y *clustering*. 
+En suelos sin intensidad de uso, se observó una mayor presión de depredadores 
+sobre sus presas y una mayor complejidad trófica mediada por los 
+omnívoros. Con respecto a la ecología trófica de estas redes
+los valores del nivel trófico medio y máximo fueron próximos entre sistemas de uso del suelo,
+pero el suelo sin uso tuvo los menores valores de estos. El porcentaje de 
+de omnivoría, que indica sobre la amplitud de la dieta, 
+mostró valores próximos entre usos del suelo, 
+pero fué mayor en el suelo sin intensidad de uso (Tabla 5.2).
 
 
-**Tabla 5.2.** Tabla de índices topológicos de las redes tróficas de los diferentes sistemas de uso de los suelos  de la Pampa Ondulada ocurridos en suelos de Chivilcoy - Navarro
+**Tabla 5.2.** Índices topológicos de las redes tróficas bajo diferentes intensidades
+de uso en suelos de Chivilcoy - Navarro
 
 
 ```{r tab5.2, echo=FALSE, message=FALSE, warning=FALSE}
@@ -2038,66 +2132,30 @@ tabla5.2[,c("Sistema","Tope","Nivel trófico promedio","Nivel trófico máximo",
 ```
 
 
-Con respecto a la estructura trófica (Tabla 5.2) de las redes tróficas "parciales",
-los valores del nivel trófico medio y máximo, el porcentaje de omnivoría fueron próximos entre sí entre los diferentes sistemas de uso del suelo.
 
-En general, se observó que la complejidad de las redes fue mayor en suelos antropizados.
-Se observa además que se mantienen similares las características tróficas de las redes a pesar de las 
-diferentes prácticas de manejo que ocurren sobre el suelo, esto es un indicio de que la 
-estructura trófica de las redes se mantiene independiente de las prácticas de manejo que ocurren sobre
-estos suelos. 
-
-
-\newpage
-
-```{r r plot_redes2, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.height=8,fig.width=8}
-
-V(N_net)$nameid <- V(N_net)$name
-V(N_net)$name<-V(N_net)$id
-plot_troph_level(N_net,modules=FALSE,vertexLabel = TRUE, tk = FALSE,main="pastizal",ylab="Nivel Trófico")
-
-V(G_net)$nameid <- V(G_net)$name
-V(G_net)$name<-V(G_net)$id
-plot_troph_level(G_net,modules=FALSE,vertexLabel = TRUE, tk = FALSE,main="Mixto",ylab="Nivel Trófico")
-
-
-V(A_net)$nameid <- V(A_net)$name
-V(A_net)$name<-V(A_net)$id
-plot_troph_level(A_net,modules=FALSE,vertexLabel = TRUE, tk = FALSE,main="agrícola",ylab="Nivel Trófico")
-
-```
-
-<p class="interlineado-simple">
-
-**Figura 5.2** Representación de las redes tróficas de suelos  de Chivilcoy - Navarro para cada sistema de uso del suelo cuya comunidad se conforma de microartrópodos edáficos y lombrices de tierra. El tamaño de los nodos representa al grado del nodo, los colores forman un gradiente desde el verde hacia el rojo para indicar especies base hacia especies tope respectivamente. La distribución de los nodos a lo largo del eje horizontal sigue un patrón aleatorio por lo tanto no se vincula a características del nodo en particular. Sobre el eje vertical se indica el nivel trófico. La numeración de los nodos refiere a los taxones a los que representa el nodo para ver el número del taxón ver Apéndice 5.2.
-
-</p>
-
-\newpage
 
 ### Flujos de energía a través de las redes tróficas
 
-El flujo de energía total, que atraviesa las redes tróficas detritívoras en suelos  de 
-Luján (Tabla 5.3) fue mayor en el suelo sin uso antrópico, además se observa una importante caída 
-del flujo total de la energía en el sistema con un alto impacto en el uso del suelo.
-Esta disminución estuvo mediada principalmente por la 
+El flujo de energía total, que atraviesa las redes tróficas en suelos 
+de Luján fue mayor en el suelo sin uso antrópico, además se observó
+una importante caída del mismo
+en suelos bajo alta intensidad de uso. Esta disminución estuvo 
+mediada principalmente por la 
 disminución de la biomasa media en los nodos de la microflora 
-y su efecto se mantiene a lo largo de los diferentes canales de energía.
+y su efecto se mantuvo a lo largo de los diferentes canales de energía (Tabla 5.3).
 
-
-La cantidad de energía ligada a la \underline{biotransformación} del suelo (Tabla 5.3), 
-es decir, el canal de energía relacionado con el consumo de la materia orgánica 
-humificada del suelo ("humifagia"), ocupa una gran importancia en el sistema edáfico del suelo.
-Este canal representa el ≈ 69% del total de la energía en la reserva y el pastizal 
+El canal de energía relacionado con el consumo de la materia orgánica 
+humificada del suelo ("humifagia"), canal relacionado con la biotransformación, 
+representó el ≈ 69% del total de la energía en la reserva y el pastizal 
 y el ≈ 63% en el sistema con alto impacto en el uso del suelo. 
-Por lo tanto, la participación de la fauna edáfica en la 
-humifagia fué del ≈ 25% en el sistema agrícola
-aumentando su participación en comparación con los sistemas de bajo y nulo impacto sobre el suelo
-donde la fauna contribuyó con este canal de energía con el ≈ 19,5%. 
+La participación de la fauna edáfica en la biotransformación 
+fué del ≈ 25% en suelos con alto impacto,
+esta participación fué mayor en comparación con los sistemas de bajo y nulo
+donde la contribución de la fauna fué ≈ 19,5%. 
 
 
-
-**Tabla 5.3** Flujos de energía en kJ/año que atraviesan los diferentes canales de energía vinculados a funciones biológicas que ocurren en las redes tróficas de la comunidades de suelos  de Luján. Entre paréntesis el porcentaje del flujo de energía con el que participa la microflora
+**Tabla 5.3** Flujos de energía en kJ/año que atraviesan los diferentes canales de energía vinculados a funciones biológicas que ocurren en las redes tróficas de la comunidades de suelos 
+de Luján. Entre paréntesis el porcentaje del flujo de energía con el que participa la microflora
 
 
 ```{r flujos_multicnl_print, echo=FALSE, message=FALSE,warning=FALSE}
@@ -2109,51 +2167,55 @@ tabla5.3%>%
    kable_styling(latex_options = c("hold_position", "basic"))
 ```
 
-La detritivoría es el segundo canal de energía en importancia en las redes tróficas "completas" 
-construida para la fauna edáfica. Este canal de energía fue más importante en el sistema 
-agrícola con una importancia del ≈ 31,5%, en comparación los sistemas sin uso y con uso leve
-tienen una importancia del ≈ 25,5%. La microflora en este canal de energía es el 
-principal consumidor con importancias del 86%, 88% y 93%, ocurridos
-en el sistema con alto impacto, impacto nulo y pastizal respectivamente. 
+La detritivoría es el segundo canal de energía en importancia 
+en las redes tróficas "completas". Este canal de energía fue más importante en el sistema 
+agrícola contribuyendo con el ≈ 31,5% del flujo total de la energía,
+en comparación con los sistemas con uso leve
+y sin uso donde la contribución fue del ≈ 25,5%. 
+La microflora en este 
+canal de energía es el principal consumidor contribuyendo con más del 80% 
+del proceso trófico, su importancia fué mayor en el uso leve del suelo (Tabla 5.3).
 
 La herbivoría, en relación al flujo total de energía fué más alto en el sistema 
 agrícola intensivo y la importancia de la microflora en este sistema fue la más baja
 en comparación con los demás sistemas de uso del suelo. Por lo tanto, nos da una 
 idea de una mayor participación (≈ 97%) de animales herbívoros en el sistema con 
 alto impacto en el uso del suelo. 
-
 Se observa entonces que cuando disminuye la contribución de la microflora en 
-el flujo de energía la fauna edáfica crece en importancia relativa en los diferentes canales 
-de energía.
+el flujo de energía total la fauna edáfica crece en importancia relativa en los diferentes canales 
+de energía (Tabla 5.3).
 
 
-La \underline{microfitofagia} (o "microviboría"), implica el consumo de bacterias y 
-hongos. Este corresponde al tercer canal de energía en importancia
-en redes tróficas "completas". Con relación al flujo total de energía,
-su importancia relativa fue de ≈ 5; 4,3 y 4,1 % en los suelos sin uso, uso leve y uso intensivo 
+La microfitofagia, que es el consumo de bacterias y 
+hongos, fue el tercer canal de energía en importancia 
+con relación al flujo total de energía.
+Su importancia relativa fue de ≈ 5; 4,3 y 4,1 % en los suelos sin uso, uso leve y uso intensivo 
 respectivamente. Esto muestra una disminución de la participación de la fauna microfitófaga
-a lo largo del gradiente de impacto sobre el suelo.
+a lo largo del gradiente de impacto sobre el suelo (Tabla 5.3). 
 
-El consumo de la fauna, la \underline{zoofagia}, se estima como la suma de la energía que pasa por los depredadores "verdaderos" y por la cantidad de energía ligada al consumo de fauna del que se alimentan los omnívoros, este contabiliza 0,71% del flujo total de energía. <!--0.5374R;0,7057P;0,6718A-->
-
-La zoofagia, en términos absolutos (Tabla 5.3), fue mayor en el pastizal (≈ 15,3 kJ.año^-1^) y menor en el sistema agrícola (≈ 9 kJ.año^-1^). Relativas al total la importancia de la zoofagia
-fue cercana entre el pastizal y el sistema agrícola alrededor del 0,69% y menor en la reserva con una importancia del 0,54%. La cantidad de energía que llega a los depredadores verdaderos
-fue menor que la contribución de los omnívoros a este canal. 
-En los suelos de la reserva la cantidad de energía a través de los depredadores
-fue el más bajo, participando solo con el 22% de la energía que llega a través del
-canal de la zoofagia, destacando la participación de los omnívoros en la regulación 
-de las poblaciones de la fauna edáfica en el sistema de la reserva. 
+La zoofagia, que integra los flujos de energía desde las 
+presas hacia los depredadores "verdaderos" y omnívoros, contabilizó 
+en promedio el ≈ 0,64% del flujo total de energía. 
+En términos absolutos (Tabla 5.3), fue mayor en el pastizal (≈ 15,3 kJ.año^-1^) y
+menor en el sistema agrícola (≈ 9 kJ.año^-1^). 
+Relativas al total la importancia de la zoofagia
+entre el pastizal y el sistema agrícola fué mayor alrededor del 0,69%.
+Los depredares contribuyeron menos a la zoofagia que los omnívoros en
+todos los usos del suelo, pero en los suelos sin uso
+la cantidad de energía mediada por los omnívoros fue mayor, en los demás sistemas 
+la conribución se aproximó a una relación 1:1.
 Estos resultados sobre la zoofagia marcan la importancia de los omnívoros 
-en los sistemas edáficos para el control de poblaciones de la fauna edáfica.
+en los sistemas edáficos para el control de poblaciones de la fauna edáfica
+y destacaron la participación de los omnívoros en el sistema de la reserva (Tabla 5.3). 
 
-<p class="interlineado-simple">
+
+<!--0.5374R;0,7057P;0,6718A-->
 
 **Tabla 5.4** Flujos de energía de redes tróficas "parciales". El flujo total de energía 
 en kJ/año. Para los canales de energía se indica el porcentaje de la contribución 
 del canal en relación al flujo total y entre paréntesis la participación 
-de la microflora. Las columnas corresponden a los diferentes canales de energía vinculados a las funciones biológicas que ocurren en las redes tróficas de las comunidades de microartrópodos edáficos y lombrices de tierra de suelos  de Chivilcoy - Navarro y suelos  de Luján
+de la microflora. Las columnas corresponden a los diferentes canales de energía vinculados a las funciones biológicas que ocurren en las redes tróficas de Chivilcoy - Navarro y Luján.
 
-</p>
 
 ```{r flujos_multicanal_show, echo=FALSE, message=FALSE,warning=FALSE}
 tabla5.4 <- read.csv("database/tabla5.4.txt", sep="")
@@ -2165,70 +2227,63 @@ tabla5.4%>%
    kable_styling(latex_options = c("hold_position", "basic"))
 ```
 
-La tabla 5.4 muestra los flujos de energía para las redes tróficas "parciales",
-esta incluye los recursos tróficos bases (Capítulo 2) y la contribución de 
-ácaros, colémbolos y lombrices de tierra.
-
-En los suelos de Chivilcoy - Navarro, (Tabla 5.4) el flujo total de energía
+En los suelos de Chivilcoy - Navarro, el flujo total de energía
 fue cercano entre sistemas de uso del suelo con valores alrededor de 37,5kJ.año^-1^.
-En comparación, en la red trófica parcial en los suelos  de Luján, 
-se estimó un flujo total de la energía 46 veces mayor, 
-esta diferencia puede deberse a diferencias en los valores de biomasa en los recursos tróficos base 
+En comparación, en la red trófica parcial en los suelos de Luján 
+se estimó un flujo total de la energía 46 veces mayor.
+Esta diferencia puede deberse a los valores de biomasa en los recursos tróficos base 
 estimados entre localidades. Además, en suelos de Luján,
-se mantiene el efecto de la disminución de la biomasa media 
-de la microflora en el sistema con alto impacto en el uso del suelo.
+se mantuvo el efecto de la disminución de la biomasa media 
+de la microflora en el sistema con alto impacto en el uso del suelo (Tabla 5.4).
 
-El canal vinculado al consumo del humus en el suelo, \underline{biotransformación}, fue el de mayor 
+La biotransformación, fue el canal de mayor 
 importancia superando el 95% de la contribución al flujo total de energía en las redes tróficas 
 parciales. En términos relativos la contribución de la microflora a este canal de energía
 fue mayor al 80% y se mantuvieron con valores cercanos entre sistemas en las diferentes localidades.
 Particularmente, la contribución relativa 
-de la fauna edáfica fue ligeramente mayor en los suelos de Chivilcoy - Navarro en comparación 
+de la fauna edáfica fue ligeramente mayor en los suelos de Chivilcoy - Navarro
+en comparación 
 con los suelos de Luján.
 
-La detritivoría en las redes tróficas parciales pasa a un tercer lugar de importancia 
-comparando la importancia relativa de este canal de energía con
-las redes tróficas "totales" (Tabla 5.3). 
+La detritivoría en las redes tróficas parciales estuvo en
+el tercer lugar de importancia en la contribución del flujo total de la energía,
+lo cuál difiere de las redes tróficas totales, donde la detritivoría
+tuvo el segundo lugar. 
 Esto muestra la contribución energética
-de la macrofauna en el proceso de la fragmentación y consumo de los detritos del suelo. Al asumir el balance energético si no se incluye un compartimento el resultado es que cambian los flujos relativos.
-
-Se observan además variaciones porcentuales importantes en la contribución del canal de la 
-detritivoría entre localidades y sistemas de uso del suelo. A la vez,
+de la macrofauna en el proceso de la fragmentación y consumo de los detritos del suelo. 
+Se observaron además variaciones porcentuales importantes en la contribución 
+del canal de la 
+detritivoría entre localidades y sistemas de uso del suelo. 
+A la vez,
 una mayor valor porcentual en la detritivoría se acompaña de 
 una menor contribución porcentual de la microflora,
 es decir, donde la detritivoría fue relativamente más importante esta fue mediada por 
 la fauna edáfica. 
 
-El canal de energía ligada a la \underline{microfitofagia}, se posiciona 
+La microfitofagia, se posicionó 
 como el segundo canal de energía en importancia relativa en estas redes tróficas parciales,
-indicando la importante contribución de los microartrópodos edáficos en el consumo
-de bacterias y hongos, actividad trófica relacionado con el control de las poblaciones
-de estos y a la vez con el transporte de sus propágulos a través de la matriz 
-porosa del suelo orgánico-mineral.
-
-Se observa una diferencia de hasta 3 puntos porcentuales en la contribución
+indicando la importante contribución de los microartrópodos edáficos en la
+regulación de las poblaciones de bacterias y hongos y a la vez 
+con el transporte de sus propágulos a través de la matriz 
+porosa del suelo orgánico-mineral. Se observó
+una diferencia de hasta 3 puntos porcentuales en la contribución
 relativa de la microfitofagia entre diferentes localidades. 
 En suelos de Luján la contribución fue en promedio del ≈ 3,8 % con valores entre sistemas de uso
 próximos entre sí. En suelos de Chivilcoy - Navarro el canal de la microfitofagia 
 fue en promedio solo del ≈ 0,8 %, a la vez que en el suelo sin uso antrópico
 la fauna edáfica tuvo una menor participación en este canal de energía. 
 
-La \underline{zoofagia} fue porcentualmente diferente en estas 
-redes parciales, fueron como máximo 0,09% y 0,6% en los suelos de Chivilcoy - Navarro 
-y Luján respectivamente.
-La contribución de los depredadores "verdaderos" fue más importante en los suelos de 
-Chivilcoy - Navarro con un aumento de la participación de los omnívoros en la zoofagia 
-en las redes del suelo con un alto impacto.
-
-En los suelos de Luján se mantuvieron las relaciones verdaderos depredadores - omnívoros zoofagos,
-como los observados más arriba, esto es, los omnívoros contribuyen más a la zoofagia
-que los verdaderos depredadores. Entonces, son los microartrópodos zoófagos
-quienes estructuran este fenómeno en el canal de la energía de las redes tróficas detritívoras del 
-suelo. Por otra parte, si se pueden calcular variaciones en entre las
-relaciones depredadores:omnívoros en comparación con las redes 
-tróficas "completas", lo que nos indica que las contribuciones varían 
-al considerar los zoófagos de la micro- y macro- fauna edáfica.
-
+La zoofagia fue porcentualmente diferente entre localidades,
+fueron como máximo 0,09% y 0,6%, en los suelos de Chivilcoy - Navarro 
+y Luján, respectivamente. En los suelos de Luján se mantuvieron las relaciones entre depredadores "verdaderos" y omnívoros, esto es, los omnívoros contribuyeron más con la zoofagia.
+En cambio en los suelos de Chivilcoy - Navarro fueron los depredadores "verdaderos" 
+quienes participaron más en la zoofagia. Además, en el sistema con alto impacto la 
+importancia de los omnívoros aumentó. Entonces, fueron
+los microartrópodos zoófagos
+quienes estructuraron el canal de la zoofagia.
+Por otra parte, al comparar las contribuciones porcentuales 
+entre redes tróficas completas y parciales, 
+al considerar los zoófagos de la micro- y macro- fauna edáfica las relaciones variaron.
 
 
 ### Estabilidad de las redes tróficas en suelos 
@@ -2250,11 +2305,10 @@ Q_median_L<-median(log(QSS.final$maxreL))
 
 ```
 
-En los suelos , en redes tróficas edáficas "completas" construidas 
-para los diferentes sistemas de uso que reciben los suelos de Luján,
-las distribuciones del índice de estabilidad QSS (la parte real del máximo autovalor, λ )
-fueron diferentes según la prueba del Anderson-Darling $p_{\,valor} < 0.05$), 
-indicando independencia entre las distribuciones. 
+La distribución del índice de estabilidad QSS (la parte real del máximo autovalor, λ ) 
+fue diferente, según la prueba del Anderson-Darling ($p_{\,valor} < 0.05$),
+en cada sistema de uso del suelo. Indicando que cada suelo tuvo distribuciones 
+del índice QSS independientes. 
 
 <!-- En la figura 5.3 se observa que estas distribuciones son simétricas, 
 que sus modas y valores de centralidad se encuentran dentro del rango intercuantílico y
@@ -2288,44 +2342,63 @@ par(mfrow=c(1,1))
 
 
 **Figura 5.3** Distribución del autovalor del índice *Cuasi-Signo (QSS)*. En el eje horizontal,
-se muestran mil iteraciones del máximo autovalor de la matriz Jacobiana obtenidas a partir del algoritmo del índice *Cuasi-Signo (QSS)* [@allesina2008] expresado en \underline{logaritmo natural}. Eje vertical valores de frecuencia. Como líneas verticales se dibujan, el promedio en color amarillo, la mediana en color rojo, y los cuantiles primero y tercero como líneas más finas.
+se muestran mil iteraciones del máximo autovalor de la matriz Jacobiana obtenidas a partir del algoritmo del índice *Cuasi-Signo (QSS)* [@allesina2008] expresado en \underline{logaritmo natural}. Eje vertical se muestran los valores de frecuencia. Como líneas verticales se dibujan, el promedio en color amarillo, la mediana en color rojo y los cuantiles primero y tercero en celeste y scomo líneas más finas.
 
 
 El promedio e intervalo de confianza del 95% de la parte real del máximo autovalor
-(λ del QSS) en los suelos de la comunidad de la reserva fue de `r exp(Q_med_R)` 
-(0,419 - 0,472)<!--0.445-->, en el sistema del pastizal fue de `r exp(Q_med_P)` 
-(0,349 - 0,398)<!--0.373--> y el sistema agrícola agrícola fue de `r exp(Q_med_L)`
-(0,31 - 0,361) <!--0.334-->.
+(λ del QSS) en los suelos de la comunidad de la reserva fue de 0,445 
+(0,419 - 0,472)<!-- `r exp(Q_med_R)`-->, en el sistema del pastizal fue de 0,373 
+(0,349 - 0,398)<!--r exp(Q_med_P)`--> y el sistema agrícola agrícola fue de 0,334
+(0,31 - 0,361) <!--`r exp(Q_med_L)`-->.
 
 
-En los diferentes sistemas de uso del suelo la mediana y la moda fueron 
-`r exp(Q_median_R)`-`r exp(Q_moda_R)`; 
-`r exp(Q_median_P)`-`r exp(Q_moda_P)`; 
-`r exp(Q_median_L)`-`r exp(Q_moda_L)` para los sistemas de uso del suelo de 
+En los diferentes sistemas de uso del suelo la mediana y la moda fueron
+0,481-0,432; 0,404-0,396; 0,347-0,404 para los sistemas de uso del suelo de 
 con intensidad nula (reserva), intensidad leve (pastizal) e intensidad alta 
 (agrícola intensivo) respectivamente.
 
 Teóricamente, las redes tróficas con el índice QSS más cercano a cero 
 indican que las comunidades edáficas requieren de una menor autoregulación
 para llegar a la situación de estabilidad local. 
-Estos datos nos muestran que en los sistemas antropizados, cuyos intervalos de 
-confianza son más próximos, se obtuvieron valores 
-del λ del índice *Quasi-Sing* más cercanos a cero por lo tanto indicando 
-sistemas más estables
-que los que ocurren en el suelo sin uso.
+Estos datos nos muestran para las tres intensidades de uso
+valores cercanos a cero. Pero, en los sistemas antropizados con intervalos de 
+confianza superpuestos, los valores 
+del λ del índice *Quasi-Sing* estuvieron más cercanos a cero, por lo tanto indicando 
+sistemas más estables que los que ocurren en el suelo sin uso.
 
+<!--
 Por otra parte, considerando que los valores centrales de estas distribuciones son próximos 
 a cero en los tres sistemas, las diferencias observadas pueden relacionarse más con la cobertura 
 vegetal que con el impacto debido al uso del suelo. 
 Dado que los suelos antropizados son pastizales, asemejándose con aquellas de la 
 vegetación original de la Pampa Ondulada, mientras que el suelo en la reserva 
 soporta vegetación arbórea, por lo tanto con dinámicas en la autoregulación de las comunidades diferentes. 
+-->
+
 
 ## Discusión
 
 
 Las redes tróficas de los suelos  de la Pampa Ondulada revelan un entramado complejo de 
 interacciones que evidencian la intrincada estructura de las redes edáficas. 
+<!--En general, se observó que la complejidad de las redes fue mayor en suelos antropizados.
+Se observa además que se mantienen similares las características tróficas de las redes a pesar de las 
+diferentes prácticas de manejo que ocurren sobre el suelo, esto es un indicio de que la 
+estructura trófica de las redes se mantiene independiente de las prácticas de manejo que ocurren sobre
+estos suelos. 
+
+Flujos
+
+La detritivoría en las redes tróficas parciales estuvo en
+el tercer lugar de importancia en la contribución del flujo total de la energía,
+lo cuál difiere de las redes tróficas totales, donde la detritivoría
+tuvo el segundo lugar. 
+Esto muestra la contribución energética
+de la macrofauna en el proceso de la fragmentación y consumo de los detritos del suelo. Al asumir el balance energético si no se incluye un compartimento el resultado es que cambian los flujos relativos.
+
+
+-->
+
 
 Un aspecto destacado es el alto porcentaje de omnivoría, lo que indica que muchos taxones se alimentan de más de un nivel trófico, tal como lo describen Digel et al. [-@digel2014] quienes caracterizan a la fauna edáfica como consumidores oportunistas con un bajo nivel de especialización dietaria. En este contexto, un porcentaje más alto de omnivoría indica una mayor diversidad en las fuentes alimenticias de los organismos, lo que contribuye a la estabilidad de la red trófica al proporcionar redundancia funcional y permitir la adaptación a fluctuaciones en la disponibilidad de recursos [@thompson2007; @stouffer2011]. Comparados con otras redes, estos valores son relativamente altos. En redes marinas y de agua dulce, los niveles de omnivoría suelen rondar entre el 50% y el 60% [@williams2004]. En ecosistemas terrestres, el porcentaje es más variable, pero niveles similares se encuentran en sistemas agrícolas o pastoriles, donde la omnivoría está relacionada con la diversidad de recursos [@polis1996]. El mayor porcentaje de omnivoría en sistemas sin uso antrópico sugiere una mayor diversidad de interacciones tróficas, asociada con mayor estabilidad frente a perturbaciones externas, como se observa en redes naturales [@thompson2007]. Por otro lado, el elevado porcentaje de omnivoría (>70%) en redes detritívoras está vinculado a la alimentación oportunista y a la redundancia funcional de la fauna edáfica. Por ejemplo, los omnívoros zoófagos pueden alimentarse de microfauna, descomponedores secundarios o microflora. Los depredadores generalistas también consumen recursos en más de un nivel trófico; por ejemplo, algunos miriápodos pueden depredar tanto nemátodos grandes como mesofauna y macrofauna más pequeña.
 
@@ -2346,6 +2419,9 @@ de la fauna edáfica. Por ejemplo, los omnívoros zoófagos pueden alimentarse t
 La conectancia de estas redes, aunque ligeramente mayor que la observada en redes tróficas de otros ecosistemas terrestres o acuáticos, se sitúa dentro de los valores hallados en suelos de bosques templados [@digel2014], lo que sugiere que se encuentra dentro de los rangos esperados para redes tróficas ecológicas. Este valor de conectancia refleja las conexiones realizadas sobre todas las posibles en una red de interacciones y es un indicativo de la complejidad de estas redes. Al considerar únicamente los grupos de microartrópodos y lombrices de tierra, se observa un incremento en este valor, resaltando la gran cantidad de conexiones tróficas potenciales entre estos grupos faunísticos.
 
 El coeficiente de agrupamiento ("clustering"), que indica la probabilidad de que diferentes especies tróficas estén cercanamente interconectadas debido al solapamiento de sus dietas o depredadores, fue moderado en las redes tróficas de suelos  (C.C. > 0.4). Según Digel et al. [-@digel2014], en suelos de redes tróficas de detritívoros se registró un valor del coeficiente de agrupamiento más alto que el de otras redes ecológicas, como aquellas que ocurren en ecosistemas terrestres basados en plantas o en ecosistemas acuáticos. Sin embargo, el valor calculado para estos suelos de la Pampa Ondulada fue más del doble que el estimado por esos autores.
+
+<!-- However, it has been shown that most of these qualitative descriptors are highly sensitive to the varying levels of sampling effort used to document a food web. QUANTITATIVE DESCRIPTORS OF FOOD-WEB MATRICES
+Louis-Félix Bersier @bersier2002 -->
 
 En general, si bien existen configuraciones que varían entre los sistemas de uso del
 suelo debidas al número de nodos y enlaces, los valores de los parámetros topológicos 

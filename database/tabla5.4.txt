@@ -1,4 +1,4 @@
-"Localidad" "Sitio" "Total" "Biotransformación" "Detritivoria" "Microfitofagia" "Depredación" "Omnivoría"
+"Localidad" "Sitio" "Total" "Biotransformación" "Detritivoría" "Microfitofagia" "Depredación" "Omnivoría"
 "1" "Chivilcoy y Navarro" "Naturalizado" "37,2" "98,82 (79,4)" "0,23 (90,1)" "0,63" "0,07" "0,01"
 "2" "" "Mixto" "37,7" "98,58 (82,5)" "0,29 (73,5)" "0,84" "0,07" "0,02"
 "3" "" "Agrícola" "37,4" "98,49 (78,3)" "0,38 (49,5)" "0,86" "0,05" "0,03"
