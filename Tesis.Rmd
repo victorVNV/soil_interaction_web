@@ -645,7 +645,7 @@ dimensiones: física, química y biológica [@urricariet1999].
 ![](Figures/chap3_morello1997.png){width=500 heigth=500}
 
 **Figura 3.1.** La región Pampeana argentina y sus principales divisiones [@morello1997]
-
+\vspace{2cm}
 La diversidad biológica en los suelos se vincula estrechamente con el mantenimiento de la fertilidad, la estabilidad física y biológica y con la productividad ecológica (productividad primaria) y económica (rendimiento de los cultivos y producción de proteína animal) de los suelos. En sistemas productivos 
 la biodiversidad es afectada por los impactos relacionados con las prácticas de manejo, tales como: el establecimiento de especies vegetales diferentes a la vegetación original, la fragmentación del hábitat, el cambio de uso del suelo, la compactación, y el uso de insumos como fertilizantes y biocidas. Estos disturbios alteran la estructura y las 
 funciones de los ecosistemas terrestres [@colombo2014; @Hooper2005; @brussaard2007; @barrios2007]. 
@@ -666,6 +666,8 @@ y su calidad. Por ello es que Socarras [-@socarras2013] menciona que conocer el 
 Bajo este contexto, este capítulo describe las diferencias ambientales y las diferencias en la diversidad biológica de las comunidades edáficas halladas en suelos de la Pampa Ondulada bajo diferentes intensidades de uso. 
 Se espera suelos bajo diferente intensidades de uso tengan características ambientales diferentes entre sí y que la diversidad de la fauna edáfica disminuya con la intensidad
 de uso. 
+
+\newpage
 
 ## Materiales y métodos
 
@@ -748,8 +750,8 @@ Adicionalmente se estimó la respiración heterotrófica de la microbiota con el
 Luego con el frasco bien cerrado se colocó en estufa para incubar el suelo durante 10 días a temperatura de 30ºC. Pasado el tiempo se tituló la trampa de álcali con una solución ácida (HCl 0,1M) apoyado con fenolftaleína como indicador de la reacción de neutralización. Este procedimiento se realizó para frascos de incubación sin suelo que fueron los "blancos" (dan cuenta del CO~2~ contenido en el aire). La respiración heterotrófica se calculó
 como la diferencia en mililitros de ácido consumido de las submuestras descontadas de los blancos. La respiración heterotrófica se expresa en mg CO~2~.g suelo^-1^.día^-1^.
 
-Además, se realizó la técnica de respiración inducida por sustrato cuyo resultado es la aproximación del total de bacterias y hongos hallados en el suelo [@west1986; @zabala2010; @beare1990]. El procedimiento consistió en aplicar diferentes soluciones con tratamientos antibióticos, a razón 1:1 suelo:solución, para estimular la respiración del grupo de interés. Las soluciones utilizadas fueron *a)* sustrato para estimar la respiración heterotrófica inducida total 150 mg glucosa / mm solución; la solución que *b)* inhibe la respiración de procariotas y que por lo tanto mide la respiración de los *eucariotas* contiene 11 mg cloranfenicol + 150 mg glucosa / mm sn.; *c)* la respiración de *procariotas* se midió
-con la solución de 2,3 mg cicloheximia + 150 mg glucosa / mm sn. y finalmente la solución que contiene *d)* ambos antibióticos, en las mismas concentraciones, para estimar la respiración *residual*, es decir, la respiración de aquellos organismos que respiran a pesar de la presencia de los antibióticos en el medio líquido. Se colocó un gramo de suelo / réplica / muestra en recipientes que se cierran herméticamente y que funcionan como cámaras de incubación. Luego el suelo se hidrató con alguna de las soluciones descrita arriba y se colocó en el interior del recipiente con la trampa de álcali, un frasco de menor volumen con 5 ml de solución de hidróxido de sodio NaOH O,1 M. Los recipientes se colocaron en estufa a 30ºC durante 48h para incubar el suelo y estimular la actividad biológica. Como controles (blancos) de la reacción se utilizaron frascos sin suelo con la trampa de álcali para medir el contenido de CO~2~ presente en el aire al momento del procedimiento. El CO~2~ liberado por la respiración biológica se recuperó en la trampa de álcali y se determinó por titulación con ácido clorhídrico HCl 0,1 M y fenolftaleína como indicador [@frioni1999; @coleman2004]. Luego para la determinación de las proporciones de los grupos involucrados en la respiración se consideraron 
+Además, se realizó la técnica de respiración inducida por sustrato cuyo resultado es la aproximación del total de bacterias y hongos hallados en el suelo [@west1986; @zabala2010; @beare1990]. El procedimiento consistió en aplicar diferentes soluciones con tratamientos antibióticos, a razón 1:1 suelo:solución, para estimular la respiración del grupo de interés. Las soluciones utilizadas fueron A) sustrato para estimar la respiración heterotrófica inducida total 150 mg glucosa / mm solución; la solución que B) inhibe la respiración de procariotas y que por lo tanto mide la respiración de los *eucariotas* contiene 11 mg cloranfenicol + 150 mg glucosa / mm sn.; C) la respiración de *procariotas* se midió
+con la solución de 2,3 mg cicloheximia + 150 mg glucosa / mm sn. y finalmente la solución que contiene D) ambos antibióticos, en las mismas concentraciones, para estimar la respiración *residual*, es decir, la respiración de aquellos organismos que respiran a pesar de la presencia de los antibióticos en el medio líquido. Se colocó un gramo de suelo / réplica / muestra en recipientes que se cierran herméticamente y que funcionan como cámaras de incubación. Luego el suelo se hidrató con alguna de las soluciones descrita arriba y se colocó en el interior del recipiente con la trampa de álcali, un frasco de menor volumen con 5 ml de solución de hidróxido de sodio NaOH O,1 M. Los recipientes se colocaron en estufa a 30ºC durante 48h para incubar el suelo y estimular la actividad biológica. Como controles (blancos) de la reacción se utilizaron frascos sin suelo con la trampa de álcali para medir el contenido de CO~2~ presente en el aire al momento del procedimiento. El CO~2~ liberado por la respiración biológica se recuperó en la trampa de álcali y se determinó por titulación con ácido clorhídrico HCl 0,1 M y fenolftaleína como indicador [@frioni1999; @coleman2004]. Luego para la determinación de las proporciones de los grupos involucrados en la respiración se consideraron 
 las diferencias observadas entre los grupos tratados con antibióticos en relación con la respiración total [@zabala2010].
 
 
@@ -1056,7 +1058,7 @@ agrícola intensivo se correlacionaron los ácaros Prostigmata y los ácaros Sar
 
 **Figura 3.6.** Biplot de coordenadas principales de las unidades taxonómicas de la comunidad de la fauna edáfica ocurridas en suelos  de Chivilcoy - Navarro bajo diferentes sistemas de uso del suelo. Los vectores representan los sistemas de uso del suelo N = pastizal naturalizado, G = mixto agrícola-ganadero, A = agrícola intensivo, los números que los acompañan marcan la réplica. Los puntos claros indican cada uno de los taxones diferentes hallados en estos suelos, los puntos fuertes representa el centroide de los grupos taxonómicos cuyo símbolo y color representa a un grupo particular en función de una clasificación que refiere al tamaño, al taxón y a hábitos tróficos característicos. col = colémbolos, lom = lombrices de tierra, mes = mesostigmatas, ori = sarcoptiformes, pros = prostigmatas
 
-
+\newpage
 ## Discusión
 
 Las características químicas y biológicas de estos
@@ -1246,7 +1248,7 @@ como los gremios tróficos responda con disminuciones en la biomasa y
 con pendientes del espectro de tamaño menores. Entonces sistemas de referencia donde la intensidad
 de uso del suelo es nula, las comunidades y sus gremios tróficos tendrán biomasas medias mayores
 y la pendiente del espectro de tamaños, con valores más cercanos a cero.
-
+\newpage
 ## Metodología
 
 ### Sitios de estudio y diseño de muestreo
@@ -1359,7 +1361,7 @@ El modelo final para Luján fue:
 $$ D_{ijk}^{\;\;\tau} = \beta_0^{\;\;\tau} + \beta_1^{\;\;\tau} + \beta_0S_j^{\;\;\tau} + \beta_0G_k^{\;\;\tau} + \beta_0\text(SxG)_{jk}^{\;\;\tau}  + \beta_1G_j^{\;\;\tau} + \epsilon^{\;\;\tau} $$
 
 El modelo para Chivilcoy - Navarro resultó igual al modelo completo. Todos los análisis se realizaron con R 4.2.1 [@clauset2009; @crawley2013].
-
+\newpage
 ## Resultados
 
 ### Distribución de los pesos corporales, pesos corporales medios, densidad y biomasa de los taxones de la fauna edáfica en suelos  de la Pampa Ondulada.
@@ -1564,7 +1566,7 @@ en la contribución de la biomasa, los mayores valores se observaron
 en el sistema agrícola intensivo, sin embargo las densidades más altas 
 ocurrieron en el pastizal naturalizado.
 
-
+\newpage
 ### Análisis de la Biomasa Media de los gremios tróficos de las comunidades de la fauna edáfica de suelos  de la Pampa Ondulada
 
 #### Suelos de Luján
@@ -1675,7 +1677,7 @@ Las pendientes de los microfitófagos fueron negativas pero no se diferenciaron 
 entre usos del suelo, el valor de la pendiente fué $m \approx-0.4$. 
 Los omnívoros observaos en el sistema mixto agrícola-ganadero (Fig. 4.9) tuvieron una pendiente positiva ($m = 0.65$), por lo que omnívoros de mayor peso son más abundantes en el sistema mixto, para los demás sistemas de uso las pendientes no se diferenciaron de la constante por lo que a
 diferentes pesos corporales comparten densidades similares. Los depredadores en cada sistema de uso del suelo no mostraron pendientes diferentes significativamente de cero, lo que implica que las abundancias de los depredadores es similar para cada peso corporal medio en cada sistema de uso del suelo (Apéndice 4.4).
-
+\newpage
 ## Discusión
 
 El espectro de pesos corporales de la comunidad edáfica abarcó
@@ -1867,7 +1869,7 @@ El objetivo de este capítulo es utilizar la teoría de las redes tróficas para
 y determinar el valor de la estabilidad estructural intrínseca 
 de las redes tróficas de las comunidades edáficas halladas en suelos
 de la Pampa Ondulada bajo diferentes intensidades en el uso.
-
+\newpage
 ## Metodología
 
 Se muestrearon comunidades de la fauna del suelo en suelos  de la Pampa Ondulada, provenientes de dos conjuntos de datos:
@@ -1960,6 +1962,7 @@ El valor de estabilidad del sistema se determina a partir de la distribución de
 Para determinar si las diferencias en las distribuciones del índice de estabilidad son significativas se comparan las distribuciones del máximo autovalor mediante la prueba de Anderson-Darling [@scholz2023].
 Se utilizó el paquete ["multiweb"](https://github.com/lsaravia/multiweb) [@saravia2022] para calcular las métricas de topología, las fuerzas de interacciones y el la distribución del QSS de las redes tróficas, además se utilizó el paquete ["fluxweb"](https://bit.ly/2OC0uKF) [@gauzens2018a] para calcular los flujos de energía y también se utilizaron paquetes complementarios para manejo de datos y la comparación estadística de los parámetros calculados, todos ellos implementados en R. 
 
+\newpage
 ## Resultados
 
 ### Representación 
@@ -1969,9 +1972,6 @@ Fueron representadas las redes tróficas, tanto completas (Luján) como parciale
 con una gran cantidad de conexiones entre taxones (nodos) y
 estas redes, además, comparten niveles tróficos similares 
 a pesar de estar constituidas por diferentes clases de tamaños (Fig. 5.1 y 5.2). 
-
-
-\newpage
 
 ```{r FIG 5.1, include=FALSE,warning=FALSE,message=FALSE}
 L <- read.csv("database/L.txt", sep="")
@@ -2286,7 +2286,7 @@ entre redes tróficas completas y parciales,
 al considerar los zoófagos de la micro- y macro- fauna edáfica las relaciones variaron.
 
 
-### Estabilidad de las redes tróficas en suelos 
+### Estabilidad de las redes tróficas 
 
 ```{r resumenQSS, include=FALSE}
 QSS.final <- read.csv("database/QSS.txt", sep="")
@@ -2375,6 +2375,7 @@ vegetación original de la Pampa Ondulada, mientras que el suelo en la reserva
 soporta vegetación arbórea, por lo tanto con dinámicas en la autoregulación de las comunidades diferentes. 
 -->
 
+\newpage
 
 ## Discusión
 
@@ -2437,7 +2438,7 @@ otras redes ecológicas, como aquellas que ocurren en ecosistemas
 terrestres basados en plantas o en ecosistemas acuáticos. Sin embargo, 
 el valor calculado para estos suelos de la Pampa Ondulada fue más del 
 doble que el estimado por esos autores, esto podría estar relacionado 
-con el nivel de detalle utilizado para construir las redes [@bersier200].
+con el nivel de detalle utilizado para construir las redes [@bersier2002].
 
 Los valores de los índices topológicos calculados para las redes tróficas
 construidas para la fauna en suelos bajo diferentes intensidades de uso
@@ -2575,7 +2576,7 @@ when faced with perturbations over relatively long-­time scales. 10.1002/ece3.8
 
 \newpage
 
-\newage
+\newpage
 
 # Conclusiones
 
