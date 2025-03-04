@@ -22,6 +22,7 @@ body_unlu <- read.delim("database/community_bodymass.txt")
 names(body_unlu)<-c("sitio","replica","microhabitat","taxa","length","width","body_mass")
 #microhábitat diferencia entre hoja gruesa, hojafragmentada y humus
 body_unlu[body_unlu$sitio == "L", "sitio"] <- "A"
+
 #corrección peso de tardígrados
 body_unlu[body_unlu$taxa == "tardigrado", "body_mass"]<-body_unlu[body_unlu$taxa == "tardigrado", "body_mass"]/100
 
@@ -114,7 +115,7 @@ body_unlu$gremio<-ifelse(
                         ),"microfitofago",
     ifelse(
       body_unlu$taxa%in%c("afido","cicadidae","fitofago",
-                          "hemiptera","ortoptero","trip","terebrantia"),"herbivoro",
+                          "hemiptera","ortoptero","trip","terebrantia"),"herbívoro",
       ifelse(
         body_unlu$taxa%in%c("eupodoidea","astigmata","hipogastruridae",
                             "larva_elateridae","omnivoro","penthalidae","tardigrado"
@@ -186,6 +187,8 @@ superficie <- pi*2.5^2/10000
 meso <- filter(completo,class!="macrofauna"&specie!="oribátido"&specie!="mesostigmata")
 meso[meso$specie%in%c("anystidae","eupodoidea",
                       "penthalidae","tarsonemidae","tydeoidea"),"guild"]<-"omnivore"
+
+
 #Base con biomasas promedios por especie
 #sample, son submuestras, por lo que no sirve para dividir sino para promediar la muestra
 base <-meso %>% group_by(system,site,year,month,sample,season,class,order,specie,guild,habitat) %>%  summarise(abundance=(n()/superficie), bio.ind=mean(biomass),Tbiomass=(bio.ind*abundance))
@@ -297,21 +300,21 @@ body_unlu$Taxón<-factor(body_unlu$taxa,labels=c("Aphidoidea","Alycidae","Ameros
 "Blattodea","Carabidae","Ceratozetoidea","Cicadidae","Coccinelidae","Coleoptera","Cryptophagidae",
 "Cunaxide","Dermanisoidea","Diplopoda","Diptera","Elateriformia","Enchytraeida","Entomobryoidea",
 "Epilohmannioidea","Eremobelbidae","Eukerria halophila",
-"Eupodoidea","Euphthiracaroidea","Eviphididae","Fitofago","Formicidae","Fungivoro","Galumnidae",
+"Eupodoidea","Euphthiracaroidea","Eviphididae","Fitófago","Formicidae","Fungívoro","Galumnidae",
 "Gasteropoda","Geophilomorpha","Grillopalpidae","Hemiptera","Hipogastruridae",
 "Ichtyostomatogasteridae","Isotomidae","Japygiidae","Juvenil, lombriz","Laelapidae",
 "Carabidae, larva","Coleoptera larva","Curculionidae larva","Diptera larva","Elateridae larva",
 "Scarabaeidae larva","Sciaridae larva","Staphylinidae larva","Tenebrionidae larva","Limnozetidae",
 "Linyphiidae","Lohmanidae","Lycosidae","Mesostigmata","Microscolex phosphoreus","Nematomorpha",
-"Octolasion cyaneum","Octolasion tyrtaeum","Ologamasidae","Omnivoro","Onychiuridae","Oniscoidea",
+"Octolasion cyaneum","Octolasion tyrtaeum","Ologamasidae","Omnívoro","Onychiuridae","Oniscoidea",
 "Oppioidea","Oribatida","Oribatulidae","Oripodidae","Ortoptera","Parajapygidae","Parasitidae",
-"Parholaspidae","Penthaleidae","Predador","Protura","Pseudoscorpionida","Psocoptera","Ptilidae",
+"Parholaspidae","Penthaleidae","Depredador","Protura","Pseudoscorpionida","Psocoptera","Ptilidae",
 "Ptinidae","Diptera pupa","Pythidae","Rhagidiidae","Rhodacaroidea","Scheloribates","Staphylinidae",
 "Symphyla","Symphypleona","Tardigrada","Tarsonemidae","Tenebrionidae","Tenerifidae",
 "Thysanoptera","Trogossitidae","Tydeoidea","Uropodidae"))
 
-body_unlu$Gremio<-factor(body_unlu$gremio,labels=c("Detritivoro","Herbivoro","Microfitofago",
-                                                   "Omnivoro","Predador"))
+body_unlu$Gremio<-factor(body_unlu$gremio,labels=c("Detritivoro","Herbívoro","Microfitófago",
+                                                   "Omnivoro","Depredador"))
 
 ```
 
@@ -400,7 +403,7 @@ meso1<-meso
 meso1$Sistema<-factor(meso1$system,labels= c("Agrícola intensivo","Agrícola-ganadero","Pastizal naturalizado"))
 meso1$Taxón<-factor(meso1$specie,labels=c("Acaroidea","Bdelloidea","Brachychthonioidea","Ceratozetoidea","Crotonioidea","Dermanyssoidea","Entomobroidea","Epilohmannioidea","Euphthiracaroidea", "Eupodoidea","Galumnioidea","Hypogastruridae","Isotomidae","Onychiuridae","Oppioidea","Oripodoidea","Parasitoidea","Rhodacaroidea","Symphypleona","Trombidioidea","Tydeoidea","Uropodoidea","Veigaioidea"))
 
-meso1$Gremio<-factor(meso1$guild,labels=c("Detritivoro","Microfitofago","Omnivoro","Predador"))
+meso1$Gremio<-factor(meso1$guild,labels=c("Detritivoro","Microfitofago","Omnivoro","Deredador"))
 
 meso1%>%ggplot(aes(x=log(biomass), y=Taxón, fill=Gremio)) + geom_density_ridges(rel_min_height = 0.0000005) +scale_x_continuous(breaks = seq(from=-4, to=5, by=2))+  scale_fill_viridis_d(alpha = 0.8)+facet_grid(.~Sistema)+labs(x= 'Peso corporal en ln ug/m^2',y=NULL)
 
@@ -414,7 +417,17 @@ B2%>% kbl() %>%kable_classic(full_width = F, html_font = "Cambria")
 ```
 
 ```{r plot_macro_ridg,echo=FALSE,warning=FALSE,message=FALSE}
-body_unlu%>%filter(clase_tam=="macro")%>%
+body_unlu%>%filter(clase_tam=="macro"&body_unlu$taxa
+  %in%c("anthribidae","Aporrectodea_caliginosa","blattodea","carabidae","cicadidae","diplopoda",
+        "formicidae","gasteropoda","geophylomorpha",
+                        "Glossoscolex","juvenil","larva_carabidae",
+                        "larva_coleoptero","larva_elateridae",
+                        "larva_scarabaeidae","larva_tenebrionidae",
+                        "linyphiidae","lycosidae", "Microscolex_phosphoreus",
+                        "oniscoidea",
+                        "ptilidae",
+                        "staphylinidae","tenebrionidae","terebrantia",
+                        "trip","larva_sciaridae","larva_diptera","afido","pupa_diptera"))%>%
   ggplot(aes(x=log(body_mass), y=Taxón, fill=Gremio)) + 
   geom_density_ridges(rel_min_height = 0.001,scale = 2.5)+ 
   scale_fill_viridis_d(alpha = 0.8)+
@@ -452,7 +465,7 @@ mR_p<-lm(log(Tbiomass) ~ system * guild, data = base)
 
 ```{r B_plot_U,echo=FALSE,warning=FALSE,message=FALSE,fig.align = "center"}
 
-baseU$Gremio <- factor(baseU$gremio,labels=c("Detritívoros","Herbivoros","Microfitófagos","Omnívoros","Predadores"))
+baseU$Gremio <- factor(baseU$gremio,labels=c("Detritívoros","Herbivoros","Microfitófagos","Omnívoros","Depredadores"))
 baseU$Sitio <- factor(baseU$sitio,labels=c("A","P","R"))
 
 #guild
@@ -466,7 +479,7 @@ baseU %>%  ggplot( aes(y=log(Tbiomass),x=Gremio, col=Gremio, fill=NA)) + geom_vi
 
 # System : guild
 
-meso %>% mutate(guild=factor(guild,labels=c("Detritívoros","Microfitófagos","Omnívoros","Predadores"))) %>% group_by(system,site,year,month,sample,season,class,order,specie,guild,habitat) %>%  summarise(abundance=(n()/superficie), bio.ind=mean(biomass),Tbiomass=(bio.ind*abundance)) %>% ggplot( aes(y=log(Tbiomass),x= system,fill=NA,color=system)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5)+geom_jitter(alpha=0.3,col="grey",fill=NA)  +stat_summary(fun = "mean",geom = "point",color = "yellow", size=3)+ scale_color_manual(values = scales::hue_pal()(length(unique(meso$system))), guide = "none")+
+meso %>% mutate(guild=factor(guild,labels=c("Detritívoros","Microfitófagos","Omnívoros","Depredadores"))) %>% group_by(system,site,year,month,sample,season,class,order,specie,guild,habitat) %>%  summarise(abundance=(n()/superficie), bio.ind=mean(biomass),Tbiomass=(bio.ind*abundance)) %>% ggplot( aes(y=log(Tbiomass),x= system,fill=NA,color=system)) + geom_violin(alpha=0.75,trim = FALSE,draw_quantiles = 0.5)+geom_jitter(alpha=0.3,col="grey",fill=NA)  +stat_summary(fun = "mean",geom = "point",color = "yellow", size=3)+ scale_color_manual(values = scales::hue_pal()(length(unique(meso$system))), guide = "none")+
   scale_y_continuous(breaks = seq(from=3, to=15, by=1))+scale_fill_viridis_d(guide="none") + facet_grid(.~guild) +labs(subtitle="B)",x='Sistemas de manejo', y=expression(paste("Biomasa","  ",paste("ln"," ",mu,"g"," ")[ps]/m^2)))+theme_classic()
 
 
@@ -493,8 +506,8 @@ rqRO<-rq(log(abundance) ~ (system+guild+log(bio.ind))^2, tau = .75, data = base)
 
 baseU[baseU$taxa=="tarsonemidae"&baseU$sitio=="P"&baseU$replica==1,"bio.ind"]<-80
 baseU%>%mutate( gremio = factor(gremio, levels = c("detritivoro","microfitofago",
-                                                      "predador","omnivoro","herbivoro")
-                                   ))%>%ggplot(aes(x=log(bio.ind),y=log(D),color=sitio))+
+                                                      "predador","omnivoro","herbívoro")
+                                   ,labels=c("Detritívoros","Microfitófagos","Depredadores","Omnívoros","Herbívoros")))%>%ggplot(aes(x=log(bio.ind),y=log(D),color=sitio))+
    
   geom_point(size=1.5,shape=as.factor(baseU$clase),color=as.numeric(as.factor(baseU$taxa)))+
   geom_quantile(quantiles = 0.75, size=1.5) +
@@ -509,10 +522,13 @@ baseU%>%mutate( gremio = factor(gremio, levels = c("detritivoro","microfitofago"
 ```{r qrplot_RO, fig.align = "center", echo=FALSE,warning=FALSE,message=FALSE}
 
 
-base%>%ggplot(aes(x=log(bio.ind),y=log(abundance),color=system))+
+base%>%mutate( gremio = factor(guild, levels = c("detritivore","microphytophages",
+                                                      "omnivore","predator")
+                                   ,labels=c("Detritívoros","Microfitófagos","Depredadores","Omnívoros")))%>%
+  ggplot(aes(x=log(bio.ind),y=log(abundance),color=system))+
   geom_point(size=1.1,shape=8,color=as.numeric(as.factor(base$specie)))+
   geom_quantile(quantiles = 0.75, size=1.5) +
-  scale_color_viridis_d()+facet_grid(guild~.)+ 
+  scale_color_viridis_d()+facet_grid(gremio~.)+ 
   scale_x_continuous(breaks = seq(from=-3, to=6,by=1))+
   scale_y_continuous(breaks = seq(from=5, to=12,by=2))+
   labs(x=expression(paste("Peso corporal","  ",paste(ln," ",mu,"g")[ps])), y=expression(paste("Densidad","  ",ln," ","n°"[ind]/m^{2})))
