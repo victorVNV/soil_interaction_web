@@ -1677,7 +1677,7 @@
   <macro name="access">
     <choose>
       <if variable="DOI" match="any">
-        <text variable="DOI" prefix="https://doi.org/"/>
+        <text variable="DOI" prefix=" "/>
       </if>
       <else-if variable="URL">
         <group delimiter=" ">
@@ -1690,7 +1690,7 @@
               </group>
             </if>
           </choose>
-          <text variable="URL"/>
+          <!--<text variable="URL"/>-->
         </group>
       </else-if>
     </choose>
@@ -1908,7 +1908,7 @@
       <if type="treaty">
         <group delimiter=" ">
           <number variable="volume"/>
-          <text variable="container-title"/>
+          <text variable="container-title-short"/>
           <choose>
             <if variable="page page-first" match="any">
               <text variable="page-first"/>

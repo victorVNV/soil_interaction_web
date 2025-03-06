@@ -99,41 +99,53 @@ set.seed(167)
 
 # Resumen
 
-La Pampa Ondulada es una región de gran importancia para la producción agropecuaria en Argentina, caracterizada por su clima templado, topografía plana, suelos ricos en materia orgánica y bien drenados que consolidan a esta región cómo un pilar fundamental en la economía del país. Sin embargo, desde el siglo pasado diversos autores ya advierten sobre la degradación de la fertilidad de estos suelos debido a las prácticas agrícolas intensivas que afectan tanto a la estructura física como a la fertilidad química y biológica del suelo.
+La Pampa Ondulada es una región de gran importancia para la producción agropecuaria en Argentina, caracterizada por su clima templado, topografía plana, suelos ricos en materia orgánica y bien drenados que la consolidan cómo un pilar fundamental de la economía del país. Sin embargo, desde el siglo pasado diversos autores ya advierten sobre la degradación de la fertilidad de estos suelos debido a las prácticas agrícolas intensivas que afectan tanto a la estructura física como a la fertilidad química y biológica del suelo.
 
-Aunque existe un conocimiento integrado sobre los componentes físicos y químicos de los suelos, el conocimiento sobre la biodiversidad edáfica es todavía limitado. Se estima que en los suelos se encuentra el 59% de la biodiversidad global, pero de esta solo se conoce una minúscula fracción.
+Aunque existe un conocimiento integrado sobre los componentes físicos y químicos de los suelos, la información sobre la biodiversidad edáfica es todavía limitado. Se estima que en los suelos se encuentra el 59% de la biodiversidad global, pero de ésta sólo se conoce una minúscula fracción.
 
-Es importante conocer la vida “bajo nuestros pies”, es decir la diversidad biológica que ocurre en la intrincada matriz orgánico mineral del suelo, para comprender cómo la biodiversidad se ve afectada por los disturbios, derivados de la actividad antrópica, que alteran el hábitat y la disponibilidad de recursos.
+Es importante conocer la vida “bajo nuestros pies”, es decir la diversidad biológica que ocurre en la intrincada matriz orgáno-mineral del suelo. La biodiversidad interviene tanto en la formación del suelo y su estructura como en el mantenimiento y el funcionamiento de los mismos mediante las interacciones entre los organismos y el medio ambiente edáfico.
+Por lo tanto es esencial avanzar en la investigación sobre la biología y ecología del suelo para comprender cómo la biodiversidad se ve afectada por los disturbios, derivados de la actividad antrópica, que alteran el hábitat y la disponibilidad de recursos y cómo se 
+relacionan con los procesos que sustentan la funcionalidad de estos ecosistemas.
 
-La biodiversidad interviene tanto en la formación del suelo y su estructura como en el mantenimiento y el funcionamiento de los mismos mediante las interacciones entre los organismos y el medio ambiente edáfico.
+La comunidad de la fauna edáfica ocupa los espacios que se forman entre la hojarasca, troncos, piedras, que se acumula sobre la superficie del suelo y los poros de la matriz órgano-mineral del suelo. Estos animales habitan principalmente los primeros centímetros del suelo y son clasificados tradicionalmente según un rango de tamaño corporal en microfauna, mesofauna y macrofauna.
 
-Por lo tanto es esencial avanzar en la investigación sobre la biología y ecología del suelo para comprender mejor los procesos que sustentan la funcionalidad de estos ecosistemas.
+La fauna edáfica desempeña un papel fundamental en el funcionamiento del suelo a diferentes escalas espacio-temporales mediante el consumo de materia orgánica, el transporte de propágulos de bacterias y hongos, el control de poblaciones, son los recursos tróficos de la fauna zoofaga y tienen la capacidad de modificar la estructura órgano-mineral del suelo. Sus funciones están interrelacionadas con la ecología trófica. A su vez, estas interacciones contribuyen con funciones ecosistémicas que influyen sobre la dinámica del ciclo del carbono, de los nutrientes y el agua, la formación de estructura y la regulación de poblaciones.
 
-La comunidad de la fauna edáfica ocupa los espacios que se forman entre la hojarasca, troncos, piedras, que se acumula sobre la superficie del suelo y los poros de la matriz órgano-mineral del suelo. Estos animales ocupan principalmente los primeros centímetros del suelo y son clasificados tradicionalmente según un rango de tamaño corporal en microfauna, mesofauna y macrofauna.
+Entender la complejidad de estos sistemas ecológicos edáficos es una cuestión clave para mantener características que aseguren y aumenten los beneficios ecosistémicos provistos por el suelo, tales como el mantenimiento de la fertilidad, el aumento de la captura de carbono,
+el control de plagas y enfermedades, la generación de hábitats y la 
+protección de la biodiversidad que podría resultar clave en la obtención 
+de nuevos desarrollos y tecnologías de interés medicinal e industrial o en procedimientos de remediación ambiental, entre otros.
 
-La fauna edáfica desempeña un papel fundamental en el funcionamiento del suelo a diferentes escalas espacio temporales mediante el consumo de materia orgánica, el transporte de propágulos de bacterias y hongos, el control de poblaciones, son los recursos tróficos de la fauna zoofaga y tienen la capacidad de modificar la estructura órgano-mineral del suelo. Sus funciones están interrelacionadas con la ecología trófica. A su vez, estas interacciones contribuyen con servicios ecosistémicos más amplios afectando la dinámica del ciclo del carbono, de los nutrientes y el agua, la regulación de la materia orgánica del suelo y la fertilidad química y física del suelo.
+La comunidad de la fauna edáfica responde al efecto de las perturbaciones naturales y antrópicas mediante cambios en los rasgos funcionales, cambios en la estructura poblacional, en la composición taxonómica o en otros atributos de la comunidad. Por lo que conocer esta respuesta nos permitirá entender sobre el funcionamiento de las redes tróficas de las comunidades edáficas que habitan estos suelos de la Pampa Ondulada. 
 
-Entender la complejidad de estos sistemas ecológicos edáficos es una cuestión clave para mantener características que aseguren y aumenten los beneficios ecosistémicos provistos por el suelo, tales como el mantenimiento de la fertilidad, el aumento de la captura de carbono, la reducción de insumos externos para la producción agropecuaria, la protección de la biodiversidad que podría resultar clave en la obtención de nuevos compuestos de interés medicinal e industrial o en procedimientos de remediación ambiental, entre otros.
+En esta tesis se aborda el estudio de las redes de interacciones, en particular de las redes tróficas que mediante herramientas matemáticas permiten entender la complejidad de los sistemas ecológicos. Así, se busca entender el funcionamiento de las comunidades de la fauna edáfica de suelos  de la Pampa Ondulada bajo diferentes intensidades de impacto antrópico del suelo.
+El análisis de las redes tróficas permite integrar la diversidad de la comunidad, interacciones interespecíficas, rasgos funcionales, características topológicas, características funcionales vinculadas con la multiplicidad de canales de materia y energía e inferir sobre el valor de estabilidad de la comunidad.
 
-La comunidad de la fauna edáfica responde al efecto de las perturbaciones naturales y antrópicas mediante cambios en los rasgos funcionales, cambios en la estructura poblacional, en la composición taxonómica o en atributos de la comunidad. Por lo que conocer esta respuesta nos permitirá entender sobre el funcionamiento de las redes tróficas de las comunidades edáficas que habitan estos suelos  de la Pampa Ondulada.
-
-En esta tesis se aborda el estudio de las redes de interacciones, en particular de las redes tróficas que mediante herramientas matemáticas permite entender la complejidad de los sistemas ecológicos. Así, se busca entender el funcionamiento de las comunidades de la fauna edáfica de suelos  de la Pampa Ondulada bajo diferentes intensidades de impacto antrópico del suelo.
-
-El análisis de las redes tróficas permite integrar la diversidad de la comunidad, interacciones interespecíficas, rasgos funcionales, características topológicas, características funcionales vinculados con la multiplicidad de canales de materia y energía e inferir sobre el valor de estabilidad de la comunidad.
-
-El objetivo de la tesis es construir la red trófica de la fauna edáfica que ocurren en suelos  bajo diferentes intensidades de uso en la Pampa Ondulada Argentina, para analizar las características funcionales de las comunidades edáficas e inferir sobre la estabilidad y el estado de conservación de los suelos.
+El objetivo de la tesis es construir las redes tróficas de la fauna edáfica
+que ocurren en suelos bajo diferentes intensidades de uso en la Pampa Ondulada Argentina, para analizar las características funcionales de las comunidades edáficas y su estabilidad.
 
 Para construir y modelar de la red de interacciones tróficas de la fauna del suelo es necesario:
 
-a)  Conocer sobre los recursos tróficos de la fauna edáfica para modelar la matriz de interacciones. Por ello, el capítulo 2 es una revisión bibliográfica global sobre este tópico, centrada en jerarquías taxonómicas de especies, géneros o familias como una aproximación a la dieta potencial de la fauna edáfica. Esto permite agrupar la fauna edáfica en gremios tróficos. Los principales recursos tróficos son los hongos saprófitos, las bacterias y los nemátodos. Resalta que la información a nivel global es escasa y fragmentaria, centrada principalmente en suelos europeos.
+a)  Conocer los recursos tróficos de la fauna edáfica para modelar la matriz de interacciones. Por ello, el capítulo 2 es una revisión bibliográfica global sobre este tópico, centrada en jerarquías taxonómicas de especies, géneros o familias como una aproximación a la dieta potencial de la fauna edáfica. Esto permite agrupar la fauna edáfica en gremios tróficos. Los principales recursos tróficos son los hongos saprófitos, las bacterias y los nemátodos.
+Por otra parte, se resalta que la información a nivel global es escasa y fragmentaria, centrada principalmente en suelos europeos, dejando un vacio de conocimiento .
 
-b)  Conocer la diversidad de las comunidades de la fauna edáfica que habitan los suelos de interés y de manera complementaria caracterizar el ambiente edáfico en el cuál habitan. Se tomaron muestras de suelos  en el campo experimental de la Universidad de Luján bajo diferentes intensidades en el uso del suelo, uso “nulo”, uso “leve”, uso “intensivo”. Se determinaron variables químicas del suelo y la respiración heterotrófica, se extrajeron, se clasificaron taxonómicamente y se midieron rasgos morfológicos corporales de la microfauna, la mesofauna y la macrofauna. De manera complementaria se utilizó un set de datos de suelos  con parámetros similares que incluyen microartrópodos y lombrices solamente. Se observó que, a pesar de las distancias geográficas entre los conjuntos de datos, el uso intensivo del suelo provocó acidificación del medio. Además, aunque las comunidades entre los diferentes sistemas de uso del suelo fueron disímiles, la diversidad entre ellos resultó ser similar. El Capítulo 3 de esta tesis presenta esa información y análisis.
+b)  Conocer la diversidad de las comunidades de la fauna edáfica que habitan los suelos de interés y de manera complementaria caracterizar el ambiente edáfico en el cuál habitan. Se tomaron muestras de suelos  en el campo experimental de la Universidad Nacional 
+de Luján bajo diferentes intensidades en el uso del suelo, uso “nulo”, 
+uso “leve”, uso “intensivo”. Se determinaron variables químicas del suelo 
+y la respiración heterotrófica, se extrajeron. Se clasificaron taxonómicamente y se midieron rasgos morfológicos corporales de la microfauna, la mesofauna y la macrofauna. De manera complementaria se utilizó un set de datos con parámetros similares que incluyen microartrópodos y lombrices solamente. Se observó que, a pesar de las distancias geográficas entre los conjuntos de datos, el uso intensivo del suelo provocó acidificación del medio y 
+reducción en la respiración heterotrófica. Además, las comunidades 
+fueron diferentes reflejando las adaptaciones a los suelos con diferentes 
+intensidades de uso aunque el valor de la diversidad entre ellos resultó ser similar. 
+El Capítulo 3 de esta tesis presenta esa información y análisis.
 
-c)  Obtener información sobre el peso corporal de los taxones que componen la fauna del suelo, objeto del Capítulo 4. Para ello cada uno de los 11880 individuos previamente clasificados fueron fotografiados y medidos para estimar su peso corporal individual. Esto permitió analizar el espectro de tamaños y su respuesta ante las perturbaciones en ambos conjuntos de datos. Se encontró que las comunidades de la fauna edáfica mantienen la relación entre las densidades, los pesos corporales y las biomasas en valores similares entre los diferentes sistemas de uso del suelo. A través de los gremios tróficos se describió una pirámide de biomasa donde los detritívoros forman la base luego los microfitófagos, omnívoros, depredadores y herbívoros.
+c)  Obtener información sobre el peso corporal de los taxones que componen la fauna del suelo, objeto del Capítulo 4. Para ello cada uno de los 11880 individuos previamente identificados fueron fotografiados y medidos para estimar su peso corporal individual. Esto permitió analizar el espectro de tamaños y su respuesta ante las perturbaciones en ambos conjuntos de datos. Se encontró que las comunidades de la fauna edáfica mantienen la relación de las biomasas
+y del espectro de tamaños en valores similares entre los diferentes sistemas de uso del suelo. A través de los gremios tróficos se describió una pirámide de biomasa donde los detritívoros forman la base luego los microfitófagos, omnívoros, depredadores y herbívoros.
 
-d)  En el Capítulo 5 se construyen las redes de interacciones en los diferentes usos del suelo y su análisis. Se utilizó la información bibliográfica sobre las dietas potenciales de la edafofauna, el peso corporal, la densidad y la biomasa de los taxones en las comunidades analizadas. Con esta información fue factible calcular las características topológicas de la red trófica, los flujos de energía, las fuerzas de interacciones y se estimó el valor de estabilidad de las comunidades de la edafofauna bajo diferentes usos del suelo. Se observó que las redes tróficas de la fauna del suelo a través de los diferentes sistemas de uso del suelo compartieron valores cercanos en sus métricas topológicas tales como el número de niveles tróficos, el porcentaje de omnivoría, valores de generalidad y vulnerabilidad, entre otros. Con respecto a los flujos de energía, se estimó en el sistema agrícola un descenso significativo del flujo total de energía. Funcionalmente, en estas redes tróficas, la mayor cantidad del flujo de energía llega a la microflora, lo que explica porqué el sistema agrícola mostró los menores valores. Por otro lado, la mayor cantidad de energía fluye desde la materia orgánica del suelo (humus), canal de energía vinculado con la formación de agregados y con el ciclo de los nutrientes. Sigue en importancia la microfitofagia, con el consumo de microflora por parte de la fauna, la detritivoría con flujos de energía por debajo del 5% y la zoofagia en el cual los omnívoros participan con mayor importancia relativa. Por último, se estimó que la red más estable, aquella que requiere de una menor autoregulación, ocurrió en las redes tróficas de la fauna detritívora en suelos bajo agricultura intensiva, luego en pastizales y por último en el suelo sin impacto antrópico apreciable.
+d)  En el Capítulo 5 se construyen las redes de interacciones en los diferentes usos del suelo
+y se realiza su análisis. Se utilizó la información bibliográfica sobre las dietas potenciales de la edafofauna, el peso corporal, la densidad y la biomasa de los taxones en las comunidades analizadas. Con esta información fue factible calcular las características topológicas de la red trófica, los flujos de energía, las fuerzas de interacciones y se estimó el valor de estabilidad de las comunidades de la edafofauna bajo diferentes usos del suelo. Se observó que las redes tróficas de la fauna del suelo, a través de los diferentes sistemas de uso del suelo, compartieron valores cercanos en sus métricas topológicas tales como el número de niveles tróficos, el porcentaje de omnivoría, valores de generalidad y vulnerabilidad, entre otros. Con respecto a los flujos de energía, se estimó en el sistema agrícola un descenso significativo del mismo. Funcionalmente, en estas redes tróficas, la mayor cantidad del flujo de energía llega a la microflora, lo que explica porqué el sistema agrícola mostró los menores valores. Por otro lado, la mayor cantidad de energía fluye desde la materia orgánica del suelo (humus), canal de energía vinculado con la formación de agregados y con el ciclo de los nutrientes. Sigue en importancia la microfitofagia, con el consumo de microflora por parte de la fauna, la detritivoría con flujos de energía por debajo del 5% y la zoofagia en el cual los omnívoros participan con mayor importancia relativa. Por último, se estimó que la red más estable, aquella que requiere de una menor autoregulación, ocurrió en las redes tróficas de la fauna detritívora en suelos bajo agricultura intensiva, luego en pastizales y por último en el suelo sin impacto antrópico apreciable.
 
-El estudio de las redes tróficas de la edafofauna que habita suelos con diferentes intensidades de uso antrópico en los suelos  de la Pampa Ondulada, nos indica que las comunidades analizadas son resilientes ante el efecto de las perturbaciones que resultan del uso del suelo. Se mantienen cercanos los valores de la diversidad, la relación del espectro de tamaños y la topología de las redes. Si interpretamos las diferencias en estabilidad como diferencias en autorregulación, las redes tróficas sin impacto requieren una alta autorregulación para mantener sus poblaciones. En cambio, en las redes afectadas por disturbios antrópicos, dicho disturbio sustituye la autorregulación, lo que permite cuantificar el impacto del manejo agrícola. Además, el manejo agrícola del suelo lleva a la acidificación del suelo y la disminución de la actividad respiratoria y como respuesta la comunidad muestra cambios en la composición de los taxones de la edafofauna y una disminución marcada del flujo de energía. Esta disminución  puede afectar a la funcionalidad del sistema y derivar en cambios en los procesos ecosistémicos afectando los ciclos biogeoquímicos en el suelo.
+El estudio de las redes tróficas de la edafofauna, nos indica que las comunidades analizadas son resilientes ante el efecto de las perturbaciones que resultan del uso del suelo. Se mantienen cercanos los valores de la diversidad, la relación del espectro de tamaños y la topología de las redes. Si interpretamos las diferencias en estabilidad como diferencias en autorregulación, las redes tróficas sin impacto requieren una alta autorregulación para mantener sus poblaciones. En cambio, en las redes afectadas por disturbios antrópicos, dicho disturbio sustituye la autorregulación, lo que permite cuantificar el impacto del manejo agrícola. Además, el manejo agrícola del suelo lleva a la acidificación del suelo y la disminución de la actividad respiratoria y como respuesta la comunidad muestra cambios en la composición de los taxones y una disminución marcada del flujo de energía. Esta disminución  
+puede afectar a los procesos midiados por la fauna edáfica y derivar en cambios en la funcionalidad ecosistémica afectando los ciclos biogeoquímicos en el suelo.
 
 Por lo tanto, si bien las comunidades de la fauna edáfica configuran un sistema biológico relativamente robusto, hay que advertir que es necesario mantener y desarrollar prácticas de manejo sostenibles para conservar la funcionalidad del ecosistema edáfico de los suelos  de nuestra Nación.
 
@@ -155,25 +167,33 @@ In conclusion, the evaluated attributes demonstrate that soil fauna communities 
 
 FAUNA EDÁFICA; EDAFOFAUNA; ESTABILIDAD; ESPECTRO DE TAMAÑOS; MULTIFUNCIONALIDAD; GREMIOS TROFICOS; FLUJOS DE ENERGIA; SUSTENTABILIDAD
 
-\newpage
+
 
 \newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+
 
 
 
 \tableofcontents
 
-\newpage
 
 \newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+
+
 
 # Capítulo 1
 
 # La biodiversidad del suelo, sus interacciones y el vínculo con el funcionamiento del ecosistema del suelo
 
-Los bienes y servicios que la humanidad aprovecha de los ecosistemas terrestres dependen en su gran mayoría de los procesos naturales que ocurren en el ecosistema edáfico (Figura 1.1). Estos procesos son el resultado de complejas interacciones entre la fracción biológica y la matriz física y química que componen los suelos. Sobre los componentes físicos y químicos del suelo, se ha desarrollado un amplio conocimiento, lo que permite una clasificación y caracterización estandarizada de los diferentes suelos del mundo. Por otra parte, el cuerpo de conocimiento sobre el componente biológico aún está en proceso de desarrollo, se estima que alrededor del 59% de la biodiversidad global está adaptada a la vida en los suelos y de esta biodiversidad solo se conoce una pequeña fracción [@anthony2023; @barrios2007] lo que subraya la importancia de avanzar en el conocimiento del componente biológico de los suelos [@culliney2013; @lavelle2006; @orgiazzi2016].
+Los bienes y servicios que la humanidad aprovecha de los ecosistemas terrestres dependen en su gran mayoría de los procesos naturales que ocurren en el ecosistema edáfico (Figura 1.1). Estos procesos son el resultado de complejas interacciones entre la fracción biológica y la matriz física y química que componen los suelos. Sobre sus componentes físicos y químicos, se ha desarrollado un amplio conocimiento, lo que permite una clasificación y caracterización estandarizada de los diferentes suelos del mundo. Por otra parte, el cuerpo de conocimiento sobre el componente biológico aún está en proceso de desarrollo, se estima que alrededor del 59% de la biodiversidad global está adaptada a la vida en los suelos y de esta biodiversidad solo se conoce una pequeña fracción [@anthony2023; @barrios2007] lo que subraya la importancia de avanzar en el conocimiento de su componente biológico [@culliney2013; @lavelle2006; @orgiazzi2016].
 
-La biodiversidad del suelo incluye a organismos de la microbiota, la fauna y a las plantas [@lavelle2003]. Estos intervienen en funciones ecosistémicas como el ciclo de los nutrientes, la regulación del ciclo del agua y su purificación, la regulación del ciclo del carbono y del clima y la regulación de poblaciones, pestes y enfermedades [@creamer2022]. De estas funciones dependen los servicios ecosistémicos de provisión, regulación y mantenimiento de los que la humanidad hace uso "gratuitamente" y que en términos monetarios a nivel global representa trillones de dólares anuales [@fonte2023; @coleman2004].
+La biodiversidad edáfica incluye a organismos de la microbiota, la fauna y a las plantas [@lavelle2003]. Estos intervienen en funciones ecosistémicas como el ciclo de los nutrientes, la regulación del ciclo del agua y su purificación, la regulación del ciclo del carbono y del clima y la regulación de poblaciones, plagas y enfermedades [@creamer2022]. De estas funciones dependen los servicios ecosistémicos de provisión, regulación y mantenimiento de los que la humanidad hace uso "gratuitamente" y que en términos monetarios a nivel global representa trillones de dólares anuales [@fonte2023; @coleman2004].
 
 Si bien la complejidad en el ecosistema edáfico es enorme, este puede ser entendido como un sistema auto-organizado [@lavelle2006], característica que es una propiedad emergente de los ecosistemas [@oneill1986; @coleman2011]. En términos prácticos esto implica que los procesos mediados por la diversidad biológica y sus interacciones ocurren simultáneamente de manera jerárquica a diferentes escalas espaciales y temporales afectando las funciones ecosistémicas [@lavelle2012; @barrios2007; @brussaard1997]. Entender la complejidad de estos sistemas ecológicos es clave para mantener las características que aseguren los beneficios ecosistémicos provistos por el suelo, por ejemplo, la obtención de alimentos, fibra, medicina, la regulación del clima, la purificación del agua, el mantenimiento de la biodiversidad, la remediación ambiental, entre otros [@zotero-1438].
 
@@ -186,7 +206,7 @@ Si bien la complejidad en el ecosistema edáfico es enorme, este puede ser enten
 
 
 
-En el suelo existe una intrincada red de poros e intersticios que se forman entre la matriz órgano-mineral y la hojarasca que se acumula sobre este. La red de poros del suelo (Fig. 1.2) es un entorno anfibio, compacto, discontinuo y de diámetro variable. Sus características físicas y químicas heterogéneas permiten el desarrollo y mantenimiento de una gran cantidad de microclimas que soportan una compleja y diversa comunidad biológica [@lavelle2012; @bardgett2002]. Adaptados a vivir en los poros del suelo, los organismos edáficos desarrollaron diferentes estrategias en sus formas de vida, fisiología y de alimentación, además desarrollaron relaciones mutualistas y poseen la capacidad de modificar las características de su entorno, lo que les permite evitar la competencia interespecífica y mantener sus poblaciones [@lavelle2012; @lavelle2006; @briones2014;@Potapov2022].
+En el suelo existe una intrincada red de poros e intersticios que se forman entre la matriz órgano-mineral y la hojarasca que se acumula sobre este. La red de poros (Fig. 1.2) es un entorno anfibio, compacto, discontinuo y de diámetro variable. Sus características físicas y químicas heterogéneas permiten el desarrollo y mantenimiento de una gran cantidad de microclimas que soportan una compleja y diversa comunidad biológica [@lavelle2012; @bardgett2002]. Adaptados a vivir en los poros, los organismos edáficos desarrollaron diferentes estrategias en sus formas de vida, fisiología y de alimentación, además desarrollaron relaciones mutualistas y poseen la capacidad de modificar las características de su entorno, lo que les permite evitar la competencia interespecífica y mantener sus poblaciones [@lavelle2012; @lavelle2006; @briones2014;@Potapov2022].
 
 ![]("Figures/chap1_coleman2004.png"){heigth=800 width=600}
 
@@ -196,7 +216,7 @@ En el suelo existe una intrincada red de poros e intersticios que se forman entr
 \vspace{1cm}
 
 
-El estudio de las comunidades del suelo hasta niveles especie-específicos se dificulta porque el suelo es un hábitat críptico, el tamaño de los organismos dificulta las caracterizaciones anatómicas - morfológicas y por el bajo desarrollo a nivel global del conocimiento taxonómico [@wurst2012]. Pero, se han desarrollado clasificaciones funcionales para agrupar a los organismos edáficos que contribuyen con papeles similares en ciertos procesos ecosistémicos, de esta manera se conectan la diversidad biológica con el funcionamiento del ecosistema del suelo [@creamer2022;@brussaard1998].
+El estudio de las comunidades edáficas hasta niveles especie-específicos se dificulta porque el suelo es un hábitat críptico, el tamaño de los organismos dificulta las caracterizaciones anatómicas - morfológicas y por el bajo desarrollo a nivel global del conocimiento taxonómico [@wurst2012]. Pero, se han desarrollado clasificaciones funcionales para agrupar a los organismos edáficos que contribuyen con papeles similares en ciertos procesos ecosistémicos, de esta manera se conectan la diversidad biológica con el funcionamiento del ecosistema del suelo [@creamer2022;@brussaard1998].
 
 Los organismos edáficos son clasificados tradicionalmente en función del ancho corporal (Fig. 1.3): los organismos \<100 μm incluyen la **microbiota** (bacterias, arqueas y hongos), organismos \<200 μm se denominan **microfauna** (protozoa, nematoda, etc.), siguen a estos la **mesofauna** con anchos corporales \< 2mm (microartrópodos y enquitreidos) y la **macrofauna** que son aquellos animales con un ancho corporal mayor a los 2 mm, estos incluyen artrópodos, lombrices de tierra y otros invertebrados y algunos autores incluyen la megafauna aquellos animales con un ancho corporal mayor a 5 cm [@wurst2012] por ej. *Amphisbaena*. 
 
@@ -213,7 +233,7 @@ Las actividades productivas modifican las comunidades vegetales originales y alt
 por lo que todavía no se comprende como se afectan las funciones ecosistémicas [@Bedano2016],
 la sustentabilidad del suelo y la sostenibilidad de la producción agropecuaria. 
 
-El enfoque que integra la diversidad en una comunidad, las interacciones interespecíficas, las relaciones con el ambiente, la redundancia funcional, el papel de las especies clave y los canales de materia y energía en los ecosistemas es el estudio de las redes de interacciones [@creamer2022; @briones2014; @potapov2022; @barrios2007], de las cuáles las
+El enfoque que integra la diversidad en una comunidad, las interacciones interespecíficas, las relaciones con el ambiente, la redundancia funcional, el papel de las especies clave y los canales de materia y energía en los ecosistemas es el estudio de las redes de interacciones [@creamer2022; @briones2014; @potapov2022; @barrios2007]. Entre estas, las
 **redes tróficas** (Fig. 1.4) son las interacciones comúnmente modeladas [@kefi2012; @bascompte2009]. 
 Los elementos que conforman las redes son los nodos y sus enlaces. En las redes tróficas de la fauna edáfica
 los nodos representan taxones o gremios tróficos (taxones que comparten recursos similares), y los enlaces representan las interacciones tróficas, es decir "quién come a quién" [@pimm1991;@delmas2019]. A los nodos se pueden asociar diferentes atributos como el peso corporal, la abundancia, la biomasa, etc. lo que posibilita incluir tanto parámetros fisiológicos como el metabolismo y el uso de los recursos, como parámetros ecológicos y las adaptaciones de estos organismos ante cambios en el ambiente [@white2007; @pey2014; @turnbull2014]. Sobre los enlaces también pueden asociarse atributos, aquellas características que modifican las tasas de consumo y las relaciones depredador-presa son de interés ya que determinan las fuerzas de las interacciones [@potapov2022; @moore2012; @pawar2012]. 
@@ -227,38 +247,27 @@ los nodos representan taxones o gremios tróficos (taxones que comparten recurso
 
 
 
-Por el potencial para integrar las características antes mencionadas, -@potapov2022 declara que el uso de las redes tróficas es una herramienta esencial que debe ser utilizada en los ecosistemas terrestres para comprender el funcionamiento del ecosistema del suelo. Las redes modelan cientos de interacciones tróficas y enlazan propiedades emergentes de las comunidades y de los ecosistemas [@delmas2019; @zotero-1438; @Hooper2005] que permiten analizar relaciones entre la dinámica, la estabilidad y la resiliencia de las comunidades [@Pimm1982]. En las comunidades de la fauna edáfica vinculan los procesos tróficos con el funcionamiento del suelo [@potapov2022;@sabatte2011; @kardol2016] y particularmente en los suelos  de la Pampa Ondulada, que soportan una alta presión productiva [@hall1992; @lavado2009] permitirá evaluar cómo responde las redes tróficas ante los disturbios. 
+Por el potencial para integrar las características antes mencionadas, Potapov [-@potapov2022] declara que el uso de las redes tróficas es una herramienta esencial que debe ser utilizada en los ecosistemas terrestres para comprender el funcionamiento del ecosistema del suelo. Las redes modelan cientos de interacciones tróficas y enlazan propiedades emergentes de las comunidades y de los ecosistemas [@delmas2019; @zotero-1438; @Hooper2005] que permiten analizar relaciones entre la dinámica, la estabilidad y la resiliencia de las comunidades [@Pimm1982]. En las comunidades de la fauna edáfica, éstas vinculan los procesos tróficos con el funcionamiento del suelo [@potapov2022;@sabatte2011; @kardol2016] y particularmente en los suelos  de la Pampa Ondulada, que soportan una alta presión productiva [@hall1992; @lavado2009] su análisis permitirá evaluar cómo responden las redes tróficas ante los disturbios. 
 
 Para construir y modelar las reded tróficas de la fauna del suelo es necesario, identificar las comunidades que habitan los ecosistemas de interés y construir la matriz de interacciones a partir de la información sobre los recursos tróficos que conforman la dieta de la fauna [@delmas2019]. Luego, para estimar las fuerzas de interacción y calcular los flujos de energía se deben obtener datos sobre el peso corporal y las abundancias de los taxones involucrados [@laigle2018;@deruiter1995;@potapov2022; @barnes2018]. Con esta información es posible calcular la resiliencia y estabilidad de las redes tróficas en los sistemas estudiados [@moore2012; @allesina2008; @gauzens2019].
 
-En este contexto, el objetivo de esta tesis es construir y modelar las redes de interacciones tróficas la fauna del suelo y  analizar sus métricas para evaluar el estado de conservación del suelo. En particular, busca caracterizar la diversidad de las comunidades edáficas, las variaciones del peso corporal y de la densidad de los taxones que definen al espectro de tamaños [@petchey2010], y comparar la estructura de las redes tróficas en suelos  de la Pampa Ondulada bajo diferentes intensidades de uso. El estudio se centra en comunidades de la fauna que habita suelos sometidos a distintas estrategias de uso, como una aproximación a las diferentes intensidades de perturbación: a) suelos sin uso agropecuario, como pastizales naturalizados sin intervención por más de 50 años o lotes clausurados por más de 30 años, que servirán como sistemas de *referencia*; b) suelos de uso pastoril destinados al forraje para ganado, considerados de uso *intermedio* o leve; y c) suelos con actividad agrícola continua, caracterizados por una *alta* intensidad de uso.
+En este contexto, el objetivo de la tesis es construir las redes tróficas de la fauna edáfica
+que ocurren en suelos bajo diferentes intensidades de uso en la Pampa Ondulada Argentina, para analizar las características funcionales de las comunidades edáficas y su estabilidad
+como aproximación para la provisión de herramientas que permitan evaluar el estado de conservación
+del suelo. En particular, busca caracterizar la diversidad de las comunidades edáficas, las variaciones del peso corporal y de la densidad de los taxones que definen al espectro de tamaños [@petchey2010], y comparar la estructura de las redes tróficas en suelos  de la Pampa Ondulada bajo diferentes intensidades de uso. El estudio se centra en comunidades de la fauna que habita suelos sometidos a distintas estrategias de uso, como una aproximación a las diferentes intensidades de perturbación: a) suelos sin uso agropecuario, como pastizales naturalizados sin intervención por más de 50 años o lotes clausurados por más de 30 años, que servirán como sistemas de *referencia*; b) suelos de uso pastoril destinados al forraje para ganado, considerados de uso *intermedio* o leve; y c) suelos con actividad agrícola continua, caracterizados por una *alta* intensidad de uso.
 
-Como las prácticas de manejo producen disturbios en los primeros centímetros del suelo órgano-mineral, hábitat de la mayor biodiversidad edáfica, la hipótesis es que el impacto de las prácticas de manejo afectarán diferencialmente propiedades de la comunidad relacionadas con el funcionamiento ecosistémico, el efecto sobre estas propiedades será mayor en función de la intensidad de uso. En particular, los suelos a) serán menos diversos, b) el valor de la pendiente del espectro del tamaño será menor
-indicando que los disturbios afectan a las comunidades edáficas y a sus gremios tróficos. d) La estructura de la red trófica será menos compleja por el menor tamaño y número de enlaces y e) los flujos de energía disminuirán en toda la red y en los canales de energía. El estado de conservación del suelo estará en función de la multiplicidad de
-factores evaluados al considerar la diversidad y de la capacidad de mantener los procesos en la red trófica.
+Como las prácticas de manejo producen disturbios en los primeros centímetros de la matriz órgano-mineral, hábitat de la mayor biodiversidad edáfica, la hipótesis es que el impacto de las prácticas de manejo afectarán diferencialmente propiedades de la comunidad relacionadas con el funcionamiento ecosistémico, el efecto sobre estas propiedades será mayor en función de la intensidad de uso. En particular, A) las comunidades de la fauna edáfica serán más diversas
+en suelo sin uso directo. B) Las biomasas de toda la comunidad y de cada gremio trófico serán mayores en suelos sin uso directo. C) Las pendientes del espectro de tamaños indicarán, 
+con valores cada vez más bajos, el impacto de la intensidad de uso del suelo en la comunidad y en los gremios tróficos. En suelos con alta intensidad de uso D) la estructura de la red trófica será menos compleja por el menor tamaño y número de enlaces, F) los flujos de energía disminuirán en toda la red y en los canales de energía y E) se modificarán las fuerzas de interacciones afectando el valor de estabilidad intrínseca de la red trófica 
+indicando el efecto de la intensidad de uso con redes tróficas menos estables.
 
 
-CAP3: Bajo este contexto, este capítulo describe las diferencias ambientales y las diferencias en la diversidad biológica de las comunidades edáficas halladas en suelos de la Pampa Ondulada bajo diferentes intensidades de uso. 
-Se espera suelos bajo diferente intensidades de uso tengan características ambientales diferentes entre sí y que la diversidad de la fauna edáfica disminuya con la intensidad
-de uso.
-
-CAP 4: Se espera que en función de la intensidad de uso del suelo tanto la comunidad
-como los gremios tróficos responda con disminuciones en la biomasa y 
-con pendientes del espectro de tamaño menores. Entonces sistemas de referencia donde la intensidad
-de uso del suelo es nula, las comunidades y sus gremios tróficos tendrán biomasas medias mayores
-y la pendiente del espectro de tamaños, con valores más cercanos a cero.
-
-CAP: 5 Por ello se plantea para este capítulo, la hipótesis que las redes tróficas de la fauna edáfica en
-los suelos sometidos a gran intensidad de uso 
-tendrán diferencias estructurales tornándolas menos complejas con un
-menor tamaño y número de enlaces, los flujos de energía disminuirán en toda la red
-y en los canales de energía y se modificarán las fuerzas de interacciones 
-afectando el valor de estabilidad intrínseca de la red trófica indicando de manera 
-integral el efecto de la intensidad de uso del suelo en relación con suelos sin uso.
 
 
 \newpage
-
+\thispagestyle{empty}
+\mbox{}
+\newpage
 
 
 
@@ -268,9 +277,9 @@ integral el efecto de la intensidad de uso del suelo en relación con suelos sin
 
 # Recursos tróficos de los microartrópodos edáficos: un revisión global de la evidencia empírica
 
-En las últimas décadas, el uso sostenible del suelo se ha convertido en el centro de atención tanto para la comunida científica como para los tomadores de decisiones. El informe sobre Biodiversidad Global y Servicios Ecosistémicos [@IPBES2019], y el reciente Estado del Conocimiento de la Biodiversidad del Suelo [@FAO2020] indican claramente la importancia del ecosistema del suelo y el papel central que la biodiversidad del suelo desempeña en los servicios ecosistémicos. Sin embargo, falta información crítica sobre la biodiversidad edáfica y las redes de interacción de la mayoría de los suelos [@potapov2023].
+En las últimas décadas, el uso sostenible del suelo se ha convertido en el centro de atención tanto para la comunidad científica como para los tomadores de decisiones. El informe sobre Biodiversidad Global y Servicios Ecosistémicos [@IPBES2019], y el reciente Estado del Conocimiento de la Biodiversidad del Suelo [@FAO2020] indican claramente la importancia del ecosistema del suelo y el papel central que la biodiversidad del suelo desempeña en los servicios ecosistémicos. Sin embargo, falta información crítica sobre la biodiversidad edáfica y las redes de interacción de la mayoría de los suelos [@potapov2023].
 
-La visión sobre la biota edáfica ha cambiado en los últimos años. La mayoría de los trabajos sobre descripciones taxonómicas, riqueza, estimación de la biodiversidad y microambientes [@anderson1978; @Petersen1982], destacan la fragilidad y necesidad de conservación de los suelos y de la biodiversidad edáfica [@FAO2020; @walker1992]. El enfoque se ha desplazado gradualmente hacia el estudio del funcionamiento del ecosistema edáfico, ya que las interacciones entre la biota y el medio edáfico afectan jerárquicamente a su estructura y funcionamiento [@barrios2007; @Behan-Pelletier1999; @brussaard1997; @lavelle2006]. Las relaciones de la riqueza de especies con la dinámica de los ecosistemas permiten establecer relaciones causales entre las características de los organismos presentes y los procesos y servicios del ecosistema [@Hooper2005; @martin-lopez2007] tanto en ambientes naturales como controlados [@wall2012].
+La visión sobre la biota edáfica ha cambiado en los últimos años. La mayoría de los trabajos sobre descripciones taxonómicas, riqueza, estimación de la biodiversidad y microambientes [@anderson1978; @Petersen1982], destacan la fragilidad y necesidad de conservación de los suelos y de la biodiversidad edáfica [@FAO2020; @walker1992]. El enfoque se ha desplazado gradualmente hacia el estudio del funcionamiento del ecosistema edáfico, ya que las interacciones entre la biota y el medio edáfico afectan jerárquicamente a su estructura y funcionamiento [@barrios2007; @Behan-Pelletier1999; @brussaard1997; @lavelle2006]. Las relaciones de la riqueza de especies con la dinámica de los ecosistemas permiten establecer relaciones causales entre las características de los organismos presentes y los procesos y servicios del ecosistema [@Hooper2005; @martin-lopez2007] tanto en ambientes naturales como modificados [@wall2012].
 
 Los microartrópodos del suelo están representados principalmente por especies pertenecientes a las subclases Acari y Collembola (siguiendo a @krantz2009 y @Hopkin1997) que habitan en los horizontes superiores del suelo [@Martinez2009], donde se desarrollan y mantienen comunidades complejas. Estas comunidades están influenciadas por una elevada heterogeneidad de microhábitats y el número de recursos tróficos disponibles [@anderson1977; @anderson1978; @lavelle2003], que proporcionan un amplio y variado conjunto de nichos ecológicos [@Nielsen2010; @Wallwork1958]. A través de sus relaciones tróficas los microartrópodos contribuyen al funcionamiento edáfico mediante la fragmentación de la materia orgánica, la dinámica del ciclo de nutrientes, el transporte de propágulos de microflora y la regulación de las poblaciones de microflora y microfauna que afectan a la producción primaria [@brussaard1997; @Cragg2001; @Lavelle1996; @wall2012; @FAO2020].
 
@@ -369,7 +378,7 @@ Los cálculos, gráficos y tablas se prepararon utilizando Microsoft Excel y el 
 
 ## Resultados
 
-De los 3208 documentos de investigación recuperados inicialmente, 200 cumplían con los criterios preestablecidos (véase ESM III). Un total de 133 artículos de las 200 publicaciones seleccionadas (ESM I) mencionaron los países en los que se realizaron los estudios. De ellos, 1 artículo se ubicó en la región Etíope, 3 en la región Neotropical, 3 en la región Oriental, 7 en la región Australiana, 34 en la región Neártica, 75 en la región Paleártica y los 10 restantes fueron de la región Antártica (Figura 2.1). Esto es importante destacar porque las especies varían en función de la región biogeográfica. Fueron 106 publicaciones las que mencionaron los ambientes en los que se realizaron los estudios, de ellos 59 eran bosques templados, 3 bosques tropicales, 21 praderas, 23 agroecosistemas y 11 desiertos.
+De los 3208 documentos de investigación recuperados inicialmente, 200 cumplían con los criterios preestablecidos (véase ESM III). Un total de 133 artículos de las 200 publicaciones seleccionadas (ESM I) mencionaron los países en los que se realizaron los estudios. De ellos, 1 artículo se ubicó en la región Etíope, 3 en la región Neotropical, 3 en la región Oriental, 7 en la región Australiana, 34 en la región Neártica, 75 en la región Paleártica y los 10 restantes fueron de la región Antártica (Figura 2.1). Esto es importante destacar porque las especies varían en función de la región biogeográfica. Las publicaciones que mencionaron a los ambientes fueron 106, de ellos 59 eran bosques templados, 3 bosques tropicales, 21 praderas, 23 agroecosistemas y 11 desiertos.
 
 
 ![](Figures/world_records.png){width=600 heigth=800}
@@ -464,7 +473,7 @@ La figura 2.4 representa la proporción de menciones de los recursos utilizados 
 
 Hasta la década de 1960, la fauna del suelo se consideraba constituida principalmente por las lombrices de tierra y los ecólogos terrestres consideraban la mayor parte de la fauna del suelo como una «caja negra» de descomponedores y detritívoros [@briones2014]. La información sobre los microartrópodos edáficos que se ha ido recopilando en las últimas décadas ha llegado a un punto en el que es necesario centrarse en trabajos integradores <!--[@Pautasso2013]-->. Sin embargo, la información disponible sigue siendo escasa y se limita sobre todo a los grupos más numerosos o conspicuos de los microartrópodos del suelo, y principalmente de suelos europeos. También hay que señalar que la información disponible para Acari y Collembola es fuertemente asimétrica, correspondiendo principalmente al orden Sarcoptiformes en Acari y a Arthropleona en Collembola. A pesar de la creciente cantidad de obras descriptivas y listas de grupos taxonómicos, la información disponible en todo el mundo sigue siendo en gran medida fragmentaria e incompleta, y la resolución taxonómica varía considerablemente entre las obras publicadas y dentro de ellas.
 
-En el caso de los microartrópodos del suelo, las pruebas aportadas por el trabajo de laboratorio resultaron el método tradicional directo más utilizado para determinar cómo utilizan estos animales los recursos tróficos, su comportamiento alimentario, sus preferencias alimentarias y su desarrollo y crecimiento en entornos controlados. Pero, los vínculos alimentarios observados en el laboratorio no son necesariamente relevantes para el campo [@Nielsen2018; @Potapov2022]. El método indirecto más utilizado fue aquel que relaciona la firma isotópica de los organismos con sus recursos. Esta herramienta desarrollada recientemente para estudiar las relaciones tróficas en el suelo resulta útil para detectar la importancia y los cambios en el tiempo o en el espacio de las supuestas relaciones tróficas, aunque implica la necesidad de establecer de antemano las relaciónes tróficas existentes. El principal inconveniente del método asignar erróneamente una relación trófica lo que distorsionaría las proporciones de las dietas con respecto a las relaciones tróficas reales. Por otro lado, este método tiene varias ventajas: 1) puede analizar un gran número de especies y una importante variedad de recursos [@Potapov2019], 2) puede aportar pruebas de interacciones reales ocurridas en el "campo", 3) puede proporcionar datos cuantitativos, que podrían ser considerados como fuerza de interacción, 4) puede proporcionar información sobre la asimilación y no sólo sobre la ingestión [@Nielsen2018]. Si bien, los diferentes métodos tienen distintas fuentes de error, los recursos tróficos utilizados por los microartrópodos del suelo pudieron deducirse por varios métodos debido a la complementariedad entre ellos [@Potapov2020; @Walter1991].
+En el caso de los microartrópodos del suelo, las pruebas aportadas por el trabajo de laboratorio resultaron el método tradicional directo más utilizado para determinar cómo utilizan estos animales los recursos tróficos, su comportamiento alimentario, sus preferencias alimentarias y su desarrollo y crecimiento en entornos controlados. Pero, los vínculos alimentarios observados en el laboratorio no son necesariamente relevantes para el campo [@Nielsen2018; @Potapov2022]. El método indirecto más utilizado fue aquel que relaciona la firma isotópica de los organismos con sus recursos. Esta herramienta desarrollada recientemente para estudiar las relaciones tróficas en el suelo resulta útil para detectar la importancia y los cambios en el tiempo o en el espacio de las supuestas relaciones tróficas, aunque implica la necesidad de establecer de antemano las relaciónes tróficas existentes. El principal inconveniente del método es asignar erróneamente una relación trófica lo que distorsionaría las proporciones de las dietas con respecto a las relaciones tróficas reales. Por otro lado, este método tiene varias ventajas: 1) puede analizar un gran número de especies y una importante variedad de recursos [@Potapov2019], 2) puede aportar pruebas de interacciones reales ocurridas en el "campo", 3) puede proporcionar datos cuantitativos, que podrían ser considerados como fuerza de interacción, 4) puede proporcionar información sobre la asimilación y no sólo sobre la ingestión [@Nielsen2018]. Si bien, los diferentes métodos tienen distintas fuentes de error, los recursos tróficos utilizados por los microartrópodos del suelo pudieron deducirse por varios métodos debido a la complementariedad entre ellos [@Potapov2020; @Walter1991].
 
 Los recursos más utilizados fueron los hongos saprófitos, la microfauna y las bacterias. Si los asociamos a sus características nutricionales, estos recursos tróficos son ricos en moléculas de gran valor nutritivo según se determina en las rutas alimentarias etiquetadas por ácidos grasos, isótopos estables, o los métodos enzimáticos [@Nielsen1962; @Potapov2019; @Ruess2010].
 
@@ -479,7 +488,8 @@ Por último, hay que llamar la atención sobre la necesidad de realizar más est
 Es evidente que es necesario llenar importantes vacíos en la información disponible para avanzar en el conocimiento sobre la estructura y el funcionamiento de las redes tróficas del suelo. No sólo hay varios grupos de microartrópodos poco explorados, sino que además la cobertura geográfica sigue siendo bastante reducida. Casi el 52% de los estudios publicados sobre los recursos tróficos de Acari y Collembola se desarrollaron en países europeos y América del Norte. Una mayor profundización en el conocimiento de las relaciones funcionales y tróficas de la fauna del suelo permitiría una evaluación precisa sobre el funcionamiento del ecosistema edáfico, la protección de los servicios ecosistémicos que proporcionan los microartrópodos del suelo y el uso sostenible del suelo.
 
 \newpage
-
+\thispagestyle{empty}
+\mbox{}
 \newpage
 
 
@@ -629,8 +639,11 @@ Las hormigas son insectos sociales. Al construir sus nidos modifican la estructu
 Los moluscos terrestres, caracoles y babosas, prefieren hábitats húmedos, con abundante cantidad de alimento y una fuente de calcio. Estos animales requieren de la presencia de humedad constante y tanto adultos como huevos no resisten la desecación extrema por lo que recurren a estrategias de evitación para tolerar condiciones de sequía. En general se define a los gastrópodos como herbívoros generalistas, pero estos son aquellos que viven y se alimentan en el sistema que se forma sobre el suelo, en el sistema detritívoro del suelo ellos consumen hongos, bacterias, tejido vegetal senescente y humus por lo que son considerados principalmente como microbívoros [@burch1990].
 
 \newpage
-
+\thispagestyle{empty}
+\mbox{}
 \newpage
+
+
 
 # Capítulo 3
 
@@ -681,7 +694,7 @@ de uso.
 
 Las comunidades de la fauna del suelo estudiadas en esta tesis provienen de dos conjuntos de datos, 
 a saber, fauna edáfica tomada en suelos del partido de Luján y fauna edáfica pertenecientes 
-a suelos de los partidos de Chivilcoy - Navarro (Tabla 3.1). 
+a suelos de los partidos de Chivilcoy - Navarro (Tabla 3.1; Apéndice 3). 
 En ambos casos se tomaron muestras en suelos con diferentes formas de uso y se consideraron estas 
 como diferentes grados en la intensidad de perturbación sobre el suelo.
 
@@ -791,7 +804,7 @@ Para describir las relación entre los taxones y los sitios de muestreo se reali
 
 ## Resultados
 
-### Caracterización química - biológica de los suelos de la Pampa Ondulada bajo diferentes intensidades de uso
+### Caracterización química - biológica de los suelos con diferentes intensidades de uso
 
 #### Correlaciones entre características químicas y biológicas
 
@@ -808,6 +821,8 @@ El nitrógeno se correlacionó además con el fósforo y la respiración heterot
 El fósforo no muestra correlación significativa con la respiración heterotrófica, con las demás variables mostró relaciones significativas pero con ninguna de las variables las correlaciones fueron $\rho$ \> 0,75.
 
 \newpage
+
+
 **Tabla 3.2.** Matriz de correlaciones de Spearman en suelos A) de Luján, B) de Chivilcoy - Navarro. 
 Valores de significancia en el triángulo superior, valor de correlación $\rho$ de Spearman 
 en triángulo inferior de la matriz.
@@ -840,7 +855,8 @@ Resp. = Respiración heterotrófica. H:B = relación hongos bacterias. Hojarasca
 \normalsize
 
 
-#### Relaciones de las variables químicas y biológicas en las diferentes intensidades de uso del suelo 
+#### Relaciones de las variables químicas y biológicas 
+
 
 En los suelos de Luján, los valores del pH (Tabla 3.3), no mostraron diferencias significativas (K-W p:H\<0.1) entre los sitios. En los suelos de Chivilcoy - Navarro existieron, para esta variables, diferencias significativas entre sitios (K-W p:H\<0.1) de los cuáles el pastizal naturalizado se diferenció de los demás sistemas de usos, 
 con un suelo más alcalino.
@@ -860,6 +876,7 @@ en la misma localidad. Los sitios se corresponden con las intensidades de uso de
 | Chivilcoy\- | N     | 7,5 ± 0,97^a^ | 4 ± 1,35   | 0,3 ± 0,06 | 10,5 ± 8,02     |
 | Navarro   | G     | 6 ± 0,47^b^   | 4,3 ± 1,29 | 0,3 ± 0,06 | 15,5 ± 12       |
 |           | A     | 5,8 ± 0,44^b^ | 4,3 ± 1,53 | 0,3 ± 0,05 | 15,6 ± 12,33    |
+
 \scriptsize
 Las valores sin letras indican que no se observaron diferencias significativas
 para la variable entre intensidades de usos del suelo.
@@ -889,12 +906,13 @@ para las mismas localidades. Los sitios se corresponden con los sistemas de uso 
 | Chivilcoy\- | N     | 0,086 ± 0,049^a^          | \-             | \-              |
 | Navarro   | G     | 0,07 ± 0,038 ^a^          | \-             | \-              |
 |           | A     | 0,051 ± 0,038^b^          | \-             | \-              |
+
 \scriptsize
 Las valores sin letras indican que no se observaron diferencias significativas
 para las mismas entre intensidades de usos del suelo.
 \normalsize
 
-#### Análisis de Componentes Principales (PCA) de las variables químicas y biológicas de suelos bajo diferentes intensidades de uso
+#### Análisis de Componentes Principales de las variables químicas y biológicas 
 
 El análisis multidimensional entre las variables químicas y biológicas observadas en los sitios de estudios
 en los suelos de Luján indicó que las primeras tres dimensiones poseen autovalores mayores a 1 y
@@ -911,7 +929,7 @@ en el lado positivo respectivamente.
 ![](Figures/Fig3-2.png){width=600 heigth=800}
 
 **Figura 3.2.** Biplot de componentes principales de las variables químicas y biológicas en suelos de Luján. 
-Los vectores representan las variables químicas y biológicas: pH = potencial de hidrogeniones. MO = porcentaje de materia orgánica. N = porcentaje de nitrógeno. P = fósforo asimilable en partes por millón. R-H = respiración heterotrófica en mg C-CO~2~/gr~suelo~.día. H/B = relación hongos/bacterias. Hoj = biomasa de hojarasca en g/m^2^. Los puntos indican los sitios de muestreos, los puntos de mayor tamaño indican el centroide que resume las características de los sistemas de uso del suelo. R: reserva, P: pastizal, L: agrícola
+Los vectores representan las variables químicas y biológicas: pH = potencial de hidrogeniones. MO = porcentaje de materia orgánica. N = porcentaje de nitrógeno. P = fósforo asimilable en partes por millón. R-H = respiración heterotrófica en mg C-CO~2~/gr~suelo~.día. H/B = relación hongos/bacterias. Hoj = biomasa de hojarasca en g/m^2^. Los puntos indican los sitios de muestreos, los puntos de mayor tamaño indican el centroide que resume las características de los sistemas de uso del suelo. R: reserva, P: pastizal, A: agrícola
 
 \vspace{1cm}
 
@@ -942,9 +960,9 @@ Los vectores que resumen la variabilidad de la materia orgánica y la respiraci�
 relaciones cercanas en el plano de componentes principales. Sus correlaciones son mayores con el segundo eje de coordenadas (r \< \|0,8\|) y menores con el primer eje (r \< \|0,3\|). Estos vectores 
 no estuvieron próximos a ninguno de los centroides sino que sus relaciones estuvieron relacionados a diferentes puntos en las tres intensidades de uso.
 
-### Diversidad de las comunidades de la fauna edáfica que habitan los suelos de la Pampa Ondulada bajo diferente formas de uso
+### Diversidad de las comunidades de la fauna edáfica que habitan suelos con diferentes intensidades de uso
 
-#### Diversidad alfa (α) en suelos : Riqueza de unidades taxonómicas
+#### Diversidad alfa (α): Riqueza de unidades taxonómicas
 
 En los suelos de Luján el máximo valor de la riqueza en unidades taxonómicas se halló en suelos del pastizal. 
 En suelos de Chivilcoy - Navarro la máxima riqueza de unidades taxonómicas fue mayor y similar 
@@ -978,7 +996,7 @@ mayores valores. En suelos de Chivilcoy - Navarro bajo sistemas antropizados los
 
 En suelos de la reserva se observó la mayor riqueza de macrofauna, seguida del pastizal y luego el sistema agrícola.
 
-#### Diversidad alfa (α) en suelos : Índice de Shannon-Wiener
+#### Diversidad alfa (α): Índice de Shannon-Wiener
 
 El índice de diversidad de Shanon-Wiener 
 no mostró diferencias significativas ($H : p_{_{valor}} < 0.1$) 
@@ -1005,9 +1023,10 @@ Cada columna indica el valor promedio más el desvío estándar de la diversidad
 \normalsize
 
 
-#### Análisis de similitudes de las comunidades que ocurren en suelos con diferentes intensidades de uso
+#### Análisis de similitudes de las comunidades de la fauna edáfica de los suelos con diferentes intensidades de uso
 
-El análisis de similitudes (ANOSIM) indicó que, en ambas localidades, existieron disimilaridades 
+El análisis de similitudes (ANOSIM) indicó que, 
+en ambas localidades, existieron disimilaridades 
 estadísticamente significativas ($R: p_{valor}<0.05$) entre las comunidades que habitan suelos 
 bajo diferente intensidades de uso. Los valores del estadístico que indican la proporción de disimilitud existente entre los grupos, es decir el grado de separación en la estructura de las comunidades halladas en los diferentes sistemas de uso del suelo en cada región de estudio, fueron 0,786 (Luján) y 0,11 (Chivilcoy - Navarro). Estos valores del estadístico
 indican que en suelos de Luján las comunidades de la fauna edáfica muestran importantes separaciones entre los sistemas de uso del suelo. Por su parte, las comunidades de microartrópodos y lombrices de suelos de Chivilcoy - Navarro fueron
@@ -1023,7 +1042,7 @@ y una situación de proximidad entre sitios del pastizal y la reserva; **b)** en
 
 
 
-#### Análisis de Componentes Principales (PCA) de las comunidades que ocurren en suelos  bajo diferentes sistemas de uso
+#### Análisis de Componentes Principales (PCA) de las comunidades de la fauna edáfica de los suelos con diferentes intensidades de uso
 
 La reducción de la variabilidad multidimensional entre la composición de las comunidades edáficas y los diferentes sistemas de uso del suelo, se resumío con las primeras dos dimensiones del análisis de componentes principales. Estas dos dimensiones resumieron respectivamente el 74,8 y el 77,1 por ciento de la variabilidad en suelos de Luján como en suelos de Chivilcoy - Navarro.
 
@@ -1069,6 +1088,8 @@ agrícola intensivo se correlacionaron los ácaros Prostigmata y los ácaros Sar
 **Figura 3.6.** Biplot de coordenadas principales de las unidades taxonómicas de la comunidad de la fauna edáfica ocurridas en suelos  de Chivilcoy - Navarro bajo diferentes sistemas de uso del suelo. Los vectores representan los sistemas de uso del suelo N = pastizal naturalizado, G = mixto agrícola-ganadero, A = agrícola intensivo, los números que los acompañan marcan la réplica. Los puntos claros indican cada uno de los taxones diferentes hallados en estos suelos, los puntos fuertes representa el centroide de los grupos taxonómicos cuyo símbolo y color representa a un grupo particular en función de una clasificación que refiere al tamaño, al taxón y a hábitos tróficos característicos. col = colémbolos, lom = lombrices de tierra, mes = mesostigmatas, ori = sarcoptiformes, pros = prostigmatas
 
 \newpage
+
+
 ## Discusión
 
 Las características químicas y biológicas de estos
@@ -1174,12 +1195,16 @@ information on the ecology of the species can be exploited to optimize the indic
 ator value of the microarthropod community. Pankurrst1997 Biological soil indicator -->
 
 \newpage
-
+\thispagestyle{empty}
+\mbox{}
 \newpage
+
+
 
 # Capítulo 4
 
-# Análisis de la distribución de tamaños y de la biomasa de la edafofauna de los suelos  de la Pampa Ondulada
+
+# Análisis de la distribución de tamaños y de la biomasa de la edafofauna de los suelos de la Pampa Ondulada
 
 Los organismos que viven en el suelo ocupan los espacios 
 formados entre la hojarasca que se acumula sobre la superficie 
@@ -1303,7 +1328,7 @@ siguen una distribución logarítmica normal (Apéndice 4.2).
 #### Análisis de la biomasa media
 
 Para el análisis de la respuesta de la **biomasa media** de cada gremio trófico en relación con los sistemas de manejo, se utilizó un modelo lineal multifactorial. El análisis siguió estos pasos: 
-Para el análisis de la respuesta de la **biomasa media** de cada gremio trófico en relación con los sistemas de manejo, se utilizó un modelo lineal multifactorial. El análisis siguió estos pasos:
+
 
 1.  Se aplicó el algoritmo “step” para simplificar el modelo completo, eliminando interacciones hasta obtener un modelo parsimonioso, seleccionando el de menor valor según el criterio de Akaike (AIC; Apéndice 4.3).
 
@@ -1321,17 +1346,25 @@ $$B_{ij} = \mu_0 + \text{S}_i + \text{G}_j + \text({S x G})_{ij} + \epsilon_i$$
 
 -   $\epsilon$ error aleatorio.
 
+\vspace{1cm}
+
 Los modelos obtenidos fueron para Luján:
 
 $$B_i = \mu_0 +  \text{G}_i + \epsilon_i$$
+
+\vspace{1cm}
 
 para Chivilcoy - Navarro:
 
 $$B_{ij} = \mu_0 + \text{S}_i + \text{G}_j + \text({S x G})_{ij} + \epsilon_i$$
 
+\vspace{1cm}
+
 2.  Se contrastaron las interacciones relevantes, es decir, comparaciones de un mismo gremio entre diferentes sistemas de uso. Por ejemplo, los cambios en la biomasa de los detritívoros en sistemas de mayor intensidad de uso en comparación con los de intensidad de uso nulo
 
 3.  Se realizaron pruebas a pares, corregidas mediante el método de Benjamini-Hochberg, para determinar el nivel de significancia de las interacciones, considerando un p~valor~ menor a 0.1.
+
+
 
 #### Análisis del espectro de tamaños
 
@@ -1368,12 +1401,19 @@ $$ D_{ijk}^{\;\;\tau} = \beta_0^{\;\;\tau} +  \beta_1^{\;\;\tau}m_i + \beta_0S_j
 -   $\beta_1(S\,x\,G)_{jk}^{\;\;\tau}$: Efecto del j-ésimo sistema de uso del suelo y del k-ésimo gremio trófico sobre la pendiente de regresión.
 -   $\epsilon^{\;\;\tau}$: error aleatorio del modelo de regresión de cuantiles.
 
+
+\vspace{1cm}
+
+
 El modelo final para Luján fue:
 
 
 $$ D_{ijk}^{\;\;\tau} = \beta_0^{\;\;\tau} + \beta_1^{\;\;\tau} + \beta_0S_j^{\;\;\tau} + \beta_0G_k^{\;\;\tau} + \beta_0\text(SxG)_{jk}^{\;\;\tau}  + \beta_1G_j^{\;\;\tau} + \epsilon^{\;\;\tau} $$
 
+\vspace{1cm}
+
 El modelo para Chivilcoy - Navarro resultó igual al modelo completo. Todos los análisis se realizaron con R 4.2.1 [@clauset2009; @crawley2013].
+
 \newpage
 
 
@@ -1551,6 +1591,8 @@ También se observó este fenómeno en algunos taxones de detritívoros y microf
 ![](Figures/Fig4-4.png){width=600 heigth=800}
 **Figura 4.4.** Distribución del peso corporal de los microartrópodos edáficos ocurridos en suelos  de Chivilcoy y Navarro. Se muestra sobre el eje horizontal la escala en logaritmo natural del peso corporal en microgramos de peso seco. Sobre el eje vertical se indica el taxón. Los colores representan al gremio trófico al cual pertenece el taxón
 \vspace{1cm}
+
+
 Los ácaros de la familia Acaroidea no se observaron en el sistema del pastizal naturalizado, esta familia muestra la mayor biomasa en el sistema mixto agrícola ganadero (Tabla 4.4).
 
 Entre los ácaros oribátidos detritívoros Euphtiracaroidea y Oripodoidea,
@@ -1582,7 +1624,11 @@ en el sistema agrícola intensivo, sin embargo las densidades más altas
 ocurrieron en el pastizal naturalizado.
 
 \newpage
+
+
 ### Análisis de la Biomasa Media de los gremios tróficos de las comunidades de la fauna edáfica de suelos  de la Pampa Ondulada
+
+
 
 #### Suelos de Luján
 
@@ -1605,6 +1651,7 @@ en estos suelos la biomasa media se estimó alrededor de ≈163 mg~p.s.~.m^-2^ (
 
 
 #### Suelos de Chivilcoy - Navarro
+
 
 En los suelos de Chivilcoy - Navarro la biomasa media de los microartrópodos edáficos se explicaron por los efectos del sistema de uso del suelo, por el efecto de los gremios tróficos y por interacciones entre los gremios tróficos y los sistemas de uso (algoritmo *step* Apéndice 4.3).
 
@@ -1683,6 +1730,8 @@ Con excepción de los depredadores cuya densidad es baja ($8100\,ind/m^2$) en to
 **Figura 4.9.** Regresión de cuantiles ($\tau$ = 0,75) entre el peso corporal y la densidad de los taxones de gremios tróficos de microartrópodos ocurridos en diferentes intensidades
 de uso en suelos de Chivilcoy - Navarro. Los ejes de coordenadas expresan los valores de peso corporal (ug~peso seco~) y de la densidad (nº individuos/m^2^) en logaritmo natural. Se dibuja un plano de coordenadas (cada subdivisión del gráfico) por gremio trófico. Se dibuja una línea de regresión por cada sistema de uso del suelo, A: agrícola, G: mixto agrícola-ganadero, N: pastizal naturalizado. Los colores de los puntos indican diferentes taxones
 \vspace{1cm}
+
+
 La variación de cada gremio trófico sobre el intercepto fue diferente significativamente. Con el mayor valor, los detritívoros y omnívoros compartieron valores de interceptos similares, siguen a estos los microfitófagos y los depredadores. La variación de los sistemas de uso del suelo sobre el intercepto no resultó diferente significativamente. Al nivel de las interacciones sobre el intercepto, esto es combinaciones sistemas de uso del suelo - gremios, y considerando variaciones dentro de los gremios tróficos entre sitios, solo se reportan diferencias estadísticamente significativas para el gremio de los detritívoros. Los microartrópodos detritívoros del sistema agrícola y del sistema mixto compartieron interceptos similares ($\approx 9414\,ind/m^2$) y se diferenciaron del sistema del pastizal naturalizado cuyo intercepto resultó menor en ($dif \approx\,1,16$) órdenes de magnitud (Apéndice 4.4).
 
 Entre los sistemas de uso del suelo no se observaron efectos significativos sobre la pendiente de la regresión de cuantiles. Con respecto a los gremios tróficos existieron diferencias significativas sobre las pendientes que de menor a mayor se ordenó como omnívoros, detritívoros, microfitófagos y depredadores. Al nivel de las interacciones, tomando en consideración solo aquellas que ocurren dentro de los gremios tróficos de microartrópodos edáficos entre los diferentes sistemas de uso del suelo, se observó que los detritívoros del sistema agrícola y del sistema mixto no se diferenciaron entre sí 
@@ -1693,7 +1742,11 @@ entre usos del suelo, el valor de la pendiente fué $m \approx-0.4$.
 Los omnívoros observaos en el sistema mixto agrícola-ganadero (Fig. 4.9) tuvieron una pendiente positiva ($m = 0.65$), por lo que omnívoros de mayor peso son más abundantes en el sistema mixto, para los demás sistemas de uso las pendientes no se diferenciaron de la constante por lo que a
 diferentes pesos corporales comparten densidades similares. Los depredadores en cada sistema de uso del suelo no mostraron pendientes diferentes significativamente de cero, lo que implica que las abundancias de los depredadores es similar para cada peso corporal medio en cada sistema de uso del suelo (Apéndice 4.4).
 \newpage
+
+
 ## Discusión
+
+
 
 El espectro de pesos corporales de la comunidad edáfica abarcó
 desde pequeños organismos como los nemátodos fitófagos hasta 
@@ -1794,9 +1847,13 @@ para comprender hasta qué punto estas relaciones en toda la comunidad se
 mantendrán similares entre diferentes intensidades de uso del suelo y 
 como se afectarán los procesos ecosistémicos mediados por la fauna edáfica.
 
-\newpage
 
 \newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+
+
 
 # Capítulo 5
 
@@ -1884,6 +1941,8 @@ El objetivo de este capítulo es utilizar la teoría de las redes tróficas para
 y determinar el valor de la estabilidad estructural intrínseca 
 de las redes tróficas de las comunidades edáficas halladas en suelos
 de la Pampa Ondulada bajo diferentes intensidades en el uso.
+
+
 \newpage
 
 
@@ -1980,6 +2039,8 @@ Para determinar si las diferencias en las distribuciones del índice de estabili
 Se utilizó el paquete ["multiweb"](https://github.com/lsaravia/multiweb) [@saravia2022] para calcular las métricas de topología, las fuerzas de interacciones y el la distribución del QSS de las redes tróficas, además se utilizó el paquete ["fluxweb"](https://bit.ly/2OC0uKF) [@gauzens2018a] para calcular los flujos de energía y también se utilizaron paquetes complementarios para manejo de datos y la comparación estadística de los parámetros calculados, todos ellos implementados en R. 
 
 \newpage
+
+
 ## Resultados
 
 ### Representación 
@@ -2060,6 +2121,8 @@ plot_troph_level(A_net,modules=FALSE,vertexLabel = TRUE, tk = FALSE,main="agríc
 
 
 \newpage
+
+
 
 ### Índices topológicos
 
@@ -2394,6 +2457,8 @@ soporta vegetación arbórea, por lo tanto con dinámicas en la autoregulación 
 
 \newpage
 
+
+
 ## Discusión
 
 Se ha construido las redes tróficas de la fauna edáfica en 
@@ -2590,6 +2655,10 @@ soporta vegetación arbórea, por lo tanto con dinámicas en la autoregulación 
 (e.g., limit cycle and chaotic attractors) and a system that is not stable
 in the neighbourhood of a local equilibrium might nevertheless persist
 when faced with perturbations over relatively long-­time scales. 10.1002/ece3.8278 de Castro et al (2021)-->
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
 \newpage
 
 
@@ -2646,7 +2715,7 @@ fue construir y modelar las redes de interacciones
 tróficas de la fauna edáfica en suelos bajo diferentes intensidades de uso 
 en la Pampa Ondulada y a través de sus métricas evaluar su efecto sobre la 
 estructura y funcionalidad de las mismas. Como las redes tróficas 
-integran diferentes atributos de la comunidad y sus interacciones 
+integran diferentes atributos de la comunidad, 
 fue posible ademas explorar los efectos sobre la diversidad, 
 el espectro de tamaños, la estructura de las redes, los flujos de energía
 y la estabilidad de las redes. 
@@ -2686,8 +2755,8 @@ comunidades y por lo tanto a las redes tróficas.
 Por ello, en el capítulo 3 se exploró sobre las características ambientales
 y sobre la diversidad en las comunidades de la fauna edáfica en suelos
 bajo diferente intensidades de uso. Se encontró que los suelos con
-diferentes intensidades de uso poseen características ambientales particulares:
-los suelos sin uso presentaron una mayor actividad heterotrófica asociados con
+diferentes intensidades de uso poseen características ambientales particulares.
+Los suelos sin uso presentaron una mayor actividad heterotrófica asociados con
 el contenido de materia orgánica y valores de pH más altos, 
 por su parte, los suelos con una alta intensidad de uso
 tuvieron valores de acidez más altos acompañados de concentraciones mayores 
@@ -2725,7 +2794,7 @@ de la distribución de los pesos corporales, los pesos corporales promedios, las
 densidades y las biomasas medias de los taxones hallados en los diferentes 
 usos del suelo. Esta información es requisito para calcular los flujos de energía 
 que recorren la red trófica en los suelos bajo estudio. Se observaron respuestas
-que sugieren adaptaciones a los diferentes uso del suelo. 
+que sugieren adaptaciones de diferentes taxones a diferentes usos del suelo. 
 Además, para
 integrar la información recopilada, y ajustándose a lo comentado en el 
 párrafo anterior, los objetivos 
@@ -2770,18 +2839,18 @@ alejado de la situación de equilibrio.
 
 Se encontró que 
 las redes tróficas tuvieron tamaños y conectividades diferentes 
-para cada sistema de manejo, en este punto, las diferencias en la 
+para cada sistema de manejo. En este punto, las diferencias en la 
 estructura de la comunidad observadas en el capítulo tres se complementan 
 con las interacciones tróficas. Contrario a lo esperado no se observaron grandes
 diferencias en los índices topológicos calculados, sin embargo, 
-la complejidad fue menor en sistemas sin uso del suelo, pero c
-on más especies topes y 
+la complejidad fue menor en sistemas sin uso del suelo, pero 
+con más especies topes y 
 una mayor amplitud en la dieta, por lo tanto relacionándose con
 una mayor presión de 
 depredación y una mayor robustez ante el impacto de los disturbios [@thompson2018;@fath2004;@polis1996]. Además, los índices topológicos
 que resumen las características de la estructura trófica se mantuvieron similares
 al considerar redes tróficas parciales y completas, lo cuál está relacionado con 
-la reticularidad (redes incluidas en las redes) en las redes tróficas del suelo [@wolkovich2016]. 
+la reticularidad, es decir, redes incluidas en las redes [@wolkovich2016]. 
 
 Los flujos de la energía fueron similares 
 en los suelos de Chivilcoy - Navarro, pero difirieron en suelos de Luján. 
@@ -2791,11 +2860,11 @@ lo cuál podría afectar a la dinámica de las funciones ecosistémicas
 mediada por la fauna del suelo. A través de los canales de energía se observó que,
 los componentes considerados en el análisis pueden reposicionar la 
 importancia del canal de la energía con relación al flujo total, 
-específicamente, al no considerar la macrofauna en la detritivoría 
-el canal cambió su posición. También se observó que la zoofagia tiende a 
+específicamente, al no considerar la macrofauna 
+la importancia de la detritivoría cambió. También se observó que la zoofagia tiende a 
 ser llevada por los omnívoros más que por los verdaderos 
-depredadores aunque con una relación casi uno a uno, sin embargo en suelo 
-sin uso en Luján la contribución de los depredadores fue mínima. 
+depredadores aunque con una relación cercana al uno a uno, en contraste,
+en el suelo sin uso en Luján la contribución de los depredadores fue mínima. 
 De estos últimos hallazgos se puede deducir que, para realizar 
 estudios sobre diversos suelos es necesario considerar todos 
 los componentes posibles de la fauna edáfica o 
@@ -2818,6 +2887,7 @@ tres sistemas están en equilibrio con su propio régimen de perturbación.
 Esto configura probablemente 
 diferentes estados estables alternativos [@beisner2003].
 
+
 En resumen, se evaluaron las redes tróficas de la 
 fauna edáfica en suelos de la Pampa Ondulada
 que se encontraban bajo diferentes intensidades de uso. Los suelos
@@ -2827,19 +2897,26 @@ las adaptaciones a dichos suelos. Aparentemente, las comunidades analizadas
 resultaron resilientes, ya que mantuvieron los valores de la diversidad, 
 de las biomasas, de la relación del espectro de tamaños, de las métricas topológicas 
 y del índice de estabilidad en valores próximos entre sí. Estas respuestas, 
-podrían estar vinculadas con la redundancia funcional característica de la fauna edáfica [@bardgett2002], lo que permite a las comunidades mantener su estructura funcional y capacidad de procesamiento de materia y energía. Sin embargo, el funcionamiento ecosistémico en 
-suelos con alta intensidad de uso podría estar en riesgo al afectar fuertemente 
-los procesos tróficos en la fauna del suelo.
+podrían estar vinculadas con la redundancia funcional característica de la fauna edáfica [@bardgett2002], lo que permite a las comunidades mantener su estructura funcional.
+Sin embargo, el funcionamiento ecosistémico en 
+suelos con alta intensidad de uso podría estar en riesgo al afectarse
+fuertemente los procesos tróficos y por lo tanto la
+capacidad de procesamiento de materia y energía. 
 
 Los resultados indican comunidades adaptadas 
 tanto a diferentes coberturas vegetales como a 
-diferente intensidad de disturbio antrópico, lo que configura probablemente 
+diferente intensidad de disturbio antrópico. Estas comunidades 
+configuran probablemente 
 diferentes estados estables alternativos [@beisner2003],
-con una estructura funcional robusta que mantiene los procesos tróficos 
-aunque con la potencial pérdida de la capacidad de mantener 
-las funciones ecosistémicas ante la alteración de los flujos de energía [@de2012].
+con una estructura funcional robusta cuyos procesos tróficos,
+ante la alteración de los flujos de energía,
+indican la potencial pérdida en la capacidad de mantener 
+las funciones ecosistémicas [@de2012].
 
-Cabe destacar, que en las comunidades de la fauna edáfica, centrarse únicamente en parámetros como la diversidad o la biomasa podría ocultar los efectos de los disturbios debido a la resiliencia inherente de estas comunidades. En cambio, el análisis de los parámetros topológicos y los flujos de energía a través de las redes tróficas ofrece información más relevante y detallada sobre el comportamiento y funcionamiento de los ecosistemas, permitiendo una evaluación más precisa de los impactos derivados de las diferentes prácticas de manejo.
+Cabe destacar, que en las comunidades de la fauna edáfica, centrarse únicamente en parámetros como la diversidad o la biomasa podría ocultar los efectos de los disturbios debido a la resiliencia inherente de estas comunidades. En cambio, el análisis de los parámetros topológicos y los flujos de energía a través de las redes tróficas ofrece información 
+relevante y detallada sobre el comportamiento y funcionamiento de los ecosistemas, 
+permitiendo una evaluación más precisa de los impactos derivados 
+de las diferentes prácticas de manejo.
 
 Finalmente, observar comunidades adaptadas a 
 los diferentes sistemas de manejo con una estructura robusta
@@ -2856,10 +2933,10 @@ estamos observando comunidades adaptadas a cierto régimen de funcionamiento,
 que hipotéticamente, podrían estar dirigiéndose hacia nuevos estados estables alejados 
 de las condiciones originales o que ya se encuentran funcionando en dicho estado estable.
 
-
 \newpage
-
-
+\thispagestyle{empty}
+\mbox{}
+\newpage
 
 # Bibliografía
 
@@ -2869,8 +2946,9 @@ de las condiciones originales o que ya se encuentran funcionando en dicho estado
 
 
 \newpage
-
-
+\thispagestyle{empty}
+\mbox{}
+\newpage
 
 
 
@@ -2900,11 +2978,21 @@ de las condiciones originales o que ya se encuentran funcionando en dicho estado
 
 -   "Recursos tróficos de la mesofauna edáfica: Una revisión de la evidencia empírica". XXIX Reunión Argentina de Ecología. Agosto 2021.
 
-\newpage
+
 
 \newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+
+
 
 # Apéndice
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
 
 # Apéndice del capítulo 2
 
@@ -2936,32 +3024,94 @@ Preimpresión <https://doi.org/10.1101/2021.02.06.430061>
 
 
 \newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+
+
+
 # Apéndice del capítulo 3
+
+## Apéndice 3.1
 
 <!--mosaico del muestreo-->
 
-Historia de uso del suelo del Lote Agrícola en Luján. <!--(Resumido con IA.) -->
+**Suelos de Luján**
 
-La historia de uso del suelo del Potrero 2, de 8 hectáreas, muestra una intensa actividad agrícola y ganadera desde 1984 hasta 2022. Durante este período, se realizaron múltiples labores de preparación del suelo, tales como arado, rastra, cincel y disco, a menudo combinadas con fertilización y pulverización con herbicidas. Se sembraron diversos cultivos, incluyendo moha, alfalfa, trébol blanco, trébol rojo, festuca, maíz, avena y raigrás, junto con algunos ciclos de pastoreo intensivo.
+Lote Agrícola: Con una superficie de 8 hectáreas, muestra una intensa actividad agrícola y ganadera desde 1984 hasta 2022. Durante este período, se realizaron múltiples labores de preparación del suelo, tales como arado, rastra, cincel y disco, a menudo combinadas con fertilización y pulverización con herbicidas. Se sembraron diversos cultivos, incluyendo moha, alfalfa, trébol blanco, trébol rojo, festuca, maíz, avena y raigrás, junto con algunos ciclos de pastoreo intensivo.
 
-Desde 1984, las rotaciones y cultivos fueron variadas, con un enfoque en pasturas, maíz para silo, y avena, con la inclusión de fertilizantes como FDA, urea y SPT para mejorar la productividad. A partir de 1999, se observa la implementación de técnicas de labranza reducida y un manejo más enfocado en cultivos forrajeros como raigrás y alfalfa. Durante los últimos años, se continuó con la fertilización y el uso de herbicidas para controlar malezas y optimizar los rendimientos. La rotación de cultivos y la fertilización con urea y SPT fueron constantes a lo largo de los últimos años, asegurando una adecuada productividad y conservación del suelo.
+Desde 1984, las rotaciones y cultivos fueron variadas, con un enfoque en pasturas, maíz para silo, y avena, con la inclusión de fertilizantes como FDA, urea y SPT para mejorar la productividad. A partir de 1999, se observa la implementación de técnicas de labranza reducida y un manejo más enfocado en cultivos forrajeros como raigrás y alfalfa. Durante los últimos años, se continuó con la fertilización y el uso de herbicidas para controlar malezas y optimizar los rendimientos. La rotación de cultivos y la fertilización con urea y SPT fueron constantes a lo largo de los últimos años, buscando una adecuada productividad y conservación del suelo.
 
-En resumen, la gestión del suelo incluyó un manejo intensivo que combinó prácticas de cultivo y pastoreo con técnicas de fertilización y control de malezas, con el objetivo de mantener la productividad y la calidad del suelo a largo plazo.
+
+**Suelos Chivilcoy-Navarro**
+
+
+-   Pastizales naturalizados: pastizales abandonados sin influencia antrópica
+directa significativa por al menos 50 años. Son campos cuya vegetación
+predominante es Festuca pratensis, Stipa spp, Cardo negro (Cirsium vulgare) y
+duraznillo (Solanum laucophylumm).
+
+-   Sistema mixto agrícola-ganadero: con 25 años bajo pastoreo continuo con alta carga animal y
+dos años antes de comenzar este estudio (2007), rotó a la producción de pasturas
+(fardos de avena, maíz y sorgo) para feedlot. El cambio en el sistema de producción
+involucró el uso de equipamiento (subsolador) el cual trabaja a mayor profundidad
+en el perfil del suelo, con el objetivo de descompactar el mismo. Se utiliza siembra
+directa, ya que la zona no permite otro método por el escaso drenaje. Se aplican
+herbicidas (glifosato, dicamba para hoja ancha y 2,4 D) y fertilizantes (fosfato de
+amonio y urea).
+En estos campos se realizan prácticas de conservación, tales como el respetar
+las rotaciones e incorporar los restos de cosecha al suelo. Esta incorporación aporta
+materia orgánica e incide directamente sobre la estructura del suelo y su estabilidad e
+indirectamente a través de la incorporación de alimento para la biota edáfica y así,
+sobre el ciclado de nutrientes. En todos los campos, se hizo algo de movimiento de
+suelos: varios canales, se diseñaron y armaron lotes, se taparon pozos de caminos de
+ganado, etc. En algún momento se hicieron rollos de rastrojos, pero se decidió no
+realizar más esta práctica, porque se prefiere incorporarlo para darle estructura al
+suelo.
+
+
+-   Sistema agrícola intensivo: bajo agricultura intensiva continúa por 50 años y bajo siembra
+directa durante los 18 años anteriores al inicio de los muestreos. La principal rotación
+utilizada es maíz-trigo-soja, con siembra directa, control químico de las malezas y se
+caracteriza por un alto volumen de residuos de cosecha de superficie. Durante la
+temporada de cultivo, se utiliza maquinaria pesada y se realizan aplicaciones de
+insecticidas, herbicidas y fertilizantes. Primero se aplican herbicidas para hacer control
+de malezas, luego se siembra (siembra directa), a veces se realiza otra aplicación de
+herbicida y/o insecticida según necesidad y luego se cosecha.
+Se utiliza soja transgénica y maíz bt para barrenador, se realiza fertilización en línea e
+inoculación, es decir, se aplica la tecnología normal para la siembra directa, buscando
+los mejores rindes. La soja se fertiliza al inicio del ciclo con mezcla de fertilizantes que
+contienen fósforo, nitrógeno, calcio y azufre. En soja y maíz y a veces en el trigo se
+fertiliza en la siembra, y en el macollaje a veces se hace una aplicación de urea para
+aporte adicional de nitrógeno.
+
+
+Abajo se muestran los sitios de muestreo donde se tomaron las comunidades de la fauna edáfica trabajadas en los suelos de Chilcoy-Navarro (Amarillo) y Luján (Rojo)
+
+![]("Figures/Ap_cap3.png"){heigth=1000 width=830}
 
 \newpage
-
+\thispagestyle{empty}
+\mbox{}
 \newpage
 
-\newpage
+
 
 # Apéndice del capítulo 4
 
-```{=html}
-<!-- Definición y Concepto
-Los rasgos funcionales son atributos morfológicos, fisiológicos o fenológicos de los organismos que afectan su demografía, es decir, su establecimiento, crecimiento, supervivencia y fecundidad 
-. Estos rasgos determinan la eficacia biológica de los organismos y su éxito bajo determinadas condiciones ambientales -->
-```
+
 ## Apéndice 4.1
+
+
+![]("Figures/Ap_cap4.png"){heigth=1000 width=830}
+
+
+Protocolo para obtener las mediciones morfométricas de la fauna edáfica.
+Una vez obtenida la imagen con escala de referencia, se carga la misma al
+la aplicación ImageJ, se ajusta la escala, se mide el segmento y se exporta 
+el valor en hojas de datos.
+
+
 
 ### Ecuaciones morfométricas para estimar el peso corporal de la fauna edáfica
 
@@ -3404,6 +3554,11 @@ summary(rq(formula = log(abundance) ~ (system + guild + log(bio.ind))^3,
     tau = 0.75, data = base))
 ```
 
+
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
 \newpage
 
 
