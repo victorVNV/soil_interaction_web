@@ -431,7 +431,7 @@ body_unlu%>%filter(clase_tam=="macro"&body_unlu$taxa
   ggplot(aes(x=log(body_mass), y=Taxón, fill=Gremio)) + 
   geom_density_ridges(rel_min_height = 0.001,scale = 2.5)+ 
   scale_fill_viridis_d(alpha = 0.8)+
-  facet_grid(.~sitio)+
+  facet_grid(.~Sistema)+
   labs(x= 'Peso corporal en ln ug/m^2',y=NULL)
 
 ```
@@ -522,10 +522,10 @@ baseU%>%mutate( gremio = factor(gremio, levels = c("detritivoro","microfitofago"
 ```{r qrplot_RO, fig.align = "center", echo=FALSE,warning=FALSE,message=FALSE}
 
 
-base%>%mutate( gremio = factor(guild, levels = c("detritivore","microphytophages",
+base%>%mutate( Sitio= factor(system),gremio = factor(guild, levels = c("detritivore","microphytophages",
                                                       "omnivore","predator")
-                                   ,labels=c("Detritívoros","Microfitófagos","Depredadores","Omnívoros")))%>%
-  ggplot(aes(x=log(bio.ind),y=log(abundance),color=system))+
+                                   ,labels=c("Detritívoros","Microfitófagos","Omnívoros","Depredadores")))%>%
+  ggplot(aes(x=log(bio.ind),y=log(abundance),color=Sitio))+
   geom_point(size=1.1,shape=8,color=as.numeric(as.factor(base$specie)))+
   geom_quantile(quantiles = 0.75, size=1.5) +
   scale_color_viridis_d()+facet_grid(gremio~.)+ 
