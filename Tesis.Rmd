@@ -253,9 +253,9 @@ Por el potencial para integrar las características antes mencionadas, Potapov [
 Para construir y modelar las reded tróficas de la fauna del suelo es necesario, identificar las comunidades que habitan los ecosistemas de interés y construir la matriz de interacciones a partir de la información sobre los recursos tróficos que conforman la dieta de la fauna [@delmas2019]. Luego, para estimar las fuerzas de interacción y calcular los flujos de energía se deben obtener datos sobre el peso corporal y las abundancias de los taxones involucrados [@laigle2018;@deruiter1995;@potapov2022; @barnes2018]. Con esta información es posible calcular la resiliencia y estabilidad de las redes tróficas en los sistemas estudiados [@moore2012; @allesina2008; @gauzens2019].
 
 En este contexto, el objetivo de la tesis es construir las redes tróficas de la fauna edáfica
-que ocurren en suelos bajo diferentes intensidades de uso en la Pampa Ondulada Argentina, para analizar las características funcionales de las comunidades edáficas y su estabilidad
-como aproximación para la provisión de herramientas que permitan evaluar el estado de conservación
-del suelo. En particular, busca caracterizar la diversidad de las comunidades edáficas, las variaciones del peso corporal y de la densidad de los taxones que definen al espectro de tamaños [@petchey2010], y comparar la estructura de las redes tróficas en suelos  de la Pampa Ondulada bajo diferentes intensidades de uso. El estudio se centra en comunidades de la fauna que habita suelos sometidos a distintas estrategias de uso, como una aproximación a las diferentes intensidades de perturbación: a) suelos sin uso agropecuario, como pastizales naturalizados sin intervención por más de 50 años o lotes clausurados por más de 30 años, que servirán como sistemas de *referencia*; b) suelos de uso pastoril destinados al forraje para ganado, considerados de uso *intermedio* o leve; y c) suelos con actividad agrícola continua, caracterizados por una *alta* intensidad de uso.
+que ocurren en suelos bajo diferentes intensidades de uso en la Pampa Ondulada Argentina, para analizar las características funcionales de las comunidades edáficas y su estabilidad.
+Estas podrían servir como herramientas que permitan evaluar el estado de conservación
+del suelo desde el punto de vista del funcionamiento ecosistémico. En particular, busca caracterizar la diversidad de las comunidades edáficas, las variaciones del peso corporal y de la densidad de los taxones que definen al espectro de tamaños [@petchey2010], y comparar la estructura de las redes tróficas en suelos  de la Pampa Ondulada bajo diferentes intensidades de uso. El estudio se centra en comunidades de la fauna que habita suelos sometidos a distintas estrategias de uso, como una aproximación a las diferentes intensidades de perturbación: a) suelos sin uso agropecuario, como pastizales naturalizados sin intervención por más de 50 años o lotes clausurados por más de 30 años, que servirán como sistemas de *referencia*; b) suelos de uso pastoril destinados al forraje para ganado, considerados de uso *intermedio* o leve; y c) suelos con actividad agrícola continua, caracterizados por una *alta* intensidad de uso.
 
 Como las prácticas de manejo producen disturbios en los primeros centímetros de la matriz órgano-mineral, hábitat de la mayor biodiversidad edáfica, la hipótesis es que el impacto de las prácticas de manejo afectarán diferencialmente propiedades de la comunidad relacionadas con el funcionamiento ecosistémico, el efecto sobre estas propiedades será mayor en función de la intensidad de uso. En particular, A) las comunidades de la fauna edáfica serán más diversas
 en suelo sin uso directo. B) Las biomasas de toda la comunidad y de cada gremio trófico serán mayores en suelos sin uso directo. C) Las pendientes del espectro de tamaños indicarán, 
@@ -1953,7 +1953,7 @@ la hipótesis que las redes tróficas de la fauna edáfica en
 los suelos sometidos a gran intensidad de uso 
 tendrán diferencias estructurales tornándolas menos complejas con un
 menor tamaño y número de enlaces, los flujos de energía disminuirán en toda la red
-y en los canales de energía y se modificarán las fuerzas de interacciones 
+y en los canales de energía. También se modificarán las fuerzas de interacciones 
 afectando el valor de estabilidad intrínseca de la red trófica indicando de manera 
 integral el efecto de la intensidad de uso del suelo en relación con suelos sin uso.
 
@@ -2444,16 +2444,11 @@ se muestran mil iteraciones del máximo autovalor de la matriz Jacobiana obtenid
 \vspace{1cm}
 
 El promedio e intervalo de confianza del 95% de la parte real del máximo autovalor
-(λ del QSS) en los suelos de la comunidad de la reserva fue de 0,445 
-(0,419 - 0,472)<!-- `r exp(Q_med_R)`-->, en el sistema del pastizal fue de 0,373 
-(0,349 - 0,398)<!--r exp(Q_med_P)`--> y el sistema agrícola agrícola fue de 0,334
+(λ del QSS) en los suelos de la comunidad de la reserva (intensidad nula) fue de 0,445 
+(0,419 - 0,472)<!-- `r exp(Q_med_R)`-->, en el sistema del pastizal (intensidad leve) fue de 0,373 
+(0,349 - 0,398)<!--r exp(Q_med_P)`--> y el sistema agrícola (intensidad alta) fue de 0,334
 (0,31 - 0,361) <!--`r exp(Q_med_L)`-->.
 
-
-En los diferentes sistemas de uso del suelo la mediana y la moda fueron
-0,481-0,432; 0,404-0,396; 0,347-0,404 para los sistemas de uso del suelo de 
-con intensidad nula (reserva), intensidad leve (pastizal) e intensidad alta 
-(agrícola intensivo) respectivamente.
 
 Teóricamente, las redes tróficas con el índice QSS más cercano a cero 
 indican que las comunidades requieren de una menor autoregulación
@@ -2475,7 +2470,7 @@ soporta vegetación arbórea, por lo tanto con dinámicas en la autoregulación 
 
 ## Discusión
 
-Se ha construido las redes tróficas de la fauna edáfica en 
+Se han construido las redes tróficas de la fauna edáfica en 
 suelos de la Pampa Ondulada sometidos a diferentes intensidades de uso.
 Estas al ser graficadas con la participación de cada uno 
 de los taxones encontrados en los diferentes suelos
@@ -2483,7 +2478,7 @@ mostraron la multiplicidad de interacciones potenciales
 revelando un entramado complejo de 
 interacciones que aparentemente no varió entre sistemas de uso del suelo.
 
-Un aspecto destacado es el alto porcentaje de omnivoría, lo que indica que muchos taxones se alimentan de más de un nivel trófico, tal como lo describen Digel et al. [-@digel2014] quienes caracterizan a la fauna edáfica como consumidores oportunistas con un bajo nivel de especialización dietaria. En este contexto, un porcentaje más alto de omnivoría indica una mayor diversidad en las fuentes alimenticias de los organismos, lo que contribuye a la estabilidad de la red trófica al proporcionar redundancia funcional y permitir la adaptación a fluctuaciones en la disponibilidad de recursos [@thompson2007; @stouffer2011]. Comparados con otras redes, estos valores son relativamente altos. En redes marinas y de agua dulce, los niveles de omnivoría suelen rondar entre el 50% y el 60% [@williams2004]. En ecosistemas terrestres, el porcentaje es más variable, pero niveles similares se encuentran en sistemas agrícolas o pastoriles, donde la omnivoría está relacionada con la diversidad de recursos [@polis1996]. El mayor porcentaje de omnivoría en sistemas sin uso antrópico sugiere una mayor diversidad de interacciones tróficas, asociada con una mayor estabilidad frente a perturbaciones externas, como se observa en redes naturales [@thompson2007]. Por otro lado, el elevado porcentaje de omnivoría (>70%) en redes detritívoras está vinculado a la alimentación oportunista y a la redundancia funcional de la fauna edáfica. Por ejemplo, los omnívoros zoófagos pueden alimentarse de microfauna, descomponedores secundarios o microflora. Los depredadores generalistas también consumen recursos en más de un nivel trófico [@Heidemann2014a]; por ejemplo, algunos miriápodos pueden depredar tanto nemátodos grandes como mesofauna y macrofauna más pequeña.\footnote{se refiere a los sínfilos y los geofilomorfos para más detalles y ejemplos ver Capítulo 2}.
+Un aspecto destacado es el alto porcentaje de omnivoría, lo que indica que muchos taxones se alimentan de más de un nivel trófico, tal como lo describen Digel et al. [-@digel2014] quienes caracterizan a la fauna edáfica como consumidores oportunistas con un bajo nivel de especialización dietaria. En este contexto, un porcentaje más alto de omnivoría indica una mayor diversidad en las fuentes alimenticias de los organismos, lo que contribuye a la estabilidad de la red trófica al proporcionar redundancia funcional y permitir la adaptación a fluctuaciones en la disponibilidad de recursos [@thompson2007; @stouffer2011]. Comparados con otras redes, estos valores son relativamente altos. En redes marinas y de agua dulce, los niveles de omnivoría suelen rondar entre el 0,5 y el 0,6 [@williams2004]. En ecosistemas terrestres, el porcentaje es más variable, pero niveles similares se encuentran en sistemas agrícolas o pastoriles, donde la omnivoría está relacionada con la diversidad de recursos [@polis1996]. El mayor porcentaje de omnivoría en sistemas sin uso antrópico sugiere una mayor diversidad de interacciones tróficas, asociada con una mayor estabilidad frente a perturbaciones externas, como se observa en redes naturales [@thompson2007]. Por otro lado, el elevado porcentaje de omnivoría (>70%) en redes detritívoras está vinculado a la alimentación oportunista y a la redundancia funcional de la fauna edáfica. Por ejemplo, los omnívoros zoófagos pueden alimentarse de microfauna, descomponedores secundarios o microflora. Los depredadores generalistas también consumen recursos en más de un nivel trófico [@Heidemann2014a]; por ejemplo, algunos miriápodos pueden depredar tanto nemátodos grandes como mesofauna y macrofauna más pequeña.\footnote{se refiere a los sínfilos y los geofilomorfos para más detalles y ejemplos ver Capítulo 2}.
 
 En las redes tróficas del suelo 
 se identifican hasta cuatro niveles tróficos, este patrón
@@ -2502,7 +2497,8 @@ fragmentan la materia orgánica y transportan propágulos
 de microflora a través de la matriz de poros del suelo, regulando la dinámica 
 poblacional y espacial de la microflora y por tanto 
 la dinámica en el ciclo de los nutrientes [@coleman2004].
-Para los niveles tróficos superiores, la separación es difusa debido 
+Para los niveles tróficos superiores, la posición de los nodos 
+en la red trófica se observa difusa debido 
 al alto porcentaje de omnivoría, que caracteriza a la fauna del suelo [@Hendrix1986; @williams2004].
 En las redes construidas en suelos de la Pampa Ondulada
 el valor del nivel trófico promedio fue cercano a tres, valor que se 
@@ -2523,10 +2519,10 @@ fue ligeramente mayor que la observada en redes tróficas de otros ecosistemas t
 se corresponde con los valores hallados en suelos de bosques templados [@digel2014],
 lo que sugiere que se encuentra dentro de los rangos esperados para redes tróficas ecológicas. 
 Este valor de conectancia refleja las conexiones realizadas sobre todas las posibles en una red de interacciones y es un indicativo de la complejidad de estas redes [@warren1994]. 
-Las redes tróficas parciales en comparación con las totales
+<!--Las redes tróficas parciales en comparación con las totales
 mostraron un incremento en este valor, resaltando la gran cantidad de conexiones 
 tróficas potenciales por parte de los microartrópodos y lombrices. En contraposición,
-indican que en la macrofauna se dieron un menor número de interacciones potenciales.
+indican que en la macrofauna se dieron un menor número de interacciones potenciales.-->
 
 El coeficiente de agrupamiento, que indica la probabilidad de que diferentes especies tróficas estén cercanamente interconectadas debido al solapamiento de sus dietas o depredadores, fue moderado en las redes tróficas modeladas para los suelos de la Pampa Ondulada (C.C. > 0.4). Según Digel et al. [-@digel2014], en las redes tróficas de la fauna del suelo
 se registró un valor del coeficiente de agrupamiento más alto que el de 
@@ -2622,7 +2618,8 @@ influyen sobre la topología, los flujos de energía y la estabilidad de las red
 
 
 El valor de estabilidad en las redes con uso intensivo
-estuvo más cerca de la estabilidad local.
+estuvo más cerca del valor cero indicando la necesidad de menor autoregulación
+para encontrarse en equilibrio estable.
 Esto posiblemente se relacione con comunidades adaptadas a las prácticas de manejo 
 allí implementadas (p.e. al ingreso de nutrientes, sustancias exógenas 
 como metabolitos secundarios derivados del insumos agrícolas)
@@ -2631,7 +2628,7 @@ La red trófica del pastizal bajo pastoreo periódico poco frecuente, que
 podría asumirse como un ambiente con cobertura similar a las de una comunidad
 vegetal prístina de la Pampa Ondulada, topológicamente resultó más diversa y conectada, 
 procesó un mayor flujo de energía y mostró un valor de estabilidad próximo a 
-la estabilidad local. 
+cero. 
 El suelo sin uso, con cobertura vegetal arbórea, en cambio,
 mostró un valor de estabilidad ligeramente más lejana que sus contrapartes
 con vegetación herbácea,
@@ -2641,13 +2638,23 @@ a lo largo del año por lo tanto aumentando la cantidad de autoregulación neces
 para procesar la materia y energía disponible.
 
 Con relación a la tercera hipótesis, se esperaba que el valor de estabilidad 
-se vea afectado por la intensidad en el uso del suelo.
-Sin embargo los valores estimados
-indican valores próximos a cero, por lo que las comunidades edáficas 
+se vea afectado por la intensidad en el uso del suelo. 
+Aquí los valores estimados fueron próximos a cero, 
+por lo que las comunidades edáficas 
 requieren de cierta autoregulación para 
-alcanzar la estabilidad local [@deCastro2021,@allesina2008; @pimm1991] 
+alcanzar la estabilidad local [@deCastro2021; @allesina2008; @pimm1991] 
 pero con distribuciones del índice del QSS diferentes, lo que sugiere que
 los tres sistemas están en equilibrio con su propio régimen de perturbación.
+Además, en suelos sin uso la necesidad de autoregulación es mayor
+lo cuál es consistente con lo esperado para redes tróficas sin perturbaciones [@barabas2017],
+ya que en los sistemas naturales se requerirán de los mecanismos de autoregulación para 
+llegar al equilibrio estable.
+\footnote{Autorregulación: es cuando el aumento de la abundancia de una especie disminuye su tasa de crecimiento per cápita. Entre las fuentes figuran las interferencias intraespecíficas, el canibalismo, la separación temporal entre los consumidores y sus recursos, la heterogeneidad espacial y las respuestas funcionales no lineales que acoplan a los depredadores con sus presas} 
+En contraposición, en los suelos con alta intensidad de uso 
+la necesidad de autoregulación es menor, ya que, en estos sistemas los disturbios 
+más que los mecanismos internos regulan las poblaciones en la red trófica.
+
+
 
 Además ante la evidencia de estructuras topológicas 
 y flujos en los canales de energía similares, 
@@ -2657,8 +2664,8 @@ diferente intensidad de disturbio antrópico.
 Esto configura probablemente 
 diferentes estados estables alternativos [@beisner2003],
 con una estructura funcional robusta que mantiene los procesos tróficos 
-aunque con la potencial pérdida de la capacidad de mantener 
-las funciones ecosistémicas ante la alteración de los flujos de energía [@de2012].
+aunque la capacidad de mantener las funciones ecosistémicas 
+podría verse afectada por la alteración en los flujos de energía [@de2012].
 
 <!--
 Por otra parte, considerando que los valores centrales de estas distribuciones son próximos 
@@ -2735,6 +2742,13 @@ integran diferentes atributos de la comunidad,
 fue posible ademas explorar los efectos sobre la diversidad, 
 el espectro de tamaños, la estructura de las redes, los flujos de energía
 y la estabilidad de las redes. 
+
+<!--
+En este contexto, el objetivo de la tesis es construir las redes tróficas de la fauna edáfica que ocurren en
+suelos bajo diferentes intensidades de uso en la Pampa Ondulada Argentina, para analizar las
+características funcionales de las comunidades edáficas y su estabilidad como aproximación para la
+provisión de herramientas que permitan evaluar el estado de conservación del suelo.
+-->
 
 No es posible determinar todas las interacciones 
 de alimentación en el ecosistema edáfico, ya que el mismo 
@@ -2878,7 +2892,7 @@ mediada por la fauna del suelo. A través de los canales de energía se observó
 los componentes considerados en el análisis pueden reposicionar la 
 importancia del canal de la energía con relación al flujo total, 
 específicamente, al no considerar la macrofauna 
-la importancia de la detritivoría cambió. También se observó que la zoofagia tiende a 
+la importancia de la detritivoría varió. También se observó que la zoofagia tiende a 
 ser llevada por los omnívoros más que por los verdaderos 
 depredadores aunque con una relación cercana al uno a uno, en contraste,
 en el suelo sin uso en Luján la contribución de los depredadores fue mínima. 
@@ -2890,7 +2904,7 @@ además, resulta necesario explorar más a fondo el aporte que tienen los verdad
 y los omnívoros en la regulación de poblaciones lo que podría resultar 
 fundamental para el control de plagas y enfermedades [@sanchez2007].
 
-La índice de estabilidad utilizado para comparar las redes tróficas completas
+El índice de estabilidad utilizado para comparar las redes tróficas completas
 de comunidades de la fauna edáfica sometidas a diferentes intensidades 
 de uso resultó similar y próximos al valor cero.
 Los datos indicaron que los suelos con alta y leve intensidad en el
@@ -2900,8 +2914,7 @@ reflejando el efecto que los disturbios tienen al contribuir en
 la regulación de estos sistemas ecológicos [@deCastro2021,@allesina2008; @pimm1991].
 Sin embargo, el valor próximo a cero, nos dice que los
 tres sistemas están en equilibrio con su propio régimen de perturbación.
-Esto configura probablemente 
-diferentes estados estables alternativos [@beisner2003].
+Esto podría tratarse de diferentes estados estables alternativos [@beisner2003].
 
 
 En resumen, se evaluaron las redes tróficas de la 
@@ -2911,23 +2924,45 @@ fueron diferentes por sus características edáficas y en cada uno de ellos
 la estructura de las comunidades de la fauna del suelo reflejaron
 las adaptaciones a dichos suelos. Aparentemente, las comunidades analizadas
 resultaron resilientes, ya que mantuvieron los valores de la diversidad, 
-de las biomasas, de la relación del espectro de tamaños, de las métricas topológicas 
-y del índice de estabilidad en valores próximos entre sí. Estas respuestas, 
+de las biomasas, de la relación del espectro de tamaños y de las métricas topológicas 
+en valores próximos entre sí. Estas respuestas, 
 podrían estar vinculadas con la redundancia funcional característica de la fauna edáfica [@bardgett2002], lo que permite a las comunidades mantener su estructura funcional.
-Sin embargo, el funcionamiento ecosistémico en 
-suelos con alta intensidad de uso podría estar en riesgo al afectarse
-fuertemente los procesos tróficos y por lo tanto la
-capacidad de procesamiento de materia y energía. 
+Sin embargo, en los suelos con alta intensidad de uso 
+la necesidad de una menor autoregulación mediada por
+el efecto de los disturbios sobre las poblaciones 
+y además la menor cantidad de energía procesada por la red trófica,
+podrían relacionarse con efectos que afecten a los procesos tróficos
+lo cuál influiría sobre el funcionamiento ecosistémico mediado por la fauna edáfica
+al modificar la capacidad de procesamiento de materia y energía en la red trófica [@de2012]. 
 
-Los resultados indican comunidades adaptadas 
-tanto a diferentes coberturas vegetales como a 
-diferente intensidad de disturbio antrópico. Estas comunidades 
-configuran probablemente 
-diferentes estados estables alternativos [@beisner2003],
-con una estructura funcional robusta cuyos procesos tróficos,
-ante la alteración de los flujos de energía,
-indican la potencial pérdida en la capacidad de mantener 
-las funciones ecosistémicas [@de2012].
+Cabe destacar que centrarse únicamente en atributos 
+como la diversidad o la biomasa en las comunidades de la fauna edáfica, 
+podría ocultar los efectos de los disturbios debido a la aparente resiliencia
+detectada en las comunidades estudiadas. 
+Los disturbios ejercidos por las prácticas antrópicas 
+no implican respuestas lineales en las comunidades del suelo.
+Por ejemplo, las biomasas de las comunidades bajo diferentes intensidades de uso
+se mantuvieron similares pero los flujos de energía en la red trófica fueron afectados.
+Considerando que la resiliencia en las comunidades podría mantener cierto régimen de 
+funcionamiento con aparente estabilidad, no es posible descartar que puedan darse cambios que 
+deriven en eventos catastróficos [@scheffer2009]. De ser así, esto implicaría cambios drásticos en las comunidades y sus interacciones, afectando directamente a la conservación de las propiedades ecosistémicas que derivarían en 
+modificaciones en el funcionamiento ecosistémico del suelo [@suding2004].
+El análisis de los parámetros topológicos y de los flujos 
+de energía a través de las redes tróficas explorado en esta tesis, 
+ofrece información detallada sobre la estructura y el funcionamiento de las comunidades,
+que permiten una caracterización integral de los impactos derivados
+de las diferentes prácticas de manejo. 
+De esta manera, los resultados obtenidos en esta tesis sientan 
+bases metodológicas novedosas para el desarrollo de investigaciones 
+sobre la funcionalidad mediada por la fauna edáfica
+y a partir de ella deberán analizarse las implicancias vinculadas
+con la conservación de los procesos ecosistémicos y su influencia
+sobre la conservación de la calidad\footnote{la utilidad del suelo para un propósito específico en una escala amplia de tiempo, en particular objetivos productivos} 
+y la salud del suelo \footnote{la capacidad del suelo para funcionar 
+como un ecosistema vital, este integra todos 
+los componentes del mismo y vá más allá del aprovechamiento económico}.
+
+
 
 <!-- Cabe destacar, que en las comunidades de la fauna edáfica, centrarse únicamente en parámetros como la diversidad o la biomasa podría ocultar los efectos de los disturbios debido a la resiliencia inherente de estas comunidades. Como los disturbios ejercidos por las 
 prácticas antrópicas no implican respuestas lineales en las comunidades del suelo,
@@ -2943,33 +2978,7 @@ que derivarían en modificaciones en el funcionamiento ecsistémico del suelo.
 En cambio, el análisis de los parámetros topológicos y los flujos de energía a través de las redes tróficas ofrece más información sobre el comportamiento y el funcionamiento de
 una pieza clave en estos ecosistemas que permiten
 una evaluación precisa de los impactos derivados 
-de las diferentes prácticas de manejo. -->
-
-Cabe destacar que centrarse únicamente en parámetros 
-como la diversidad o la biomasa en las comunidades de la fauna edáfica, 
-podría ocultar los efectos de los disturbios debido a la aparente resiliencia
-detectada en las comunidades estudiadas. Los disturbios ejercidos 
-por las prácticas antrópicas no implican respuestas lineales en las comunidades del suelo.
-Por ejemplo, las biomasas de las comunidades bajo diferentes intensidades de uso
-se mantuvieron similares pero los flujos de energía en la red trófica fueron afectados.
-Considerando que la resiliencia en las comunidades podría mantener cierto régimen de 
-funcionamiento con aparente estabilidad, no es posible descartar que puedan darse cambios que 
-deriven en eventos catastróficos  [@scheffer2009]. De ser así, esto implicaría cambiós drásticos en las comunidades y sus interacciones, afectando directamente a la conservación de las propiedades ecosistémicas que derivarían en 
-modificaciones en el funcionamiento ecosistémico del suelo [@suding2004].
-El análisis de los parámetros topológicos y de los flujos 
-de energía a través de las redes tróficas explorado en esta tesis, 
-ofrece información detallada sobre la estructura y el funcionamiento de las comunidades,
-que permiten una caracterización integral de los impactos derivados
-de las diferentes prácticas de manejo. 
-De esta manera, los resultados obtenidos en esta tesis sientan 
-bases metodológicas novedosas para el desarrollo de investigaciones 
-sobre la funcionalidad mediada por la fauna edáfica
-y a partir de ella deberán analizarse las implicancias vinculadas
-con la conservación de los procesos ecosistémicos y su influencia
-sobre la conservación en la calidad y la salud del suelo.
-
-
-<!--
+de las diferentes prácticas de manejo.
 Finalmente, observar comunidades adaptadas a 
 los diferentes sistemas de manejo con una estructura robusta
 que mantiene propiedades de la comunidad en ciertos regímenes de funcionamiento,
@@ -2992,6 +3001,7 @@ de las condiciones originales o que ya se encuentran funcionando en dicho estado
 \thispagestyle{empty}
 \mbox{}
 \newpage
+
 
 # Bibliografía
 
