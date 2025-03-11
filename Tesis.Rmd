@@ -156,9 +156,9 @@ Although the physical and chemical properties of soils are well-documented, know
 
 Soil fauna, occupying the intricate matrix of soil pores, primarily live in the uppermost centimeters and are classified into micro-, meso-, and macro-fauna based on size. They contribute significantly to soil functioning at various spatial and temporal scales by processing organic matter, transporting bacteria and fungi, and regulating populations. These functions are essential for broader ecosystem services, including carbon, nutrient, and water cycling, organic matter dynamics, and maintaining soil fertility.
 
-The responses of soil fauna to both natural and anthropogenic disturbances manifest as structural and functional changes, which are critical for understanding the behavior of food webs. This understanding is particularly relevant to the Pampa Ondulada of Argentina. With more than 54 million hectáreas, the central plains of Argentina are among the most extensive and fertile agricultural soils in the world, of which the Pampa Ondulada covers around 6.6 million hectáreas. Ensuring the sustainability of these ecological systems is vital for preserving ecosystem services such as soil fertility, carbon sequestration, agricultural productivity, and biodiversity.
+The responses of soil fauna to both natural and anthropogenic disturbances manifest as structural and functional changes, which are critical for understanding the behavior of food webs. This understanding is particularly relevant to the Rolling Pampas region of Argentina. With more than 54 million hectáreas, the central plains of Argentina are among the most extensive and fertile agricultural soils in the world, of which the Rolling Pampa covers around 6.6 million hectáreas. Ensuring the sustainability of these ecological systems is vital for preserving ecosystem services such as soil fertility, carbon sequestration, agricultural productivity, and biodiversity.
 
-This thesis investigates the food webs of edaphic fauna in  soils under varying levels of anthropogenic impact in the Pampa Ondulada. The objective was to construct food webs to analyze the influence of diversity, interactions, and functional traits on the topology, energy flows, and stability of the detritivore system. This allows inferences about the soil's functionality and conservation status.
+This thesis investigates the food webs of edaphic fauna in  soils under varying levels of anthropogenic impact in the Rolling Pampa. The objective was to construct food webs to analyze the influence of diversity, interactions, and functional traits on the topology, energy flows, and stability of the detritivore system. This allows inferences about the soil's functionality and conservation status.
 
 The study revealed that despite anthropogenic disturbances, the soil fauna communities exhibited resilience. Across different levels of soil use intensity, the communities maintained similar diversity indices, size spectra, and topological and stability measures. However, intensive agricultural practices caused soil acidification, reduced respiration rates, and altered the taxonomic composition of the communities, resulting in a marked reduction in energy flow through the food webs.
 
@@ -689,7 +689,6 @@ Bajo este contexto, este capítulo describe las diferencias ambientales y las di
 Se espera suelos bajo diferente intensidades de uso tengan características ambientales diferentes entre sí y que la diversidad de la fauna edáfica disminuya con la intensidad
 de uso. 
 
-\newpage
 
 ## Materiales y métodos
 
@@ -718,7 +717,7 @@ de Oligochaetta: Crassiclitelata colectadas a campo a ojo desnudo, c) la respira
 \newpage
 
 
-**Tabla 3.1.** Ubicación de los puntos de muestreo en los sitios con diferentes intensidades de uso en suelos  de la Pampa Ondulada. Coordenadas geográficas en el sistema de referencia WGS84 expresadas en grados, minutos y segundos
+**Tabla 3.1.** Ubicación de los puntos de muestreo en los sitios con diferentes intensidades de uso en suelos de la Pampa Ondulada. Coordenadas geográficas en el sistema de referencia WGS84 expresadas en grados, minutos y segundos
 
 | Sitio                       | Latitud       | Longitud      | Localidad  |
 |-----------------------------|---------------|---------------|------------|
@@ -941,9 +940,9 @@ Los vectores representan las variables químicas y biológicas: pH = potencial d
 El fósforo, el nitrógeno y la cantidad de hojarasca tuvieron fuertes correlaciones positivas con la primera dimensión con r \> 0,7, mientras que con la segunda dimensión las correlaciones fueron positivas pero de menor valor (r \< 0,5). 
 Por otra parte se observa a los vectores de estas variables relacionados con el centroide del sistema agrícola.
 
-El pH y la relación de Hongos:Bacterias se observaron superpuestas indicando relaciones similares entre vectores.
+El pH y la relación de hongos:bacterias se observaron superpuestas indicando relaciones similares entre vectores.
 Se correlacionaron positivamente con la segunda dimensión (r \< 0,6) 
-y negativamente con la primera dimensión. La materia orgánica, aunque ubicada en el mismo cuadrante, se separó del centroide de la reserva y de los vectores de que representan al pH y a la relación Hongos:Bacterias, su correlación es medianamente fuerte (r \< 0,7) con la segunda dimensión y con la primera dimensión la correlación es negativa pero menor (r \< \|-0,4\|).
+y negativamente con la primera dimensión. La materia orgánica, aunque ubicada en el mismo cuadrante, se separó del centroide de la reserva y de los vectores de que representan al pH y a la relación hongos:bacterias, su correlación es medianamente fuerte (r \< 0,7) con la segunda dimensión y con la primera dimensión la correlación es negativa pero menor (r \< \|-0,4\|).
 
 La respiración heterotrófica tuvo una fuerte correlación negativa con la primera dimensión (r \< -0,9) y una correlación mediana (r \< 0,5) con la tercera dimensión, el vector de esta variable se encuentra entre los centroides del sistema de la reserva y del pastizal aunque más cercano con el centroide de la reserva.
 
@@ -1284,14 +1283,15 @@ Los cambios en la distribución del tamaño corporal de los organismos en una co
 El objetivo de este capítulo es conocer cómo varían la biomasa media y el 
 espectro de tamaños de 
 la fauna edáfica que habitan suelos de la Pampa Ondulada sometidos a diferentes sistemas de manejo.
-Para conocer la respuesta diferencial de las comunidades edáficas de estos suelos es necesario determinar la variabilidad en la distribución de los pesos corporales debida a la escasez de datos sobre pesos corporales de la criptofauna en la región. Con esta estrategia construir el espectro de tamaños de la comunidad de la edafofauna y sus gremios tróficos permitirá analizar los efectos de la intensidad 
-de uso del suelo debidas al manejo antrópico. 
+<!--Para conocer la respuesta diferencial de las comunidades edáficas en estos suelos es necesario determinar la variabilidad en la distribución de los pesos corporales debida a la escasez de datos sobre pesos corporales de la criptofauna en la región.-->Con esta estrategia, la construcción del espectro de tamaños de la comunidad de la edafofauna y sus gremios tróficos permitirá analizar los efectos de la intensidad de uso del suelo debido al manejo antrópico.
 
-Se espera que, en función de la intensidad de uso del suelos, tanto la comunidad
-como los gremios tróficos responda con disminuciones en la biomasa y 
-con pendientes del espectro de tamaño menores. Entonces sistemas de referencia donde la intensidad
-de uso del suelo es nula, las comunidades y sus gremios tróficos tendrán biomasas medias mayores
-y la pendiente del espectro de tamaños tendrá valores cercanos a cero.
+Se espera que, en función de la intensidad de uso del suelo, tanto la comunidad
+como los gremios tróficos respondan con disminuciones en la biomasa y 
+con pendientes del espectro de tamaño negativas.
+Entonces sistemas de referencia donde la intensidad
+de uso del suelo es nula, las comunidades y sus gremios tróficos 
+tendrán biomasas medias mayores y la pendiente del espectro de tamaños 
+tendrá valores cercanos a cero.
 
 ## Metodología
 
@@ -1431,7 +1431,7 @@ El modelo para Chivilcoy - Navarro resultó igual al modelo completo. Todos los 
 
 #### Nemátodos edáficos de vida libre
 
-Los nemátodos de vida libre del suelo, hallados en los suelos de Luján, mostraron un rango de pesos corporales (Fig 4.1) de 9 órdenes de magnitud, estos van desde pesos mínimos de $e^{-4}\,= 0,02\,\mu g$ hasta pesos máximos de $e^{5,7}\,= 299\,\mu g$. En las distribuciones se observaron dos grupos con relación a las modas. Los nemátodos omnívoros, fungivoros y depredadores tuvieron las modas en valores de pesos corporales más altos que los bacterívoros y fitófagos. La distribución de tamaños de los depredadores estuvo menos dispersa que la distribuciones de los demás gremios tróficos. 
+Los nemátodos de vida libre del suelo, hallados en los suelos de Luján, mostraron un rango de pesos corporales (Fig 4.1) de 9 órdenes de magnitud, estos van desde pesos mínimos de $= 0,02\,\mu g$ hasta pesos máximos de $= 299\,\mu g$. En las distribuciones se observaron dos grupos con relación a las modas. Los nemátodos omnívoros, fungivoros y depredadores tuvieron las modas en valores de pesos corporales más altos que los bacterívoros y fitófagos. La distribución de tamaños de los depredadores estuvo menos dispersa que la distribuciones de los demás gremios tróficos. 
 Se observaron distribuciones bimodales para 
 los omnívoros de la reserva y el pastizal, lo que implica dos tamaños de importancia en la misma categoría trófica. 
 
@@ -1465,7 +1465,7 @@ Tab4.1 %>%
 
 #### Mesofauna edáfica no depredadora
 
-Los pesos corporales en esta categoría estuvieron entre los $0,4\mu g$ y los $4 \;mg$,
+Los pesos corporales en esta categoría estuvieron entre los $0,4\mu g$ y los $4000 \;\mu g$,
 la distribución de la mayoría de estos taxones se mostraron con 
 distribuciones unimodales y con una forma en general de tipo campana  (Fig. 4.2).
 
@@ -1552,7 +1552,7 @@ Tab4.3 %>%
 
 #### Macrofauna edáfica
 
-La macrofauna tuvo una distribución de tamaños de 10 órdenes de magnitud con pesos corporales en un rango entre los $12 \mu g$ hasta los $270 \;mg$. La forma de las distribuciones de este grupo de la fauna edáfica no es unimodal y esto está relacionado con la baja abundancia de la mayoría de los taxones observados y con la jerarquía taxonómica considerada (Fig 4.5).
+La macrofauna tuvo una distribución de tamaños de 10 órdenes de magnitud con pesos corporales en un rango entre los $12 \mu g$ hasta los $270000 \;\mu g$. La forma de las distribuciones de este grupo de la fauna edáfica no es unimodal y esto está relacionado con la baja abundancia de la mayoría de los taxones observados y con la jerarquía taxonómica considerada (Fig 4.5).
 
 
 ![](Figures/Fig4-5.png){width=600 heigth=800}
@@ -1561,7 +1561,8 @@ La macrofauna tuvo una distribución de tamaños de 10 órdenes de magnitud con 
 \vspace{1cm}
 
 
-Las lombrices de tierra del género *Aporrectodea* tuvieron pesos corporales medios en un rango de 22,5 mg hasta los 119 mg (Tabla 4.5). La mayor biomasa media del género se observó en el sistema agrícola con la especie *A. caliginosa*. El mayor peso corporal medio ocurrió en el sistema agrícola representado
+Las lombrices del género *Aporrectodea* tuvieron pesos corporales medios 
+en un rango de $225000 \;\mu g$ hasta los $119000 \;\mu g$ (Tabla 4.5). La mayor biomasa media del género se observó en el sistema agrícola con la especie *A. caliginosa*. El mayor peso corporal medio ocurrió en el sistema agrícola representado
 por *A. trapezoides*, esta especie también registró la mayor densidad del género en la reserva. 
 Los demás géneros y especies solo estuvieron presentes en uno de los tres sistemas, *Octolasion cyaneum* 
 en el sistema agrícola, *Bimastus* en la reserva y *Eukerria*, *Microscolex* 
@@ -1750,11 +1751,9 @@ Las pendientes de los microfitófagos fueron negativas pero no se diferenciaron 
 entre usos del suelo, el valor de la pendiente fué $m \approx-0.4$. 
 Los omnívoros observaos en el sistema mixto agrícola-ganadero (Fig. 4.9) tuvieron una pendiente positiva ($m = 0.65$), por lo que omnívoros de mayor peso son más abundantes en el sistema mixto, para los demás sistemas de uso las pendientes no se diferenciaron de la constante por lo que a
 diferentes pesos corporales comparten densidades similares. Los depredadores en cada sistema de uso del suelo no mostraron pendientes diferentes significativamente de cero, lo que implica que las abundancias de los depredadores es similar para cada peso corporal medio en cada sistema de uso del suelo (Apéndice 4.4).
-\newpage
 
 
 ## Discusión
-
 
 
 El espectro de pesos corporales de la comunidad edáfica abarcó
@@ -1803,7 +1802,7 @@ en suelos bajo un determinado uso pero no acompañado de los mayores pesos corpo
 en los mismos suelos. Entonces, existió un incremento numérico de organismos 
 pequeños dentro del taxón en un suelo en particular, pero a la vez nos dice que
 el peso corporal podría ser más alto y tal vez existen
-restricciones para que ello suceda. 
+restricciones ambientales o biológicas para que ello suceda. 
 
 Las variaciones en la biomasa media no reflejaron un efecto vinculado con los sistemas de uso del suelo,
 aunque se esperaba que en suelos bajo manejo intensivo muestren disminuciones en los valores de biomasa en toda la comunidad. En el capítulo anterior se observó que las prácticas de manejo 
@@ -1814,26 +1813,33 @@ parece estar indicando la resiliencia de la comunidad edáfica conservando la ca
 
 Estas comunidades edáficas sí fueron diferentes en sus biomasas media 
 a través de los gremios tróficos y sus valores se estructuraron formando 
-una pirámide de biomasa, en el cuál los organismos detritívoros forman la base con los mayores valores, siguen los microfitófagos, omnívoros y depredadores, que con valores de biomasas próximos, que conforman el nivel intermedio de la pirámide y finalmente los herbívoros con la menor biomasa. Esta pirámide ajusta a lo esperado para el sistema detritívoro 
-del ecosistema edáfico en el cuál los recursos tróficos bases son el tejido vegetal en proceso de fragmentación y descomposición, la materia orgánica del suelo y la microbiota saprótrofa [@lavelle2006; @lavelle2003]. Por su parte, los microartrópodos omnívoros y detritívoros mostraron
+una pirámide de biomasa, en el cuál los organismos detritívoros forman la base con los mayores valores, siguen los microfitófagos, omnívoros y depredadores, que con valores de biomasas próximos, que conforman el nivel intermedio de la pirámide y finalmente los herbívoros con la menor biomasa. 
+Esta pirámide ajusta a lo esperado para el sistema detritívoro 
+del ecosistema edáfico en el cuál los recursos tróficos bases son el tejido vegetal en proceso de fragmentación y descomposición, la materia orgánica del suelo y la microbiota saprótrofa [@lavelle2006; @lavelle2003]. 
+Por su parte, los microartrópodos omnívoros y detritívoros mostraron
 incrementos en la biomasa media en sistemas antropizados, tal vez, mediados 
-por cambios en la disponibilidad y distribución de recursos, como respuesta al enriquecimiento debidas al aumento de nutrientes en el suelo, sean estos por la fertilización, por la mineralización de la materia orgánica del suelo u otras fuentes de nutrientes como las excretas del ganado. El enriquecimiento de nutrientes en el suelo se ha relacionado con el aumento del flujo de energía a través del canal de los bacterívoros en la red trófica edáfica [@kardol2016; @potapov2019; @zhou2022].
+por cambios en la disponibilidad y distribución de recursos, debidas al enriquecimiento en nutrientes en el suelo, sean estos por la fertilización, por la mineralización de la materia orgánica del suelo u otras fuentes de nutrientes como las excretas del ganado. El enriquecimiento de nutrientes en el suelo se ha relacionado con el aumento del flujo de energía a través del canal de los bacterívoros en la red trófica edáfica [@kardol2016; @potapov2019; @zhou2022]. Esta respuesta ocurre a través 
+del incremento en la biomasas de bacterias, por lo tanto,
+mayor disponibilidad de recursos para sus consumidores.
 
-Al evaluar la pendiente del espectro de tamaños 
-de estas comunidades de la fauna edáfica, no se observó que la intensidad de uso del suelo 
-sea un factor que influya estadísticamente sobre las pendientes de regresión. 
+Al evaluar las pendientes del espectro de las comunidades edaficas no se observaron diferencias debidas al uso del suelo. 
 Se esperaba que el valor de la pendiente disminuya al aumentar la intensidad de uso
 debida a las consecuencias de los disturbios sobre las características del hábitat 
 y la disponibilidad de los recursos. 
 Sin embargo, esta falta de evidencia de un efecto directo podría deberse a combinaciones de factores que enmascaran estas diferencias. A pesar de haber utilizado regresiones de cuantiles, diseñadas específicamente para estos casos, sería recomendable verificar los resultados con más estudios para confirmar esta conclusión.
 
-Al analizar los espectros por gremios la pendiente de los omnívoros edáficos 
-fue positiva indicando, por un lado, la presencia de taxones de mayor peso con 
-una densidad importante en relación a los omnívoros de menor tamaño y por el otro 
-la disponibilidad de recursos y características ambientales para omnívoros de mayor tamaño.
-Sin embargo, en comparación con los demás gremios tróficos el rango de pesos corporales en el que se distribuyen estos omnívoros es estrecho, por lo tanto
-al no observar omnivoros de gran peso corporal no se 
+Al analizar los espectros por gremios, la pendiente de los omnívoros edáficos 
+fue positiva indicando, la presencia de taxones de mayor peso con 
+una densidad importante en relación a los omnívoros de menor tamaño, 
+lo que sugiere que los omnívoros de mayor tamaño son competitivamente más exitosos.
+Este fenómeno podría estar mediado por las características ambientales y
+por la disponibilidad de recursos para el gremio.
+Sin embargo, en comparación con los demás gremios tróficos 
+el rango de pesos corporales en el que se distribuyen estos omnívoros es estrecho, 
+por lo tanto al no observar omnívoros de gran peso corporal no se 
 puede inferir que la relación positiva se mantenga. 
+
+
 
 ```{=html}
 <!--  Esta tendencia positiva puede estar relacionada con su capacidad para consumir una amplia variedad de recursos, lo que les permite adaptarse mejor a diferentes condiciones ambientales y aprovechar diversas fuentes de alimento 
@@ -1849,12 +1855,18 @@ Resultados que apoyan las relaciones teóricas fueron hallados por Sechi et al [
 
 En estos suelos la biomasa media y las relaciones de pendientes para toda la 
 comunidad se mantuvieron similares entre sistemas de uso lo cuál podría estar reflejando 
-comunidades resilientes ante los disturbios producidos por las prácticas de manejo. Sin
-embargo, los gremios tróficos si responden a las prácticas de manejo mostrando
+comunidades resilientes ante los disturbios producidos por las prácticas de manejo. 
+Sin embargo, los gremios tróficos si responden a las prácticas de manejo mostrando
 respuestas en ambos sentidos, lo cuál debe ser analizado en mayor profundidad, 
 para comprender hasta qué punto estas relaciones en toda la comunidad se
 mantendrán similares entre diferentes intensidades de uso del suelo y 
 como se afectarán los procesos ecosistémicos mediados por la fauna edáfica.
+
+
+<!--
+Probablemente haya factores que agregan variabiliad y que deberian ser tomados en cuenta para futuros analisis, cuales serian estos factores?, inclusion explicita de variables ambientales por ej, fosforo,  nitrogeno, materia organica, cuales? Hay una diferencia fundamental entre el espectro por gremio y por la comunidad, en la comunidad tenemos diferentes niveles tróficos que imponen la restricción del flujo de energía. En los gremios solamente tenemos competencia y/o nicho.
+-->
+
 
 
 \newpage
@@ -2759,13 +2771,13 @@ antropogénicos, etc. y estos factores condicionan la estructura de las
 comunidades y por lo tanto a las redes tróficas. 
 Por ello, en el capítulo 3 se exploraron las características ambientales
 y la diversidad en las comunidades de la fauna edáfica en suelos
-bajo diferente intensidades de uso. Se encontró que los suelos con
-diferentes intensidades de uso poseen características ambientales particulares.
-Los suelos sin uso presentaron una mayor actividad heterotrófica asociados con
+bajo diferente intensidades de uso. Se encontró que la intensidad 
+de uso modifica el hábitat para las especies:
+en sitios sin perturbar presentaron una mayor actividad heterotrófica asociados con
 el contenido de materia orgánica y valores de pH más altos, 
-por su parte, los suelos con una alta intensidad de uso
+por su parte, los sitios con una alta frecuencia de disturbio
 tuvieron valores de acidez más altos acompañados de concentraciones mayores 
-de nitrógeno y fósforo. Y, las comunidades de la fauna edáfica fueron diferentes 
+de nitrógeno y fósforo. Las comunidades de la fauna edáfica fueron diferentes 
 entre usos del suelo, indicando la respuesta de estas a las condiciones del hábitat.
 Sin embargo, contrario a lo esperado, el valor de diversidad utilizado se mantuvo
 similar tanto en toda la comunidad como entre sus componentes. Dado el
@@ -2806,12 +2818,12 @@ integrar la información recopilada, y ajustándose a lo comentado en el
 párrafo anterior, los objetivos 
 fueron conocer como varían la biomasa media y 
 el espectro de tamaños de la fauna del suelo 
-sometidos a diferentes sistemas de uso. Se esperaba que tanto la biomasa media 
+sometidos a diferentes sistemas de uso. <!--Se esperaba que tanto la biomasa media 
 como el espectro de tamaños indiquen diferencias que reflejen el impacto 
 que tiene la intensidad de uso del suelo. Sin embargo, analizando toda la comunidad,
 no fue posible atribuir cambios, ni en las biomasas medias 
-ni en el espectro de tamaños, como dirigidas por los usos del suelo.
-Si fue posible determinar variaciones en la pendiente del espectro de tamaños
+ni en el espectro de tamaños, como dirigidas por los usos del suelo.-->
+Fue posible determinar variaciones en la pendiente del espectro de tamaños
 a través de algunos gremios tróficos y estos reflejaron
 el efecto negativo de la intensidad del uso del suelo, en suelos de Luján,
 como el efecto positivo en suelos bajo manejo, en suelos de Chivilcoy-Navarro.
@@ -2954,7 +2966,7 @@ bases metodológicas novedosas para el desarrollo de investigaciones
 sobre la funcionalidad mediada por la fauna edáfica
 y a partir de ella deberán analizarse las implicancias vinculadas
 con la conservación de los procesos ecosistémicos y su influencia
-sobre la conservación de la calidad y la salud del suelo.
+sobre la conservación en la calidad y la salud del suelo.
 
 
 <!--
