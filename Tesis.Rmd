@@ -65,12 +65,12 @@ del suelo}
 \text{2024} % Título en negrita
 \end{center}
 
+\thispagestyle{empty}
+
 
 \newpage
-
-
-\newpage
-
+\thispagestyle{empty}
+\mbox{}
 \newpage
 
 ```{r setup, include=FALSE}
@@ -203,7 +203,7 @@ Si bien la complejidad en el ecosistema edáfico es enorme, este puede ser enten
 
 **Figura 1.1.** Esquema conceptual que estructura las relaciones entre los factores climáticos y el efecto de la actividad antrópica sobre la estructura y el funcionamiento del ecosistema del suelo y el vínculo con los bienes y servicios de los que depende la humanidad [@wall2012]
 
-\vspace{1cm}
+\vspace{0.7cm}
 
 
 
@@ -214,7 +214,7 @@ En el suelo existe una intrincada red de poros e intersticios que se forman entr
 
 **Figura 1.2.** Representación de las diferentes zonas de actividad biológica que ocurren a lo largo del perfil del suelo. Estas zonas de actividad biológica se denominan "esferas" en función de la estructura biogénica considerada, a saber: **drilidrósfera**, vinculados a las cavidades formadas por las lombrices de tierra; **detritósfera**, vinculados con la acumulación de hojarasca; **rizósfera**, vinculado al área en íntima relación con las raíces de plantas; **porósfera**, vinculado con los poros orgánicos minerales del suelo; **agregatósfera**, vinculado con los agregados que se forman entre la materia orgánica y la fracción mineral del suelo [@coleman2004]
 
-\vspace{1cm}
+\vspace{0.7cm}
 
 
 El estudio de las comunidades edáficas hasta niveles especie-específicos se dificulta porque el suelo es un hábitat críptico, el tamaño de los organismos dificulta las caracterizaciones anatómicas - morfológicas y por el bajo desarrollo a nivel global del conocimiento taxonómico [@wurst2012]. Pero, se han desarrollado clasificaciones funcionales para agrupar a los organismos edáficos que contribuyen con papeles similares en ciertos procesos ecosistémicos, de esta manera se conectan la diversidad biológica con el funcionamiento del ecosistema del suelo [@creamer2022;@brussaard1998].
@@ -225,7 +225,7 @@ Los organismos edáficos son clasificados tradicionalmente en función del ancho
 
 **Figura 1.3.** A) Clases de tamaños de los organismos que habitan el ecosistema del suelo clasificados en función del ancho corporal [@swift1979]. B) Relación entre la densidad y el tamaño del individuo de los grandes grupos taxonómicos hallados en los suelos, además se marca con líneas quebradas las relaciones de biomasa alcanzadas por la biota edáfica [@deluca2019]
 
-\vspace{1cm}
+\vspace{0.7cm}
 
 
 En particular, en la fauna edáfica fragmenta e ingiere la materia orgánica, además consume la microbiota y transporta sus propágulos. Esto les confiere un papel fundamental, en el ciclo del carbono y los nutrientes, al estimular la actividad microbiana, regular sus poblaciones y facilitar el transporte hacia nuevas fuentes potenciales de recursos para la microbiota. También median transformaciones biológicas sobre la estructura órgano-mineral del suelo, modificando las características físicas y químicas del medio con el que interactúan y la disponibilidad de recursos. Y los depredadores al alimentarse de sus presas son esenciales en el regulación de poblaciones [@briones2014; @lavelle2006;@Potapov2022].
@@ -244,7 +244,7 @@ los nodos representan taxones o gremios tróficos (taxones que comparten recurso
 
 **Figura 1.4.** Representación del entramado de relaciones tróficas que ocurren en redes tróficas edáficas [@digel2014]
 
-\vspace{1cm}
+\vspace{0.7cm}
 
 
 
@@ -375,9 +375,6 @@ Los cálculos, gráficos y tablas se prepararon utilizando Microsoft Excel y el 
 
 \normalsize
 
-\newpage
-
-
 
 ## Resultados
 
@@ -387,11 +384,11 @@ De los 3208 documentos de investigación recuperados inicialmente, 200 cumplían
 ![](Figures/world_records.png){width=600 heigth=800}
 
 **Figura 2.1.** Distribución global de las publicaciones que asignan recursos tróficos a los microartrópodos del suelo, en gran parte inexplorados fuera de Europa y América del Norte.
-
+\vspace{0.7cm}
 
 Se obtuvo un total de 3024 registros sobre relaciones tróficas (ESM II), Acari aportó 2218 registros (73,34%), y dentro de este número, la mayoría (50,86%) corresponde a Sarcoptiformes. Según la resolución taxonómica, se obtuvieron datos de 170 especies, 30 géneros y 2 familias de Collembola y 412 especies, 131 géneros y 49 familias de Acari.
 
-### Métodos utilizados para la identificación de recursos tróficos
+### Métodos utilizados para la identificación de los recursos tróficos
 
 #### Métodos de asignación de recursos
 
@@ -399,6 +396,7 @@ El método de observaciones en pruebas de laboratorio proporciona la principal p
 
 ![](Figures/Metodo_ByTaxLevel.png){width=600 heigth=800}
 **Figura 2.2.** Métodos utilizados en la literatura para asignar recursos tróficos a microartrópodos del suelo. Los colores dentro de las columnas se refieren al número de registros en los diferentes niveles taxonómicos para los cuales cada método asignó al menos un recurso. ensayos: pruebas y observaciones de laboratorio. isotopos: isótopos estables. gut: contenido intestinal. enzimas: enzimas digestivas. bucal: morfología de las piezas bucales. lípidos: perfil lipídico. mo. det: detección molecular del contenido intestinal, f.p.: ensayos de preferencia alimentaria. obs.: observaciones directas en laboratorio sobre la actividad alimenticia. revisiones: revisiones generales de otros autores.
+\vspace{0.7cm}
 
 El método de contenido intestinal alcanza el 21,3% de los registros, en el que el nivel taxonómico de especie corresponde al 89,9% del total de registros y el de género al 9,5%. Le siguen en importancia los isótopos estables, de ellos, el 76,9% de los registros mencionan especies, los géneros y familias suman el 23,1% de los registros.
 
@@ -413,6 +411,7 @@ El principal recurso mencionado corresponde a hongos saprófitos (19,8%) seguido
 ![](Figures/Recursos_ByMetodo.png){width=600 heigth=800}
 
 **Figura 2.3.** El número de registros en la literatura que asignan cada uno de los 13 recursos tróficos a un taxón de microartrópodos, como se muestra en la Tabla 2.1. Los colores en las columnas se refieren al método utilizado para asignar esos recursos tróficos a un taxón en particular, como se muestra en la Fig. 2.2. Las abreviaturas de los recursos son: hongos saprófitos (hongos sap.), microfauna (m. fau), bacterias (bac.), hojarasca, colémbolos, tejido vegetal (plant), ácaros, hongos micorrícicos (micorrizas), humus, carroña de invertebrados (carroña), huevos de invertebrados (huevos), enquitreidos y larvas
+\vspace{0.7cm}
 
 Las observaciones de laboratorio (el método más utilizado), mencionan el uso de los trece recursos tróficos (Figura 2.3) en los que el orden de importancia según el número de menciones es microfauna \> colémbolos \> ácaros \> hongos saprófitos \> huevos de invertebrados \> enquitreidos \> larvas de invertebrados que acumulan el 82,3%. Para este método empírico, los recursos mencionados, con excepción de los hongos saprófitos, corresponden a recursos típicos de animales depredadores mencionando con mayor frecuencia a taxones de Mesostigmata. Las barras apiladas (Figura 2.3) muestran las diferentes proporciones en que los métodos aportan pruebas del uso de un recurso, si se considera la contribución de cada método según el número de citas en la bibliografía, se cuentan en orden decreciente: observaciones directas (706 registros) \> contenido intestinal (639) \> isótopos (591) \> pruebas de laboratorio (503) \> enzimas (178) \> pruebas de preferencia alimentaria (140 registros).
 
@@ -498,7 +497,7 @@ Es evidente que es necesario llenar importantes vacíos en la información dispo
 
 # Análisis de los recursos tróficos de la fauna del suelo. Segunda Parte
 
-# Biología trófica y uso de los recursos de los principales taxones de la fauna edáfica que habita los suelos de la Pampa Ondulada.
+# Biología trófica y uso de los recursos de los principales taxones de la fauna edáfica.
 
 En el suelo se encuentra aproximadamente la mitad de la biomasa total de animales que habitan la Tierra [@anthony2023]. La mayoría de estos animales se relacionan con la hojarasca y con el suelo, estos contribuyen con diversas funciones del ecosistema relacionadas con la descomposición del material orgánico [@briones2014]. Estos organismos son piezas clave en los servicios ecosistémicos. Participan en el ciclo de los nutrientes por lo tanto influyen en la fertilidad de los suelos y su productividad en términos económicos. Son importantes en el ciclo del carbono, por lo que participan en la regulación del clima a gran escala. Su contribución los hace parte de los factores formadores del suelo, a través de sus actividades a microescala, influyen sobre la composición química y en la estructura física del suelo, vinculándose con la regulación del ciclo del agua y con la fertilidad física del suelo. La red trófica y el entramado de interacciones entre los miembros de la comunidad se relaciona estrechamente con el control de poblaciones [@barrios2007; @lavelle2006; @wall2012; @creamer2022]. Esto último puede resultar crítico para la actividad agrícola entendiendo que una comunidad edáfica podría ser incapaz de regular poblaciones de patógenos si la red trófica que esta conforma no regula al patógeno.
 
@@ -650,12 +649,18 @@ Los moluscos terrestres, caracoles y babosas, prefieren hábitats húmedos, con 
 
 # Capítulo 3
 
-# Análisis de la comunidad de la edafofauna en suelos con distinta intensidad de uso
+# Análisis de la comunidad de la fauna edáfica en suelos con distinta intensidad de uso
 
 La Pampa argentina (Fig. 3.1) es una llanura, topográficamente plana, con una extensión de más de 39,7 millones de hectáreas, de las cuales se estima que la Pampa Ondulada ocupa 6,7 millones de hectáreas. Fitogeográficamente, la Pampa Ondulada, se ubica en la Región Neotropical, dominio Chaqueño, distrito Oriental de la provincia Pampeana y en ella la vegetación dominante es la estepa o pseudoestepa de gramíneas [@cabrera1973; @oyarzabal2018]. Ocupa la parte centro-oriental de la provincia de Córdoba, el suroeste de Santa Fé, el oriente, centro y sur de Entre Ríos 
 y el norte de Buenos Aires [@morello2000]. El clima es templado, las precipitaciones varían entre los 850 
 a 1000 mm anuales y la temperatura media anual es de 17 ºC. La distribución de las lluvias es casi uniforme, 
 interrumpida periódicamente por sequías derivadas principalmente de los fenómenos meteorológicos El Niño y La Niña. 
+
+![](Figures/chap3_morello1997.png){width=500 heigth=500}
+
+**Figura 3.1.** La región Pampeana argentina y sus principales divisiones [@morello1997]
+\vspace{0.7cm}
+
 
 La Pampa Ondulada es la zona más fértil y productiva de la región Pampeana, donde más del 80% de la tierra se dedica a la producción de cultivos agrícolas. Los suelos son profundos, bien drenados, con un buen contenido de materia orgánica tienen pocas limitaciones para la producción de cultivos y son aptos para la ganadería [@cabrera1973].
 Un estrecho periodo de probabilidad de heladas e inviernos sin nieve permiten el cultivo de especies invernales,
@@ -663,10 +668,6 @@ de esta manera al año pueden realizarse hasta tres cosechas. Además cuenta con
 Estos fenómenos condicionan la pérdida de fertilidad del suelo en sus tres 
 dimensiones: física, química y biológica [@urricariet1999]. 
 
-![](Figures/chap3_morello1997.png){width=500 heigth=500}
-
-**Figura 3.1.** La región Pampeana argentina y sus principales divisiones [@morello1997]
-\vspace{1cm}
 
 La diversidad biológica en los suelos se vincula estrechamente con el mantenimiento de la fertilidad, la estabilidad física y biológica y con la productividad ecológica (productividad primaria) y económica (rendimiento de los cultivos y producción de proteína animal) de los suelos. En sistemas productivos 
 la biodiversidad es afectada por los impactos relacionados con las prácticas de manejo, tales como: el establecimiento de especies vegetales diferentes a la vegetación original, la fragmentación del hábitat, el cambio de uso del suelo, la compactación, y el uso de insumos como fertilizantes y biocidas. Estos disturbios alteran la estructura y las 
@@ -714,32 +715,6 @@ de Oligochaetta: Crassiclitelata colectadas a campo a ojo desnudo, c) la respira
 
 <!--con respecto al hecho de tmar reeticiones en un mismo lugar: En cada lote se tomaron varias muestras distantes entre sí al menos diez metros por lo que pueden considerarse estadísticamente independientes (es decir que no presentan pseudorreplicación) ya que, como está ampliamente demostrado en el caso de estos suelos, las distancias entre muestras exceden ampliamente las distancias de autocorrelación, con lo cual los datos son estadísticamente independientes aunque estén tomados en el mismo campo (Conti et al. 1980; Giuffré et al. 1998; M. Massobrio, comunicación personal, tomado del paper de monica | Artrópodos del suelo: Relaciones entre la composición faunística y la intensificación agropecuaria-->
 
-\newpage
-
-
-**Tabla 3.1.** Ubicación de los puntos de muestreo en los sitios con diferentes intensidades de uso en suelos de la Pampa Ondulada. Coordenadas geográficas en el sistema de referencia WGS84 expresadas en grados, minutos y segundos
-
-| Sitio                       | Latitud       | Longitud      | Localidad  |
-|-----------------------------|---------------|---------------|------------|
-| Reserva (R)                 | 34°35'34"S    | 59°04'16"O    | Luján      |
-|                             | 34°35'35"S    | 59°04'18"O    |            |
-|                             | 34°35'36"S    | 59°04'20"O    |            |
-| Pastizal (P)                | 34°35'38"S    | 59°04'22"O    |            |
-|                             | 34°35'38"S    | 59°04'23"O    |            |
-|                             | 34°35'38"S    | 59°04'25"O    |            |
-| Agrícola (A)                | 34°35'22"S    | 59°04'05"O    |            |
-|                             | 34°35'22"S    | 59°04'09"O    |            |
-|                             | 34°35'22"S    | 59°04'12"O    |            |
-| Pastizal naturalizado (N)   | 35°03'18,84"S | 59°41'00,25"O | Chivilcoy- |
-|                             | 35°03'02,63"S | 59°41'02,63"O | Navarro    |
-|                             | 34°51'08,68"S | 60°01'43,05"O |            |
-| Mixto agrícola-ganadero (G) | 34°49'27,40"S | 59°10'30,53"O |            |
-|                             | 34°49'29,20"S | 59°10'26,33"O |            |
-|                             | 34°49'21,27"S | 59°10'34,01"O |            |
-| Agrícola intensivo (A)      | 35°03'58,41"S | 59°38'31,43"O |            |
-|                             | 35°03'07,43"S | 59°41'05,85"O |            |
-|                             | 35°03'13,65"S | 59°41'11,88"O |            |
-
 
 
 ### Métodos de muestreo y extracción de la fauna edáfica
@@ -777,6 +752,35 @@ con la solución de 2,3 mg cicloheximia + 150 mg glucosa / mm sn. y finalmente l
 las diferencias observadas entre los grupos tratados con antibióticos en relación con la respiración total [@zabala2010].
 
 
+
+\newpage
+
+
+**Tabla 3.1.** Ubicación de los puntos de muestreo en los sitios con diferentes intensidades de uso en suelos de la Pampa Ondulada. Coordenadas geográficas en el sistema de referencia WGS84 expresadas en grados, minutos y segundos
+
+| Sitio                       | Latitud       | Longitud      | Localidad  |
+|-----------------------------|---------------|---------------|------------|
+| Reserva (R)                 | 34°35'34"S    | 59°04'16"O    | Luján      |
+|                             | 34°35'35"S    | 59°04'18"O    |            |
+|                             | 34°35'36"S    | 59°04'20"O    |            |
+| Pastizal (P)                | 34°35'38"S    | 59°04'22"O    |            |
+|                             | 34°35'38"S    | 59°04'23"O    |            |
+|                             | 34°35'38"S    | 59°04'25"O    |            |
+| Agrícola (A)                | 34°35'22"S    | 59°04'05"O    |            |
+|                             | 34°35'22"S    | 59°04'09"O    |            |
+|                             | 34°35'22"S    | 59°04'12"O    |            |
+| Pastizal naturalizado (N)   | 35°03'18,84"S | 59°41'00,25"O | Chivilcoy- |
+|                             | 35°03'02,63"S | 59°41'02,63"O | Navarro    |
+|                             | 34°51'08,68"S | 60°01'43,05"O |            |
+| Mixto agrícola-ganadero (G) | 34°49'27,40"S | 59°10'30,53"O |            |
+|                             | 34°49'29,20"S | 59°10'26,33"O |            |
+|                             | 34°49'21,27"S | 59°10'34,01"O |            |
+| Agrícola intensivo (A)      | 35°03'58,41"S | 59°38'31,43"O |            |
+|                             | 35°03'07,43"S | 59°41'05,85"O |            |
+|                             | 35°03'13,65"S | 59°41'11,88"O |            |
+
+
+
 ### Análisis de datos
 
 Las variables químicas y biológicas se analizaron con estadística descriptiva. Para ello se calcularon las correlaciones de Spearman entre variables, las medidas de tendencia central y de dispersión para cada sitio. Para conocer si existieron diferencias estadísticas se recurrió a la prueba no paramétrica de Kruskal-Wallis y a la prueba de a pares de rangos del signo de Wilcoxon con los valores de probabilidad corregidas con Benjamini-Hochberg. Se asumió un nivel de significancia con el valor de probabilidad del estadístico H:p~valor~ menor al 0,1, considerado como el nivel mínimo para explorar tendencias en las variables de interés [@kim2015]. Luego se procedió al análisis multivariado mediante el uso de componentes principales (PCA) para identificar las relaciones existentes entre las variables ambientales y los sistemas de uso bajo estudio [@legendre2012].
@@ -807,9 +811,8 @@ Para describir las relación entre los taxones y los sitios de muestreo se reali
 
 ## Resultados
 
-### Caracterización química - biológica de los suelos con diferentes intensidades de uso
+### Caracterización química - biológica de los suelos
 
-#### Correlaciones entre características químicas y biológicas
 
 En los suelos de Luján las variables (Tabla 3.2.A) estuvieron poco correlacionadas entre si, con excepción del nitrógeno que se correlacionó negativamente con la respiración heterotrófica ($\rho$: p~valor~ \< 0,1).
 
@@ -859,8 +862,6 @@ Resp. = Respiración heterotrófica. H:B = relación hongos bacterias. Hojarasca
 
 \newpage
 
-#### Relaciones de las variables químicas y biológicas 
-
 
 En los suelos de Luján, los valores del pH (Tabla 3.3), no mostraron diferencias significativas (K-W p:H\<0.1) entre los sitios. En los suelos de Chivilcoy - Navarro existieron, para esta variables, diferencias significativas entre sitios (K-W p:H\<0.1) de los cuáles el pastizal naturalizado se diferenció de los demás sistemas de usos, 
 con un suelo más alcalino.
@@ -897,7 +898,7 @@ Por su parte, en los suelos  de Chivilcoy - Navarro, la variación del fósforo 
 Se observaron (Tabla 3.4) diferencias significativas en la respiración heterotrófica en las diferentes intensidades de uso del suelo. En suelos de Luján, se observó un gradiente con una mayor actividad 
 respiratoria en suelos de la Reserva y la menor actividad respiratoria en los suelos agrícolas. En los  de Chivilcoy - Navarro, la respiración heterotrófica fue menor en el sistema agrícola y en los sistemas de pastizal naturalizado y mixto fueron similares entre sí. En suelos de Luján no se encontraron diferencias entre los sistemas de uso del suelo, ni en la relación de hongos/bacterias ni en la cantidad de hojarasca en superficie.
 
-
+\newpage
 **Tabla 3.4** Variables biológicas. Valores promedio y desvío estándar de: la respiración heterotrófica edáfica en mg C-CO~2~/gr~suelo~.día, la relación hongos:bacterias y la biomasa de la hojarasca en gramos. Las letras distintas representan diferencias significativas evaluadas mediante la prueba de Kruskall-Wallis, entre intensidades de usos de suelo
 para las mismas localidades. Los sitios se corresponden con los sistemas de uso del suelo, en Luján: R = reserva, P = pastizal, A = agrícola; en Chivilcoy - Navarro: N = pastizal naturalizado, G = mixto agrícola ganadero, A = agrícola intensivo
 
@@ -916,7 +917,7 @@ Las valores sin letras indican que no se observaron diferencias significativas
 para las mismas entre intensidades de usos del suelo.
 \normalsize
 
-#### Análisis de Componentes Principales de las variables químicas y biológicas 
+#### Análisis multidimensional
 
 El análisis multidimensional entre las variables químicas y biológicas observadas en los sitios de estudios
 en los suelos de Luján indicó que las primeras tres dimensiones poseen autovalores mayores a 1 y
@@ -935,7 +936,7 @@ en el lado positivo respectivamente.
 **Figura 3.2.** Biplot de componentes principales de las variables químicas y biológicas en suelos de Luján. 
 Los vectores representan las variables químicas y biológicas: pH = potencial de hidrogeniones. MO = porcentaje de materia orgánica. N = porcentaje de nitrógeno. P = fósforo asimilable en partes por millón. R-H = respiración heterotrófica en mg C-CO~2~/gr~suelo~.día. H/B = relación hongos/bacterias. Hoj = biomasa de hojarasca en g/m^2^. Los puntos indican los sitios de muestreos, los puntos de mayor tamaño indican el centroide que resume las características de los sistemas de uso del suelo. R: reserva, P: pastizal, A: agrícola
 
-\vspace{1cm}
+\vspace{0.7cm}
 
 El fósforo, el nitrógeno y la cantidad de hojarasca tuvieron fuertes correlaciones positivas con la primera dimensión con r \> 0,7, mientras que con la segunda dimensión las correlaciones fueron positivas pero de menor valor (r \< 0,5). 
 Por otra parte se observa a los vectores de estas variables relacionados con el centroide del sistema agrícola.
@@ -953,7 +954,7 @@ pero opuestos con relación al segundo eje dimensional.
 ![](Figures/Fig3-3.png){width=600 heigth=800}
 
 **Figura 3.3.** Biplot de componentes principales de las variables químicas y biológicas en suelos de Chivilcoy - Navarro. Los vectores representan las variables químicas y biológicas: pH = potencial de hidrogeniones. MO = porcentaje de materia orgánica. N = porcentaje de nitrógeno. P = fósforo asimilable en partes por millón. rH = respiración heterotrófica en mg C-CO~2~/gr~suelo~.día. Los puntos indican los sitios de muestreos, los puntos de mayor tamaño indican que centroide que resume las características de los sistemas de uso del suelo. N: pastizal naturalizado, G: Mixto agrícola ganadero, A: agrícola intensivo
-\vspace{1cm}
+\vspace{0.7cm}
 
 El pH tuvo con la primera dimensión una correlación r \> 0,8 y una correlación media r \< 0,4 con la 3 ra. dimensión. 
 En el biplot el vector se dirige hacia el centroide del sistema pastizal naturalizado. 
@@ -964,9 +965,9 @@ Los vectores que resumen la variabilidad de la materia orgánica y la respiraci�
 relaciones cercanas en el plano de componentes principales. Sus correlaciones son mayores con el segundo eje de coordenadas (r \< \|0,8\|) y menores con el primer eje (r \< \|0,3\|). Estos vectores 
 no estuvieron próximos a ninguno de los centroides sino que sus relaciones estuvieron relacionados a diferentes puntos en las tres intensidades de uso.
 
-### Diversidad de las comunidades de la fauna edáfica que habitan suelos con diferentes intensidades de uso
+### Diversidad de las comunidades de la fauna edáfica
 
-#### Diversidad alfa (α): Riqueza de unidades taxonómicas
+#### Diversidad alfa (α)
 
 En los suelos de Luján el máximo valor de la riqueza en unidades taxonómicas se halló en suelos del pastizal. 
 En suelos de Chivilcoy - Navarro la máxima riqueza de unidades taxonómicas fue mayor y similar 
@@ -1000,7 +1001,6 @@ mayores valores. En suelos de Chivilcoy - Navarro bajo sistemas antropizados los
 
 En suelos de la reserva se observó la mayor riqueza de macrofauna, seguida del pastizal y luego el sistema agrícola.
 
-#### Diversidad alfa (α): Índice de Shannon-Wiener
 
 El índice de diversidad de Shanon-Wiener 
 no mostró diferencias significativas ($H : p_{_{valor}} < 0.1$) 
@@ -1027,7 +1027,8 @@ Cada columna indica el valor promedio más el desvío estándar de la diversidad
 \normalsize
 
 
-#### Análisis de similitudes de las comunidades de la fauna edáfica de los suelos con diferentes intensidades de uso
+#### Análisis de similitudes de las comunidades de la fauna edáfica
+
 
 El análisis de similitudes (ANOSIM) indicó que, 
 en ambas localidades, existieron disimilaridades 
@@ -1046,7 +1047,7 @@ y una situación de proximidad entre sitios del pastizal y la reserva; **b)** en
 
 
 
-#### Análisis de Componentes Principales (PCA) de las comunidades de la fauna edáfica de los suelos con diferentes intensidades de uso
+#### Análisis de multidumensional de las comunidades de la fauna edáfica
 
 La reducción de la variabilidad multidimensional entre la composición de las comunidades edáficas y los diferentes sistemas de uso del suelo, se resumío con las primeras dos dimensiones del análisis de componentes principales. Estas dos dimensiones resumieron respectivamente el 74,8 y el 77,1 por ciento de la variabilidad en suelos de Luján como en suelos de Chivilcoy - Navarro.
 
@@ -1059,7 +1060,7 @@ En los suelos de Luján (Fig 3.5) la separación del sistema agrícola de los de
 
 **Figura 3.5.** Biplot de componentes principales de las unidades taxonómicas de la comunidad de la fauna edáfica ocurridas en suelos de Luján bajo diferentes intensides de uso del suelo. Los vectores representan los sistemas de uso del suelo R = reserva, P = pastizal, A = agrícola, los números que los acompañan indican la réplica. Los puntos claros indican cada uno de los diferentes taxones hallados en estos suelos, los puntos fuertes representan a los centroides de los grupos taxonómicos cuyo símbolo y color representan a un grupo particular en función de una clasificación que refiere al tamaño, al taxón y a hábitos tróficos característicos. ast = astigmatas, col = colémbolos, enchy= enquitreidos, lom= lombrices de tierra, macro_det= macrofauna detritívora, macro_fun= macrofauna microfitófaga, macro_herb= macrofauna herbívora, macro_omn= macrofauna omnívora, macro_pred= macrofauna depredadora, meso= mesostigmatas, mesof= mesofauna diferente de ácaros y colémbolos, nem_bac= nemátodos bacterívoros, nem_fit= nemátodos fitófagos, nem_fung= nemátdos fungívoros, nem_omn= nemátodos omnívoros, nem_pre= nemátodos depredadores, orib= sarcoptiformes, pros= prostigmatas, tardi= tardígrados
 
-\vspace{1cm}
+\vspace{0.7cm}
 
 En el extremo positivo de la primera dimensión se agruparon  los nemátodos, los enquitreidos y los astigmatas,
 en el extremo opuesto, se agruparon los taxones que corresponden principalmente a la macrofauna que 
@@ -1209,7 +1210,7 @@ ator value of the microarthropod community. Pankurrst1997 Biological soil indica
 # Capítulo 4
 
 
-# Análisis de la distribución de tamaños y de la biomasa de la edafofauna de los suelos de la Pampa Ondulada
+# Análisis de la biomasa y del espectro de tamaños de la fauna edáfica en suelos con distinta intensidad de uso
 
 Los organismos que viven en el suelo ocupan los espacios 
 formados entre la hojarasca que se acumula sobre la superficie 
@@ -1299,7 +1300,7 @@ tendrá valores cercanos a cero.
 
 Las comunidades de la fauna del suelo fueron muestreadas en suelos  bajo diferentes intensidades de uso antrópico. Se tomaron muestras de la comunidad de la fauna edáfica en el partido de Luján durante el año 2022, en suelos con manejo agrícola intensivo, un sistema de pastizal con pastoreo poco frecuente y una clausura de más de 30 años sin uso antrópico, y de ella se obtuvieron la microfauna, la mesofauna y la macrofauna. Además se utilizó el set de datos y los microartrópodos de la mesofauna obtenidos de suelos de Chivilcoy - Navarro durante los años 2008 y 2009, en suelos con manejo agrícola intensivo, manejo mixto agrícola ganadero y pastizales naturalizados sin uso antrópico por más de 50 años. Más detalles sobre los sitios de estudios y sus características, sobre el diseño de muestreo y sobre la extracción de la fauna edáfica se desarrollaron en el capítulo 3 de esta tesis.
 
-### Estimación del peso corporal individual de los organismos de la fauna edáfica
+### Estimación del peso corporal
 
 La fauna edáfica fue separada e identificada en taxones y posteriormente fue estimado el peso corporal en base seca de las diferentes unidades taxonómicas. El peso corporal se estimó a partir de los
 organismos colectados en suelos de Luján que incluyó microfauna, mesofauna y macrofauna. También se cuantificó el peso corporal de los microartrópodos edáficos encontrados en suelos de Chivilcoy - Navarro [@velazco2023; @velazco2023a]. Una vez identificados los taxones se ubicaron en alguno de los 
@@ -1352,19 +1353,19 @@ $$B_{ij} = \mu_0 + \text{S}_i + \text{G}_j + \text({S x G})_{ij} + \epsilon_i$$
 
 -   $\epsilon$ error aleatorio.
 
-\vspace{1cm}
+\vspace{0.7cm}
 
 Los modelos obtenidos fueron para Luján:
 
 $$B_i = \mu_0 +  \text{G}_i + \epsilon_i$$
 
-\vspace{1cm}
+\vspace{0.7cm}
 
 para Chivilcoy - Navarro:
 
 $$B_{ij} = \mu_0 + \text{S}_i + \text{G}_j + \text({S x G})_{ij} + \epsilon_i$$
 
-\vspace{1cm}
+\vspace{0.7cm}
 
 2.  Se contrastaron las interacciones relevantes, es decir, comparaciones de un mismo gremio entre diferentes sistemas de uso. Por ejemplo, los cambios en la biomasa de los detritívoros en sistemas de mayor intensidad de uso en comparación con los de intensidad de uso nulo
 
@@ -1408,7 +1409,7 @@ $$ D_{ijk}^{\;\;\tau} = \beta_0^{\;\;\tau} +  \beta_1^{\;\;\tau}m_i + \beta_0S_j
 -   $\epsilon^{\;\;\tau}$: error aleatorio del modelo de regresión de cuantiles.
 
 
-\vspace{1cm}
+\vspace{0.7cm}
 
 
 El modelo final para Luján fue:
@@ -1416,7 +1417,7 @@ El modelo final para Luján fue:
 
 $$ D_{ijk}^{\;\;\tau} = \beta_0^{\;\;\tau} + \beta_1^{\;\;\tau} + \beta_0S_j^{\;\;\tau} + \beta_0G_k^{\;\;\tau} + \beta_0\text(SxG)_{jk}^{\;\;\tau}  + \beta_1G_j^{\;\;\tau} + \epsilon^{\;\;\tau} $$
 
-\vspace{1cm}
+\vspace{0.7cm}
 
 El modelo para Chivilcoy - Navarro resultó igual al modelo completo. Todos los análisis se realizaron con R 4.2.1 [@clauset2009; @crawley2013].
 
@@ -1425,9 +1426,9 @@ El modelo para Chivilcoy - Navarro resultó igual al modelo completo. Todos los 
 
 ## Resultados
 
-### Distribución de los pesos corporales, pesos corporales medios, densidad y biomasa de la fauna edáfica.
+### Distribución de los pesos corporales, pesos corporales medios, densidad y biomasa de los taxones de la fauna edáfica.
 
-### Suelos de Luján
+#### Suelos de Luján
 
 #### Nemátodos edáficos de vida libre
 
@@ -1439,7 +1440,7 @@ los omnívoros de la reserva y el pastizal, lo que implica dos tamaños de impor
 ![](Figures/Fig4-1.png){width=600 heigth=800}
 
 **Figura 4.1.** Distribución del peso corporal de nemátodos edáficos de vida libre presentes en suelos  de Luján, según los distintos sistemas de uso del suelo. Se muestra sobre el eje horizontal la escala en logaritmo natural del peso corporal en microgramos de peso seco. Sobre el eje vertical se indica el gremio trófico
-\vspace{1cm}
+\vspace{0.7cm}
 El peso medio de estos nemátodos siempre fue más bajo en el sistema del pastizal
 y mayores en la reserva con excepción de los fungívoros encontrados en el sistema agrícola.
 Los omnívoros de la reserva (Tabla 4.1) mostraron el mayor valor de peso corporal y la mayor biomasa media, con relación a todas las categorías tróficas de nemátodos. La mayor abundancia de 
@@ -1480,7 +1481,7 @@ la densidad y la biomasa en el suelo agrícola (Tabla 4.2).
 ![](Figures/Fig4-2.png){width=600 heigth=800}
 
 **Figura 4.2.** Distribución del peso corporal de la mesofauna edáfica excluyendo a depredadores encontrados en suelos de Luján. Se muestra sobre el eje horizontal la escala en logaritmo natural del peso corporal en microgramos de peso seco. Sobre el eje vertical se indica el taxón. Los colores de las distribuciones indican el gremio al que pertenecen
-\vspace{1cm}
+\vspace{0.7cm}
 Los ácaros oribátidos detritívoros: Oripodidae, 
 Ceratozetoidea, Scheloribates, Eupthiracaroidea y Epilomannioidea
 mostraron valores de densidad y biomasa mayores en suelos del pastizal y 
@@ -1529,7 +1530,7 @@ más de una moda, podría deberse tanto a las diferencias en tamaños que ocurre
 
 **Figura 4.3.** Distribución del peso corporal de los depredadores de la mesofauna edáfica encontrados
 en suelos  de Luján. Se muestra sobre el eje horizontal la escala en logaritmo natural del peso corporal en microgramos de peso seco. Sobre el eje vertical se indica el taxón
-\vspace{1cm}
+\vspace{0.7cm}
 Las respuestas de estos depredadores al considerar las tres
 variables fueron heterogéneas. De los 21 taxones, 
 7 taxones tuvieron las mayores biomasas en el sistema agrícola y
@@ -1552,17 +1553,17 @@ Tab4.3 %>%
 
 #### Macrofauna edáfica
 
-La macrofauna tuvo una distribución de tamaños de 10 órdenes de magnitud con pesos corporales en un rango entre los $12 \mu g$ hasta los $270000 \;\mu g$. La forma de las distribuciones de este grupo de la fauna edáfica no es unimodal y esto está relacionado con la baja abundancia de la mayoría de los taxones observados y con la jerarquía taxonómica considerada (Fig 4.5).
+La macrofauna tuvo una distribución de tamaños de 10 órdenes de magnitud con pesos corporales en un rango entre los $12 \mu g$ hasta los $270000 \;\mu g$. La forma de las distribuciones de este grupo de la fauna edáfica no es unimodal y esto está relacionado con la baja abundancia de la mayoría de los taxones observados y con la jerarquía taxonómica considerada (Fig 4.4).
 
 
 ![](Figures/Fig4-5.png){width=600 heigth=800}
 
-**Figura 4.5.** Distribución del peso corporal de la macrofauna edáfica encontrados en suelos de Luján. Se muestra sobre el eje horizontal la escala en logaritmo natural del peso corporal en microgramos de peso seco. Sobre el eje vertical se indica el taxón. Los colores representan al gremio trófico al cual pertenece el taxón
-\vspace{1cm}
+**Figura 4.4.** Distribución del peso corporal de la macrofauna edáfica encontrados en suelos de Luján. Se muestra sobre el eje horizontal la escala en logaritmo natural del peso corporal en microgramos de peso seco. Sobre el eje vertical se indica el taxón. Los colores representan al gremio trófico al cual pertenece el taxón
+\vspace{0.7cm}
 
 
 Las lombrices del género *Aporrectodea* tuvieron pesos corporales medios 
-en un rango de $225000 \;\mu g$ hasta los $119000 \;\mu g$ (Tabla 4.5). La mayor biomasa media del género se observó en el sistema agrícola con la especie *A. caliginosa*. El mayor peso corporal medio ocurrió en el sistema agrícola representado
+en un rango de $225000 \;\mu g$ hasta los $119000 \;\mu g$ (Tabla 4.4). La mayor biomasa media del género se observó en el sistema agrícola con la especie *A. caliginosa*. El mayor peso corporal medio ocurrió en el sistema agrícola representado
 por *A. trapezoides*, esta especie también registró la mayor densidad del género en la reserva. 
 Los demás géneros y especies solo estuvieron presentes en uno de los tres sistemas, *Octolasion cyaneum* 
 en el sistema agrícola, *Bimastus* en la reserva y *Eukerria*, *Microscolex* 
@@ -1571,9 +1572,9 @@ y *Octolasion tyrtaeum* en el pastizal. Fue importante la contribución numéric
 Se observaron biomasas medias mayores en 16, 13 y 9 taxones para los suelos 
 de la reserva, el pastizal y el agrícola respectivamente. Entre ellos,
 se pueden mencionar: Carabidae, Geophylomorpha, Sciaridae, Oniscoidea y Gasteropoda en la reserva. Hemiptera, Thysanoptera, Blattodea, Scarabaeidae, Staphyliniidae y Lyniphidae en el pastizal. Y,
-los áfidos, dípteros, Diplopoda y Lycosidae en el agrícola. A demás se observaron 6, 5 y 3 taxones con ocurrencias únicas en la reserva, el pastizal y el agrícola respectivamente (Tabla 4.5).
+los áfidos, dípteros, Diplopoda y Lycosidae en el agrícola. A demás se observaron 6, 5 y 3 taxones con ocurrencias únicas en la reserva, el pastizal y el agrícola respectivamente (Tabla 4.4).
 
-**Tabla 4.5.** Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) de la macrofauna de suelos  de Luján
+**Tabla 4.4.** Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) de la macrofauna de suelos  de Luján
 
 
 ```{r Tab4.5,echo=FALSE,warning=FALSE,message=FALSE}
@@ -1587,28 +1588,28 @@ Tab4.5 %>%
 ```
 
 
-### Suelos de Chivilcoy - Navaroo
+#### Suelos de Chivilcoy - Navarro
 
 #### Microartrópodos edáficos
 
 En los suelos de Chivilcoy - Navarro los microartrópodos tuvieron un espectro de tamaños 
 corporales de 8 órdenes de magnitud, con pesos corporales desde $0,05 \mu g$ hasta $\approx 60 \mu g$.
 Los microartrópodos depredadores mostraron distribuciones de tamaños con más de una moda. 
-También se observó este fenómeno en algunos taxones de detritívoros y microfitófagos (Fig 4.4).
+También se observó este fenómeno en algunos taxones de detritívoros y microfitófagos (Fig 4.5).
 
 
 ![](Figures/Fig4-4.png){width=600 heigth=800}
-**Figura 4.4.** Distribución del peso corporal de los microartrópodos edáficos ocurridos en suelos  de Chivilcoy y Navarro. Se muestra sobre el eje horizontal la escala en logaritmo natural del peso corporal en microgramos de peso seco. Sobre el eje vertical se indica el taxón. Los colores representan al gremio trófico al cual pertenece el taxón
-\vspace{1cm}
+**Figura 4.5.** Distribución del peso corporal de los microartrópodos edáficos ocurridos en suelos  de Chivilcoy y Navarro. Se muestra sobre el eje horizontal la escala en logaritmo natural del peso corporal en microgramos de peso seco. Sobre el eje vertical se indica el taxón. Los colores representan al gremio trófico al cual pertenece el taxón
+\vspace{0.7cm}
 
 
-Los ácaros de la familia Acaroidea no se observaron en el sistema del pastizal naturalizado, esta familia muestra la mayor biomasa en el sistema mixto agrícola ganadero (Tabla 4.4).
+Los ácaros de la familia Acaroidea no se observaron en el sistema del pastizal naturalizado, esta familia muestra la mayor biomasa en el sistema mixto agrícola ganadero (Tabla 4.5).
 
 Entre los ácaros oribátidos detritívoros Euphtiracaroidea y Oripodoidea,
 fueron más abundantes y con una mayor biomasa en suelos bajo prácticas intensivas, por otra parte Epilohmannioidea y Ceratozetoidea, participaron con mayores valores en el sistema mixto agrícola ganadero. Entre los ácaros oribátidos microfitófagos representados por Brachychthonioidea, Galumnioidea y Crotonioidea mostraron los mayores valores de biomasa y densidad en los suelos del pastizal naturalizado, el mixto agrícola ganadero y el agrícola intensivo respectivamente (Tabla 4.4).
 
 
-**Tabla 4.4.** Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) para los microartrópodos de suelos  de Chivilcoy - Navarro
+**Tabla 4.5.** Valores de peso corporal promedio ($ug_{p.s.}$), densidad ($no. ind/m^2$) y biomasa total media ($mg_{p.s.}/m^2$) para los microartrópodos de suelos  de Chivilcoy - Navarro
 
 
 ```{r Tab4.4,echo=FALSE,warning=FALSE,message=FALSE}
@@ -1635,7 +1636,7 @@ ocurrieron en el pastizal naturalizado.
 \newpage
 
 
-### Análisis de la Biomasa Media de los gremios tróficos de la fauna edáfica en suelos con distinta intensidad de uso
+### Análisis de la biomasa media de la fauna edáfica en suelos con distinta intensidad de uso
 
 
 
@@ -1686,7 +1687,7 @@ La biomasa media del gremio de los detritívoros fue significativamente mayor qu
 
 
 
-### Espectro de tamaños de los gremios de la fauna edáfica en suelos con distinta intensidad de uso
+### Espectro de tamaños de la fauna edáfica en suelos con distinta intensidad de uso
 
 
 #### Suelos de Luján
@@ -1708,7 +1709,7 @@ estableciéndose así, una separación clara de la macrofauna depredadora respec
 
 **Figura 4.8.** Regresión de cuantiles ($\tau = 0,75$) entre el peso corporal y la densidad de los taxones de gremios tróficos ocurridos en diferentes sistemas de uso en suelos de Luján. Los ejes de coordenadas expresan los valores de peso corporal (µg~peso seco~) y de la densidad (nº individuos/m^2^) en logaritmo natural. Se grafica un plano de coordenadas (cada subdivisión del gráfico) para cada gremio trófico. Se grafica una línea de regresión por cada sistema de uso del suelo, A: agrícola, P: pastizal, R: reserva. La forma de los puntos indica la categoría de tamaños al que pertenece el taxón: cruces = microfauna, triángulos = mesofauna, círculos = macrofauna. Los colores de los puntos indican diferentes taxas
 
-\vspace{1cm}
+\vspace{0.7cm}
 La interacción entre el sistema de uso del suelo y los gremios tróficos marcan un efecto sobre el intercepto del modelo. Los herbívoros de la reserva difirieron significativamente, con un mayor valor del intercepto, de los demás sistemas. Los microfitófagos de la sistema agrícola difirieron significativamente y con el menor valor del intercepto de los demás sistemas. Por otra parte, ni los detritívoros, ni los depredadores, ni los omnívoros, difirieron en su efecto sobre el intercepto entre diferentes sistemas de uso del suelo (Apéndice 4.4).
 
 
@@ -1739,7 +1740,7 @@ Con excepción de los depredadores cuya densidad es baja ($8100\,ind/m^2$) en to
 
 **Figura 4.9.** Regresión de cuantiles ($\tau$ = 0,75) entre el peso corporal y la densidad de los taxones de gremios tróficos de microartrópodos ocurridos en diferentes intensidades
 de uso en suelos de Chivilcoy - Navarro. Los ejes de coordenadas expresan los valores de peso corporal (ug~peso seco~) y de la densidad (nº individuos/m^2^) en logaritmo natural. Se dibuja un plano de coordenadas (cada subdivisión del gráfico) por gremio trófico. Se dibuja una línea de regresión por cada sistema de uso del suelo, A: agrícola, G: mixto agrícola-ganadero, N: pastizal naturalizado. Los colores de los puntos indican diferentes taxones
-\vspace{1cm}
+\vspace{0.7cm}
 
 
 La variación de cada gremio trófico sobre el intercepto fue diferente significativamente. Con el mayor valor, los detritívoros y omnívoros compartieron valores de interceptos similares, siguen a estos los microfitófagos y los depredadores. La variación de los sistemas de uso del suelo sobre el intercepto no resultó diferente significativamente. Al nivel de las interacciones sobre el intercepto, esto es combinaciones sistemas de uso del suelo - gremios, y considerando variaciones dentro de los gremios tróficos entre sitios, solo se reportan diferencias estadísticamente significativas para el gremio de los detritívoros. Los microartrópodos detritívoros del sistema agrícola y del sistema mixto compartieron interceptos similares ($\approx 9414\,ind/m^2$) y se diferenciaron del sistema del pastizal naturalizado cuyo intercepto resultó menor en ($dif \approx\,1,16$) órdenes de magnitud (Apéndice 4.4).
@@ -1878,7 +1879,7 @@ Probablemente haya factores que agregan variabiliad y que deberian ser tomados e
 
 # Capítulo 5
 
-# La estructura topologica, los flujos de energía y la estabilidad de las redes tróficas de la edafofauna en suelos con distinta intensidad de uso
+# La estructura topologica, los flujos de energía y la estabilidad de las redes tróficas de la fauna edáfica en suelos con distinta intensidad de uso
 
 
 En los ecosistemas los organismos se relacionan entre sí y 
@@ -2061,7 +2062,7 @@ Se utilizó el paquete ["multiweb"](https://github.com/lsaravia/multiweb) [@sara
 
 ## Resultados
 
-### Representación 
+### Representación de las redes tróficas
 
 Fueron representadas las redes tróficas, tanto completas (Luján) como parciales
 (Chivilcoy - Navarro),
@@ -2230,9 +2231,7 @@ tabla5.2[,c("Sistema","Tope","Nivel trófico promedio","Nivel trófico máximo",
 ```
 
 
-
-
-### Flujos de energía a través de las redes tróficas
+### Flujos de energía en las redes tróficas de la fauna edáfica
 
 El flujo de energía total, que atraviesa las redes tróficas en suelos 
 de Luján fue mayor en el suelo sin uso antrópico, además se observó
@@ -2441,7 +2440,7 @@ par(mfrow=c(1,1))
 
 **Figura 5.3** Distribución del autovalor del índice *Cuasi-Signo (QSS)*. En el eje horizontal,
 se muestran mil iteraciones del máximo autovalor de la matriz Jacobiana obtenidas a partir del algoritmo del índice *Cuasi-Signo (QSS)* [@allesina2008] expresado en logaritmo natural. En el eje vertical se muestran los valores de frecuencia. Como líneas verticales se dibujan, el promedio en color amarillo, la mediana en color rojo y los cuantiles primero y tercero en celeste y scomo líneas más finas.
-\vspace{1cm}
+\vspace{0.7cm}
 
 El promedio e intervalo de confianza del 95% de la parte real del máximo autovalor
 (λ del QSS) en los suelos de la comunidad de la reserva (intensidad nula) fue de 0,445 
@@ -2954,12 +2953,12 @@ que permiten una caracterización integral de los impactos derivados
 de las diferentes prácticas de manejo. 
 De esta manera, los resultados obtenidos en esta tesis sientan 
 bases metodológicas novedosas para el desarrollo de investigaciones 
-sobre la funcionalidad mediada por la fauna edáfica
-y a partir de ella deberán analizarse las implicancias vinculadas
+sobre la funcionalidad mediada por la fauna edáfica.
+A partir de ella deberán analizarse las implicancias vinculadas
 con la conservación de los procesos ecosistémicos y su influencia
-sobre la conservación de la calidad\footnote{la utilidad del suelo para un propósito específico en una escala amplia de tiempo, en particular objetivos productivos} 
-y la salud del suelo \footnote{la capacidad del suelo para funcionar 
-como un ecosistema vital, este integra todos 
+sobre la conservación de la calidad\footnote{La utilidad del suelo para un propósito específico en una escala amplia de tiempo. En particular objetivos productivos}
+y la salud del suelo \footnote{La capacidad del suelo para funcionar
+como un ecosistema vital. Este integra todos
 los componentes del mismo y vá más allá del aprovechamiento económico}.
 
 
@@ -3063,7 +3062,7 @@ de las condiciones originales o que ya se encuentran funcionando en dicho estado
 
 ## Apéndice 2.1
 
-### Descripción sobre Material Suplementario
+### Descripción sobre el Material Suplementario
 
 Material suplementario electrónico I ([ESM I](https://doi.org/10.1016/j.heliyon.2023.e20439)): Lista completa de las fuentes bibligráficas que relaciona los taxones de microartrópodos edáficos con uno o más recursos tróficos. 
 
@@ -3634,7 +3633,7 @@ summary(rq(formula = log(abundance) ~ (system + guild + log(bio.ind))^3,
 
 ### Matriz de adyacencia de la fauna del suelo
 
-\vspace{1cm}
+\vspace{0.7cm}
 
 Se muestra la lista de enlaces entre los nodos de las redes tróficas de la fauna edáfica
 de los suelos  de la Pampa Ondulada, a los fines de claridad en la estructura de datos.
